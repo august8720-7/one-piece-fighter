@@ -20,12 +20,13 @@ npm run typecheck && npm run lint && npm test && npm run build
 
 ## 当前阶段
 
-M3 完成：两角色完整招式表与全部特色机制，训练模式，精灵图管线（当前用脚本生成的占位图集）。下一步 M4：标题 / 模式选择 / 选人 / 结算界面、键位设置、手柄、舞台背景。
+M4 完成：完整界面流程（标题 → 模式 → 选人 → 战斗 → 结算）、暂停菜单、键位重绑（本地保存）、手柄、马林梵多视差舞台。下一步 M5：人机 AI。
 
 ## 模式与素材
 
-- 对战：`http://localhost:5173/`（可加 `?p1=luffy&p2=akainu`）
-- 训练：`http://localhost:5173/?mode=training`（无限血气；F5 木桩行为、F6 位置重置、F7 / F8 开关、F4 精灵 / 色块）
+- 打开 `http://localhost:5173/` 从标题进入；菜单用方向键 + A（J）确认、B（K）返回，手柄同样可用
+- 直达（开发用）：`?mode=versus|cpu|training&p1=luffy&p2=akainu`
+- 训练：无限血气；F5 木桩行为、F6 位置重置、F7 / F8 开关、F4 精灵 / 色块；F1～F3 调试面板（训练模式默认开）
 - 正式精灵图：把 TexturePacker（JSON Hash）导出的 `atlas.png` + `atlas.json` 放到 `public/assets/characters/<id>/`，帧名 `<id>/<anim>/<n>`（见 `AGENTS.md` 精灵图集约定）。缺失时自动回退到 `placeholder.*`（`npm run gen:placeholder` 生成），再缺则画色块。
 
 ## 操作

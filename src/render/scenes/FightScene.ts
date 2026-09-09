@@ -2,8 +2,6 @@ import Phaser from 'phaser';
 import {
   FightSim,
   GROUND_Y,
-  STAGE_LEFT,
-  STAGE_RIGHT,
   SUBPIXEL,
   VIEW_H,
   VIEW_W,
@@ -12,15 +10,19 @@ import {
   type WorldState,
 } from '@core/index';
 import { characterAnims, characters } from '@characters/index';
-import { KeyboardInput } from '@input/keyboard';
+import { getInputHub } from '@input/InputHub';
+import { Btn } from '@core/index';
 import { Dummy } from '../../ai/dummy';
 import { FixedStep } from '../FixedStep';
 import { DebugOverlay } from '../DebugOverlay';
 import { FighterView } from '../FighterView';
 import { Hud } from '../hud/Hud';
+import { Marineford } from '../stage/Marineford';
+import { MenuList, UI } from '../ui/MenuList';
 import { SPRITE_KEYS, type SpriteKeys } from './PreloadScene';
+import type { ResultData } from './ResultScene';
 
-export type GameMode = 'versus' | 'training';
+export type GameMode = 'versus' | 'cpu' | 'training';
 
 export interface FightSceneData {
   p1: string;
@@ -33,20 +35,23 @@ const GROUND_SCREEN_Y = VIEW_H - 40;
 
 export class FightScene extends Phaser.Scene {
   private sim!: FightSim;
-  private input_!: KeyboardInput;
   private step = new FixedStep();
   private gfx!: Phaser.GameObjects.Graphics;
+  private stage!: Marineford;
   private debug!: DebugOverlay;
   private hud!: Hud;
   private views: [FighterView | null, FighterView | null] = [null, null];
   private useSprites = true;
   private mode: GameMode = 'versus';
+  private data_!: FightSceneData;
   private dummy = new Dummy();
   private trainingText!: Phaser.GameObjects.Text;
   private lastInput = { p1: 0, p2: 0 };
   private shake = 0;
   private wasRoundOver = false;
   private popups: { text: Phaser.GameObjects.Text; ttl: number }[] = [];
+  private paused = false;
+  private pauseUi: { bg: Phaser.GameObjects.Rectangle; title: Phaser.GameObjects.Text; menu: MenuList } | null = null;
 
   constructor() {
     super('Fight');
@@ -56,16 +61,25 @@ export class FightScene extends Phaser.Scene {
     const p1 = characters[data.p1];
     const p2 = characters[data.p2];
     if (!p1 || !p2) throw new Error(`Unknown character: ${data.p1} / ${data.p2}`);
+    this.data_ = data;
     this.mode = data.mode ?? 'versus';
+    this.paused = false;
+    this.pauseUi = null;
+    this.popups = [];
+    this.shake = 0;
+    this.wasRoundOver = false;
+    this.dummy = new Dummy();
+    if (this.mode === 'cpu') this.dummy.mode = 'random'; // M5 用 CPU AI 替换
 
     this.sim = new FightSim(
       this.mode === 'training' ? { p1, p2, seed: 1, introFrames: 0, roundTime: -1 } : { p1, p2, seed: 1 },
     );
     if (this.mode === 'training') this.sim.training = { infiniteHp: true, infiniteMeter: true };
-    this.input_ = new KeyboardInput();
+    getInputHub().flush();
+    this.stage = new Marineford(this, GROUND_SCREEN_Y);
     this.gfx = this.add.graphics();
     this.hud = new Hud(this, [p1.name, p2.name]);
-    this.debug = new DebugOverlay(this);
+    this.debug = new DebugOverlay(this, this.mode === 'training');
 
     // 精灵视图：Preload 决定了每个角色可用的图集 key
     const keys = (this.registry.get(SPRITE_KEYS) as SpriteKeys | undefined) ?? {};
@@ -76,12 +90,13 @@ export class FightScene extends Phaser.Scene {
     this.views = [mk(data.p1), mk(data.p2)];
 
     this.add
-      .text(VIEW_W / 2, VIEW_H - 12, 'P1 WASD+JKUI  P2 Arrows+Num1245 | back=guard 4/6+C=throw A+B=roll C+D=blowback 66/44 dash | 236/214/623/22 +P/K  236236/214214 super  236236K ultimate', {
+      .text(VIEW_W / 2, VIEW_H - 12, 'Esc / Start 暂停  |  back=guard  4/6+C=throw  A+B=roll  C+D=blowback  66/44 dash  |  236/214/623/22 +P/K   236236/214214 super   236236K ultimate', {
         fontFamily: 'monospace',
         fontSize: '7px',
         color: '#6c7a89',
       })
-      .setOrigin(0.5, 0);
+      .setOrigin(0.5, 0)
+      .setDepth(52);
     this.trainingText = this.add
       .text(VIEW_W / 2, 44, '', { fontFamily: 'monospace', fontSize: '8px', color: '#ffd60a' })
       .setOrigin(0.5, 0)
@@ -90,6 +105,7 @@ export class FightScene extends Phaser.Scene {
 
     const kb = this.input.keyboard;
     kb?.on('keydown-F4', () => (this.useSprites = !this.useSprites));
+    kb?.on('keydown-ESC', () => this.togglePause());
     if (this.mode === 'training') {
       kb?.on('keydown-F5', () => this.dummy.next());
       kb?.on('keydown-F6', () => this.sim.resetPositions());
@@ -98,11 +114,83 @@ export class FightScene extends Phaser.Scene {
     }
   }
 
+  // ---------- 暂停 ----------
+
+  private togglePause(): void {
+    const phase = this.sim.state.phase;
+    if (!this.paused && phase !== 'fight' && phase !== 'intro') return;
+    this.paused = !this.paused;
+    if (this.paused) {
+      const bg = this.add.rectangle(0, 0, VIEW_W, VIEW_H, 0x000000, 0.6).setOrigin(0).setDepth(200);
+      const title = this.add
+        .text(VIEW_W / 2, 70, 'PAUSE', { fontFamily: UI.font, fontSize: '22px', color: UI.title, fontStyle: 'bold' })
+        .setOrigin(0.5)
+        .setDepth(201);
+      const items = [{ label: '继续  RESUME' }, { label: '键位设置  KEY CONFIG' }, { label: '重新选人  CHARACTER SELECT' }, { label: '回标题  TITLE' }];
+      const menu = new MenuList(this, VIEW_W / 2 - 70, 104, items, 20, '11px', 202);
+      this.pauseUi = { bg, title, menu };
+    } else {
+      this.pauseUi?.bg.destroy();
+      this.pauseUi?.title.destroy();
+      this.pauseUi?.menu.destroy();
+      this.pauseUi = null;
+    }
+    getInputHub().flush();
+  }
+
+  private updatePaused(): void {
+    const menu = this.pauseUi?.menu;
+    if (!menu) return;
+    const action = menu.update(getInputHub().edges());
+    if (action === 'back') {
+      this.togglePause();
+      return;
+    }
+    if (action !== 'select') return;
+    switch (menu.index) {
+      case 0:
+        this.togglePause();
+        break;
+      case 1:
+        this.togglePause();
+        this.scene.start('Settings', { back: 'Preload', backData: this.data_ });
+        break;
+      case 2:
+        this.togglePause();
+        this.scene.start('CharacterSelect', { mode: this.mode });
+        break;
+      default:
+        this.togglePause();
+        this.scene.start('Title');
+    }
+  }
+
   override update(_time: number, deltaMs: number): void {
     const steps = this.step.advance(deltaMs);
+    if (this.paused) {
+      for (let i = 0; i < steps; i++) this.updatePaused();
+      return;
+    }
+    const hub = getInputHub();
     for (let i = 0; i < steps; i++) {
-      this.lastInput = this.input_.snapshot();
-      if (this.mode === 'training') {
+      const raw = hub.snapshot();
+      const pressedStart = (raw.p1 | raw.p2) & Btn.Start & ~(this.lastInput.p1 | this.lastInput.p2);
+      const phase = this.sim.state.phase;
+      if (pressedStart && (phase === 'fight' || phase === 'intro')) {
+        this.lastInput = raw;
+        this.togglePause();
+        return;
+      }
+      if (phase === 'match_end' && pressedStart) {
+        const w = this.sim.state;
+        const winner: 0 | 1 = w.wins[0] > w.wins[1] ? 0 : 1;
+        const result: ResultData = { ...this.data_, winner, wins: w.wins };
+        this.scene.start('Result', result);
+        return;
+      }
+      // 比赛结束阶段不把 Start 传给 sim（由 Result 场景接管重开）
+      this.lastInput = phase === 'match_end' ? { p1: raw.p1 & ~Btn.Start, p2: raw.p2 & ~Btn.Start } : raw;
+      if (this.mode !== 'versus') {
         const d = this.dummy.input(this.sim, 1);
         if (d !== null) this.lastInput = { p1: this.lastInput.p1, p2: d };
       }
@@ -180,15 +268,7 @@ export class FightScene extends Phaser.Scene {
   private draw(w: WorldState): void {
     const g = this.gfx;
     g.clear();
-
-    g.fillStyle(0x14213d, 1).fillRect(0, 0, VIEW_W, VIEW_H);
-    g.fillStyle(0x2b2d42, 1).fillRect(0, GROUND_SCREEN_Y, VIEW_W, VIEW_H - GROUND_SCREEN_Y);
-
-    g.lineStyle(1, 0x8d99ae, 0.6);
-    const lx = this.worldToScreenX(STAGE_LEFT, w.cameraX);
-    const rx = this.worldToScreenX(STAGE_RIGHT, w.cameraX);
-    g.lineBetween(lx, 0, lx, GROUND_SCREEN_Y);
-    g.lineBetween(rx, 0, rx, GROUND_SCREEN_Y);
+    this.stage.draw(w.cameraX + this.shakeOffset() * SUBPIXEL, w.frame);
 
     for (const f of w.fighters) {
       const view = this.views[f.player];

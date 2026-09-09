@@ -1,8 +1,13 @@
 import Phaser from 'phaser';
 import { VIEW_H, VIEW_W } from '@core/index';
 import { BootScene } from '@render/scenes/BootScene';
+import { CharacterSelectScene } from '@render/scenes/CharacterSelectScene';
 import { FightScene } from '@render/scenes/FightScene';
+import { MenuScene } from '@render/scenes/MenuScene';
 import { PreloadScene } from '@render/scenes/PreloadScene';
+import { ResultScene } from '@render/scenes/ResultScene';
+import { SettingsScene } from '@render/scenes/SettingsScene';
+import { TitleScene } from '@render/scenes/TitleScene';
 
 new Phaser.Game({
   type: Phaser.AUTO,
@@ -17,5 +22,6 @@ new Phaser.Game({
     autoCenter: Phaser.Scale.CENTER_BOTH,
     zoom: Phaser.Scale.MAX_ZOOM,
   },
-  scene: [BootScene, PreloadScene, FightScene],
+  input: { gamepad: false },
+  scene: [BootScene, TitleScene, MenuScene, CharacterSelectScene, SettingsScene, PreloadScene, FightScene, ResultScene],
 });

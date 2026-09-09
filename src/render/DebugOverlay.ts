@@ -5,13 +5,16 @@ type Proj = (v: number) => number;
 
 /** F1 判定框 · F2 帧数据面板 · F3 输入显示 */
 export class DebugOverlay {
-  private showBoxes = true;
-  private showFrames = true;
-  private showInputs = true;
+  private showBoxes: boolean;
+  private showFrames: boolean;
+  private showInputs: boolean;
   private readonly gfx: Phaser.GameObjects.Graphics;
   private readonly text: Phaser.GameObjects.Text;
 
-  constructor(scene: Phaser.Scene) {
+  constructor(scene: Phaser.Scene, defaultOn = false) {
+    this.showBoxes = defaultOn;
+    this.showFrames = defaultOn;
+    this.showInputs = defaultOn;
     this.gfx = scene.add.graphics().setDepth(100);
     this.text = scene.add
       .text(4, VIEW_H - 44, '', { fontFamily: 'monospace', fontSize: '8px', color: '#e0fbfc' })
