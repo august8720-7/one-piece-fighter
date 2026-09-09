@@ -34,6 +34,7 @@ export class FightScene extends Phaser.Scene {
   private lastInput = { p1: 0, p2: 0 };
   private shake = 0;
   private wasRoundOver = false;
+  private popups: { text: Phaser.GameObjects.Text; ttl: number }[] = [];
 
   constructor() {
     super('Fight');
@@ -51,7 +52,7 @@ export class FightScene extends Phaser.Scene {
     this.debug = new DebugOverlay(this);
 
     this.add
-      .text(VIEW_W / 2, VIEW_H - 12, 'P1: WASD + J K U I    P2: Arrows + Num 1 2 4 5    F1 boxes  F2 frames  F3 input', {
+      .text(VIEW_W / 2, VIEW_H - 12, 'P1 WASD+JKUI  P2 Arrows+Num1245 | hold back=guard  4/6+C=throw  A+B=roll  C+D=blowback  66 run  44 backdash', {
         fontFamily: 'monospace',
         fontSize: '7px',
         color: '#6c7a89',
@@ -64,7 +65,13 @@ export class FightScene extends Phaser.Scene {
     for (let i = 0; i < steps; i++) {
       this.lastInput = this.input_.snapshot();
       this.sim.step(this.lastInput);
-      for (const h of this.sim.hits) this.shake = Math.max(this.shake, Math.min(4, 1 + h.damage / 30));
+      for (const h of this.sim.hits) {
+        if (h.kind === 'hit') this.shake = Math.max(this.shake, Math.min(4, 1 + h.damage / 30));
+        else if (h.kind === 'block') this.shake = Math.max(this.shake, 1);
+        if (h.kind === 'block') this.popup('BLOCK', h.x, h.y, '#48cae4');
+        else if (h.kind === 'tech') this.popup('TECH!', h.x, h.y, '#ffd60a');
+        else if (h.kind === 'throw') this.popup('THROW', h.x, h.y, '#ff9f1c');
+      }
     }
     const w = this.sim.state;
     if (this.wasRoundOver && !w.roundOver) this.hud.reset();
@@ -72,6 +79,32 @@ export class FightScene extends Phaser.Scene {
     this.draw(w);
     this.hud.draw(w);
     if (this.shake > 0) this.shake = Math.max(0, this.shake - 0.4);
+    this.tickPopups(steps);
+  }
+
+  private popup(msg: string, wx: number, wy: number, color: string): void {
+    const t = this.add
+      .text(this.worldToScreenX(wx, this.sim.state.cameraX), this.worldToScreenY(wy) - 20, msg, {
+        fontFamily: 'monospace',
+        fontSize: '10px',
+        color,
+        fontStyle: 'bold',
+      })
+      .setOrigin(0.5)
+      .setDepth(70);
+    this.popups.push({ text: t, ttl: 40 });
+  }
+
+  private tickPopups(steps: number): void {
+    for (const p of this.popups) {
+      p.ttl -= steps;
+      p.text.y -= 0.4 * steps;
+      p.text.setAlpha(Math.min(1, p.ttl / 15));
+    }
+    this.popups = this.popups.filter((p) => {
+      if (p.ttl <= 0) p.text.destroy();
+      return p.ttl > 0;
+    });
   }
 
   private worldToScreenX(x: number, cameraX: number): number {
@@ -111,7 +144,10 @@ export class FightScene extends Phaser.Scene {
     );
   }
 
-  /** 占位角色：身体色块 + 头 + 眼睛；出招 active 帧把攻击框画成"伸出的肢体"；受击闪白；倒地横躺。 */
+  /**
+   * 占位角色：身体色块 + 头 + 眼睛；出招 active 帧把攻击框画成"伸出的肢体"；
+   * 受击闪白；防御蓝边；翻滚画成球；倒地横躺。
+   */
   private drawFighter(f: FighterState, cameraX: number): void {
     const g = this.gfx;
     const box = this.sim.pushbox(f);
@@ -119,19 +155,57 @@ export class FightScene extends Phaser.Scene {
     const sy = this.worldToScreenY(box.y);
     const sw = box.w / SUBPIXEL;
     const sh = box.h / SUBPIXEL;
+    const groundY = this.worldToScreenY(f.y);
 
     const lying = f.state === 'knockdown' || f.state === 'ko';
-    const flash = f.justHit || f.hitstop > 0 && (f.state === 'hit_stand' || f.state === 'hit_crouch' || f.state === 'hit_air');
-    const bodyColor = flash ? 0xffffff : f.state === 'getup' ? 0x9d9d9d : f.def.color;
+    const hitState = f.state === 'hit_stand' || f.state === 'hit_crouch' || f.state === 'hit_air';
+    const blocking = f.state === 'block_stand' || f.state === 'block_crouch';
+    const flash = f.justHit || (f.hitstop > 0 && hitState);
+    const invuln = this.sim.isStrikeInvulnerable(f);
+    let bodyColor = f.def.color;
+    if (flash) bodyColor = 0xffffff;
+    else if (f.state === 'getup' || f.state === 'throw_tech') bodyColor = 0x9d9d9d;
+    else if (blocking) bodyColor = Phaser.Display.Color.IntegerToColor(f.def.color).darken(25).color;
 
     if (lying) {
       const lw = sh * 0.9;
       const lx = f.facing === 1 ? sx + sw - lw : sx;
-      g.fillStyle(bodyColor, 1).fillRect(lx, this.worldToScreenY(f.y) - 14, lw, 14);
+      g.fillStyle(bodyColor, 1).fillRect(lx, groundY - 14, lw, 14);
+      return;
+    }
+
+    // 翻滚：一个球，无敌期间描白边
+    if (f.state === 'roll_fwd' || f.state === 'roll_back') {
+      const r = sw * 0.55;
+      const cx = this.worldToScreenX(f.x, cameraX);
+      g.fillStyle(bodyColor, 1).fillCircle(cx, groundY - r, r);
+      if (invuln) g.lineStyle(1, 0xffffff, 0.9).strokeCircle(cx, groundY - r, r);
+      return;
+    }
+
+    // 后撤步：向后倾斜的平行四边形（用两块矩形近似）
+    if (f.state === 'backdash') {
+      const lean = -f.facing * 6;
+      g.fillStyle(bodyColor, invuln ? 0.55 : 1).fillRect(sx + lean, sy, sw, sh / 2);
+      g.fillStyle(bodyColor, invuln ? 0.55 : 1).fillRect(sx, sy + sh / 2, sw, sh / 2);
       return;
     }
 
     g.fillStyle(bodyColor, 1).fillRect(sx, sy, sw, sh);
+    // 前冲：身后拖影
+    if (f.state === 'dash') {
+      g.fillStyle(bodyColor, 0.3).fillRect(sx - f.facing * 6, sy + 4, sw, sh - 4);
+    }
+    // 防御：面朝侧一道蓝色护盾线
+    if (blocking) {
+      const shieldX = f.facing === 1 ? sx + sw + 2 : sx - 4;
+      g.fillStyle(0x48cae4, 1).fillRect(shieldX, sy + 4, 2, sh - 8);
+    }
+    // 投技：攻击方伸手抓
+    if (f.state === 'throw') {
+      const armX = f.facing === 1 ? sx + sw : sx - 20;
+      g.fillStyle(f.def.color, 0.9).fillRect(armX, sy + sh * 0.25, 20, 8);
+    }
     const headW = sw * 0.6;
     g.fillStyle(0xffe8d6, 1).fillRect(sx + (sw - headW) / 2, sy - 10, headW, 10);
     const eyeX = f.facing === 1 ? sx + sw / 2 + headW * 0.15 : sx + sw / 2 - headW * 0.25;

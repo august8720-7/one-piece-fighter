@@ -37,6 +37,10 @@ export interface InputFrame {
 /** 姿态：决定默认受击框与可用招式。 */
 export type Stance = 'stand' | 'crouch' | 'air';
 
+/**
+ * 防御属性（KOF 口径）：
+ * mid 站蹲皆可防；high（中段 / overhead）只能站防；low 只能蹲防。
+ */
 export type GuardType = 'high' | 'mid' | 'low' | 'unblockable';
 
 /** 单帧数据。 */
@@ -60,22 +64,63 @@ export interface Knockback {
   y: number;
 }
 
-/** 招式定义。M1 只用普通技；special / super 字段留给 M2～M3。 */
+export interface MoveInput {
+  stance: Stance;
+  button: AttackButton;
+  /** 双键同按（如 C+D 吹飞）。A+B 保留给翻滚。 */
+  plus?: AttackButton;
+  /** 需要同时按住的相对方向：4 后 / 6 前（投技） */
+  direction?: 4 | 6;
+}
+
+export interface ThrowData {
+  /** 可抓距离（像素，双方原点水平距离） */
+  range: number;
+  /** 拆投窗口（帧，自抓住起） */
+  techWindow: number;
+  /** 伤害与击飞生效帧 */
+  releaseFrame: number;
+  /** 抓住时对手相对攻击者的水平偏移（像素，面朝方向为正） */
+  holdOffset: number;
+  /** 4+按键 时把对手甩到身后 */
+  switchSides: boolean;
+}
+
+/** 招式定义。 */
 export interface MoveData {
   id: string;
   name: string;
-  type: 'normal' | 'command_normal' | 'special' | 'super' | 'ultimate' | 'throw';
-  /** 触发姿态 + 按键（普通技） */
-  input: { stance: Stance; button: AttackButton };
+  type: 'normal' | 'command_normal' | 'blowback' | 'special' | 'super' | 'ultimate' | 'throw';
+  input: MoveInput;
   damage: number;
   guard: GuardType;
   hitstun: number;
   blockstun: number;
   hitstop: number;
   knockback: Knockback;
-  /** 命中后是否直接击倒（硬倒） */
+  /** 命中后直接击倒（硬倒） */
   knockdown?: boolean;
+  /** 击飞撞墙后反弹（吹飞攻击） */
+  wallBounce?: boolean;
+  /** 投技参数（type === 'throw'） */
+  throwData?: ThrowData;
   frames: readonly FrameData[];
+}
+
+/** 移动参数（子像素 / 帧，帧数） */
+export interface MovementDef {
+  walkFwdSpeed: number;
+  walkBackSpeed: number;
+  jumpVelocityY: number;
+  jumpVelocityX: number;
+  hopVelocityY: number;
+  runSpeed: number;
+  backdashSpeed: number;
+  backdashFrames: number;
+  backdashInvuln: number;
+  rollSpeed: number;
+  rollFrames: number;
+  rollInvuln: number;
 }
 
 /** 角色基础参数（每角色一份，来自 characters/<id>/）。 */
@@ -83,10 +128,7 @@ export interface FighterDef {
   id: string;
   name: string;
   maxHp: number;
-  walkFwdSpeed: number; // 子像素 / 帧
-  walkBackSpeed: number;
-  jumpVelocityY: number; // 负数向上
-  jumpVelocityX: number;
+  movement: MovementDef;
   pushboxStand: BoxPx;
   pushboxCrouch: BoxPx;
   pushboxAir: BoxPx;
@@ -103,16 +145,29 @@ export type StateId =
   | 'walk_fwd'
   | 'walk_back'
   | 'crouch'
+  | 'prejump'
   | 'jump_neutral'
   | 'jump_fwd'
   | 'jump_back'
+  | 'landing'
+  | 'dash'
+  | 'backdash'
+  | 'roll_fwd'
+  | 'roll_back'
   | 'attack'
+  | 'block_stand'
+  | 'block_crouch'
   | 'hit_stand'
   | 'hit_crouch'
   | 'hit_air'
   | 'knockdown'
   | 'getup'
+  | 'throw'
+  | 'thrown'
+  | 'throw_tech'
   | 'ko';
+
+export const INPUT_HISTORY = 16;
 
 export interface FighterState {
   def: FighterDef;
@@ -126,18 +181,28 @@ export interface FighterState {
   stateFrame: number;
   hp: number;
   airborne: boolean;
-  /** 当前招式（state === 'attack' 时有效） */
+  /** 当前招式（attack / throw 时有效） */
   moveId: string | null;
-  /** 本次出招是否已命中（每招只判一次） */
+  /** 本次出招是否已命中 */
   hasHit: boolean;
   /** 打击定格剩余帧 */
   hitstop: number;
-  /** 受击硬直剩余帧 */
+  /** 受击 / 防御硬直剩余帧 */
   stun: number;
+  /** 本帧输入位图 */
+  bits: number;
   /** 上一帧输入位图（边沿检测） */
   prevBits: number;
+  /** 最近 INPUT_HISTORY 帧的相对水平方向（-1 后 / 0 / 1 前），末尾最新 */
+  dirHistory: number[];
   /** 上一帧被击中（渲染闪白用） */
   justHit: boolean;
+  /** 上一帧成功防御（渲染用） */
+  justBlocked: boolean;
+  /** 空中受击撞墙可反弹（一次性） */
+  wallBounce: boolean;
+  /** 小跳标记（prejump 结束时决定） */
+  hopPending: boolean;
 }
 
 export interface WorldState {
@@ -148,13 +213,16 @@ export interface WorldState {
   winner: PlayerIndex | null;
 }
 
-/** 一次命中事件，供渲染层做特效 / 音效。 */
+export type HitKind = 'hit' | 'block' | 'throw' | 'tech';
+
+/** 一次命中 / 防御 / 投技事件，供渲染层做特效 / 音效。 */
 export interface HitEvent {
   frame: number;
+  kind: HitKind;
   attacker: PlayerIndex;
   defender: PlayerIndex;
   moveId: string;
   damage: number;
-  x: number; // 子像素，命中点近似
+  x: number; // 子像素
   y: number;
 }

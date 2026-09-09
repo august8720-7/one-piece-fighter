@@ -1,10 +1,36 @@
-import { Btn, normal, type MoveData } from '@core/index';
+import { Btn, normal, throwMove, type MoveData } from '@core/index';
 
 /**
- * 赤犬普通技（M1）。特点：启动慢、伤害高、击退大、射程中等。
+ * 赤犬普通技 / 吹飞 / 投技。特点：启动慢、伤害高、击退大、射程中等。
  * 数值为初始值，M3 用训练模式实测后调整。
  */
 export const akainuMoves: readonly MoveData[] = [
+  // ---- 吹飞 C+D：熔岩双掌 ----
+  normal({
+    id: 'cd', name: '熔岩双掌', stance: 'stand', button: Btn.C, plus: Btn.D,
+    startup: 18, active: 5, recovery: 26,
+    hitbox: [14, -90, 64, 40], damage: 100,
+    hitstun: 32, blockstun: 22, hitstop: 15,
+    knockback: { x: 12, y: -5 }, wallBounce: true, stepX: 1.2,
+  }),
+  normal({
+    id: 'j_cd', name: '熔岩双掌（空）', stance: 'air', button: Btn.C, plus: Btn.D,
+    startup: 12, active: 6, recovery: 14,
+    hitbox: [10, -76, 52, 40], damage: 90,
+    hitstun: 28, blockstun: 18, hitstop: 13,
+    knockback: { x: 10, y: -4 },
+  }),
+  // ---- 投技：熔岩抓摔 ----
+  throwMove({
+    id: 'throw_fwd', name: '熔岩抓摔', direction: 6, button: Btn.C, damage: 120, total: 48,
+    knockback: { x: 5, y: -7 },
+    throwData: { range: 50, techWindow: 8, releaseFrame: 24, holdOffset: 38 },
+  }),
+  throwMove({
+    id: 'throw_back', name: '熔岩抓摔（后）', direction: 4, button: Btn.C, damage: 120, total: 48,
+    knockback: { x: 5, y: -7 },
+    throwData: { range: 50, techWindow: 8, releaseFrame: 24, holdOffset: 38 },
+  }),
   // ---- 站立 ----
   normal({
     id: 'st_a', name: '轻拳', stance: 'stand', button: Btn.A,

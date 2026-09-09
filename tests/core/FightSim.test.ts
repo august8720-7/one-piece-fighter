@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { Btn, FightSim, GROUND_Y, MAX_SEPARATION, STAGE_LEFT, SUBPIXEL } from '../../src/core';
+import { Btn, FightSim, GROUND_Y, MAX_SEPARATION, PREJUMP_FRAMES, STAGE_LEFT, SUBPIXEL } from '../../src/core';
 import { akainuDef, luffyDef } from '../../src/characters';
 
 const mk = () => new FightSim({ p1: luffyDef, p2: akainuDef, seed: 42 });
@@ -27,9 +27,11 @@ describe('FightSim', () => {
     expect(sim.state.fighters[1].state).toBe('walk_back');
   });
 
-  it('跳跃会离地并落回地面，空中不可转向', () => {
+  it('跳跃经过 prejump 后离地并落回地面，空中不可转向', () => {
     const sim = mk();
     run(sim, Btn.Up, 0, 1);
+    expect(sim.state.fighters[0].state).toBe('prejump');
+    run(sim, Btn.Up, 0, PREJUMP_FRAMES);
     const f = sim.state.fighters[0];
     expect(f.airborne).toBe(true);
     expect(f.state).toBe('jump_neutral');
@@ -66,7 +68,7 @@ describe('FightSim', () => {
       b.step({ p1, p2 });
     }
     expect(JSON.stringify(a.state)).toBe(JSON.stringify(b.state));
-    expect(a.state.fighters[0].x % 1).toBe(0); // 整数子像素
+    expect(Number.isInteger(a.state.fighters[0].x)).toBe(true); // 整数子像素
     expect(SUBPIXEL).toBe(256);
   });
 });

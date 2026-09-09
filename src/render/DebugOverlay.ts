@@ -45,10 +45,11 @@ export class DebugOverlay {
     if (this.showFrames) {
       lines.push(`frame ${w.frame}  cam ${(w.cameraX / SUBPIXEL).toFixed(0)}`);
       for (const f of w.fighters) {
-        const st = f.state === 'attack' && f.moveId ? `atk:${f.moveId}` : f.state;
+        const st = (f.state === 'attack' || f.state === 'throw') && f.moveId ? `${f.moveId}` : f.state;
+        const flags = `${sim.isGuarding(f) ? 'G' : '-'}${sim.isStrikeInvulnerable(f) ? 'I' : '-'}${sim.isThrowable(f) ? 'T' : '-'}`;
         lines.push(
           `P${f.player + 1} ${f.def.id.padEnd(6)} ${st.padEnd(12)} sf ${String(f.stateFrame).padStart(3)} ` +
-            `hs ${String(f.hitstop).padStart(2)} st ${String(Math.min(f.stun, 99)).padStart(2)}  ` +
+            `hs ${String(f.hitstop).padStart(2)} st ${String(Math.min(f.stun, 99)).padStart(2)} ${flags} ` +
             `x ${(f.x / SUBPIXEL).toFixed(1).padStart(7)} y ${(f.y / SUBPIXEL).toFixed(1).padStart(6)}  ` +
             `hp ${String(f.hp).padStart(4)} ${f.facing === 1 ? '>' : '<'}`,
         );

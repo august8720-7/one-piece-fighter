@@ -1,10 +1,36 @@
-import { Btn, normal, type MoveData } from '@core/index';
+import { Btn, normal, throwMove, type MoveData } from '@core/index';
 
 /**
- * 路飞普通技（M1）。特点：伸长手脚 → 射程长、伤害偏低、启动快。
+ * 路飞普通技 / 吹飞 / 投技。特点：伸长手脚 → 射程长、伤害偏低、启动快。
  * 数值为初始值，M3 用训练模式实测后调整。
  */
 export const luffyMoves: readonly MoveData[] = [
+  // ---- 吹飞 C+D：橡胶镰刀 ----
+  normal({
+    id: 'cd', name: '橡胶镰刀', stance: 'stand', button: Btn.C, plus: Btn.D,
+    startup: 16, active: 5, recovery: 24,
+    hitbox: [12, -84, 80, 30], damage: 90,
+    hitstun: 30, blockstun: 20, hitstop: 14,
+    knockback: { x: 11, y: -5 }, wallBounce: true,
+  }),
+  normal({
+    id: 'j_cd', name: '橡胶镰刀（空）', stance: 'air', button: Btn.C, plus: Btn.D,
+    startup: 10, active: 6, recovery: 12,
+    hitbox: [10, -70, 60, 34], damage: 80,
+    hitstun: 26, blockstun: 16, hitstop: 12,
+    knockback: { x: 9, y: -4 },
+  }),
+  // ---- 投技：橡胶大槌 ----
+  throwMove({
+    id: 'throw_fwd', name: '橡胶大槌', direction: 6, button: Btn.C, damage: 110, total: 44,
+    knockback: { x: 6, y: -8 },
+    throwData: { range: 46, techWindow: 8, releaseFrame: 22, holdOffset: 34 },
+  }),
+  throwMove({
+    id: 'throw_back', name: '橡胶大槌（后）', direction: 4, button: Btn.C, damage: 110, total: 44,
+    knockback: { x: 6, y: -8 },
+    throwData: { range: 46, techWindow: 8, releaseFrame: 22, holdOffset: 34 },
+  }),
   // ---- 站立 ----
   normal({
     id: 'st_a', name: '轻拳', stance: 'stand', button: Btn.A,

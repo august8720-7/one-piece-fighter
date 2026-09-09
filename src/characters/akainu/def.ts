@@ -1,15 +1,25 @@
 import { px, type FighterDef } from '@core/index';
 import { akainuMoves } from './moves';
 
-/** 赤犬：重型压制型。血量高、移速慢。数值为初始值，M3 实测后调整。 */
+/** 赤犬：重型压制型。血量高、移速慢、翻滚短。数值为初始值，M3 实测后调整。 */
 export const akainuDef: FighterDef = {
   id: 'akainu',
   name: '赤犬',
   maxHp: 1100,
-  walkFwdSpeed: px(1.7),
-  walkBackSpeed: px(1.3),
-  jumpVelocityY: px(-8.8),
-  jumpVelocityX: px(2.0),
+  movement: {
+    walkFwdSpeed: px(1.7),
+    walkBackSpeed: px(1.3),
+    jumpVelocityY: px(-8.8),
+    jumpVelocityX: px(2.0),
+    hopVelocityY: px(-6.2),
+    runSpeed: px(4.2),
+    backdashSpeed: px(4.2),
+    backdashFrames: 20,
+    backdashInvuln: 5,
+    rollSpeed: px(3.8),
+    rollFrames: 30,
+    rollInvuln: 20,
+  },
   pushboxStand: [-17, -100, 34, 100],
   pushboxCrouch: [-19, -68, 38, 68],
   pushboxAir: [-15, -92, 30, 68],
