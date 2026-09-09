@@ -1,0 +1,25 @@
+# build
+dist/
+.vite/
+*.tsbuildinfo
+
+# deps
+node_modules/
+
+# editor / os
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# logs
+npm-debug.log*
+*.log
+
+# 版权素材只放本地（AGENTS.md 硬约束 7）
+public/assets/characters/*/
+public/assets/stages/*/
+public/assets/audio/**
+!public/assets/**/.gitkeep
+!public/assets/**/placeholder*
