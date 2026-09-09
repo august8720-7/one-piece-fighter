@@ -14,7 +14,7 @@
 docs/            规划与设计文档（PLAN.md 为总纲；design/ 帧数据与平衡记录；research/ 调研笔记）
 public/assets/   运行时静态资源（characters/ stages/ ui/ audio/），含版权素材不进 Git
 src/core/        纯格斗逻辑：固定步长、确定性、零 Phaser 依赖
-src/characters/  角色数据（moves.json + animations.ts），一个角色一个目录
+src/characters/  角色数据（def.ts 基础参数 + moves.ts 招式表 + animations.ts），一个角色一个目录
 src/render/      Phaser 层：scenes/ hud/ fx/ FighterView DebugOverlay
 src/input/       键盘 / 手柄 → InputFrame
 src/ai/          CPU 对手
@@ -28,7 +28,8 @@ tests/           Vitest 测试，镜像 src/core 结构
 2. 逻辑固定 60 Hz。所有帧数据、硬直、速度以"逻辑帧"为单位，不用毫秒。
 3. 确定性：位置与速度用整数（单位 1/256 像素，常量 `SUBPIXEL = 256`）；随机数只用 `core/Rng.ts` 的可种子生成器；禁止 `Math.random`、`Date.now` 进入 core。
 4. 角色 = 数据。新增角色只允许新增 `src/characters/<id>/` 与 `public/assets/characters/<id>/`，不改 core。
-5. 判定框统一 `[x, y, w, h]`，原点角色脚下中心，面朝右；镜像由 core 处理。
+5. 判定框统一 `[x, y, w, h]`，原点角色脚下中心，面朝右，y 向上为负；镜像由 core 处理。
+8. 输入层必须锁存按键：一次按下-松开短于一逻辑帧时，下一次 `snapshot()` 仍要返回该键一帧。
 6. 不为让代码跑起来而注释报错或加 `// @ts-ignore`；找根因。
 7. 版权素材（官方精灵、原声）只放本地 `public/assets/`，已在 `.gitignore` 中排除；占位素材和自制素材可以提交。
 

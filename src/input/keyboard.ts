@@ -30,9 +30,13 @@ export const P2_KEYS: KeyMap = {
 /**
  * 监听 window 键盘事件，维护两名玩家当前按下的位图。
  * 渲染层每逻辑帧调用 snapshot() 取一次。
+ *
+ * 锁存（latch）：一次按下-松开若发生在两次 snapshot 之间（短于一逻辑帧），
+ * 仍必须在下一次 snapshot 中出现一帧，否则轻点会被吞。
  */
 export class KeyboardInput {
-  private bits: [number, number] = [0, 0];
+  private held: [number, number] = [0, 0];
+  private latched: [number, number] = [0, 0];
   private readonly maps: [KeyMap, KeyMap];
 
   constructor(p1 = P1_KEYS, p2 = P2_KEYS) {
@@ -40,7 +44,8 @@ export class KeyboardInput {
     window.addEventListener('keydown', this.onKey(true));
     window.addEventListener('keyup', this.onKey(false));
     window.addEventListener('blur', () => {
-      this.bits = [0, 0];
+      this.held = [0, 0];
+      this.latched = [0, 0];
     });
   }
 
@@ -48,13 +53,25 @@ export class KeyboardInput {
     return (e: KeyboardEvent): void => {
       const b1 = this.maps[0][e.code];
       const b2 = this.maps[1][e.code];
-      if (b1 !== undefined) this.bits[0] = down ? this.bits[0] | b1 : this.bits[0] & ~b1;
-      if (b2 !== undefined) this.bits[1] = down ? this.bits[1] | b2 : this.bits[1] & ~b2;
+      if (b1 !== undefined) this.apply(0, b1, down);
+      if (b2 !== undefined) this.apply(1, b2, down);
       if (b1 !== undefined || b2 !== undefined) e.preventDefault();
     };
   }
 
+  private apply(i: 0 | 1, b: Btn, down: boolean): void {
+    if (down) {
+      this.held[i] |= b;
+      this.latched[i] |= b;
+    } else {
+      this.held[i] &= ~b;
+    }
+  }
+
   snapshot(): { p1: number; p2: number } {
-    return { p1: this.bits[0], p2: this.bits[1] };
+    const p1 = this.held[0] | this.latched[0];
+    const p2 = this.held[1] | this.latched[1];
+    this.latched = [0, 0];
+    return { p1, p2 };
   }
 }

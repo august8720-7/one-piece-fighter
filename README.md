@@ -20,13 +20,14 @@ npm run typecheck && npm run lint && npm test && npm run build
 
 ## 当前阶段
 
-M0 完成：Vite + Phaser 3 + TypeScript 脚手架，固定 60 Hz 逻辑步长，逻辑 / 渲染分离，两个占位色块可移动、跳跃、蹲下、互相推挤。下一步 M1：普通技、判定框命中、血条、KO。
+M1 完成："两个方块打架"。每角色 12 个普通技（站 / 蹲 / 空 × A B C D），hitbox 命中、hitstop、硬直、击退、浮空、倒地、KO、重开。下一步 M2：防御、投技、翻滚、搓招识别、取消链、气槽、回合制。
 
-## 操作（M0）
+## 操作
 
 | 动作 | P1 | P2 |
 |---|---|---|
 | 移动 / 跳 / 蹲 | W A S D | 方向键 |
-| A / B / C / D | J K U I | 小键盘 1 2 4 5 |
+| A 轻拳 / B 轻脚 / C 重拳 / D 重脚 | J K U I | 小键盘 1 2 4 5 |
+| KO 后重开 | Enter | 小键盘 Enter |
 
-F1 判定框 · F2 帧数据 · F3 输入显示
+F1 判定框（黄 pushbox / 蓝 hurtbox / 红 hitbox）· F2 帧数据 · F3 输入显示

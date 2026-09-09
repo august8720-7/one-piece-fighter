@@ -1,4 +1,5 @@
 import { px, type FighterDef } from '@core/index';
+import { luffyMoves } from './moves';
 
 /** 路飞：速攻连段型。血量中、移速快。数值为初始值，M3 实测后调整。 */
 export const luffyDef: FighterDef = {
@@ -11,5 +12,10 @@ export const luffyDef: FighterDef = {
   jumpVelocityX: px(2.6),
   pushboxStand: [-14, -88, 28, 88],
   pushboxCrouch: [-16, -60, 32, 60],
+  pushboxAir: [-12, -80, 24, 60],
+  hurtboxStand: [[-14, -88, 28, 88]],
+  hurtboxCrouch: [[-16, -60, 32, 60]],
+  hurtboxAir: [[-13, -84, 26, 66]],
+  moves: luffyMoves,
   color: 0xe63946,
 };
