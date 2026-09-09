@@ -25,9 +25,9 @@ M5 完成：人机 AI 三档难度（选人界面 ↑↓ 切换），角色策�
 ## 模式与素材
 
 - 打开 `http://localhost:5173/` 从标题进入；菜单用方向键 + A（J）确认、B（K）返回，手柄同样可用
-- 直达（开发用）：`?mode=versus|cpu|training&p1=luffy&p2=akainu`
+- 直达（开发用）：`?mode=versus|cpu|training&p1=luffy&p2=akainu&difficulty=easy|normal|hard`
 - 训练：无限血气；F5 木桩行为、F6 位置重置、F7 / F8 开关、F4 精灵 / 色块；F1～F3 调试面板（训练模式默认开）
-- 正式精灵图：把 TexturePacker（JSON Hash）导出的 `atlas.png` + `atlas.json` 放到 `public/assets/characters/<id>/`，帧名 `<id>/<anim>/<n>`（见 `AGENTS.md` 精灵图集约定）。缺失时自动回退到 `placeholder.*`（`npm run gen:placeholder` 生成），再缺则画色块。
+- 角色图集：由 `assets-src/characters/<id>/` 下的设定图切出（`npm run gen:atlas`，需要 Python 3 + Pillow），生成 `public/assets/characters/<id>/atlas.png + atlas.json`（不进 Git，克隆后跑一次即可）。裁切框、抠图规则、姿势 → 帧映射都在 `scripts/cut_concept_art.py`；换更好的设定图或精灵表只需改那里。没有图集时自动回退到 `placeholder.*`（`npm run gen:placeholder`），再缺则画色块。
 
 ## 操作
 

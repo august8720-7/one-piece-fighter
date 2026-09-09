@@ -19,7 +19,8 @@ src/render/      Phaser 层：scenes/ hud/ fx/ FighterView DebugOverlay
 src/input/       键盘 / 手柄 → InputFrame
 src/ai/          CPU 对手与训练木桩（只产生 InputFrame，不直接改 core 状态）
 src/audio/       音频封装
-scripts/         开发辅助脚本（用 `npx vite-node scripts/<name>.ts` 运行，可复用 @core 等别名）；产物只写入 public/assets 下的 placeholder* 文件
+scripts/         开发辅助脚本：TS 用 `npx vite-node scripts/<name>.ts`（可复用 @core 等别名），图像处理用 Python + Pillow；产物写入 public/assets（placeholder* 提交，atlas.* 由 assets-src 再生成）
+assets-src/      正式素材来源（设定图等），frames.json 由 export-frames.ts 生成
 tests/           Vitest 测试，镜像 src/core 结构
 ```
 
@@ -28,7 +29,8 @@ tests/           Vitest 测试，镜像 src/core 结构
 - 每角色一个 TexturePacker JSON Hash 图集：`public/assets/characters/<id>/atlas.png` + `atlas.json`（正式素材，不进 Git）；缺失时回退到 `placeholder.png/json`（脚本生成，可进 Git）；两者都缺时渲染层画色块。
 - 帧名 `<id>/<anim>/<n>`，n 从 0 起。`<anim>` 是 StateId（`idle`、`walk_fwd`、`hit_air`…）或招式 id（`st_a`、`sp_gatling`…）。
 - 招式的帧号就是 FrameData.sprite；非招式状态的帧数、fps、是否循环由 `src/characters/<id>/animations.ts` 声明。
-- 所有帧同尺寸，脚底中心对齐帧底边中点（渲染层 origin 0.5 / 1）。
+- 帧尺寸可以不同：每帧在 JSON 里给 `pivot: {x, y}`（归一化，脚底中心通常 y = 1），Phaser 会按 pivot 设置 origin；没有 pivot 的帧按 origin 0.5 / 1 处理（占位图集）。
+- 正式素材来源放 `assets-src/characters/<id>/`（设定图 / 原始精灵表，可提交），用 `npm run gen:atlas` 切成图集；切图规则（裁切框、抠图、姿势 → 帧映射）在 `scripts/cut_concept_art.py`。
 
 ## 硬约束
 

@@ -12,7 +12,8 @@
     "lint": "eslint src tests scripts",
     "test": "vitest run",
     "test:watch": "vitest",
-    "gen:placeholder": "vite-node scripts/gen-placeholder-atlas.ts"
+    "gen:placeholder": "vite-node scripts/gen-placeholder-atlas.ts",
+    "gen:atlas": "vite-node scripts/export-frames.ts && python scripts/cut_concept_art.py"
   },
   "dependencies": {
     "phaser": "^3.90.0"

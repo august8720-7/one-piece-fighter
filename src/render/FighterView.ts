@@ -28,7 +28,15 @@ export class FighterView {
       this.sprite.setVisible(false);
       return false;
     }
-    this.sprite.setFrame(name).setPosition(Math.round(screenX), Math.round(screenY)).setFlipX(f.facing === -1).setVisible(true).setAlpha(alpha);
+    // 出招 / 投技中的一方画在上层；否则 P1 在上
+    const acting = f.state === 'attack' || f.state === 'throw';
+    this.sprite
+      .setFrame(name)
+      .setPosition(Math.round(screenX), Math.round(screenY))
+      .setFlipX(f.facing === -1)
+      .setVisible(true)
+      .setAlpha(alpha)
+      .setDepth(acting ? 12 : f.player === 0 ? 11 : 10);
     if (tint === null) this.sprite.clearTint();
     else this.sprite.setTint(tint);
     return true;

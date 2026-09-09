@@ -1,4 +1,5 @@
 import type { InputFrame } from '@core/index';
+import { sfx } from '../audio/Sfx';
 import { GamepadInput } from './gamepad';
 import { KeyboardInput } from './keyboard';
 import { loadKeyConfig, saveKeyConfig, type KeyConfig } from './keymap';
@@ -16,6 +17,13 @@ export class InputHub {
   constructor() {
     this.config = loadKeyConfig();
     this.keyboard = new KeyboardInput(this.config);
+    // 第一次用户手势解锁音频；M 键静音
+    const unlock = () => sfx().unlock();
+    window.addEventListener('keydown', unlock);
+    window.addEventListener('pointerdown', unlock);
+    window.addEventListener('keydown', (e) => {
+      if (e.code === 'KeyM' && !e.repeat) sfx().toggleMute();
+    });
   }
 
   get keyConfig(): KeyConfig {

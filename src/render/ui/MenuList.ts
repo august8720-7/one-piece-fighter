@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { Btn, type InputFrame } from '@core/index';
+import { sfx } from '../../audio/Sfx';
 
 export interface MenuItem {
   label: string;
@@ -65,8 +66,12 @@ export class MenuList {
     const e = edges.p1 | edges.p2;
     if (e & Btn.Up) this.move(-1);
     if (e & Btn.Down) this.move(1);
+    if (e & (Btn.Up | Btn.Down)) sfx().play('menu_move');
     this.refresh();
-    if (e & (Btn.A | Btn.Start)) return 'select';
+    if (e & (Btn.A | Btn.Start)) {
+      sfx().play('menu_confirm');
+      return 'select';
+    }
     if (e & Btn.B) return 'back';
     if (e & Btn.Left) return 'left';
     if (e & Btn.Right) return 'right';
