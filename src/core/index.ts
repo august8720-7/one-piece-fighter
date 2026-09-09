@@ -4,6 +4,7 @@ export * from './input';
 export * from './collision';
 export { Rng } from './Rng';
 export * from './moveBuilder';
+export * as balance from './balance';
 export * from './commands';
 export {
   FightSim,

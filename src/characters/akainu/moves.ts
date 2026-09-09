@@ -1,14 +1,41 @@
-import { Btn, K, P, attack, normal, throwMove, type MoveData } from '@core/index';
+import { Btn, K, P, attack, balance, normal, throwMove, utility, type MoveData, type ProjectileSpawn } from '@core/index';
+
+const { BURN, SUPER_COST, ULTIMATE_COST, DODGE_COST } = balance;
+
+/** 流星火山：从天而降的熔岩拳 */
+const meteor = (frame: number, x: number): ProjectileSpawn => ({
+  frame,
+  kind: 'meteor',
+  x,
+  y: -300,
+  vx: 0,
+  vy: 6,
+  gravity: 0.3,
+  ttl: 80,
+  box: [-16, -32, 32, 32],
+  dieOnGround: true,
+  knockback: { x: 4, y: -7 },
+});
 
 /**
- * 赤犬招式表。特点：启动慢、伤害高、击退大、射程中等、连段少。
- * 数值为初始值，M3 用训练模式实测后调整。
+ * 赤犬招式表（PLAN 4.5）。特点：启动慢、伤害高、击退大、霸体、灼烧、飞行道具压制、指令投。
+ * 数值为初始值，用训练模式实测后调整。
  */
 export const akainuMoves: readonly MoveData[] = [
-  // ---- 超必杀（1 气）：大喷火·连 ----
+  // ======== 终极技（3 气）：冥狗·终焉（指令投演出）========
+  attack({
+    id: 'ult_meigou_end', name: '冥狗·终焉', type: 'ultimate', stance: 'stand', button: K, motion: '236236',
+    meterCost: ULTIMATE_COST, invuln: 12, burn: BURN,
+    segments: [{ startup: 12, active: 6, hitbox: [10, -100, 70, 100] }],
+    recovery: 30, damage: 480,
+    knockback: { x: 10, y: -10 },
+    throwData: { techWindow: 0, releaseFrame: 70, duration: 90, holdOffset: 36 },
+  }),
+
+  // ======== 超必杀（1 气）========
   attack({
     id: 'sp_daifunka_ren', name: '大喷火·连', type: 'super', stance: 'stand', button: P, motion: '236236',
-    meterCost: 100, invuln: 10,
+    meterCost: SUPER_COST, invuln: 10, burn: BURN,
     segments: [
       { startup: 14, active: 5, hitbox: [20, -110, 110, 70] },
       { startup: 10, active: 5, hitbox: [24, -100, 120, 70] },
@@ -18,13 +45,43 @@ export const akainuMoves: readonly MoveData[] = [
     hitstun: 30, blockstun: 22, hitstop: 14,
     knockback: { x: 6, y: -5 }, stepX: 1.5,
   }),
-  // ---- 特殊技 ----
+  utility({
+    id: 'sp_meteor_rain', name: '流星火山·雨', type: 'super', button: K, motion: '214214',
+    meterCost: SUPER_COST, invuln: 10, startup: 30, recovery: 30,
+    damage: 45, guard: 'high', hitstun: 26, blockstun: 18, hitstop: 10, burn: BURN,
+    projectiles: [
+      meteor(20, 40), meteor(24, 90), meteor(28, 140), meteor(32, 190),
+      meteor(36, 240), meteor(40, 290), meteor(44, 340), meteor(48, 390),
+    ],
+  }),
+
+  // ======== 特殊技 ========
   attack({
-    id: 'sp_daifunka', name: '大喷火', stance: 'stand', button: P, motion: '236',
+    id: 'sp_daifunka', name: '大喷火', stance: 'stand', button: P, motion: '236', armor: true, burn: BURN,
     segments: [{ startup: 18, active: 5, hitbox: [20, -110, 110, 70] }],
     recovery: 26, damage: 160,
     hitstun: 30, blockstun: 22, hitstop: 14,
     knockback: { x: 13, y: -6 }, wallBounce: true, stepX: 1,
+  }),
+  utility({
+    id: 'sp_inugami', name: '犬噛红莲', button: P, motion: '214',
+    startup: 16, recovery: 22,
+    damage: 90, guard: 'mid', hitstun: 24, blockstun: 18, hitstop: 10,
+    knockback: { x: 7, y: 0 },
+    projectiles: [{ frame: 14, kind: 'dog', x: 40, y: -50, vx: 4.5, vy: 0, ttl: 140, box: [-20, -26, 40, 40] }],
+  }),
+  utility({
+    id: 'sp_meteor', name: '流星火山', button: K, motion: '214',
+    startup: 24, recovery: 20,
+    damage: 50, guard: 'high', hitstun: 24, blockstun: 16, hitstop: 10, burn: BURN,
+    projectiles: [meteor(18, 70), meteor(22, 130), meteor(26, 190)],
+  }),
+  attack({
+    id: 'sp_meigou', name: '冥狗', stance: 'stand', button: P, motion: '623', burn: BURN,
+    segments: [{ startup: 8, active: 4, hitbox: [10, -100, 56, 100] }],
+    recovery: 26, damage: 140,
+    knockback: { x: 7, y: -7 },
+    throwData: { techWindow: 0, releaseFrame: 26, duration: 40, holdOffset: 34 },
   }),
   attack({
     id: 'sp_ground_split', name: '熔岩地裂', stance: 'stand', button: K, motion: '22',
@@ -33,7 +90,12 @@ export const akainuMoves: readonly MoveData[] = [
     hitstun: 26, blockstun: 18, hitstop: 12,
     knockback: { x: 4, y: -9 },
   }),
-  // ---- 吹飞 C+D：熔岩双掌 ----
+  utility({
+    id: 'sp_magma_body', name: '熔岩化', button: P, motion: '22',
+    meterCost: DODGE_COST, startup: 20, recovery: 14, invuln: 20, dodge: true,
+  }),
+
+  // ======== 吹飞 C+D：熔岩双掌 ========
   normal({
     id: 'cd', name: '熔岩双掌', stance: 'stand', button: Btn.C, plus: Btn.D,
     startup: 18, active: 5, recovery: 26,
@@ -48,29 +110,39 @@ export const akainuMoves: readonly MoveData[] = [
     hitstun: 28, blockstun: 18, hitstop: 13,
     knockback: { x: 10, y: -4 },
   }),
-  // ---- 投技：熔岩抓摔 ----
+
+  // ======== 投技：熔岩抓摔 ========
   throwMove({
-    id: 'throw_fwd', name: '熔岩抓摔', direction: 6, button: Btn.C, damage: 120, total: 48,
+    id: 'throw_fwd', name: '熔岩抓摔', direction: 6, button: Btn.C, damage: 120, total: 48, burn: BURN,
     knockback: { x: 5, y: -7 },
     throwData: { range: 50, techWindow: 8, releaseFrame: 24, holdOffset: 38 },
   }),
   throwMove({
-    id: 'throw_back', name: '熔岩抓摔（后）', direction: 4, button: Btn.C, damage: 120, total: 48,
+    id: 'throw_back', name: '熔岩抓摔（后）', direction: 4, button: Btn.C, damage: 120, total: 48, burn: BURN,
     knockback: { x: 5, y: -7 },
     throwData: { range: 50, techWindow: 8, releaseFrame: 24, holdOffset: 38 },
   }),
-  // ---- 站立 ----
+
+  // ======== 特殊普通技 ========
+  normal({
+    id: 'f_c', name: '熔岩重锤', stance: 'stand', button: Btn.C, direction: 6, armor: true,
+    startup: 16, active: 4, recovery: 20,
+    hitbox: [14, -110, 56, 40], damage: 95, guard: 'high',
+    knockback: { x: 6 },
+  }),
+
+  // ======== 站立普通技 ========
   normal({
     id: 'st_a', name: '轻拳', stance: 'stand', button: Btn.A,
     startup: 5, active: 3, recovery: 9,
     hitbox: [12, -86, 36, 16], damage: 38,
-    chain: ['st_c', 'st_d', 'cr_d'],
+    chain: ['st_c', 'st_d', 'cr_d', 'f_c'],
   }),
   normal({
     id: 'st_b', name: '轻脚', stance: 'stand', button: Btn.B,
     startup: 6, active: 3, recovery: 11,
     hitbox: [14, -48, 40, 18], damage: 42,
-    chain: ['st_c', 'st_d'],
+    chain: ['st_c', 'st_d', 'f_c'],
   }),
   normal({
     id: 'st_c', name: '熔岩拳', stance: 'stand', button: Btn.C,
@@ -84,7 +156,8 @@ export const akainuMoves: readonly MoveData[] = [
     hitbox: [16, -70, 66, 34], damage: 85,
     knockback: { x: 8 },
   }),
-  // ---- 蹲 ----
+
+  // ======== 蹲普通技 ========
   normal({
     id: 'cr_a', name: '蹲轻拳', stance: 'crouch', button: Btn.A,
     startup: 5, active: 3, recovery: 8,
@@ -100,7 +173,7 @@ export const akainuMoves: readonly MoveData[] = [
     id: 'cr_c', name: '熔岩上勾', stance: 'crouch', button: Btn.C,
     startup: 9, active: 5, recovery: 18,
     hitbox: [8, -120, 36, 70], damage: 85,
-    knockback: { x: 3, y: -8 }, // 对空浮空
+    knockback: { x: 3, y: -8 },
   }),
   normal({
     id: 'cr_d', name: '熔岩下扫', stance: 'crouch', button: Btn.D,
@@ -108,7 +181,8 @@ export const akainuMoves: readonly MoveData[] = [
     hitbox: [12, -18, 80, 18], damage: 80, guard: 'low',
     knockdown: true, knockback: { x: 6 },
   }),
-  // ---- 空中 ----
+
+  // ======== 空中普通技 ========
   normal({
     id: 'j_a', name: '空轻拳', stance: 'air', button: Btn.A,
     startup: 5, active: 6, recovery: 9,

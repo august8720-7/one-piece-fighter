@@ -113,11 +113,14 @@ describe('throw', () => {
     expect(['knockdown', 'getup', 'idle']).toContain(sim.state.fighters[1].state);
   });
 
-  it('距离不够时 6+C 出的是普通技', () => {
+  it('距离不够时 6+C 出的是特殊普通技（橡胶钟），5C 是素技', () => {
     const sim = mk();
     sim.step({ p1: Btn.Right | Btn.C, p2: 0 });
     expect(sim.state.fighters[0].state).toBe('attack');
-    expect(sim.state.fighters[0].moveId).toBe('st_c');
+    expect(sim.state.fighters[0].moveId).toBe('f_c');
+    const b = mk();
+    b.step({ p1: Btn.C, p2: 0 });
+    expect(b.state.fighters[0].moveId).toBe('st_c');
   });
 
   it('拆投窗口内按 C 拆投：无伤、双方弹开', () => {

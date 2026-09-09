@@ -12,7 +12,7 @@ import {
 import { overlapX, overlaps, toWorldBox } from './collision';
 import { isDoubleTap, matchMotion, MOTION_PRIORITY } from './commands';
 import { has, horizontalRelative, pressedTogether, toNumpad } from './input';
-import { frameAt, inStartupOrActive } from './moveBuilder';
+import { firstActiveFrame, frameAt, inStartupOrActive } from './moveBuilder';
 import { Rng } from './Rng';
 import {
   ANY_ATTACK,
@@ -25,15 +25,20 @@ import {
   type AttackButton,
   type Box,
   type BoxPx,
+  type BurnDef,
   type FighterDef,
   type FighterState,
   type FrameData,
+  type GuardType,
   type HitEvent,
   type HitKind,
   type InputFrame,
+  type InstallDef,
+  type Knockback,
   type MoveData,
   type Phase,
   type PlayerIndex,
+  type ProjectileState,
   type Stance,
   type StateId,
   type WorldState,
@@ -64,7 +69,7 @@ const DEFAULT_ROUND_TIME = 99;
 const BUTTON_BUFFER = 4;
 /** 默认取消窗口（自命中起） */
 const DEFAULT_CANCEL_WINDOW = 12;
-/** 反击伤害倍率 5/4，追加硬直 */
+/** 反击追加硬直 */
 const COUNTER_BONUS_STUN = 4;
 /** 地面受击 / 防御时的击退摩擦（子像素 / 帧²） */
 const GROUND_FRICTION = px(0.35);
@@ -72,6 +77,8 @@ const GROUND_FRICTION = px(0.35);
 const BLOCK_PUSHBACK_NUM = 5;
 /** 撞墙反弹水平速度保留比例（/8） */
 const WALL_BOUNCE_NUM = 5;
+/** 灼烧不会把血量打到 0 以下的下限 */
+const BURN_HP_FLOOR = 1;
 
 const OPERABLE: ReadonlySet<StateId> = new Set(['idle', 'walk_fwd', 'walk_back', 'crouch', 'dash']);
 const GUARD_CAPABLE: ReadonlySet<StateId> = new Set([
@@ -80,9 +87,7 @@ const GUARD_CAPABLE: ReadonlySet<StateId> = new Set([
 const THROWABLE: ReadonlySet<StateId> = new Set([
   'idle', 'walk_fwd', 'walk_back', 'crouch', 'landing', 'dash', 'attack', 'roll_fwd', 'roll_back', 'backdash',
 ]);
-/** 处于这些状态时视为"连段中"，再次被击中累加段数 */
 const IN_COMBO: ReadonlySet<StateId> = new Set(['hit_stand', 'hit_crouch', 'hit_air', 'thrown']);
-/** 回到这些状态时连段计数清零 */
 const NEUTRAL: ReadonlySet<StateId> = new Set([
   'idle', 'walk_fwd', 'walk_back', 'crouch', 'prejump', 'jump_neutral', 'jump_fwd', 'jump_back', 'landing', 'dash', 'backdash', 'roll_fwd', 'roll_back',
 ]);
@@ -93,6 +98,24 @@ export function scaledDamage(damage: number, comboHits: number): number {
   return Math.floor((damage * num) / 10);
 }
 
+/** 打击参数（招式或飞行道具共用） */
+interface HitSpec {
+  moveId: string;
+  moveInstance: number;
+  type: MoveData['type'];
+  damage: number;
+  guard: GuardType;
+  hitstun: number;
+  blockstun: number;
+  hitstop: number;
+  knockback: Knockback;
+  knockdown: boolean;
+  wallBounce: boolean;
+  burn: BurnDef | null;
+  armorBreak: boolean;
+  projectile: ProjectileState | null;
+}
+
 /**
  * 格斗世界模拟器。固定步长、确定性、无渲染依赖。
  * 每次 step(input) 推进一帧。
@@ -101,6 +124,8 @@ export class FightSim {
   readonly rng: Rng;
   private frame = 0;
   private readonly fighters: [FighterState, FighterState];
+  private projectiles: ProjectileState[] = [];
+  private nextProjectileId = 1;
   private cameraX = 0;
   private phase: Phase = 'intro';
   private phaseFrame = 0;
@@ -130,6 +155,7 @@ export class FightSim {
     return {
       frame: this.frame,
       fighters: this.fighters,
+      projectiles: this.projectiles,
       cameraX: this.cameraX,
       phase: this.phase,
       phaseFrame: this.phaseFrame,
@@ -149,6 +175,7 @@ export class FightSim {
     this.fighters[1] = createFighter(this.opts.p2, 1, px(90), -1);
     this.fighters[0].meter = meters[0]!;
     this.fighters[1].meter = meters[1]!;
+    this.projectiles = [];
     this.timer = this.roundTimeFrames;
     this.roundWinner = null;
     this.setPhase(this.introFrames === 0 ? 'fight' : 'intro');
@@ -166,6 +193,7 @@ export class FightSim {
   private setPhase(p: Phase): void {
     this.phase = p;
     this.phaseFrame = 0;
+    if (p === 'round_end' || p === 'match_end') this.projectiles = [];
   }
 
   step(input: InputFrame): void {
@@ -206,9 +234,11 @@ export class FightSim {
   }
 
   private stepFight(f1: FighterState, f2: FighterState, input: InputFrame): void {
-    // 1. 输入 → 状态（hitstop 中冻结）
+    // 1. 输入 → 状态（hitstop 中冻结）；持续效果计时
     this.updateFighter(f1, f2, input.p1);
     this.updateFighter(f2, f1, input.p2);
+    this.tickStatus(f1);
+    this.tickStatus(f2);
 
     // 2. 拆投（双方都已读入本帧输入后判定，保证 P1/P2 对称）与投技锁定位置
     this.checkThrowTech(f1, f2);
@@ -216,11 +246,14 @@ export class FightSim {
     this.holdThrown(f1, f2);
     this.holdThrown(f2, f1);
 
-    // 3. 打击判定（同帧双向，支持相杀）
+    // 3. 指令投抓取 → 打击判定（同帧双向，支持相杀）→ 飞行道具
+    this.detectGrab(f1, f2);
+    this.detectGrab(f2, f1);
     const hit1 = this.detectStrike(f1, f2);
     const hit2 = this.detectStrike(f2, f1);
-    if (hit1) this.resolveStrike(f1, f2, hit1);
-    if (hit2) this.resolveStrike(f2, f1, hit2);
+    if (hit1) this.applyHit(f1, f2, this.specFromMove(f1, hit1));
+    if (hit2) this.applyHit(f2, f1, this.specFromMove(f2, hit2));
+    this.updateProjectiles();
 
     // 4. 物理与约束
     if (f1.hitstop === 0) this.physics(f1);
@@ -312,7 +345,7 @@ export class FightSim {
     return toWorldBox(def, f.x, f.y, f.facing);
   }
 
-  /** 打击无敌：翻滚前段、后撤步前段、倒地、起身、投技演出中、超必杀启动、浮空段数用尽、KO */
+  /** 打击无敌：翻滚前段、后撤步前段、倒地、起身、投技演出中、超必杀启动 / 闪避、浮空段数用尽、KO */
   isStrikeInvulnerable(f: FighterState): boolean {
     switch (f.state) {
       case 'roll_fwd':
@@ -339,7 +372,18 @@ export class FightSim {
   }
 
   isThrowable(f: FighterState): boolean {
-    return !f.airborne && THROWABLE.has(f.state);
+    if (f.airborne || !THROWABLE.has(f.state)) return false;
+    if (f.state === 'attack') {
+      const m = this.move(f);
+      if (m?.dodge && m.invuln && f.stateFrame < m.invuln) return false;
+    }
+    return true;
+  }
+
+  /** 当前帧是否带霸体且尚未被消耗 */
+  hasArmor(f: FighterState): boolean {
+    if (f.state !== 'attack' || f.armorBroken) return false;
+    return !!this.currentFrame(f)?.armor;
   }
 
   hurtboxes(f: FighterState, ignoreJuggleCap = false): Box[] {
@@ -355,6 +399,7 @@ export class FightSim {
     return boxes.map((b) => toWorldBox(b, f.x, f.y, f.facing));
   }
 
+  /** 当前帧攻击框（世界坐标），已排除本招已命中的段。弹反框与抓取框也由此返回，由调用方区分。 */
   hitboxes(f: FighterState): Box[] {
     if (f.state !== 'attack') return [];
     const fd = this.currentFrame(f);
@@ -371,13 +416,29 @@ export class FightSim {
 
   currentFrame(f: FighterState): FrameData | null {
     const m = this.move(f);
-    return m && (f.state === 'attack' || f.state === 'throw') ? frameAt(m, f.stateFrame) : null;
+    return m && f.state === 'attack' ? frameAt(m, f.stateFrame) : null;
   }
 
   /** 是否正在防御（含防御硬直中） */
   isGuarding(f: FighterState): boolean {
     if (f.airborne || !GUARD_CAPABLE.has(f.state)) return false;
     return horizontalRelative(f.bits, f.facing) === -1;
+  }
+
+  installDef(f: FighterState): InstallDef | null {
+    if (!f.install) return null;
+    return f.def.moves.find((m) => m.install?.id === f.install)?.install ?? null;
+  }
+
+  /** 应用强化 / 疲劳的移速倍率 */
+  private speed(f: FighterState, v: number): number {
+    const inst = this.installDef(f);
+    if (inst) return Math.floor((v * inst.speedNum) / inst.speedDen);
+    if (f.fatigueFrames > 0) {
+      const d = f.def.moves.find((m) => m.install)?.install;
+      if (d) return Math.floor((v * d.fatigueSpeedNum) / d.fatigueSpeedDen);
+    }
+    return v;
   }
 
   // ---------- 每帧状态推进 ----------
@@ -387,25 +448,44 @@ export class FightSim {
     if (f.history.length > INPUT_HISTORY) f.history.shift();
   }
 
+  /** 强化 / 疲劳 / 灼烧计时（不受打击定格影响） */
+  private tickStatus(f: FighterState): void {
+    if (f.install && --f.installFrames <= 0) {
+      const d = this.installDef(f);
+      f.install = null;
+      f.installFrames = 0;
+      f.fatigueFrames = d?.fatigueFrames ?? 0;
+    } else if (f.fatigueFrames > 0) {
+      f.fatigueFrames--;
+    }
+    if (f.burnFrames > 0 && f.state !== 'ko') {
+      f.burnFrames--;
+      f.burnTick += f.burnDps;
+      while (f.burnTick >= LOGIC_FPS) {
+        f.burnTick -= LOGIC_FPS;
+        if (f.hp > BURN_HP_FLOOR) f.hp--;
+      }
+      if (f.burnFrames === 0) f.burnTick = 0;
+    }
+  }
+
   private updateFighter(f: FighterState, opp: FighterState, bits: number): void {
     const pressed = bits & ~f.bits;
     f.prevBits = f.bits;
     f.bits = bits;
     this.pushHistory(f, bits);
 
-    // 按键缓冲：任何状态下都记录，几帧内可被消费
     if (pressed & ANY_ATTACK) {
       f.buffered |= pressed & ANY_ATTACK;
       f.bufferTtl = BUTTON_BUFFER;
     }
 
-    // 回到中立状态时连段计数清零
     if (NEUTRAL.has(f.state) && f.comboHits > 0) {
       f.comboHits = 0;
       f.comboDamage = 0;
     }
 
-    // 打击定格：世界冻结，缓冲也冻结（定格中输入的取消指令必须保留到定格结束）
+    // 打击定格：世界冻结，缓冲也冻结
     if (f.hitstop > 0) {
       f.hitstop--;
       return;
@@ -462,7 +542,7 @@ export class FightSim {
           const h = horizontalRelative(bits, f.facing);
           f.airborne = true;
           f.vy = f.hopPending ? mv.hopVelocityY : mv.jumpVelocityY;
-          f.vx = h * mv.jumpVelocityX * f.facing;
+          f.vx = h * this.speed(f, mv.jumpVelocityX) * f.facing;
           setState(f, h === 1 ? 'jump_fwd' : h === -1 ? 'jump_back' : 'jump_neutral');
         }
         return;
@@ -474,7 +554,7 @@ export class FightSim {
       case 'backdash': {
         f.stateFrame++;
         const remain = mv.backdashFrames - f.stateFrame;
-        f.vx = -f.facing * Math.floor((mv.backdashSpeed * Math.max(remain, 0)) / mv.backdashFrames);
+        f.vx = -f.facing * Math.floor((this.speed(f, mv.backdashSpeed) * Math.max(remain, 0)) / mv.backdashFrames);
         if (f.stateFrame >= mv.backdashFrames) {
           f.vx = 0;
           setState(f, 'idle');
@@ -485,7 +565,7 @@ export class FightSim {
       case 'roll_back': {
         f.stateFrame++;
         const dir = f.state === 'roll_fwd' ? 1 : -1;
-        f.vx = f.stateFrame < (mv.rollFrames * 3) >> 2 ? dir * f.facing * mv.rollSpeed : 0;
+        f.vx = f.stateFrame < (mv.rollFrames * 3) >> 2 ? dir * f.facing * this.speed(f, mv.rollSpeed) : 0;
         if (f.stateFrame >= mv.rollFrames) {
           f.vx = 0;
           setState(f, 'idle');
@@ -495,9 +575,9 @@ export class FightSim {
       case 'attack': {
         const m = this.move(f);
         f.stateFrame++;
-        // 取消：命中 / 被防御后的窗口内可接更高等级招式或 chain 目标
         if (m && f.hasHit && f.stateFrame <= f.cancelUntil && this.tryAttack(f, opp, bits, effPressed, m)) return;
         const fd = m ? frameAt(m, f.stateFrame) : null;
+        if (m) this.spawnProjectiles(f, m);
         if (fd?.velocity?.x) f.vx = px(fd.velocity.x) * f.facing;
         else if (!f.airborne) f.vx = 0;
         if (!fd) {
@@ -513,7 +593,6 @@ export class FightSim {
 
     // ---- 可操作状态（idle / walk / crouch / dash / 空中）----
 
-    // 翻滚 A+B（地面）
     if (!f.airborne && pressedTogether(bits, pressed, Btn.A, Btn.B)) {
       const h = horizontalRelative(bits, f.facing);
       f.buffered = 0;
@@ -521,7 +600,6 @@ export class FightSim {
       return;
     }
 
-    // 出招（含搓招、C+D 吹飞、投技）
     if (this.tryAttack(f, opp, bits, effPressed, null)) return;
 
     if (f.airborne) {
@@ -533,22 +611,20 @@ export class FightSim {
     const up = has(bits, Btn.Up);
     const down = has(bits, Btn.Down);
 
-    // 前冲（奔跑）：66 触发，按住前进持续
     if (f.state === 'dash') {
       if (h === 1 && !up && !down) {
-        f.vx = f.facing * mv.runSpeed;
+        f.vx = f.facing * this.speed(f, mv.runSpeed);
         f.stateFrame++;
         return;
       }
     } else if (h === 1 && !up && !down && isDoubleTap(f.history, 1)) {
-      f.vx = f.facing * mv.runSpeed;
+      f.vx = f.facing * this.speed(f, mv.runSpeed);
       setState(f, 'dash');
       return;
     }
-    // 后撤步：44
     if (h === -1 && !up && !down && isDoubleTap(f.history, -1)) {
       setState(f, 'backdash');
-      f.vx = -f.facing * mv.backdashSpeed;
+      f.vx = -f.facing * this.speed(f, mv.backdashSpeed);
       return;
     }
 
@@ -564,10 +640,10 @@ export class FightSim {
       return;
     }
     if (h === 1) {
-      f.vx = mv.walkFwdSpeed * f.facing;
+      f.vx = this.speed(f, mv.walkFwdSpeed) * f.facing;
       setState(f, 'walk_fwd');
     } else if (h === -1) {
-      f.vx = -mv.walkBackSpeed * f.facing;
+      f.vx = -this.speed(f, mv.walkBackSpeed) * f.facing;
       setState(f, 'walk_back');
     } else {
       f.vx = 0;
@@ -576,8 +652,9 @@ export class FightSim {
   }
 
   /**
-   * 按键 → 选招。优先级：投技 > 搓招（超必杀 > 特殊技）> 双键 > 单键普通技。
-   * from 非空表示取消：只允许更高等级或 chain 列表内的目标，且不允许投技。
+   * 按键 → 选招。优先级：搓招（终极 > 超 > 特殊）> 普通投 > 双键 > 单键普通技（方向派生优先）。
+   * 搓招优先于投技：贴身 236+C 必须出特殊技而不是投（KOF 口径）。
+   * from 非空表示取消：只允许更高等级或 chain 列表内的目标，且不允许普通投。
    */
   private tryAttack(f: FighterState, opp: FighterState, bits: number, pressed: number, from: MoveData | null): boolean {
     if (!(pressed & ANY_ATTACK)) return false;
@@ -587,7 +664,24 @@ export class FightSim {
     const allowed = (m: MoveData) =>
       !from || MOVE_RANK[m.type] > MOVE_RANK[from.type] || (from.chain?.includes(m.id) ?? false);
 
-    // 投技：地面站立，按住 4/6，对手可抓且在距离内（不可作为取消）
+    const motionStanceOk = (m: MoveData) =>
+      m.input.stance === stance || (m.input.stance === 'stand' && stance === 'crouch');
+    for (const motion of MOTION_PRIORITY) {
+      let matched: boolean | null = null;
+      // 同一指令下终极 > 超 > 特殊
+      const cands = f.def.moves
+        .filter((m) => m.input.motion === motion && motionStanceOk(m) && (pressed & m.input.button) !== 0)
+        .sort((a, b) => MOVE_RANK[b.type] - MOVE_RANK[a.type]);
+      for (const m of cands) {
+        if (!allowed(m)) continue;
+        if ((m.meterCost ?? 0) > f.meter) continue;
+        matched ??= matchMotion(f.history, motion);
+        if (!matched) break;
+        this.startMove(f, m);
+        return true;
+      }
+    }
+
     if (!from && stance === 'stand' && h !== 0) {
       for (const m of f.def.moves) {
         if (m.type !== 'throw' || !m.throwData) continue;
@@ -600,23 +694,6 @@ export class FightSim {
       }
     }
 
-    // 搓招：按优先级逐个指令匹配。地面搓招不分站蹲（22 系列收招时必然按着下）
-    const motionStanceOk = (m: MoveData) =>
-      m.input.stance === stance || (m.input.stance === 'stand' && stance === 'crouch');
-    for (const motion of MOTION_PRIORITY) {
-      let matched: boolean | null = null;
-      for (const m of f.def.moves) {
-        if (m.input.motion !== motion || !motionStanceOk(m) || !(pressed & m.input.button)) continue;
-        if (!allowed(m)) continue;
-        if ((m.meterCost ?? 0) > f.meter) continue;
-        matched ??= matchMotion(f.history, motion);
-        if (!matched) break;
-        this.startMove(f, m);
-        return true;
-      }
-    }
-
-    // 双键
     for (const m of f.def.moves) {
       if (!m.input.plus || m.input.motion || m.input.stance !== stance || !allowed(m)) continue;
       if (pressedTogether(bits, pressed, m.input.button as AttackButton, m.input.plus)) {
@@ -625,10 +702,9 @@ export class FightSim {
       }
     }
 
-    // 单键普通技
     for (const b of ATTACK_BUTTONS) {
       if (!(pressed & b)) continue;
-      const m = this.findNormal(f, stance, b);
+      const m = this.findNormal(f, stance, b, h, has(bits, Btn.Down));
       if (m && allowed(m)) {
         this.startMove(f, m);
         return true;
@@ -637,17 +713,22 @@ export class FightSim {
     return false;
   }
 
-  private findNormal(f: FighterState, stance: Stance, b: AttackButton): MoveData | null {
-    return (
-      f.def.moves.find(
-        (m) =>
-          (m.type === 'normal' || m.type === 'command_normal') &&
-          m.input.stance === stance &&
-          m.input.button === b &&
-          !m.input.plus &&
-          !m.input.motion,
-      ) ?? null
-    );
+  /** 普通技选择：方向派生（6C）与按下派生（j.2D）优先于素技。 */
+  private findNormal(f: FighterState, stance: Stance, b: AttackButton, h: -1 | 0 | 1, down: boolean): MoveData | null {
+    let best: MoveData | null = null;
+    let bestScore = -1;
+    for (const m of f.def.moves) {
+      if (m.type !== 'normal' && m.type !== 'command_normal') continue;
+      if (m.input.stance !== stance || m.input.button !== b || m.input.plus || m.input.motion) continue;
+      if (m.input.direction && m.input.direction !== (h === 1 ? 6 : h === -1 ? 4 : 0)) continue;
+      if (m.input.down && !down) continue;
+      const score = (m.input.direction ? 2 : 0) + (m.input.down ? 1 : 0);
+      if (score > bestScore) {
+        best = m;
+        bestScore = score;
+      }
+    }
+    return best;
   }
 
   private startMove(f: FighterState, m: MoveData): void {
@@ -655,6 +736,7 @@ export class FightSim {
     f.moveInstance++;
     f.hitMask = 0;
     f.hasHit = false;
+    f.armorBroken = false;
     f.cancelUntil = 0;
     f.buffered = 0;
     f.bufferTtl = 0;
@@ -662,26 +744,40 @@ export class FightSim {
     if (!f.airborne) f.vx = 0;
     f.state = 'attack';
     f.stateFrame = 0;
-    const fd = frameAt(m, 0);
+    if (m.install) {
+      f.install = m.install.id;
+      f.installFrames = m.install.duration;
+      f.fatigueFrames = 0;
+    }
+    // 强化状态：特殊技启动加速（跳过前几帧，但不跳过 active）
+    const inst = this.installDef(f);
+    if (inst && m.type === 'special' && !m.install) {
+      const fa = firstActiveFrame(m);
+      if (fa > 1) f.stateFrame = Math.min(inst.specialStartupSkip, fa - 1);
+    }
+    const fd = frameAt(m, f.stateFrame);
     if (fd?.velocity?.x) f.vx = px(fd.velocity.x) * f.facing;
+    this.spawnProjectiles(f, m);
   }
 
   // ---------- 投技 ----------
 
   private startThrow(att: FighterState, def: FighterState, m: MoveData): void {
     att.moveId = m.id;
+    att.moveInstance++;
     att.hitMask = 0;
     att.hasHit = false;
     att.buffered = 0;
     att.vx = 0;
-    setState(att, 'throw');
+    att.state = 'throw';
+    att.stateFrame = 0;
     def.moveId = null;
     def.vx = 0;
     def.vy = 0;
     def.airborne = false;
     setState(def, 'thrown');
     this.holdThrown(att, def);
-    this.pushEvent('throw', att, def, m, 0, false, def.x, def.y - px(60));
+    this.pushEvent('throw', att, def, m.id, 0, false, false, def.x, def.y - px(60));
   }
 
   private holdThrown(att: FighterState, def: FighterState): void {
@@ -697,7 +793,7 @@ export class FightSim {
   private checkThrowTech(att: FighterState, def: FighterState): void {
     if (att.state !== 'throw' || def.state !== 'thrown') return;
     const m = this.move(att);
-    if (!m?.throwData || att.stateFrame > m.throwData.techWindow) return;
+    if (!m?.throwData || m.throwData.techWindow === 0 || att.stateFrame > m.throwData.techWindow) return;
     const defPressed = def.bits & ~def.prevBits;
     if (!(defPressed & (Btn.C | Btn.D))) return;
     att.moveId = null;
@@ -705,7 +801,7 @@ export class FightSim {
     setState(def, 'throw_tech');
     att.vx = -att.facing * px(3);
     def.vx = att.facing * px(3);
-    this.pushEvent('tech', att, def, m, 0, false, def.x, def.y - px(70));
+    this.pushEvent('tech', att, def, m.id, 0, false, false, def.x, def.y - px(70));
   }
 
   private tickThrow(att: FighterState, def: FighterState): void {
@@ -724,9 +820,10 @@ export class FightSim {
         att.facing = att.facing === 1 ? -1 : 1;
       }
       const dir = att.facing;
+      const damage = this.attackDamage(att, m.damage);
       def.comboHits = 1;
-      def.comboDamage = m.damage;
-      def.hp -= m.damage;
+      def.comboDamage = damage;
+      def.hp -= damage;
       def.justHit = true;
       def.airborne = true;
       def.vx = px(m.knockback.x) * dir;
@@ -736,16 +833,28 @@ export class FightSim {
       def.hardKnockdown = true;
       def.juggle = 0;
       setState(def, 'hit_air');
+      if (m.burn) this.applyBurn(def, m.burn);
       att.hasHit = true;
-      this.gainMeter(att, (m.damage * 3) >> 3);
-      this.gainMeter(def, m.damage >> 3);
-      this.pushEvent('hit', att, def, m, m.damage, false, def.x, def.y - px(60));
+      this.gainMeter(att, (damage * 3) >> 3);
+      this.gainMeter(def, damage >> 3);
+      this.pushEvent('hit', att, def, m.id, damage, false, false, def.x, def.y - px(60));
     }
 
-    if (!frameAt(m, att.stateFrame)) {
+    if (att.stateFrame >= td.duration) {
       att.moveId = null;
       setState(att, 'idle');
     }
+  }
+
+  /** 指令投：attack 状态中带 throwData 的招式，抓取框碰到可抓对手的 pushbox 即抓住。 */
+  private detectGrab(att: FighterState, def: FighterState): void {
+    if (att.state !== 'attack' || att.hitstop > 0) return;
+    const m = this.move(att);
+    if (!m?.throwData || m.reflect) return;
+    const boxes = this.hitboxes(att);
+    if (boxes.length === 0 || !this.isThrowable(def)) return;
+    const pb = this.pushbox(def);
+    if (boxes.some((b) => overlaps(b, pb))) this.startThrow(att, def, m);
   }
 
   // ---------- 打击 ----------
@@ -753,19 +862,37 @@ export class FightSim {
   private detectStrike(att: FighterState, def: FighterState): MoveData | null {
     if (att.state !== 'attack' || att.hitstop > 0) return null;
     const m = this.move(att);
-    if (!m) return null;
+    if (!m || m.reflect || m.throwData) return null;
     const hbs = this.hitboxes(att);
     if (hbs.length === 0) return null;
-    // 超必杀 / 终极技不受浮空段数限制
     const hurts = this.hurtboxes(def, m.type === 'super' || m.type === 'ultimate');
     for (const hb of hbs) for (const hu of hurts) if (overlaps(hb, hu)) return m;
     return null;
   }
 
-  private canBlock(def: FighterState, m: MoveData): boolean {
-    if (m.guard === 'unblockable' || !this.isGuarding(def)) return false;
+  private specFromMove(att: FighterState, m: MoveData): HitSpec {
+    return {
+      moveId: m.id,
+      moveInstance: att.moveInstance,
+      type: m.type,
+      damage: m.damage,
+      guard: m.guard,
+      hitstun: m.hitstun,
+      blockstun: m.blockstun,
+      hitstop: m.hitstop,
+      knockback: m.knockback,
+      knockdown: !!m.knockdown,
+      wallBounce: !!m.wallBounce,
+      burn: m.burn ?? null,
+      armorBreak: !!m.armorBreak,
+      projectile: null,
+    };
+  }
+
+  private canBlock(def: FighterState, guard: GuardType): boolean {
+    if (guard === 'unblockable' || !this.isGuarding(def)) return false;
     const crouching = has(def.bits, Btn.Down);
-    switch (m.guard) {
+    switch (guard) {
       case 'mid':
         return true;
       case 'high':
@@ -775,70 +902,228 @@ export class FightSim {
     }
   }
 
-  private resolveStrike(att: FighterState, def: FighterState, m: MoveData): void {
-    const fd = this.currentFrame(att);
-    const hbPx = fd?.hitboxes?.[0];
-    const hb = hbPx ? toWorldBox(hbPx, att.x, att.y, att.facing) : null;
-    att.hitMask |= 1 << (fd?.hitId ?? 1);
-    const ex = hb ? hb.x + (hb.w >> 1) : def.x;
-    const ey = hb ? hb.y + (hb.h >> 1) : def.y - px(60);
-    const dir = att.facing;
+  /** 强化状态伤害倍率 */
+  private attackDamage(att: FighterState, base: number): number {
+    const inst = this.installDef(att);
+    return inst ? Math.floor((base * inst.damageNum) / inst.damageDen) : base;
+  }
 
-    // 命中或被防御后都开取消窗口
-    att.hasHit = true;
-    att.cancelUntil = att.stateFrame + (m.cancelWindow ?? DEFAULT_CANCEL_WINDOW);
+  private applyBurn(def: FighterState, burn: BurnDef): void {
+    def.burnFrames = burn.frames;
+    def.burnDps = burn.dps;
+  }
 
-    if (this.canBlock(def, m)) {
-      att.hitstop = m.hitstop;
-      def.hitstop = m.hitstop;
+  /** 统一命中结算：招式或飞行道具 → 防御 / 霸体 / 命中。 */
+  private applyHit(att: FighterState, def: FighterState, spec: HitSpec): void {
+    const proj = spec.projectile;
+    let ex: number;
+    let ey: number;
+    if (proj) {
+      const b = toWorldBox(proj.box, proj.x, proj.y, proj.facing);
+      ex = b.x + (b.w >> 1);
+      ey = b.y + (b.h >> 1);
+    } else {
+      const fd = this.currentFrame(att);
+      const hbPx = fd?.hitboxes?.[0];
+      const hb = hbPx ? toWorldBox(hbPx, att.x, att.y, att.facing) : null;
+      att.hitMask |= 1 << (fd?.hitId ?? 1);
+      ex = hb ? hb.x + (hb.w >> 1) : def.x;
+      ey = hb ? hb.y + (hb.h >> 1) : def.y - px(60);
+      // 命中或被防御后都开取消窗口
+      att.hasHit = true;
+      const m = this.move(att);
+      att.cancelUntil = att.stateFrame + (m?.cancelWindow ?? DEFAULT_CANCEL_WINDOW);
+    }
+    const dir: 1 | -1 = proj ? (proj.vx >= 0 ? 1 : -1) : att.facing;
+
+    if (this.canBlock(def, spec.guard)) {
+      if (!proj) att.hitstop = spec.hitstop;
+      def.hitstop = spec.hitstop;
       def.justBlocked = true;
-      def.stun = m.blockstun;
-      def.vx = ((px(m.knockback.x) * BLOCK_PUSHBACK_NUM) >> 3) * dir;
+      def.stun = spec.blockstun;
+      def.vx = ((px(spec.knockback.x) * BLOCK_PUSHBACK_NUM) >> 3) * dir;
       setState(def, has(def.bits, Btn.Down) ? 'block_crouch' : 'block_stand');
-      this.gainMeter(att, m.damage >> 4);
+      this.gainMeter(att, spec.damage >> 4);
       this.gainMeter(def, 4);
-      this.pushEvent('block', att, def, m, 0, false, ex, ey);
+      this.pushEvent('block', att, def, spec.moveId, 0, false, !!proj, ex, ey);
       return;
     }
 
-    // 反击：对手正处于出招的启动 / active 阶段
+    // 霸体：扣血但不中断，每招一次
+    if (!spec.armorBreak && this.hasArmor(def)) {
+      const damage = this.attackDamage(att, spec.damage);
+      def.armorBroken = true;
+      def.hp -= damage;
+      def.justHit = true;
+      if (!proj) att.hitstop = spec.hitstop;
+      def.hitstop = spec.hitstop >> 1;
+      if (spec.burn) this.applyBurn(def, spec.burn);
+      this.gainMeter(att, (damage * 3) >> 3);
+      this.gainMeter(def, damage >> 3);
+      this.pushEvent('armor', att, def, spec.moveId, damage, false, !!proj, ex, ey);
+      return;
+    }
+
     const defMove = this.move(def);
     const counter = def.state === 'attack' && !!defMove && inStartupOrActive(defMove, def.stateFrame);
 
-    // 连段计数与衰减
     def.comboHits = IN_COMBO.has(def.state) ? def.comboHits + 1 : 1;
-    let damage = scaledDamage(m.damage, def.comboHits);
+    let damage = scaledDamage(this.attackDamage(att, spec.damage), def.comboHits);
     if (counter) damage = (damage * 5) >> 2;
     def.comboDamage += damage;
 
-    att.hitstop = m.hitstop;
-    def.hitstop = m.hitstop;
+    if (!proj) att.hitstop = spec.hitstop;
+    def.hitstop = spec.hitstop;
     def.hp -= damage;
     def.justHit = true;
     def.moveId = null;
     this.gainMeter(att, (damage * 3) >> 3);
     this.gainMeter(def, damage >> 3);
+    if (spec.burn) this.applyBurn(def, spec.burn);
 
-    const hitstun = m.hitstun + (counter ? COUNTER_BONUS_STUN : 0);
-    const launch = m.knockback.y !== 0 || def.airborne || m.knockdown;
+    const hitstun = spec.hitstun + (counter ? COUNTER_BONUS_STUN : 0);
+    const launch = spec.knockback.y !== 0 || def.airborne || spec.knockdown;
     if (launch) {
-      // 浮空段数按攻击方的招式实例计：同一招的多段只算一次
       if (!def.airborne) def.juggle = 1;
-      else if (def.juggleInstance !== att.moveInstance) def.juggle++;
-      def.juggleInstance = att.moveInstance;
+      else if (def.juggleInstance !== spec.moveInstance) def.juggle++;
+      def.juggleInstance = spec.moveInstance;
       def.airborne = true;
-      def.vx = px(m.knockback.x) * dir;
-      def.vy = m.knockback.y !== 0 ? px(m.knockback.y) : m.knockdown ? px(-4) : px(-3);
+      def.vx = px(spec.knockback.x) * dir;
+      def.vy = spec.knockback.y !== 0 ? px(spec.knockback.y) : spec.knockdown ? px(-4) : px(-3);
       def.stun = hitstun;
-      def.wallBounce = !!m.wallBounce;
-      def.hardKnockdown = !!m.knockdown;
+      def.wallBounce = spec.wallBounce;
+      def.hardKnockdown = spec.knockdown;
       setState(def, 'hit_air');
     } else {
-      def.vx = px(m.knockback.x) * dir;
+      def.vx = px(spec.knockback.x) * dir;
       def.stun = hitstun;
       setState(def, this.stance(def) === 'crouch' ? 'hit_crouch' : 'hit_stand');
     }
-    this.pushEvent('hit', att, def, m, damage, counter, ex, ey);
+    this.pushEvent('hit', att, def, spec.moveId, damage, counter, !!proj, ex, ey);
+  }
+
+  // ---------- 飞行道具 ----------
+
+  private spawnProjectiles(f: FighterState, m: MoveData): void {
+    if (!m.projectiles) return;
+    for (const s of m.projectiles) {
+      if (s.frame !== f.stateFrame) continue;
+      this.projectiles.push({
+        id: this.nextProjectileId++,
+        owner: f.player,
+        kind: s.kind,
+        moveId: m.id,
+        moveInstance: f.moveInstance,
+        x: f.x + f.facing * px(s.x),
+        y: f.y + px(s.y),
+        vx: f.facing * px(s.vx),
+        vy: px(s.vy),
+        gravity: px(s.gravity ?? 0),
+        facing: f.facing,
+        ttl: s.ttl,
+        box: s.box,
+        durability: s.durability ?? 1,
+        damage: s.damage ?? m.damage,
+        guard: s.guard ?? m.guard,
+        hitstun: s.hitstun ?? m.hitstun,
+        blockstun: s.blockstun ?? m.blockstun,
+        hitstop: m.hitstop,
+        knockback: s.knockback ?? m.knockback,
+        burn: m.burn ?? null,
+        dieOnGround: !!s.dieOnGround,
+        reflected: false,
+      });
+    }
+  }
+
+  projectileBox(p: ProjectileState): Box {
+    return toWorldBox(p.box, p.x, p.y, p.facing);
+  }
+
+  private updateProjectiles(): void {
+    if (this.projectiles.length === 0) return;
+    const alive: ProjectileState[] = [];
+
+    // 1. 移动
+    for (const p of this.projectiles) {
+      p.x += p.vx;
+      p.vy += p.gravity;
+      p.y += p.vy;
+      p.ttl--;
+      if (p.ttl <= 0) continue;
+      if (p.dieOnGround && p.y >= GROUND_Y) continue;
+      if (p.x < STAGE_LEFT - px(80) || p.x > STAGE_RIGHT + px(80)) continue;
+      alive.push(p);
+    }
+
+    // 2. 对消：不同持有者的道具相碰，各扣一点耐久
+    for (let i = 0; i < alive.length; i++) {
+      for (let j = i + 1; j < alive.length; j++) {
+        const a = alive[i]!;
+        const b = alive[j]!;
+        if (a.owner === b.owner || a.durability <= 0 || b.durability <= 0) continue;
+        if (!overlaps(this.projectileBox(a), this.projectileBox(b))) continue;
+        a.durability--;
+        b.durability--;
+        const att = this.fighters[a.owner];
+        const def = this.fighters[b.owner];
+        this.pushEvent('clash', att, def, a.moveId, 0, false, true, a.x, a.y);
+      }
+    }
+
+    // 3. 弹反 → 命中
+    const survivors: ProjectileState[] = [];
+    for (const p of alive) {
+      if (p.durability <= 0) continue;
+      const def = this.fighters[p.owner === 0 ? 1 : 0];
+      const att = this.fighters[p.owner];
+      const box = this.projectileBox(p);
+
+      // 弹反：对手正处于弹反招式的 active 帧
+      const defMove = this.move(def);
+      if (def.state === 'attack' && defMove?.reflect && def.hitstop === 0) {
+        const rb = (this.currentFrame(def)?.hitboxes ?? []).map((b) => toWorldBox(b, def.x, def.y, def.facing));
+        if (rb.some((b) => overlaps(b, box))) {
+          p.owner = def.player;
+          p.vx = -p.vx;
+          p.facing = p.facing === 1 ? -1 : 1;
+          p.reflected = true;
+          p.durability = Math.max(p.durability, 1);
+          p.moveInstance = def.moveInstance;
+          def.hasHit = true;
+          def.cancelUntil = def.stateFrame + (defMove.cancelWindow ?? DEFAULT_CANCEL_WINDOW);
+          this.gainMeter(def, 10);
+          this.pushEvent('reflect', def, att, p.moveId, 0, false, true, p.x, p.y);
+          survivors.push(p);
+          continue;
+        }
+      }
+
+      // 命中（打击定格中的对手也会被道具命中，与角色打击一致）
+      const hurts = this.hurtboxes(def, false);
+      if (hurts.some((h) => overlaps(h, box))) {
+        this.applyHit(att, def, {
+          moveId: p.moveId,
+          moveInstance: p.moveInstance,
+          type: 'special',
+          damage: p.damage,
+          guard: p.guard,
+          hitstun: p.hitstun,
+          blockstun: p.blockstun,
+          hitstop: p.hitstop,
+          knockback: p.knockback,
+          knockdown: false,
+          wallBounce: false,
+          burn: p.burn,
+          armorBreak: false,
+          projectile: p,
+        });
+        p.durability--;
+        if (p.durability <= 0) continue;
+      }
+      survivors.push(p);
+    }
+    this.projectiles = survivors;
   }
 
   private gainMeter(f: FighterState, amount: number): void {
@@ -849,9 +1134,10 @@ export class FightSim {
     kind: HitKind,
     att: FighterState,
     def: FighterState,
-    m: MoveData,
+    moveId: string,
     damage: number,
     counter: boolean,
+    projectile: boolean,
     x: number,
     y: number,
   ): void {
@@ -860,11 +1146,12 @@ export class FightSim {
       kind,
       attacker: att.player,
       defender: def.player,
-      moveId: m.id,
+      moveId,
       damage,
       counter,
       comboHits: def.comboHits,
       comboDamage: def.comboDamage,
+      projectile,
       x,
       y,
     });
@@ -881,7 +1168,8 @@ export class FightSim {
       case 'throw': {
         const m = this.move(f);
         f.stateFrame++;
-        if (!m || !frameAt(m, f.stateFrame)) {
+        const ended = f.state === 'throw' ? !m?.throwData || f.stateFrame >= m.throwData.duration : !m || !frameAt(m, f.stateFrame);
+        if (ended) {
           f.moveId = null;
           setState(f, f.airborne ? 'jump_neutral' : 'idle');
         }
@@ -921,7 +1209,6 @@ export class FightSim {
         f.juggle = 0;
         if (f.hp <= 0) setState(f, 'ko');
         else if (f.state === 'hit_air') {
-          // 受身：软倒 + 落地瞬间按住任意攻击键 → 直接起身
           if (!f.hardKnockdown && (f.bits & ANY_ATTACK)) setState(f, 'getup');
           else setState(f, 'knockdown');
         } else {
@@ -1040,6 +1327,13 @@ function createFighter(def: FighterDef, player: PlayerIndex, x: number, facing: 
     justBlocked: false,
     wallBounce: false,
     hopPending: false,
+    armorBroken: false,
+    install: null,
+    installFrames: 0,
+    fatigueFrames: 0,
+    burnFrames: 0,
+    burnDps: 0,
+    burnTick: 0,
   };
 }
 

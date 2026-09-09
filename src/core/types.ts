@@ -64,6 +64,8 @@ export interface FrameData {
   hitId?: number;
   /** 本帧位移（像素 / 帧），面朝右为正 */
   velocity?: { x?: number; y?: number };
+  /** 霸体帧：被打击时扣血但不中断（每招一次） */
+  armor?: boolean;
 }
 
 export interface Knockback {
@@ -79,23 +81,109 @@ export interface MoveInput {
   button: number;
   /** 双键同按（如 C+D 吹飞）。A+B 保留给翻滚。 */
   plus?: AttackButton;
-  /** 需要同时按住的相对方向：4 后 / 6 前（投技） */
+  /** 需要同时按住的相对方向：4 后 / 6 前（投技、特殊普通技） */
   direction?: 4 | 6;
+  /** 需要按住下（空中 ↓+D 等） */
+  down?: boolean;
   /** 摇杆指令（特殊技 / 超必杀） */
   motion?: MotionId;
 }
 
 export interface ThrowData {
-  /** 可抓距离（像素，双方原点水平距离） */
+  /** 可抓距离（像素，双方原点水平距离）。指令投用抓取框代替，此值可为 0 */
   range: number;
-  /** 拆投窗口（帧，自抓住起） */
+  /** 拆投窗口（帧，自抓住起）；0 = 不可拆（指令投） */
   techWindow: number;
-  /** 伤害与击飞生效帧 */
+  /** 伤害与击飞生效帧（自抓住起） */
   releaseFrame: number;
+  /** 抓住演出总帧数 */
+  duration: number;
   /** 抓住时对手相对攻击者的水平偏移（像素，面朝方向为正） */
   holdOffset: number;
   /** 4+按键 时把对手甩到身后 */
   switchSides: boolean;
+}
+
+/** 飞行道具生成（挂在招式上，frame 为招式内的帧号） */
+export interface ProjectileSpawn {
+  frame: number;
+  /** 渲染种类标识 */
+  kind: string;
+  /** 生成位置（像素，相对角色原点，面朝右） */
+  x: number;
+  y: number;
+  /** 速度（像素 / 帧，面朝方向为正） */
+  vx: number;
+  vy: number;
+  /** 重力（像素 / 帧²），省略 0 */
+  gravity?: number;
+  /** 存活帧数 */
+  ttl: number;
+  /** 判定框（相对道具位置，面朝右） */
+  box: BoxPx;
+  /** 可承受的对消次数（默认 1） */
+  durability?: number;
+  /** 覆盖招式的伤害 / 硬直 / 击退（省略继承） */
+  damage?: number;
+  hitstun?: number;
+  blockstun?: number;
+  knockback?: Knockback;
+  guard?: GuardType;
+  /** 落地即消失 */
+  dieOnGround?: boolean;
+}
+
+/** 持续伤害（灼烧） */
+export interface BurnDef {
+  /** 每秒伤害 */
+  dps: number;
+  /** 持续帧数 */
+  frames: number;
+}
+
+/** 强化状态（二档） */
+export interface InstallDef {
+  id: string;
+  duration: number;
+  /** 移速倍率（分子 / 分母，整数运算） */
+  speedNum: number;
+  speedDen: number;
+  /** 特殊技启动减少的帧数 */
+  specialStartupSkip: number;
+  /** 伤害倍率 */
+  damageNum: number;
+  damageDen: number;
+  /** 结束后疲劳帧数与移速倍率 */
+  fatigueFrames: number;
+  fatigueSpeedNum: number;
+  fatigueSpeedDen: number;
+}
+
+export interface ProjectileState {
+  id: number;
+  owner: PlayerIndex;
+  kind: string;
+  moveId: string;
+  moveInstance: number;
+  x: number; // 子像素
+  y: number;
+  vx: number;
+  vy: number;
+  gravity: number;
+  facing: Facing;
+  ttl: number;
+  box: BoxPx;
+  durability: number;
+  damage: number;
+  guard: GuardType;
+  hitstun: number;
+  blockstun: number;
+  hitstop: number;
+  knockback: Knockback;
+  burn: BurnDef | null;
+  dieOnGround: boolean;
+  /** 被弹反后为 true（渲染变色） */
+  reflected: boolean;
 }
 
 export type MoveType = 'normal' | 'command_normal' | 'blowback' | 'special' | 'super' | 'ultimate' | 'throw';
@@ -136,8 +224,20 @@ export interface MoveData {
   cancelWindow?: number;
   /** 同级链式目标（普通技 → 普通技），move id 列表 */
   chain?: readonly string[];
-  /** 投技参数（type === 'throw'） */
+  /** 投技参数（type === 'throw' 为普通投；带 frames/hitboxes 的为指令投，hitbox 即抓取框） */
   throwData?: ThrowData;
+  /** 无视对手霸体 */
+  armorBreak?: boolean;
+  /** 命中附加灼烧 */
+  burn?: BurnDef;
+  /** 飞行道具 */
+  projectiles?: readonly ProjectileSpawn[];
+  /** 弹反：hitbox 只对飞行道具生效，把它们反弹给对手 */
+  reflect?: boolean;
+  /** 强化状态 */
+  install?: InstallDef;
+  /** 闪避：invuln 帧内对打击与投技全无敌 */
+  dodge?: boolean;
   frames: readonly FrameData[];
 }
 
@@ -259,6 +359,17 @@ export interface FighterState {
   wallBounce: boolean;
   /** 小跳标记（prejump 结束时决定） */
   hopPending: boolean;
+  /** 本次出招的霸体是否已被消耗 */
+  armorBroken: boolean;
+  /** 强化状态 id 与剩余帧 */
+  install: string | null;
+  installFrames: number;
+  /** 强化结束后的疲劳剩余帧 */
+  fatigueFrames: number;
+  /** 灼烧剩余帧 / 每秒伤害 / 结算计数 */
+  burnFrames: number;
+  burnDps: number;
+  burnTick: number;
 }
 
 export type Phase = 'intro' | 'fight' | 'round_end' | 'match_end';
@@ -266,6 +377,7 @@ export type Phase = 'intro' | 'fight' | 'round_end' | 'match_end';
 export interface WorldState {
   frame: number;
   fighters: readonly [FighterState, FighterState];
+  projectiles: readonly ProjectileState[];
   cameraX: number;
   phase: Phase;
   phaseFrame: number;
@@ -280,9 +392,9 @@ export interface WorldState {
   winner: PlayerIndex | null;
 }
 
-export type HitKind = 'hit' | 'block' | 'throw' | 'tech';
+export type HitKind = 'hit' | 'block' | 'throw' | 'tech' | 'armor' | 'reflect' | 'clash' | 'burn';
 
-/** 一次命中 / 防御 / 投技事件，供渲染层做特效 / 音效。 */
+/** 一次命中 / 防御 / 投技等事件，供渲染层做特效 / 音效。 */
 export interface HitEvent {
   frame: number;
   kind: HitKind;
@@ -293,6 +405,8 @@ export interface HitEvent {
   counter: boolean;
   comboHits: number;
   comboDamage: number;
+  /** 由飞行道具造成 */
+  projectile: boolean;
   x: number; // 子像素
   y: number;
 }

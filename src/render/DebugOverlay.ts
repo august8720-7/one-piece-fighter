@@ -39,6 +39,8 @@ export class DebugOverlay {
         for (const b of sim.hitboxes(f)) rect(b);
         g.fillStyle(0xffffff, 1).fillRect(toX(f.x) - 1, toY(f.y) - 1, 3, 3);
       }
+      g.lineStyle(1, 0xff9f1c, 1);
+      for (const p of w.projectiles) rect(sim.projectileBox(p));
     }
 
     const lines: string[] = [];
@@ -51,9 +53,12 @@ export class DebugOverlay {
           `P${f.player + 1} ${f.def.id.padEnd(6)} ${st.padEnd(14)} sf ${String(f.stateFrame).padStart(3)} ` +
             `hs ${String(f.hitstop).padStart(2)} st ${String(Math.min(f.stun, 99)).padStart(2)} ${flags} ` +
             `x ${(f.x / SUBPIXEL).toFixed(1).padStart(7)} y ${(f.y / SUBPIXEL).toFixed(1).padStart(6)} ` +
-            `hp ${String(f.hp).padStart(4)} m ${String(f.meter).padStart(3)} c ${f.comboHits} j ${f.juggle} ${f.facing === 1 ? '>' : '<'}`,
+            `hp ${String(f.hp).padStart(4)} m ${String(f.meter).padStart(3)} c ${f.comboHits} j ${f.juggle} ` +
+            `${f.install ? `G2:${Math.ceil(f.installFrames / 60)}s ` : ''}${f.burnFrames > 0 ? `burn:${Math.ceil(f.burnFrames / 60)}s ` : ''}` +
+            `${f.facing === 1 ? '>' : '<'}`,
         );
       }
+      if (w.projectiles.length) lines.push(`proj ${w.projectiles.map((p) => `${p.kind}@${(p.x / SUBPIXEL).toFixed(0)}`).join(' ')}`);
     }
     if (this.showInputs) {
       const [f1, f2] = w.fighters;

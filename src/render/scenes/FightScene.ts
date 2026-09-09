@@ -8,6 +8,7 @@ import {
   VIEW_H,
   VIEW_W,
   type FighterState,
+  type ProjectileState,
   type WorldState,
 } from '@core/index';
 import { characters } from '@characters/index';
@@ -52,7 +53,7 @@ export class FightScene extends Phaser.Scene {
     this.debug = new DebugOverlay(this);
 
     this.add
-      .text(VIEW_W / 2, VIEW_H - 12, 'P1 WASD+JKUI  P2 Arrows+Num1245 | back=guard 4/6+C=throw A+B=roll C+D=blowback 66/44 dash | 236P 214K 623P 22K 236236P', {
+      .text(VIEW_W / 2, VIEW_H - 12, 'P1 WASD+JKUI  P2 Arrows+Num1245 | back=guard 4/6+C=throw A+B=roll C+D=blowback 66/44 dash | 236/214/623/22 +P/K  236236/214214 super  236236K ultimate', {
         fontFamily: 'monospace',
         fontSize: '7px',
         color: '#6c7a89',
@@ -71,6 +72,9 @@ export class FightScene extends Phaser.Scene {
         if (h.kind === 'block') this.popup('BLOCK', h.x, h.y, '#48cae4');
         else if (h.kind === 'tech') this.popup('TECH!', h.x, h.y, '#ffd60a');
         else if (h.kind === 'throw') this.popup('THROW', h.x, h.y, '#ff9f1c');
+        else if (h.kind === 'armor') this.popup('ARMOR', h.x, h.y, '#ffd60a');
+        else if (h.kind === 'reflect') this.popup('REFLECT!', h.x, h.y, '#48cae4');
+        else if (h.kind === 'clash') this.popup('CLASH', h.x, h.y, '#e0fbfc');
         else if (h.counter) this.popup('COUNTER!', h.x, h.y, '#ff3860');
       }
       this.hud.onEvents(this.sim.hits, 1);
@@ -140,6 +144,7 @@ export class FightScene extends Phaser.Scene {
     g.lineBetween(rx, 0, rx, GROUND_SCREEN_Y);
 
     for (const f of w.fighters) this.drawFighter(f, w.cameraX);
+    for (const p of w.projectiles) this.drawProjectile(p, w.cameraX);
 
     this.debug.draw(
       w,
@@ -168,10 +173,47 @@ export class FightScene extends Phaser.Scene {
     const blocking = f.state === 'block_stand' || f.state === 'block_crouch';
     const flash = f.justHit || (f.hitstop > 0 && hitState);
     const invuln = this.sim.isStrikeInvulnerable(f);
+    const move = this.sim.move(f);
+    const frameNo = this.sim.state.frame;
     let bodyColor = f.def.color;
     if (flash) bodyColor = 0xffffff;
     else if (f.state === 'getup' || f.state === 'throw_tech') bodyColor = 0x9d9d9d;
     else if (blocking) bodyColor = Phaser.Display.Color.IntegerToColor(f.def.color).darken(25).color;
+    else if (f.install) bodyColor = Phaser.Display.Color.IntegerToColor(f.def.color).lighten(18).color;
+    else if (f.fatigueFrames > 0) bodyColor = Phaser.Display.Color.IntegerToColor(f.def.color).desaturate(40).color;
+
+    // 灼烧：身上冒橙色火点
+    if (f.burnFrames > 0 && !lying) {
+      for (let i = 0; i < 3; i++) {
+        const px_ = sx + ((frameNo * 7 + i * 13) % Math.max(1, sw));
+        const py_ = sy + ((frameNo * 5 + i * 29) % Math.max(1, sh));
+        g.fillStyle(i % 2 ? 0xff9f1c : 0xff3860, 0.9).fillRect(px_, py_, 3, 3);
+      }
+    }
+    // 二档：身后蒸汽
+    if (f.install && !lying) {
+      for (let i = 0; i < 4; i++) {
+        const t = (frameNo * 3 + i * 17) % 40;
+        const px_ = sx + sw / 2 - f.facing * (6 + t * 0.4) + ((i * 7) % 5) - 2;
+        g.fillStyle(0xffc8dd, 0.35 + 0.3 * (1 - t / 40)).fillCircle(px_, sy + 10 + i * 12 - t * 0.3, 3 - t / 20);
+      }
+    }
+    // 熔岩化闪避：半透明橙红
+    if (move?.dodge && invuln) {
+      g.fillStyle(0xff6b35, 0.45).fillRect(sx, sy, sw, sh);
+      g.lineStyle(1, 0xffd60a, 0.8).strokeRect(sx, sy, sw, sh);
+      return;
+    }
+    // 橡胶气球：大圆
+    if (move?.reflect && f.state === 'attack') {
+      const cx = this.worldToScreenX(f.x, cameraX);
+      const r = sh * 0.6;
+      g.fillStyle(f.def.color, 1).fillCircle(cx, groundY - r, r);
+      g.lineStyle(1, 0xffffff, 0.7).strokeCircle(cx, groundY - r, r);
+      const headW = sw * 0.6;
+      g.fillStyle(0xffe8d6, 1).fillRect(cx - headW / 2, groundY - r * 2 - 8, headW, 10);
+      return;
+    }
 
     if (lying) {
       const lw = sh * 0.9;
@@ -198,6 +240,8 @@ export class FightScene extends Phaser.Scene {
     }
 
     g.fillStyle(bodyColor, 1).fillRect(sx, sy, sw, sh);
+    // 霸体：金色描边
+    if (this.sim.hasArmor(f)) g.lineStyle(2, 0xffd60a, 0.9).strokeRect(sx - 1, sy - 1, sw + 2, sh + 2);
     // 前冲：身后拖影
     if (f.state === 'dash') {
       g.fillStyle(bodyColor, 0.3).fillRect(sx - f.facing * 6, sy + 4, sw, sh - 4);
@@ -217,9 +261,18 @@ export class FightScene extends Phaser.Scene {
     const eyeX = f.facing === 1 ? sx + sw / 2 + headW * 0.15 : sx + sw / 2 - headW * 0.25;
     g.fillStyle(0x000000, 1).fillRect(eyeX, sy - 7, 2, 2);
 
-    // 伸出的肢体：用当前帧的攻击框（无论是否已命中）表现
+    // 伸出的肢体：用当前帧的攻击框（无论是否已命中）表现；指令投的抓取框画成手
     const fd = this.sim.currentFrame(f);
-    if (fd?.hitboxes) {
+    if (fd?.hitboxes && move?.throwData) {
+      const [x, y, w, h] = fd.hitboxes[0]!;
+      const wx = f.facing === 1 ? x : -x - w;
+      g.fillStyle(0xffd60a, 0.5).fillRect(
+        this.worldToScreenX(f.x + wx * SUBPIXEL, cameraX),
+        this.worldToScreenY(f.y + y * SUBPIXEL),
+        w,
+        h,
+      );
+    } else if (fd?.hitboxes) {
       for (const hb of fd.hitboxes) {
         const [x, y, w, h] = hb;
         const wx = f.facing === 1 ? x : -x - w;
@@ -235,6 +288,31 @@ export class FightScene extends Phaser.Scene {
       const armY = sy + sh * 0.3;
       const armX = f.facing === 1 ? sx + sw : sx - 8;
       g.fillStyle(f.def.color, 0.6).fillRect(armX, armY, 8, 6);
+    }
+  }
+
+  /** 飞行道具占位：犬头 = 橙圆 + 眼；熔岩流星 = 红橙方块带尾迹。被弹反后变蓝。 */
+  private drawProjectile(p: ProjectileState, cameraX: number): void {
+    const g = this.gfx;
+    const b = this.sim.projectileBox(p);
+    const sx = this.worldToScreenX(b.x, cameraX);
+    const sy = this.worldToScreenY(b.y);
+    const sw = b.w / SUBPIXEL;
+    const sh = b.h / SUBPIXEL;
+    const main = p.reflected ? 0x48cae4 : 0xff6b35;
+    const accent = p.reflected ? 0xcaf0f8 : 0xffd60a;
+    if (p.kind === 'dog') {
+      const cx = sx + sw / 2;
+      const cy = sy + sh / 2;
+      g.fillStyle(main, 1).fillCircle(cx, cy, sw / 2);
+      const dir = p.vx >= 0 ? 1 : -1;
+      g.fillStyle(accent, 1).fillRect(cx + dir * sw * 0.15, cy - sh * 0.25, 4, 4);
+      // 尾迹
+      for (let i = 1; i <= 3; i++) g.fillStyle(main, 0.35 - i * 0.1).fillCircle(cx - dir * i * 8, cy, sw / 2 - i * 2);
+    } else {
+      g.fillStyle(main, 1).fillRect(sx, sy, sw, sh);
+      g.fillStyle(accent, 0.9).fillRect(sx + 4, sy + 4, sw - 8, sh - 8);
+      for (let i = 1; i <= 3; i++) g.fillStyle(main, 0.3 - i * 0.08).fillRect(sx + 4, sy - i * 10, sw - 8, 8);
     }
   }
 }
