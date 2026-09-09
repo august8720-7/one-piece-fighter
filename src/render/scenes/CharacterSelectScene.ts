@@ -4,11 +4,16 @@ import { characters } from '@characters/index';
 import { getInputHub } from '@input/InputHub';
 import { FixedStep } from '../FixedStep';
 import { UI, drawPanel } from '../ui/MenuList';
+import type { Difficulty } from '../../ai/types';
 import type { FightSceneData, GameMode } from './FightScene';
 
 interface Data {
   mode: GameMode;
+  difficulty?: Difficulty;
 }
+
+const DIFFICULTIES: Difficulty[] = ['easy', 'normal', 'hard'];
+const DIFF_LABEL: Record<Difficulty, string> = { easy: '简单 EASY', normal: '普通 NORMAL', hard: '困难 HARD' };
 
 const IDS = Object.keys(characters);
 const CARD_W = 120;
@@ -29,6 +34,8 @@ export class CharacterSelectScene extends Phaser.Scene {
   private status!: Phaser.GameObjects.Text;
   private tags: [Phaser.GameObjects.Text, Phaser.GameObjects.Text] | null = null;
   private countdown = -1;
+  private difficulty: Difficulty = 'normal';
+  private diffText: Phaser.GameObjects.Text | null = null;
 
   constructor() {
     super('CharacterSelect');
@@ -36,14 +43,26 @@ export class CharacterSelectScene extends Phaser.Scene {
 
   init(data: Data): void {
     this.mode = data?.mode ?? 'versus';
+    this.difficulty = data?.difficulty ?? 'normal';
     this.cursor = [0, Math.min(1, IDS.length - 1)];
     this.locked = [false, false];
     this.countdown = -1;
+    this.diffText = null;
   }
 
   create(): void {
-    const sub = this.mode === 'versus' ? 'P1 / P2 各自选择   ←→ 移动   A 确认   B 取消' : 'P1 先选自己，再选对手   ←→ 移动   A 确认   B 取消';
+    const sub =
+      this.mode === 'versus'
+        ? 'P1 / P2 各自选择   ←→ 移动   A 确认   B 取消'
+        : this.mode === 'cpu'
+          ? 'P1 先选自己，再选对手   ←→ 移动   A 确认   B 取消   ↑↓ 难度'
+          : 'P1 先选自己，再选对手   ←→ 移动   A 确认   B 取消';
     drawPanel(this, 'CHARACTER SELECT', sub);
+    if (this.mode === 'cpu') {
+      this.diffText = this.add
+        .text(VIEW_W / 2, CARD_Y + CARD_H + 10, '', { fontFamily: UI.font, fontSize: '10px', color: UI.title })
+        .setOrigin(0.5, 0);
+    }
     const total = IDS.length * (CARD_W + 20) - 20;
     const x0 = (VIEW_W - total) / 2;
     IDS.forEach((id, i) => {
@@ -115,6 +134,11 @@ export class CharacterSelectScene extends Phaser.Scene {
   private handleSolo(e: InputFrame): void {
     const bits = e.p1 | e.p2;
     const p = this.locked[0] ? 1 : 0;
+    if (this.mode === 'cpu' && bits & (Btn.Up | Btn.Down)) {
+      const i = DIFFICULTIES.indexOf(this.difficulty);
+      const n = DIFFICULTIES.length;
+      this.difficulty = DIFFICULTIES[(i + (bits & Btn.Down ? 1 : n - 1)) % n]!;
+    }
     if (bits & Btn.B && this.locked[0]) {
       this.locked[0] = false;
       return;
@@ -128,7 +152,7 @@ export class CharacterSelectScene extends Phaser.Scene {
   }
 
   private start(): void {
-    const data: FightSceneData = { p1: IDS[this.cursor[0]]!, p2: IDS[this.cursor[1]]!, mode: this.mode };
+    const data: FightSceneData = { p1: IDS[this.cursor[0]]!, p2: IDS[this.cursor[1]]!, mode: this.mode, difficulty: this.difficulty };
     this.scene.start('Preload', data);
   }
 
@@ -150,6 +174,7 @@ export class CharacterSelectScene extends Phaser.Scene {
       const x = x0 + this.cursor[p] * (CARD_W + 20) + (p === 0 ? 16 : CARD_W - 16);
       this.tags?.[p].setText(labels[p]!).setPosition(x, CARD_Y + CARD_H - 34);
     }
+    this.diffText?.setText(`CPU 难度：◀ ${DIFF_LABEL[this.difficulty]} ▶`);
     const p1Name = characters[IDS[this.cursor[0]]!]!.name;
     const p2Name = characters[IDS[this.cursor[1]]!]!.name;
     this.status.setText(

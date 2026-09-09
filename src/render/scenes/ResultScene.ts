@@ -47,8 +47,9 @@ export class ResultScene extends Phaser.Scene {
       const action = this.menu.update(hub.edges());
       if (action === 'select') {
         const d = this.data_;
-        if (this.menu.index === 0) this.scene.start('Preload', { p1: d.p1, p2: d.p2, mode: d.mode } satisfies FightSceneData);
-        else if (this.menu.index === 1) this.scene.start('CharacterSelect', { mode: d.mode });
+        const diff = d.difficulty ? { difficulty: d.difficulty } : {};
+        if (this.menu.index === 0) this.scene.start('Preload', { p1: d.p1, p2: d.p2, mode: d.mode, ...diff } satisfies FightSceneData);
+        else if (this.menu.index === 1) this.scene.start('CharacterSelect', { mode: d.mode, ...diff });
         else this.scene.start('Title');
         return;
       }

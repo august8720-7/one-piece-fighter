@@ -12,7 +12,10 @@ import {
 import { characterAnims, characters } from '@characters/index';
 import { getInputHub } from '@input/InputHub';
 import { Btn } from '@core/index';
+import { Cpu } from '../../ai/cpu';
 import { Dummy } from '../../ai/dummy';
+import type { Difficulty } from '../../ai/types';
+import { characterAi } from '@characters/index';
 import { FixedStep } from '../FixedStep';
 import { DebugOverlay } from '../DebugOverlay';
 import { FighterView } from '../FighterView';
@@ -28,6 +31,8 @@ export interface FightSceneData {
   p1: string;
   p2: string;
   mode: GameMode;
+  /** 人机模式难度 */
+  difficulty?: Difficulty;
 }
 
 /** 地面在屏幕中的 y（像素）。 */
@@ -45,6 +50,7 @@ export class FightScene extends Phaser.Scene {
   private mode: GameMode = 'versus';
   private data_!: FightSceneData;
   private dummy = new Dummy();
+  private cpu: Cpu | null = null;
   private trainingText!: Phaser.GameObjects.Text;
   private lastInput = { p1: 0, p2: 0 };
   private shake = 0;
@@ -69,7 +75,10 @@ export class FightScene extends Phaser.Scene {
     this.shake = 0;
     this.wasRoundOver = false;
     this.dummy = new Dummy();
-    if (this.mode === 'cpu') this.dummy.mode = 'random'; // M5 用 CPU AI 替换
+    this.cpu =
+      this.mode === 'cpu'
+        ? new Cpu(1, characterAi[data.p2] ?? characterAi['akainu']!, data.difficulty ?? 'normal', (Date.now() & 0xffff) | 1)
+        : null;
 
     this.sim = new FightSim(
       this.mode === 'training' ? { p1, p2, seed: 1, introFrames: 0, roundTime: -1 } : { p1, p2, seed: 1 },
@@ -190,7 +199,9 @@ export class FightScene extends Phaser.Scene {
       }
       // 比赛结束阶段不把 Start 传给 sim（由 Result 场景接管重开）
       this.lastInput = phase === 'match_end' ? { p1: raw.p1 & ~Btn.Start, p2: raw.p2 & ~Btn.Start } : raw;
-      if (this.mode !== 'versus') {
+      if (this.cpu) {
+        this.lastInput = { p1: this.lastInput.p1, p2: this.cpu.input(this.sim) };
+      } else if (this.mode === 'training') {
         const d = this.dummy.input(this.sim, 1);
         if (d !== null) this.lastInput = { p1: this.lastInput.p1, p2: d };
       }

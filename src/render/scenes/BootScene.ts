@@ -20,7 +20,13 @@ export class BootScene extends Phaser.Scene {
     }
     const pick = (v: string | null, fallback: string) => (v && characters[v] ? v : fallback);
     const mode: GameMode = modeParam === 'training' ? 'training' : modeParam === 'cpu' ? 'cpu' : 'versus';
-    const data: FightSceneData = { p1: pick(q.get('p1'), 'luffy'), p2: pick(q.get('p2'), 'akainu'), mode };
+    const diff = q.get('difficulty');
+    const data: FightSceneData = {
+      p1: pick(q.get('p1'), 'luffy'),
+      p2: pick(q.get('p2'), 'akainu'),
+      mode,
+      difficulty: diff === 'easy' || diff === 'hard' ? diff : 'normal',
+    };
     this.scene.start('Preload', data);
   }
 }

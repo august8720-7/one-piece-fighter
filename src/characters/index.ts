@@ -1,9 +1,17 @@
 import type { FighterDef, MoveData } from '@core/index';
 import type { AnimTable } from '@render/animations';
+import type { AiProfile } from '../ai/types';
+import { akainuAi } from './akainu/ai';
 import { akainuAnims } from './akainu/animations';
 import { akainuDef } from './akainu/def';
+import { luffyAi } from './luffy/ai';
 import { luffyAnims } from './luffy/animations';
 import { luffyDef } from './luffy/def';
+
+export const characterAi: Record<string, AiProfile> = {
+  luffy: luffyAi,
+  akainu: akainuAi,
+};
 
 export interface CharacterEntry {
   def: FighterDef;
