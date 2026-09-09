@@ -18,4 +18,5 @@ export {
   ROUNDS_TO_WIN,
   scaledDamage,
   type FightSimOptions,
+  type TrainingOptions,
 } from './FightSim';

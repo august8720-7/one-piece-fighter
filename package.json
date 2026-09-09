@@ -9,9 +9,10 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint src tests",
+    "lint": "eslint src tests scripts",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "gen:placeholder": "vite-node scripts/gen-placeholder-atlas.ts"
   },
   "dependencies": {
     "phaser": "^3.90.0"

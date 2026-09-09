@@ -17,9 +17,10 @@ Thumbs.db
 npm-debug.log*
 *.log
 
-# 版权素材只放本地（AGENTS.md 硬约束 7）
-public/assets/characters/*/
-public/assets/stages/*/
+# 版权素材只放本地（AGENTS.md 硬约束 7）。忽略文件而不是目录，否则 placeholder* 无法被重新包含
+public/assets/characters/*/*
+!public/assets/characters/*/placeholder*
+public/assets/stages/*/*
+!public/assets/stages/*/placeholder*
 public/assets/audio/**
 !public/assets/**/.gitkeep
-!public/assets/**/placeholder*

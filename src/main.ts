@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { VIEW_H, VIEW_W } from '@core/index';
 import { BootScene } from '@render/scenes/BootScene';
 import { FightScene } from '@render/scenes/FightScene';
+import { PreloadScene } from '@render/scenes/PreloadScene';
 
 new Phaser.Game({
   type: Phaser.AUTO,
@@ -16,5 +17,5 @@ new Phaser.Game({
     autoCenter: Phaser.Scale.CENTER_BOTH,
     zoom: Phaser.Scale.MAX_ZOOM,
   },
-  scene: [BootScene, FightScene],
+  scene: [BootScene, PreloadScene, FightScene],
 });

@@ -44,6 +44,13 @@ import {
   type WorldState,
 } from './types';
 
+export interface TrainingOptions {
+  /** 双方都回到中立且无连段时回满血 */
+  infiniteHp: boolean;
+  /** 气槽始终满 */
+  infiniteMeter: boolean;
+}
+
 export interface FightSimOptions {
   p1: FighterDef;
   p2: FighterDef;
@@ -138,6 +145,8 @@ export class FightSim {
   private readonly roundsToWin: number;
   /** 本帧产生的事件（每帧清空） */
   readonly hits: HitEvent[] = [];
+  /** 训练模式开关：每帧结束时生效 */
+  training: TrainingOptions = { infiniteHp: false, infiniteMeter: false };
 
   constructor(private readonly opts: FightSimOptions) {
     this.rng = new Rng(opts.seed ?? 1);
@@ -190,10 +199,37 @@ export class FightSim {
     this.fighters[1].meter = 0;
   }
 
+  /** 训练模式：把双方拉回初始位置与中立状态，保留血量与气。 */
+  resetPositions(): void {
+    for (const f of this.fighters) {
+      const fresh = createFighter(f.def, f.player, f.player === 0 ? px(-90) : px(90), f.player === 0 ? 1 : -1);
+      fresh.hp = f.hp;
+      fresh.meter = f.meter;
+      this.fighters[f.player] = fresh;
+    }
+    this.projectiles = [];
+  }
+
   private setPhase(p: Phase): void {
     this.phase = p;
     this.phaseFrame = 0;
     if (p === 'round_end' || p === 'match_end') this.projectiles = [];
+  }
+
+  private applyTraining(): void {
+    const t = this.training;
+    if (!t.infiniteHp && !t.infiniteMeter) return;
+    for (const f of this.fighters) {
+      if (t.infiniteMeter) f.meter = MAX_METER;
+    }
+    if (t.infiniteHp) {
+      const [a, b] = this.fighters;
+      const calm = (f: FighterState) => NEUTRAL.has(f.state) && f.comboHits === 0 && f.burnFrames === 0;
+      if (calm(a) && calm(b) && this.projectiles.length === 0) {
+        a.hp = a.def.maxHp;
+        b.hp = b.def.maxHp;
+      }
+    }
   }
 
   step(input: InputFrame): void {
@@ -229,6 +265,7 @@ export class FightSim {
         break;
     }
 
+    if (this.phase === 'fight') this.applyTraining();
     this.cameraX = (f1.x + f2.x) >> 1;
     this.frame++;
   }

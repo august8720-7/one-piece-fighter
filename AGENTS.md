@@ -17,10 +17,18 @@ src/core/        纯格斗逻辑：固定步长、确定性、零 Phaser 依赖
 src/characters/  角色数据（def.ts 基础参数 + moves.ts 招式表 + animations.ts），一个角色一个目录
 src/render/      Phaser 层：scenes/ hud/ fx/ FighterView DebugOverlay
 src/input/       键盘 / 手柄 → InputFrame
-src/ai/          CPU 对手
+src/ai/          CPU 对手与训练木桩（只产生 InputFrame，不直接改 core 状态）
 src/audio/       音频封装
+scripts/         开发辅助脚本（用 `npx vite-node scripts/<name>.ts` 运行，可复用 @core 等别名）；产物只写入 public/assets 下的 placeholder* 文件
 tests/           Vitest 测试，镜像 src/core 结构
 ```
+
+## 精灵图集约定
+
+- 每角色一个 TexturePacker JSON Hash 图集：`public/assets/characters/<id>/atlas.png` + `atlas.json`（正式素材，不进 Git）；缺失时回退到 `placeholder.png/json`（脚本生成，可进 Git）；两者都缺时渲染层画色块。
+- 帧名 `<id>/<anim>/<n>`，n 从 0 起。`<anim>` 是 StateId（`idle`、`walk_fwd`、`hit_air`…）或招式 id（`st_a`、`sp_gatling`…）。
+- 招式的帧号就是 FrameData.sprite；非招式状态的帧数、fps、是否循环由 `src/characters/<id>/animations.ts` 声明。
+- 所有帧同尺寸，脚底中心对齐帧底边中点（渲染层 origin 0.5 / 1）。
 
 ## 硬约束
 
@@ -55,7 +63,8 @@ npm run build       # vite build
 
 ## 调试快捷键（游戏内）
 
-F1 判定框 · F2 帧数据面板 · F3 输入显示 · F4 逐帧 / 慢放（训练模式）
+F1 判定框 · F2 帧数据面板 · F3 输入显示 · F4 精灵 / 色块切换
+训练模式（`?mode=training`）：F5 木桩行为循环 · F6 位置重置 · F7 无限气 · F8 无限血
 
 ## 里程碑与范围
 

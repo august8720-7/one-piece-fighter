@@ -11,15 +11,21 @@ import {
   type ProjectileState,
   type WorldState,
 } from '@core/index';
-import { characters } from '@characters/index';
+import { characterAnims, characters } from '@characters/index';
 import { KeyboardInput } from '@input/keyboard';
+import { Dummy } from '../../ai/dummy';
 import { FixedStep } from '../FixedStep';
 import { DebugOverlay } from '../DebugOverlay';
+import { FighterView } from '../FighterView';
 import { Hud } from '../hud/Hud';
+import { SPRITE_KEYS, type SpriteKeys } from './PreloadScene';
 
-interface FightSceneData {
+export type GameMode = 'versus' | 'training';
+
+export interface FightSceneData {
   p1: string;
   p2: string;
+  mode: GameMode;
 }
 
 /** 地面在屏幕中的 y（像素）。 */
@@ -32,6 +38,11 @@ export class FightScene extends Phaser.Scene {
   private gfx!: Phaser.GameObjects.Graphics;
   private debug!: DebugOverlay;
   private hud!: Hud;
+  private views: [FighterView | null, FighterView | null] = [null, null];
+  private useSprites = true;
+  private mode: GameMode = 'versus';
+  private dummy = new Dummy();
+  private trainingText!: Phaser.GameObjects.Text;
   private lastInput = { p1: 0, p2: 0 };
   private shake = 0;
   private wasRoundOver = false;
@@ -45,12 +56,24 @@ export class FightScene extends Phaser.Scene {
     const p1 = characters[data.p1];
     const p2 = characters[data.p2];
     if (!p1 || !p2) throw new Error(`Unknown character: ${data.p1} / ${data.p2}`);
+    this.mode = data.mode ?? 'versus';
 
-    this.sim = new FightSim({ p1, p2, seed: 1 });
+    this.sim = new FightSim(
+      this.mode === 'training' ? { p1, p2, seed: 1, introFrames: 0, roundTime: -1 } : { p1, p2, seed: 1 },
+    );
+    if (this.mode === 'training') this.sim.training = { infiniteHp: true, infiniteMeter: true };
     this.input_ = new KeyboardInput();
     this.gfx = this.add.graphics();
     this.hud = new Hud(this, [p1.name, p2.name]);
     this.debug = new DebugOverlay(this);
+
+    // 精灵视图：Preload 决定了每个角色可用的图集 key
+    const keys = (this.registry.get(SPRITE_KEYS) as SpriteKeys | undefined) ?? {};
+    const mk = (id: string) => {
+      const key = keys[id];
+      return key ? new FighterView(this, key, id, characterAnims[id] ?? {}) : null;
+    };
+    this.views = [mk(data.p1), mk(data.p2)];
 
     this.add
       .text(VIEW_W / 2, VIEW_H - 12, 'P1 WASD+JKUI  P2 Arrows+Num1245 | back=guard 4/6+C=throw A+B=roll C+D=blowback 66/44 dash | 236/214/623/22 +P/K  236236/214214 super  236236K ultimate', {
@@ -59,12 +82,30 @@ export class FightScene extends Phaser.Scene {
         color: '#6c7a89',
       })
       .setOrigin(0.5, 0);
+    this.trainingText = this.add
+      .text(VIEW_W / 2, 44, '', { fontFamily: 'monospace', fontSize: '8px', color: '#ffd60a' })
+      .setOrigin(0.5, 0)
+      .setDepth(52)
+      .setVisible(this.mode === 'training');
+
+    const kb = this.input.keyboard;
+    kb?.on('keydown-F4', () => (this.useSprites = !this.useSprites));
+    if (this.mode === 'training') {
+      kb?.on('keydown-F5', () => this.dummy.next());
+      kb?.on('keydown-F6', () => this.sim.resetPositions());
+      kb?.on('keydown-F7', () => (this.sim.training.infiniteMeter = !this.sim.training.infiniteMeter));
+      kb?.on('keydown-F8', () => (this.sim.training.infiniteHp = !this.sim.training.infiniteHp));
+    }
   }
 
   override update(_time: number, deltaMs: number): void {
     const steps = this.step.advance(deltaMs);
     for (let i = 0; i < steps; i++) {
       this.lastInput = this.input_.snapshot();
+      if (this.mode === 'training') {
+        const d = this.dummy.input(this.sim, 1);
+        if (d !== null) this.lastInput = { p1: this.lastInput.p1, p2: d };
+      }
       this.sim.step(this.lastInput);
       for (const h of this.sim.hits) {
         if (h.kind === 'hit') this.shake = Math.max(this.shake, Math.min(4, 1 + h.damage / 30));
@@ -88,6 +129,12 @@ export class FightScene extends Phaser.Scene {
     }
     this.draw(w);
     this.hud.draw(w);
+    if (this.mode === 'training') {
+      const t = this.sim.training;
+      this.trainingText.setText(
+        `TRAINING  F5 dummy: ${this.dummy.mode}   F6 reset   F7 meter: ${t.infiniteMeter ? 'inf' : 'normal'}   F8 hp: ${t.infiniteHp ? 'inf' : 'normal'}   F4 sprites: ${this.useSprites ? 'on' : 'off'}`,
+      );
+    }
     if (this.shake > 0) this.shake = Math.max(0, this.shake - 0.4);
     this.tickPopups(steps);
   }
@@ -143,7 +190,12 @@ export class FightScene extends Phaser.Scene {
     g.lineBetween(lx, 0, lx, GROUND_SCREEN_Y);
     g.lineBetween(rx, 0, rx, GROUND_SCREEN_Y);
 
-    for (const f of w.fighters) this.drawFighter(f, w.cameraX);
+    for (const f of w.fighters) {
+      const view = this.views[f.player];
+      if (this.useSprites && view && this.drawSprite(view, f, w.cameraX)) continue;
+      view?.hide();
+      this.drawFighter(f, w.cameraX);
+    }
     for (const p of w.projectiles) this.drawProjectile(p, w.cameraX);
 
     this.debug.draw(
@@ -153,6 +205,21 @@ export class FightScene extends Phaser.Scene {
       (x) => this.worldToScreenX(x, w.cameraX),
       (y) => this.worldToScreenY(y),
     );
+  }
+
+  /** 精灵渲染：状态色调（受击白 / 防御蓝 / 二档粉 / 灼烧橙）与闪避半透明由 tint / alpha 表现。 */
+  private drawSprite(view: FighterView, f: FighterState, cameraX: number): boolean {
+    const hitState = f.state === 'hit_stand' || f.state === 'hit_crouch' || f.state === 'hit_air';
+    const move = this.sim.move(f);
+    let tint: number | null = null;
+    if (f.justHit || (f.hitstop > 0 && hitState)) tint = 0xffffff;
+    else if (f.state === 'block_stand' || f.state === 'block_crouch') tint = 0x9fd8ff;
+    else if (f.install) tint = 0xffc8dd;
+    else if (f.burnFrames > 0 && this.sim.state.frame % 8 < 4) tint = 0xff9f1c;
+    else if (this.sim.hasArmor(f)) tint = 0xffe066;
+    const dodging = !!move?.dodge && this.sim.isStrikeInvulnerable(f);
+    const alpha = dodging ? 0.45 : this.sim.isStrikeInvulnerable(f) && (f.state === 'roll_fwd' || f.state === 'roll_back' || f.state === 'backdash') ? 0.7 : 1;
+    return view.update(this.sim, f, this.worldToScreenX(f.x, cameraX), this.worldToScreenY(f.y), tint, alpha);
   }
 
   /**
