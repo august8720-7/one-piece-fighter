@@ -1,10 +1,55 @@
-import { Btn, normal, throwMove, type MoveData } from '@core/index';
+import { Btn, K, P, attack, normal, throwMove, type MoveData } from '@core/index';
 
 /**
- * 路飞普通技 / 吹飞 / 投技。特点：伸长手脚 → 射程长、伤害偏低、启动快。
+ * 路飞招式表。特点：伸长手脚 → 射程长、伤害偏低、启动快、连段多。
  * 数值为初始值，M3 用训练模式实测后调整。
  */
 export const luffyMoves: readonly MoveData[] = [
+  // ---- 超必杀（1 气）----
+  attack({
+    id: 'sp_storm', name: '橡胶暴风雨', type: 'super', stance: 'stand', button: P, motion: '236236',
+    meterCost: 100, invuln: 8,
+    segments: [
+      { startup: 10, active: 3, hitbox: [16, -100, 70, 40] },
+      { startup: 3, active: 3, hitbox: [16, -70, 74, 40] },
+      { startup: 3, active: 3, hitbox: [16, -100, 78, 40] },
+      { startup: 3, active: 3, hitbox: [16, -60, 82, 40] },
+      { startup: 3, active: 3, hitbox: [16, -100, 86, 40] },
+      { startup: 3, active: 3, hitbox: [16, -80, 90, 40] },
+      { startup: 4, active: 4, hitbox: [16, -110, 110, 70] },
+    ],
+    recovery: 30, damage: 40,
+    hitstun: 22, blockstun: 14, hitstop: 8,
+    knockback: { x: 2, y: -3 }, stepX: 2,
+  }),
+  // ---- 特殊技 ----
+  attack({
+    id: 'sp_gatling', name: '橡胶机关枪', stance: 'stand', button: P, motion: '236',
+    segments: [
+      { startup: 8, active: 3, hitbox: [16, -96, 76, 26] },
+      { startup: 3, active: 3, hitbox: [16, -76, 80, 26] },
+      { startup: 3, active: 3, hitbox: [16, -90, 84, 26] },
+      { startup: 3, active: 3, hitbox: [16, -66, 88, 26] },
+      { startup: 3, active: 3, hitbox: [16, -84, 92, 30] },
+    ],
+    recovery: 22, damage: 22,
+    hitstun: 18, blockstun: 12, hitstop: 7,
+    knockback: { x: 2 },
+  }),
+  attack({
+    id: 'sp_bazooka', name: '橡胶火箭炮', stance: 'stand', button: K, motion: '214',
+    segments: [{ startup: 14, active: 4, hitbox: [20, -104, 100, 48] }],
+    recovery: 22, damage: 120,
+    hitstun: 26, blockstun: 18, hitstop: 12,
+    knockback: { x: 12, y: -4 }, wallBounce: true, stepX: 1.5,
+  }),
+  attack({
+    id: 'sp_rifle', name: '橡胶回旋弹', stance: 'stand', button: P, motion: '623',
+    segments: [{ startup: 12, active: 5, hitbox: [18, -100, 90, 36] }],
+    recovery: 24, damage: 130,
+    hitstun: 28, blockstun: 18, hitstop: 13,
+    knockback: { x: 8, y: -6 },
+  }),
   // ---- 吹飞 C+D：橡胶镰刀 ----
   normal({
     id: 'cd', name: '橡胶镰刀', stance: 'stand', button: Btn.C, plus: Btn.D,
@@ -36,11 +81,13 @@ export const luffyMoves: readonly MoveData[] = [
     id: 'st_a', name: '轻拳', stance: 'stand', button: Btn.A,
     startup: 4, active: 3, recovery: 7,
     hitbox: [10, -78, 34, 14], damage: 30,
+    chain: ['st_a', 'st_b', 'st_c', 'st_d', 'cr_c', 'cr_d'],
   }),
   normal({
     id: 'st_b', name: '轻脚', stance: 'stand', button: Btn.B,
     startup: 5, active: 3, recovery: 9,
     hitbox: [12, -44, 38, 16], damage: 35,
+    chain: ['st_c', 'st_d', 'cr_c', 'cr_d'],
   }),
   normal({
     id: 'st_c', name: '橡胶手枪', stance: 'stand', button: Btn.C,
@@ -60,11 +107,13 @@ export const luffyMoves: readonly MoveData[] = [
     id: 'cr_a', name: '蹲轻拳', stance: 'crouch', button: Btn.A,
     startup: 4, active: 3, recovery: 6,
     hitbox: [10, -50, 32, 14], damage: 28,
+    chain: ['cr_a', 'cr_b', 'cr_c', 'cr_d', 'st_c', 'st_d'],
   }),
   normal({
     id: 'cr_b', name: '蹲轻脚', stance: 'crouch', button: Btn.B,
     startup: 5, active: 3, recovery: 9,
     hitbox: [10, -14, 40, 14], damage: 30, guard: 'low',
+    chain: ['cr_c', 'cr_d', 'st_c', 'st_d'],
   }),
   normal({
     id: 'cr_c', name: '蹲重拳', stance: 'crouch', button: Btn.C,

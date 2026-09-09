@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { Btn, FightSim, GROUND_Y, MAX_SEPARATION, PREJUMP_FRAMES, STAGE_LEFT, SUBPIXEL } from '../../src/core';
 import { akainuDef, luffyDef } from '../../src/characters';
 
-const mk = () => new FightSim({ p1: luffyDef, p2: akainuDef, seed: 42 });
+const mk = () => new FightSim({ p1: luffyDef, p2: akainuDef, seed: 42, introFrames: 0 });
 const run = (sim: FightSim, p1: number, p2: number, frames: number) => {
   for (let i = 0; i < frames; i++) sim.step({ p1, p2 });
 };

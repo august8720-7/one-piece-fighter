@@ -1,10 +1,38 @@
-import { Btn, normal, throwMove, type MoveData } from '@core/index';
+import { Btn, K, P, attack, normal, throwMove, type MoveData } from '@core/index';
 
 /**
- * 赤犬普通技 / 吹飞 / 投技。特点：启动慢、伤害高、击退大、射程中等。
+ * 赤犬招式表。特点：启动慢、伤害高、击退大、射程中等、连段少。
  * 数值为初始值，M3 用训练模式实测后调整。
  */
 export const akainuMoves: readonly MoveData[] = [
+  // ---- 超必杀（1 气）：大喷火·连 ----
+  attack({
+    id: 'sp_daifunka_ren', name: '大喷火·连', type: 'super', stance: 'stand', button: P, motion: '236236',
+    meterCost: 100, invuln: 10,
+    segments: [
+      { startup: 14, active: 5, hitbox: [20, -110, 110, 70] },
+      { startup: 10, active: 5, hitbox: [24, -100, 120, 70] },
+      { startup: 10, active: 6, hitbox: [28, -120, 140, 90] },
+    ],
+    recovery: 34, damage: 105,
+    hitstun: 30, blockstun: 22, hitstop: 14,
+    knockback: { x: 6, y: -5 }, stepX: 1.5,
+  }),
+  // ---- 特殊技 ----
+  attack({
+    id: 'sp_daifunka', name: '大喷火', stance: 'stand', button: P, motion: '236',
+    segments: [{ startup: 18, active: 5, hitbox: [20, -110, 110, 70] }],
+    recovery: 26, damage: 160,
+    hitstun: 30, blockstun: 22, hitstop: 14,
+    knockback: { x: 13, y: -6 }, wallBounce: true, stepX: 1,
+  }),
+  attack({
+    id: 'sp_ground_split', name: '熔岩地裂', stance: 'stand', button: K, motion: '22',
+    segments: [{ startup: 16, active: 6, hitbox: [40, -70, 60, 70] }],
+    recovery: 24, damage: 100, guard: 'low',
+    hitstun: 26, blockstun: 18, hitstop: 12,
+    knockback: { x: 4, y: -9 },
+  }),
   // ---- 吹飞 C+D：熔岩双掌 ----
   normal({
     id: 'cd', name: '熔岩双掌', stance: 'stand', button: Btn.C, plus: Btn.D,
@@ -36,11 +64,13 @@ export const akainuMoves: readonly MoveData[] = [
     id: 'st_a', name: '轻拳', stance: 'stand', button: Btn.A,
     startup: 5, active: 3, recovery: 9,
     hitbox: [12, -86, 36, 16], damage: 38,
+    chain: ['st_c', 'st_d', 'cr_d'],
   }),
   normal({
     id: 'st_b', name: '轻脚', stance: 'stand', button: Btn.B,
     startup: 6, active: 3, recovery: 11,
     hitbox: [14, -48, 40, 18], damage: 42,
+    chain: ['st_c', 'st_d'],
   }),
   normal({
     id: 'st_c', name: '熔岩拳', stance: 'stand', button: Btn.C,
@@ -59,6 +89,7 @@ export const akainuMoves: readonly MoveData[] = [
     id: 'cr_a', name: '蹲轻拳', stance: 'crouch', button: Btn.A,
     startup: 5, active: 3, recovery: 8,
     hitbox: [12, -56, 34, 16], damage: 35,
+    chain: ['cr_c', 'cr_d', 'st_c'],
   }),
   normal({
     id: 'cr_b', name: '蹲轻脚', stance: 'crouch', button: Btn.B,

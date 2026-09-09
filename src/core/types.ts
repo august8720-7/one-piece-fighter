@@ -27,6 +27,10 @@ export enum Btn {
 
 export const ATTACK_BUTTONS = [Btn.A, Btn.B, Btn.C, Btn.D] as const;
 export type AttackButton = (typeof ATTACK_BUTTONS)[number];
+/** 任一拳 / 任一脚 */
+export const P = Btn.A | Btn.C;
+export const K = Btn.B | Btn.D;
+export const ANY_ATTACK = Btn.A | Btn.B | Btn.C | Btn.D;
 
 /** 一帧两名玩家的输入。 */
 export interface InputFrame {
@@ -43,6 +47,9 @@ export type Stance = 'stand' | 'crouch' | 'air';
  */
 export type GuardType = 'high' | 'mid' | 'low' | 'unblockable';
 
+/** 摇杆指令（数字记法，面朝右） */
+export type MotionId = '236' | '214' | '623' | '22' | '236236' | '214214';
+
 /** 单帧数据。 */
 export interface FrameData {
   /** 精灵帧索引（M0～M2 占位渲染不用） */
@@ -53,6 +60,8 @@ export interface FrameData {
   hurtboxes?: readonly BoxPx[];
   /** 攻击框；有则为 active 帧 */
   hitboxes?: readonly BoxPx[];
+  /** 多段攻击的段号（1 起）；同一段只命中一次。省略视为 1 */
+  hitId?: number;
   /** 本帧位移（像素 / 帧），面朝右为正 */
   velocity?: { x?: number; y?: number };
 }
@@ -66,11 +75,14 @@ export interface Knockback {
 
 export interface MoveInput {
   stance: Stance;
-  button: AttackButton;
+  /** 按键位掩码：可为单键，或 P（A|C）/ K（B|D） */
+  button: number;
   /** 双键同按（如 C+D 吹飞）。A+B 保留给翻滚。 */
   plus?: AttackButton;
   /** 需要同时按住的相对方向：4 后 / 6 前（投技） */
   direction?: 4 | 6;
+  /** 摇杆指令（特殊技 / 超必杀） */
+  motion?: MotionId;
 }
 
 export interface ThrowData {
@@ -86,22 +98,44 @@ export interface ThrowData {
   switchSides: boolean;
 }
 
+export type MoveType = 'normal' | 'command_normal' | 'blowback' | 'special' | 'super' | 'ultimate' | 'throw';
+
+/** 取消等级：只能取消进更高等级（或 chain 列表中的同级） */
+export const MOVE_RANK: Record<MoveType, number> = {
+  normal: 0,
+  command_normal: 0,
+  blowback: 0,
+  throw: 0,
+  special: 1,
+  super: 2,
+  ultimate: 3,
+};
+
 /** 招式定义。 */
 export interface MoveData {
   id: string;
   name: string;
-  type: 'normal' | 'command_normal' | 'blowback' | 'special' | 'super' | 'ultimate' | 'throw';
+  type: MoveType;
   input: MoveInput;
+  /** 每段伤害 */
   damage: number;
   guard: GuardType;
   hitstun: number;
   blockstun: number;
   hitstop: number;
   knockback: Knockback;
-  /** 命中后直接击倒（硬倒） */
+  /** 命中后直接硬倒（不可受身） */
   knockdown?: boolean;
   /** 击飞撞墙后反弹（吹飞攻击） */
   wallBounce?: boolean;
+  /** 消耗气（超必杀 100 / 终极 300） */
+  meterCost?: number;
+  /** 启动无敌帧（超必杀） */
+  invuln?: number;
+  /** 命中 / 被防御后可取消的窗口（帧，自命中起）。省略用默认 */
+  cancelWindow?: number;
+  /** 同级链式目标（普通技 → 普通技），move id 列表 */
+  chain?: readonly string[];
   /** 投技参数（type === 'throw'） */
   throwData?: ThrowData;
   frames: readonly FrameData[];
@@ -167,7 +201,10 @@ export type StateId =
   | 'throw_tech'
   | 'ko';
 
-export const INPUT_HISTORY = 16;
+export const INPUT_HISTORY = 32;
+export const MAX_METER = 300;
+export const METER_STOCK = 100;
+export const MAX_JUGGLE = 3;
 
 export interface FighterState {
   def: FighterDef;
@@ -180,11 +217,16 @@ export interface FighterState {
   state: StateId;
   stateFrame: number;
   hp: number;
+  meter: number;
   airborne: boolean;
   /** 当前招式（attack / throw 时有效） */
   moveId: string | null;
-  /** 本次出招是否已命中 */
+  /** 本次出招已命中的段号位掩码（bit hitId） */
+  hitMask: number;
+  /** 本次出招是否已命中或被防御（用于取消判定） */
   hasHit: boolean;
+  /** 可取消的截止 stateFrame */
+  cancelUntil: number;
   /** 打击定格剩余帧 */
   hitstop: number;
   /** 受击 / 防御硬直剩余帧 */
@@ -193,8 +235,22 @@ export interface FighterState {
   bits: number;
   /** 上一帧输入位图（边沿检测） */
   prevBits: number;
-  /** 最近 INPUT_HISTORY 帧的相对水平方向（-1 后 / 0 / 1 前），末尾最新 */
-  dirHistory: number[];
+  /** 最近 INPUT_HISTORY 帧的相对数字方向（1-9），末尾最新 */
+  history: number[];
+  /** 按键缓冲：最近几帧内按下但尚未消费的攻击键 */
+  buffered: number;
+  bufferTtl: number;
+  /** 作为被击方：当前连段段数 / 累计伤害 */
+  comboHits: number;
+  comboDamage: number;
+  /** 空中连续受击次数（按招式实例计，同一招的多段只算一次） */
+  juggle: number;
+  /** 最后一次使 juggle 增加的攻击方招式实例号 */
+  juggleInstance: number;
+  /** 出招实例计数（每次 startMove 递增，用于区分同一招的多段与新招） */
+  moveInstance: number;
+  /** 本次倒地是否硬倒（不可受身） */
+  hardKnockdown: boolean;
   /** 上一帧被击中（渲染闪白用） */
   justHit: boolean;
   /** 上一帧成功防御（渲染用） */
@@ -205,10 +261,21 @@ export interface FighterState {
   hopPending: boolean;
 }
 
+export type Phase = 'intro' | 'fight' | 'round_end' | 'match_end';
+
 export interface WorldState {
   frame: number;
   fighters: readonly [FighterState, FighterState];
   cameraX: number;
+  phase: Phase;
+  phaseFrame: number;
+  round: number;
+  wins: readonly [number, number];
+  /** 剩余帧；-1 表示无限 */
+  timer: number;
+  /** 本回合胜者；null = 平局或未结束 */
+  roundWinner: PlayerIndex | null;
+  /** 兼容：回合是否已结束 */
   roundOver: boolean;
   winner: PlayerIndex | null;
 }
@@ -223,6 +290,9 @@ export interface HitEvent {
   defender: PlayerIndex;
   moveId: string;
   damage: number;
+  counter: boolean;
+  comboHits: number;
+  comboDamage: number;
   x: number; // 子像素
   y: number;
 }

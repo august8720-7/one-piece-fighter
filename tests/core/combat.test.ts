@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { Btn, FightSim, px, totalFrames } from '../../src/core';
+import { Btn, FightSim, ROUND_END_FRAMES, px, totalFrames } from '../../src/core';
 import { akainuDef, luffyDef } from '../../src/characters';
 
-const mk = () => new FightSim({ p1: luffyDef, p2: akainuDef, seed: 7 });
+const mk = () => new FightSim({ p1: luffyDef, p2: akainuDef, seed: 7, introFrames: 0 });
 const run = (sim: FightSim, p1: number, p2: number, frames: number) => {
   for (let i = 0; i < frames; i++) sim.step({ p1, p2 });
 };
@@ -122,9 +122,8 @@ describe('combat', () => {
     expect(sim.state.fighters[1].hp).toBe(hp0);
   });
 
-  it('血量归零 → roundOver、winner；Start 重开', () => {
+  it('血量归零 → round_end、winner；结束后自动进入下一局', () => {
     const sim = mk();
-    // 直接把 P2 血量调低，再打一拳
     closeIn(sim);
     sim.state.fighters[1].hp = 10;
     tap(sim, Btn.A, 0);
@@ -132,12 +131,14 @@ describe('combat', () => {
     expect(sim.state.roundOver).toBe(true);
     expect(sim.state.winner).toBe(0);
     expect(sim.state.fighters[1].hp).toBe(0);
-    // KO 一击必定击飞
+    // KO 一击必定击飞，落地后 ko
     expect(sim.state.fighters[1].airborne).toBe(true);
-    run(sim, 0, 0, 120);
+    run(sim, 0, 0, 100);
     expect(sim.state.fighters[1].state).toBe('ko');
-    tap(sim, Btn.Start, 0);
+    run(sim, 0, 0, ROUND_END_FRAMES);
     expect(sim.state.roundOver).toBe(false);
+    expect(sim.state.round).toBe(2);
+    expect(sim.state.wins).toEqual([1, 0]);
     expect(sim.state.fighters[1].hp).toBe(akainuDef.maxHp);
     expect(sim.state.fighters[0].x).toBe(px(-90));
   });
@@ -158,6 +159,8 @@ describe('combat', () => {
   it('确定性：含战斗的输入序列结果一致', () => {
     const a = mk();
     const b = mk();
+    closeIn(a);
+    closeIn(b);
     const seq = [Btn.Right, Btn.A, 0, Btn.Right | Btn.C, 0, Btn.Down | Btn.D, 0, Btn.Up, Btn.B, 0];
     for (let i = 0; i < 900; i++) {
       const p1 = seq[i % seq.length]!;

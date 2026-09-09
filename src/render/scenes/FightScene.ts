@@ -52,7 +52,7 @@ export class FightScene extends Phaser.Scene {
     this.debug = new DebugOverlay(this);
 
     this.add
-      .text(VIEW_W / 2, VIEW_H - 12, 'P1 WASD+JKUI  P2 Arrows+Num1245 | hold back=guard  4/6+C=throw  A+B=roll  C+D=blowback  66 run  44 backdash', {
+      .text(VIEW_W / 2, VIEW_H - 12, 'P1 WASD+JKUI  P2 Arrows+Num1245 | back=guard 4/6+C=throw A+B=roll C+D=blowback 66/44 dash | 236P 214K 623P 22K 236236P', {
         fontFamily: 'monospace',
         fontSize: '7px',
         color: '#6c7a89',
@@ -71,11 +71,17 @@ export class FightScene extends Phaser.Scene {
         if (h.kind === 'block') this.popup('BLOCK', h.x, h.y, '#48cae4');
         else if (h.kind === 'tech') this.popup('TECH!', h.x, h.y, '#ffd60a');
         else if (h.kind === 'throw') this.popup('THROW', h.x, h.y, '#ff9f1c');
+        else if (h.counter) this.popup('COUNTER!', h.x, h.y, '#ff3860');
       }
+      this.hud.onEvents(this.sim.hits, 1);
     }
     const w = this.sim.state;
-    if (this.wasRoundOver && !w.roundOver) this.hud.reset();
-    this.wasRoundOver = w.roundOver;
+    const roundActive = w.phase === 'fight' || w.phase === 'intro';
+    if (!this.wasRoundOver && !roundActive) this.wasRoundOver = true;
+    if (this.wasRoundOver && roundActive) {
+      this.hud.reset();
+      this.wasRoundOver = false;
+    }
     this.draw(w);
     this.hud.draw(w);
     if (this.shake > 0) this.shake = Math.max(0, this.shake - 0.4);

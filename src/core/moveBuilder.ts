@@ -1,17 +1,39 @@
-import { Btn, type AttackButton, type BoxPx, type FrameData, type GuardType, type Knockback, type MoveData, type Stance, type ThrowData } from './types';
+import {
+  Btn,
+  type AttackButton,
+  type BoxPx,
+  type FrameData,
+  type GuardType,
+  type Knockback,
+  type MotionId,
+  type MoveData,
+  type MoveType,
+  type Stance,
+  type ThrowData,
+} from './types';
 
-export interface NormalSpec {
-  id: string;
-  name: string;
-  stance: Stance;
-  button: AttackButton;
-  /** 双键同按（吹飞 C+D） */
-  plus?: AttackButton;
-  /** 启动 / 持续 / 收招 帧数 */
+/** 一段攻击：启动若干帧后进入 active 帧 */
+export interface Segment {
   startup: number;
   active: number;
-  recovery: number;
   hitbox: BoxPx;
+}
+
+export interface AttackSpec {
+  id: string;
+  name: string;
+  type?: MoveType;
+  stance: Stance;
+  /** 单键或 P / K 掩码 */
+  button: number;
+  plus?: AttackButton;
+  motion?: MotionId;
+  meterCost?: number;
+  invuln?: number;
+  /** 多段：依次 startup → active；最后跟 recovery */
+  segments: readonly Segment[];
+  recovery: number;
+  /** 每段伤害 */
   damage: number;
   guard?: GuardType;
   hitstun?: number;
@@ -20,29 +42,41 @@ export interface NormalSpec {
   knockback?: Partial<Knockback>;
   knockdown?: boolean;
   wallBounce?: boolean;
+  cancelWindow?: number;
+  chain?: readonly string[];
   /** 出招期间受击框（可选，默认姿态框） */
   hurtboxes?: readonly BoxPx[];
   /** 启动期水平位移（像素 / 帧） */
   stepX?: number;
 }
 
-/**
- * 用 startup / active / recovery 三段快速生成普通技帧数据。
- * 精灵索引按 0 / 1 / 2 占位。
- */
-export function normal(s: NormalSpec): MoveData {
+/** 通用攻击构造：按段生成 startup / active 帧，最后追加 recovery。 */
+export function attack(s: AttackSpec): MoveData {
   const base: Pick<FrameData, 'hurtboxes'> = s.hurtboxes ? { hurtboxes: s.hurtboxes } : {};
-  const frames: FrameData[] = [
-    { sprite: 0, duration: s.startup, ...base, ...(s.stepX ? { velocity: { x: s.stepX } } : {}) },
-    { sprite: 1, duration: s.active, ...base, hitboxes: [s.hitbox] },
-    { sprite: 2, duration: s.recovery, ...base },
-  ];
+  const frames: FrameData[] = [];
+  s.segments.forEach((seg, i) => {
+    frames.push({
+      sprite: i * 2,
+      duration: seg.startup,
+      ...base,
+      ...(i === 0 && s.stepX ? { velocity: { x: s.stepX } } : {}),
+    });
+    frames.push({ sprite: i * 2 + 1, duration: seg.active, ...base, hitboxes: [seg.hitbox], hitId: i + 1 });
+  });
+  frames.push({ sprite: s.segments.length * 2, duration: s.recovery, ...base });
+
+  const type: MoveType = s.type ?? (s.plus ? 'blowback' : s.motion ? 'special' : 'normal');
   const light = s.button === Btn.A || s.button === Btn.B;
   return {
     id: s.id,
     name: s.name,
-    type: s.plus ? 'blowback' : 'normal',
-    input: { stance: s.stance, button: s.button, ...(s.plus ? { plus: s.plus } : {}) },
+    type,
+    input: {
+      stance: s.stance,
+      button: s.button,
+      ...(s.plus ? { plus: s.plus } : {}),
+      ...(s.motion ? { motion: s.motion } : {}),
+    },
     damage: s.damage,
     guard: s.guard ?? (s.stance === 'air' ? 'high' : 'mid'),
     hitstun: s.hitstun ?? (light ? 14 : 20),
@@ -51,8 +85,25 @@ export function normal(s: NormalSpec): MoveData {
     knockback: { x: s.knockback?.x ?? (light ? 3 : 5), y: s.knockback?.y ?? 0 },
     ...(s.knockdown ? { knockdown: true } : {}),
     ...(s.wallBounce ? { wallBounce: true } : {}),
+    ...(s.meterCost !== undefined ? { meterCost: s.meterCost } : {}),
+    ...(s.invuln !== undefined ? { invuln: s.invuln } : {}),
+    ...(s.cancelWindow !== undefined ? { cancelWindow: s.cancelWindow } : {}),
+    ...(s.chain ? { chain: s.chain } : {}),
     frames,
   };
+}
+
+export interface NormalSpec extends Omit<AttackSpec, 'segments' | 'button' | 'type' | 'motion' | 'meterCost' | 'invuln'> {
+  button: AttackButton;
+  startup: number;
+  active: number;
+  hitbox: BoxPx;
+}
+
+/** 单段普通技 / 吹飞的简写。 */
+export function normal(s: NormalSpec): MoveData {
+  const { startup, active, hitbox, ...rest } = s;
+  return attack({ ...rest, segments: [{ startup, active, hitbox }] });
 }
 
 export interface ThrowSpec {
@@ -99,4 +150,15 @@ export function frameAt(m: MoveData, stateFrame: number): FrameData | null {
     acc += f.duration;
   }
   return null;
+}
+
+/** 是否仍处于启动或 active 阶段（之后还有攻击帧）——反击判定用。 */
+export function inStartupOrActive(m: MoveData, stateFrame: number): boolean {
+  let acc = 0;
+  let lastActiveEnd = 0;
+  for (const f of m.frames) {
+    acc += f.duration;
+    if (f.hitboxes) lastActiveEnd = acc;
+  }
+  return stateFrame < lastActiveEnd;
 }

@@ -4,6 +4,7 @@ export * from './input';
 export * from './collision';
 export { Rng } from './Rng';
 export * from './moveBuilder';
+export * from './commands';
 export {
   FightSim,
   PREJUMP_FRAMES,
@@ -11,5 +12,9 @@ export {
   KNOCKDOWN_FRAMES,
   GETUP_FRAMES,
   THROW_TECH_FRAMES,
+  INTRO_FRAMES,
+  ROUND_END_FRAMES,
+  ROUNDS_TO_WIN,
+  scaledDamage,
   type FightSimOptions,
 } from './FightSim';

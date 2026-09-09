@@ -11,7 +11,7 @@ import {
 } from '../../src/core';
 import { akainuDef, luffyDef } from '../../src/characters';
 
-const mk = () => new FightSim({ p1: luffyDef, p2: akainuDef, seed: 3 });
+const mk = () => new FightSim({ p1: luffyDef, p2: akainuDef, seed: 3, introFrames: 0 });
 const run = (sim: FightSim, p1: number, p2: number, frames: number) => {
   for (let i = 0; i < frames; i++) sim.step({ p1, p2 });
 };
@@ -168,12 +168,14 @@ describe('throw', () => {
 
 describe('movement', () => {
   it('isDoubleTap：6 5 6 触发，长按不触发', () => {
-    expect(isDoubleTap([0, 1, 0, 1], 1)).toBe(true);
-    expect(isDoubleTap([1, 1, 1, 1], 1)).toBe(false);
-    expect(isDoubleTap([0, 1, 1], 1)).toBe(false);
-    expect(isDoubleTap([0, -1, 0, -1], -1)).toBe(true);
+    expect(isDoubleTap([5, 6, 5, 6], 1)).toBe(true);
+    expect(isDoubleTap([6, 6, 6, 6], 1)).toBe(false);
+    expect(isDoubleTap([5, 6, 6], 1)).toBe(false);
+    expect(isDoubleTap([5, 4, 5, 4], -1)).toBe(true);
+    // 斜方向也算同侧
+    expect(isDoubleTap([5, 3, 5, 6], 1)).toBe(true);
     // 超出窗口
-    const far = [1, ...new Array(12).fill(0), 1];
+    const far = [6, ...new Array(12).fill(5), 6];
     expect(isDoubleTap(far, 1)).toBe(false);
   });
 
@@ -244,7 +246,7 @@ describe('movement', () => {
     expect(minHop).toBeGreaterThan(minJump);
   });
 
-  it('落地有 landing 帧，期间不能出招但能防御', () => {
+  it('落地有 landing 帧，期间不能出招但能防御；落地中按的键在可动后立即出招（按键缓冲）', () => {
     const sim = mk();
     run(sim, Btn.Up, 0, PREJUMP_FRAMES + 2);
     let landed = false;
@@ -257,7 +259,8 @@ describe('movement', () => {
     expect(sim.state.fighters[0].state).toBe('landing');
     expect(sim.isGuarding(sim.state.fighters[0])).toBe(true);
     run(sim, 0, 0, LANDING_FRAMES);
-    expect(sim.state.fighters[0].state).toBe('idle');
+    expect(sim.state.fighters[0].state).toBe('attack');
+    expect(sim.state.fighters[0].moveId).toBe('st_a');
   });
 });
 
