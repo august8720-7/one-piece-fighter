@@ -56,6 +56,29 @@ function setup(catalog = sampleCatalog, fetcher = vi.fn<typeof fetch>(async () =
 }
 
 describe('sample-first playback and cache', () => {
+  it('downloads at most four samples together and reports all completed files', async () => {
+    const pending: (() => void)[] = [];
+    let active = 0; let peak = 0;
+    const fetcher = vi.fn<typeof fetch>(async () => {
+      peak = Math.max(peak, ++active);
+      await new Promise<void>(resolve => pending.push(resolve));
+      active--;
+      return new Response(new Uint8Array([1, 2, 3]));
+    });
+    const rig = setup(sampleCatalog, fetcher);
+    const progress = vi.fn();
+    const loading = rig.engine.preload(undefined, progress);
+    expect(fetcher).toHaveBeenCalledTimes(4);
+    for (let round = 0; round < 3; round++) {
+      pending.splice(0).forEach(done => done());
+      for (let tick = 0; tick < 30; tick++) await Promise.resolve();
+    }
+    expect(await loading).toEqual({ fetched: 5, decoded: 0, failed: [] });
+    expect(peak).toBe(4);
+    expect(progress).toHaveBeenLastCalledWith(5, 5);
+    rig.engine.destroy();
+  });
+
   it('chatter yields to either speaker and combat cancels it even when the new voice is unavailable', async () => {
     const rig = setup({
       'voice.luffy.idle': { files: ['/idle.wav'], group: 'voice', priority: 10, cooldownMs: 0 },

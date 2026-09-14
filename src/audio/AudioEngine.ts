@@ -231,7 +231,7 @@ export class AudioEngine {
     for (const sound of [...this.playing.values()]) if (sound.preview) this.stop(sound);
   }
 
-  async preload(characterIds?: readonly string[]): Promise<AudioPreloadReport> {
+  async preload(characterIds?: readonly string[], onProgress?: (completed: number, total: number) => void): Promise<AudioPreloadReport> {
     if (this.destroyed) return { fetched: 0, decoded: 0, failed: [] };
     const selected = characterIds ? new Set(characterIds) : null;
     const urls = new Set<string>();
@@ -240,7 +240,7 @@ export class AudioEngine {
       if (selected && character && !selected.has(character)) continue;
       for (const file of cue.files) urls.add(file);
     }
-    await Promise.all([...urls].map((url) => this.load(url)));
+    await this.loadMany([...urls], false, onProgress);
     return this.preloadReport([...urls]);
   }
 
@@ -256,8 +256,20 @@ export class AudioEngine {
   async retryFailed(): Promise<AudioPreloadReport> {
     this.music.retry();
     const urls = [...this.samples].filter(([, sample]) => sample.error).map(([url]) => url);
-    await Promise.all(urls.map(url => this.load(url, true)));
+    await this.loadMany(urls, true);
     return this.preloadReport(urls);
+  }
+
+  private async loadMany(urls: readonly string[], retry: boolean, onProgress?: (completed: number, total: number) => void): Promise<void> {
+    let next = 0;
+    let completed = 0;
+    await Promise.all(Array.from({ length: Math.min(4, urls.length) }, async () => {
+      while (next < urls.length && !this.destroyed) {
+        const url = urls[next++]!;
+        await this.load(url, retry);
+        onProgress?.(++completed, urls.length);
+      }
+    }));
   }
 
   private load(url: string, retry = false): Promise<void> {
@@ -283,7 +295,7 @@ export class AudioEngine {
     sample.loading = (async () => {
       const abort = new AbortController();
       sample.abort = abort;
-      const timeout = setTimeout(() => abort.abort(), 4000);
+      const timeout = setTimeout(() => abort.abort(), 30_000);
       try {
         if (!this.fetcher) throw new Error('fetch unavailable');
         const response = await this.fetcher(url, { signal: abort.signal, cache: retry ? 'reload' : 'default' });

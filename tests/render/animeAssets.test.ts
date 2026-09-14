@@ -8,6 +8,7 @@ vi.mock('../../src/render/anime/uiArtManifest.json', () => ({ default: { schemaV
   frames: { body: { x: 0, y: 0, w: 512, h: 512 }, portrait: { x: 100, y: 0, w: 120, h: 120 } },
 }])) } }));
 import { ANIME_CHARACTERS, ANIME_ERRORS, interfaceFrame, loadAnimeCharacters, type AnimeCharacterAssets } from '../../src/render/assets';
+import { ASSET_DOWNLOAD_TIMEOUT, ASSET_DOWNLOAD_ATTEMPTS } from '../../src/render/assetDownloads';
 import { adoptPresentation } from '../../src/render/presentation';
 
 function candidate() {
@@ -148,7 +149,7 @@ describe('candidate asset reloads', () => {
     vi.stubGlobal('fetch', vi.fn(async () => new Response('<!doctype html><html></html>', { headers: { 'Content-Type': 'text/html' } })));
     await loadAnimeCharacters(state.scene, ['luffy']);
     expect(state.assets()).toEqual({});
-    expect(state.values.get(ANIME_ERRORS)).toEqual({ luffy: '人物配置未找到，服务器返回了网页' });
+    expect(state.values.get(ANIME_ERRORS)).toEqual({ luffy: 'assets/characters/luffy/anime/runtime.json：资源未找到，服务器返回了网页' });
   });
 
   it.each(['runtime', 'atlas', 'image'] as const)('changing %s creates a new immutable texture without destroying a live reference', async part => {
@@ -169,7 +170,7 @@ describe('candidate asset reloads', () => {
     expect(state.addAtlas).toHaveBeenCalledTimes(3);
     expect(vi.mocked(fetch).mock.calls).toHaveLength(8);
     expect(current.uiKey).toBe(previous.uiKey);
-    for (const [, options] of vi.mocked(fetch).mock.calls) expect(options?.cache).toBe('no-store');
+    for (const [, options] of vi.mocked(fetch).mock.calls) expect(options?.cache).toBe('no-cache');
     expect(requestedImages).toHaveLength(4);
     for (const url of requestedImages) expect(URL.revokeObjectURL).toHaveBeenCalledWith(url);
   });
@@ -292,7 +293,7 @@ describe('candidate asset reloads', () => {
     })));
     try {
       const pending = loadAnimeCharacters(state.scene, ['luffy']);
-      await vi.advanceTimersByTimeAsync(8000);
+      await vi.advanceTimersByTimeAsync(ASSET_DOWNLOAD_TIMEOUT * ASSET_DOWNLOAD_ATTEMPTS);
       const failed = await pending;
       expect(failed.failures[0]).toMatchObject({ code: 'timeout' });
       expect(state.addAtlas).not.toHaveBeenCalled();

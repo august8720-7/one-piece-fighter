@@ -4,6 +4,7 @@ import { characters } from '@characters/index';
 import { readPresentation } from './presentation';
 import uiArtManifest from './anime/uiArtManifest.json';
 import { MOVE_PRESENTATIONS } from './fx/movePresentation';
+import { AssetDownloadError, AssetDownloads } from './assetDownloads';
 
 export const SPRITE_KEYS = 'spriteKeys';
 export type SpriteKeys = Record<string, string | null>;
@@ -82,7 +83,7 @@ export async function loadCharacterAtlases(scene: Phaser.Scene, ids: readonly st
 }
 
 /** Candidate artwork lives beside the complete legacy character, never replacing its registry key. */
-export async function loadAnimeCharacters(scene: Phaser.Scene, ids: readonly string[]): Promise<AnimeLoadResult> {
+export async function loadAnimeCharacters(scene: Phaser.Scene, ids: readonly string[], downloads = new AssetDownloads()): Promise<AnimeLoadResult> {
   // A mirror match reloads one fighter; menus still need the other verified portrait.
   const assets: AnimeCharacterAssets = { ...((scene.registry.get(ANIME_CHARACTERS) as AnimeCharacterAssets | undefined) ?? {}) };
   const errors: Record<string, string> = { ...((scene.registry.get(ANIME_ERRORS) as Record<string, string> | undefined) ?? {}) };
@@ -94,24 +95,19 @@ export async function loadAnimeCharacters(scene: Phaser.Scene, ids: readonly str
     delete errors[id];
   }
   await Promise.all(requested.map(async id => {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT);
     try {
       const base = `assets/characters/${id}/anime/`;
-      const response = await fetch(`${base}runtime.json`, { signal: controller.signal, cache: 'no-store' });
-      if (!response.ok) throw new AssetLoadError('unavailable', `人物配置下载失败（HTTP ${response.status}）`);
-      if (response.headers.get('content-type')?.includes('text/html')) throw new AssetLoadError('unavailable', '人物配置未找到，服务器返回了网页');
-      const value: unknown = await response.json().catch(() => { throw new AssetLoadError('invalid', '人物配置不是有效 JSON'); });
+      const value: unknown = await downloads.read(`${base}runtime.json`, response => response.json());
       const invalid = validateAnimeRuntimeManifest(value, characters[id]?.moves);
       if (invalid.length || !isAnimeRuntimeManifest(value) || value.characterId !== id) throw new AssetLoadError('invalid', invalid[0] ?? '人物配置身份不匹配');
-      const [pageResult, uiResult] = await Promise.allSettled([Promise.all(animeAtlasPages(value).map(async page => {
-        const [atlas, { image, imageHash }] = await Promise.all([
-          fetchAtlas(`${base}${page.data}`, id, 'no-store', false), fetchAnimeImage(`${base}${page.image}`, controller.signal),
+      const [pageResult, uiResult] = await Promise.allSettled([settleAll(animeAtlasPages(value).map(async page => {
+        const [atlas, { image, imageHash }] = await settleAll([
+          fetchAtlas(`${base}${page.data}`, id, false, downloads), fetchAnimeImage(`${base}${page.image}`, downloads),
         ]);
         if (image.naturalWidth > 4096 || image.naturalHeight > 4096) throw new AssetLoadError('texture', `人物图集单页超过 4096：${page.id}`);
         if ((page.width !== undefined && image.naturalWidth !== page.width) || (page.height !== undefined && image.naturalHeight !== page.height)) throw new AssetLoadError('invalid', `人物分页尺寸不匹配：${page.id}`);
         return { page, atlas, image, imageHash };
-      })), fetchAnimeInterface(id, controller.signal)]);
+      })), fetchAnimeInterface(id, downloads)]);
       // Do not announce a retryable result while the parallel UI decode still
       // holds object URLs or can deliver a late completion into the next load.
       if (pageResult.status === 'rejected') throw pageResult.reason;
@@ -155,7 +151,7 @@ export async function loadAnimeCharacters(scene: Phaser.Scene, ids: readonly str
       const failure = assetFailure(id, error);
       errors[id] = failure.message;
       failures.push(failure);
-    } finally { clearTimeout(timer); }
+    }
   }));
   scene.registry.set(ANIME_CHARACTERS, assets);
   scene.registry.set(ANIME_ERRORS, errors);
@@ -169,19 +165,22 @@ class AssetLoadError extends Error {
 }
 
 function assetFailure(characterId: string, error: unknown): AssetFailure {
-  if (error instanceof AssetLoadError) return { characterId, code: error.code, message: error.message };
+  if (error instanceof AssetLoadError || error instanceof AssetDownloadError) return { characterId, code: error.code, message: error.message };
   if (error instanceof Error && error.name === 'AbortError') return { characterId, code: 'timeout', message: '人物资源请求超时，可重试' };
   const message = error instanceof Error ? error.message : '人物资源载入失败';
   return { characterId, code: message.includes('decode') ? 'decode' : message.includes('timed out') ? 'timeout' : 'unavailable', message };
 }
 
-async function fetchAtlas(url: string, id: string, cache?: RequestCache, requireIdle = true): Promise<AtlasData> {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT);
-  try {
-    const response = await fetch(url, { signal: controller.signal, ...(cache ? { cache } : {}) });
-    if (!response.ok) throw new AssetLoadError('unavailable', `人物图集下载失败（HTTP ${response.status}）`);
-    const data = await response.json() as AtlasData;
+/** Drain sibling downloads/decodes before allowing a scene retry to begin. */
+async function settleAll<const T extends readonly unknown[]>(promises: T): Promise<{ -readonly [P in keyof T]: Awaited<T[P]> }> {
+  const results = await Promise.allSettled(promises);
+  const failed = results.find(result => result.status === 'rejected');
+  if (failed?.status === 'rejected') throw failed.reason;
+  return results.map(result => (result as PromiseFulfilledResult<unknown>).value) as { -readonly [P in keyof T]: Awaited<T[P]> };
+}
+
+async function fetchAtlas(url: string, id: string, requireIdle = true, downloads = new AssetDownloads()): Promise<AtlasData> {
+    const data = await downloads.read(url, response => response.json()) as AtlasData;
     if (!data?.frames || typeof data.frames !== 'object' || !Object.keys(data.frames).length) throw new AssetLoadError('invalid', '人物图集没有动作帧');
     if (requireIdle && !data.frames[`${id}/idle/0`]) throw new AssetLoadError('invalid', '人物图集缺少站立帧');
     for (const entry of Object.values(data.frames)) {
@@ -189,20 +188,19 @@ async function fetchAtlas(url: string, id: string, cache?: RequestCache, require
       if (!f || ![f.x, f.y, f.w, f.h].every(Number.isInteger) || f.x < 0 || f.y < 0 || f.w <= 0 || f.h <= 0) throw new AssetLoadError('invalid', '人物图集帧坐标非法');
     }
     return data;
-  } finally { clearTimeout(timer); }
 }
 
 async function sha256(value: string | ArrayBuffer): Promise<string> {
-  if (!globalThis.crypto?.subtle?.digest) throw new AssetLoadError('integrity', '此页面无法执行 SHA-256 完整性校验，请使用本机 localhost / 127.0.0.1 入口');
+  if (!globalThis.crypto?.subtle?.digest) throw new AssetLoadError('integrity', '此浏览器无法执行 SHA-256 完整性校验，请使用新版 Chrome / Edge 并通过 HTTPS（本机可用 localhost / 127.0.0.1）打开');
   const bytes = typeof value === 'string' ? new TextEncoder().encode(value) : value;
   const digest = await crypto.subtle.digest('SHA-256', bytes);
   return Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('');
 }
 
-async function fetchAnimeInterface(id: string, signal: AbortSignal): Promise<{ image: HTMLImageElement; atlas: AtlasData; identity: string }> {
+async function fetchAnimeInterface(id: string, downloads: AssetDownloads): Promise<{ image: HTMLImageElement; atlas: AtlasData; identity: string }> {
   const record = uiArtManifest.characters[id as keyof typeof uiArtManifest.characters];
   if (!record) throw new AssetLoadError('invalid', '人物界面配置缺失');
-  const { image, imageHash } = await fetchAnimeImage(record.image, signal);
+  const { image, imageHash } = await fetchAnimeImage(record.image, downloads);
   if (imageHash !== record.sha256) throw new AssetLoadError('integrity', '人物界面原图内容校验失败，请重新载入');
   if (image.naturalWidth !== record.width || image.naturalHeight !== record.height || Math.max(record.width, record.height) > 4096) {
     throw new AssetLoadError('invalid', '人物界面图片尺寸不匹配');
@@ -217,20 +215,9 @@ async function fetchAnimeInterface(id: string, signal: AbortSignal): Promise<{ i
 }
 
 /** Fetch the exact bytes used for both decoding and the immutable candidate texture key. */
-async function fetchAnimeImage(url: string, signal: AbortSignal): Promise<{ image: HTMLImageElement; imageHash: string }> {
-  const download = async (): Promise<ArrayBuffer> => {
-    const response = await fetch(url, { signal, cache: 'no-store' });
-    if (!response.ok) throw new AssetLoadError('unavailable', `人物图片下载失败（HTTP ${response.status}）`);
-    // Read bytes first: some embedded Chromium hosts fail response.blob() for
-    // large atlases even when arrayBuffer() returns the complete same response.
-    return response.arrayBuffer();
-  };
-  // A large PNG can lose its response body after HTTP 200. Retry that network
-  // failure once within the same deadline, never HTTP errors or invalid artwork.
-  const bytes = await download().catch((error: unknown) => {
-    if (!(error instanceof TypeError) || signal.aborted) throw error;
-    return download();
-  });
+async function fetchAnimeImage(url: string, downloads: AssetDownloads): Promise<{ image: HTMLImageElement; imageHash: string }> {
+  // Keep arrayBuffer: some embedded Chromium hosts fail large response.blob().
+  const bytes = await downloads.read(url, response => response.arrayBuffer());
   const imageHash = await sha256(bytes);
   const objectUrl = URL.createObjectURL(new Blob([bytes], { type: 'image/png' }));
   try { return { image: await fetchImage(objectUrl), imageHash }; }
@@ -304,25 +291,17 @@ function validatePresentationTexture(scene: Phaser.Scene, key: string, frames: r
   }
 }
 
-async function presentationResponse(url: string, signal: AbortSignal): Promise<Response> {
-  const response = await fetch(url, { signal, cache: 'no-store' });
-  if (!response.ok) throw new AssetLoadError('unavailable', `${url} 下载失败（HTTP ${response.status}）`);
-  if (response.headers.get('content-type')?.includes('text/html')) throw new AssetLoadError('unavailable', `${url} 未找到，服务器返回了网页`);
-  return response;
-}
-
-async function presentationImage(url: string, signal: AbortSignal): Promise<HTMLImageElement> {
-  const response = await presentationResponse(url, signal);
-  const objectUrl = URL.createObjectURL(await response.blob());
+async function presentationImage(url: string, downloads: AssetDownloads): Promise<HTMLImageElement> {
+  const objectUrl = URL.createObjectURL(await downloads.read(url, response => response.blob()));
   try {
-    const image = await fetchImage(objectUrl, signal);
+    const image = await fetchImage(objectUrl);
     if (!Number.isInteger(image.naturalHeight) || image.naturalHeight <= 0) throw new AssetLoadError('decode', '表现图片尺寸非法');
     return image;
   } finally { URL.revokeObjectURL(objectUrl); }
 }
 
 /** Full anime requires its declared stage/FX pack; optional callers still receive failures for inspection. */
-export async function loadPresentationAssets(scene: Phaser.Scene): Promise<PresentationAssetLoadResult> {
+export async function loadPresentationAssets(scene: Phaser.Scene, downloads = new AssetDownloads()): Promise<PresentationAssetLoadResult> {
   const profile = readPresentation(scene.registry);
   const required = profile.art === 'anime' && profile.scope === 'full';
   const requests = [
@@ -330,15 +309,11 @@ export async function loadPresentationAssets(scene: Phaser.Scene): Promise<Prese
     ...['akainu', 'luffy'].map(id => ({ key: `fx-${id}`, image: `assets/fx/${id}.png`, atlas: `assets/fx/${id}.json`, frames: REQUIRED_FX_FRAMES[id]! })),
   ];
   const results = await Promise.all(requests.map(async request => {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT);
     try {
       if (!scene.textures.exists(request.key)) {
         const [imageResult, atlasResult] = await Promise.allSettled([
-          presentationImage(request.image, controller.signal),
-          request.atlas ? presentationResponse(request.atlas, controller.signal).then(response => response.json().catch(() => {
-            throw new AssetLoadError('invalid', '技能图集不是有效 JSON');
-          })) : Promise.resolve(null),
+          presentationImage(request.image, downloads),
+          request.atlas ? downloads.read(request.atlas, response => response.json()) : Promise.resolve(null),
         ]);
         if (imageResult.status === 'rejected') throw imageResult.reason;
         if (atlasResult.status === 'rejected') throw atlasResult.reason;
@@ -356,7 +331,7 @@ export async function loadPresentationAssets(scene: Phaser.Scene): Promise<Prese
       const reason = assetFailure('', error);
       const message = error instanceof Error && error.name === 'AbortError' ? '资源请求超时，可重试' : reason.message;
       return { key: request.key, failure: { key: request.key, code: reason.code, message: `${request.key}：${message}` } };
-    } finally { clearTimeout(timer); }
+    }
   }));
   const failures = results.flatMap(result => result.failure ? [result.failure] : []);
   const result = { ok: failures.length === 0, required, requested: requests.map(request => request.key), loaded: results.filter(result => !result.failure).map(result => result.key), failures };

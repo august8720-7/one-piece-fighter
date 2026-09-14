@@ -8,6 +8,7 @@ import { evaluateAnimeEntry } from '../anime/entryGate';
 import { audioQuickControls } from '../ui/audioQuickControls';
 import { adoptPresentation, legacyPresentation, presentationLabel, readPresentation, PRESENTATION_LOAD, type PresentationData } from '../presentation';
 import type { FightSceneData } from './FightScene';
+import { AssetDownloads } from '../assetDownloads';
 
 export type PreloadData = FightSceneData & PresentationData & {
   destination?: 'Title';
@@ -31,17 +32,20 @@ export class PreloadScene extends Phaser.Scene {
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => { this.generation++; });
     this.add.rectangle(0, 0, SCREEN_W, SCREEN_H, 0x0b1220).setOrigin(0);
     if (this.data_.failure?.length) { this.showFailure(this.data_.failure); return; }
-    const label = this.add.text(SCREEN_W / 2, SCREEN_H / 2, '正在载入人物、舞台与声音…', { fontFamily: UI.font, fontSize: font(22), color: UI.dim }).setOrigin(0.5);
+    const label = this.add.text(SCREEN_W / 2, SCREEN_H / 2, '正在载入人物与舞台…', { fontFamily: UI.font, fontSize: font(22), color: UI.dim, align: 'center' }).setOrigin(0.5);
+    const hint = this.add.text(SCREEN_W / 2, SCREEN_H / 2 + ui(90), '首次打开需要下载高清素材，较慢网络请稍候。', { fontFamily: UI.font, fontSize: font(15), color: UI.dim }).setOrigin(0.5);
+    const active = (): boolean => generation === this.generation && this.scene.isActive();
+    const downloads = new AssetDownloads(progress => {
+      if (active()) label.setText(`正在载入人物与舞台…\n已完成 ${progress.completed} 份文件${progress.retry ? '\n连接较慢，正在自动重试…' : ''}`);
+    });
     const data = this.data_;
     const profile = readPresentation(this.registry);
     const ids = data.destination === 'Title' ? Object.keys(characters) : [data.p1, data.p2];
     void Promise.all([
-      profile.art === 'anime' ? loadAnimeCharacters(this, ids) : loadCharacterAtlases(this, ids),
-      loadPresentationAssets(this),
-      sfx().preload(ids),
-    ]).then(([, presentationAssets]) => {
+      profile.art === 'anime' ? loadAnimeCharacters(this, ids, downloads) : loadCharacterAtlases(this, ids),
+      loadPresentationAssets(this, downloads),
+    ]).then(async ([, presentationAssets]) => {
       if (generation !== this.generation || !this.scene.isActive()) return;
-      label.destroy();
       const loaded = this.registry.get(ANIME_LOAD_RESULT) as Awaited<ReturnType<typeof loadAnimeCharacters>> | undefined;
       const invalidIds = [data.p1, data.p2].filter(id => !characters[id]);
       const issues = invalidIds.length ? [`未知角色：${invalidIds.join('、')}`] : [];
@@ -56,13 +60,20 @@ export class PreloadScene extends Phaser.Scene {
           issues.push(...result.issues);
         }
       }
-      if (issues.length) { this.showFailure(issues); return; }
+      if (issues.length) { label.destroy(); hint.destroy(); this.showFailure(issues); return; }
+      // Large images finish first; seventy short sounds must not compete with them.
+      label.setText('正在载入声音…');
+      await sfx().preload(ids, (completed, total) => {
+        if (active()) label.setText(`正在载入声音…\n已处理 ${completed} / ${total} 份文件`);
+      });
+      if (!active()) return;
+      label.destroy(); hint.destroy();
       this.registry.set(PRESENTATION_LOAD, { ok: true, scope: profile.scope, art: profile.art });
       if (data.destination === 'Title') this.scene.start('Title', profile);
       else this.scene.start('Fight', { ...data, ...profile });
     }).catch(error => {
       if (generation !== this.generation || !this.scene.isActive()) return;
-      label.destroy();
+      label.destroy(); hint.destroy();
       this.showFailure([error instanceof Error ? error.message : '资源加载失败']);
     });
   }
@@ -72,9 +83,11 @@ export class PreloadScene extends Phaser.Scene {
     const profile = readPresentation(this.registry);
     this.add.text(SCREEN_W / 2, ui(94), profile.art === 'anime' ? '新版暂时无法开始' : '游戏暂时无法开始', { fontFamily: UI.font, fontSize: font(30), color: UI.title }).setOrigin(0.5);
     const incomplete = issues.some(issue => /缺少动作|缺少招式|完整动作覆盖/.test(issue));
+    const timedOut = issues.some(issue => /超时|下载超过/.test(issue));
     const summary = incomplete
       ? '新版人物动作尚未制作齐全，完整比赛尚未开放。'
-      : '人物、舞台或技能贴图未能完整载入，请重试。具体原因可在加载诊断中查看。';
+      : timedOut ? '素材下载超时，自动重试后仍未完成。请检查网络后重新载入；已下载的文件会先检查是否可复用。'
+        : '人物、舞台或技能贴图未能完整载入，请重试。具体原因可在加载诊断中查看。';
     this.add.text(SCREEN_W / 2, ui(174), summary, {
       fontFamily: UI.font, fontSize: font(18), color: UI.text, align: 'center', wordWrap: { width: ui(720), useAdvancedWrap: true },
     }).setOrigin(0.5, 0);

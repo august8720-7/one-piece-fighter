@@ -94,7 +94,7 @@ describe('full anime stage and effect resources', () => {
     expect(fetch).toHaveBeenCalledTimes(6);
     expect(current.textures.size).toBe(4);
     expect(URL.revokeObjectURL).toHaveBeenCalledTimes(4);
-    expect(fetch).toHaveBeenCalledWith('assets/stages/marineford/backdrop.webp', expect.objectContaining({ cache: 'no-store' }));
+    expect(fetch).toHaveBeenCalledWith('assets/stages/marineford/backdrop.webp', expect.objectContaining({ cache: 'no-cache' }));
   });
 
   it.each(['backdrop', 'floor'])('reports a missing %s instead of accepting procedural scenery, and retries', async name => {

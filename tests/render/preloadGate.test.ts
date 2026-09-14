@@ -71,11 +71,13 @@ describe('preload prevents invalid battles', () => {
     mocks.loadAnime.mockImplementation(() => new Promise<AnimeLoadResult>(done => { resolve = done; }));
     current.scene.create();
     expect(current.navigation.start).not.toHaveBeenCalled();
+    expect(mocks.preloadAudio).not.toHaveBeenCalled();
     current.values.set('animeLoadResult', valid());
     resolve(valid());
     await flush();
     expect(current.navigation.start).toHaveBeenCalledWith('Fight', expect.objectContaining({ art: 'anime', scope: 'sample', quality: 'high' }));
     expect(mocks.loadLegacy).not.toHaveBeenCalled();
+    expect(mocks.preloadAudio).toHaveBeenCalledTimes(1);
   });
 
   it('download failure shows retry and explicit legacy, and retry carries the original profile', async () => {
@@ -86,6 +88,7 @@ describe('preload prevents invalid battles', () => {
     await flush();
     expect(current.navigation.start).not.toHaveBeenCalled();
     expect(mocks.loadLegacy).not.toHaveBeenCalled();
+    expect(mocks.preloadAudio).not.toHaveBeenCalled();
     current.controls.get('重新载入')!();
     expect(current.navigation.restart).toHaveBeenLastCalledWith(expect.objectContaining({ art: 'anime', scope: 'sample', quality: 'high' }));
     current.controls.get('主动进入旧版')!();
