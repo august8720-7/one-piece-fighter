@@ -5,9 +5,11 @@
 - 规划与设计：`docs/PLAN.md`
 - 项目约定：`AGENTS.md`
 
-## GitHub仓库与本地完整版本
+## 在线游玩与源码
 
-GitHub保存源码、测试、占位图、设计和素材来源记录。正式动漫人物、舞台/特效图片、官方语音、本地构建及验收录像按项目约定不上传，因此仅克隆仓库不会取得当前完整视听版本。
+**[点击直接玩完整动漫版](https://august8720-7.github.io/one-piece-fighter/)**。使用桌面浏览器和键盘，首次加载需要下载人物素材；点击“开启声音”，按 Enter 开始，J 确认、K 返回。支持人机、本地双人和训练。表现卡顿时可用[同画风性能档](https://august8720-7.github.io/one-piece-fighter/?art=anime&scope=full&quality=performance)。
+
+公开仓库的 `main` 保存源码、测试、占位图、设计和来源记录；`gh-pages` 保存线上所需的完整运行素材与编译脚本。原图、失败稿、源音频包和本地验收录像不发布。只克隆 `main` 仍不会取得正式视听素材。
 
 源码开发使用 `npm ci`、`npm run dev`；完整动漫模式还需恢复本机素材。`开始游戏.cmd` 只启动既有 `.local-releases/candidate-0913/` 构建，不会自动生成或下载它。完整素材和回退构建继续保留在原电脑，参见[交付说明](docs/完整游戏交付0913.md)。
 
@@ -113,6 +115,6 @@ npm run build && npm run preview
 
 Cloudflare Pages / Vercel / Netlify：构建命令 `npm run build`，输出目录 `dist`。
 
-GitHub Pages：把 `dist` 发到 Pages（Actions 或 `gh-pages` 分支）。仓库已带 `public/.nojekyll`，避免 Jekyll 吃掉以下划线开头的文件。
+当前 GitHub Pages 使用 `gh-pages` 分支根目录。`node scripts/packagePages.mjs` 从本机已验收的 `candidate-0913` 提取运行文件并校验 SHA256，产物与清单位于 `.local-releases/公开部署-0914/<时间>/`。脚本不构建、不自动推送。更新流程见[公开部署记录](docs/公开部署0914.md)。
 
-本项目含海贼王角色形象，定位为个人学习。不要发到可被搜索的公开地址（见 `docs/PLAN.md` 第 7 节）。克隆后若没有本地精灵源和图集，使用已提交的 `placeholder.*`；只有显式清单中的本地源文件齐全时才能重新生成正式人物。
+本项目为海贼王同人学习项目，无官方关联。2026-09-14 用户已授权公开仓库与可玩运行包；此部署不表示角色形象或原声音频获得了商业授权。只有显式清单中的本地源文件齐全时才能重新生成正式人物。
