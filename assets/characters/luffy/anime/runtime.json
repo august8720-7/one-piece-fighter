@@ -1,0 +1,6305 @@
+{
+  "schemaVersion": 2,
+  "characterId": "luffy",
+  "style": "anime",
+  "continuous": true,
+  "textureDensity": 2,
+  "atlas": {
+    "image": "atlas.png",
+    "data": "atlas.json"
+  },
+  "pages": [
+    {
+      "id": "p0",
+      "image": "atlas.png",
+      "data": "atlas.json",
+      "width": 4096,
+      "height": 4096
+    },
+    {
+      "id": "p1",
+      "image": "atlas-p1.png",
+      "data": "atlas-p1.json",
+      "width": 2048,
+      "height": 2048
+    }
+  ],
+  "framePages": {
+    "luffy/idle/0": "p0",
+    "luffy/st_a/0": "p0",
+    "luffy/st_a/1": "p0",
+    "luffy/st_a/2": "p0",
+    "luffy/crouch/0": "p0",
+    "luffy/block_stand/0": "p0",
+    "luffy/hit_stand/0": "p0",
+    "luffy/hit_crouch/0": "p0",
+    "luffy/st_c/0": "p0",
+    "luffy/st_c/1": "p0",
+    "luffy/st_c/2": "p0",
+    "luffy/st_c/3": "p0",
+    "luffy/st_c/4": "p0",
+    "luffy/st_c/5": "p0",
+    "luffy/st_c/6": "p0",
+    "luffy/st_c/7": "p0",
+    "luffy/walk_fwd/0": "p0",
+    "luffy/walk_fwd/1": "p0",
+    "luffy/walk_fwd/2": "p0",
+    "luffy/walk_fwd/3": "p0",
+    "luffy/walk_back/0": "p0",
+    "luffy/walk_back/1": "p0",
+    "luffy/walk_back/2": "p0",
+    "luffy/walk_back/3": "p0",
+    "luffy/block_crouch/0": "p0",
+    "luffy/hit_air/0": "p0",
+    "luffy/hit_air/1": "p0",
+    "luffy/knockdown/0": "p0",
+    "luffy/getup/0": "p0",
+    "luffy/getup/1": "p0",
+    "luffy/prejump/0": "p0",
+    "luffy/landing/0": "p0",
+    "luffy/ko/0": "p0",
+    "luffy/jump_neutral/0": "p0",
+    "luffy/jump_neutral/1": "p0",
+    "luffy/jump_neutral/2": "p0",
+    "luffy/jump_fwd/0": "p0",
+    "luffy/jump_fwd/1": "p0",
+    "luffy/jump_fwd/2": "p0",
+    "luffy/jump_back/0": "p0",
+    "luffy/jump_back/1": "p0",
+    "luffy/jump_back/2": "p0",
+    "luffy/roll_fwd/0": "p0",
+    "luffy/roll_fwd/1": "p0",
+    "luffy/roll_fwd/2": "p0",
+    "luffy/roll_fwd/3": "p0",
+    "luffy/roll_back/0": "p0",
+    "luffy/roll_back/1": "p0",
+    "luffy/roll_back/2": "p0",
+    "luffy/roll_back/3": "p0",
+    "luffy/backdash/0": "p0",
+    "luffy/backdash/1": "p0",
+    "luffy/backdash/2": "p0",
+    "luffy/backdash/3": "p0",
+    "luffy/sp_gear2/0": "p0",
+    "luffy/sp_gear2/1": "p0",
+    "luffy/sp_gear2/2": "p0",
+    "luffy/sp_gear2/3": "p0",
+    "luffy/st_d/0": "p0",
+    "luffy/st_d/1": "p0",
+    "luffy/st_d/2": "p0",
+    "luffy/st_d/3": "p0",
+    "luffy/st_d/4": "p0",
+    "luffy/st_d/5": "p0",
+    "luffy/cr_a/0": "p0",
+    "luffy/cr_a/1": "p0",
+    "luffy/cr_a/2": "p0",
+    "luffy/cr_b/0": "p0",
+    "luffy/cr_b/1": "p0",
+    "luffy/cr_b/2": "p0",
+    "luffy/cr_c/0": "p0",
+    "luffy/cr_c/1": "p0",
+    "luffy/cr_c/2": "p0",
+    "luffy/cr_c/3": "p0",
+    "luffy/throw/0": "p0",
+    "luffy/throw/1": "p0",
+    "luffy/throw/2": "p0",
+    "luffy/throw/3": "p0",
+    "luffy/throw/4": "p0",
+    "luffy/thrown/0": "p0",
+    "luffy/throw_tech/0": "p0",
+    "luffy/throw_tech/1": "p0",
+    "luffy/throw_tech/2": "p0",
+    "luffy/throw_tech/3": "p0",
+    "luffy/throw_fwd/0": "p0",
+    "luffy/throw_fwd/1": "p0",
+    "luffy/throw_fwd/2": "p0",
+    "luffy/throw_fwd/3": "p0",
+    "luffy/throw_fwd/4": "p0",
+    "luffy/throw_back/0": "p0",
+    "luffy/throw_back/1": "p0",
+    "luffy/throw_back/2": "p0",
+    "luffy/throw_back/3": "p0",
+    "luffy/throw_back/4": "p0",
+    "luffy/j_b/0": "p0",
+    "luffy/j_b/1": "p0",
+    "luffy/j_b/2": "p0",
+    "luffy/j_2d/0": "p0",
+    "luffy/j_2d/1": "p0",
+    "luffy/j_2d/2": "p0",
+    "luffy/win/0": "p0",
+    "luffy/win/1": "p0",
+    "luffy/win/2": "p0",
+    "luffy/sp_balloon/0": "p0",
+    "luffy/sp_balloon/1": "p0",
+    "luffy/sp_balloon/2": "p0",
+    "luffy/sp_balloon/3": "p0",
+    "luffy/j_a/0": "p0",
+    "luffy/j_a/1": "p0",
+    "luffy/j_a/2": "p0",
+    "luffy/sp_gatling/0": "p0",
+    "luffy/sp_gatling/1": "p0",
+    "luffy/sp_gatling/2": "p0",
+    "luffy/sp_gatling/3": "p0",
+    "luffy/sp_gatling/4": "p0",
+    "luffy/sp_gatling/5": "p0",
+    "luffy/sp_gatling/6": "p0",
+    "luffy/sp_storm/0": "p0",
+    "luffy/sp_storm/1": "p0",
+    "luffy/sp_storm/2": "p0",
+    "luffy/sp_storm/3": "p0",
+    "luffy/sp_storm/4": "p0",
+    "luffy/sp_storm/5": "p0",
+    "luffy/sp_storm/6": "p0",
+    "luffy/sp_gigant_pistol/0": "p0",
+    "luffy/sp_gigant_pistol/1": "p0",
+    "luffy/sp_gigant_pistol/2": "p0",
+    "luffy/sp_gigant_pistol/3": "p0",
+    "luffy/dash/0": "p0",
+    "luffy/dash/1": "p0",
+    "luffy/dash/2": "p0",
+    "luffy/dash/3": "p0",
+    "luffy/dash/4": "p0",
+    "luffy/dash/5": "p0",
+    "luffy/dash/6": "p0",
+    "luffy/dash/7": "p0",
+    "luffy/j_c/0": "p0",
+    "luffy/j_c/1": "p0",
+    "luffy/j_c/2": "p0",
+    "luffy/ult_red_hawk/0": "p0",
+    "luffy/ult_red_hawk/1": "p0",
+    "luffy/ult_red_hawk/2": "p0",
+    "luffy/ult_red_hawk/3": "p0",
+    "luffy/cr_d/0": "p0",
+    "luffy/cr_d/1": "p0",
+    "luffy/cr_d/2": "p0",
+    "luffy/cr_d/3": "p0",
+    "luffy/j_cd/0": "p0",
+    "luffy/j_cd/1": "p0",
+    "luffy/j_cd/2": "p0",
+    "luffy/j_cd/3": "p0",
+    "luffy/j_d/0": "p0",
+    "luffy/j_d/1": "p0",
+    "luffy/j_d/2": "p0",
+    "luffy/sp_bazooka/0": "p1",
+    "luffy/sp_bazooka/1": "p1",
+    "luffy/sp_bazooka/2": "p1",
+    "luffy/sp_bazooka/3": "p1",
+    "luffy/sp_rifle/0": "p1",
+    "luffy/sp_rifle/1": "p1",
+    "luffy/sp_rifle/2": "p0",
+    "luffy/sp_rifle/3": "p0",
+    "luffy/sp_rifle/4": "p0",
+    "luffy/st_b/0": "p1",
+    "luffy/st_b/1": "p1",
+    "luffy/st_b/2": "p1",
+    "luffy/cd/0": "p1",
+    "luffy/cd/1": "p1",
+    "luffy/cd/2": "p0",
+    "luffy/cd/3": "p0",
+    "luffy/cd/4": "p0",
+    "luffy/f_c/0": "p1",
+    "luffy/f_c/1": "p1",
+    "luffy/f_c/2": "p1",
+    "luffy/sp_rocket/0": "p1",
+    "luffy/sp_rocket/1": "p1",
+    "luffy/sp_rocket/2": "p1"
+  },
+  "anims": {
+    "idle": {
+      "frames": 1,
+      "fps": 60,
+      "loop": true,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 8
+        }
+      ]
+    },
+    "st_a": {
+      "frames": 3,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 4
+        },
+        {
+          "frame": 1,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 7
+        }
+      ]
+    },
+    "crouch": {
+      "frames": 1,
+      "fps": 60,
+      "loop": true,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 8
+        }
+      ]
+    },
+    "block_stand": {
+      "frames": 1,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 8
+        }
+      ]
+    },
+    "hit_stand": {
+      "frames": 1,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 8
+        }
+      ]
+    },
+    "hit_crouch": {
+      "frames": 1,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 8
+        }
+      ]
+    },
+    "st_c": {
+      "frames": 8,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 9
+        },
+        {
+          "frame": 1,
+          "ticks": 4
+        },
+        {
+          "frame": 2,
+          "ticks": 2
+        },
+        {
+          "frame": 3,
+          "ticks": 2
+        },
+        {
+          "frame": 4,
+          "ticks": 2
+        },
+        {
+          "frame": 5,
+          "ticks": 3
+        },
+        {
+          "frame": 6,
+          "ticks": 3
+        },
+        {
+          "frame": 7,
+          "ticks": 4
+        }
+      ]
+    },
+    "walk_fwd": {
+      "frames": 4,
+      "fps": 60,
+      "loop": true,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 1,
+          "ticks": 6
+        },
+        {
+          "frame": 2,
+          "ticks": 6
+        },
+        {
+          "frame": 3,
+          "ticks": 6
+        }
+      ]
+    },
+    "walk_back": {
+      "frames": 4,
+      "fps": 60,
+      "loop": true,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 8
+        },
+        {
+          "frame": 1,
+          "ticks": 8
+        },
+        {
+          "frame": 2,
+          "ticks": 8
+        },
+        {
+          "frame": 3,
+          "ticks": 8
+        }
+      ]
+    },
+    "block_crouch": {
+      "frames": 1,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 8
+        }
+      ]
+    },
+    "hit_air": {
+      "frames": 2,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    "knockdown": {
+      "frames": 1,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 36
+        }
+      ]
+    },
+    "getup": {
+      "frames": 2,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 7
+        },
+        {
+          "frame": 1,
+          "ticks": 7
+        }
+      ]
+    },
+    "prejump": {
+      "frames": 1,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 3
+        }
+      ]
+    },
+    "landing": {
+      "frames": 1,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 3
+        }
+      ]
+    },
+    "ko": {
+      "frames": 1,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 1
+        }
+      ]
+    },
+    "jump_neutral": {
+      "frames": 3,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 12
+        },
+        {
+          "frame": 1,
+          "ticks": 4
+        },
+        {
+          "frame": 2,
+          "ticks": 12
+        }
+      ],
+      "airbornePhases": {
+        "rising": 0,
+        "falling": 2,
+        "apex": {
+          "frame": 1,
+          "maxSpeed": 1
+        }
+      }
+    },
+    "jump_fwd": {
+      "frames": 3,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 12
+        },
+        {
+          "frame": 1,
+          "ticks": 4
+        },
+        {
+          "frame": 2,
+          "ticks": 12
+        }
+      ],
+      "airbornePhases": {
+        "rising": 0,
+        "falling": 2,
+        "apex": {
+          "frame": 1,
+          "maxSpeed": 1
+        }
+      }
+    },
+    "jump_back": {
+      "frames": 3,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 12
+        },
+        {
+          "frame": 1,
+          "ticks": 4
+        },
+        {
+          "frame": 2,
+          "ticks": 12
+        }
+      ],
+      "airbornePhases": {
+        "rising": 0,
+        "falling": 2,
+        "apex": {
+          "frame": 1,
+          "maxSpeed": 1
+        }
+      }
+    },
+    "roll_fwd": {
+      "frames": 4,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 4
+        },
+        {
+          "frame": 1,
+          "ticks": 12
+        },
+        {
+          "frame": 2,
+          "ticks": 8
+        },
+        {
+          "frame": 3,
+          "ticks": 4
+        }
+      ]
+    },
+    "roll_back": {
+      "frames": 4,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 4
+        },
+        {
+          "frame": 1,
+          "ticks": 12
+        },
+        {
+          "frame": 2,
+          "ticks": 8
+        },
+        {
+          "frame": 3,
+          "ticks": 4
+        }
+      ]
+    },
+    "backdash": {
+      "frames": 4,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 3
+        },
+        {
+          "frame": 1,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 10
+        },
+        {
+          "frame": 3,
+          "ticks": 2
+        }
+      ]
+    },
+    "sp_gear2": {
+      "frames": 4,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 1,
+          "ticks": 12
+        },
+        {
+          "frame": 2,
+          "ticks": 4
+        },
+        {
+          "frame": 3,
+          "ticks": 2
+        }
+      ]
+    },
+    "st_d": {
+      "frames": 6,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 10
+        },
+        {
+          "frame": 1,
+          "ticks": 4
+        },
+        {
+          "frame": 2,
+          "ticks": 3
+        },
+        {
+          "frame": 3,
+          "ticks": 6
+        },
+        {
+          "frame": 4,
+          "ticks": 5
+        },
+        {
+          "frame": 5,
+          "ticks": 4
+        }
+      ]
+    },
+    "cr_a": {
+      "frames": 3,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 4
+        },
+        {
+          "frame": 1,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 4
+        },
+        {
+          "frame": 0,
+          "ticks": 2
+        }
+      ]
+    },
+    "cr_b": {
+      "frames": 3,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 5
+        },
+        {
+          "frame": 1,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 5
+        },
+        {
+          "frame": 0,
+          "ticks": 4
+        }
+      ]
+    },
+    "cr_c": {
+      "frames": 4,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 7
+        },
+        {
+          "frame": 1,
+          "ticks": 4
+        },
+        {
+          "frame": 2,
+          "ticks": 6
+        },
+        {
+          "frame": 3,
+          "ticks": 5
+        },
+        {
+          "frame": 0,
+          "ticks": 4
+        }
+      ]
+    },
+    "throw": {
+      "frames": 5,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 1,
+          "ticks": 16
+        },
+        {
+          "frame": 2,
+          "ticks": 8
+        },
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 3,
+          "ticks": 5
+        },
+        {
+          "frame": 4,
+          "ticks": 3
+        }
+      ]
+    },
+    "thrown": {
+      "frames": 1,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 1
+        }
+      ]
+    },
+    "throw_tech": {
+      "frames": 4,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 8
+        },
+        {
+          "frame": 1,
+          "ticks": 4
+        },
+        {
+          "frame": 2,
+          "ticks": 4
+        },
+        {
+          "frame": 3,
+          "ticks": 4
+        }
+      ]
+    },
+    "throw_fwd": {
+      "frames": 5,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 1,
+          "ticks": 16
+        },
+        {
+          "frame": 2,
+          "ticks": 8
+        },
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 3,
+          "ticks": 5
+        },
+        {
+          "frame": 4,
+          "ticks": 3
+        }
+      ],
+      "throwExposures": [
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 1,
+          "ticks": 16
+        },
+        {
+          "frame": 2,
+          "ticks": 8
+        },
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 3,
+          "ticks": 5
+        },
+        {
+          "frame": 4,
+          "ticks": 3
+        }
+      ]
+    },
+    "throw_back": {
+      "frames": 5,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 1,
+          "ticks": 16
+        },
+        {
+          "frame": 2,
+          "ticks": 8
+        },
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 3,
+          "ticks": 5
+        },
+        {
+          "frame": 4,
+          "ticks": 3
+        }
+      ],
+      "throwExposures": [
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 1,
+          "ticks": 16
+        },
+        {
+          "frame": 2,
+          "ticks": 8
+        },
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 3,
+          "ticks": 5
+        },
+        {
+          "frame": 4,
+          "ticks": 3
+        }
+      ]
+    },
+    "j_b": {
+      "frames": 3,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 5
+        },
+        {
+          "frame": 1,
+          "ticks": 6
+        },
+        {
+          "frame": 2,
+          "ticks": 8
+        }
+      ]
+    },
+    "j_2d": {
+      "frames": 3,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 9
+        },
+        {
+          "frame": 1,
+          "ticks": 6
+        },
+        {
+          "frame": 2,
+          "ticks": 10
+        }
+      ]
+    },
+    "win": {
+      "frames": 3,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 20
+        },
+        {
+          "frame": 1,
+          "ticks": 24
+        },
+        {
+          "frame": 2,
+          "ticks": 20
+        }
+      ]
+    },
+    "sp_balloon": {
+      "frames": 4,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 4
+        },
+        {
+          "frame": 1,
+          "ticks": 22
+        },
+        {
+          "frame": 2,
+          "ticks": 8
+        },
+        {
+          "frame": 3,
+          "ticks": 4
+        }
+      ]
+    },
+    "j_a": {
+      "frames": 3,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 4
+        },
+        {
+          "frame": 1,
+          "ticks": 6
+        },
+        {
+          "frame": 2,
+          "ticks": 8
+        }
+      ]
+    },
+    "sp_gatling": {
+      "frames": 7,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 8
+        },
+        {
+          "frame": 1,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 3
+        },
+        {
+          "frame": 3,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 3
+        },
+        {
+          "frame": 1,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 3
+        },
+        {
+          "frame": 3,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 3
+        },
+        {
+          "frame": 4,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 6
+        },
+        {
+          "frame": 5,
+          "ticks": 8
+        },
+        {
+          "frame": 6,
+          "ticks": 8
+        }
+      ]
+    },
+    "sp_storm": {
+      "frames": 7,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 10
+        },
+        {
+          "frame": 1,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 3
+        },
+        {
+          "frame": 3,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 3
+        },
+        {
+          "frame": 1,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 3
+        },
+        {
+          "frame": 3,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 3
+        },
+        {
+          "frame": 1,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 3
+        },
+        {
+          "frame": 3,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 4
+        },
+        {
+          "frame": 4,
+          "ticks": 4
+        },
+        {
+          "frame": 2,
+          "ticks": 10
+        },
+        {
+          "frame": 5,
+          "ticks": 10
+        },
+        {
+          "frame": 6,
+          "ticks": 10
+        }
+      ]
+    },
+    "sp_gigant_pistol": {
+      "frames": 4,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 26
+        },
+        {
+          "frame": 1,
+          "ticks": 6
+        },
+        {
+          "frame": 2,
+          "ticks": 30
+        },
+        {
+          "frame": 3,
+          "ticks": 14
+        }
+      ]
+    },
+    "dash": {
+      "frames": 8,
+      "fps": 60,
+      "loop": true,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 3
+        },
+        {
+          "frame": 1,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 3
+        },
+        {
+          "frame": 3,
+          "ticks": 3
+        },
+        {
+          "frame": 4,
+          "ticks": 3
+        },
+        {
+          "frame": 5,
+          "ticks": 3
+        },
+        {
+          "frame": 6,
+          "ticks": 3
+        },
+        {
+          "frame": 7,
+          "ticks": 3
+        }
+      ]
+    },
+    "j_c": {
+      "frames": 3,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 7
+        },
+        {
+          "frame": 1,
+          "ticks": 5
+        },
+        {
+          "frame": 2,
+          "ticks": 10
+        }
+      ]
+    },
+    "ult_red_hawk": {
+      "frames": 4,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 16
+        },
+        {
+          "frame": 1,
+          "ticks": 4
+        },
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 2,
+          "ticks": 8
+        },
+        {
+          "frame": 0,
+          "ticks": 32
+        },
+        {
+          "frame": 3,
+          "ticks": 8
+        }
+      ]
+    },
+    "cr_d": {
+      "frames": 4,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 9
+        },
+        {
+          "frame": 1,
+          "ticks": 4
+        },
+        {
+          "frame": 2,
+          "ticks": 12
+        },
+        {
+          "frame": 3,
+          "ticks": 8
+        }
+      ]
+    },
+    "j_cd": {
+      "frames": 4,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 10
+        },
+        {
+          "frame": 1,
+          "ticks": 1
+        },
+        {
+          "frame": 2,
+          "ticks": 5
+        },
+        {
+          "frame": 3,
+          "ticks": 12
+        }
+      ]
+    },
+    "j_d": {
+      "frames": 3,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 8
+        },
+        {
+          "frame": 1,
+          "ticks": 5
+        },
+        {
+          "frame": 2,
+          "ticks": 10
+        }
+      ]
+    },
+    "sp_bazooka": {
+      "frames": 4,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 14
+        },
+        {
+          "frame": 1,
+          "ticks": 4
+        },
+        {
+          "frame": 2,
+          "ticks": 16
+        },
+        {
+          "frame": 3,
+          "ticks": 6
+        }
+      ]
+    },
+    "sp_rifle": {
+      "frames": 5,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 12
+        },
+        {
+          "frame": 1,
+          "ticks": 5
+        },
+        {
+          "frame": 2,
+          "ticks": 8
+        },
+        {
+          "frame": 3,
+          "ticks": 8
+        },
+        {
+          "frame": 4,
+          "ticks": 8
+        }
+      ]
+    },
+    "st_b": {
+      "frames": 3,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 5
+        },
+        {
+          "frame": 1,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 9
+        }
+      ]
+    },
+    "cd": {
+      "frames": 5,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 16
+        },
+        {
+          "frame": 1,
+          "ticks": 5
+        },
+        {
+          "frame": 2,
+          "ticks": 8
+        },
+        {
+          "frame": 3,
+          "ticks": 8
+        },
+        {
+          "frame": 4,
+          "ticks": 8
+        }
+      ]
+    },
+    "f_c": {
+      "frames": 3,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 14
+        },
+        {
+          "frame": 1,
+          "ticks": 4
+        },
+        {
+          "frame": 2,
+          "ticks": 18
+        }
+      ]
+    },
+    "sp_rocket": {
+      "frames": 3,
+      "fps": 60,
+      "loop": false,
+      "pixelArt": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 1,
+          "ticks": 12
+        },
+        {
+          "frame": 2,
+          "ticks": 16
+        }
+      ]
+    }
+  },
+  "attachments": {
+    "luffy/idle/0": {
+      "size": {
+        "width": 316,
+        "height": 367
+      },
+      "root": {
+        "x": 157.50437869822485,
+        "y": 358.52970414201184
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 209.3150295857988,
+          "y": 112.94721893491123
+        },
+        "wrist": {
+          "x": 243.51005917159762,
+          "y": 124.34556213017751
+        }
+      }
+    },
+    "luffy/st_a/0": {
+      "size": {
+        "width": 312,
+        "height": 357
+      },
+      "root": {
+        "x": 156.46816568047336,
+        "y": 350.23999999999995
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 128.49041420118343,
+          "y": 73.57112426035502
+        },
+        "wrist": {
+          "x": 96.36781065088756,
+          "y": 76.67976331360946
+        }
+      }
+    },
+    "luffy/st_a/1": {
+      "size": {
+        "width": 371,
+        "height": 363
+      },
+      "root": {
+        "x": 172.01136094674555,
+        "y": 354.3848520710059
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 239.3652071005917,
+          "y": 92.22295857988165
+        },
+        "wrist": {
+          "x": 331.58816568047337,
+          "y": 87.04189349112426
+        }
+      }
+    },
+    "luffy/st_a/2": {
+      "size": {
+        "width": 314,
+        "height": 366
+      },
+      "root": {
+        "x": 156.46816568047336,
+        "y": 356.45727810650885
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 190.66319526627217,
+          "y": 107.76615384615384
+        },
+        "wrist": {
+          "x": 226.93065088757396,
+          "y": 127.45420118343195
+        }
+      }
+    },
+    "luffy/crouch/0": {
+      "size": {
+        "width": 304,
+        "height": 303
+      },
+      "root": {
+        "x": 151.28710059171596,
+        "y": 296.35692307692307
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 229.00307692307692,
+          "y": 100.51266272189349
+        },
+        "wrist": {
+          "x": 250.76355029585798,
+          "y": 125.38177514792899
+        }
+      }
+    },
+    "luffy/block_stand/0": {
+      "size": {
+        "width": 320,
+        "height": 350
+      },
+      "root": {
+        "x": 159.5768047337278,
+        "y": 341.9502958579881
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 210.35124260355028,
+          "y": 102.58508875739645
+        },
+        "wrist": {
+          "x": 207.24260355029585,
+          "y": 75.64355029585798
+        }
+      }
+    },
+    "luffy/hit_stand/0": {
+      "size": {
+        "width": 301,
+        "height": 352
+      },
+      "root": {
+        "x": 150.2508875739645,
+        "y": 344.0227218934911
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 169.9389349112426,
+          "y": 95.33159763313608
+        },
+        "wrist": {
+          "x": 168.9027218934911,
+          "y": 71.49869822485206
+        }
+      }
+    },
+    "luffy/hit_crouch/0": {
+      "size": {
+        "width": 275,
+        "height": 293
+      },
+      "root": {
+        "x": 136.78011834319526,
+        "y": 284.95857988165676
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 165.79408284023668,
+          "y": 95.33159763313608
+        },
+        "wrist": {
+          "x": 215.53230769230768,
+          "y": 86.00568047337278
+        }
+      }
+    },
+    "luffy/st_c/0": {
+      "size": {
+        "width": 321,
+        "height": 345
+      },
+      "root": {
+        "x": 159.87425882352943,
+        "y": 338.70268235294117
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 101.36357647058824,
+          "y": 70.048
+        },
+        "wrist": {
+          "x": 50.26974117647059,
+          "y": 106.3081411764706
+        }
+      }
+    },
+    "luffy/st_c/1": {
+      "size": {
+        "width": 1175,
+        "height": 315
+      },
+      "root": {
+        "x": 187.91723076923077,
+        "y": 312.5218461538461
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 242.47384615384615,
+          "y": 88.90707692307693
+        },
+        "wrist": {
+          "x": 741.1366518171824,
+          "y": 34.53636476355261
+        },
+        "fist": {
+          "x": 772.1710225845267,
+          "y": 32.521846153846134
+        }
+      }
+    },
+    "luffy/st_c/2": {
+      "size": {
+        "width": 1175,
+        "height": 315
+      },
+      "root": {
+        "x": 187.91723076923077,
+        "y": 312.5218461538461
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 242.47384615384615,
+          "y": 88.90707692307693
+        },
+        "wrist": {
+          "x": 685.8937818797262,
+          "y": 58.367449612993624
+        },
+        "fist": {
+          "x": 716.9884400202138,
+          "y": 57.80826334701562
+        }
+      }
+    },
+    "luffy/st_c/3": {
+      "size": {
+        "width": 1175,
+        "height": 315
+      },
+      "root": {
+        "x": 187.91723076923077,
+        "y": 312.5218461538461
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 242.47384615384615,
+          "y": 88.90707692307693
+        },
+        "wrist": {
+          "x": 613.9311687142608,
+          "y": 79.15018182877833
+        },
+        "fist": {
+          "x": 645.0124782543963,
+          "y": 80.21913057597344
+        }
+      }
+    },
+    "luffy/st_c/4": {
+      "size": {
+        "width": 1175,
+        "height": 315
+      },
+      "root": {
+        "x": 187.91723076923077,
+        "y": 312.5218461538461
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 242.47384615384615,
+          "y": 88.90707692307693
+        },
+        "wrist": {
+          "x": 548.2603076923077,
+          "y": 92.27476923076922
+        },
+        "fist": {
+          "x": 579.243076923077,
+          "y": 94.96892307692308
+        }
+      }
+    },
+    "luffy/st_c/5": {
+      "size": {
+        "width": 447,
+        "height": 362
+      },
+      "root": {
+        "x": 179.26262365591398,
+        "y": 356.2656344086021
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 219.18245161290324,
+          "y": 102.43578494623655
+        },
+        "wrist": {
+          "x": 406.7303225806452,
+          "y": 103.18898924731182
+        },
+        "pelvis": {
+          "x": 179.26262365591398,
+          "y": 205.62477419354838
+        },
+        "fist": {
+          "x": 421.79440860215055,
+          "y": 101.6825806451613
+        }
+      }
+    },
+    "luffy/st_c/6": {
+      "size": {
+        "width": 359,
+        "height": 363
+      },
+      "root": {
+        "x": 178.88602150537633,
+        "y": 357.0188387096774
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 221.44206451612902,
+          "y": 100.17617204301075
+        },
+        "wrist": {
+          "x": 307.30735483870967,
+          "y": 104.69539784946237
+        },
+        "pelvis": {
+          "x": 179.26262365591398,
+          "y": 207.13118279569892
+        },
+        "fist": {
+          "x": 323.8778494623656,
+          "y": 93.77393548387097
+        }
+      }
+    },
+    "luffy/st_c/7": {
+      "size": {
+        "width": 360,
+        "height": 363
+      },
+      "root": {
+        "x": 179.4509247311828,
+        "y": 357.0188387096774
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 219.93565591397848,
+          "y": 103.9421935483871
+        },
+        "wrist": {
+          "x": 262.11509677419355,
+          "y": 126.53832258064516
+        },
+        "pelvis": {
+          "x": 179.26262365591398,
+          "y": 207.13118279569892
+        },
+        "fist": {
+          "x": 255.71286021505375,
+          "y": 106.2018064516129
+        }
+      }
+    },
+    "luffy/walk_fwd/0": {
+      "size": {
+        "width": 361,
+        "height": 341
+      },
+      "root": {
+        "x": 170.32948328267477,
+        "y": 332.1424924012158
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 204.3953799392097,
+          "y": 93.68121580547113
+        },
+        "wrist": {
+          "x": 248.04231003039513,
+          "y": 113.90784194528875
+        }
+      }
+    },
+    "luffy/walk_fwd/1": {
+      "size": {
+        "width": 267,
+        "height": 344
+      },
+      "root": {
+        "x": 127.74711246200607,
+        "y": 335.3361702127659
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 161.81300911854103,
+          "y": 104.32680851063829
+        },
+        "wrist": {
+          "x": 192.68522796352582,
+          "y": 120.29519756838906
+        }
+      }
+    },
+    "luffy/walk_fwd/2": {
+      "size": {
+        "width": 300,
+        "height": 348
+      },
+      "root": {
+        "x": 154.36109422492402,
+        "y": 339.5944072948328
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 183.10419452887538,
+          "y": 100.06857142857143
+        },
+        "wrist": {
+          "x": 209.7181762917933,
+          "y": 119.23063829787233
+        }
+      }
+    },
+    "luffy/walk_fwd/3": {
+      "size": {
+        "width": 346,
+        "height": 342
+      },
+      "root": {
+        "x": 189.49155015197567,
+        "y": 333.20705167173253
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 220.3637689969605,
+          "y": 101.13313069908814
+        },
+        "wrist": {
+          "x": 242.71951367781153,
+          "y": 116.03696048632219
+        }
+      }
+    },
+    "luffy/walk_back/0": {
+      "size": {
+        "width": 346,
+        "height": 342
+      },
+      "root": {
+        "x": 189.49155015197567,
+        "y": 333.20705167173253
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 220.3637689969605,
+          "y": 101.13313069908814
+        },
+        "wrist": {
+          "x": 242.71951367781153,
+          "y": 116.03696048632219
+        }
+      }
+    },
+    "luffy/walk_back/1": {
+      "size": {
+        "width": 300,
+        "height": 348
+      },
+      "root": {
+        "x": 154.36109422492402,
+        "y": 339.5944072948328
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 183.10419452887538,
+          "y": 100.06857142857143
+        },
+        "wrist": {
+          "x": 209.7181762917933,
+          "y": 119.23063829787233
+        }
+      }
+    },
+    "luffy/walk_back/2": {
+      "size": {
+        "width": 267,
+        "height": 344
+      },
+      "root": {
+        "x": 127.74711246200607,
+        "y": 335.3361702127659
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 161.81300911854103,
+          "y": 104.32680851063829
+        },
+        "wrist": {
+          "x": 192.68522796352582,
+          "y": 120.29519756838906
+        }
+      }
+    },
+    "luffy/walk_back/3": {
+      "size": {
+        "width": 361,
+        "height": 341
+      },
+      "root": {
+        "x": 170.32948328267477,
+        "y": 332.1424924012158
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 204.3953799392097,
+          "y": 93.68121580547113
+        },
+        "wrist": {
+          "x": 248.04231003039513,
+          "y": 113.90784194528875
+        }
+      }
+    },
+    "luffy/block_crouch/0": {
+      "size": {
+        "width": 306,
+        "height": 294
+      },
+      "root": {
+        "x": 165.00668693009118,
+        "y": 285.3018844984802
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 130.94079027355622,
+          "y": 81.97106382978723
+        },
+        "wrist": {
+          "x": 171.39404255319147,
+          "y": 77.71282674772036
+        }
+      }
+    },
+    "luffy/hit_air/0": {
+      "size": {
+        "width": 409,
+        "height": 354
+      },
+      "root": {
+        "x": 200.20229166666664,
+        "y": 351.1520833333333
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 137.72458333333333,
+          "y": 94.85666666666665
+        },
+        "wrist": {
+          "x": 209.77916666666664,
+          "y": 71.1425
+        },
+        "pelvis": {
+          "x": 190.62541666666664,
+          "y": 159.61458333333331
+        }
+      }
+    },
+    "luffy/hit_air/1": {
+      "size": {
+        "width": 386,
+        "height": 239
+      },
+      "root": {
+        "x": 180.1364583333333,
+        "y": 308.28416666666664
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 120.39499999999998,
+          "y": 96.68083333333333
+        },
+        "wrist": {
+          "x": 155.05416666666665,
+          "y": 40.13166666666666
+        },
+        "pelvis": {
+          "x": 181.50458333333333,
+          "y": 134.98833333333332
+        }
+      }
+    },
+    "luffy/knockdown/0": {
+      "size": {
+        "width": 548,
+        "height": 178
+      },
+      "root": {
+        "x": 284.1139583333333,
+        "y": 170.5595833333333
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 154.14208333333332,
+          "y": 88.47208333333333
+        },
+        "wrist": {
+          "x": 198.83416666666665,
+          "y": 79.35125
+        },
+        "pelvis": {
+          "x": 256.29541666666665,
+          "y": 101.24125
+        }
+      }
+    },
+    "luffy/getup/0": {
+      "size": {
+        "width": 364,
+        "height": 268
+      },
+      "root": {
+        "x": 175.57604166666664,
+        "y": 260.8558333333333
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 178.76833333333332,
+          "y": 90.29624999999999
+        },
+        "wrist": {
+          "x": 174.20791666666665,
+          "y": 225.2845833333333
+        },
+        "pelvis": {
+          "x": 201.57041666666666,
+          "y": 149.58166666666665
+        }
+      }
+    },
+    "luffy/getup/1": {
+      "size": {
+        "width": 351,
+        "height": 317
+      },
+      "root": {
+        "x": 175.57604166666664,
+        "y": 310.1083333333333
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 186.06499999999997,
+          "y": 84.82374999999999
+        },
+        "wrist": {
+          "x": 263.59208333333333,
+          "y": 101.24125
+        },
+        "pelvis": {
+          "x": 171.47166666666666,
+          "y": 172.38375
+        }
+      }
+    },
+    "luffy/prejump/0": {
+      "size": {
+        "width": 272,
+        "height": 282
+      },
+      "root": {
+        "x": 150.21761467889908,
+        "y": 274.72954128440364
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 172.71009174311925,
+          "y": 86.75669724770641
+        },
+        "wrist": {
+          "x": 205.64550458715595,
+          "y": 151.82422018348623
+        },
+        "pelvis": {
+          "x": 147.80770642201836,
+          "y": 154.23412844036696
+        }
+      }
+    },
+    "luffy/landing/0": {
+      "size": {
+        "width": 308,
+        "height": 311
+      },
+      "root": {
+        "x": 175.12,
+        "y": 303.64844036697247
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 212.87522935779816,
+          "y": 88.36330275229358
+        },
+        "wrist": {
+          "x": 289.18899082568805,
+          "y": 189.5794495412844
+        },
+        "pelvis": {
+          "x": 174.3166972477064,
+          "y": 164.67706422018347
+        }
+      }
+    },
+    "luffy/ko/0": {
+      "size": {
+        "width": 548,
+        "height": 178
+      },
+      "root": {
+        "x": 284.1139583333333,
+        "y": 170.5595833333333
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 154.14208333333332,
+          "y": 88.47208333333333
+        },
+        "wrist": {
+          "x": 198.83416666666665,
+          "y": 79.35125
+        },
+        "pelvis": {
+          "x": 256.29541666666665,
+          "y": 101.24125
+        }
+      }
+    },
+    "luffy/jump_neutral/0": {
+      "size": {
+        "width": 238,
+        "height": 410
+      },
+      "root": {
+        "x": 118.88880733944954,
+        "y": 390.4051376146789
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 147.80770642201836,
+          "y": 96.39633027522936
+        },
+        "wrist": {
+          "x": 212.87522935779816,
+          "y": 100.41284403669724
+        },
+        "pelvis": {
+          "x": 118.88880733944954,
+          "y": 185.5629357798165
+        }
+      }
+    },
+    "luffy/jump_neutral/1": {
+      "size": {
+        "width": 223,
+        "height": 283
+      },
+      "root": {
+        "x": 130.93834862385322,
+        "y": 364.69944954128437
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 150.21761467889908,
+          "y": 93.18311926605504
+        },
+        "wrist": {
+          "x": 201.62899082568808,
+          "y": 130.93834862385322
+        },
+        "pelvis": {
+          "x": 114.06899082568808,
+          "y": 175.12
+        }
+      }
+    },
+    "luffy/jump_neutral/2": {
+      "size": {
+        "width": 232,
+        "height": 394
+      },
+      "root": {
+        "x": 110.85577981651376,
+        "y": 395.22495412844034
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 138.1680733944954,
+          "y": 99.60954128440366
+        },
+        "wrist": {
+          "x": 197.61247706422017,
+          "y": 121.29871559633027
+        },
+        "pelvis": {
+          "x": 112.46238532110091,
+          "y": 186.3662385321101
+        }
+      }
+    },
+    "luffy/jump_fwd/0": {
+      "size": {
+        "width": 238,
+        "height": 410
+      },
+      "root": {
+        "x": 118.88880733944954,
+        "y": 390.4051376146789
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 147.80770642201836,
+          "y": 96.39633027522936
+        },
+        "wrist": {
+          "x": 212.87522935779816,
+          "y": 100.41284403669724
+        },
+        "pelvis": {
+          "x": 118.88880733944954,
+          "y": 185.5629357798165
+        }
+      }
+    },
+    "luffy/jump_fwd/1": {
+      "size": {
+        "width": 223,
+        "height": 283
+      },
+      "root": {
+        "x": 130.93834862385322,
+        "y": 364.69944954128437
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 150.21761467889908,
+          "y": 93.18311926605504
+        },
+        "wrist": {
+          "x": 201.62899082568808,
+          "y": 130.93834862385322
+        },
+        "pelvis": {
+          "x": 114.06899082568808,
+          "y": 175.12
+        }
+      }
+    },
+    "luffy/jump_fwd/2": {
+      "size": {
+        "width": 232,
+        "height": 394
+      },
+      "root": {
+        "x": 110.85577981651376,
+        "y": 395.22495412844034
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 138.1680733944954,
+          "y": 99.60954128440366
+        },
+        "wrist": {
+          "x": 197.61247706422017,
+          "y": 121.29871559633027
+        },
+        "pelvis": {
+          "x": 112.46238532110091,
+          "y": 186.3662385321101
+        }
+      }
+    },
+    "luffy/jump_back/0": {
+      "size": {
+        "width": 238,
+        "height": 410
+      },
+      "root": {
+        "x": 118.88880733944954,
+        "y": 390.4051376146789
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 147.80770642201836,
+          "y": 96.39633027522936
+        },
+        "wrist": {
+          "x": 212.87522935779816,
+          "y": 100.41284403669724
+        },
+        "pelvis": {
+          "x": 118.88880733944954,
+          "y": 185.5629357798165
+        }
+      }
+    },
+    "luffy/jump_back/1": {
+      "size": {
+        "width": 223,
+        "height": 283
+      },
+      "root": {
+        "x": 130.93834862385322,
+        "y": 364.69944954128437
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 150.21761467889908,
+          "y": 93.18311926605504
+        },
+        "wrist": {
+          "x": 201.62899082568808,
+          "y": 130.93834862385322
+        },
+        "pelvis": {
+          "x": 114.06899082568808,
+          "y": 175.12
+        }
+      }
+    },
+    "luffy/jump_back/2": {
+      "size": {
+        "width": 232,
+        "height": 394
+      },
+      "root": {
+        "x": 110.85577981651376,
+        "y": 395.22495412844034
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 138.1680733944954,
+          "y": 99.60954128440366
+        },
+        "wrist": {
+          "x": 197.61247706422017,
+          "y": 121.29871559633027
+        },
+        "pelvis": {
+          "x": 112.46238532110091,
+          "y": 186.3662385321101
+        }
+      }
+    },
+    "luffy/roll_fwd/0": {
+      "size": {
+        "width": 380,
+        "height": 256
+      },
+      "root": {
+        "x": 207.756,
+        "y": 247.556
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 278.6,
+          "y": 96.316
+        },
+        "wrist": {
+          "x": 320.788,
+          "y": 215.716
+        },
+        "pelvis": {
+          "x": 196.61200000000002,
+          "y": 136.912
+        }
+      }
+    },
+    "luffy/roll_fwd/1": {
+      "size": {
+        "width": 314,
+        "height": 279
+      },
+      "root": {
+        "x": 146.464,
+        "y": 270.64
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 139.3,
+          "y": 231.63600000000002
+        },
+        "wrist": {
+          "x": 147.26000000000002,
+          "y": 217.30800000000002
+        },
+        "pelvis": {
+          "x": 223.67600000000002,
+          "y": 146.464
+        }
+      }
+    },
+    "luffy/roll_fwd/2": {
+      "size": {
+        "width": 309,
+        "height": 283
+      },
+      "root": {
+        "x": 163.18,
+        "y": 273.028
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 209.348,
+          "y": 97.908
+        },
+        "wrist": {
+          "x": 261.884,
+          "y": 230.84
+        },
+        "pelvis": {
+          "x": 150.44400000000002,
+          "y": 179.89600000000002
+        }
+      }
+    },
+    "luffy/roll_fwd/3": {
+      "size": {
+        "width": 316,
+        "height": 367
+      },
+      "root": {
+        "x": 157.50437869822485,
+        "y": 358.52970414201184
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 209.3150295857988,
+          "y": 112.94721893491123
+        },
+        "wrist": {
+          "x": 243.51005917159762,
+          "y": 124.34556213017751
+        }
+      }
+    },
+    "luffy/roll_back/0": {
+      "size": {
+        "width": 309,
+        "height": 283
+      },
+      "root": {
+        "x": 163.18,
+        "y": 273.028
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 209.348,
+          "y": 97.908
+        },
+        "wrist": {
+          "x": 261.884,
+          "y": 230.84
+        },
+        "pelvis": {
+          "x": 150.44400000000002,
+          "y": 179.89600000000002
+        }
+      }
+    },
+    "luffy/roll_back/1": {
+      "size": {
+        "width": 314,
+        "height": 279
+      },
+      "root": {
+        "x": 146.464,
+        "y": 270.64
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 139.3,
+          "y": 231.63600000000002
+        },
+        "wrist": {
+          "x": 147.26000000000002,
+          "y": 217.30800000000002
+        },
+        "pelvis": {
+          "x": 223.67600000000002,
+          "y": 146.464
+        }
+      }
+    },
+    "luffy/roll_back/2": {
+      "size": {
+        "width": 380,
+        "height": 256
+      },
+      "root": {
+        "x": 207.756,
+        "y": 247.556
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 278.6,
+          "y": 96.316
+        },
+        "wrist": {
+          "x": 320.788,
+          "y": 215.716
+        },
+        "pelvis": {
+          "x": 196.61200000000002,
+          "y": 136.912
+        }
+      }
+    },
+    "luffy/roll_back/3": {
+      "size": {
+        "width": 316,
+        "height": 367
+      },
+      "root": {
+        "x": 157.50437869822485,
+        "y": 358.52970414201184
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 209.3150295857988,
+          "y": 112.94721893491123
+        },
+        "wrist": {
+          "x": 243.51005917159762,
+          "y": 124.34556213017751
+        }
+      }
+    },
+    "luffy/backdash/0": {
+      "size": {
+        "width": 380,
+        "height": 256
+      },
+      "root": {
+        "x": 207.756,
+        "y": 247.556
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 278.6,
+          "y": 96.316
+        },
+        "wrist": {
+          "x": 320.788,
+          "y": 215.716
+        },
+        "pelvis": {
+          "x": 196.61200000000002,
+          "y": 136.912
+        }
+      }
+    },
+    "luffy/backdash/1": {
+      "size": {
+        "width": 364,
+        "height": 330
+      },
+      "root": {
+        "x": 179.89600000000002,
+        "y": 413.92
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 141.68800000000002,
+          "y": 100.296
+        },
+        "wrist": {
+          "x": 188.65200000000002,
+          "y": 102.68400000000001
+        },
+        "pelvis": {
+          "x": 158.404,
+          "y": 195.02
+        }
+      }
+    },
+    "luffy/backdash/2": {
+      "size": {
+        "width": 334,
+        "height": 328
+      },
+      "root": {
+        "x": 187.85600000000002,
+        "y": 317.60400000000004
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 206.96,
+          "y": 91.54
+        },
+        "wrist": {
+          "x": 264.272,
+          "y": 112.236
+        },
+        "pelvis": {
+          "x": 178.304,
+          "y": 182.28400000000002
+        }
+      }
+    },
+    "luffy/backdash/3": {
+      "size": {
+        "width": 316,
+        "height": 367
+      },
+      "root": {
+        "x": 157.50437869822485,
+        "y": 358.52970414201184
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 209.3150295857988,
+          "y": 112.94721893491123
+        },
+        "wrist": {
+          "x": 243.51005917159762,
+          "y": 124.34556213017751
+        }
+      }
+    },
+    "luffy/sp_gear2/0": {
+      "size": {
+        "width": 272,
+        "height": 282
+      },
+      "root": {
+        "x": 150.21761467889908,
+        "y": 274.72954128440364
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 172.71009174311925,
+          "y": 86.75669724770641
+        },
+        "wrist": {
+          "x": 205.64550458715595,
+          "y": 151.82422018348623
+        },
+        "pelvis": {
+          "x": 147.80770642201836,
+          "y": 154.23412844036696
+        }
+      }
+    },
+    "luffy/sp_gear2/1": {
+      "size": {
+        "width": 311,
+        "height": 277
+      },
+      "root": {
+        "x": 164.94483180428136,
+        "y": 264.554373088685
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 175.6555351681957,
+          "y": 112.46238532110092
+        },
+        "wrist": {
+          "x": 158.51840978593273,
+          "y": 251.70152905198776
+        },
+        "pelvis": {
+          "x": 163.87376146788992,
+          "y": 145.66556574923547
+        }
+      }
+    },
+    "luffy/sp_gear2/2": {
+      "size": {
+        "width": 351,
+        "height": 317
+      },
+      "root": {
+        "x": 175.57604166666664,
+        "y": 310.1083333333333
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 186.06499999999997,
+          "y": 84.82374999999999
+        },
+        "wrist": {
+          "x": 263.59208333333333,
+          "y": 101.24125
+        },
+        "pelvis": {
+          "x": 171.47166666666666,
+          "y": 172.38375
+        }
+      }
+    },
+    "luffy/sp_gear2/3": {
+      "size": {
+        "width": 316,
+        "height": 367
+      },
+      "root": {
+        "x": 157.50437869822485,
+        "y": 358.52970414201184
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 209.3150295857988,
+          "y": 112.94721893491123
+        },
+        "wrist": {
+          "x": 243.51005917159762,
+          "y": 124.34556213017751
+        }
+      }
+    },
+    "luffy/st_d/0": {
+      "size": {
+        "width": 201,
+        "height": 374
+      },
+      "root": {
+        "x": 162.96726057906463,
+        "y": 367.752
+      },
+      "sockets": {}
+    },
+    "luffy/st_d/1": {
+      "size": {
+        "width": 442,
+        "height": 385
+      },
+      "root": {
+        "x": 180.19028953229397,
+        "y": 375.9814699331848
+      },
+      "sockets": {
+        "pelvis": {
+          "x": 152.1086859688196,
+          "y": 193.45104677060132
+        },
+        "shoulder": {
+          "x": 166.92953229398663,
+          "y": 90.48516703786191
+        },
+        "wrist": {
+          "x": 209.0519376391982,
+          "y": 102.96587973273942
+        },
+        "ankle": {
+          "x": 394.7025389755011,
+          "y": 176.29006681514477
+        },
+        "sole": {
+          "x": 417.3238307349666,
+          "y": 173.1698886414254
+        }
+      }
+    },
+    "luffy/st_d/2": {
+      "size": {
+        "width": 360,
+        "height": 359
+      },
+      "root": {
+        "x": 173.94993318485524,
+        "y": 351.02004454342983
+      },
+      "sockets": {
+        "pelvis": {
+          "x": 119.34681514476614,
+          "y": 183.31046770601336
+        },
+        "ankle": {
+          "x": 299.53710467706014,
+          "y": 249.6142538975501
+        },
+        "sole": {
+          "x": 319.03821826280625,
+          "y": 251.95438752783963
+        }
+      }
+    },
+    "luffy/st_d/3": {
+      "size": {
+        "width": 248,
+        "height": 388
+      },
+      "root": {
+        "x": 159.90913140311804,
+        "y": 381.44178173719376
+      },
+      "sockets": {
+        "pelvis": {
+          "x": 117.00668151447661,
+          "y": 191.1109131403118
+        },
+        "ankle": {
+          "x": 187.9907349665924,
+          "y": 239.47367483296213
+        },
+        "sole": {
+          "x": 199.69140311804009,
+          "y": 255.074565701559
+        }
+      }
+    },
+    "luffy/st_d/4": {
+      "size": {
+        "width": 351,
+        "height": 317
+      },
+      "root": {
+        "x": 175.57604166666664,
+        "y": 310.1083333333333
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 186.06499999999997,
+          "y": 84.82374999999999
+        },
+        "wrist": {
+          "x": 263.59208333333333,
+          "y": 101.24125
+        },
+        "pelvis": {
+          "x": 171.47166666666666,
+          "y": 172.38375
+        }
+      }
+    },
+    "luffy/st_d/5": {
+      "size": {
+        "width": 316,
+        "height": 367
+      },
+      "root": {
+        "x": 157.50437869822485,
+        "y": 358.52970414201184
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 209.3150295857988,
+          "y": 112.94721893491123
+        },
+        "wrist": {
+          "x": 243.51005917159762,
+          "y": 124.34556213017751
+        }
+      }
+    },
+    "luffy/cr_a/0": {
+      "size": {
+        "width": 249,
+        "height": 230
+      },
+      "root": {
+        "x": 160.06443438914027,
+        "y": 221.07909502262444
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 35.6579185520362,
+          "y": 221.07909502262444
+        },
+        "wrist": {
+          "x": 210.77791855203623,
+          "y": 108.5585520361991
+        },
+        "palm": {
+          "x": 215.5323076923077,
+          "y": 98.25737556561087
+        },
+        "pelvis": {
+          "x": 131.5380995475113,
+          "y": 155.3100452488688
+        },
+        "chest": {
+          "x": 156.89484162895928,
+          "y": 107.76615384615386
+        }
+      }
+    },
+    "luffy/cr_a/1": {
+      "size": {
+        "width": 353,
+        "height": 254
+      },
+      "root": {
+        "x": 159.27203619909503,
+        "y": 244.85104072398192
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 34.86552036199095,
+          "y": 244.85104072398192
+        },
+        "wrist": {
+          "x": 309.8276923076923,
+          "y": 85.57900452488688
+        },
+        "palm": {
+          "x": 327.2604524886878,
+          "y": 86.37140271493213
+        },
+        "pelvis": {
+          "x": 129.16090497737557,
+          "y": 175.12
+        },
+        "chest": {
+          "x": 154.51764705882354,
+          "y": 106.18135746606336
+        }
+      }
+    },
+    "luffy/cr_a/2": {
+      "size": {
+        "width": 261,
+        "height": 290
+      },
+      "root": {
+        "x": 160.85683257918552,
+        "y": 279.71656108597284
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 36.45031674208145,
+          "y": 279.71656108597284
+        },
+        "wrist": {
+          "x": 220.2866968325792,
+          "y": 118.06733031674209
+        },
+        "palm": {
+          "x": 220.2866968325792,
+          "y": 105.38895927601811
+        },
+        "pelvis": {
+          "x": 140.25447963800906,
+          "y": 189.3831674208145
+        },
+        "chest": {
+          "x": 165.61122171945703,
+          "y": 132.33049773755656
+        }
+      }
+    },
+    "luffy/cr_b/0": {
+      "size": {
+        "width": 249,
+        "height": 230
+      },
+      "root": {
+        "x": 160.06443438914027,
+        "y": 221.07909502262444
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 35.6579185520362,
+          "y": 221.07909502262444
+        },
+        "wrist": {
+          "x": 210.77791855203623,
+          "y": 108.5585520361991
+        },
+        "palm": {
+          "x": 215.5323076923077,
+          "y": 98.25737556561087
+        },
+        "pelvis": {
+          "x": 131.5380995475113,
+          "y": 155.3100452488688
+        },
+        "chest": {
+          "x": 156.89484162895928,
+          "y": 107.76615384615386
+        }
+      }
+    },
+    "luffy/cr_b/1": {
+      "size": {
+        "width": 354,
+        "height": 239
+      },
+      "root": {
+        "x": 198.89194570135749,
+        "y": 227.41828054298645
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 74.4854298642534,
+          "y": 227.41828054298645
+        },
+        "wrist": {
+          "x": 155.3100452488688,
+          "y": 114.10533936651585
+        },
+        "ankle": {
+          "x": 294.7721266968326,
+          "y": 202.06153846153848
+        },
+        "sole": {
+          "x": 321.71366515837104,
+          "y": 210.77791855203623
+        },
+        "pelvis": {
+          "x": 157.68723981900453,
+          "y": 157.68723981900453
+        }
+      }
+    },
+    "luffy/cr_b/2": {
+      "size": {
+        "width": 261,
+        "height": 290
+      },
+      "root": {
+        "x": 160.85683257918552,
+        "y": 279.71656108597284
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 36.45031674208145,
+          "y": 279.71656108597284
+        },
+        "wrist": {
+          "x": 220.2866968325792,
+          "y": 118.06733031674209
+        },
+        "palm": {
+          "x": 220.2866968325792,
+          "y": 105.38895927601811
+        },
+        "pelvis": {
+          "x": 140.25447963800906,
+          "y": 189.3831674208145
+        },
+        "chest": {
+          "x": 165.61122171945703,
+          "y": 132.33049773755656
+        }
+      }
+    },
+    "luffy/cr_c/0": {
+      "size": {
+        "width": 249,
+        "height": 230
+      },
+      "root": {
+        "x": 160.06443438914027,
+        "y": 221.07909502262444
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 35.6579185520362,
+          "y": 221.07909502262444
+        },
+        "wrist": {
+          "x": 210.77791855203623,
+          "y": 108.5585520361991
+        },
+        "palm": {
+          "x": 215.5323076923077,
+          "y": 98.25737556561087
+        },
+        "pelvis": {
+          "x": 131.5380995475113,
+          "y": 155.3100452488688
+        },
+        "chest": {
+          "x": 156.89484162895928,
+          "y": 107.76615384615386
+        }
+      }
+    },
+    "luffy/cr_c/1": {
+      "size": {
+        "width": 306,
+        "height": 434
+      },
+      "root": {
+        "x": 159.27203619909503,
+        "y": 424.72542986425344
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 34.86552036199095,
+          "y": 424.72542986425344
+        },
+        "wrist": {
+          "x": 219.49429864253395,
+          "y": 52.298280542986426
+        },
+        "palm": {
+          "x": 216.32470588235296,
+          "y": 25.356742081447965
+        },
+        "pelvis": {
+          "x": 158.47963800904978,
+          "y": 290.81013574660636
+        },
+        "chest": {
+          "x": 164.02642533936654,
+          "y": 207.6083257918552
+        }
+      }
+    },
+    "luffy/cr_c/2": {
+      "size": {
+        "width": 351,
+        "height": 317
+      },
+      "root": {
+        "x": 175.57604166666664,
+        "y": 310.1083333333333
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 186.06499999999997,
+          "y": 84.82374999999999
+        },
+        "wrist": {
+          "x": 263.59208333333333,
+          "y": 101.24125
+        },
+        "pelvis": {
+          "x": 171.47166666666666,
+          "y": 172.38375
+        }
+      }
+    },
+    "luffy/cr_c/3": {
+      "size": {
+        "width": 261,
+        "height": 290
+      },
+      "root": {
+        "x": 160.85683257918552,
+        "y": 279.71656108597284
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 36.45031674208145,
+          "y": 279.71656108597284
+        },
+        "wrist": {
+          "x": 220.2866968325792,
+          "y": 118.06733031674209
+        },
+        "palm": {
+          "x": 220.2866968325792,
+          "y": 105.38895927601811
+        },
+        "pelvis": {
+          "x": 140.25447963800906,
+          "y": 189.3831674208145
+        },
+        "chest": {
+          "x": 165.61122171945703,
+          "y": 132.33049773755656
+        }
+      }
+    },
+    "luffy/throw/0": {
+      "size": {
+        "width": 358,
+        "height": 331
+      },
+      "root": {
+        "x": 147.510990990991,
+        "y": 320.2645045045045
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 31.55315315315315,
+          "y": 320.2645045045045
+        },
+        "sole_front": {
+          "x": 260.3135135135135,
+          "y": 316.3203603603603
+        },
+        "wrist": {
+          "x": 257.1581981981982,
+          "y": 113.59135135135134
+        },
+        "wrist_other": {
+          "x": 298.9661261261261,
+          "y": 90.71531531531531
+        },
+        "palm": {
+          "x": 277.66774774774774,
+          "y": 112.80252252252251
+        },
+        "palm_other": {
+          "x": 317.1091891891892,
+          "y": 88.34882882882883
+        },
+        "chest": {
+          "x": 164.8652252252252,
+          "y": 123.84612612612612
+        },
+        "pelvis": {
+          "x": 149.08864864864864,
+          "y": 164.07639639639638
+        }
+      }
+    },
+    "luffy/throw/1": {
+      "size": {
+        "width": 319,
+        "height": 341
+      },
+      "root": {
+        "x": 149.87747747747747,
+        "y": 332.0969369369369
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 33.919639639639634,
+          "y": 332.0969369369369
+        },
+        "sole_front": {
+          "x": 272.1459459459459,
+          "y": 322.63099099099094
+        },
+        "wrist": {
+          "x": 242.95927927927926,
+          "y": 112.80252252252251
+        },
+        "wrist_other": {
+          "x": 251.63639639639638,
+          "y": 130.94558558558558
+        },
+        "palm": {
+          "x": 263.4688288288288,
+          "y": 104.91423423423423
+        },
+        "palm_other": {
+          "x": 257.1581981981982,
+          "y": 122.26846846846846
+        },
+        "chest": {
+          "x": 169.5981981981982,
+          "y": 132.52324324324323
+        },
+        "pelvis": {
+          "x": 156.18810810810808,
+          "y": 191.6854054054054
+        }
+      }
+    },
+    "luffy/throw/2": {
+      "size": {
+        "width": 381,
+        "height": 343
+      },
+      "root": {
+        "x": 149.87747747747747,
+        "y": 336.0410810810811
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 33.919639639639634,
+          "y": 336.0410810810811
+        },
+        "sole_front": {
+          "x": 283.97837837837835,
+          "y": 330.51927927927926
+        },
+        "wrist": {
+          "x": 313.9538738738739,
+          "y": 96.23711711711711
+        },
+        "wrist_other": {
+          "x": 311.58738738738737,
+          "y": 89.13765765765766
+        },
+        "palm": {
+          "x": 348.6623423423423,
+          "y": 85.19351351351351
+        },
+        "palm_other": {
+          "x": 346.29585585585585,
+          "y": 97.02594594594594
+        },
+        "chest": {
+          "x": 192.47423423423422,
+          "y": 134.10090090090088
+        },
+        "pelvis": {
+          "x": 175.11999999999998,
+          "y": 183.00828828828827
+        }
+      }
+    },
+    "luffy/throw/3": {
+      "size": {
+        "width": 351,
+        "height": 317
+      },
+      "root": {
+        "x": 175.57604166666664,
+        "y": 310.1083333333333
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 186.06499999999997,
+          "y": 84.82374999999999
+        },
+        "wrist": {
+          "x": 263.59208333333333,
+          "y": 101.24125
+        },
+        "pelvis": {
+          "x": 171.47166666666666,
+          "y": 172.38375
+        }
+      }
+    },
+    "luffy/throw/4": {
+      "size": {
+        "width": 316,
+        "height": 367
+      },
+      "root": {
+        "x": 157.50437869822485,
+        "y": 358.52970414201184
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 209.3150295857988,
+          "y": 112.94721893491123
+        },
+        "wrist": {
+          "x": 243.51005917159762,
+          "y": 124.34556213017751
+        }
+      }
+    },
+    "luffy/thrown/0": {
+      "size": {
+        "width": 327,
+        "height": 360
+      },
+      "root": {
+        "x": 149.08864864864864,
+        "y": 350.23999999999995
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 33.13081081081081,
+          "y": 350.23999999999995
+        },
+        "sole_front": {
+          "x": 279.2454054054054,
+          "y": 343.1405405405405
+        },
+        "wrist": {
+          "x": 129.36792792792792,
+          "y": 104.1254054054054
+        },
+        "wrist_other": {
+          "x": 207.46198198198198,
+          "y": 130.15675675675675
+        },
+        "palm": {
+          "x": 154.61045045045043,
+          "y": 107.28072072072071
+        },
+        "palm_other": {
+          "x": 187.74126126126126,
+          "y": 117.53549549549548
+        },
+        "chest": {
+          "x": 174.33117117117115,
+          "y": 115.169009009009
+        },
+        "pelvis": {
+          "x": 160.92108108108107,
+          "y": 183.7971171171171
+        }
+      }
+    },
+    "luffy/throw_tech/0": {
+      "size": {
+        "width": 345,
+        "height": 368
+      },
+      "root": {
+        "x": 149.08864864864864,
+        "y": 358.1282882882883
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 33.13081081081081,
+          "y": 358.1282882882883
+        },
+        "sole_front": {
+          "x": 304.4879279279279,
+          "y": 351.0288288288288
+        },
+        "wrist": {
+          "x": 232.70450450450448,
+          "y": 94.65945945945946
+        },
+        "wrist_other": {
+          "x": 285.556036036036,
+          "y": 99.39243243243243
+        },
+        "palm": {
+          "x": 251.63639639639638,
+          "y": 82.82702702702701
+        },
+        "palm_other": {
+          "x": 308.43207207207206,
+          "y": 93.87063063063063
+        },
+        "chest": {
+          "x": 154.61045045045043,
+          "y": 141.20036036036035
+        },
+        "pelvis": {
+          "x": 162.49873873873872,
+          "y": 215.35027027027024
+        }
+      }
+    },
+    "luffy/throw_tech/1": {
+      "size": {
+        "width": 358,
+        "height": 331
+      },
+      "root": {
+        "x": 147.510990990991,
+        "y": 320.2645045045045
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 31.55315315315315,
+          "y": 320.2645045045045
+        },
+        "sole_front": {
+          "x": 260.3135135135135,
+          "y": 316.3203603603603
+        },
+        "wrist": {
+          "x": 257.1581981981982,
+          "y": 113.59135135135134
+        },
+        "wrist_other": {
+          "x": 298.9661261261261,
+          "y": 90.71531531531531
+        },
+        "palm": {
+          "x": 277.66774774774774,
+          "y": 112.80252252252251
+        },
+        "palm_other": {
+          "x": 317.1091891891892,
+          "y": 88.34882882882883
+        },
+        "chest": {
+          "x": 164.8652252252252,
+          "y": 123.84612612612612
+        },
+        "pelvis": {
+          "x": 149.08864864864864,
+          "y": 164.07639639639638
+        }
+      }
+    },
+    "luffy/throw_tech/2": {
+      "size": {
+        "width": 351,
+        "height": 317
+      },
+      "root": {
+        "x": 175.57604166666664,
+        "y": 310.1083333333333
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 186.06499999999997,
+          "y": 84.82374999999999
+        },
+        "wrist": {
+          "x": 263.59208333333333,
+          "y": 101.24125
+        },
+        "pelvis": {
+          "x": 171.47166666666666,
+          "y": 172.38375
+        }
+      }
+    },
+    "luffy/throw_tech/3": {
+      "size": {
+        "width": 316,
+        "height": 367
+      },
+      "root": {
+        "x": 157.50437869822485,
+        "y": 358.52970414201184
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 209.3150295857988,
+          "y": 112.94721893491123
+        },
+        "wrist": {
+          "x": 243.51005917159762,
+          "y": 124.34556213017751
+        }
+      }
+    },
+    "luffy/throw_fwd/0": {
+      "size": {
+        "width": 358,
+        "height": 331
+      },
+      "root": {
+        "x": 147.510990990991,
+        "y": 320.2645045045045
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 31.55315315315315,
+          "y": 320.2645045045045
+        },
+        "sole_front": {
+          "x": 260.3135135135135,
+          "y": 316.3203603603603
+        },
+        "wrist": {
+          "x": 257.1581981981982,
+          "y": 113.59135135135134
+        },
+        "wrist_other": {
+          "x": 298.9661261261261,
+          "y": 90.71531531531531
+        },
+        "palm": {
+          "x": 277.66774774774774,
+          "y": 112.80252252252251
+        },
+        "palm_other": {
+          "x": 317.1091891891892,
+          "y": 88.34882882882883
+        },
+        "chest": {
+          "x": 164.8652252252252,
+          "y": 123.84612612612612
+        },
+        "pelvis": {
+          "x": 149.08864864864864,
+          "y": 164.07639639639638
+        }
+      }
+    },
+    "luffy/throw_fwd/1": {
+      "size": {
+        "width": 319,
+        "height": 341
+      },
+      "root": {
+        "x": 149.87747747747747,
+        "y": 332.0969369369369
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 33.919639639639634,
+          "y": 332.0969369369369
+        },
+        "sole_front": {
+          "x": 272.1459459459459,
+          "y": 322.63099099099094
+        },
+        "wrist": {
+          "x": 242.95927927927926,
+          "y": 112.80252252252251
+        },
+        "wrist_other": {
+          "x": 251.63639639639638,
+          "y": 130.94558558558558
+        },
+        "palm": {
+          "x": 263.4688288288288,
+          "y": 104.91423423423423
+        },
+        "palm_other": {
+          "x": 257.1581981981982,
+          "y": 122.26846846846846
+        },
+        "chest": {
+          "x": 169.5981981981982,
+          "y": 132.52324324324323
+        },
+        "pelvis": {
+          "x": 156.18810810810808,
+          "y": 191.6854054054054
+        }
+      }
+    },
+    "luffy/throw_fwd/2": {
+      "size": {
+        "width": 381,
+        "height": 343
+      },
+      "root": {
+        "x": 149.87747747747747,
+        "y": 336.0410810810811
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 33.919639639639634,
+          "y": 336.0410810810811
+        },
+        "sole_front": {
+          "x": 283.97837837837835,
+          "y": 330.51927927927926
+        },
+        "wrist": {
+          "x": 313.9538738738739,
+          "y": 96.23711711711711
+        },
+        "wrist_other": {
+          "x": 311.58738738738737,
+          "y": 89.13765765765766
+        },
+        "palm": {
+          "x": 348.6623423423423,
+          "y": 85.19351351351351
+        },
+        "palm_other": {
+          "x": 346.29585585585585,
+          "y": 97.02594594594594
+        },
+        "chest": {
+          "x": 192.47423423423422,
+          "y": 134.10090090090088
+        },
+        "pelvis": {
+          "x": 175.11999999999998,
+          "y": 183.00828828828827
+        }
+      }
+    },
+    "luffy/throw_fwd/3": {
+      "size": {
+        "width": 351,
+        "height": 317
+      },
+      "root": {
+        "x": 175.57604166666664,
+        "y": 310.1083333333333
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 186.06499999999997,
+          "y": 84.82374999999999
+        },
+        "wrist": {
+          "x": 263.59208333333333,
+          "y": 101.24125
+        },
+        "pelvis": {
+          "x": 171.47166666666666,
+          "y": 172.38375
+        }
+      }
+    },
+    "luffy/throw_fwd/4": {
+      "size": {
+        "width": 316,
+        "height": 367
+      },
+      "root": {
+        "x": 157.50437869822485,
+        "y": 358.52970414201184
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 209.3150295857988,
+          "y": 112.94721893491123
+        },
+        "wrist": {
+          "x": 243.51005917159762,
+          "y": 124.34556213017751
+        }
+      }
+    },
+    "luffy/throw_back/0": {
+      "size": {
+        "width": 358,
+        "height": 331
+      },
+      "root": {
+        "x": 147.510990990991,
+        "y": 320.2645045045045
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 31.55315315315315,
+          "y": 320.2645045045045
+        },
+        "sole_front": {
+          "x": 260.3135135135135,
+          "y": 316.3203603603603
+        },
+        "wrist": {
+          "x": 257.1581981981982,
+          "y": 113.59135135135134
+        },
+        "wrist_other": {
+          "x": 298.9661261261261,
+          "y": 90.71531531531531
+        },
+        "palm": {
+          "x": 277.66774774774774,
+          "y": 112.80252252252251
+        },
+        "palm_other": {
+          "x": 317.1091891891892,
+          "y": 88.34882882882883
+        },
+        "chest": {
+          "x": 164.8652252252252,
+          "y": 123.84612612612612
+        },
+        "pelvis": {
+          "x": 149.08864864864864,
+          "y": 164.07639639639638
+        }
+      }
+    },
+    "luffy/throw_back/1": {
+      "size": {
+        "width": 319,
+        "height": 341
+      },
+      "root": {
+        "x": 149.87747747747747,
+        "y": 332.0969369369369
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 33.919639639639634,
+          "y": 332.0969369369369
+        },
+        "sole_front": {
+          "x": 272.1459459459459,
+          "y": 322.63099099099094
+        },
+        "wrist": {
+          "x": 242.95927927927926,
+          "y": 112.80252252252251
+        },
+        "wrist_other": {
+          "x": 251.63639639639638,
+          "y": 130.94558558558558
+        },
+        "palm": {
+          "x": 263.4688288288288,
+          "y": 104.91423423423423
+        },
+        "palm_other": {
+          "x": 257.1581981981982,
+          "y": 122.26846846846846
+        },
+        "chest": {
+          "x": 169.5981981981982,
+          "y": 132.52324324324323
+        },
+        "pelvis": {
+          "x": 156.18810810810808,
+          "y": 191.6854054054054
+        }
+      }
+    },
+    "luffy/throw_back/2": {
+      "size": {
+        "width": 381,
+        "height": 343
+      },
+      "root": {
+        "x": 149.87747747747747,
+        "y": 336.0410810810811
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 33.919639639639634,
+          "y": 336.0410810810811
+        },
+        "sole_front": {
+          "x": 283.97837837837835,
+          "y": 330.51927927927926
+        },
+        "wrist": {
+          "x": 313.9538738738739,
+          "y": 96.23711711711711
+        },
+        "wrist_other": {
+          "x": 311.58738738738737,
+          "y": 89.13765765765766
+        },
+        "palm": {
+          "x": 348.6623423423423,
+          "y": 85.19351351351351
+        },
+        "palm_other": {
+          "x": 346.29585585585585,
+          "y": 97.02594594594594
+        },
+        "chest": {
+          "x": 192.47423423423422,
+          "y": 134.10090090090088
+        },
+        "pelvis": {
+          "x": 175.11999999999998,
+          "y": 183.00828828828827
+        }
+      }
+    },
+    "luffy/throw_back/3": {
+      "size": {
+        "width": 351,
+        "height": 317
+      },
+      "root": {
+        "x": 175.57604166666664,
+        "y": 310.1083333333333
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 186.06499999999997,
+          "y": 84.82374999999999
+        },
+        "wrist": {
+          "x": 263.59208333333333,
+          "y": 101.24125
+        },
+        "pelvis": {
+          "x": 171.47166666666666,
+          "y": 172.38375
+        }
+      }
+    },
+    "luffy/throw_back/4": {
+      "size": {
+        "width": 316,
+        "height": 367
+      },
+      "root": {
+        "x": 157.50437869822485,
+        "y": 358.52970414201184
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 209.3150295857988,
+          "y": 112.94721893491123
+        },
+        "wrist": {
+          "x": 243.51005917159762,
+          "y": 124.34556213017751
+        }
+      }
+    },
+    "luffy/j_b/0": {
+      "size": {
+        "width": 225,
+        "height": 333
+      },
+      "root": {
+        "x": 147.00440366972475,
+        "y": 363.8961467889908
+      },
+      "sockets": {
+        "head_anchor": {
+          "x": 144.59449541284403,
+          "y": 14.459449541284403
+        },
+        "shoulder": {
+          "x": 159.85724770642202,
+          "y": 84.34678899082569
+        },
+        "wrist": {
+          "x": 172.71009174311925,
+          "y": 108.44587155963302
+        },
+        "pelvis": {
+          "x": 118.08550458715595,
+          "y": 202.43229357798165
+        }
+      }
+    },
+    "luffy/j_b/1": {
+      "size": {
+        "width": 356,
+        "height": 312
+      },
+      "root": {
+        "x": 189.5794495412844,
+        "y": 358.27302752293576
+      },
+      "sockets": {
+        "head_anchor": {
+          "x": 138.971376146789,
+          "y": 8.836330275229358
+        },
+        "shoulder": {
+          "x": 157.4473394495413,
+          "y": 90.7732110091743
+        },
+        "wrist": {
+          "x": 158.25064220183486,
+          "y": 92.37981651376147
+        },
+        "ankle": {
+          "x": 313.2880733944954,
+          "y": 175.92330275229358
+        },
+        "sole": {
+          "x": 332.5673394495413,
+          "y": 172.71009174311925
+        },
+        "pelvis": {
+          "x": 148.61100917431193,
+          "y": 189.5794495412844
+        }
+      }
+    },
+    "luffy/j_b/2": {
+      "size": {
+        "width": 235,
+        "height": 345
+      },
+      "root": {
+        "x": 118.88880733944954,
+        "y": 358.27302752293576
+      },
+      "sockets": {
+        "head_anchor": {
+          "x": 163.07045871559632,
+          "y": 8.836330275229358
+        },
+        "shoulder": {
+          "x": 190.38275229357797,
+          "y": 98.80623853211009
+        },
+        "wrist": {
+          "x": 197.61247706422017,
+          "y": 107.64256880733944
+        },
+        "pelvis": {
+          "x": 123.70862385321101,
+          "y": 200.0223853211009
+        }
+      }
+    },
+    "luffy/j_2d/0": {
+      "size": {
+        "width": 225,
+        "height": 333
+      },
+      "root": {
+        "x": 147.00440366972475,
+        "y": 363.8961467889908
+      },
+      "sockets": {
+        "head_anchor": {
+          "x": 144.59449541284403,
+          "y": 14.459449541284403
+        },
+        "shoulder": {
+          "x": 159.85724770642202,
+          "y": 84.34678899082569
+        },
+        "wrist": {
+          "x": 172.71009174311925,
+          "y": 108.44587155963302
+        },
+        "pelvis": {
+          "x": 118.08550458715595,
+          "y": 202.43229357798165
+        }
+      }
+    },
+    "luffy/j_2d/1": {
+      "size": {
+        "width": 373,
+        "height": 388
+      },
+      "root": {
+        "x": 197.61247706422017,
+        "y": 378.3555963302752
+      },
+      "sockets": {
+        "head_anchor": {
+          "x": 231.35119266055045,
+          "y": 8.033027522935779
+        },
+        "shoulder": {
+          "x": 245.81064220183484,
+          "y": 107.64256880733944
+        },
+        "wrist": {
+          "x": 325.33761467889906,
+          "y": 147.80770642201836
+        },
+        "ankle": {
+          "x": 246.61394495412844,
+          "y": 324.5343119266055
+        },
+        "sole": {
+          "x": 261.07339449541286,
+          "y": 367.10935779816515
+        },
+        "pelvis": {
+          "x": 182.34972477064218,
+          "y": 172.71009174311925
+        }
+      }
+    },
+    "luffy/j_2d/2": {
+      "size": {
+        "width": 235,
+        "height": 345
+      },
+      "root": {
+        "x": 118.88880733944954,
+        "y": 358.27302752293576
+      },
+      "sockets": {
+        "head_anchor": {
+          "x": 163.07045871559632,
+          "y": 8.836330275229358
+        },
+        "shoulder": {
+          "x": 190.38275229357797,
+          "y": 98.80623853211009
+        },
+        "wrist": {
+          "x": 197.61247706422017,
+          "y": 107.64256880733944
+        },
+        "pelvis": {
+          "x": 123.70862385321101,
+          "y": 200.0223853211009
+        }
+      }
+    },
+    "luffy/win/0": {
+      "size": {
+        "width": 239,
+        "height": 386
+      },
+      "root": {
+        "x": 117.68385321100916,
+        "y": 374.3390825688073
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 32.9354128440367,
+          "y": 374.3390825688073
+        },
+        "sole_front": {
+          "x": 190.78440366972475,
+          "y": 369.5192660550459
+        },
+        "shoulder": {
+          "x": 149.4143119266055,
+          "y": 82.74018348623854
+        },
+        "wrist": {
+          "x": 131.7416513761468,
+          "y": 25.705688073394494
+        },
+        "palm": {
+          "x": 107.64256880733944,
+          "y": 14.459449541284403
+        },
+        "mouth": {
+          "x": 99.60954128440366,
+          "y": 74.70715596330275
+        },
+        "pelvis": {
+          "x": 111.65908256880734,
+          "y": 205.64550458715595
+        }
+      }
+    },
+    "luffy/win/1": {
+      "size": {
+        "width": 266,
+        "height": 439
+      },
+      "root": {
+        "x": 132.34412844036697,
+        "y": 429.7669724770642
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 34.94366972477064,
+          "y": 429.7669724770642
+        },
+        "sole_front": {
+          "x": 218.0966972477064,
+          "y": 424.1438532110092
+        },
+        "shoulder": {
+          "x": 162.26715596330274,
+          "y": 132.54495412844037
+        },
+        "wrist": {
+          "x": 176.72660550458716,
+          "y": 46.59155963302752
+        },
+        "palm": {
+          "x": 176.72660550458716,
+          "y": 21.689174311926603
+        },
+        "mouth": {
+          "x": 123.70862385321101,
+          "y": 137.36477064220182
+        },
+        "pelvis": {
+          "x": 127.7251376146789,
+          "y": 257.0568807339449
+        }
+      }
+    },
+    "luffy/win/2": {
+      "size": {
+        "width": 247,
+        "height": 394
+      },
+      "root": {
+        "x": 123.70862385321101,
+        "y": 385.58532110091744
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 34.54201834862385,
+          "y": 385.58532110091744
+        },
+        "sole_front": {
+          "x": 201.2273394495413,
+          "y": 382.3721100917431
+        },
+        "shoulder": {
+          "x": 155.8407339449541,
+          "y": 95.59302752293577
+        },
+        "wrist": {
+          "x": 155.03743119266053,
+          "y": 44.18165137614679
+        },
+        "palm": {
+          "x": 134.9548623853211,
+          "y": 28.918899082568807
+        },
+        "mouth": {
+          "x": 112.46238532110091,
+          "y": 79.52697247706422
+        },
+        "pelvis": {
+          "x": 116.4788990825688,
+          "y": 204.0388990825688
+        }
+      }
+    },
+    "luffy/sp_balloon/0": {
+      "size": {
+        "width": 329,
+        "height": 367
+      },
+      "root": {
+        "x": 161.79991051454138,
+        "y": 360.42595078299775
+      },
+      "sockets": {
+        "pelvis": {
+          "x": 173.16116331096197,
+          "y": 206.8531543624161
+        },
+        "mouth": {
+          "x": 203.71901565995526,
+          "y": 76.00286353467561
+        },
+        "belly": {
+          "x": 168.45995525727068,
+          "y": 153.57279642058165
+        },
+        "sole_back": {
+          "x": 35.25906040268456,
+          "y": 360.42595078299775
+        }
+      }
+    },
+    "luffy/sp_balloon/1": {
+      "size": {
+        "width": 414,
+        "height": 391
+      },
+      "root": {
+        "x": 210.77082774049217,
+        "y": 383.1484563758389
+      },
+      "sockets": {
+        "pelvis": {
+          "x": 228.79212527964205,
+          "y": 280.50541387024606
+        },
+        "mouth": {
+          "x": 238.97807606263981,
+          "y": 66.60044742729306
+        },
+        "belly": {
+          "x": 224.87445190156598,
+          "y": 170.0270246085011
+        },
+        "palm_back": {
+          "x": 35.25906040268456,
+          "y": 146.52098434004475
+        },
+        "palm_front": {
+          "x": 383.93199105145413,
+          "y": 136.33503355704698
+        },
+        "sole_back": {
+          "x": 84.22997762863534,
+          "y": 383.1484563758389
+        }
+      }
+    },
+    "luffy/sp_balloon/2": {
+      "size": {
+        "width": 330,
+        "height": 354
+      },
+      "root": {
+        "x": 170.41879194630872,
+        "y": 345.5387919463087
+      },
+      "sockets": {
+        "pelvis": {
+          "x": 179.42944071588366,
+          "y": 215.47203579418343
+        },
+        "mouth": {
+          "x": 266.40178970917225,
+          "y": 80.70407158836689
+        },
+        "belly": {
+          "x": 184.13064876957495,
+          "y": 144.1703803131991
+        },
+        "sole_back": {
+          "x": 43.8779418344519,
+          "y": 345.5387919463087
+        }
+      }
+    },
+    "luffy/sp_balloon/3": {
+      "size": {
+        "width": 322,
+        "height": 366
+      },
+      "root": {
+        "x": 160.62460850111856,
+        "y": 358.8588814317673
+      },
+      "sockets": {
+        "pelvis": {
+          "x": 163.75874720357942,
+          "y": 204.50255033557048
+        },
+        "mouth": {
+          "x": 190.39892617449664,
+          "y": 75.2193288590604
+        },
+        "belly": {
+          "x": 162.191677852349,
+          "y": 158.2740044742729
+        },
+        "sole_back": {
+          "x": 34.083758389261746,
+          "y": 358.8588814317673
+        }
+      }
+    },
+    "luffy/j_a/0": {
+      "size": {
+        "width": 225,
+        "height": 333
+      },
+      "root": {
+        "x": 147.00440366972475,
+        "y": 363.8961467889908
+      },
+      "sockets": {
+        "head_anchor": {
+          "x": 144.59449541284403,
+          "y": 14.459449541284403
+        },
+        "shoulder": {
+          "x": 159.85724770642202,
+          "y": 84.34678899082569
+        },
+        "wrist": {
+          "x": 172.71009174311925,
+          "y": 108.44587155963302
+        },
+        "pelvis": {
+          "x": 118.08550458715595,
+          "y": 202.43229357798165
+        }
+      }
+    },
+    "luffy/j_a/1": {
+      "size": {
+        "width": 319,
+        "height": 353
+      },
+      "root": {
+        "x": 125.31522935779816,
+        "y": 357.4697247706422
+      },
+      "sockets": {
+        "head_anchor": {
+          "x": 144.59449541284403,
+          "y": 8.033027522935779
+        },
+        "shoulder": {
+          "x": 171.1034862385321,
+          "y": 85.95339449541284
+        },
+        "wrist": {
+          "x": 256.25357798165135,
+          "y": 98.00293577981651
+        },
+        "palm": {
+          "x": 273.1229357798165,
+          "y": 98.00293577981651
+        },
+        "pelvis": {
+          "x": 126.11853211009173,
+          "y": 200.82568807339447
+        }
+      }
+    },
+    "luffy/j_a/2": {
+      "size": {
+        "width": 235,
+        "height": 345
+      },
+      "root": {
+        "x": 118.88880733944954,
+        "y": 358.27302752293576
+      },
+      "sockets": {
+        "head_anchor": {
+          "x": 163.07045871559632,
+          "y": 8.836330275229358
+        },
+        "shoulder": {
+          "x": 190.38275229357797,
+          "y": 98.80623853211009
+        },
+        "wrist": {
+          "x": 197.61247706422017,
+          "y": 107.64256880733944
+        },
+        "pelvis": {
+          "x": 123.70862385321101,
+          "y": 200.0223853211009
+        }
+      }
+    },
+    "luffy/sp_gatling/0": {
+      "size": {
+        "width": 321,
+        "height": 345
+      },
+      "root": {
+        "x": 159.87425882352943,
+        "y": 338.70268235294117
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 101.36357647058824,
+          "y": 70.048
+        },
+        "wrist": {
+          "x": 50.26974117647059,
+          "y": 106.3081411764706
+        }
+      }
+    },
+    "luffy/sp_gatling/1": {
+      "size": {
+        "width": 809,
+        "height": 384
+      },
+      "root": {
+        "x": 183.57406896551726,
+        "y": 367.9532873563218
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 244.76542528735632,
+          "y": 99.83852873563218
+        },
+        "wrist": {
+          "x": 739.1271724137931,
+          "y": 62.801655172413795
+        },
+        "palm": {
+          "x": 760.0610574712643,
+          "y": 62.801655172413795
+        },
+        "pelvis": {
+          "x": 194.84616091954024,
+          "y": 185.9895172413793
+        },
+        "sole_back": {
+          "x": 55.957885057471266,
+          "y": 367.9532873563218
+        }
+      }
+    },
+    "luffy/sp_gatling/2": {
+      "size": {
+        "width": 447,
+        "height": 362
+      },
+      "root": {
+        "x": 179.26262365591398,
+        "y": 356.2656344086021
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 219.18245161290324,
+          "y": 102.43578494623655
+        },
+        "wrist": {
+          "x": 406.7303225806452,
+          "y": 103.18898924731182
+        },
+        "pelvis": {
+          "x": 179.26262365591398,
+          "y": 205.62477419354838
+        },
+        "fist": {
+          "x": 421.79440860215055,
+          "y": 101.6825806451613
+        }
+      }
+    },
+    "luffy/sp_gatling/3": {
+      "size": {
+        "width": 819,
+        "height": 365
+      },
+      "root": {
+        "x": 186.79466666666667,
+        "y": 342.18850574712644
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 262.4787126436782,
+          "y": 110.30547126436782
+        },
+        "wrist": {
+          "x": 760.0610574712643,
+          "y": 102.25397701149426
+        },
+        "palm": {
+          "x": 780.1897931034483,
+          "y": 102.25397701149426
+        },
+        "pelvis": {
+          "x": 214.1697471264368,
+          "y": 185.18436781609196
+        },
+        "sole_back": {
+          "x": 59.17848275862069,
+          "y": 342.18850574712644
+        }
+      }
+    },
+    "luffy/sp_gatling/4": {
+      "size": {
+        "width": 1175,
+        "height": 315
+      },
+      "root": {
+        "x": 187.91723076923077,
+        "y": 312.5218461538461
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 242.47384615384615,
+          "y": 88.90707692307693
+        },
+        "wrist": {
+          "x": 741.1366518171824,
+          "y": 34.53636476355261
+        },
+        "fist": {
+          "x": 772.1710225845267,
+          "y": 32.521846153846134
+        }
+      }
+    },
+    "luffy/sp_gatling/5": {
+      "size": {
+        "width": 359,
+        "height": 363
+      },
+      "root": {
+        "x": 178.88602150537633,
+        "y": 357.0188387096774
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 221.44206451612902,
+          "y": 100.17617204301075
+        },
+        "wrist": {
+          "x": 307.30735483870967,
+          "y": 104.69539784946237
+        },
+        "pelvis": {
+          "x": 179.26262365591398,
+          "y": 207.13118279569892
+        },
+        "fist": {
+          "x": 323.8778494623656,
+          "y": 93.77393548387097
+        }
+      }
+    },
+    "luffy/sp_gatling/6": {
+      "size": {
+        "width": 360,
+        "height": 363
+      },
+      "root": {
+        "x": 179.4509247311828,
+        "y": 357.0188387096774
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 219.93565591397848,
+          "y": 103.9421935483871
+        },
+        "wrist": {
+          "x": 262.11509677419355,
+          "y": 126.53832258064516
+        },
+        "pelvis": {
+          "x": 179.26262365591398,
+          "y": 207.13118279569892
+        },
+        "fist": {
+          "x": 255.71286021505375,
+          "y": 106.2018064516129
+        }
+      }
+    },
+    "luffy/sp_storm/0": {
+      "size": {
+        "width": 321,
+        "height": 345
+      },
+      "root": {
+        "x": 159.87425882352943,
+        "y": 338.70268235294117
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 101.36357647058824,
+          "y": 70.048
+        },
+        "wrist": {
+          "x": 50.26974117647059,
+          "y": 106.3081411764706
+        }
+      }
+    },
+    "luffy/sp_storm/1": {
+      "size": {
+        "width": 809,
+        "height": 384
+      },
+      "root": {
+        "x": 183.57406896551726,
+        "y": 367.9532873563218
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 244.76542528735632,
+          "y": 99.83852873563218
+        },
+        "wrist": {
+          "x": 739.1271724137931,
+          "y": 62.801655172413795
+        },
+        "palm": {
+          "x": 760.0610574712643,
+          "y": 62.801655172413795
+        },
+        "pelvis": {
+          "x": 194.84616091954024,
+          "y": 185.9895172413793
+        },
+        "sole_back": {
+          "x": 55.957885057471266,
+          "y": 367.9532873563218
+        }
+      }
+    },
+    "luffy/sp_storm/2": {
+      "size": {
+        "width": 447,
+        "height": 362
+      },
+      "root": {
+        "x": 179.26262365591398,
+        "y": 356.2656344086021
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 219.18245161290324,
+          "y": 102.43578494623655
+        },
+        "wrist": {
+          "x": 406.7303225806452,
+          "y": 103.18898924731182
+        },
+        "pelvis": {
+          "x": 179.26262365591398,
+          "y": 205.62477419354838
+        },
+        "fist": {
+          "x": 421.79440860215055,
+          "y": 101.6825806451613
+        }
+      }
+    },
+    "luffy/sp_storm/3": {
+      "size": {
+        "width": 819,
+        "height": 365
+      },
+      "root": {
+        "x": 186.79466666666667,
+        "y": 342.18850574712644
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 262.4787126436782,
+          "y": 110.30547126436782
+        },
+        "wrist": {
+          "x": 760.0610574712643,
+          "y": 102.25397701149426
+        },
+        "palm": {
+          "x": 780.1897931034483,
+          "y": 102.25397701149426
+        },
+        "pelvis": {
+          "x": 214.1697471264368,
+          "y": 185.18436781609196
+        },
+        "sole_back": {
+          "x": 59.17848275862069,
+          "y": 342.18850574712644
+        }
+      }
+    },
+    "luffy/sp_storm/4": {
+      "size": {
+        "width": 1175,
+        "height": 315
+      },
+      "root": {
+        "x": 187.91723076923077,
+        "y": 312.5218461538461
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 242.47384615384615,
+          "y": 88.90707692307693
+        },
+        "wrist": {
+          "x": 741.1366518171824,
+          "y": 34.53636476355261
+        },
+        "fist": {
+          "x": 772.1710225845267,
+          "y": 32.521846153846134
+        }
+      }
+    },
+    "luffy/sp_storm/5": {
+      "size": {
+        "width": 359,
+        "height": 363
+      },
+      "root": {
+        "x": 178.88602150537633,
+        "y": 357.0188387096774
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 221.44206451612902,
+          "y": 100.17617204301075
+        },
+        "wrist": {
+          "x": 307.30735483870967,
+          "y": 104.69539784946237
+        },
+        "pelvis": {
+          "x": 179.26262365591398,
+          "y": 207.13118279569892
+        },
+        "fist": {
+          "x": 323.8778494623656,
+          "y": 93.77393548387097
+        }
+      }
+    },
+    "luffy/sp_storm/6": {
+      "size": {
+        "width": 360,
+        "height": 363
+      },
+      "root": {
+        "x": 179.4509247311828,
+        "y": 357.0188387096774
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 219.93565591397848,
+          "y": 103.9421935483871
+        },
+        "wrist": {
+          "x": 262.11509677419355,
+          "y": 126.53832258064516
+        },
+        "pelvis": {
+          "x": 179.26262365591398,
+          "y": 207.13118279569892
+        },
+        "fist": {
+          "x": 255.71286021505375,
+          "y": 106.2018064516129
+        }
+      }
+    },
+    "luffy/sp_gigant_pistol/0": {
+      "size": {
+        "width": 356,
+        "height": 376
+      },
+      "root": {
+        "x": 171.95756207674944,
+        "y": 366.0521896162528
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 45.06474040632054,
+          "y": 366.0521896162528
+        },
+        "shoulder": {
+          "x": 169.98103837471783,
+          "y": 111.47593679458238
+        },
+        "wrist": {
+          "x": 244.29832957110608,
+          "y": 129.65995485327312
+        },
+        "pelvis": {
+          "x": 189.74627539503385,
+          "y": 198.4429796839729
+        }
+      }
+    },
+    "luffy/sp_gigant_pistol/1": {
+      "size": {
+        "width": 1337,
+        "height": 396
+      },
+      "root": {
+        "x": 174.66514285714283,
+        "y": 379.3508571428571
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 46.85028571428571,
+          "y": 379.3508571428571
+        },
+        "shoulder": {
+          "x": 284.7405714285714,
+          "y": 133.72799999999998
+        },
+        "wrist": {
+          "x": 1026.157714285714,
+          "y": 156.4708571428571
+        },
+        "palm": {
+          "x": 1205.3714285714284,
+          "y": 161.92914285714284
+        },
+        "pelvis": {
+          "x": 206.50514285714283,
+          "y": 221.9702857142857
+        }
+      }
+    },
+    "luffy/sp_gigant_pistol/2": {
+      "size": {
+        "width": 427,
+        "height": 268
+      },
+      "root": {
+        "x": 168.79512415349888,
+        "y": 262.48234762979683
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 41.902302483069974,
+          "y": 262.48234762979683
+        },
+        "shoulder": {
+          "x": 220.58004514672686,
+          "y": 94.08252821670429
+        },
+        "wrist": {
+          "x": 347.0775620767494,
+          "y": 75.1079006772009
+        },
+        "palm": {
+          "x": 377.1207223476298,
+          "y": 62.458148984198644
+        },
+        "pelvis": {
+          "x": 188.9556659142212,
+          "y": 146.2627539503386
+        }
+      }
+    },
+    "luffy/sp_gigant_pistol/3": {
+      "size": {
+        "width": 378,
+        "height": 378
+      },
+      "root": {
+        "x": 182.8525714285714,
+        "y": 364.79542857142854
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 55.03771428571428,
+          "y": 364.79542857142854
+        },
+        "shoulder": {
+          "x": 226.51885714285712,
+          "y": 121.90171428571426
+        },
+        "wrist": {
+          "x": 284.7405714285714,
+          "y": 120.99199999999998
+        },
+        "pelvis": {
+          "x": 181.03314285714282,
+          "y": 184.67199999999997
+        }
+      }
+    },
+    "luffy/dash/0": {
+      "size": {
+        "width": 390,
+        "height": 390
+      },
+      "root": {
+        "x": 183.99274666666665,
+        "y": 382.92906666666664
+      },
+      "sockets": {
+        "pelvis": {
+          "x": 185.8606933333333,
+          "y": 229.75743999999997
+        },
+        "sole": {
+          "x": 175.58698666666663,
+          "y": 382.92906666666664
+        }
+      }
+    },
+    "luffy/dash/1": {
+      "size": {
+        "width": 390,
+        "height": 390
+      },
+      "root": {
+        "x": 204.54016,
+        "y": 388.53290666666663
+      },
+      "sockets": {
+        "pelvis": {
+          "x": 208.2760533333333,
+          "y": 235.36127999999997
+        },
+        "sole": {
+          "x": 84.99157333333332,
+          "y": 388.53290666666663
+        }
+      }
+    },
+    "luffy/dash/2": {
+      "size": {
+        "width": 390,
+        "height": 390
+      },
+      "root": {
+        "x": 193.33247999999998,
+        "y": 373.5893333333333
+      },
+      "sockets": {
+        "pelvis": {
+          "x": 197.0683733333333,
+          "y": 209.21002666666664
+        },
+        "sole": {
+          "x": 342.7682133333333,
+          "y": 356.7778133333333
+        }
+      }
+    },
+    "luffy/dash/3": {
+      "size": {
+        "width": 390,
+        "height": 390
+      },
+      "root": {
+        "x": 199.8702933333333,
+        "y": 366.1175466666666
+      },
+      "sockets": {
+        "pelvis": {
+          "x": 203.60618666666664,
+          "y": 218.54975999999996
+        },
+        "sole": {
+          "x": 271.3192533333333,
+          "y": 366.1175466666666
+        }
+      }
+    },
+    "luffy/dash/4": {
+      "size": {
+        "width": 390,
+        "height": 390
+      },
+      "root": {
+        "x": 203.60618666666664,
+        "y": 367.0515199999999
+      },
+      "sockets": {
+        "pelvis": {
+          "x": 207.34207999999998,
+          "y": 228.82346666666663
+        },
+        "sole": {
+          "x": 218.0827733333333,
+          "y": 367.0515199999999
+        }
+      }
+    },
+    "luffy/dash/5": {
+      "size": {
+        "width": 390,
+        "height": 390
+      },
+      "root": {
+        "x": 179.32287999999997,
+        "y": 353.97589333333326
+      },
+      "sockets": {
+        "pelvis": {
+          "x": 183.0587733333333,
+          "y": 203.60618666666664
+        },
+        "sole": {
+          "x": 80.32170666666666,
+          "y": 353.97589333333326
+        }
+      }
+    },
+    "luffy/dash/6": {
+      "size": {
+        "width": 390,
+        "height": 390
+      },
+      "root": {
+        "x": 193.33247999999998,
+        "y": 353.97589333333326
+      },
+      "sockets": {
+        "pelvis": {
+          "x": 197.0683733333333,
+          "y": 226.95551999999998
+        },
+        "sole": {
+          "x": 337.1643733333333,
+          "y": 337.1643733333333
+        }
+      }
+    },
+    "luffy/dash/7": {
+      "size": {
+        "width": 390,
+        "height": 390
+      },
+      "root": {
+        "x": 207.34207999999998,
+        "y": 353.04191999999995
+      },
+      "sockets": {
+        "pelvis": {
+          "x": 211.07797333333332,
+          "y": 210.14399999999998
+        },
+        "sole": {
+          "x": 303.0743466666666,
+          "y": 353.04191999999995
+        }
+      }
+    },
+    "luffy/j_c/0": {
+      "size": {
+        "width": 548,
+        "height": 367
+      },
+      "root": {
+        "x": 265.51860349127185,
+        "y": 369.4551620947631
+      },
+      "sockets": {
+        "head": {
+          "x": 275.1261845386534,
+          "y": 48.03790523690773
+        },
+        "pelvis": {
+          "x": 225.34144638403993,
+          "y": 214.8604488778055
+        },
+        "wrist": {
+          "x": 305.69576059850374,
+          "y": 124.89855361596011
+        }
+      }
+    },
+    "luffy/j_c/1": {
+      "size": {
+        "width": 548,
+        "height": 341
+      },
+      "root": {
+        "x": 265.51860349127185,
+        "y": 358.9741645885287
+      },
+      "sockets": {
+        "head": {
+          "x": 243.68319201995016,
+          "y": 39.303740648379055
+        },
+        "pelvis": {
+          "x": 221.84778054862844,
+          "y": 200.8857855361596
+        },
+        "shoulder": {
+          "x": 315.3033416458853,
+          "y": 107.43022443890275
+        },
+        "wrist": {
+          "x": 482.99930174563593,
+          "y": 108.30364089775561
+        },
+        "palm": {
+          "x": 502.21446384039905,
+          "y": 108.30364089775561
+        }
+      }
+    },
+    "luffy/j_c/2": {
+      "size": {
+        "width": 548,
+        "height": 383
+      },
+      "root": {
+        "x": 265.51860349127185,
+        "y": 361.5944139650873
+      },
+      "sockets": {
+        "head": {
+          "x": 270.75910224438906,
+          "y": 44.54423940149626
+        },
+        "pelvis": {
+          "x": 260.27810473815464,
+          "y": 211.36678304239402
+        },
+        "wrist": {
+          "x": 304.8223441396509,
+          "y": 120.53147132169578
+        }
+      }
+    },
+    "luffy/ult_red_hawk/0": {
+      "size": {
+        "width": 370,
+        "height": 345
+      },
+      "root": {
+        "x": 168.46987341772152,
+        "y": 327.1862278481013
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 234.08445569620253,
+          "y": 127.68243037974683
+        },
+        "wrist": {
+          "x": 276.64526582278484,
+          "y": 109.94875949367089
+        },
+        "palm": {
+          "x": 277.5319493670886,
+          "y": 96.64850632911393
+        },
+        "pelvis": {
+          "x": 192.41032911392406,
+          "y": 176.4500253164557
+        },
+        "sole_back": {
+          "x": 42.11746835443038,
+          "y": 327.1862278481013
+        }
+      }
+    },
+    "luffy/ult_red_hawk/1": {
+      "size": {
+        "width": 442,
+        "height": 363
+      },
+      "root": {
+        "x": 166.25316455696202,
+        "y": 354.673417721519
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 256.25154430379746,
+          "y": 104.6286582278481
+        },
+        "wrist": {
+          "x": 381.2739240506329,
+          "y": 102.8552911392405
+        },
+        "palm": {
+          "x": 406.98774683544303,
+          "y": 100.19524050632911
+        },
+        "pelvis": {
+          "x": 184.43017721518987,
+          "y": 179.99675949367088
+        },
+        "sole_back": {
+          "x": 39.90075949367089,
+          "y": 354.673417721519
+        }
+      }
+    },
+    "luffy/ult_red_hawk/2": {
+      "size": {
+        "width": 1323,
+        "height": 374
+      },
+      "root": {
+        "x": 176.4567938931298,
+        "y": 349.34880407124683
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 283.4003053435115,
+          "y": 92.6843765903308
+        },
+        "wrist": {
+          "x": 955.3620356234098,
+          "y": 124.76743002544531
+        },
+        "palm": {
+          "x": 1006.160203562341,
+          "y": 127.44101781170485
+        },
+        "pelvis": {
+          "x": 207.64865139949111,
+          "y": 200.51908396946567
+        },
+        "sole_back": {
+          "x": 49.015776081424946,
+          "y": 349.34880407124683
+        }
+      }
+    },
+    "luffy/ult_red_hawk/3": {
+      "size": {
+        "width": 337,
+        "height": 377
+      },
+      "root": {
+        "x": 164.92313924050634,
+        "y": 367.973670886076
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 228.76435443037974,
+          "y": 125.02237974683544
+        },
+        "wrist": {
+          "x": 269.55179746835444,
+          "y": 112.60881012658228
+        },
+        "pelvis": {
+          "x": 174.6766582278481,
+          "y": 191.52364556962024
+        },
+        "sole_back": {
+          "x": 38.57073417721519,
+          "y": 367.973670886076
+        }
+      }
+    },
+    "luffy/cr_d/0": {
+      "size": {
+        "width": 249,
+        "height": 230
+      },
+      "root": {
+        "x": 160.06443438914027,
+        "y": 221.07909502262444
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 35.6579185520362,
+          "y": 221.07909502262444
+        },
+        "wrist": {
+          "x": 210.77791855203623,
+          "y": 108.5585520361991
+        },
+        "palm": {
+          "x": 215.5323076923077,
+          "y": 98.25737556561087
+        },
+        "pelvis": {
+          "x": 131.5380995475113,
+          "y": 155.3100452488688
+        },
+        "chest": {
+          "x": 156.89484162895928,
+          "y": 107.76615384615386
+        }
+      }
+    },
+    "luffy/cr_d/1": {
+      "size": {
+        "width": 613,
+        "height": 231
+      },
+      "root": {
+        "x": 237.34212454212454,
+        "y": 210.4005860805861
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 225.15428571428572,
+          "y": 101.35150183150184
+        },
+        "wrist": {
+          "x": 273.2641758241758,
+          "y": 101.35150183150184
+        },
+        "pelvis": {
+          "x": 177.04439560439562,
+          "y": 153.31018315018315
+        },
+        "ankle": {
+          "x": 552.9430036630037,
+          "y": 177.6858608058608
+        },
+        "toe": {
+          "x": 581.8089377289377,
+          "y": 164.21509157509158
+        },
+        "sole_back": {
+          "x": 116.42593406593407,
+          "y": 210.4005860805861
+        }
+      }
+    },
+    "luffy/cr_d/2": {
+      "size": {
+        "width": 261,
+        "height": 290
+      },
+      "root": {
+        "x": 160.85683257918552,
+        "y": 279.71656108597284
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 36.45031674208145,
+          "y": 279.71656108597284
+        },
+        "wrist": {
+          "x": 220.2866968325792,
+          "y": 118.06733031674209
+        },
+        "palm": {
+          "x": 220.2866968325792,
+          "y": 105.38895927601811
+        },
+        "pelvis": {
+          "x": 140.25447963800906,
+          "y": 189.3831674208145
+        },
+        "chest": {
+          "x": 165.61122171945703,
+          "y": 132.33049773755656
+        }
+      }
+    },
+    "luffy/cr_d/3": {
+      "size": {
+        "width": 304,
+        "height": 303
+      },
+      "root": {
+        "x": 151.28710059171596,
+        "y": 296.35692307692307
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 229.00307692307692,
+          "y": 100.51266272189349
+        },
+        "wrist": {
+          "x": 250.76355029585798,
+          "y": 125.38177514792899
+        }
+      }
+    },
+    "luffy/j_cd/0": {
+      "size": {
+        "width": 548,
+        "height": 367
+      },
+      "root": {
+        "x": 265.51860349127185,
+        "y": 369.4551620947631
+      },
+      "sockets": {
+        "head": {
+          "x": 275.1261845386534,
+          "y": 48.03790523690773
+        },
+        "pelvis": {
+          "x": 225.34144638403993,
+          "y": 214.8604488778055
+        },
+        "wrist": {
+          "x": 305.69576059850374,
+          "y": 124.89855361596011
+        }
+      }
+    },
+    "luffy/j_cd/1": {
+      "size": {
+        "width": 548,
+        "height": 375
+      },
+      "root": {
+        "x": 265.51860349127185,
+        "y": 358.1007481296758
+      },
+      "sockets": {
+        "head": {
+          "x": 275.1261845386534,
+          "y": 35.810074812967585
+        },
+        "pelvis": {
+          "x": 245.43002493765587,
+          "y": 197.39211970074814
+        },
+        "shoulder": {
+          "x": 318.79700748129676,
+          "y": 126.64538653366584
+        },
+        "wrist": {
+          "x": 478.6322194513716,
+          "y": 123.15172069825438
+        },
+        "palm": {
+          "x": 496.10054862842895,
+          "y": 118.78463840399003
+        }
+      }
+    },
+    "luffy/j_cd/2": {
+      "size": {
+        "width": 454,
+        "height": 397
+      },
+      "root": {
+        "x": 177.7402493765586,
+        "y": 379.06274314214465
+      },
+      "sockets": {
+        "head": {
+          "x": 200.01236907730674,
+          "y": 54.15182044887781
+        },
+        "pelvis": {
+          "x": 162.45546134663343,
+          "y": 219.22753117206983
+        },
+        "shoulder": {
+          "x": 252.41735660847883,
+          "y": 137.12638403990027
+        },
+        "wrist": {
+          "x": 393.9108229426434,
+          "y": 237.56927680798006
+        },
+        "palm": {
+          "x": 411.3791521197008,
+          "y": 257.65785536159603
+        }
+      }
+    },
+    "luffy/j_cd/3": {
+      "size": {
+        "width": 548,
+        "height": 383
+      },
+      "root": {
+        "x": 265.51860349127185,
+        "y": 361.5944139650873
+      },
+      "sockets": {
+        "head": {
+          "x": 270.75910224438906,
+          "y": 44.54423940149626
+        },
+        "pelvis": {
+          "x": 260.27810473815464,
+          "y": 211.36678304239402
+        },
+        "wrist": {
+          "x": 304.8223441396509,
+          "y": 120.53147132169578
+        }
+      }
+    },
+    "luffy/j_d/0": {
+      "size": {
+        "width": 548,
+        "height": 367
+      },
+      "root": {
+        "x": 265.51860349127185,
+        "y": 369.4551620947631
+      },
+      "sockets": {
+        "head": {
+          "x": 275.1261845386534,
+          "y": 48.03790523690773
+        },
+        "pelvis": {
+          "x": 225.34144638403993,
+          "y": 214.8604488778055
+        },
+        "wrist": {
+          "x": 305.69576059850374,
+          "y": 124.89855361596011
+        }
+      }
+    },
+    "luffy/j_d/1": {
+      "size": {
+        "width": 473,
+        "height": 412
+      },
+      "root": {
+        "x": 186.94060000000002,
+        "y": 387.0152
+      },
+      "sockets": {
+        "head": {
+          "x": 179.49800000000002,
+          "y": 56.914
+        },
+        "pelvis": {
+          "x": 191.7564,
+          "y": 232.03400000000002
+        },
+        "sole": {
+          "x": 405.4028,
+          "y": 351.9912
+        },
+        "ankle": {
+          "x": 378.2592,
+          "y": 332.728
+        }
+      }
+    },
+    "luffy/j_d/2": {
+      "size": {
+        "width": 548,
+        "height": 383
+      },
+      "root": {
+        "x": 265.51860349127185,
+        "y": 361.5944139650873
+      },
+      "sockets": {
+        "head": {
+          "x": 270.75910224438906,
+          "y": 44.54423940149626
+        },
+        "pelvis": {
+          "x": 260.27810473815464,
+          "y": 211.36678304239402
+        },
+        "wrist": {
+          "x": 304.8223441396509,
+          "y": 120.53147132169578
+        }
+      }
+    },
+    "luffy/sp_bazooka/0": {
+      "size": {
+        "width": 446,
+        "height": 378
+      },
+      "root": {
+        "x": 221.90450980392157,
+        "y": 373.4176470588235
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 206.02352941176468,
+          "y": 98.71960784313725
+        },
+        "shoulder_far": {
+          "x": 180.2705882352941,
+          "y": 150.22549019607843
+        },
+        "wrist": {
+          "x": 80.69254901960784,
+          "y": 93.56901960784313
+        },
+        "wrist_far": {
+          "x": 97.00274509803921,
+          "y": 167.3941176470588
+        },
+        "pelvis": {
+          "x": 247.22823529411764,
+          "y": 209.45725490196077
+        },
+        "sole_back": {
+          "x": 93.56901960784313,
+          "y": 373.4176470588235
+        }
+      }
+    },
+    "luffy/sp_bazooka/1": {
+      "size": {
+        "width": 1053,
+        "height": 398
+      },
+      "root": {
+        "x": 173.8355012224939,
+        "y": 383.6369682151589
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 261.18141809290955,
+          "y": 117.31755501222494
+        },
+        "shoulder_far": {
+          "x": 280.87706601466994,
+          "y": 107.89789731051344
+        },
+        "wrist": {
+          "x": 810.9468948655257,
+          "y": 170.41017114914425
+        },
+        "wrist_far": {
+          "x": 764.7049388753056,
+          "y": 109.61056234718826
+        },
+        "palm": {
+          "x": 835.7805378973105,
+          "y": 148.14552567237163
+        },
+        "palm_far": {
+          "x": 792.1075794621026,
+          "y": 90.77124694376528
+        },
+        "pelvis": {
+          "x": 185.8241564792176,
+          "y": 215.7957946210269
+        },
+        "sole_back": {
+          "x": 45.38562347188264,
+          "y": 383.6369682151589
+        }
+      }
+    },
+    "luffy/sp_bazooka/2": {
+      "size": {
+        "width": 386,
+        "height": 369
+      },
+      "root": {
+        "x": 177.69529411764705,
+        "y": 354.53215686274507
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 247.22823529411764,
+          "y": 120.18039215686274
+        },
+        "wrist": {
+          "x": 255.81254901960784,
+          "y": 142.49960784313726
+        },
+        "pelvis": {
+          "x": 216.32470588235293,
+          "y": 205.16509803921568
+        },
+        "sole_back": {
+          "x": 49.35980392156863,
+          "y": 354.53215686274507
+        }
+      }
+    },
+    "luffy/sp_bazooka/3": {
+      "size": {
+        "width": 352,
+        "height": 378
+      },
+      "root": {
+        "x": 173.40313725490196,
+        "y": 369.98392156862747
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 245.5113725490196,
+          "y": 127.90627450980392
+        },
+        "wrist": {
+          "x": 282.42392156862746,
+          "y": 133.05686274509804
+        },
+        "pelvis": {
+          "x": 179.4121568627451,
+          "y": 206.88196078431372
+        },
+        "sole_back": {
+          "x": 45.067647058823525,
+          "y": 369.98392156862747
+        }
+      }
+    },
+    "luffy/sp_rifle/0": {
+      "size": {
+        "width": 411,
+        "height": 354
+      },
+      "root": {
+        "x": 180.5663157894737,
+        "y": 342.69894736842105
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 238.79999999999998,
+          "y": 107.25052631578947
+        },
+        "wrist": {
+          "x": 258.07157894736844,
+          "y": 108.08842105263157
+        },
+        "palm": {
+          "x": 255.5578947368421,
+          "y": 95.52
+        },
+        "pelvis": {
+          "x": 180.14736842105262,
+          "y": 212.82526315789474
+        },
+        "sole_back": {
+          "x": 48.59789473684211,
+          "y": 342.69894736842105
+        }
+      }
+    },
+    "luffy/sp_rifle/1": {
+      "size": {
+        "width": 892,
+        "height": 380
+      },
+      "root": {
+        "x": 182.96735849056603,
+        "y": 369.2388679245283
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 252.7675471698113,
+          "y": 104.08075471698113
+        },
+        "wrist": {
+          "x": 808.6909433962264,
+          "y": 74.3433962264151
+        },
+        "palm": {
+          "x": 828.5158490566038,
+          "y": 75.16943396226415
+        },
+        "pelvis": {
+          "x": 183.38037735849056,
+          "y": 209.81358490566038
+        },
+        "sole_back": {
+          "x": 48.736226415094336,
+          "y": 369.2388679245283
+        }
+      }
+    },
+    "luffy/sp_rifle/2": {
+      "size": {
+        "width": 447,
+        "height": 362
+      },
+      "root": {
+        "x": 179.26262365591398,
+        "y": 356.2656344086021
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 219.18245161290324,
+          "y": 102.43578494623655
+        },
+        "wrist": {
+          "x": 406.7303225806452,
+          "y": 103.18898924731182
+        },
+        "pelvis": {
+          "x": 179.26262365591398,
+          "y": 205.62477419354838
+        },
+        "fist": {
+          "x": 421.79440860215055,
+          "y": 101.6825806451613
+        }
+      }
+    },
+    "luffy/sp_rifle/3": {
+      "size": {
+        "width": 359,
+        "height": 363
+      },
+      "root": {
+        "x": 178.88602150537633,
+        "y": 357.0188387096774
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 221.44206451612902,
+          "y": 100.17617204301075
+        },
+        "wrist": {
+          "x": 307.30735483870967,
+          "y": 104.69539784946237
+        },
+        "pelvis": {
+          "x": 179.26262365591398,
+          "y": 207.13118279569892
+        },
+        "fist": {
+          "x": 323.8778494623656,
+          "y": 93.77393548387097
+        }
+      }
+    },
+    "luffy/sp_rifle/4": {
+      "size": {
+        "width": 360,
+        "height": 363
+      },
+      "root": {
+        "x": 179.4509247311828,
+        "y": 357.0188387096774
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 219.93565591397848,
+          "y": 103.9421935483871
+        },
+        "wrist": {
+          "x": 262.11509677419355,
+          "y": 126.53832258064516
+        },
+        "pelvis": {
+          "x": 179.26262365591398,
+          "y": 207.13118279569892
+        },
+        "fist": {
+          "x": 255.71286021505375,
+          "y": 106.2018064516129
+        }
+      }
+    },
+    "luffy/st_b/0": {
+      "size": {
+        "width": 199,
+        "height": 372
+      },
+      "root": {
+        "x": 190.642,
+        "y": 364.56800000000004
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 70.84400000000001,
+          "y": 364.56800000000004
+        }
+      }
+    },
+    "luffy/st_b/1": {
+      "size": {
+        "width": 379,
+        "height": 364
+      },
+      "root": {
+        "x": 209.19949253731343,
+        "y": 354.2001990049751
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 89.40149253731343,
+          "y": 354.2001990049751
+        },
+        "toe": {
+          "x": 361.01174129353234,
+          "y": 173.69432835820896
+        },
+        "knee": {
+          "x": 252.0270646766169,
+          "y": 171.14
+        },
+        "pelvis": {
+          "x": 117.49910447761194,
+          "y": 188.16885572139304
+        }
+      }
+    },
+    "luffy/st_b/2": {
+      "size": {
+        "width": 239,
+        "height": 340
+      },
+      "root": {
+        "x": 176.31400000000002,
+        "y": 327.952
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 56.516000000000005,
+          "y": 327.952
+        }
+      }
+    },
+    "luffy/cd/0": {
+      "size": {
+        "width": 377,
+        "height": 362
+      },
+      "root": {
+        "x": 168.7177634408602,
+        "y": 353.2528172043011
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 40.29643010752688,
+          "y": 353.2528172043011
+        }
+      }
+    },
+    "luffy/cd/1": {
+      "size": {
+        "width": 694,
+        "height": 362
+      },
+      "root": {
+        "x": 170.97983779605033,
+        "y": 353.9075634268044
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 42.55850446271699,
+          "y": 353.9075634268044
+        },
+        "shoulder": {
+          "x": 243.40477990957436,
+          "y": 97.06325579216156
+        },
+        "elbow": {
+          "x": 410.6522360437604,
+          "y": 114.98262609225291
+        },
+        "wrist": {
+          "x": 647.3372520908005,
+          "y": 58.9845939044674
+        },
+        "palm": {
+          "x": 663.763341532551,
+          "y": 58.9845939044674
+        },
+        "pelvis": {
+          "x": 172.47393913837936,
+          "y": 193.3798711551526
+        }
+      }
+    },
+    "luffy/cd/2": {
+      "size": {
+        "width": 447,
+        "height": 362
+      },
+      "root": {
+        "x": 179.26262365591398,
+        "y": 356.2656344086021
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 219.18245161290324,
+          "y": 102.43578494623655
+        },
+        "wrist": {
+          "x": 406.7303225806452,
+          "y": 103.18898924731182
+        },
+        "pelvis": {
+          "x": 179.26262365591398,
+          "y": 205.62477419354838
+        },
+        "fist": {
+          "x": 421.79440860215055,
+          "y": 101.6825806451613
+        }
+      }
+    },
+    "luffy/cd/3": {
+      "size": {
+        "width": 359,
+        "height": 363
+      },
+      "root": {
+        "x": 178.88602150537633,
+        "y": 357.0188387096774
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 221.44206451612902,
+          "y": 100.17617204301075
+        },
+        "wrist": {
+          "x": 307.30735483870967,
+          "y": 104.69539784946237
+        },
+        "pelvis": {
+          "x": 179.26262365591398,
+          "y": 207.13118279569892
+        },
+        "fist": {
+          "x": 323.8778494623656,
+          "y": 93.77393548387097
+        }
+      }
+    },
+    "luffy/cd/4": {
+      "size": {
+        "width": 360,
+        "height": 363
+      },
+      "root": {
+        "x": 179.4509247311828,
+        "y": 357.0188387096774
+      },
+      "sockets": {
+        "shoulder": {
+          "x": 219.93565591397848,
+          "y": 103.9421935483871
+        },
+        "wrist": {
+          "x": 262.11509677419355,
+          "y": 126.53832258064516
+        },
+        "pelvis": {
+          "x": 179.26262365591398,
+          "y": 207.13118279569892
+        },
+        "fist": {
+          "x": 255.71286021505375,
+          "y": 106.2018064516129
+        }
+      }
+    },
+    "luffy/f_c/0": {
+      "size": {
+        "width": 383,
+        "height": 376
+      },
+      "root": {
+        "x": 170.9862660944206,
+        "y": 369.7812875536481
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 40.96154506437769,
+          "y": 369.7812875536481
+        },
+        "pelvis": {
+          "x": 180.38111587982834,
+          "y": 214.95416309012876
+        },
+        "shoulder": {
+          "x": 202.92875536480688,
+          "y": 131.52789699570818
+        },
+        "head": {
+          "x": 346.4820600858369,
+          "y": 47.35004291845494
+        }
+      }
+    },
+    "luffy/f_c/1": {
+      "size": {
+        "width": 482,
+        "height": 421
+      },
+      "root": {
+        "x": 172.87166904422253,
+        "y": 414.19252496433666
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 38.22162624821683,
+          "y": 414.19252496433666
+        },
+        "pelvis": {
+          "x": 204.84793152639088,
+          "y": 244.81825962910128
+        },
+        "shoulder": {
+          "x": 219.83680456490728,
+          "y": 164.87760342368045
+        },
+        "neck_base": {
+          "x": 229.82938659058487,
+          "y": 157.88279600570613
+        },
+        "head": {
+          "x": 432.17917261055635,
+          "y": 78.94139800285306
+        }
+      }
+    },
+    "luffy/f_c/2": {
+      "size": {
+        "width": 376,
+        "height": 368
+      },
+      "root": {
+        "x": 178.12635193133048,
+        "y": 357.7558798283262
+      },
+      "sockets": {
+        "sole_back": {
+          "x": 48.10163090128756,
+          "y": 357.7558798283262
+        },
+        "pelvis": {
+          "x": 165.349356223176,
+          "y": 204.4319313304721
+        },
+        "shoulder": {
+          "x": 187.89699570815452,
+          "y": 106.72549356223176
+        },
+        "head": {
+          "x": 232.9922746781116,
+          "y": 53.36274678111588
+        }
+      }
+    },
+    "luffy/sp_rocket/0": {
+      "size": {
+        "width": 356,
+        "height": 322
+      },
+      "root": {
+        "x": 186.14450363196124,
+        "y": 315.470411622276
+      },
+      "sockets": {
+        "pelvis": {
+          "x": 172.15186440677965,
+          "y": 184.8724455205811
+        },
+        "shoulder": {
+          "x": 195.04891041162227,
+          "y": 84.80387409200968
+        },
+        "head": {
+          "x": 267.13220338983047,
+          "y": 84.80387409200968
+        }
+      }
+    },
+    "luffy/sp_rocket/1": {
+      "size": {
+        "width": 486,
+        "height": 344
+      },
+      "root": {
+        "x": 214.65047404063205,
+        "y": 374.74889390519184
+      },
+      "sockets": {
+        "pelvis": {
+          "x": 222.16126410835213,
+          "y": 191.32749435665914
+        },
+        "shoulder": {
+          "x": 329.6841534988713,
+          "y": 120.96325056433407
+        },
+        "head": {
+          "x": 393.7235214446952,
+          "y": 105.9416704288939
+        },
+        "chest": {
+          "x": 320.19683972911963,
+          "y": 158.1218961625282
+        }
+      }
+    },
+    "luffy/sp_rocket/2": {
+      "size": {
+        "width": 348,
+        "height": 360
+      },
+      "root": {
+        "x": 191.65675544794186,
+        "y": 351.08803874092007
+      },
+      "sockets": {
+        "pelvis": {
+          "x": 173.84794188861983,
+          "y": 200.98518159806295
+        },
+        "shoulder": {
+          "x": 200.98518159806295,
+          "y": 117.02934624697336
+        },
+        "head": {
+          "x": 236.60280871670702,
+          "y": 87.34799031476997
+        }
+      }
+    }
+  }
+}

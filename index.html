@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One Piece Fighter</title>
+    <link rel="icon" href="data:," />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background:
+          radial-gradient(ellipse at 50% 35%, #24161a 0%, #0a0c12 58%, #050608 100%);
+      }
+      #game {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      canvas {
+        image-rendering: pixelated;
+        box-shadow:
+          0 0 0 1px #5c3d24,
+          0 0 0 3px #c9a227,
+          0 0 0 4px #2a1c12,
+          0 24px 80px rgba(0, 0, 0, 0.55);
+      }
+      body[data-art='anime'] canvas {
+        image-rendering: auto;
+        box-shadow: 0 0 0 1px #354750, 0 24px 80px rgba(0, 0, 0, 0.55);
+      }
+    </style>
+    <script>
+      (() => {
+        const url = new URL(window.location.href);
+        if (!url.searchParams.has('art')) {
+          url.searchParams.set('art', 'anime');
+          if (!url.searchParams.has('scope')) url.searchParams.set('scope', 'full');
+          if (!url.searchParams.has('quality')) url.searchParams.set('quality', 'high');
+          window.history.replaceState(null, '', url);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="./assets/index-Crbo9vzy.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/phaser-0YPJO2g1.js">
+  </head>
+  <body>
+    <div id="game"></div>
+  </body>
+</html>

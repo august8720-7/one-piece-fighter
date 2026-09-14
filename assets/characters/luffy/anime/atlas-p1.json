@@ -1,0 +1,428 @@
+{
+  "frames": {
+    "luffy/sp_bazooka/0": {
+      "frame": {
+        "x": 898,
+        "y": 427,
+        "w": 446,
+        "h": 378
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 446,
+        "h": 378
+      },
+      "sourceSize": {
+        "w": 446,
+        "h": 378
+      },
+      "pivot": {
+        "x": 0.4975437439549811,
+        "y": 0.9878773731714907
+      }
+    },
+    "luffy/sp_bazooka/1": {
+      "frame": {
+        "x": 488,
+        "y": 2,
+        "w": 1053,
+        "h": 398
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 1053,
+        "h": 398
+      },
+      "sourceSize": {
+        "w": 1053,
+        "h": 398
+      },
+      "pivot": {
+        "x": 0.1650859460802411,
+        "y": 0.9639119804400977
+      }
+    },
+    "luffy/sp_bazooka/2": {
+      "frame": {
+        "x": 592,
+        "y": 811,
+        "w": 386,
+        "h": 369
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 386,
+        "h": 369
+      },
+      "sourceSize": {
+        "w": 386,
+        "h": 369
+      },
+      "pivot": {
+        "x": 0.4603505028954587,
+        "y": 0.9607917530155693
+      }
+    },
+    "luffy/sp_bazooka/3": {
+      "frame": {
+        "x": 1348,
+        "y": 427,
+        "w": 352,
+        "h": 378
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 352,
+        "h": 378
+      },
+      "sourceSize": {
+        "w": 352,
+        "h": 378
+      },
+      "pivot": {
+        "x": 0.49262254901960784,
+        "y": 0.9787934433032472
+      }
+    },
+    "luffy/sp_rifle/0": {
+      "frame": {
+        "x": 1433,
+        "y": 1191,
+        "w": 411,
+        "h": 354
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 411,
+        "h": 354
+      },
+      "sourceSize": {
+        "w": 411,
+        "h": 354
+      },
+      "pivot": {
+        "x": 0.43933410167755155,
+        "y": 0.968076122509664
+      }
+    },
+    "luffy/sp_rifle/1": {
+      "frame": {
+        "x": 2,
+        "y": 427,
+        "w": 892,
+        "h": 380
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 892,
+        "h": 380
+      },
+      "sourceSize": {
+        "w": 892,
+        "h": 380
+      },
+      "pivot": {
+        "x": 0.20512035705220408,
+        "y": 0.9716812313803376
+      }
+    },
+    "luffy/st_b/0": {
+      "frame": {
+        "x": 389,
+        "y": 811,
+        "w": 199,
+        "h": 372
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 199,
+        "h": 372
+      },
+      "sourceSize": {
+        "w": 199,
+        "h": 372
+      },
+      "pivot": {
+        "x": 0.958,
+        "y": 0.9800215053763442
+      }
+    },
+    "luffy/st_b/1": {
+      "frame": {
+        "x": 1362,
+        "y": 811,
+        "w": 379,
+        "h": 364
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 379,
+        "h": 364
+      },
+      "sourceSize": {
+        "w": 379,
+        "h": 364
+      },
+      "pivot": {
+        "x": 0.5519775528689008,
+        "y": 0.9730774697938877
+      }
+    },
+    "luffy/st_b/2": {
+      "frame": {
+        "x": 492,
+        "y": 1557,
+        "w": 239,
+        "h": 340
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 239,
+        "h": 340
+      },
+      "sourceSize": {
+        "w": 239,
+        "h": 340
+      },
+      "pivot": {
+        "x": 0.7377154811715482,
+        "y": 0.964564705882353
+      }
+    },
+    "luffy/cd/0": {
+      "frame": {
+        "x": 700,
+        "y": 1191,
+        "w": 377,
+        "h": 362
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 377,
+        "h": 362
+      },
+      "sourceSize": {
+        "w": 377,
+        "h": 362
+      },
+      "pivot": {
+        "x": 0.44752722398106154,
+        "y": 0.9758365116140915
+      }
+    },
+    "luffy/cd/1": {
+      "frame": {
+        "x": 2,
+        "y": 1191,
+        "w": 694,
+        "h": 362
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 694,
+        "h": 362
+      },
+      "sourceSize": {
+        "w": 694,
+        "h": 362
+      },
+      "pivot": {
+        "x": 0.24636864235742123,
+        "y": 0.9776452028364763
+      }
+    },
+    "luffy/f_c/0": {
+      "frame": {
+        "x": 2,
+        "y": 811,
+        "w": 383,
+        "h": 376
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 383,
+        "h": 376
+      },
+      "sourceSize": {
+        "w": 383,
+        "h": 376
+      },
+      "pivot": {
+        "x": 0.4464393370611504,
+        "y": 0.9834608711533194
+      }
+    },
+    "luffy/f_c/1": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 482,
+        "h": 421
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 482,
+        "h": 421
+      },
+      "sourceSize": {
+        "w": 482,
+        "h": 421
+      },
+      "pivot": {
+        "x": 0.3586549150295073,
+        "y": 0.9838302255684956
+      }
+    },
+    "luffy/f_c/2": {
+      "frame": {
+        "x": 982,
+        "y": 811,
+        "w": 376,
+        "h": 368
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 376,
+        "h": 368
+      },
+      "sourceSize": {
+        "w": 376,
+        "h": 368
+      },
+      "pivot": {
+        "x": 0.4737402976897087,
+        "y": 0.9721627169247995
+      }
+    },
+    "luffy/sp_rocket/0": {
+      "frame": {
+        "x": 735,
+        "y": 1557,
+        "w": 356,
+        "h": 322
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 356,
+        "h": 322
+      },
+      "sourceSize": {
+        "w": 356,
+        "h": 322
+      },
+      "pivot": {
+        "x": 0.5228778191909024,
+        "y": 0.9797217752244597
+      }
+    },
+    "luffy/sp_rocket/1": {
+      "frame": {
+        "x": 2,
+        "y": 1557,
+        "w": 486,
+        "h": 344
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 486,
+        "h": 344
+      },
+      "sourceSize": {
+        "w": 486,
+        "h": 344
+      },
+      "pivot": {
+        "x": 0.4416676420589137,
+        "y": 1.0893863194918367
+      }
+    },
+    "luffy/sp_rocket/2": {
+      "frame": {
+        "x": 1081,
+        "y": 1191,
+        "w": 348,
+        "h": 360
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 348,
+        "h": 360
+      },
+      "sourceSize": {
+        "w": 348,
+        "h": 360
+      },
+      "pivot": {
+        "x": 0.5507378030113272,
+        "y": 0.9752445520581113
+      }
+    }
+  },
+  "meta": {
+    "image": "atlas-p1.png",
+    "size": {
+      "w": 2048,
+      "h": 2048
+    },
+    "scale": "1",
+    "style": "anime",
+    "pixelArt": false,
+    "textureDensity": 2,
+    "page": "p1",
+    "capabilities": {
+      "continuous": true
+    },
+    "manifestSha256": "4f7afcf0964a6527e8d2e2a7355db095403ca19394754fe7b83c449b39644eb9"
+  }
+}
