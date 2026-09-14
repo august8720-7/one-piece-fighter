@@ -1,0 +1,11 @@
+生成前核验时间UTC：2026-09-13T10:17:09.382Z
+工具：Codex内置浏览器，ChatGPT官方网页
+入口：https://chatgpt.com/images/
+实际页面标题：ChatGPT 图像 2.5 | AI 图像生成器
+参考：路飞六式格斗动作精灵图，已完整加载1024×1536。
+精确提示：路飞空轻拳返工原始提示词0913.txt，已填写并读回核对。
+6 Pro文字选择不作为图像型号依据。
+生成会话：https://chatgpt.com/c/6aa6782c-8d8c-83ea-a711-36edca66d26a
+原PNG：public/assets/generated/source/luffy-air-jab-repair-0913.png
+SHA256：5483ff88f41028636323af352cc425e4c07222bd2238ab253b30c6fd68d9c121
+下载：内置浏览器pageAssets原PNG，未重绘。

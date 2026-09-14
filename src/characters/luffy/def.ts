@@ -1,11 +1,11 @@
-import { px, type FighterDef } from '@core/index';
+﻿import { px, type FighterDef } from '@core/index';
 import { luffyMoves } from './moves';
 
 /** 路飞：速攻连段型。血量中、移速快、翻滚远。数值为初始值，M3 实测后调整。 */
 export const luffyDef: FighterDef = {
   id: 'luffy',
   name: '路飞',
-  maxHp: 1000,
+  maxHp: 1050,
   movement: {
     walkFwdSpeed: px(2.4),
     walkBackSpeed: px(1.8),
@@ -28,4 +28,6 @@ export const luffyDef: FighterDef = {
   hurtboxAir: [[-13, -84, 26, 66]],
   moves: luffyMoves,
   color: 0xe63946,
+  tagline: '速攻 · 连段 · 二档',
+  quotes: ['我是要成为海贼王的男人！', '还没完呢，再来！', '橡胶……手枪！'],
 };

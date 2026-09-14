@@ -1,15 +1,18 @@
 import Phaser from 'phaser';
-import { VIEW_H, VIEW_W } from '@core/index';
 import { getInputHub } from '@input/InputHub';
 import { FixedStep } from '../FixedStep';
+import { SCREEN_H, SCREEN_W, font, ui } from '../screen';
 import { MenuList, UI, drawPanel } from '../ui/MenuList';
+import { confirmHint } from '../ui/controlHint';
 import type { GameMode } from './FightScene';
+import { adoptPresentation, readPresentation, type PresentationData } from '../presentation';
 
-const ITEMS: { label: string; mode?: GameMode; scene?: string }[] = [
+const ITEMS: { label: string; mode?: GameMode; scene?: string; tutorial?: boolean }[] = [
+  { label: '新手引导  TUTORIAL', mode: 'training', tutorial: true },
   { label: '双人对战  VERSUS', mode: 'versus' },
   { label: '人机对战  VS CPU', mode: 'cpu' },
   { label: '训练模式  TRAINING', mode: 'training' },
-  { label: '键位设置  KEY CONFIG', scene: 'Settings' },
+  { label: '设置 / 声音  SETTINGS', scene: 'Settings' },
 ];
 
 export class MenuScene extends Phaser.Scene {
@@ -20,13 +23,16 @@ export class MenuScene extends Phaser.Scene {
     super('Menu');
   }
 
+  init(data: PresentationData = {}): void { adoptPresentation(this.registry, data); }
+
   create(): void {
-    drawPanel(this, 'MODE SELECT', '↑↓ 选择   A / Enter 确认   B 返回');
-    this.menu = new MenuList(this, VIEW_W / 2 - 80, 96, ITEMS.map((i) => ({ label: i.label })), 22, '12px');
+    drawPanel(this, 'MODE SELECT', `${confirmHint()}   ↑↓ 选择`);
+    this.step = new FixedStep();
+    this.menu = new MenuList(this, SCREEN_W / 2 - ui(140), ui(180), ITEMS.map((i) => ({ label: i.label })), 40, '22px');
     this.add
-      .text(VIEW_W / 2, VIEW_H - 16, '双人：同一键盘或两个手柄   人机：P1 操作，P2 电脑   训练：无限血气 + 木桩', {
+      .text(SCREEN_W / 2, SCREEN_H - ui(32), '双人：同一键盘或两个手柄   人机：P1 操作，P2 电脑   训练：无限血气 + 木桩', {
         fontFamily: UI.font,
-        fontSize: '7px',
+        fontSize: font(14),
         color: UI.dim,
       })
       .setOrigin(0.5);
@@ -40,12 +46,13 @@ export class MenuScene extends Phaser.Scene {
       const action = this.menu.update(hub.edges());
       if (action === 'select') {
         const it = ITEMS[this.menu.index]!;
-        if (it.scene) this.scene.start(it.scene, { back: 'Menu' });
-        else this.scene.start('CharacterSelect', { mode: it.mode });
+        const profile = readPresentation(this.registry);
+        if (it.scene) this.scene.start(it.scene, { back: 'Menu', backData: profile, ...profile });
+        else this.scene.start('CharacterSelect', { mode: it.mode, tutorial: it.tutorial, ...profile, scope: 'full' });
         return;
       }
       if (action === 'back') {
-        this.scene.start('Title');
+        this.scene.start('Title', readPresentation(this.registry));
         return;
       }
     }

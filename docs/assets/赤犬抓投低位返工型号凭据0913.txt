@@ -1,0 +1,11 @@
+生成前核验时间UTC：2026-09-13T10:13:27.258Z
+工具：Codex内置浏览器，ChatGPT官方网页
+入口：https://chatgpt.com/images/
+实际页面标题：ChatGPT 图像 2.5 | AI 图像生成器
+参考：海军大将六式战斗姿态图；原图已完整加载1024×1536，填入后读回提示核对。
+精确提示：赤犬抓投低位返工原始提示词0913.txt
+6 Pro文字选择不作为图像型号依据。
+生成会话：https://chatgpt.com/c/6aa6774f-11d4-83ea-87f0-8d6c661acf20
+原PNG：public/assets/generated/source/akainu-throw-low-repair-0913.png
+SHA256：a2dc9b28ff57d501e12c32b4befab45e108f7658e76c4dbca67d21c20697f2af
+下载：内置浏览器pageAssets原PNG，未重绘。

@@ -46,7 +46,10 @@ export class KeyboardInput {
 
   private onKey(down: boolean) {
     return (e: KeyboardEvent): void => {
-      if (down && !e.repeat) this.lastCode = e.code;
+      // repeat 只表示键还按着，不能再写 held/latch。
+      // 否则场景 flush 清掉按住的确认键后，下一次 repeat 会立刻再点一次（标题进菜单直接选中对战）。
+      if (down && e.repeat) return;
+      if (down) this.lastCode = e.code;
       const b1 = this.maps[0][e.code];
       const b2 = this.maps[1][e.code];
       // Start：Enter → P1，NumpadEnter → P2

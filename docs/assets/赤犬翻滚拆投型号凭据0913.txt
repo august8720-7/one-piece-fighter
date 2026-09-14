@@ -1,0 +1,4 @@
+2026-09-13 Asia/Shanghai，Codex内置浏览器tab5。
+生成前读取官方 https://chatgpt.com/images/ 标题：ChatGPT 图像 2.5 | AI 图像生成器。
+图库跳跃图一度延迟加载；实际全屏截图最终显示标题 海军大将六姿态动作参考图，采用这一跳跃图作为同角色参考。其原始会话 https://chatgpt.com/c/6aa65260-44cc-83ea-96ef-9f3d4c9bdc67。
+以上标题为图像入口依据，6 Pro文字选择不作图像型号证明。

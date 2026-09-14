@@ -1,0 +1,22 @@
+UTC：2026-09-13T16:16:37.322Z
+工具：Codex内置浏览器
+入口：https://chatgpt.com/images
+实际标题：ChatGPT 图像 2.5 | AI 图像生成器
+文字模式：中（非Pro）
+参考：网页PNG剪贴板上传，缩略图按钮已启用
+[
+  {
+    "file": "C:\\Users\\august\\AppData\\Local\\Temp\\akainu-production-prompts0913\\akainu-run-identity-reference.png",
+    "sha256": "8f59c996b5cce8a47112048f98f77131311d597addb207f90067165f8822e17a"
+  },
+  {
+    "file": "C:\\Users\\august\\AppData\\Local\\Temp\\akainu-production-prompts0913\\akainu-long-magma-punch-technical-guide.png",
+    "sha256": "20597c560498c9baeeed5f8adbf8eb679d900e2c2cd1931c19d8998ff5c49791"
+  }
+]
+提示词填入并全文读回一致。
+生成会话：https://chatgpt.com/c/6aa6cc58-fbdc-83e9-8e90-a4941c9ea1e5
+原PNG：public/assets/generated/source/akainu-long-magma-punch-0913.png
+SHA256：764c18afdb451f7c6e6cf1f499b7fe148debdc78649bc2734eccde824984f121
+参考依据：身份母版加已有真实判定导图；非Pro中，四阶段候选待内部审
+下载：内置浏览器pageAssets，原PNG未改动。

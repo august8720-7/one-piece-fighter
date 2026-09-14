@@ -28,10 +28,10 @@ export const characterAnims: Record<string, AnimTable> = {
   akainu: akainuAnims,
 };
 
-/** 每个招式需要的精灵帧数 = 最大 sprite 索引 + 1 */
+/** 同时覆盖逻辑 sprite 和显式连续视觉序列，保证占位回退完整。 */
 export function moveFrameCounts(def: FighterDef): Record<string, number> {
   const out: Record<string, number> = {};
-  for (const m of def.moves) out[m.id] = maxSprite(m) + 1;
+  for (const m of def.moves) out[m.id] = Math.max(maxSprite(m) + 1, characterAnims[def.id]?.[m.id]?.frames ?? 0);
   return out;
 }
 

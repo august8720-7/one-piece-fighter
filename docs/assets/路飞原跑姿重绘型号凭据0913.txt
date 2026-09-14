@@ -1,0 +1,22 @@
+UTC：2026-09-13T12:20:05.774Z
+工具：Codex内置浏览器
+入口：https://chatgpt.com/images
+实际标题：ChatGPT 图像 2.5 | AI 图像生成器
+文字模式：中（非Pro）
+参考：网页PNG剪贴板上传，缩略图按钮已启用
+[
+  {
+    "file": "C:/Users/august/Projects/one-piece-fighter/public/assets/generated/source/luffy-air-jab-contact-guide-0913.png",
+    "sha256": "12f8f75610c9736c0295e71def088b1e42e32978313754c9f3d173c367361faa"
+  },
+  {
+    "file": "C:/Users/august/AppData/Local/Temp/luffy-existing-run-pose-guide0913.png",
+    "sha256": "bf058b428502300245804b1588b3cb97d83a28ae51e23fdd62be363c26e2c926"
+  }
+]
+提示词填入并全文读回一致。
+生成会话：https://chatgpt.com/c/6aa694e5-9a54-83ea-91c7-80be430f90bf
+原PNG：public/assets/generated/source/luffy-run-pose-repaint-0913.png
+SHA256：723584ff009e2e285134a0be8009fc5ae7c8dd6826a0bd83f62aa5f7dbcd800d
+参考依据：旧正式atlas的8相跑步仅作姿势参考，成品身份/画风取自已验证动漫角色原图
+下载：内置浏览器pageAssets，原PNG未改动。

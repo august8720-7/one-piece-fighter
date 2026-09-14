@@ -1,0 +1,1188 @@
+{
+  "status": "measured-recovery-candidate-not-runtime-art-acceptance",
+  "source": {
+    "file": "public/assets/generated/source/luffy-short-recovery-0912.png",
+    "sha256": "a7ac3ebff708a4982add6cb5036c2dc0cf0efa2be27881681dcb10eecbd8e875",
+    "model": "GPT Image 2.5",
+    "provider": "chatgpt-web",
+    "sessionUrl": "https://chatgpt.com/c/6aa44dd4-d068-83ea-ae19-501f17a8e838",
+    "generatedAt": "2026-09-12",
+    "generatedAtPrecision": "day; exact generation completion time not recorded",
+    "unitScale": 1.7118279569892474,
+    "scaleBasis": "One neutral bbox[107,30,567,495] height465 calibrates this entire sheet to master796. Three actual recovery poses all share796/465; 466px bottom-row height is pose/source raster variation, not rescaled.",
+    "modelEvidence": {
+      "file": "docs/assets/路飞短臂回收型号凭据0912.txt",
+      "sha256": "4a620f05e6461d2217f3e23e3cdf36fa5920e08301763da558d2634c0dcf6c2d"
+    },
+    "prompt": {
+      "file": "docs/assets/路飞短臂回收原始提示词0912.txt",
+      "sha256": "9b8d42a6ed778f96139dacd1c14ebf41b9934490724fb845ca3277dfbaf92683"
+    }
+  },
+  "newAnimation": {
+    "frames": [
+      "stretch_windup",
+      "stretch_active",
+      "stretch_shrink_1",
+      "stretch_shrink_2",
+      "stretch_shrink_3",
+      "short_recover_1",
+      "short_recover_2",
+      "short_recover_3"
+    ],
+    "loop": false,
+    "exposures": [
+      {
+        "frame": 0,
+        "ticks": 9
+      },
+      {
+        "frame": 1,
+        "ticks": 4
+      },
+      {
+        "frame": 2,
+        "ticks": 2
+      },
+      {
+        "frame": 3,
+        "ticks": 2
+      },
+      {
+        "frame": 4,
+        "ticks": 2
+      },
+      {
+        "frame": 5,
+        "ticks": 3
+      },
+      {
+        "frame": 6,
+        "ticks": 3
+      },
+      {
+        "frame": 7,
+        "ticks": 4
+      }
+    ]
+  },
+  "previousAnimation": {
+    "frames": [
+      "stretch_windup",
+      "stretch_active",
+      "stretch_retract",
+      "stretch_recoil",
+      "stretch_return"
+    ],
+    "loop": false,
+    "exposures": [
+      {
+        "frame": 0,
+        "ticks": 9
+      },
+      {
+        "frame": 1,
+        "ticks": 4
+      },
+      {
+        "frame": 2,
+        "ticks": 4
+      },
+      {
+        "frame": 3,
+        "ticks": 6
+      },
+      {
+        "frame": 4,
+        "ticks": 6
+      }
+    ]
+  },
+  "oldRecoveryPreservedUnder": "manifest.characters.luffy.reviewFrames_NOT_BUILT",
+  "frames": {
+    "short_neutral": {
+      "config": {
+        "source": "short_recovery_0912",
+        "crop": [
+          99,
+          22,
+          476,
+          481
+        ],
+        "root": [
+          237.5,
+          473
+        ],
+        "sockets": {
+          "shoulder": [
+            295,
+            136
+          ],
+          "wrist": [
+            380,
+            141
+          ],
+          "pelvis": [
+            238,
+            273
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 48,
+          "despill": true,
+          "despillRadius": 3,
+          "seeds": [
+            [
+              158,
+              173
+            ],
+            [
+              282,
+              229
+            ],
+            [
+              145,
+              206
+            ]
+          ]
+        },
+        "note": "Real Image2.5 short-recovery drawing. Fixed465px neutral calibration; roots registered from actual two-foot support projection centres, keeping their screen offset near basic_idle. No body scaling or pose deformation."
+      },
+      "geometry": {
+        "size": {
+          "width": 179,
+          "height": 181
+        },
+        "root": {
+          "x": 89.44301075268817,
+          "y": 178.13281720430106
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 111.09763440860215,
+            "y": 51.217892473118276
+          },
+          "wrist": {
+            "x": 143.10881720430106,
+            "y": 53.10090322580645
+          },
+          "pelvis": {
+            "x": 89.63131182795699,
+            "y": 102.81238709677419
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 154689,
+        "despilledEdgePixels": 3068
+      },
+      "sourceRoot": [
+        336.5,
+        495
+      ],
+      "output": {
+        "file": "public/assets/characters/luffy/anime/short_neutral-candidate-0912.png",
+        "sha256": "8beef48c58f0505ca7d106afa9236159ed9f8296ad84460eca67c0fed2bc351b"
+      },
+      "fistFrontScreen": null,
+      "fistCenterScreen": null
+    },
+    "short_recover_1": {
+      "config": {
+        "source": "short_recovery_0912",
+        "crop": [
+          772,
+          22,
+          594,
+          481
+        ],
+        "root": [
+          238,
+          473
+        ],
+        "sockets": {
+          "shoulder": [
+            291,
+            136
+          ],
+          "wrist": [
+            540,
+            137
+          ],
+          "pelvis": [
+            238,
+            273
+          ],
+          "fist": [
+            560,
+            135
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 48,
+          "despill": true,
+          "despillRadius": 3,
+          "seeds": [
+            [
+              157,
+              173
+            ],
+            [
+              283,
+              229
+            ],
+            [
+              226,
+              94
+            ]
+          ]
+        },
+        "note": "Real Image2.5 short-recovery drawing. Fixed465px neutral calibration; roots registered from actual two-foot support projection centres, keeping their screen offset near basic_idle. No body scaling or pose deformation."
+      },
+      "geometry": {
+        "size": {
+          "width": 224,
+          "height": 181
+        },
+        "root": {
+          "x": 89.63131182795699,
+          "y": 178.13281720430106
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 109.59122580645162,
+            "y": 51.217892473118276
+          },
+          "wrist": {
+            "x": 203.3651612903226,
+            "y": 51.59449462365591
+          },
+          "pelvis": {
+            "x": 89.63131182795699,
+            "y": 102.81238709677419
+          },
+          "fist": {
+            "x": 210.89720430107528,
+            "y": 50.84129032258065
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 210224,
+        "despilledEdgePixels": 3300
+      },
+      "sourceRoot": [
+        1010,
+        495
+      ],
+      "output": {
+        "file": "public/assets/characters/luffy/anime/short_recover_1-candidate-0912.png",
+        "sha256": "dc589e7b77a01f0ebf947bd2c6d845ecf8c489f5f84a925902d665b74d03408b"
+      },
+      "fistFrontScreen": 131.05754838709677,
+      "fistCenterScreen": [
+        121.26589247311829,
+        -127.29152688172043
+      ]
+    },
+    "short_recover_2": {
+      "config": {
+        "source": "short_recovery_0912",
+        "crop": [
+          99,
+          559,
+          476,
+          482
+        ],
+        "root": [
+          237.5,
+          474
+        ],
+        "sockets": {
+          "shoulder": [
+            294,
+            133
+          ],
+          "wrist": [
+            408,
+            139
+          ],
+          "pelvis": [
+            238,
+            275
+          ],
+          "fist": [
+            430,
+            124.5
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 48,
+          "despill": true,
+          "despillRadius": 3,
+          "seeds": [
+            [
+              159,
+              174
+            ],
+            [
+              282,
+              233
+            ]
+          ]
+        },
+        "note": "Real Image2.5 short-recovery drawing. Fixed465px neutral calibration; roots registered from actual two-foot support projection centres, keeping their screen offset near basic_idle. No body scaling or pose deformation."
+      },
+      "geometry": {
+        "size": {
+          "width": 179,
+          "height": 182
+        },
+        "root": {
+          "x": 89.44301075268817,
+          "y": 178.5094193548387
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 110.72103225806451,
+            "y": 50.088086021505376
+          },
+          "wrist": {
+            "x": 153.65367741935484,
+            "y": 52.34769892473118
+          },
+          "pelvis": {
+            "x": 89.63131182795699,
+            "y": 103.56559139784946
+          },
+          "fist": {
+            "x": 161.9389247311828,
+            "y": 46.886967741935486
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 155199,
+        "despilledEdgePixels": 3113
+      },
+      "sourceRoot": [
+        336.5,
+        1033
+      ],
+      "output": {
+        "file": "public/assets/characters/luffy/anime/short_recover_2-candidate-0912.png",
+        "sha256": "67e0adb969dfec812a7329dce326222d6e5c012df40250e8137625df462f5b30"
+      },
+      "fistFrontScreen": 82.28756989247312,
+      "fistCenterScreen": [
+        72.49591397849463,
+        -131.62245161290323
+      ]
+    },
+    "short_recover_3": {
+      "config": {
+        "source": "short_recovery_0912",
+        "crop": [
+          772,
+          559,
+          478,
+          482
+        ],
+        "root": [
+          238.25,
+          474
+        ],
+        "sockets": {
+          "shoulder": [
+            292,
+            138
+          ],
+          "wrist": [
+            348,
+            168
+          ],
+          "pelvis": [
+            238,
+            275
+          ],
+          "fist": [
+            339.5,
+            141
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 48,
+          "despill": true,
+          "despillRadius": 3,
+          "seeds": [
+            [
+              147,
+              210
+            ],
+            [
+              172,
+              171
+            ],
+            [
+              287,
+              231
+            ]
+          ]
+        },
+        "note": "Real Image2.5 short-recovery drawing. Fixed465px neutral calibration; roots registered from actual two-foot support projection centres, keeping their screen offset near basic_idle. No body scaling or pose deformation."
+      },
+      "geometry": {
+        "size": {
+          "width": 180,
+          "height": 182
+        },
+        "root": {
+          "x": 89.7254623655914,
+          "y": 178.5094193548387
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 109.96782795698924,
+            "y": 51.97109677419355
+          },
+          "wrist": {
+            "x": 131.05754838709677,
+            "y": 63.26916129032258
+          },
+          "pelvis": {
+            "x": 89.63131182795699,
+            "y": 103.56559139784946
+          },
+          "fist": {
+            "x": 127.85643010752688,
+            "y": 53.10090322580645
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 157949,
+        "despilledEdgePixels": 2929
+      },
+      "sourceRoot": [
+        1010.25,
+        1033
+      ],
+      "output": {
+        "file": "public/assets/characters/luffy/anime/short_recover_3-candidate-0912.png",
+        "sha256": "88c8e3caecb8702cc6a3a44d9dae84ff4148fc3735226b10ad58da6e89b53910"
+      },
+      "fistFrontScreen": 47.35772043010753,
+      "fistCenterScreen": [
+        38.130967741935486,
+        -125.40851612903225
+      ]
+    },
+    "stretch_shrink_1": {
+      "config": {
+        "source": "stretch_repair_0912",
+        "crop": [
+          310,
+          274,
+          872,
+          234
+        ],
+        "root": [
+          139.5,
+          232
+        ],
+        "sockets": {
+          "shoulder": [
+            180,
+            66
+          ],
+          "wrist": [
+            818,
+            68.5
+          ],
+          "fist": [
+            841,
+            70.5
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 32,
+          "despill": true,
+          "despillRadius": 3,
+          "seeds": [
+            [
+              91,
+              74
+            ]
+          ]
+        },
+        "excludeRects": [
+          [
+            90,
+            230,
+            100,
+            4
+          ]
+        ],
+        "transform": {
+          "type": "rubber-straight",
+          "anchor": [
+            270,
+            74.5
+          ],
+          "wrist": [
+            818,
+            68.5
+          ],
+          "region": [
+            270,
+            41,
+            602,
+            62
+          ],
+          "compression": 0.44,
+          "rotationDegrees": -6,
+          "transitionLength": 40,
+          "protectedRects": [
+            [
+              0,
+              0,
+              270,
+              234
+            ],
+            [
+              0,
+              103,
+              872,
+              131
+            ]
+          ],
+          "note": "Approved finite recovery bridge: original straight skin segment only; body/cuff protected and distal fist rigid. Followed by real new short-recovery drawings. No gameplay timing or hitbox change."
+        }
+      },
+      "geometry": {
+        "size": {
+          "width": 587,
+          "height": 158
+        },
+        "root": {
+          "x": 93.95861538461538,
+          "y": 156.26092307692306
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 121.23692307692308,
+            "y": 44.453538461538464
+          },
+          "wrist": {
+            "x": 342.9468909398631,
+            "y": 29.183724806496812
+          },
+          "fist": {
+            "x": 358.4942200101069,
+            "y": 28.90413167350781
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 170034,
+        "despilledEdgePixels": 2975,
+        "transform": {
+          "type": "rubber-straight",
+          "parameters": {
+            "type": "rubber-straight",
+            "anchor": [
+              270,
+              74.5
+            ],
+            "wrist": [
+              818,
+              68.5
+            ],
+            "region": [
+              270,
+              41,
+              602,
+              62
+            ],
+            "compression": 0.44,
+            "rotationDegrees": -6,
+            "transitionLength": 40,
+            "protectedRects": [
+              [
+                0,
+                0,
+                270,
+                234
+              ],
+              [
+                0,
+                103,
+                872,
+                131
+              ]
+            ],
+            "note": "Approved finite recovery bridge: original straight skin segment only; body/cuff protected and distal fist rigid. Followed by real new short-recovery drawings. No gameplay timing or hitbox change."
+          },
+          "protectedPixelsChanged": 0,
+          "protectedRegionHashes": [
+            {
+              "rect": [
+                0,
+                0,
+                270,
+                234
+              ],
+              "beforeSha256": "d9b1416b88da1ee4844f62173b50b9c0fbbd406de47e92bca9d2db7285df6ec5",
+              "afterSha256": "d9b1416b88da1ee4844f62173b50b9c0fbbd406de47e92bca9d2db7285df6ec5"
+            },
+            {
+              "rect": [
+                0,
+                103,
+                872,
+                131
+              ],
+              "beforeSha256": "27512832882c1d7713c097702ab0b7629d181b1bf414f7fd7ef13e55c8632db5",
+              "afterSha256": "27512832882c1d7713c097702ab0b7629d181b1bf414f7fd7ef13e55c8632db5"
+            }
+          ],
+          "rootUnchanged": [
+            139.5,
+            232.0
+          ],
+          "transformedSockets": {
+            "shoulder": [
+              180.0,
+              66.0
+            ],
+            "wrist": [
+              509.1719486315921,
+              43.32896556469376
+            ],
+            "fist": [
+              532.2550091515977,
+              42.91385470027427
+            ]
+          }
+        }
+      },
+      "output": {
+        "file": "public/assets/characters/luffy/anime/stretch_shrink_1-candidate-0912.png",
+        "sha256": "ed99caa6a995e92c76da7e24d1ae0e0e741b8f6f0fdfaa72e3fa170a68744355"
+      },
+      "fistFrontScreen": 280.3293474869122,
+      "fistCenterScreen": [
+        264.53560462549154,
+        -127.35679140341526
+      ]
+    },
+    "stretch_shrink_2": {
+      "config": {
+        "source": "stretch_repair_0912",
+        "crop": [
+          310,
+          274,
+          872,
+          234
+        ],
+        "root": [
+          139.5,
+          232
+        ],
+        "sockets": {
+          "shoulder": [
+            180,
+            66
+          ],
+          "wrist": [
+            818,
+            68.5
+          ],
+          "fist": [
+            841,
+            70.5
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 32,
+          "despill": true,
+          "despillRadius": 3,
+          "seeds": [
+            [
+              91,
+              74
+            ]
+          ]
+        },
+        "excludeRects": [
+          [
+            90,
+            230,
+            100,
+            4
+          ]
+        ],
+        "transform": {
+          "type": "rubber-straight",
+          "anchor": [
+            270,
+            74.5
+          ],
+          "wrist": [
+            818,
+            68.5
+          ],
+          "region": [
+            270,
+            41,
+            602,
+            62
+          ],
+          "compression": 0.34,
+          "rotationDegrees": -3,
+          "transitionLength": 40,
+          "protectedRects": [
+            [
+              0,
+              0,
+              270,
+              234
+            ],
+            [
+              0,
+              103,
+              872,
+              131
+            ]
+          ],
+          "note": "Approved finite recovery bridge: original straight skin segment only; body/cuff protected and distal fist rigid. Followed by real new short-recovery drawings. No gameplay timing or hitbox change."
+        }
+      },
+      "geometry": {
+        "size": {
+          "width": 587,
+          "height": 158
+        },
+        "root": {
+          "x": 93.95861538461538,
+          "y": 156.26092307692306
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 121.23692307692308,
+            "y": 44.453538461538464
+          },
+          "wrist": {
+            "x": 306.9655843571304,
+            "y": 39.575090914389165
+          },
+          "fist": {
+            "x": 322.50623912719817,
+            "y": 40.10956528798672
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 170034,
+        "despilledEdgePixels": 2975,
+        "transform": {
+          "type": "rubber-straight",
+          "parameters": {
+            "type": "rubber-straight",
+            "anchor": [
+              270,
+              74.5
+            ],
+            "wrist": [
+              818,
+              68.5
+            ],
+            "region": [
+              270,
+              41,
+              602,
+              62
+            ],
+            "compression": 0.34,
+            "rotationDegrees": -3,
+            "transitionLength": 40,
+            "protectedRects": [
+              [
+                0,
+                0,
+                270,
+                234
+              ],
+              [
+                0,
+                103,
+                872,
+                131
+              ]
+            ],
+            "note": "Approved finite recovery bridge: original straight skin segment only; body/cuff protected and distal fist rigid. Followed by real new short-recovery drawings. No gameplay timing or hitbox change."
+          },
+          "protectedPixelsChanged": 0,
+          "protectedRegionHashes": [
+            {
+              "rect": [
+                0,
+                0,
+                270,
+                234
+              ],
+              "beforeSha256": "d9b1416b88da1ee4844f62173b50b9c0fbbd406de47e92bca9d2db7285df6ec5",
+              "afterSha256": "d9b1416b88da1ee4844f62173b50b9c0fbbd406de47e92bca9d2db7285df6ec5"
+            },
+            {
+              "rect": [
+                0,
+                103,
+                872,
+                131
+              ],
+              "beforeSha256": "27512832882c1d7713c097702ab0b7629d181b1bf414f7fd7ef13e55c8632db5",
+              "afterSha256": "27512832882c1d7713c097702ab0b7629d181b1bf414f7fd7ef13e55c8632db5"
+            }
+          ],
+          "rootUnchanged": [
+            139.5,
+            232.0
+          ],
+          "transformedSockets": {
+            "shoulder": [
+              180.0,
+              66.0
+            ],
+            "wrist": [
+              455.7506391780146,
+              58.75698742428725
+            ],
+            "fist": [
+              478.8237903898557,
+              59.550519500208694
+            ]
+          }
+        }
+      },
+      "output": {
+        "file": "public/assets/characters/luffy/anime/stretch_shrink_2-candidate-0912.png",
+        "sha256": "c74b3d4468ac23fd509bef921dbb4af007a4f97f73a08255aaa4289a04377c77"
+      },
+      "fistFrontScreen": 244.211654490729,
+      "fistCenterScreen": [
+        228.5476237425828,
+        -116.15135778893634
+      ]
+    },
+    "stretch_shrink_3": {
+      "config": {
+        "source": "stretch_repair_0912",
+        "crop": [
+          310,
+          274,
+          872,
+          234
+        ],
+        "root": [
+          139.5,
+          232
+        ],
+        "sockets": {
+          "shoulder": [
+            180,
+            66
+          ],
+          "wrist": [
+            818,
+            68.5
+          ],
+          "fist": [
+            841,
+            70.5
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 32,
+          "despill": true,
+          "despillRadius": 3,
+          "seeds": [
+            [
+              91,
+              74
+            ]
+          ]
+        },
+        "excludeRects": [
+          [
+            90,
+            230,
+            100,
+            4
+          ]
+        ],
+        "transform": {
+          "type": "rubber-straight",
+          "anchor": [
+            270,
+            74.5
+          ],
+          "wrist": [
+            818,
+            68.5
+          ],
+          "region": [
+            270,
+            41,
+            602,
+            62
+          ],
+          "compression": 0.25,
+          "rotationDegrees": 0,
+          "transitionLength": 40,
+          "protectedRects": [
+            [
+              0,
+              0,
+              270,
+              234
+            ],
+            [
+              0,
+              103,
+              872,
+              131
+            ]
+          ],
+          "note": "Approved finite recovery bridge: original straight skin segment only; body/cuff protected and distal fist rigid. Followed by real new short-recovery drawings. No gameplay timing or hitbox change."
+        }
+      },
+      "geometry": {
+        "size": {
+          "width": 587,
+          "height": 158
+        },
+        "root": {
+          "x": 93.95861538461538,
+          "y": 156.26092307692306
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 121.23692307692308,
+            "y": 44.453538461538464
+          },
+          "wrist": {
+            "x": 274.13015384615386,
+            "y": 46.13738461538461
+          },
+          "fist": {
+            "x": 289.6215384615385,
+            "y": 47.48446153846154
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 170034,
+        "despilledEdgePixels": 2975,
+        "transform": {
+          "type": "rubber-straight",
+          "parameters": {
+            "type": "rubber-straight",
+            "anchor": [
+              270,
+              74.5
+            ],
+            "wrist": [
+              818,
+              68.5
+            ],
+            "region": [
+              270,
+              41,
+              602,
+              62
+            ],
+            "compression": 0.25,
+            "rotationDegrees": 0,
+            "transitionLength": 40,
+            "protectedRects": [
+              [
+                0,
+                0,
+                270,
+                234
+              ],
+              [
+                0,
+                103,
+                872,
+                131
+              ]
+            ],
+            "note": "Approved finite recovery bridge: original straight skin segment only; body/cuff protected and distal fist rigid. Followed by real new short-recovery drawings. No gameplay timing or hitbox change."
+          },
+          "protectedPixelsChanged": 0,
+          "protectedRegionHashes": [
+            {
+              "rect": [
+                0,
+                0,
+                270,
+                234
+              ],
+              "beforeSha256": "d9b1416b88da1ee4844f62173b50b9c0fbbd406de47e92bca9d2db7285df6ec5",
+              "afterSha256": "d9b1416b88da1ee4844f62173b50b9c0fbbd406de47e92bca9d2db7285df6ec5"
+            },
+            {
+              "rect": [
+                0,
+                103,
+                872,
+                131
+              ],
+              "beforeSha256": "27512832882c1d7713c097702ab0b7629d181b1bf414f7fd7ef13e55c8632db5",
+              "afterSha256": "27512832882c1d7713c097702ab0b7629d181b1bf414f7fd7ef13e55c8632db5"
+            }
+          ],
+          "rootUnchanged": [
+            139.5,
+            232.0
+          ],
+          "transformedSockets": {
+            "shoulder": [
+              180.0,
+              66.0
+            ],
+            "wrist": [
+              407.0,
+              68.5
+            ],
+            "fist": [
+              430.0,
+              70.5
+            ]
+          }
+        }
+      },
+      "output": {
+        "file": "public/assets/characters/luffy/anime/stretch_shrink_3-candidate-0912.png",
+        "sha256": "3ff579d0fc5cf097508d06148dc0bb7b0fcfb02d044c5bb02ac3e69fcd44f69c"
+      },
+      "fistFrontScreen": 211.15430769230767,
+      "fistCenterScreen": [
+        195.6629230769231,
+        -108.77646153846152
+      ]
+    }
+  },
+  "geometry": {
+    "fistFrontsScreen": [
+      308,
+      280.3293474869122,
+      244.211654490729,
+      211.15430769230767,
+      131.05754838709677,
+      82.28756989247312,
+      47.35772043010753
+    ],
+    "successiveFrontJumpsScreen": [
+      27.670652513087816,
+      36.117692996183195,
+      33.05734679842132,
+      80.0967593052109,
+      48.76997849462366,
+      34.92984946236559
+    ],
+    "maxRecoveryJumpScreen": 80.0967593052109,
+    "oldFinalRecoilJumpScreen": 196.90698823529414,
+    "reductionFraction": 0.5932254105197159,
+    "note": "Remaining maximum is the shortest permitted straight-section bridge to the first real short drawing; all subsequent authored recovery poses progressively shorten. No claim of completely smooth animation."
+  },
+  "rootRegistration": {
+    "referenceIdleSupportCentreSource": 171.75,
+    "referenceIdleRootX": 178,
+    "referenceIdleScale": 0.5181065088757396,
+    "newSourceSupportCentres": [
+      328,
+      1001.5,
+      328,
+      1001.75
+    ],
+    "newSourceRootX": [
+      336.5,
+      1010,
+      336.5,
+      1010.25
+    ],
+    "sharedSupportOffsetScreen": -3.2011182795698923,
+    "supportCentreResidualVsIdleScreen": 0.037047400903480465,
+    "method": "Projected contact interval centres averaged across both feet. Every new frame uses identical8.5sourcepx root offset from that centre, common body scale and measured ground. This registers source layout rather than translating or resizing art."
+  },
+  "timing": {
+    "startupTicks": 9,
+    "activeTicks": 4,
+    "recoveryTicks": 16,
+    "totalTicks": 29,
+    "newGifDurationsMilliseconds": [
+      500,
+      150,
+      70,
+      30,
+      30,
+      40,
+      50,
+      50,
+      60,
+      500
+    ],
+    "comparisonSampling": "Every2 real ticks, every short bridge represented;20ms minimum final interval avoids browser clamp. Runtime remains exact60Hz."
+  },
+  "files": {
+    "newGif": "C:\\Users\\august\\AppData\\Local\\Temp\\opf-luffy-stc-short-recovery-29ticks-0912.gif",
+    "comparisonGif": "C:\\Users\\august\\AppData\\Local\\Temp\\opf-luffy-stc-short-recovery-before-after-0912.gif",
+    "contactSheet": "C:\\Users\\august\\AppData\\Local\\Temp\\opf-luffy-stc-short-recovery-contact-0912.png"
+  },
+  "writes": "Luffy subtree plus local candidate PNGs only. Active/windup frame configs unchanged. No atlas packing, runtime build, old asset change or gameplay-data change."
+}

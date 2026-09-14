@@ -1,0 +1,796 @@
+{
+  "status": "reaction-candidate-pending-normal-speed-and-real-game-review",
+  "source": {
+    "file": "public/assets/generated/source/luffy-reaction-0912.png",
+    "sha256": "766c0518d4296a4167113fcdf89b10f387f4fca1cc1d894a254b89c184e160b4",
+    "model": "GPT Image 2.5",
+    "provider": "chatgpt-web",
+    "sessionUrl": "https://chatgpt.com/c/6aa447d8-eb38-83ea-9c5c-5f36f513f2ce",
+    "generatedAt": "2026-09-12",
+    "generatedAtPrecision": "day; exact generation completion time not recorded",
+    "unitScale": 2.0729166666666665,
+    "scaleBasis": "Only neutral visible bbox[209,21,554,405] height384 calibrates this entire sheet to master796. All six poses retain one source unitScale796/384; no individual-pose fit.",
+    "modelEvidence": {
+      "file": "docs/assets/路飞击飞起身型号凭据0912.txt",
+      "sha256": "0afeb26f2f2f716673364cdec71f6a961d4cea97dba8be020139ab80647646b4"
+    },
+    "prompt": {
+      "file": "docs/assets/路飞击飞起身原始提示词0912.txt",
+      "sha256": "038b3035ba5f0fe5efb8322e81a32b772d3c0fc01644f519a788bf825fc16f7d"
+    }
+  },
+  "uniformSourceToScreenScale": 0.4560416666666666,
+  "rootMethod": "The source has no drawn root marks. Virtual roots are explicitly inferred from neutral support mid-x381.5, baseline405 and nominal2x3 cell pitch724x362, then checked against pelvis positions. Grounded contact y differs because each source pose is independently placed; final getup x is subsequently registered by measured support centres rather than nominal column placement. Air roots do not follow sole minima; tumble root lies76px below cropped bottom. No per-pose resize, image rotation or synthesized body.",
+  "landmarkPrecision": "Pelvis/shoulder/wrist are manual visual estimates, usually within3-5sourcepx. Foreground bbox uses explicit green-key threshold32. Root convention itself is an inferred registration, not an invisible coordinate recovered as fact.",
+  "frames": {
+    "reaction_neutral": {
+      "config": {
+        "source": "reaction_0912",
+        "crop": [
+          201,
+          13,
+          361,
+          400
+        ],
+        "root": [
+          180.5,
+          392
+        ],
+        "sockets": {
+          "shoulder": [
+            231,
+            114
+          ],
+          "wrist": [
+            289,
+            126
+          ],
+          "pelvis": [
+            181,
+            223
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 48,
+          "despill": true,
+          "despillRadius": 3,
+          "seeds": [
+            [
+              171,
+              76
+            ],
+            [
+              115,
+              164
+            ],
+            [
+              117,
+              137
+            ],
+            [
+              215,
+              189
+            ]
+          ]
+        },
+        "note": "Uniform source scale. Virtual x follows neutral381.5 plus724 for right column. Air y is common neutral405 plus362 for row2, not a per-pose sole. Grounded y uses measured contact. Roots may lie outside crop; source posture/placement differences remain exposed."
+      },
+      "geometry": {
+        "size": {
+          "width": 165,
+          "height": 182
+        },
+        "root": {
+          "x": 82.31552083333332,
+          "y": 178.76833333333332
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 105.34562499999998,
+            "y": 51.988749999999996
+          },
+          "wrist": {
+            "x": 131.79604166666667,
+            "y": 57.46124999999999
+          },
+          "pelvis": {
+            "x": 82.54354166666666,
+            "y": 101.69729166666666
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 97824,
+        "despilledEdgePixels": 2430
+      },
+      "sourceRoot": [
+        381.5,
+        405
+      ],
+      "sourcePelvis": [
+        382,
+        236
+      ],
+      "pelvisRelativeScreen": [
+        0.2280208333333333,
+        -77.07104166666666
+      ],
+      "output": {
+        "file": "public/assets/characters/luffy/anime/reaction_neutral-candidate-0912.png",
+        "sha256": "2a8bc4d93e56a323d0e238cd64da8c49b7b1266a0574337f7ddfa3b0670b61e4"
+      }
+    },
+    "air_impact": {
+      "config": {
+        "source": "reaction_0912",
+        "crop": [
+          886,
+          20,
+          448,
+          388
+        ],
+        "root": [
+          219.5,
+          385
+        ],
+        "sockets": {
+          "shoulder": [
+            151,
+            104
+          ],
+          "wrist": [
+            230,
+            78
+          ],
+          "pelvis": [
+            209,
+            175
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 48,
+          "despill": true,
+          "despillRadius": 3,
+          "seeds": [
+            [
+              238,
+              62
+            ],
+            [
+              264,
+              149
+            ],
+            [
+              54,
+              106
+            ]
+          ]
+        },
+        "note": "Uniform source scale. Virtual x follows neutral381.5 plus724 for right column. Air y is common neutral405 plus362 for row2, not a per-pose sole. Grounded y uses measured contact. Roots may lie outside crop; source posture/placement differences remain exposed."
+      },
+      "geometry": {
+        "size": {
+          "width": 204,
+          "height": 177
+        },
+        "root": {
+          "x": 100.10114583333332,
+          "y": 175.57604166666664
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 68.86229166666666,
+            "y": 47.42833333333333
+          },
+          "wrist": {
+            "x": 104.88958333333332,
+            "y": 35.57125
+          },
+          "pelvis": {
+            "x": 95.31270833333332,
+            "y": 79.80729166666666
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 123098,
+        "despilledEdgePixels": 2838
+      },
+      "sourceRoot": [
+        1105.5,
+        405
+      ],
+      "sourcePelvis": [
+        1095,
+        195
+      ],
+      "pelvisRelativeScreen": [
+        -4.7884375,
+        -95.76875
+      ],
+      "output": {
+        "file": "public/assets/characters/luffy/anime/air_impact-candidate-0912.png",
+        "sha256": "ae02b4fbc612705fc1c77b4fa5eb37383bff1104de055c3bf27f4419dabcc98d"
+      }
+    },
+    "air_tumble": {
+      "config": {
+        "source": "reaction_0912",
+        "crop": [
+          184,
+          429,
+          423,
+          262
+        ],
+        "root": [
+          197.5,
+          338
+        ],
+        "sockets": {
+          "shoulder": [
+            132,
+            106
+          ],
+          "wrist": [
+            170,
+            44
+          ],
+          "pelvis": [
+            199,
+            148
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 48,
+          "despill": true,
+          "despillRadius": 3,
+          "seeds": [
+            [
+              180,
+              21
+            ],
+            [
+              168,
+              23
+            ],
+            [
+              66,
+              103
+            ]
+          ]
+        },
+        "note": "Uniform source scale. Virtual x follows neutral381.5 plus724 for right column. Air y is common neutral405 plus362 for row2, not a per-pose sole. Grounded y uses measured contact. Roots may lie outside crop; source posture/placement differences remain exposed."
+      },
+      "geometry": {
+        "size": {
+          "width": 193,
+          "height": 119
+        },
+        "root": {
+          "x": 90.06822916666665,
+          "y": 154.14208333333332
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 60.19749999999999,
+            "y": 48.34041666666666
+          },
+          "wrist": {
+            "x": 77.52708333333332,
+            "y": 20.06583333333333
+          },
+          "pelvis": {
+            "x": 90.75229166666666,
+            "y": 67.49416666666666
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 57773,
+        "despilledEdgePixels": 2600
+      },
+      "sourceRoot": [
+        381.5,
+        767
+      ],
+      "sourcePelvis": [
+        383,
+        577
+      ],
+      "pelvisRelativeScreen": [
+        0.6840624999999999,
+        -86.64791666666666
+      ],
+      "output": {
+        "file": "public/assets/characters/luffy/anime/air_tumble-candidate-0912.png",
+        "sha256": "a9cf0ad424149acd074ad1422657f3bb5ba9e51a742d2c2ef97f2a813a553b71"
+      }
+    },
+    "reaction_down": {
+      "config": {
+        "source": "reaction_0912",
+        "crop": [
+          794,
+          530,
+          601,
+          195
+        ],
+        "root": [
+          311.5,
+          187
+        ],
+        "sockets": {
+          "shoulder": [
+            169,
+            97
+          ],
+          "wrist": [
+            218,
+            87
+          ],
+          "pelvis": [
+            281,
+            111
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 48,
+          "despill": true,
+          "despillRadius": 3,
+          "seeds": [
+            [
+              417,
+              107
+            ],
+            [
+              366,
+              153
+            ]
+          ]
+        },
+        "note": "Uniform source scale. Virtual x follows neutral381.5 plus724 for right column. Air y is common neutral405 plus362 for row2, not a per-pose sole. Grounded y uses measured contact. Roots may lie outside crop; source posture/placement differences remain exposed."
+      },
+      "geometry": {
+        "size": {
+          "width": 274,
+          "height": 89
+        },
+        "root": {
+          "x": 142.05697916666665,
+          "y": 85.27979166666665
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 77.07104166666666,
+            "y": 44.236041666666665
+          },
+          "wrist": {
+            "x": 99.41708333333332,
+            "y": 39.675625
+          },
+          "pelvis": {
+            "x": 128.14770833333333,
+            "y": 50.620625
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 66934,
+        "despilledEdgePixels": 2210
+      },
+      "sourceRoot": [
+        1105.5,
+        717
+      ],
+      "sourcePelvis": [
+        1075,
+        641
+      ],
+      "pelvisRelativeScreen": [
+        -13.909270833333332,
+        -34.659166666666664
+      ],
+      "output": {
+        "file": "public/assets/characters/luffy/anime/reaction_down-candidate-0912.png",
+        "sha256": "6533eec0a555ac263bb408e167246c80493ff43a9cb60595ae31cecb2d0c1aca"
+      }
+    },
+    "rise_support": {
+      "config": {
+        "source": "reaction_0912",
+        "crop": [
+          189,
+          769,
+          399,
+          294
+        ],
+        "root": [
+          192.5,
+          286
+        ],
+        "sockets": {
+          "shoulder": [
+            196,
+            99
+          ],
+          "wrist": [
+            191,
+            247
+          ],
+          "pelvis": [
+            221,
+            164
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 48,
+          "despill": true,
+          "despillRadius": 3,
+          "seeds": []
+        },
+        "note": "Uniform source scale. Virtual x follows neutral381.5 plus724 for right column. Air y is common neutral405 plus362 for row2, not a per-pose sole. Grounded y uses measured contact. Roots may lie outside crop; source posture/placement differences remain exposed."
+      },
+      "geometry": {
+        "size": {
+          "width": 182,
+          "height": 134
+        },
+        "root": {
+          "x": 87.78802083333332,
+          "y": 130.42791666666665
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 89.38416666666666,
+            "y": 45.14812499999999
+          },
+          "wrist": {
+            "x": 87.10395833333332,
+            "y": 112.64229166666665
+          },
+          "pelvis": {
+            "x": 100.78520833333333,
+            "y": 74.79083333333332
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 70209,
+        "despilledEdgePixels": 2231
+      },
+      "sourceRoot": [
+        381.5,
+        1055
+      ],
+      "sourcePelvis": [
+        410,
+        933
+      ],
+      "pelvisRelativeScreen": [
+        12.997187499999999,
+        -55.63708333333333
+      ],
+      "output": {
+        "file": "public/assets/characters/luffy/anime/rise_support-candidate-0912.png",
+        "sha256": "b131cad047c3a9da603a3a55a30f028fadada190463c17894eaff343b25b7eee"
+      }
+    },
+    "rise_guard": {
+      "config": {
+        "source": "reaction_0912",
+        "crop": [
+          878,
+          718,
+          385,
+          348
+        ],
+        "root": [
+          192.5,
+          340
+        ],
+        "sockets": {
+          "shoulder": [
+            204,
+            93
+          ],
+          "wrist": [
+            289,
+            111
+          ],
+          "pelvis": [
+            188,
+            189
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 48,
+          "despill": true,
+          "despillRadius": 3,
+          "seeds": [
+            [
+              131,
+              101
+            ]
+          ]
+        },
+        "note": "Grounded final getup root x registered from nominal1105.5 to1070.5 using actual two-foot support centres vs basic_idle. Only root metadata changes; source pixels, scale, ground1058 and air roots unchanged. See receipt registration evidence."
+      },
+      "geometry": {
+        "size": {
+          "width": 176,
+          "height": 159
+        },
+        "root": {
+          "x": 87.78802083333332,
+          "y": 155.05416666666665
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 93.03249999999998,
+            "y": 42.411874999999995
+          },
+          "wrist": {
+            "x": 131.79604166666667,
+            "y": 50.620625
+          },
+          "pelvis": {
+            "x": 85.73583333333333,
+            "y": 86.191875
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 88511,
+        "despilledEdgePixels": 2210
+      },
+      "sourceRoot": [
+        1070.5,
+        1058
+      ],
+      "sourcePelvis": [
+        1066,
+        907
+      ],
+      "pelvisRelativeScreen": [
+        -2.0521874999999996,
+        -68.86229166666666
+      ],
+      "output": {
+        "file": "public/assets/characters/luffy/anime/rise_guard-candidate-0912.png",
+        "sha256": "6fe11a633adc4fc5c82dd3738d56d18e2f621a44a1ab3d3d97476b20c8b3e6ee"
+      }
+    }
+  },
+  "animations": {
+    "hit_air": {
+      "frames": [
+        "air_impact",
+        "air_tumble"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 1,
+          "ticks": 1
+        }
+      ]
+    },
+    "knockdown": {
+      "frames": [
+        "reaction_down"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 36
+        }
+      ]
+    },
+    "getup": {
+      "frames": [
+        "rise_support",
+        "rise_guard"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 7
+        },
+        {
+          "frame": 1,
+          "ticks": 7
+        }
+      ]
+    }
+  },
+  "previews": [
+    {
+      "case": "mid",
+      "file": "C:\\Users\\august\\AppData\\Local\\Temp\\opf-luffy-reaction-mid-real-timing-0912.gif",
+      "traceSpans": [
+        {
+          "state": "hit_air",
+          "start": 0,
+          "end": 33,
+          "ticks": 34
+        },
+        {
+          "state": "knockdown",
+          "start": 34,
+          "end": 69,
+          "ticks": 36
+        },
+        {
+          "state": "getup",
+          "start": 70,
+          "end": 83,
+          "ticks": 14
+        },
+        {
+          "state": "idle",
+          "start": 84,
+          "end": 84,
+          "ticks": 1
+        }
+      ],
+      "logicTicksWithEndPause": 115,
+      "gifMilliseconds": 1920,
+      "encodedFrames": 39,
+      "note": "Samples actual core trajectory every3 logic ticks at50ms per GIF frame; final short interval rounded to20/30ms. All delays>=20ms avoid browser fast-GIF clamping. State boundaries may be sampled up to2ticks late; exact per-tick source trace is retained. No manual flight curve."
+    },
+    {
+      "case": "wall",
+      "file": "C:\\Users\\august\\AppData\\Local\\Temp\\opf-luffy-reaction-wall-real-timing-0912.gif",
+      "traceSpans": [
+        {
+          "state": "hit_air",
+          "start": 0,
+          "end": 34,
+          "ticks": 35
+        },
+        {
+          "state": "knockdown",
+          "start": 35,
+          "end": 70,
+          "ticks": 36
+        },
+        {
+          "state": "getup",
+          "start": 71,
+          "end": 84,
+          "ticks": 14
+        },
+        {
+          "state": "idle",
+          "start": 85,
+          "end": 85,
+          "ticks": 1
+        }
+      ],
+      "logicTicksWithEndPause": 116,
+      "gifMilliseconds": 1930,
+      "encodedFrames": 39,
+      "note": "Samples actual core trajectory every3 logic ticks at50ms per GIF frame; final short interval rounded to20/30ms. All delays>=20ms avoid browser fast-GIF clamping. State boundaries may be sampled up to2ticks late; exact per-tick source trace is retained. No manual flight curve."
+    },
+    {
+      "case": "attack_tech",
+      "file": "C:\\Users\\august\\AppData\\Local\\Temp\\opf-luffy-reaction-attack_tech-real-timing-0912.gif",
+      "traceSpans": [
+        {
+          "state": "hit_air",
+          "start": 0,
+          "end": 33,
+          "ticks": 34
+        },
+        {
+          "state": "getup",
+          "start": 34,
+          "end": 47,
+          "ticks": 14
+        },
+        {
+          "state": "idle",
+          "start": 48,
+          "end": 48,
+          "ticks": 1
+        }
+      ],
+      "logicTicksWithEndPause": 79,
+      "gifMilliseconds": 1320,
+      "encodedFrames": 27,
+      "note": "Samples actual core trajectory every3 logic ticks at50ms per GIF frame; final short interval rounded to20/30ms. All delays>=20ms avoid browser fast-GIF clamping. State boundaries may be sampled up to2ticks late; exact per-tick source trace is retained. No manual flight curve."
+    }
+  ],
+  "coreTrace": {
+    "file": "C:\\Users\\august\\AppData\\Local\\Temp\\opf-luffy-reaction-core-traces-0912.json",
+    "sha256": "0c75fadf77069613bfeee1721935d177e9dbd5fff539ce02dbd9abcd1ce59c38"
+  },
+  "reviewBoundary": "Final getup root.x is explicitly registered by actual support centres under parent approval; source pixels, shared scale and ground are unchanged. Centre displacement vs idle is under0.1screenpx, while wider stance still closes symmetrically. Down pose lowest contact is its hand; back/cloth remain above the virtual ground.",
+  "finalGetupRootRegistration": {
+    "nominalSourceRoot": [
+      1105.5,
+      1058
+    ],
+    "registeredSourceRoot": [
+      1070.5,
+      1058
+    ],
+    "basis": "Parent explicitly approved correcting source-layout offset via true support centre/pelvis, not image translation or whole-pose fitting.",
+    "idleContactProjectionSource": {
+      "left": [
+        34,
+        79
+      ],
+      "right": [
+        251,
+        323
+      ],
+      "centre": 171.75,
+      "rootX": 178,
+      "screenOffset": -3.2381656804733727
+    },
+    "getupContactProjectionSource": {
+      "left": [
+        886,
+        942
+      ],
+      "right": [
+        1170,
+        1255
+      ],
+      "centre": 1063.25,
+      "rootX": 1070.5,
+      "screenOffset": -3.306302083333333
+    },
+    "residualSupportCentreShiftScreen": 0.06813640285996048,
+    "pelvisCheck": "Estimated final getup pelvis1066 is4.5sourcepx left of registered root, about2.05screenpx; consistent with near-centred standing pelvis within manual landmark uncertainty.",
+    "unchanged": [
+      "all source/crop image pixels",
+      "source-wide scale796/384",
+      "ground1058",
+      "both air virtual roots"
+    ]
+  }
+}

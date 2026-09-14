@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "characters": {
+    "luffy": {
+      "image": "assets/characters/luffy/anime/ui-0913.png",
+      "sha256": "08a8f726e5c3876d72429e2e27112ed1a112cf5d7d14f72ba5fec2517017d65f",
+      "width": 656,
+      "height": 813,
+      "frames": {
+        "body": {
+          "x": 0,
+          "y": 0,
+          "w": 656,
+          "h": 813
+        },
+        "portrait": {
+          "x": 248,
+          "y": 0,
+          "w": 272,
+          "h": 272
+        }
+      },
+      "source": {
+        "file": "public/assets/generated/source/characters-master-0912.png",
+        "sha256": "1e0e47229db7bee69789282efdec93ca737a3d1dfb4582f06eed2881a5ddad51",
+        "crop": [
+          24,
+          140,
+          656,
+          813
+        ]
+      },
+      "processing": {
+        "scale": 1,
+        "method": "crop + recorded connected-background key only",
+        "removedBorderPixels": 356891,
+        "despilledEdgePixels": 3898,
+        "despilledRegionPixels": 0,
+        "despillRegions": [],
+        "despillRadius": 1,
+        "despillMethod": "geometric-source-edge"
+      }
+    },
+    "akainu": {
+      "image": "assets/characters/akainu/anime/ui-0913.png",
+      "sha256": "28433844309a22e4dc7f96f74e22965af0792b1e98fbc0b30acd3fd02a938cb9",
+      "width": 775,
+      "height": 940,
+      "frames": {
+        "body": {
+          "x": 0,
+          "y": 0,
+          "w": 775,
+          "h": 940
+        },
+        "portrait": {
+          "x": 350,
+          "y": 0,
+          "w": 260,
+          "h": 260
+        }
+      },
+      "source": {
+        "file": "public/assets/generated/source/characters-master-0912.png",
+        "sha256": "1e0e47229db7bee69789282efdec93ca737a3d1dfb4582f06eed2881a5ddad51",
+        "crop": [
+          738,
+          14,
+          775,
+          940
+        ]
+      },
+      "processing": {
+        "scale": 1,
+        "method": "crop + recorded connected-background key only",
+        "removedBorderPixels": 300813,
+        "despilledEdgePixels": 3637,
+        "despilledRegionPixels": 0,
+        "despillRegions": [],
+        "despillRadius": 1,
+        "despillMethod": "geometric-source-edge"
+      }
+    }
+  }
+}

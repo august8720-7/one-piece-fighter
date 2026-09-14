@@ -2,7 +2,7 @@ import type { InputFrame } from '@core/index';
 import { sfx } from '../audio/Sfx';
 import { GamepadInput } from './gamepad';
 import { KeyboardInput } from './keyboard';
-import { loadKeyConfig, saveKeyConfig, type KeyConfig } from './keymap';
+import { loadKeyConfig, muteShortcutAvailable, saveKeyConfig, type KeyConfig } from './keymap';
 
 /**
  * 输入总线：键盘 + 手柄按位或，全局单例（跨场景保留监听与键位）。
@@ -22,7 +22,7 @@ export class InputHub {
     window.addEventListener('keydown', unlock);
     window.addEventListener('pointerdown', unlock);
     window.addEventListener('keydown', (e) => {
-      if (e.code === 'KeyM' && !e.repeat) sfx().toggleMute();
+      if (e.code === 'KeyM' && !e.repeat && muteShortcutAvailable(this.config)) sfx().toggleMute();
     });
   }
 

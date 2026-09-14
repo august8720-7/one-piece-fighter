@@ -1,6 +1,6 @@
-import { Btn, Rng, type FightSim, type PlayerIndex } from '@core/index';
+import { Btn, Rng, SUBPIXEL, type FightSim, type PlayerIndex } from '@core/index';
 
-export const DUMMY_MODES = ['human', 'stand', 'crouch', 'jump', 'block', 'random'] as const;
+export const DUMMY_MODES = ['human', 'stand', 'crouch', 'jump', 'block', 'tech', 'attack', 'random'] as const;
 export type DummyMode = (typeof DUMMY_MODES)[number];
 
 /**
@@ -24,7 +24,7 @@ export class Dummy {
     let mode: Exclude<DummyMode, 'human' | 'random'> = this.mode === 'random' ? this.randomPick : this.mode;
     if (this.mode === 'random') {
       if (--this.randomTtl <= 0) {
-        const opts = ['stand', 'crouch', 'jump', 'block'] as const;
+        const opts = ['stand', 'crouch', 'jump', 'block', 'tech', 'attack'] as const;
         this.randomPick = opts[this.rng.nextInt(opts.length)]!;
         this.randomTtl = 30 + this.rng.nextInt(60);
       }
@@ -49,6 +49,16 @@ export class Dummy {
         let guard = oppMove?.guard;
         for (const p of sim.state.projectiles) if (p.owner !== player) guard = p.guard;
         return guard === 'high' ? back : back | Btn.Down;
+      }
+      case 'tech':
+        // 软倒落地瞬间按攻击键受身（硬倒无效，由 core 判定）
+        return me.state === 'hit_air' || me.state === 'knockdown' ? Btn.A : 0;
+      case 'attack': {
+        const gap = Math.abs(me.x - opp.x);
+        const jab = me.def.moves.find((move) => move.id === 'st_a');
+        const reach = Math.max(0, ...(jab?.frames.flatMap((frame) => (frame.hitboxes ?? []).map((box) => box[0] + box[2])) ?? []));
+        if (gap > Math.max(30, reach) * SUBPIXEL) return me.x < opp.x ? Btn.Right : Btn.Left;
+        return me.state === 'attack' ? 0 : Btn.A;
       }
     }
   }

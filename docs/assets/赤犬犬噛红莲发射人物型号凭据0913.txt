@@ -1,0 +1,22 @@
+UTC：2026-09-13T14:33:39.545Z
+工具：Codex内置浏览器
+入口：https://chatgpt.com/images
+实际标题：ChatGPT 图像 2.5 | AI 图像生成器
+文字模式：中（非Pro）
+参考：网页PNG剪贴板上传，缩略图按钮已启用
+[
+  {
+    "file": "C:/Users/august/AppData/Local/Temp/akainu-special-generation-guides0913/01-character-identity.png",
+    "sha256": "8f59c996b5cce8a47112048f98f77131311d597addb207f90067165f8822e17a"
+  },
+  {
+    "file": "C:/Users/august/AppData/Local/Temp/akainu-special-generation-guides0913/02-inugami-range-guide.png",
+    "sha256": "c24c59d98cafbb249c72edd68dca9d17c7f1964cebbec9983394e3cacc82ac76"
+  }
+]
+提示词填入并全文读回一致。
+生成会话：https://chatgpt.com/c/6aa6b439-457c-83ea-9fbd-7e37663f101d
+原PNG：public/assets/generated/source/akainu-inugami-caster-0913.png
+SHA256：f65bfb3e6b781f79a491ede233b72ebadcee03af7e657009871b8f1316e9cff5
+参考依据：身份＋独立犬头/真实发射位置导图，仅生成施法人物
+下载：内置浏览器pageAssets，原PNG未改动。

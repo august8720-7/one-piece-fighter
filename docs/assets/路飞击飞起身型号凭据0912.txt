@@ -1,0 +1,16 @@
+路飞击飞倒地起身原画型号记录
+记录日期：2026-09-12，Asia/Shanghai。
+生成前官方入口：https://chatgpt.com/images/
+Edge tab：843467458。
+主任务实际读取 tabs.list，提交之前标题为“ChatGPT 图像 2.5 | AI 图像生成器”。
+附件：资料库“路飞与赤犬并肩战斗姿态”，对应 public/assets/generated/source/characters-master-0912.png，SHA256 1e0e47229db7bee69789282efdec93ca737a3d1dfb4582f06eed2881a5ddad51。
+实际提交全文：docs/assets/路飞击飞起身原始提示词0912.txt；附件就绪后填入全文，独立读取输入，再点击发送；提交后实际“你说”消息已核实含全文与附件。
+生成会话：https://chatgpt.com/c/6aa447d8-eb38-83ea-9c5c-5f36f513f2ce
+会话标题：生成六格原画。
+生成图片：草帽少年六式战斗姿态 sprite sheet。
+原始下载：C:/Users/august/Downloads/ChatGPT Image 2026年9月12日 02_29_44.png.crdownload。
+源图：public/assets/generated/source/luffy-reaction-0912.png，1448×1086，1502168 字节。
+源图 SHA256：766c0518d4296a4167113fcdf89b10f387f4fca1cc1d894a254b89c184e160b4。
+检查：PNG IEND 与 Pillow.verify 通过，原字节复制；六格完整，中立/空中受击两画/倒地/起身两画均已目检，等待统一尺度、根点、透明处理及真实模拟接入。
+状态：原图已取得，候选素材；未标动画或美术验收通过。
+证据边界：入口标题支持指定网页型号记录，无法独立验证后台路由元数据；“极高”是推理选项，未作为绘图型号依据。

@@ -1,0 +1,283 @@
+{
+  "date": "2026-09-11T22:50:37+08:00",
+  "engineering": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "test": "passed",
+    "build": "passed",
+    "testFiles": 23,
+    "tests": 213
+  },
+  "fullMatches": [
+    {
+      "test": "full-real-keyboard-match",
+      "p1": "akainu",
+      "p2": "luffy",
+      "difficulty": "hard",
+      "wins": [
+        0,
+        2
+      ],
+      "phase": "match_end",
+      "frames": 3894,
+      "observedFrames": 3835,
+      "wallSeconds": 66.56380000000448,
+      "states": [
+        [
+          "idle",
+          "attack",
+          "walk_fwd",
+          "hit_stand",
+          "walk_back",
+          "hit_air",
+          "knockdown",
+          "getup",
+          "prejump",
+          "jump_fwd",
+          "crouch",
+          "block_stand",
+          "ko",
+          "thrown"
+        ],
+        [
+          "idle",
+          "crouch",
+          "attack",
+          "walk_fwd",
+          "walk_back",
+          "roll_fwd",
+          "block_crouch",
+          "block_stand",
+          "dash",
+          "prejump",
+          "jump_fwd",
+          "landing",
+          "hit_stand",
+          "hit_crouch",
+          "throw"
+        ]
+      ],
+      "moves": [
+        [
+          "st_a",
+          "st_d",
+          "f_c",
+          "st_b",
+          "j_d",
+          "sp_daifunka",
+          "st_c"
+        ],
+        [
+          "sp_gatling",
+          "st_c",
+          "sp_storm",
+          "j_d",
+          "sp_rifle",
+          "sp_bazooka",
+          "cr_b",
+          "throw_fwd"
+        ]
+      ],
+      "spriteFrames": [
+        69,
+        81
+      ],
+      "contacts": {
+        "hit": 67,
+        "armor": 1,
+        "block": 14,
+        "throw": 1
+      },
+      "sources": {
+        "luffy": "atlas",
+        "akainu": "atlas"
+      },
+      "missing": [
+        [],
+        []
+      ],
+      "rematch": {
+        "difficulty": "hard",
+        "mode": "cpu",
+        "wins": [
+          0,
+          0
+        ],
+        "characters": [
+          "akainu",
+          "luffy"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "test": "full-real-keyboard-match",
+      "p1": "luffy",
+      "p2": "akainu",
+      "difficulty": "normal",
+      "wins": [
+        0,
+        2
+      ],
+      "phase": "match_end",
+      "frames": 3750,
+      "observedFrames": 3691,
+      "wallSeconds": 64.16929999999702,
+      "states": [
+        [
+          "idle",
+          "attack",
+          "hit_stand",
+          "walk_fwd",
+          "walk_back",
+          "block_stand",
+          "crouch",
+          "hit_air",
+          "getup",
+          "knockdown",
+          "ko"
+        ],
+        [
+          "idle",
+          "attack",
+          "crouch",
+          "walk_fwd",
+          "dash",
+          "hit_stand",
+          "walk_back",
+          "block_stand",
+          "backdash"
+        ]
+      ],
+      "moves": [
+        [
+          "st_a",
+          "f_c",
+          "st_d",
+          "st_b",
+          "sp_gatling",
+          "sp_rifle",
+          "st_c"
+        ],
+        [
+          "st_c",
+          "sp_inugami",
+          "sp_meteor",
+          "sp_daifunka",
+          "sp_daifunka_ren",
+          "st_d",
+          "sp_meteor_rain",
+          "sp_meigou",
+          "st_a",
+          "cr_d"
+        ]
+      ],
+      "spriteFrames": [
+        65,
+        101
+      ],
+      "contacts": {
+        "hit": 36,
+        "block": 8
+      },
+      "sources": {
+        "luffy": "atlas",
+        "akainu": "atlas"
+      },
+      "missing": [
+        [],
+        []
+      ],
+      "rematch": {
+        "difficulty": "normal",
+        "mode": "cpu",
+        "wins": [
+          0,
+          0
+        ],
+        "characters": [
+          "luffy",
+          "akainu"
+        ]
+      },
+      "errors": []
+    }
+  ],
+  "matchEvidenceScope": "Real browser keyboard events and full rounds; later changes only adjusted normal punch art. Final render/performance/fallback checks use the final build.",
+  "finalRender": {
+    "checkedPhaseEndpoints": 352,
+    "missing": [
+      [],
+      []
+    ],
+    "errors": [],
+    "method": "Injected render fixtures; not gameplay evidence"
+  },
+  "finalTiming": [
+    {
+      "test": "headless-edge-frame-timing",
+      "seconds": 15.50589999999851,
+      "renderFrames": 4627,
+      "logicFrames": 930,
+      "medianMs": 3.3000000044703484,
+      "p95Ms": 3.600000001490116,
+      "p99Ms": 4.300000004470348,
+      "over50Ms": 0,
+      "errors": []
+    }
+  ],
+  "finalFallback": [
+    {
+      "mode": "slow",
+      "sources": {
+        "luffy": "atlas",
+        "akainu": "atlas"
+      },
+      "frame": 1,
+      "later": 56,
+      "errors": []
+    },
+    {
+      "mode": "corrupt",
+      "sources": {
+        "luffy": "placeholder",
+        "akainu": "atlas"
+      },
+      "frame": 35,
+      "later": 79,
+      "errors": []
+    },
+    {
+      "mode": "absent",
+      "sources": {
+        "luffy": "placeholder",
+        "akainu": "atlas"
+      },
+      "frame": 41,
+      "later": 87,
+      "errors": []
+    },
+    {
+      "mode": "both-absent",
+      "sources": {
+        "luffy": null,
+        "akainu": "atlas"
+      },
+      "frame": 37,
+      "later": 82,
+      "errors": []
+    }
+  ],
+  "artifacts": {
+    "dist/assets/index-wvmtsR-U.js": "8bffee36ac45953e1e7c95110ba9bf3e86501f797074a40530116e90937a3e58",
+    "dist/assets/characters/luffy/atlas.png": "e90cc5d408ab0f4bf8da79ad3505a876c095e7e7ea4395f618a89e5819713a09",
+    "dist/assets/characters/luffy/atlas.json": "1ad5b7bfb74e8a6f2aca75ee2628e104e43cd6e2f1bc51d9633d98b8968b3e7f",
+    "dist/assets/characters/akainu/atlas.png": "dd3ea25c3e7b919eaf674e0711bba9c3df4ee6d2e1e0a4e1596378d23574911e",
+    "dist/assets/characters/akainu/atlas.json": "b345f6cc17a41327c6b6ab94a464700a38da7ede22ed7d5323057b213fbe4fed"
+  },
+  "limitations": [
+    "Normal CPU remains vulnerable to repeated heavy punches.",
+    "Some attacks reuse related original poses or locally derived limbs.",
+    "Human repeat-play, physical controller and low-end device acceptance remain unverified."
+  ]
+}

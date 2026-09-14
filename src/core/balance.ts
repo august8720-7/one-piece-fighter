@@ -1,7 +1,7 @@
-import type { BurnDef, InstallDef } from './types';
+﻿import type { BurnDef, InstallDef } from './types';
 
-/** 灼烧：10 / 秒 × 3 秒，不叠加只刷新（PLAN 4.5） */
-export const BURN: BurnDef = { dps: 10, frames: 180 };
+/** 灼烧：8 / 秒 × 3 秒（原 10，平衡自动对局后下调），不叠加只刷新（PLAN 4.5） */
+export const BURN: BurnDef = { dps: 8, frames: 180 };
 
 /** 二档：10 秒，移速 +30%，特殊技启动 −3 帧、伤害 +15%，结束后疲劳 1.5 秒移速 −20%（PLAN 4.4） */
 export const GEAR_SECOND: InstallDef = {

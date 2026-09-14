@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "cues": [
+    {
+      "character": "luffy",
+      "event": "attack",
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/luffy/candidate-review-attack-0912.wav",
+          "sha256": "3660479bd25473ea8079bec87972fdcc9b0260eb0b52be10d28f2ee1563e192b",
+          "source_url": "https://www.youtube.com/watch?v=QwK-FAA-VRU",
+          "source_start_seconds": 3.115,
+          "source_end_seconds": 3.665
+        },
+        {
+          "path": "public/assets/audio/voice/luffy/candidate-review-attack-2-0912.wav",
+          "sha256": "3954ed4d9a63b8ed145642e71e7727d692a7b9e704bc230098b96b1885a4e06b",
+          "source_url": "https://www.youtube.com/watch?v=QwK-FAA-VRU",
+          "source_start_seconds": 3.915,
+          "source_end_seconds": 4.675
+        }
+      ]
+    },
+    {
+      "character": "luffy",
+      "event": "hurt",
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/luffy/candidate-review-hurt-0912.wav",
+          "sha256": "c2ea2886f89f7754a80e40112a2e7ecc6322e3673d80ee766aedcc6af35c4e69",
+          "source_url": "https://www.youtube.com/watch?v=QwK-FAA-VRU",
+          "source_start_seconds": 40.375,
+          "source_end_seconds": 40.705
+        }
+      ]
+    },
+    {
+      "character": "luffy",
+      "event": "ko",
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/luffy/candidate-review-ko-0912.wav",
+          "sha256": "750a50ba372ad0845aa142886cfd16201d958d556ee10fe4ddfc9508c81ac5eb",
+          "source_url": "https://www.youtube.com/watch?v=QwK-FAA-VRU",
+          "source_start_seconds": 44.405,
+          "source_end_seconds": 45.465
+        }
+      ]
+    },
+    {
+      "character": "luffy",
+      "event": "win",
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/luffy/candidate-review-win-0912.wav",
+          "sha256": "26ede43ff609c38d77f6fcdc16d488acf14dc81b249df66289143aead5c36f16",
+          "source_url": "https://www.youtube.com/watch?v=QwK-FAA-VRU",
+          "source_start_seconds": 86.755,
+          "source_end_seconds": 88.245
+        }
+      ]
+    },
+    {
+      "character": "akainu",
+      "event": "attack",
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/akainu/candidate-review-attack-0912.wav",
+          "sha256": "411b11be44481c8e53f075ea7324cab4091a5fe4526929d9575174608380d0f7",
+          "source_url": "https://www.youtube.com/watch?v=LelknEdihUw",
+          "source_start_seconds": 3.175,
+          "source_end_seconds": 3.505
+        }
+      ]
+    },
+    {
+      "character": "akainu",
+      "event": "hurt",
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/akainu/candidate-review-hurt-0912.wav",
+          "sha256": "dfa91126958004ae02fe37bd41b63b56f2719b31f0fa7d553416088d098f135f",
+          "source_url": "https://www.youtube.com/watch?v=LelknEdihUw",
+          "source_start_seconds": 70.685,
+          "source_end_seconds": 71.065
+        }
+      ]
+    },
+    {
+      "character": "akainu",
+      "event": "ko",
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/akainu/candidate-review-ko-0912.wav",
+          "sha256": "86d390b62286bf60a9744f2ed7120ffbeca61c2bf26024696afcc508d06bf8d0",
+          "source_url": "https://www.youtube.com/watch?v=LelknEdihUw",
+          "source_start_seconds": 78.175,
+          "source_end_seconds": 79.425
+        }
+      ]
+    },
+    {
+      "character": "akainu",
+      "event": "win",
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/akainu/candidate-review-win-0912.wav",
+          "sha256": "4675390ab6bc3e2daf4b112f27e85b0521634c720a6efdc3b0d9bc1aba06b1cd",
+          "source_url": "https://www.youtube.com/watch?v=LelknEdihUw",
+          "source_start_seconds": 106.875,
+          "source_end_seconds": 107.975
+        }
+      ]
+    }
+  ],
+  "evidence": "docs/assets/人物声线确认0913.md"
+}

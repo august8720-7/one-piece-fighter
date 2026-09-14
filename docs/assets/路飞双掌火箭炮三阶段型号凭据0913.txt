@@ -1,0 +1,22 @@
+UTC：2026-09-13T15:11:02.775Z
+工具：Codex内置浏览器
+入口：https://chatgpt.com/images
+实际标题：ChatGPT 图像 2.5 | AI 图像生成器
+文字模式：中（非Pro）
+参考：网页PNG剪贴板上传，缩略图按钮已启用
+[
+  {
+    "file": "C:/Users/august/Projects/one-piece-fighter/public/assets/generated/source/luffy-air-jab-contact-guide-0913.png",
+    "sha256": "12f8f75610c9736c0295e71def088b1e42e32978313754c9f3d173c367361faa"
+  },
+  {
+    "file": "C:/Users/august/AppData/Local/Temp/luffy-remaining-guides0913/双掌火箭炮三阶段0913导图.png",
+    "sha256": "1c88b8a7514162f341b8df33ff393e54492e0c351240f332ec0d0fa600cda001"
+  }
+]
+提示词填入并全文读回一致。
+生成会话：https://chatgpt.com/c/6aa6bd0c-3d08-83e9-8f51-82a7180ea1ca
+原PNG：public/assets/generated/source/luffy-bazooka-0913.png
+SHA256：966d99fc917c0d648463dc70af200347cec8a0ef2e9d747d3c5f1b44fffa497a
+参考依据：身份参考＋实际双掌范围导图，起手/双掌推送/回收
+下载：内置浏览器pageAssets，原PNG未改动。

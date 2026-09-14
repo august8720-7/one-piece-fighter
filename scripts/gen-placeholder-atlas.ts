@@ -9,7 +9,7 @@ import { deflateSync, crc32 } from 'node:zlib';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { characterAnims, characters, moveFrameCounts } from '@characters/index';
-import { DEFAULT_ANIMS } from '@render/animations';
+import { DEFAULT_ANIMS, requiredFrames } from '@render/animations';
 import type { FighterDef } from '@core/index';
 
 const COLS = 12;
@@ -154,6 +154,11 @@ function drawFrame(def: FighterDef, anim: string, index: number, w: number, h: n
     case 'throw_tech':
       lean = -4;
       break;
+    case 'win':
+    case 'portrait':
+      armLen = 14;
+      armY = 0.1;
+      break;
     default:
       break;
   }
@@ -263,11 +268,9 @@ function generate(charId: string): void {
   const fh = def.pushboxStand[3] + 24;
 
   const entries: { name: string; canvas: Canvas }[] = [];
-  for (const [anim, a] of Object.entries(anims)) {
-    for (let i = 0; i < a.frames; i++) entries.push({ name: `${charId}/${anim}/${i}`, canvas: drawFrame(def, anim, i, fw, fh) });
-  }
-  for (const [moveId, n] of Object.entries(counts)) {
-    for (let i = 0; i < n; i++) entries.push({ name: `${charId}/${moveId}/${i}`, canvas: drawFrame(def, moveId, i, fw, fh) });
+  for (const name of requiredFrames(charId, anims, counts)) {
+    const [, anim, index] = name.split('/');
+    entries.push({ name, canvas: drawFrame(def, anim!, Number(index), fw, fh) });
   }
 
   const rows = Math.ceil(entries.length / COLS);

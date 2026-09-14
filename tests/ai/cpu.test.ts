@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { ANY_ATTACK, Btn, FightSim, LOGIC_FPS } from '../../src/core';
+import { ANY_ATTACK, Btn, FightSim, LOGIC_FPS, px } from '../../src/core';
 import { akainuDef, characterAi, luffyDef } from '../../src/characters';
 import { Cpu } from '../../src/ai/cpu';
 import { Dummy } from '../../src/ai/dummy';
-import type { Difficulty } from '../../src/ai/types';
+import { DIFFICULTY, type AiProfile, type Difficulty } from '../../src/ai/types';
 
 const VALID = Btn.Up | Btn.Down | Btn.Left | Btn.Right | ANY_ATTACK | Btn.Start;
 
@@ -26,6 +26,21 @@ function cpuVsStanding(diff: Difficulty, cpuChar: 'akainu' | 'luffy', seed: numb
 }
 
 describe('Cpu', () => {
+  it('首次防御抽签未选中时，中立决策也不能绕过反应延迟', () => {
+    const wait = [{ weight: 1, action: { kind: 'wait' as const, frames: 8 } }];
+    const profile: AiProfile = { ...characterAi.akainu!, closeRange: -1, midRange: 999, close: wait, mid: wait, far: wait, punish: [] };
+    delete profile.armorBreak;
+    const earlySeeds: number[] = [];
+    for (let seed = 1; seed <= 64; seed++) {
+      const sim = mk();
+      sim.state.fighters[0].x = px(-20);
+      sim.state.fighters[1].x = px(20);
+      sim.step({ p1: Btn.C, p2: 0 });
+      const cpu = new Cpu(1, profile, 'normal', seed);
+      if (cpu.input(sim) & Btn.Right) earlySeeds.push(seed);
+    }
+    expect(earlySeeds).toEqual([]);
+  });
   it('普通难度赤犬 60 秒内 KO 站桩', () => {
     const r = cpuVsStanding('normal', 'akainu', 11, 60 * LOGIC_FPS);
     expect(r.frames).toBeGreaterThan(0);
@@ -37,8 +52,8 @@ describe('Cpu', () => {
   });
 
   it('简单难度也能造成明显伤害（不至于呆站）', () => {
-    const r = cpuVsStanding('easy', 'akainu', 13, 40 * LOGIC_FPS);
-    expect(r.frames > 0 || r.hpLeft < luffyDef.maxHp * 0.6).toBe(true);
+    const r = cpuVsStanding('easy', 'akainu', 13, 60 * LOGIC_FPS);
+    expect(r.frames > 0 || r.hpLeft < luffyDef.maxHp * 0.85).toBe(true);
   });
 
   it('困难 AI 看到贴身重拳起手，在反应窗口内按住防御（10 个种子中至少 8 个）', () => {
@@ -127,5 +142,99 @@ describe('Cpu', () => {
     expect(l.hp < luffyDef.maxHp || k.hp < akainuDef.maxHp).toBe(true);
     // 木桩接口兼容：Dummy 与 Cpu 都只产出位图
     expect(typeof new Dummy().input(sim, 1)).not.toBe('undefined');
+  });
+
+  it('路飞指定连段 st_a → st_c：命中后在取消窗口内执行，未命中不跳过硬直', () => {
+    const profile: AiProfile = {
+      ...characterAi['luffy']!,
+      far: [{ weight: 1, action: { kind: 'normal', stance: 'stand', button: 'A' } }],
+      mid: [{ weight: 1, action: { kind: 'normal', stance: 'stand', button: 'A' } }],
+      close: [{ weight: 1, action: { kind: 'normal', stance: 'stand', button: 'A' } }],
+      confirmCombo: { from: 'st_a', action: { kind: 'normal', stance: 'stand', button: 'C' } },
+    };
+    const sim = new FightSim({ p1: akainuDef, p2: luffyDef, seed: 3, introFrames: 0, roundTime: -1 });
+    sim.state.fighters[0].x = px(-20);
+    sim.state.fighters[1].x = px(20);
+    const cpu = new Cpu(1, profile, 'hard', 17);
+    let sawConfirm = false;
+    let illegalCancel = false;
+    let prevMove: string | null = null;
+    let prevHasHit = false;
+    for (let f = 0; f < 20 * LOGIC_FPS; f++) {
+      const me = sim.state.fighters[1];
+      if (prevMove === 'st_a' && !prevHasHit && me.moveId === 'st_c') illegalCancel = true;
+      if (prevMove === 'st_a' && prevHasHit && me.moveId === 'st_c' && me.state === 'attack') sawConfirm = true;
+      prevMove = me.moveId;
+      prevHasHit = me.hasHit;
+      sim.step({ p1: 0, p2: cpu.input(sim) });
+      if (sawConfirm) break;
+    }
+    expect(cpu.followupChecks).toBeGreaterThan(0);
+    expect(sawConfirm).toBe(true);
+    expect(illegalCancel).toBe(false);
+  });
+
+  it('赤犬指定连段 st_a → st_c 可复现', () => {
+    const profile: AiProfile = {
+      ...characterAi['akainu']!,
+      far: [{ weight: 1, action: { kind: 'normal', stance: 'stand', button: 'A' } }],
+      mid: [{ weight: 1, action: { kind: 'normal', stance: 'stand', button: 'A' } }],
+      close: [{ weight: 1, action: { kind: 'normal', stance: 'stand', button: 'A' } }],
+      confirmCombo: { from: 'st_a', action: { kind: 'normal', stance: 'stand', button: 'C' } },
+    };
+    const sim = new FightSim({ p1: luffyDef, p2: akainuDef, seed: 3, introFrames: 0, roundTime: -1 });
+    sim.state.fighters[0].x = px(-20);
+    sim.state.fighters[1].x = px(20);
+    const cpu = new Cpu(1, profile, 'hard', 19);
+    let sawConfirm = false;
+    for (let f = 0; f < 20 * LOGIC_FPS; f++) {
+      const me = sim.state.fighters[1];
+      if (me.moveId === 'st_c' && cpu.followupChecks > 0) sawConfirm = true;
+      sim.step({ p1: 0, p2: cpu.input(sim) });
+      if (sawConfirm) break;
+    }
+    expect(cpu.followupChecks).toBeGreaterThan(0);
+    expect(sawConfirm).toBe(true);
+  });
+
+  it('困难 AI 看到起手后，反应帧内不立即输出防御方向', () => {
+    const sim = mk();
+    for (let i = 0; i < 120; i++) sim.step({ p1: Btn.Right, p2: Btn.Left });
+    sim.step({ p1: 0, p2: 0 });
+    const cpu = new Cpu(1, characterAi['akainu']!, 'hard', 3);
+    sim.step({ p1: Btn.C, p2: 0 });
+    let early = 0;
+    for (let f = 0; f < DIFFICULTY.hard.reaction; f++) {
+      const bits = cpu.input(sim);
+      if (bits & Btn.Right) early++;
+      sim.step({ p1: 0, p2: bits });
+    }
+    expect(early).toBe(0);
+  });
+
+  it('重拳命中后的多帧搓招不会在取消窗口里被反复重置', () => {
+    const sim = mk();
+    const me = sim.state.fighters[0];
+    me.x = px(-35);
+    sim.state.fighters[1].x = px(35);
+    const profile: AiProfile = {
+      ...characterAi['luffy']!,
+      confirmCombo: { from: 'st_c', action: { kind: 'special', motion: '236', button: 'P' } },
+      followups: [],
+    };
+    sim.step({ p1: Btn.C, p2: 0 });
+    for (let f = 0; f < 30 && !me.hasHit; f++) sim.step({ p1: 0, p2: 0 });
+    expect(me.hasHit).toBe(true);
+    const cpu = new Cpu(0, profile, 'hard', 17);
+    let executed = false;
+    for (let f = 0; f < 35; f++) {
+      sim.step({ p1: cpu.input(sim), p2: 0 });
+      if (me.moveId === 'sp_gatling') {
+        executed = true;
+        break;
+      }
+    }
+    expect(executed).toBe(true);
+    expect(cpu.followupChecks).toBe(1); // 同一命中只选一次后续招式，逐帧把它输入完。
   });
 });

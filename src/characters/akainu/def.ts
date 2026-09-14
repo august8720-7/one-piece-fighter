@@ -5,7 +5,7 @@ import { akainuMoves } from './moves';
 export const akainuDef: FighterDef = {
   id: 'akainu',
   name: '赤犬',
-  maxHp: 1100,
+  maxHp: 1050,
   movement: {
     walkFwdSpeed: px(1.7),
     walkBackSpeed: px(1.3),
@@ -28,4 +28,6 @@ export const akainuDef: FighterDef = {
   hurtboxAir: [[-16, -96, 32, 74]],
   moves: akainuMoves,
   color: 0xf4a261,
+  tagline: '压制 · 霸体 · 灼烧',
+  quotes: ['正义，必胜。', '恶，必须彻底铲除。', '这就是海军的正义。'],
 };

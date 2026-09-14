@@ -1,0 +1,6 @@
+记录日期：2026-09-13，Asia/Shanghai。
+指定浏览器：Codex In-app Browser（type=iab），官方页面 https://chatgpt.com/images/。
+生成前主任务实际读取页面标题和AXWebArea：ChatGPT 图像 2.5 | AI 图像生成器。
+参考：在官方图片资料库内打开“路飞与赤犬并肩战斗姿态”，已目检对应项目采用的characters-master-0912.png；只要求右侧赤犬新动作。
+GPT Image 2.5型号依据为官方图像页标识，不以6 Pro聊天菜单或提示词作为证据，不声称验证后台路由。
+提示词独立保存；结果会话、原图和SHA另记生成记录，此记录不表示已完成生成或验收。

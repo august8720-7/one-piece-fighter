@@ -32,7 +32,7 @@ export type AiAction =
   | { kind: 'run'; frames: number }
   | { kind: 'jump'; dir: -1 | 0 | 1; attack?: Btn4; delay?: number }
   | { kind: 'normal'; stance: 'stand' | 'crouch'; button: Btn4; forward?: boolean }
-  | { kind: 'special'; motion: MotionId; button: 'P' | 'K'; minMeter?: number }
+  | { kind: 'special'; motion: MotionId; button: 'P' | 'K'; minMeter?: number; cooldown?: number }
   | { kind: 'throw' }
   | { kind: 'block'; frames: number; low?: boolean }
   | { kind: 'roll'; dir: 1 | -1 }
@@ -60,4 +60,10 @@ export interface AiProfile {
   okizeme: AiOption[];
   /** 命中确认后的连段续招（按当前招式 id 匹配；'*' 任意） */
   followups: { from: readonly string[]; options: AiOption[] }[];
+  /** 验收用指定连段：from 命中且仍在取消窗口时固定取消到 action */
+  confirmCombo?: { from: string; action: AiAction };
+  /** 确反（对手收招时）用的选项；省略则用 close */
+  punish?: AiOption[];
+  /** 对手起手霸体招时的破霸体应对 */
+  armorBreak?: AiAction;
 }

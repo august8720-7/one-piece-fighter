@@ -1,0 +1,12 @@
+人物母版 characters-master-0912 的独立型号依据快照
+记录日期：2026-09-12（Asia/Shanghai）。没有取得精确生成完成时间，不虚构秒级时间。
+官方提交入口：https://chatgpt.com/images
+提交前观察：主任务在已连接 Edge 中读取页面标题与 AXWebArea，均显示“ChatGPT 图像 2.5 | AI 图像生成器”。
+生成会话：https://chatgpt.com/c/6aa4331f-0a30-83ea-94a5-4e1e3e211060
+绘图型号记录：GPT Image 2.5；provider: chatgpt-web。
+观察来源：同一主任务的网页操作记录，以及 docs/assets/人物生成记录0912.md 的母版段落；本凭据独立冻结，清单只哈希本文件，不哈希会持续追加的汇总记录。
+本子任务未重新访问网页；只核验收到的原图文件、尺寸与哈希，并逐图目检。
+证据边界：输入框旁“6 Pro”不是绘图型号证据；提示词中的模型名称也不是证据。上述记录依据提交前官方专用图像页的实际标识，不声称可验证后台路由实现。
+原始文件：public/assets/generated/source/characters-master-0912.png
+原始文件 SHA256：1e0e47229db7bee69789282efdec93ca737a3d1dfb4582f06eed2881a5ddad51
+结果：1536×1024 PNG RGB 双角色母版；只有静态姿势，没有连续动画验收。

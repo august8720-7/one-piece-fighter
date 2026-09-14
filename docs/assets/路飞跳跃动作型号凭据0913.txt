@@ -1,0 +1,7 @@
+记录日期：2026-09-13，Asia/Shanghai。
+指定浏览器：Codex In-app Browser（type=iab），同一官方图像页 https://chatgpt.com/images/。
+生成前主任务实际读取的页面标题与AXWebArea：ChatGPT 图像 2.5 | AI 图像生成器。
+参考来源：网页内已有“路飞与赤犬并肩战斗姿态”，已打开并截图目检，与本地 public/assets/generated/source/characters-master-0912.png 母版设计一致。
+绘图型号依据来自官方图像页标题；输入框旁6 Pro不作为绘图型号依据，不宣称已验证后台路由。
+原始提示词独立保存在 路飞跳跃动作原始提示词0913.txt。
+此记录在提交前建立；结果会话、原始下载、时间及SHA另记生成结果，未生成不标完成。

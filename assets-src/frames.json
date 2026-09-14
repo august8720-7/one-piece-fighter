@@ -2,33 +2,35 @@
   "luffy": {
     "anims": {
       "idle": 4,
-      "walk_fwd": 6,
-      "walk_back": 6,
-      "crouch": 1,
-      "prejump": 1,
-      "jump_neutral": 2,
-      "jump_fwd": 2,
-      "jump_back": 2,
-      "landing": 1,
-      "dash": 2,
+      "walk_fwd": 8,
+      "walk_back": 8,
+      "crouch": 2,
+      "prejump": 2,
+      "jump_neutral": 3,
+      "jump_fwd": 3,
+      "jump_back": 3,
+      "landing": 2,
+      "dash": 8,
       "backdash": 2,
-      "roll_fwd": 4,
-      "roll_back": 4,
-      "block_stand": 1,
+      "roll_fwd": 5,
+      "roll_back": 5,
+      "block_stand": 2,
       "block_crouch": 1,
-      "hit_stand": 1,
-      "hit_crouch": 1,
-      "hit_air": 1,
-      "knockdown": 1,
-      "getup": 2,
-      "throw": 2,
-      "thrown": 1,
-      "throw_tech": 1,
-      "ko": 1
+      "hit_stand": 3,
+      "hit_crouch": 2,
+      "hit_air": 3,
+      "knockdown": 2,
+      "getup": 3,
+      "throw": 4,
+      "thrown": 3,
+      "throw_tech": 2,
+      "ko": 2,
+      "win": 1,
+      "portrait": 1
     },
     "moves": {
       "ult_red_hawk": {
-        "frames": 5,
+        "frames": 6,
         "type": "ultimate",
         "active": [
           1,
@@ -53,7 +55,7 @@
         "stance": "stand"
       },
       "sp_gigant_pistol": {
-        "frames": 3,
+        "frames": 6,
         "type": "super",
         "active": [
           1
@@ -75,7 +77,7 @@
         "stance": "stand"
       },
       "sp_bazooka": {
-        "frames": 3,
+        "frames": 6,
         "type": "special",
         "active": [
           1
@@ -84,7 +86,7 @@
         "stance": "stand"
       },
       "sp_rifle": {
-        "frames": 3,
+        "frames": 6,
         "type": "special",
         "active": [
           1
@@ -93,7 +95,7 @@
         "stance": "stand"
       },
       "sp_rocket": {
-        "frames": 3,
+        "frames": 8,
         "type": "special",
         "active": [
           1
@@ -118,7 +120,7 @@
         "stance": "stand"
       },
       "cd": {
-        "frames": 3,
+        "frames": 7,
         "type": "blowback",
         "active": [
           1
@@ -127,7 +129,7 @@
         "stance": "stand"
       },
       "j_cd": {
-        "frames": 3,
+        "frames": 7,
         "type": "blowback",
         "active": [
           1
@@ -136,21 +138,21 @@
         "stance": "air"
       },
       "throw_fwd": {
-        "frames": 1,
+        "frames": 5,
         "type": "throw",
         "active": [],
         "button": 64,
         "stance": "stand"
       },
       "throw_back": {
-        "frames": 1,
+        "frames": 5,
         "type": "throw",
         "active": [],
         "button": 64,
         "stance": "stand"
       },
       "f_c": {
-        "frames": 3,
+        "frames": 5,
         "type": "command_normal",
         "active": [
           1
@@ -159,7 +161,7 @@
         "stance": "stand"
       },
       "j_2d": {
-        "frames": 3,
+        "frames": 7,
         "type": "command_normal",
         "active": [
           1
@@ -168,7 +170,7 @@
         "stance": "air"
       },
       "st_a": {
-        "frames": 3,
+        "frames": 5,
         "type": "normal",
         "active": [
           1
@@ -177,7 +179,7 @@
         "stance": "stand"
       },
       "st_b": {
-        "frames": 3,
+        "frames": 7,
         "type": "normal",
         "active": [
           1
@@ -186,7 +188,7 @@
         "stance": "stand"
       },
       "st_c": {
-        "frames": 3,
+        "frames": 6,
         "type": "normal",
         "active": [
           1
@@ -195,7 +197,7 @@
         "stance": "stand"
       },
       "st_d": {
-        "frames": 3,
+        "frames": 7,
         "type": "normal",
         "active": [
           1
@@ -222,7 +224,7 @@
         "stance": "crouch"
       },
       "cr_c": {
-        "frames": 3,
+        "frames": 4,
         "type": "normal",
         "active": [
           1
@@ -231,7 +233,7 @@
         "stance": "crouch"
       },
       "cr_d": {
-        "frames": 3,
+        "frames": 5,
         "type": "normal",
         "active": [
           1
@@ -240,7 +242,7 @@
         "stance": "crouch"
       },
       "j_a": {
-        "frames": 3,
+        "frames": 5,
         "type": "normal",
         "active": [
           1
@@ -249,7 +251,7 @@
         "stance": "air"
       },
       "j_b": {
-        "frames": 3,
+        "frames": 7,
         "type": "normal",
         "active": [
           1
@@ -258,7 +260,7 @@
         "stance": "air"
       },
       "j_c": {
-        "frames": 3,
+        "frames": 5,
         "type": "normal",
         "active": [
           1
@@ -267,7 +269,7 @@
         "stance": "air"
       },
       "j_d": {
-        "frames": 3,
+        "frames": 7,
         "type": "normal",
         "active": [
           1
@@ -279,34 +281,36 @@
   },
   "akainu": {
     "anims": {
-      "idle": 4,
-      "walk_fwd": 4,
-      "walk_back": 4,
+      "idle": 6,
+      "walk_fwd": 8,
+      "walk_back": 8,
       "crouch": 1,
-      "prejump": 1,
-      "jump_neutral": 2,
-      "jump_fwd": 2,
-      "jump_back": 2,
-      "landing": 1,
-      "dash": 2,
+      "prejump": 2,
+      "jump_neutral": 3,
+      "jump_fwd": 3,
+      "jump_back": 3,
+      "landing": 2,
+      "dash": 8,
       "backdash": 2,
-      "roll_fwd": 4,
-      "roll_back": 4,
-      "block_stand": 1,
+      "roll_fwd": 5,
+      "roll_back": 5,
+      "block_stand": 2,
       "block_crouch": 1,
-      "hit_stand": 1,
-      "hit_crouch": 1,
-      "hit_air": 1,
-      "knockdown": 1,
-      "getup": 2,
-      "throw": 2,
-      "thrown": 1,
-      "throw_tech": 1,
-      "ko": 1
+      "hit_stand": 2,
+      "hit_crouch": 2,
+      "hit_air": 3,
+      "knockdown": 2,
+      "getup": 4,
+      "throw": 5,
+      "thrown": 3,
+      "throw_tech": 2,
+      "ko": 2,
+      "win": 1,
+      "portrait": 1
     },
     "moves": {
       "ult_meigou_end": {
-        "frames": 3,
+        "frames": 5,
         "type": "ultimate",
         "active": [
           1
@@ -315,7 +319,7 @@
         "stance": "stand"
       },
       "sp_daifunka_ren": {
-        "frames": 7,
+        "frames": 10,
         "type": "super",
         "active": [
           1,
@@ -326,14 +330,14 @@
         "stance": "stand"
       },
       "sp_meteor_rain": {
-        "frames": 2,
+        "frames": 7,
         "type": "super",
         "active": [],
         "button": 160,
         "stance": "stand"
       },
       "sp_daifunka": {
-        "frames": 3,
+        "frames": 10,
         "type": "special",
         "active": [
           1
@@ -342,21 +346,21 @@
         "stance": "stand"
       },
       "sp_inugami": {
-        "frames": 2,
+        "frames": 10,
         "type": "special",
         "active": [],
         "button": 80,
         "stance": "stand"
       },
       "sp_meteor": {
-        "frames": 2,
+        "frames": 7,
         "type": "special",
         "active": [],
         "button": 160,
         "stance": "stand"
       },
       "sp_meigou": {
-        "frames": 3,
+        "frames": 5,
         "type": "special",
         "active": [
           1
@@ -365,7 +369,7 @@
         "stance": "stand"
       },
       "sp_ground_split": {
-        "frames": 3,
+        "frames": 7,
         "type": "special",
         "active": [
           1
@@ -381,7 +385,7 @@
         "stance": "stand"
       },
       "cd": {
-        "frames": 3,
+        "frames": 10,
         "type": "blowback",
         "active": [
           1
@@ -390,7 +394,7 @@
         "stance": "stand"
       },
       "j_cd": {
-        "frames": 3,
+        "frames": 9,
         "type": "blowback",
         "active": [
           1
@@ -399,21 +403,21 @@
         "stance": "air"
       },
       "throw_fwd": {
-        "frames": 1,
+        "frames": 9,
         "type": "throw",
         "active": [],
         "button": 64,
         "stance": "stand"
       },
       "throw_back": {
-        "frames": 1,
+        "frames": 9,
         "type": "throw",
         "active": [],
         "button": 64,
         "stance": "stand"
       },
       "f_c": {
-        "frames": 3,
+        "frames": 10,
         "type": "command_normal",
         "active": [
           1
@@ -422,7 +426,7 @@
         "stance": "stand"
       },
       "st_a": {
-        "frames": 3,
+        "frames": 9,
         "type": "normal",
         "active": [
           1
@@ -440,7 +444,7 @@
         "stance": "stand"
       },
       "st_c": {
-        "frames": 3,
+        "frames": 10,
         "type": "normal",
         "active": [
           1
@@ -476,7 +480,7 @@
         "stance": "crouch"
       },
       "cr_c": {
-        "frames": 3,
+        "frames": 5,
         "type": "normal",
         "active": [
           1
@@ -494,7 +498,7 @@
         "stance": "crouch"
       },
       "j_a": {
-        "frames": 3,
+        "frames": 9,
         "type": "normal",
         "active": [
           1
@@ -512,7 +516,7 @@
         "stance": "air"
       },
       "j_c": {
-        "frames": 3,
+        "frames": 9,
         "type": "normal",
         "active": [
           1

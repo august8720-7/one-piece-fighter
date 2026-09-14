@@ -13,7 +13,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "gen:placeholder": "vite-node scripts/gen-placeholder-atlas.ts",
-    "gen:atlas": "vite-node scripts/export-frames.ts && python scripts/cut_concept_art.py"
+    "gen:atlas": "vite-node scripts/export-frames.ts && python scripts/derive_sprite_sources.py && python scripts/derive_akainu_kicks.py && python scripts/derive_crouch_punches.py && python scripts/build_sprite_atlas.py && vite-node scripts/gen-placeholder-atlas.ts",
+    "gen:sfx": "vite-node scripts/gen-sfx-wav.ts"
   },
   "dependencies": {
     "phaser": "^3.90.0"

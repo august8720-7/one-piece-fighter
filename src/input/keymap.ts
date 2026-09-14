@@ -60,6 +60,20 @@ export const DEFAULT_P2: KeyBinding = {
   Blowback: 'Numpad6',
 };
 
+/** 无小键盘时的 P2：方向键 + N/M , . / */
+export const P2_NO_NUMPAD: KeyBinding = {
+  Up: 'ArrowUp',
+  Down: 'ArrowDown',
+  Left: 'ArrowLeft',
+  Right: 'ArrowRight',
+  A: 'KeyN',
+  B: 'KeyM',
+  C: 'Comma',
+  D: 'Period',
+  Roll: 'Slash',
+  Blowback: 'ShiftRight',
+};
+
 const STORAGE_KEY = 'opf.keys.v1';
 
 export interface KeyConfig {
@@ -69,6 +83,11 @@ export interface KeyConfig {
 
 export function defaultKeyConfig(): KeyConfig {
   return { p1: { ...DEFAULT_P1 }, p2: { ...DEFAULT_P2 } };
+}
+
+/** 动作优先：M 被玩家绑定时，静音改在设置页操作。 */
+export function muteShortcutAvailable(cfg: KeyConfig): boolean {
+  return ![...Object.values(cfg.p1), ...Object.values(cfg.p2)].includes('KeyM');
 }
 
 /** 读取本地保存的键位；损坏或缺失时用默认值补齐。 */
@@ -107,11 +126,30 @@ export function toKeyMap(b: KeyBinding): Record<string, number> {
   return out;
 }
 
+/** 同一物理键被两侧或多个动作占用时返回说明，供设置页提示 */
+export function keyConflicts(cfg: KeyConfig): string[] {
+  const map = new Map<string, string[]>();
+  for (const side of ['p1', 'p2'] as const) {
+    for (const a of ACTIONS) {
+      const code = cfg[side][a];
+      const arr = map.get(code) ?? [];
+      arr.push(`${side.toUpperCase()} ${ACTION_LABEL[a]}`);
+      map.set(code, arr);
+    }
+  }
+  const out: string[] = [];
+  for (const [code, owners] of map) {
+    if (owners.length > 1) out.push(`${keyLabel(code)} → ${owners.join(' / ')}`);
+  }
+  return out;
+}
+
 /** 给人看的键名 */
 export function keyLabel(code: string): string {
   if (code.startsWith('Key')) return code.slice(3);
   if (code.startsWith('Digit')) return code.slice(5);
   if (code.startsWith('Arrow')) return { ArrowUp: '↑', ArrowDown: '↓', ArrowLeft: '←', ArrowRight: '→' }[code] ?? code;
   if (code.startsWith('Numpad')) return 'Num' + code.slice(6);
-  return code;
+  const extra: Record<string, string> = { Comma: ',', Period: '.', Slash: '/', ShiftRight: 'RShift', Quote: "'", Semicolon: ';' };
+  return extra[code] ?? code;
 }

@@ -1,0 +1,15 @@
+路飞短臂回收局部补画的型号与来源记录
+记录日期：2026-09-12（Asia/Shanghai）。
+生成前官方入口：https://chatgpt.com/images；Edge tab843467458，实际tabs.list标题“ChatGPT 图像 2.5 | AI 图像生成器”。
+参考附件：路飞橡胶拳动画帧组.png；路飞与赤犬并肩战斗姿态.png。
+对应原图SHA256：luffy-stretch-repair-0912.png = 4a9fc7328e8631c8a5a208dfb6ce4b7ca5a1cd156f334b0e534a06f5cf8020f5；characters-master-0912.png = 1e0e47229db7bee69789282efdec93ca737a3d1dfb4582f06eed2881a5ddad51。
+实际提交全文：docs/assets/路飞短臂回收原始提示词0912.txt。附件就绪后填入，独立读回完整输入，再点击发送；提交后“你说”全文与两张参考均已核对。
+生成会话：https://chatgpt.com/c/6aa44dd4-d068-83ea-ae19-501f17a8e838
+会话标题：生成路飞回收原画。
+生成图片：路飞橡胶拳四帧动作图。
+原始下载：C:/Users/august/Downloads/ChatGPT Image 2026年9月12日 02_55_07.png.crdownload。
+源图：public/assets/generated/source/luffy-short-recovery-0912.png，1448×1086，1484262字节。
+源图SHA256：a7ac3ebff708a4982add6cb5036c2dc0cf0efa2be27881681dcb10eecbd8e875。
+原文件PNG IEND与Pillow.verify通过，原字节复制。四画全身、同手与袖口已目检，仍须统一尺度与真实29逻辑帧下的正常速度检查；不把提示词指定距离当作实测距离。
+方法变更：仅补现有长弯臂至护架之间缺失的短姿势，见路飞短臂回收方法调整0912.md；未对整表进行第三轮相同生成。
+型号依据来自实际官方入口，不是提示词中的型号名称或“极高”推理选项；未声称可独立验证后台路由。

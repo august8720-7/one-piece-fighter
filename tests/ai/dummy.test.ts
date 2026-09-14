@@ -56,11 +56,31 @@ describe('Dummy', () => {
   it('F5 循环模式', () => {
     const d = new Dummy();
     const seen = new Set<string>();
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 8; i++) {
       seen.add(d.mode);
       d.next();
     }
-    expect(seen.size).toBe(6);
+    expect(seen.size).toBe(8);
     expect(d.mode).toBe('stand');
+  });
+
+  it('attack 模式：远了走近，近了出轻拳', () => {
+    const sim = mk();
+    const d = new Dummy();
+    d.mode = 'attack';
+    expect(d.input(sim, 1)).toBe(Btn.Left);
+    sim.state.fighters[1]!.x = sim.state.fighters[0]!.x + 10;
+    expect(d.input(sim, 1)).toBe(Btn.A);
+  });
+
+  it('tech 模式在浮空 / 倒地时按 A，站立不输入', () => {
+    const sim = mk();
+    const d = new Dummy();
+    d.mode = 'tech';
+    expect(d.input(sim, 1)).toBe(0);
+    sim.state.fighters[1]!.state = 'hit_air';
+    expect(d.input(sim, 1)).toBe(Btn.A);
+    sim.state.fighters[1]!.state = 'knockdown';
+    expect(d.input(sim, 1)).toBe(Btn.A);
   });
 });

@@ -1,0 +1,14 @@
+生成前核验日期：2026-09-13T17:39:29.0087136+08:00
+工具：Codex 内置浏览器，ChatGPT 官方网页
+入口：https://chatgpt.com/images/
+实际页面标题：ChatGPT 图像 2.5 | AI 图像生成器（已由 title() 核验）
+参考：图库 海军大将六姿态动作参考图
+精确提示：赤犬站立踢技原始提示词0913.txt；待填写。
+6 Pro 文本编辑器选择未作为图像型号依据。
+已填入读回并提交；会话：https://chatgpt.com/c/6aa66fcd-957c-83e9-9f40-05f52fbb5ffe
+本次6aa66fcd未生成图片：网页明确没有收到参考附件。随后在同官方Image2.5入口改选已完整显示的海军大将六式战斗姿态图，以相同提示重提。
+重提生成会话：https://chatgpt.com/c/6aa672d1-da6c-83ea-9df3-b47e85cdf9df
+重提前 title() 再次核验 ChatGPT 图像 2.5 | AI 图像生成器，选中海军大将六式战斗姿态图已完整截图显示；本次用户消息中确有 已编辑的图片。
+原图：public/assets/generated/source/akainu-stand-kicks-0913.png
+SHA256：4ca805eee9791e20e1a30551cbbbdf7aefaf147e710bc82049232c9a068032d9
+提示内容仍为赤犬站立踢技原始提示词0913.txt。

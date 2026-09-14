@@ -1,0 +1,4 @@
+2026-09-13 Asia/Shanghai，Codex In-app Browser，tab4。
+生成前核对官方页面 https://chatgpt.com/images/ 标题：ChatGPT 图像 2.5 | AI 图像生成器。
+参考图：图库 路飞六姿态战斗动作精灵图，原始会话 https://chatgpt.com/c/6aa6501f-0244-83ea-a15a-0a6b126558a0。
+通过该图的编辑框提交新动作生成。页面6 Pro是文字对话选择，不作为图像型号依据；图像入口的实际型号标题为上述依据。

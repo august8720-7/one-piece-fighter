@@ -1,0 +1,10 @@
+日期：2026-09-12，Asia/Shanghai。
+官方入口：https://chatgpt.com/images/ 。提交前在已连接Edge页核对页面标题“ChatGPT 图像 2.5 | AI 图像生成器”（原工具调用已记录）。不是以提示词或6 Pro按钮当图像型号依据；未取得服务端模型元数据。
+生成会话：https://chatgpt.com/c/6aa43548-ce74-83e9-96c1-4bdb135acf2a
+会话标题：生成路飞动作素材表。最终图片名：路飞橡胶拳六帧动作序列。
+参考图通过网页资料库选择“路飞与赤犬并肩战斗姿态”，对应母版SHA256 1e0e47229db7bee69789282efdec93ca737a3d1dfb4582f06eed2881a5ddad51。
+原始下载：C:/Users/august/Downloads/ChatGPT Image 2026年9月12日 01_18_01.png.crdownload 。PNG IEND及Pillow verify通过；保留原字节，未以截图代替。
+本地源图：public/assets/generated/source/luffy-stretch-0912.png，1086×1448。
+SHA256：a9913420776191da89c3b838279eea177b7ae631245b52d1c9d7f57613c25fb1。
+生成完成精确时间未取得；资料库显示9月12日1:09，下载时间不作为生成时间。
+审查：未采用。伸长手臂相对身高不足以匹配st_c前缘，且完全伸臂时袖口消失。要求定向返工；本文件为冻结证据，不随返工覆盖。

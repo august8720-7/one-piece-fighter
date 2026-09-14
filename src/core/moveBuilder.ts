@@ -59,6 +59,8 @@ export interface AttackSpec {
   activeStepX?: number;
   /** 启动与 active 帧带霸体 */
   armor?: boolean;
+  /** 只有前 N 帧启动带霸体（之后可被打断，给对手反应窗口）。省略 = 整个启动 + active */
+  armorFrames?: number;
   armorBreak?: boolean;
   burn?: BurnDef;
   projectiles?: readonly ProjectileSpawn[];
@@ -73,18 +75,25 @@ export function attack(s: AttackSpec): MoveData {
   const armor = s.armor ? { armor: true } : {};
   const frames: FrameData[] = [];
   s.segments.forEach((seg, i) => {
-    frames.push({
-      sprite: i * 2,
-      duration: seg.startup,
-      ...base,
-      ...armor,
-      ...(i === 0 && s.stepX ? { velocity: { x: s.stepX } } : {}),
-    });
+    const limited = i === 0 && s.armor && s.armorFrames !== undefined && s.armorFrames < seg.startup;
+    if (limited) {
+      // 霸体只覆盖启动前段：拆成两帧，后段无霸体
+      frames.push({ sprite: i * 2, duration: s.armorFrames!, ...base, armor: true, ...(s.stepX ? { velocity: { x: s.stepX } } : {}) });
+      frames.push({ sprite: i * 2, duration: seg.startup - s.armorFrames!, ...base, ...(s.stepX ? { velocity: { x: s.stepX } } : {}) });
+    } else {
+      frames.push({
+        sprite: i * 2,
+        duration: seg.startup,
+        ...base,
+        ...armor,
+        ...(i === 0 && s.stepX ? { velocity: { x: s.stepX } } : {}),
+      });
+    }
     frames.push({
       sprite: i * 2 + 1,
       duration: seg.active,
       ...base,
-      ...armor,
+      ...(limited ? {} : armor),
       hitboxes: [seg.hitbox],
       hitId: i + 1,
       ...(s.activeStepX ? { velocity: { x: s.activeStepX } } : {}),
@@ -151,6 +160,8 @@ export interface UtilitySpec {
   /** 启动帧（含无敌 / 演出）+ 收招帧 */
   startup: number;
   recovery: number;
+  /** 启动前段用 sprite 0，余下启动用 sprite 1，收招用 sprite 2。不设则只有 0/1 两帧。 */
+  cast?: number;
   invuln?: number;
   dodge?: boolean;
   install?: InstallDef;
@@ -188,10 +199,16 @@ export function utility(s: UtilitySpec): MoveData {
     ...(s.install ? { install: s.install } : {}),
     ...(s.projectiles ? { projectiles: s.projectiles } : {}),
     ...(s.burn ? { burn: s.burn } : {}),
-    frames: [
-      { sprite: 0, duration: s.startup, ...base },
-      { sprite: 1, duration: s.recovery, ...base },
-    ],
+    frames: s.cast && s.cast > 0 && s.cast < s.startup
+      ? [
+          { sprite: 0, duration: s.cast, ...base },
+          { sprite: 1, duration: s.startup - s.cast, ...base },
+          { sprite: 2, duration: s.recovery, ...base },
+        ]
+      : [
+          { sprite: 0, duration: s.startup, ...base },
+          { sprite: 1, duration: s.recovery, ...base },
+        ],
   };
 }
 

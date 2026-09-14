@@ -1,0 +1,15 @@
+大喷火定向返工的官方图像型号依据
+记录日期：2026-09-12（Asia/Shanghai）。
+生成前，主任务从可见侧栏“图片”进入 https://chatgpt.com/images，读取Edge tab843467455标题“ChatGPT 图像 2.5 | AI 图像生成器”。
+资料库参考附件（页面顺序）：岩浆重拳战斗招式帧组.png、路飞与赤犬并肩战斗姿态.png。
+对应源图：public/assets/generated/source/akainu-daifunka-0912.png，SHA256 2e368daae4d8a8ea3eb2f4fe85080698cd8fff01d3bc5b1f9783d0d5a89185b4；public/assets/generated/source/characters-master-0912.png，SHA256 1e0e47229db7bee69789282efdec93ca737a3d1dfb4582f06eed2881a5ddad51。
+实际提交全文：docs/assets/赤犬大喷火返工原始提示词0912.txt，附件加载后填写并读回全文，点击发送后实际“你说”全文再次核对。
+生成会话：https://chatgpt.com/c/6aa449ea-7934-83ea-b7d8-f95237d69f00
+会话标题：生成赤犬四格原画。
+生成图：熔岩拳四式战斗精灵图。
+原始下载：C:/Users/august/Downloads/ChatGPT Image 2026年9月12日 02_39_43.png.crdownload。
+源图：public/assets/generated/source/akainu-daifunka-repair-0912.png，1672×941，1593548字节。
+源图 SHA256：e4f9916eea877136e090cb88ec3d27723601a85775d111025cfdfc447ec880f8。
+原下载PNG IEND完整，Pillow.verify通过，按原字节复制保存。
+状态：同一能力臂连接已目检修复，射程仍需校准；未接入、未标艺术验收通过。
+型号依据为生成前官方入口标题，不是“极高”推理按钮或提示词文字；未声称可独立验证后台路由信息。

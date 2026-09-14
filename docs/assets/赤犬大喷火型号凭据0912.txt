@@ -1,0 +1,16 @@
+赤犬大喷火首稿独立型号记录
+记录日期：2026-09-12，Asia/Shanghai。
+生成前官方入口：https://chatgpt.com/images/
+Edge tab：843467455。
+主任务实际读取 tabs.list 与页面初始状态，标题均为“ChatGPT 图像 2.5 | AI 图像生成器”。标题依据来自提交之前，非提示词内型号文字。
+附件：资料库“路飞与赤犬并肩战斗姿态”，对应 public/assets/generated/source/characters-master-0912.png，SHA256 1e0e47229db7bee69789282efdec93ca737a3d1dfb4582f06eed2881a5ddad51。
+实际提交全文：docs/assets/赤犬大喷火原始提示词0912.txt；先读回完整输入和附件，再点击发送；随后在“你说”消息核实全文送达。
+生成会话：https://chatgpt.com/c/6aa44725-9c44-83ea-b267-3f9f61d794b1
+会话标题：生成大喷火六姿势原画表。
+生成图片：岩浆重拳战斗招式帧组。
+原始下载：C:/Users/august/Downloads/ChatGPT Image 2026年9月12日 02_27_38.png.crdownload。
+源图：public/assets/generated/source/akainu-daifunka-0912.png，1448×1086，1651338 字节。
+源图 SHA256：2e368daae4d8a8ea3eb2f4fe85080698cd8fff01d3bc5b1f9783d0d5a89185b4。
+检查：原下载 PNG IEND 完整，Pillow.verify 通过，原字节复制；下载时刻不当作精确生成完成时刻。
+状态：首稿已取得，尚未接入；第二/第五格与第三/第四格疑似换能力手，正在独立检查及测量真实射程。
+证据边界：入口标题支持指定网页型号记录，无法独立验证后台路由元数据；“极高”是推理选项，未作为绘图型号依据。

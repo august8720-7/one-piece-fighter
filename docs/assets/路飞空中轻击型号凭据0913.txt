@@ -1,0 +1,12 @@
+生成前核验日期：2026-09-13T17:39:29.0087136+08:00
+工具：Codex 内置浏览器，ChatGPT 官方网页
+入口：https://chatgpt.com/images/
+实际页面标题：ChatGPT 图像 2.5 | AI 图像生成器（提交前已由 title() 核验）
+参考：图库 路飞六姿态战斗动作精灵图，全屏编辑
+精确提示：路飞空中轻击原始提示词0913.txt；已填入、读回并提交。
+会话：https://chatgpt.com/c/6aa66f1b-504c-83ea-b2dc-74763ff21e02
+6 Pro 文本编辑器选择未作为图像型号依据。
+已生成原PNG：public/assets/generated/source/luffy-air-light-0913.png
+SHA256：025549da6444ac251576596ad11758f09d1b2e9cb68ed8573d2cd745e08beb8c
+下载：内置浏览器 pageAssets，未重绘。
+参考附件边界：虽然从图库图片全屏编辑进入，但生成后对话DOM的用户消息未显示参考图片。保留此未知项，不声称附件已送达；画风一致性仍需独立检查。

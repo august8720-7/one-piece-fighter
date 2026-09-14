@@ -22,6 +22,7 @@ import {
   MAX_JUGGLE,
   MAX_METER,
   MOVE_RANK,
+  type AttackIntent,
   type AttackButton,
   type Box,
   type BoxPx,
@@ -38,6 +39,8 @@ import {
   type MoveData,
   type Phase,
   type PlayerIndex,
+  type ProjectileEndEvent,
+  type ProjectileEndReason,
   type ProjectileState,
   type Stance,
   type StateId,
@@ -123,6 +126,13 @@ interface HitSpec {
   projectile: ProjectileState | null;
 }
 
+/** 本次确实相交的打击框/受击框中心；在任一方受击变换姿态之前保存。 */
+interface StrikeContact {
+  move: MoveData;
+  x: number;
+  y: number;
+}
+
 /**
  * 格斗世界模拟器。固定步长、确定性、无渲染依赖。
  * 每次 step(input) 推进一帧。
@@ -145,6 +155,7 @@ export class FightSim {
   private readonly roundsToWin: number;
   /** 本帧产生的事件（每帧清空） */
   readonly hits: HitEvent[] = [];
+  private readonly projectileEndEvents: ProjectileEndEvent[] = [];
   /** 训练模式开关：每帧结束时生效 */
   training: TrainingOptions = { infiniteHp: false, infiniteMeter: false };
 
@@ -177,14 +188,23 @@ export class FightSim {
     };
   }
 
+  /**
+   * 最近一次 step / 直接 reset 产生的道具结束事件；下一次操作开始时清空。
+   * 渲染层应在每次操作后立即消费；跨帧保存时复制数组，事件本身是独立值快照。
+   */
+  get projectileEnds(): readonly ProjectileEndEvent[] {
+    return this.projectileEndEvents;
+  }
+
   /** 重开一局：位置与血量复位，气槽保留（KOF 口径）。 */
   resetRound(): void {
+    this.clearStepEvents();
+    this.clearProjectiles('round_reset');
     const meters = [this.fighters[0].meter, this.fighters[1].meter];
     this.fighters[0] = createFighter(this.opts.p1, 0, px(-90), 1);
     this.fighters[1] = createFighter(this.opts.p2, 1, px(90), -1);
     this.fighters[0].meter = meters[0]!;
     this.fighters[1].meter = meters[1]!;
-    this.projectiles = [];
     this.timer = this.roundTimeFrames;
     this.roundWinner = null;
     this.setPhase(this.introFrames === 0 ? 'fight' : 'intro');
@@ -201,19 +221,20 @@ export class FightSim {
 
   /** 训练模式：把双方拉回初始位置与中立状态，保留血量与气。 */
   resetPositions(): void {
+    this.clearStepEvents();
+    this.clearProjectiles('position_reset');
     for (const f of this.fighters) {
       const fresh = createFighter(f.def, f.player, f.player === 0 ? px(-90) : px(90), f.player === 0 ? 1 : -1);
       fresh.hp = f.hp;
       fresh.meter = f.meter;
       this.fighters[f.player] = fresh;
     }
-    this.projectiles = [];
   }
 
   private setPhase(p: Phase): void {
     this.phase = p;
     this.phaseFrame = 0;
-    if (p === 'round_end' || p === 'match_end') this.projectiles = [];
+    if (p === 'round_end' || p === 'match_end') this.clearProjectiles('round_end');
   }
 
   private applyTraining(): void {
@@ -233,7 +254,7 @@ export class FightSim {
   }
 
   step(input: InputFrame): void {
-    this.hits.length = 0;
+    this.clearStepEvents();
     const [f1, f2] = this.fighters;
     for (const f of this.fighters) {
       f.justHit = false;
@@ -288,8 +309,8 @@ export class FightSim {
     this.detectGrab(f2, f1);
     const hit1 = this.detectStrike(f1, f2);
     const hit2 = this.detectStrike(f2, f1);
-    if (hit1) this.applyHit(f1, f2, this.specFromMove(f1, hit1));
-    if (hit2) this.applyHit(f2, f1, this.specFromMove(f2, hit2));
+    if (hit1) this.applyHit(f1, f2, this.specFromMove(f1, hit1.move), hit1);
+    if (hit2) this.applyHit(f2, f1, this.specFromMove(f2, hit2.move), hit2);
     this.updateProjectiles();
 
     // 4. 物理与约束
@@ -382,7 +403,7 @@ export class FightSim {
     return toWorldBox(def, f.x, f.y, f.facing);
   }
 
-  /** 打击无敌：翻滚前段、后撤步前段、倒地、起身、投技演出中、超必杀启动 / 闪避、浮空段数用尽、KO */
+  /** 打击无敌：翻滚前段、后撤步前段、倒地、起身、投技抓取中、超必杀启动 / 闪避、浮空段数用尽、KO */
   isStrikeInvulnerable(f: FighterState): boolean {
     switch (f.state) {
       case 'roll_fwd':
@@ -398,17 +419,19 @@ export class FightSim {
         return f.juggle >= MAX_JUGGLE;
       case 'knockdown':
       case 'getup':
-      case 'throw':
       case 'thrown':
       case 'throw_tech':
       case 'ko':
         return true;
+      case 'throw':
+        return !f.hasHit; // 放人后的收招可以被反击。
       default:
         return false;
     }
   }
 
   isThrowable(f: FighterState): boolean {
+    if (f.state === 'throw') return !f.airborne && f.hasHit;
     if (f.airborne || !THROWABLE.has(f.state)) return false;
     if (f.state === 'attack') {
       const m = this.move(f);
@@ -513,7 +536,12 @@ export class FightSim {
     this.pushHistory(f, bits);
 
     if (pressed & ANY_ATTACK) {
-      f.buffered |= pressed & ANY_ATTACK;
+      f.buffered = {
+        bits,
+        pressed: pressed & ANY_ATTACK,
+        facing: f.facing,
+        motions: MOTION_PRIORITY.filter((motion) => matchMotion(f.history, motion)),
+      };
       f.bufferTtl = BUTTON_BUFFER;
     }
 
@@ -527,8 +555,7 @@ export class FightSim {
       f.hitstop--;
       return;
     }
-    if (!(pressed & ANY_ATTACK) && f.bufferTtl > 0 && --f.bufferTtl === 0) f.buffered = 0;
-    const effPressed = pressed | f.buffered;
+    if (!(pressed & ANY_ATTACK) && f.bufferTtl > 0 && --f.bufferTtl === 0) f.buffered = null;
 
     const mv = f.def.movement;
 
@@ -576,10 +603,10 @@ export class FightSim {
         f.stateFrame++;
         if (!has(bits, Btn.Up)) f.hopPending = true;
         if (f.stateFrame >= PREJUMP_FRAMES) {
-          const h = horizontalRelative(bits, f.facing);
+          const h = f.jumpDirection * f.facing;
           f.airborne = true;
           f.vy = f.hopPending ? mv.hopVelocityY : mv.jumpVelocityY;
-          f.vx = h * this.speed(f, mv.jumpVelocityX) * f.facing;
+          f.vx = f.jumpDirection * this.speed(f, mv.jumpVelocityX);
           setState(f, h === 1 ? 'jump_fwd' : h === -1 ? 'jump_back' : 'jump_neutral');
         }
         return;
@@ -612,7 +639,7 @@ export class FightSim {
       case 'attack': {
         const m = this.move(f);
         f.stateFrame++;
-        if (m && f.hasHit && f.stateFrame <= f.cancelUntil && this.tryAttack(f, opp, bits, effPressed, m)) return;
+        if (m && f.hasHit && f.stateFrame <= f.cancelUntil && this.tryAttack(f, opp, f.buffered, m)) return;
         const fd = m ? frameAt(m, f.stateFrame) : null;
         if (m) this.spawnProjectiles(f, m);
         if (fd?.velocity?.x) f.vx = px(fd.velocity.x) * f.facing;
@@ -630,14 +657,15 @@ export class FightSim {
 
     // ---- 可操作状态（idle / walk / crouch / dash / 空中）----
 
-    if (!f.airborne && pressedTogether(bits, pressed, Btn.A, Btn.B)) {
-      const h = horizontalRelative(bits, f.facing);
-      f.buffered = 0;
+    if (!f.airborne && f.buffered && pressedTogether(f.buffered.bits, f.buffered.pressed, Btn.A, Btn.B)) {
+      const h = horizontalRelative(f.buffered.bits, f.buffered.facing);
+      f.buffered = null;
+      f.bufferTtl = 0;
       setState(f, h === -1 ? 'roll_back' : 'roll_fwd');
       return;
     }
 
-    if (this.tryAttack(f, opp, bits, effPressed, null)) return;
+    if (this.tryAttack(f, opp, f.buffered, null)) return;
 
     if (f.airborne) {
       f.stateFrame++;
@@ -668,6 +696,7 @@ export class FightSim {
     if (up && !down) {
       f.vx = 0;
       f.hopPending = false;
+      f.jumpDirection = (h * f.facing) as -1 | 0 | 1;
       setState(f, 'prejump');
       return;
     }
@@ -693,10 +722,11 @@ export class FightSim {
    * 搓招优先于投技：贴身 236+C 必须出特殊技而不是投（KOF 口径）。
    * from 非空表示取消：只允许更高等级或 chain 列表内的目标，且不允许普通投。
    */
-  private tryAttack(f: FighterState, opp: FighterState, bits: number, pressed: number, from: MoveData | null): boolean {
-    if (!(pressed & ANY_ATTACK)) return false;
+  private tryAttack(f: FighterState, opp: FighterState, intent: AttackIntent | null, from: MoveData | null): boolean {
+    if (!intent) return false;
+    const { bits, pressed } = intent;
     const stance: Stance = f.airborne ? 'air' : has(bits, Btn.Down) ? 'crouch' : 'stand';
-    const h = horizontalRelative(bits, f.facing);
+    const h = horizontalRelative(bits, intent.facing);
     const dist = Math.abs(f.x - opp.x);
     const allowed = (m: MoveData) =>
       !from || MOVE_RANK[m.type] > MOVE_RANK[from.type] || (from.chain?.includes(m.id) ?? false);
@@ -704,7 +734,7 @@ export class FightSim {
     const motionStanceOk = (m: MoveData) =>
       m.input.stance === stance || (m.input.stance === 'stand' && stance === 'crouch');
     for (const motion of MOTION_PRIORITY) {
-      let matched: boolean | null = null;
+      if (!intent.motions.includes(motion)) continue;
       // 同一指令下终极 > 超 > 特殊
       const cands = f.def.moves
         .filter((m) => m.input.motion === motion && motionStanceOk(m) && (pressed & m.input.button) !== 0)
@@ -712,8 +742,6 @@ export class FightSim {
       for (const m of cands) {
         if (!allowed(m)) continue;
         if ((m.meterCost ?? 0) > f.meter) continue;
-        matched ??= matchMotion(f.history, motion);
-        if (!matched) break;
         this.startMove(f, m);
         return true;
       }
@@ -775,7 +803,7 @@ export class FightSim {
     f.hasHit = false;
     f.armorBroken = false;
     f.cancelUntil = 0;
-    f.buffered = 0;
+    f.buffered = null;
     f.bufferTtl = 0;
     if (m.meterCost) f.meter -= m.meterCost;
     if (!f.airborne) f.vx = 0;
@@ -804,7 +832,8 @@ export class FightSim {
     att.moveInstance++;
     att.hitMask = 0;
     att.hasHit = false;
-    att.buffered = 0;
+    att.buffered = null;
+    att.bufferTtl = 0;
     att.vx = 0;
     att.state = 'throw';
     att.stateFrame = 0;
@@ -843,7 +872,8 @@ export class FightSim {
 
   private tickThrow(att: FighterState, def: FighterState): void {
     const m = this.move(att);
-    if (!m?.throwData || def.state !== 'thrown') {
+    // 未放人时失去抓取对象属于中断；已结算伤害后则继续走完声明的收招。
+    if (!m?.throwData || (!att.hasHit && def.state !== 'thrown')) {
       att.moveId = null;
       setState(att, 'idle');
       return;
@@ -896,14 +926,20 @@ export class FightSim {
 
   // ---------- 打击 ----------
 
-  private detectStrike(att: FighterState, def: FighterState): MoveData | null {
+  private detectStrike(att: FighterState, def: FighterState): StrikeContact | null {
     if (att.state !== 'attack' || att.hitstop > 0) return null;
     const m = this.move(att);
     if (!m || m.reflect || m.throwData) return null;
     const hbs = this.hitboxes(att);
     if (hbs.length === 0) return null;
     const hurts = this.hurtboxes(def, m.type === 'super' || m.type === 'ultimate');
-    for (const hb of hbs) for (const hu of hurts) if (overlaps(hb, hu)) return m;
+    for (const hb of hbs) for (const hu of hurts) if (overlaps(hb, hu)) {
+      const left = Math.max(hb.x, hu.x);
+      const top = Math.max(hb.y, hu.y);
+      const right = Math.min(hb.x + hb.w, hu.x + hu.w);
+      const bottom = Math.min(hb.y + hb.h, hu.y + hu.h);
+      return { move: m, x: left + ((right - left) >> 1), y: top + ((bottom - top) >> 1) };
+    }
     return null;
   }
 
@@ -951,7 +987,7 @@ export class FightSim {
   }
 
   /** 统一命中结算：招式或飞行道具 → 防御 / 霸体 / 命中。 */
-  private applyHit(att: FighterState, def: FighterState, spec: HitSpec): void {
+  private applyHit(att: FighterState, def: FighterState, spec: HitSpec, contact?: StrikeContact): void {
     const proj = spec.projectile;
     let ex: number;
     let ey: number;
@@ -961,11 +997,9 @@ export class FightSim {
       ey = b.y + (b.h >> 1);
     } else {
       const fd = this.currentFrame(att);
-      const hbPx = fd?.hitboxes?.[0];
-      const hb = hbPx ? toWorldBox(hbPx, att.x, att.y, att.facing) : null;
       att.hitMask |= 1 << (fd?.hitId ?? 1);
-      ex = hb ? hb.x + (hb.w >> 1) : def.x;
-      ey = hb ? hb.y + (hb.h >> 1) : def.y - px(60);
+      ex = contact?.x ?? def.x;
+      ey = contact?.y ?? def.y - px(60);
       // 命中或被防御后都开取消窗口
       att.hasHit = true;
       const m = this.move(att);
@@ -979,6 +1013,7 @@ export class FightSim {
       def.justBlocked = true;
       def.stun = spec.blockstun;
       def.vx = ((px(spec.knockback.x) * BLOCK_PUSHBACK_NUM) >> 3) * dir;
+      def.groundPushbackFrom = proj ? null : att.player;
       setState(def, has(def.bits, Btn.Down) ? 'block_crouch' : 'block_stand');
       this.gainMeter(att, spec.damage >> 4);
       this.gainMeter(def, 4);
@@ -1033,6 +1068,7 @@ export class FightSim {
       setState(def, 'hit_air');
     } else {
       def.vx = px(spec.knockback.x) * dir;
+      def.groundPushbackFrom = proj ? null : att.player;
       def.stun = hitstun;
       setState(def, this.stance(def) === 'crouch' ? 'hit_crouch' : 'hit_stand');
     }
@@ -1040,6 +1076,20 @@ export class FightSim {
   }
 
   // ---------- 飞行道具 ----------
+
+  private clearStepEvents(): void {
+    this.hits.length = 0;
+    this.projectileEndEvents.length = 0;
+  }
+
+  private endProjectile(p: ProjectileState, reason: ProjectileEndReason): void {
+    this.projectileEndEvents.push({ id: p.id, kind: p.kind, owner: p.owner, moveId: p.moveId, x: p.x, y: p.y, frame: this.frame, reason });
+  }
+
+  private clearProjectiles(reason: 'round_end' | 'round_reset' | 'position_reset'): void {
+    for (const p of this.projectiles) this.endProjectile(p, reason);
+    this.projectiles = [];
+  }
 
   private spawnProjectiles(f: FighterState, m: MoveData): void {
     if (!m.projectiles) return;
@@ -1087,9 +1137,18 @@ export class FightSim {
       p.vy += p.gravity;
       p.y += p.vy;
       p.ttl--;
-      if (p.ttl <= 0) continue;
-      if (p.dieOnGround && p.y >= GROUND_Y) continue;
-      if (p.x < STAGE_LEFT - px(80) || p.x > STAGE_RIGHT + px(80)) continue;
+      if (p.ttl <= 0) {
+        this.endProjectile(p, 'timeout');
+        continue;
+      }
+      if (p.dieOnGround && p.y >= GROUND_Y) {
+        this.endProjectile(p, 'ground');
+        continue;
+      }
+      if (p.x < STAGE_LEFT - px(80) || p.x > STAGE_RIGHT + px(80)) {
+        this.endProjectile(p, 'out_of_bounds');
+        continue;
+      }
       alive.push(p);
     }
 
@@ -1111,7 +1170,10 @@ export class FightSim {
     // 3. 弹反 → 命中
     const survivors: ProjectileState[] = [];
     for (const p of alive) {
-      if (p.durability <= 0) continue;
+      if (p.durability <= 0) {
+        this.endProjectile(p, 'clash');
+        continue;
+      }
       const def = this.fighters[p.owner === 0 ? 1 : 0];
       const att = this.fighters[p.owner];
       const box = this.projectileBox(p);
@@ -1139,6 +1201,7 @@ export class FightSim {
       // 命中（打击定格中的对手也会被道具命中，与角色打击一致）
       const hurts = this.hurtboxes(def, false);
       if (hurts.some((h) => overlaps(h, box))) {
+        const blocked = this.canBlock(def, p.guard);
         this.applyHit(att, def, {
           moveId: p.moveId,
           moveInstance: p.moveInstance,
@@ -1156,7 +1219,10 @@ export class FightSim {
           projectile: p,
         });
         p.durability--;
-        if (p.durability <= 0) continue;
+        if (p.durability <= 0) {
+          this.endProjectile(p, blocked ? 'block' : 'hit');
+          continue;
+        }
       }
       survivors.push(p);
     }
@@ -1233,6 +1299,19 @@ export class FightSim {
   private physics(f: FighterState): void {
     if (f.state === 'thrown') return;
     f.x += f.vx;
+
+    // 地面击退碰到墙后，未能移动的部分反推打击者。不能仅钳制受击者坐标，
+    // 否则同一距离的轻拳可以在墙角无限取消；空中撞墙和远程道具维持各自规则。
+    if (!f.airborne && f.groundPushbackFrom !== null &&
+        (f.state === 'hit_stand' || f.state === 'hit_crouch' || f.state === 'block_stand' || f.state === 'block_crouch')) {
+      const halfW = (f.def.pushboxStand[2] * SUBPIXEL) >> 1;
+      const overflow = f.vx > 0
+        ? Math.max(0, f.x - (STAGE_RIGHT - halfW))
+        : Math.min(0, f.x - (STAGE_LEFT + halfW));
+      const blocked = Math.sign(overflow) * Math.min(Math.abs(overflow), Math.abs(f.vx));
+      f.x -= blocked;
+      this.fighters[f.groundPushbackFrom].x -= blocked;
+    }
 
     if (f.airborne) {
       f.vy = Math.min(f.vy + GRAVITY, MAX_FALL_SPEED);
@@ -1352,8 +1431,9 @@ function createFighter(def: FighterDef, player: PlayerIndex, x: number, facing: 
     bits: 0,
     prevBits: 0,
     history: [],
-    buffered: 0,
+    buffered: null,
     bufferTtl: 0,
+    groundPushbackFrom: null,
     comboHits: 0,
     comboDamage: 0,
     juggle: 0,
@@ -1364,6 +1444,7 @@ function createFighter(def: FighterDef, player: PlayerIndex, x: number, facing: 
     justBlocked: false,
     wallBounce: false,
     hopPending: false,
+    jumpDirection: 0,
     armorBroken: false,
     install: null,
     installFrames: 0,

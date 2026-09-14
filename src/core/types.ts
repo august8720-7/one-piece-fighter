@@ -186,6 +186,25 @@ export interface ProjectileState {
   reflected: boolean;
 }
 
+export type ProjectileEndReason =
+  | 'hit' | 'block' | 'clash' | 'ground' | 'timeout' | 'out_of_bounds'
+  | 'round_end' | 'round_reset' | 'position_reset';
+
+/** 道具真正离场时的值快照；不是每一次接触事件。坐标保持逻辑子像素单位。 */
+export interface ProjectileEndEvent {
+  id: number;
+  kind: string;
+  /** 结束时的持有者，包含弹反后的归属。 */
+  owner: PlayerIndex;
+  moveId: string;
+  x: number;
+  y: number;
+  /** 与 HitEvent 相同：执行本次 step 或直接 reset 时的逻辑帧号。 */
+  frame: number;
+  /** hit 包含霸体接触；耐久未耗尽时不产生结束事件。 */
+  reason: ProjectileEndReason;
+}
+
 export type MoveType = 'normal' | 'command_normal' | 'blowback' | 'special' | 'super' | 'ultimate' | 'throw';
 
 /** 取消等级：只能取消进更高等级（或 chain 列表中的同级） */
@@ -272,6 +291,10 @@ export interface FighterDef {
   moves: readonly MoveData[];
   /** 占位渲染颜色 */
   color: number;
+  /** 胜利台词（演出用，随机取一句） */
+  quotes?: readonly string[];
+  /** 选人界面一句话定位 */
+  tagline?: string;
 }
 
 export type StateId =
@@ -306,6 +329,14 @@ export const MAX_METER = 300;
 export const METER_STOCK = 100;
 export const MAX_JUGGLE = 3;
 
+/** 攻击键按下时的完整意图；定格只延后执行，不重读之后的方向或搓招历史。 */
+export interface AttackIntent {
+  bits: number;
+  pressed: number;
+  facing: Facing;
+  motions: readonly MotionId[];
+}
+
 export interface FighterState {
   def: FighterDef;
   player: PlayerIndex;
@@ -337,9 +368,11 @@ export interface FighterState {
   prevBits: number;
   /** 最近 INPUT_HISTORY 帧的相对数字方向（1-9），末尾最新 */
   history: number[];
-  /** 按键缓冲：最近几帧内按下但尚未消费的攻击键 */
-  buffered: number;
+  /** 最近一次尚未消费的攻击输入；新输入替换旧输入，不拼接不同时刻的按键。 */
+  buffered: AttackIntent | null;
   bufferTtl: number;
+  /** 地面近身打击的击退来源；墙挡住的位移返还给攻击者，飞行道具不反推远处施放者。 */
+  groundPushbackFrom: PlayerIndex | null;
   /** 作为被击方：当前连段段数 / 累计伤害 */
   comboHits: number;
   comboDamage: number;
@@ -359,6 +392,8 @@ export interface FighterState {
   wallBounce: boolean;
   /** 小跳标记（prejump 结束时决定） */
   hopPending: boolean;
+  /** 进入预跳时锁存的绝对水平方向，松开斜上后仍保留小跳方向。 */
+  jumpDirection: -1 | 0 | 1;
   /** 本次出招的霸体是否已被消耗 */
   armorBroken: boolean;
   /** 强化状态 id 与剩余帧 */

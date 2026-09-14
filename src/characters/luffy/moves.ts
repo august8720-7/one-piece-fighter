@@ -1,4 +1,4 @@
-import { Btn, K, P, attack, balance, normal, throwMove, utility, type MoveData } from '@core/index';
+﻿import { Btn, K, P, attack, balance, normal, throwMove, utility, type MoveData } from '@core/index';
 
 const { GEAR_SECOND, SUPER_COST, ULTIMATE_COST } = balance;
 
@@ -25,13 +25,13 @@ export const luffyMoves: readonly MoveData[] = [
     id: 'sp_storm', name: '橡胶暴风雨', type: 'super', stance: 'stand', button: P, motion: '236236',
     meterCost: SUPER_COST, invuln: 8,
     segments: [
-      { startup: 10, active: 3, hitbox: [16, -100, 70, 40] },
-      { startup: 3, active: 3, hitbox: [16, -70, 74, 40] },
-      { startup: 3, active: 3, hitbox: [16, -100, 78, 40] },
-      { startup: 3, active: 3, hitbox: [16, -60, 82, 40] },
-      { startup: 3, active: 3, hitbox: [16, -100, 86, 40] },
-      { startup: 3, active: 3, hitbox: [16, -80, 90, 40] },
-      { startup: 4, active: 4, hitbox: [16, -110, 110, 70] },
+      { startup: 10, active: 3, hitbox: [16, -100, 130, 40] },
+      { startup: 3, active: 3, hitbox: [16, -70, 134, 40] },
+      { startup: 3, active: 3, hitbox: [16, -100, 138, 40] },
+      { startup: 3, active: 3, hitbox: [16, -60, 142, 40] },
+      { startup: 3, active: 3, hitbox: [16, -100, 146, 40] },
+      { startup: 3, active: 3, hitbox: [16, -80, 150, 40] },
+      { startup: 4, active: 4, hitbox: [16, -110, 160, 70] },
     ],
     recovery: 30, damage: 40,
     hitstun: 22, blockstun: 14, hitstop: 8,
@@ -50,27 +50,27 @@ export const luffyMoves: readonly MoveData[] = [
   attack({
     id: 'sp_gatling', name: '橡胶机关枪', stance: 'stand', button: P, motion: '236',
     segments: [
-      { startup: 8, active: 3, hitbox: [16, -96, 76, 26] },
-      { startup: 3, active: 3, hitbox: [16, -76, 80, 26] },
-      { startup: 3, active: 3, hitbox: [16, -90, 84, 26] },
-      { startup: 3, active: 3, hitbox: [16, -66, 88, 26] },
-      { startup: 3, active: 3, hitbox: [16, -84, 92, 30] },
+      { startup: 8, active: 3, hitbox: [16, -96, 130, 26] },
+      { startup: 3, active: 3, hitbox: [16, -76, 136, 26] },
+      { startup: 3, active: 3, hitbox: [16, -90, 142, 26] },
+      { startup: 3, active: 3, hitbox: [16, -66, 148, 26] },
+      { startup: 3, active: 3, hitbox: [16, -84, 154, 30] },
     ],
-    recovery: 22, damage: 22,
+    recovery: 22, damage: 28,
     hitstun: 18, blockstun: 12, hitstop: 7,
     knockback: { x: 2 },
   }),
   attack({
     id: 'sp_bazooka', name: '橡胶火箭炮', stance: 'stand', button: P, motion: '214',
-    segments: [{ startup: 14, active: 4, hitbox: [20, -104, 100, 48] }],
-    recovery: 22, damage: 120,
+    segments: [{ startup: 14, active: 4, hitbox: [20, -104, 150, 48] }],
+    recovery: 22, damage: 130,
     hitstun: 26, blockstun: 18, hitstop: 12,
     knockback: { x: 12, y: -4 }, wallBounce: true, stepX: 1.5,
   }),
   attack({
     id: 'sp_rifle', name: '橡胶回旋弹', stance: 'stand', button: P, motion: '623', armorBreak: true,
-    segments: [{ startup: 12, active: 5, hitbox: [18, -100, 90, 36] }],
-    recovery: 24, damage: 130,
+    segments: [{ startup: 12, active: 5, hitbox: [18, -100, 150, 36] }],
+    recovery: 24, damage: 140,
     hitstun: 28, blockstun: 18, hitstop: 13,
     knockback: { x: 8, y: -6 },
   }),
@@ -96,7 +96,7 @@ export const luffyMoves: readonly MoveData[] = [
   normal({
     id: 'cd', name: '橡胶镰刀', stance: 'stand', button: Btn.C, plus: Btn.D,
     startup: 16, active: 5, recovery: 24,
-    hitbox: [12, -84, 80, 30], damage: 90,
+    hitbox: [12, -84, 120, 30], damage: 90,
     hitstun: 30, blockstun: 20, hitstop: 14,
     knockback: { x: 11, y: -5 }, wallBounce: true,
   }),
@@ -138,26 +138,26 @@ export const luffyMoves: readonly MoveData[] = [
   normal({
     id: 'st_a', name: '轻拳', stance: 'stand', button: Btn.A,
     startup: 4, active: 3, recovery: 7,
-    hitbox: [10, -78, 34, 14], damage: 30,
+    hitbox: [10, -78, 34, 14], damage: 34,
     chain: ['st_a', 'st_b', 'st_c', 'st_d', 'cr_c', 'cr_d', 'f_c'],
   }),
   normal({
     id: 'st_b', name: '轻脚', stance: 'stand', button: Btn.B,
     startup: 5, active: 3, recovery: 9,
-    hitbox: [12, -44, 38, 16], damage: 35,
+    hitbox: [12, -44, 38, 16], damage: 40,
     chain: ['st_c', 'st_d', 'cr_c', 'cr_d', 'f_c'],
   }),
   normal({
     id: 'st_c', name: '橡胶手枪', stance: 'stand', button: Btn.C,
     startup: 9, active: 4, recovery: 16,
-    hitbox: [14, -82, 96, 18], damage: 70,
-    hurtboxes: [[-14, -88, 28, 88], [14, -84, 60, 22]],
+    hitbox: [14, -80, 140, 20], damage: 80,
+    hurtboxes: [[-14, -88, 28, 88], [14, -84, 110, 22]],
     knockback: { x: 6 },
   }),
   normal({
     id: 'st_d', name: '橡胶印章', stance: 'stand', button: Btn.D,
     startup: 10, active: 4, recovery: 18,
-    hitbox: [14, -60, 90, 22], damage: 80,
+    hitbox: [12, -52, 54, 24], damage: 90,
     knockback: { x: 7 },
   }),
 
@@ -183,7 +183,7 @@ export const luffyMoves: readonly MoveData[] = [
   normal({
     id: 'cr_d', name: '橡胶鞭', stance: 'crouch', button: Btn.D,
     startup: 9, active: 4, recovery: 20,
-    hitbox: [10, -16, 100, 16], damage: 70, guard: 'low',
+    hitbox: [10, -16, 100, 16], damage: 80, guard: 'low',
     knockdown: true, knockback: { x: 5 },
   }),
 
@@ -207,7 +207,7 @@ export const luffyMoves: readonly MoveData[] = [
   normal({
     id: 'j_d', name: '橡胶印章（空）', stance: 'air', button: Btn.D,
     startup: 8, active: 5, recovery: 10,
-    hitbox: [10, -40, 60, 30], damage: 75,
+    hitbox: [10, -40, 60, 30], damage: 85,
     knockback: { x: 6 },
   }),
 ];

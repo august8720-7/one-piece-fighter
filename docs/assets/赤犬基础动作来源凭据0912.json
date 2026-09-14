@@ -1,0 +1,738 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-09-12",
+  "source": {
+    "file": "public/assets/generated/source/akainu-basics-0912.png",
+    "sha256": "ce90f3b01d55bcae3f77c7f7dee92a7f4c11f98c5e4ea89b4e59b9babc5c7515",
+    "model": "GPT Image 2.5",
+    "provider": "chatgpt-web",
+    "sessionUrl": "https://chatgpt.com/c/6aa43b28-9e58-83ea-9a08-3a590713c7ad",
+    "generatedAt": "2026-09-12",
+    "generatedAtPrecision": "day; precise completion time not recorded",
+    "unitScale": 2.8,
+    "scaleBasis": "Fixed row2/column1 idle alpha height is 330 source pixels; master Akainu idle alpha height is 924 pixels. source.unitScale=924/330=2.8 applies uniformly to every pose on this sheet, including crouch and hit. Character.scale stays 0.22. No per-pose height fitting.",
+    "modelEvidence": {
+      "file": "docs/assets/赤犬基础动作型号凭据0912.txt",
+      "sha256": "66da2481456c36a69a073c98de8c055cf037a66a202f1c888757b6316aee5754"
+    },
+    "prompt": {
+      "file": "docs/assets/赤犬基础动作原始提示词0912.txt",
+      "sha256": "07ab7cd5f69d6631d812e194189b437bc8b0133927854d25fe59e8f69126d421"
+    }
+  },
+  "sourceDimensions": [
+    1448,
+    1086
+  ],
+  "sourceMode": "RGB",
+  "referenceMasterVisibleHeight": 924,
+  "referenceIdleVisibleHeight": 330,
+  "uniformScale": 0.22,
+  "sourceUnitScale": 2.8,
+  "effectiveScale": 0.616,
+  "inputReferenceImages": [
+    {
+      "file": "public/assets/generated/source/characters-master-0912.png",
+      "sha256": "1e0e47229db7bee69789282efdec93ca737a3d1dfb4582f06eed2881a5ddad51"
+    }
+  ],
+  "frames": [
+    {
+      "name": "walk_1",
+      "crop": [
+        40,
+        2,
+        306,
+        351
+      ],
+      "root": [
+        141,
+        343
+      ],
+      "sockets": {
+        "shoulder": [
+          242,
+          96
+        ],
+        "wrist": [
+          257,
+          114
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        299,
+        344
+      ],
+      "sourceVisibleHeight": 337,
+      "geometry": {
+        "size": {
+          "width": 188,
+          "height": 216
+        },
+        "root": {
+          "x": 86.856,
+          "y": 211.288
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 149.072,
+            "y": 59.135999999999996
+          },
+          "wrist": {
+            "x": 158.312,
+            "y": 70.224
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 53237,
+        "despilledEdgePixels": 1349
+      },
+      "file": "public/assets/characters/akainu/anime/walk_1-candidate-0912.png",
+      "sha256": "497b12d893cdbabd9014c0c4c4fe65fabc92e00b96529f75531454b018cb84bb",
+      "status": "review-only-not-mapped"
+    },
+    {
+      "name": "walk_2",
+      "crop": [
+        391,
+        2,
+        264,
+        350
+      ],
+      "root": [
+        152,
+        342
+      ],
+      "sockets": {
+        "shoulder": [
+          223,
+          98
+        ],
+        "wrist": [
+          239,
+          113
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        257,
+        343
+      ],
+      "sourceVisibleHeight": 336,
+      "geometry": {
+        "size": {
+          "width": 163,
+          "height": 216
+        },
+        "root": {
+          "x": 93.632,
+          "y": 210.672
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 137.368,
+            "y": 60.368
+          },
+          "wrist": {
+            "x": 147.224,
+            "y": 69.608
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 47942,
+        "despilledEdgePixels": 1127
+      },
+      "file": "public/assets/characters/akainu/anime/walk_2-candidate-0912.png",
+      "sha256": "35787ff56ba56d66f9903e6c1df9c7495f1461a0f20300ef52c753e04b6d9b30",
+      "status": "review-only-not-mapped"
+    },
+    {
+      "name": "walk_3",
+      "crop": [
+        755,
+        2,
+        308,
+        351
+      ],
+      "root": [
+        150,
+        343
+      ],
+      "sockets": {
+        "shoulder": [
+          225,
+          100
+        ],
+        "wrist": [
+          243,
+          116
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        301,
+        344
+      ],
+      "sourceVisibleHeight": 337,
+      "geometry": {
+        "size": {
+          "width": 190,
+          "height": 216
+        },
+        "root": {
+          "x": 92.4,
+          "y": 211.288
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 138.6,
+            "y": 61.6
+          },
+          "wrist": {
+            "x": 149.688,
+            "y": 71.456
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 55557,
+        "despilledEdgePixels": 1328
+      },
+      "file": "public/assets/characters/akainu/anime/walk_3-candidate-0912.png",
+      "sha256": "f1e07fbe7a7f3400111a88477ab909d4ca8e3ed56a846cb5ea42f2a802127c08",
+      "status": "review-only-not-mapped"
+    },
+    {
+      "name": "walk_4",
+      "crop": [
+        1116,
+        2,
+        264,
+        351
+      ],
+      "root": [
+        151,
+        343
+      ],
+      "sockets": {
+        "shoulder": [
+          215,
+          100
+        ],
+        "wrist": [
+          234,
+          113
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        257,
+        344
+      ],
+      "sourceVisibleHeight": 337,
+      "geometry": {
+        "size": {
+          "width": 163,
+          "height": 216
+        },
+        "root": {
+          "x": 93.016,
+          "y": 211.288
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 132.44,
+            "y": 61.6
+          },
+          "wrist": {
+            "x": 144.144,
+            "y": 69.608
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 44567,
+        "despilledEdgePixels": 1192
+      },
+      "file": "public/assets/characters/akainu/anime/walk_4-candidate-0912.png",
+      "sha256": "ca7f16e20445abfd2294df91b0f91c297d5f1defd9e81a9c6e17bd25d837cd09",
+      "status": "review-only-not-mapped"
+    },
+    {
+      "name": "basic_idle",
+      "crop": [
+        37,
+        359,
+        284,
+        344
+      ],
+      "root": [
+        144,
+        336
+      ],
+      "sockets": {
+        "shoulder": [
+          205,
+          73
+        ],
+        "wrist": [
+          233,
+          106
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        277,
+        337
+      ],
+      "sourceVisibleHeight": 330,
+      "geometry": {
+        "size": {
+          "width": 175,
+          "height": 212
+        },
+        "root": {
+          "x": 88.704,
+          "y": 206.976
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 126.28,
+            "y": 44.967999999999996
+          },
+          "wrist": {
+            "x": 143.528,
+            "y": 65.29599999999999
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 44825,
+        "despilledEdgePixels": 1245
+      },
+      "file": "public/assets/characters/akainu/anime/basic_idle-candidate-0912.png",
+      "sha256": "e807ef4622db599676c6e54cee4fe1ea926a49e4fd6209b93d5f59e06229fac2",
+      "status": "candidate-not-art-accepted"
+    },
+    {
+      "name": "jab_pre",
+      "crop": [
+        375,
+        362,
+        323,
+        341
+      ],
+      "root": [
+        168,
+        333
+      ],
+      "sockets": {
+        "shoulder": [
+          237,
+          80
+        ],
+        "wrist": [
+          259,
+          96
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        316,
+        334
+      ],
+      "sourceVisibleHeight": 327,
+      "geometry": {
+        "size": {
+          "width": 199,
+          "height": 210
+        },
+        "root": {
+          "x": 103.488,
+          "y": 205.128
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 145.992,
+            "y": 49.28
+          },
+          "wrist": {
+            "x": 159.544,
+            "y": 59.135999999999996
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 54430,
+        "despilledEdgePixels": 1352
+      },
+      "file": "public/assets/characters/akainu/anime/jab_pre-candidate-0912.png",
+      "sha256": "92ea79279fee487211752bdc5832aba9fe556104c48aef5e474ba17a30b8558d",
+      "status": "candidate-not-art-accepted"
+    },
+    {
+      "name": "jab_active",
+      "crop": [
+        738,
+        360,
+        351,
+        343
+      ],
+      "root": [
+        167,
+        335
+      ],
+      "sockets": {
+        "shoulder": [
+          226,
+          66
+        ],
+        "wrist": [
+          310,
+          64
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        344,
+        336
+      ],
+      "sourceVisibleHeight": 329,
+      "geometry": {
+        "size": {
+          "width": 216,
+          "height": 211
+        },
+        "root": {
+          "x": 102.872,
+          "y": 206.35999999999999
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 139.216,
+            "y": 40.656
+          },
+          "wrist": {
+            "x": 190.96,
+            "y": 39.424
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 59287,
+        "despilledEdgePixels": 1451
+      },
+      "file": "public/assets/characters/akainu/anime/jab_active-candidate-0912.png",
+      "sha256": "a0b3e589eff7110cd5a1bfd6d3646fc0a9028f8139cd7673bb961a2e421b172f",
+      "status": "candidate-not-art-accepted"
+    },
+    {
+      "name": "jab_recover",
+      "crop": [
+        1118,
+        359,
+        290,
+        344
+      ],
+      "root": [
+        149,
+        336
+      ],
+      "sockets": {
+        "shoulder": [
+          202,
+          79
+        ],
+        "wrist": [
+          228,
+          106
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        283,
+        337
+      ],
+      "sourceVisibleHeight": 330,
+      "geometry": {
+        "size": {
+          "width": 179,
+          "height": 212
+        },
+        "root": {
+          "x": 91.78399999999999,
+          "y": 206.976
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 124.432,
+            "y": 48.664
+          },
+          "wrist": {
+            "x": 140.448,
+            "y": 65.29599999999999
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 48795,
+        "despilledEdgePixels": 1229
+      },
+      "file": "public/assets/characters/akainu/anime/jab_recover-candidate-0912.png",
+      "sha256": "8eb1c70383976ed12d4f46275ee0bbd09c13ef72a7f866720b17e13d38de9b69",
+      "status": "candidate-not-art-accepted"
+    },
+    {
+      "name": "basic_crouch",
+      "crop": [
+        26,
+        799,
+        298,
+        237
+      ],
+      "root": [
+        155,
+        229
+      ],
+      "sockets": {
+        "shoulder": [
+          218,
+          81
+        ],
+        "wrist": [
+          235,
+          94
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        291,
+        230
+      ],
+      "sourceVisibleHeight": 223,
+      "geometry": {
+        "size": {
+          "width": 184,
+          "height": 146
+        },
+        "root": {
+          "x": 95.48,
+          "y": 141.064
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 134.288,
+            "y": 49.896
+          },
+          "wrist": {
+            "x": 144.76,
+            "y": 57.903999999999996
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 32267,
+        "despilledEdgePixels": 995
+      },
+      "file": "public/assets/characters/akainu/anime/basic_crouch-candidate-0912.png",
+      "sha256": "ea5d32a14cdf4ebe28878ffe998db80832344d724fe6c23a215350249a58e893",
+      "status": "candidate-not-art-accepted"
+    },
+    {
+      "name": "guard_stand",
+      "crop": [
+        403,
+        697,
+        273,
+        339
+      ],
+      "root": [
+        140,
+        331
+      ],
+      "sockets": {
+        "shoulder": [
+          187,
+          90
+        ],
+        "wrist": [
+          192,
+          59
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        266,
+        332
+      ],
+      "sourceVisibleHeight": 325,
+      "geometry": {
+        "size": {
+          "width": 168,
+          "height": 209
+        },
+        "root": {
+          "x": 86.24,
+          "y": 203.896
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 115.192,
+            "y": 55.44
+          },
+          "wrist": {
+            "x": 118.27199999999999,
+            "y": 36.344
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 41897,
+        "despilledEdgePixels": 1124
+      },
+      "file": "public/assets/characters/akainu/anime/guard_stand-candidate-0912.png",
+      "sha256": "1c1374c7c582eae953e19656c16c2c8ed5c5c5e525daa6d62215bf5cd1984ac7",
+      "status": "candidate-not-art-accepted"
+    },
+    {
+      "name": "hit_stand",
+      "crop": [
+        741,
+        706,
+        319,
+        335
+      ],
+      "root": [
+        164,
+        327
+      ],
+      "sockets": {
+        "shoulder": [
+          195,
+          105
+        ],
+        "wrist": [
+          227,
+          83
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        312,
+        328
+      ],
+      "sourceVisibleHeight": 321,
+      "geometry": {
+        "size": {
+          "width": 197,
+          "height": 206
+        },
+        "root": {
+          "x": 101.024,
+          "y": 201.432
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 120.12,
+            "y": 64.67999999999999
+          },
+          "wrist": {
+            "x": 139.832,
+            "y": 51.128
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 48003,
+        "despilledEdgePixels": 1321
+      },
+      "file": "public/assets/characters/akainu/anime/hit_stand-candidate-0912.png",
+      "sha256": "81601d96e7434d8985144e14a2d9bed04352132733ee099d79341d26dc32cf5a",
+      "status": "candidate-not-art-accepted"
+    },
+    {
+      "name": "hit_crouch",
+      "crop": [
+        1082,
+        774,
+        334,
+        261
+      ],
+      "root": [
+        185,
+        253
+      ],
+      "sockets": {
+        "shoulder": [
+          204,
+          91
+        ],
+        "wrist": [
+          237,
+          72
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        327,
+        254
+      ],
+      "sourceVisibleHeight": 247,
+      "geometry": {
+        "size": {
+          "width": 206,
+          "height": 161
+        },
+        "root": {
+          "x": 113.96,
+          "y": 155.84799999999998
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 125.664,
+            "y": 56.056
+          },
+          "wrist": {
+            "x": 145.992,
+            "y": 44.352
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 37190,
+        "despilledEdgePixels": 1201
+      },
+      "file": "public/assets/characters/akainu/anime/hit_crouch-candidate-0912.png",
+      "sha256": "a4de59f7e400e3aa9694788b38de7a5d84c1f953b94c1f787fd4a78d3459d72b",
+      "status": "candidate-not-art-accepted"
+    }
+  ],
+  "preview": {
+    "file": ".local-releases/akainu-basics-0912/赤犬正常速度候选0912.gif",
+    "sha256": "4201c0e6d753311ef86552da6d5e5797fdac780046b6b99eb12ea7a5478a0e46",
+    "durationMs": 3600,
+    "timing": "10ms timestamp sampling of the 60Hz clock, <=10ms GIF timing quantization; walk 4 drawings at 10fps is review-only, not an approved game cycle"
+  },
+  "contactSheet": {
+    "file": ".local-releases/akainu-basics-0912/赤犬基础动作接触表0912.png",
+    "sha256": "472d2a045e69ca67f5eb0f6dd72588f528f60a6f602167e634e7e09af3c60794"
+  },
+  "artAcceptance": "pending normal-speed controllable pair sample; all outputs are candidates; walk_fwd/walk_back/block_crouch remain missing",
+  "processing": "Existing build_anime_atlas.py prepare_frame/remove_border_key used unchanged; no atlas/runtime output or legacy texture modified.",
+  "processingMode": "RGBA"
+}

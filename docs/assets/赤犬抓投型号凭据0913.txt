@@ -1,0 +1,11 @@
+生成前核验日期：2026-09-13T17:27:01.0720652+08:00
+工具：Codex 内置浏览器，ChatGPT 官方网页
+入口：https://chatgpt.com/images/
+实际页面标题：ChatGPT 图像 2.5 | AI 图像生成器
+核验方式：浏览器 title() 返回标题；不是提示词中的型号宣称。6 Pro 为文字编辑器标签，未作为图像型号依据。
+参考：图库 海军大将六姿态动作参考图，全屏编辑
+提示：赤犬抓投原始提示词0913.txt；待提交。
+已读回核对并提交；会话：https://chatgpt.com/c/6aa66d7e-a294-83ea-bbd2-b13c2c5a0c8f
+已生成并下载，原始PNG：public/assets/generated/source/akainu-throw-low-victim-0913.png
+SHA256：1ec85a7378f664a87aa6bdf8a98a46003be833cc2bcab3a37193e2a6510cf737
+下载：内置浏览器 pageAssets，原PNG未经重绘。

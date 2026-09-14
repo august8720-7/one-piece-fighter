@@ -4,7 +4,7 @@
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { characterAnims, characters } from '@characters/index';
+import { characterAnims, characters, moveFrameCounts } from '@characters/index';
 import { DEFAULT_ANIMS } from '@render/animations';
 
 interface MoveInfo {
@@ -19,7 +19,10 @@ interface MoveInfo {
 const out: Record<string, { anims: Record<string, number>; moves: Record<string, MoveInfo> }> = {};
 for (const [id, def] of Object.entries(characters)) {
   const anims: Record<string, number> = {};
-  for (const [k, v] of Object.entries({ ...DEFAULT_ANIMS, ...characterAnims[id] })) anims[k] = v.frames;
+  for (const [k, v] of Object.entries({ ...DEFAULT_ANIMS, ...characterAnims[id] })) {
+    if (!def.moves.some((move) => move.id === k)) anims[k] = v.frames;
+  }
+  const counts = moveFrameCounts(def);
   const moves: Record<string, MoveInfo> = {};
   for (const m of def.moves) {
     const active = new Set<number>();
@@ -28,7 +31,7 @@ for (const [id, def] of Object.entries(characters)) {
       max = Math.max(max, f.sprite);
       if (f.hitboxes) active.add(f.sprite);
     }
-    moves[m.id] = { frames: max + 1, type: m.type, active: [...active].sort((a, b) => a - b), button: m.input.button, stance: m.input.stance };
+    moves[m.id] = { frames: Math.max(max + 1, counts[m.id] ?? 0), type: m.type, active: [...active].sort((a, b) => a - b), button: m.input.button, stance: m.input.stance };
   }
   out[id] = { anims, moves };
 }

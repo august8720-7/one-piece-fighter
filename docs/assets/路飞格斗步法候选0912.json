@@ -1,0 +1,477 @@
+{
+  "status": "footwork-candidate-not-motion-accepted",
+  "source": {
+    "file": "public/assets/generated/source/fighters-footwork-0912.png",
+    "sha256": "079373888f771ff619aab3d15425c0b3dde4cd1057c628985c7575daedd8ed15",
+    "model": "GPT Image 2.5",
+    "provider": "chatgpt-web",
+    "sessionUrl": "https://chatgpt.com/c/6aa43dbe-8db0-83e9-9756-7b141ff69c1f",
+    "generatedAt": "2026-09-12",
+    "generatedAtPrecision": "day; precise completion time not recorded",
+    "modelEvidence": {
+      "file": "docs/assets/格斗步法与蹲防型号凭据0912.txt",
+      "sha256": "4bebdc595653db77cc3a0e6cc033fadbbf2a29b29716c073b70bcddadf3c5dcd"
+    },
+    "prompt": {
+      "file": "docs/assets/格斗步法与蹲防提示词0912.txt",
+      "sha256": "c167641c4dcba84481dd5001108f798121caf1117e4668d18dc118965d74301a"
+    },
+    "unitScale": 2.419452887537994,
+    "scaleBasis": "Fixed row3/column1 neutral alpha height=329px, original master same-character neutral alpha height=796px. Apply 796/329 uniformly to all poses of this character on the shared sheet. Character.scale remains0.22. No per-pose scale fitting."
+  },
+  "frames": {
+    "step_1": {
+      "config": {
+        "source": "footwork_0912",
+        "crop": [
+          21,
+          31,
+          339,
+          320
+        ],
+        "root": [
+          160,
+          312
+        ],
+        "sockets": {
+          "shoulder": [
+            192,
+            88
+          ],
+          "wrist": [
+            233,
+            107
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 32,
+          "despill": true,
+          "seeds": [
+            [
+              100,
+              139
+            ]
+          ],
+          "despillRadius": 3
+        },
+        "note": "Whole-source uniform scale. Root x uses the fixed source column origin; root y follows inspected grounded sole level. No frame-by-frame displacement to conceal skating. Shoulder/wrist are manually estimated visible joints."
+      },
+      "geometry": {
+        "size": {
+          "width": 180,
+          "height": 170
+        },
+        "root": {
+          "x": 85.16474164133739,
+          "y": 166.0712462006079
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 102.19768996960485,
+            "y": 46.84060790273556
+          },
+          "wrist": {
+            "x": 124.02115501519756,
+            "y": 56.953920972644376
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 76373,
+        "despilledEdgePixels": 2206
+      },
+      "output": "public/assets/characters/luffy/anime/step_1-candidate-0912.png",
+      "sha256": "1c95f0d775d4570e5fd490e97ee7d98a49873f05469bfcfc2551143295279092"
+    },
+    "step_2": {
+      "config": {
+        "source": "footwork_0912",
+        "crop": [
+          423,
+          30,
+          251,
+          323
+        ],
+        "root": [
+          120,
+          315
+        ],
+        "sockets": {
+          "shoulder": [
+            152,
+            98
+          ],
+          "wrist": [
+            181,
+            113
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 32,
+          "despill": true,
+          "seeds": [
+            [
+              62,
+              142
+            ]
+          ],
+          "despillRadius": 3
+        },
+        "note": "Whole-source uniform scale. Root x uses the fixed source column origin; root y follows inspected grounded sole level. No frame-by-frame displacement to conceal skating. Shoulder/wrist are manually estimated visible joints."
+      },
+      "geometry": {
+        "size": {
+          "width": 134,
+          "height": 172
+        },
+        "root": {
+          "x": 63.873556231003036,
+          "y": 167.66808510638296
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 80.90650455927052,
+            "y": 52.16340425531914
+          },
+          "wrist": {
+            "x": 96.34261398176291,
+            "y": 60.14759878419453
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 51446,
+        "despilledEdgePixels": 2038
+      },
+      "output": "public/assets/characters/luffy/anime/step_2-candidate-0912.png",
+      "sha256": "05e4f7e615687d2fa46f4e6f65ae4ebce21c3744ecb43f5810f8ddb95c3174d9"
+    },
+    "step_3": {
+      "config": {
+        "source": "footwork_0912",
+        "crop": [
+          760,
+          25,
+          282,
+          327
+        ],
+        "root": [
+          145,
+          319
+        ],
+        "sockets": {
+          "shoulder": [
+            172,
+            94
+          ],
+          "wrist": [
+            197,
+            112
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 32,
+          "despill": true,
+          "seeds": [],
+          "despillRadius": 3
+        },
+        "note": "Whole-source uniform scale. Root x uses the fixed source column origin; root y follows inspected grounded sole level. No frame-by-frame displacement to conceal skating. Shoulder/wrist are manually estimated visible joints."
+      },
+      "geometry": {
+        "size": {
+          "width": 150,
+          "height": 174
+        },
+        "root": {
+          "x": 77.18054711246201,
+          "y": 169.7972036474164
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 91.55209726443769,
+            "y": 50.034285714285716
+          },
+          "wrist": {
+            "x": 104.85908814589665,
+            "y": 59.615319148936166
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 61688,
+        "despilledEdgePixels": 2050
+      },
+      "output": "public/assets/characters/luffy/anime/step_3-candidate-0912.png",
+      "sha256": "360d411efc0c1f16d66fe216a4822cada87d6eebff9c9a71c2fc99aad68bc8de"
+    },
+    "step_4": {
+      "config": {
+        "source": "footwork_0912",
+        "crop": [
+          1089,
+          30,
+          325,
+          321
+        ],
+        "root": [
+          178,
+          313
+        ],
+        "sockets": {
+          "shoulder": [
+            207,
+            95
+          ],
+          "wrist": [
+            228,
+            109
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 32,
+          "despill": true,
+          "seeds": [
+            [
+              108,
+              141
+            ]
+          ],
+          "despillRadius": 3
+        },
+        "note": "Whole-source uniform scale. Root x uses the fixed source column origin; root y follows inspected grounded sole level. No frame-by-frame displacement to conceal skating. Shoulder/wrist are manually estimated visible joints."
+      },
+      "geometry": {
+        "size": {
+          "width": 173,
+          "height": 171
+        },
+        "root": {
+          "x": 94.74577507598784,
+          "y": 166.60352583586626
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 110.18188449848024,
+            "y": 50.56656534954407
+          },
+          "wrist": {
+            "x": 121.35975683890577,
+            "y": 58.01848024316109
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 72929,
+        "despilledEdgePixels": 2128
+      },
+      "output": "public/assets/characters/luffy/anime/step_4-candidate-0912.png",
+      "sha256": "ad2cb27ec854809322743871c16f21aae61eda7f2b2ea434acbf64be083a9ae9"
+    },
+    "guard_crouch": {
+      "config": {
+        "source": "footwork_0912",
+        "crop": [
+          388,
+          771,
+          287,
+          276
+        ],
+        "root": [
+          155,
+          268
+        ],
+        "sockets": {
+          "shoulder": [
+            123,
+            77
+          ],
+          "wrist": [
+            161,
+            73
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 32,
+          "despill": true,
+          "seeds": [
+            [
+              170,
+              100
+            ],
+            [
+              175,
+              114
+            ]
+          ],
+          "despillRadius": 3
+        },
+        "note": "Whole-source uniform scale. Root x uses the fixed source column origin; root y follows inspected grounded sole level. No frame-by-frame displacement to conceal skating. Shoulder/wrist are manually estimated visible joints."
+      },
+      "geometry": {
+        "size": {
+          "width": 153,
+          "height": 147
+        },
+        "root": {
+          "x": 82.50334346504559,
+          "y": 142.6509422492401
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 65.47039513677811,
+            "y": 40.98553191489361
+          },
+          "wrist": {
+            "x": 85.69702127659573,
+            "y": 38.85641337386018
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 51537,
+        "despilledEdgePixels": 1771
+      },
+      "output": "public/assets/characters/luffy/anime/guard_crouch-candidate-0912.png",
+      "sha256": "dfbeb34247a27ca9304c1e66c8ea5735b196db3ff05f2760a25ffd9d180320fe"
+    }
+  },
+  "animations": {
+    "walk_fwd": {
+      "frames": [
+        "step_1",
+        "step_2",
+        "step_3",
+        "step_4"
+      ],
+      "loop": true,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 1,
+          "ticks": 6
+        },
+        {
+          "frame": 2,
+          "ticks": 6
+        },
+        {
+          "frame": 3,
+          "ticks": 6
+        }
+      ]
+    },
+    "walk_back": {
+      "frames": [
+        "step_4",
+        "step_3",
+        "step_2",
+        "step_1"
+      ],
+      "loop": true,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 8
+        },
+        {
+          "frame": 1,
+          "ticks": 8
+        },
+        {
+          "frame": 2,
+          "ticks": 8
+        },
+        {
+          "frame": 3,
+          "ticks": 8
+        }
+      ]
+    },
+    "block_crouch": {
+      "frames": [
+        "guard_crouch"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 8
+        }
+      ]
+    }
+  },
+  "preview": {
+    "gif": "C:\\Users\\august\\AppData\\Local\\Temp\\opf-luffy-footwork-moving-0912.gif",
+    "frameCount": 32,
+    "durationsMilliseconds": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "elapsedMilliseconds": 1600,
+    "sampling": "3 logic ticks per50ms GIF image;96ticks total. Forward6ticks per original pose and actual movement round(2.4*256)/256*2 screenpx/tick; back8ticks and negative round(1.8*256)/256*2. Camera follows root; floor marks move."
+  },
+  "acceptanceBoundary": "Held source poses expose ground sliding at runtime speed; no per-frame root adjustment or invented in-between poses hides this. Requires real-game motion review."
+}

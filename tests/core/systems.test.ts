@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+﻿import { describe, expect, it } from 'vitest';
 import {
   Btn,
   FightSim,
@@ -14,6 +14,7 @@ import { akainuDef, luffyDef } from '../../src/characters';
 
 const mk = (extra: Partial<FightSimOptions> = {}) =>
   new FightSim({ p1: luffyDef, p2: akainuDef, seed: 11, introFrames: 0, ...extra });
+const dmg = (def: typeof luffyDef, id: string) => def.moves.find((m) => m.id === id)!.damage;
 const run = (sim: FightSim, p1: number, p2: number, frames: number) => {
   for (let i = 0; i < frames; i++) sim.step({ p1, p2 });
 };
@@ -101,7 +102,7 @@ describe('specials', () => {
       for (const e of sim.hits) if (e.kind === 'hit') hits++;
       maxCombo = Math.max(maxCombo, sim.state.fighters[1].comboHits);
     }
-    expect(hp0 - sim.state.fighters[1].hp).toBeGreaterThan(22 * 3);
+    expect(hp0 - sim.state.fighters[1].hp).toBeGreaterThan(dmg(luffyDef, 'sp_gatling') * 3);
     expect(hits).toBe(5);
     expect(maxCombo).toBe(5);
   });
@@ -202,13 +203,13 @@ describe('damage / counter / meter / juggle / tech', () => {
     closeIn(sim);
     sim.step({ p1: Btn.A, p2: 0 });
     const e1 = untilEvent(sim, 'hit')!;
-    expect(e1.damage).toBe(30);
+    expect(e1.damage).toBe(dmg(luffyDef, 'st_a'));
     expect(e1.comboHits).toBe(1);
     sim.step({ p1: Btn.C, p2: 0 });
     settle(sim);
     const e2 = untilEvent(sim, 'hit')!;
     expect(e2.comboHits).toBe(2);
-    expect(e2.damage).toBe(Math.floor(70 * 0.9));
+    expect(e2.damage).toBe(Math.floor(dmg(luffyDef, 'st_c') * 0.9));
   });
 
   it('反击：打中对手出招前摇伤害 ×1.25 并标记 counter', () => {
@@ -219,7 +220,7 @@ describe('damage / counter / meter / juggle / tech', () => {
     const e = untilEvent(sim, 'hit');
     expect(e?.attacker).toBe(0);
     expect(e?.counter).toBe(true);
-    expect(e?.damage).toBe((30 * 5) >> 2);
+    expect(e?.damage).toBe((dmg(luffyDef, 'st_a') * 5) >> 2);
   });
 
   it('命中双方积累气，攻击方更多；防御也涨少量', () => {

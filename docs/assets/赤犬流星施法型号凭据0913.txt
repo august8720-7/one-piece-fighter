@@ -1,0 +1,13 @@
+生成前核验UTC：2026-09-13T10:35:10.208Z
+工具：Codex内置浏览器，ChatGPT官方网页
+入口：https://chatgpt.com/images/
+实际页面标题：ChatGPT 图像 2.5 | AI 图像生成器
+参考：三连姿势格斗角色精灵图
+原图加载状态：[{"height":1536,"loaded":true,"width":1024}]
+精确提示：赤犬流星施法原始提示词0913.txt，填入并读回全文一致（仅浏览器空白格式标准化）。
+6 Pro文字选择不作为图像型号依据。
+生成会话：https://chatgpt.com/c/6aa67c64-26bc-83ea-a58e-257078eb4ed1
+原PNG：public/assets/generated/source/akainu-meteor-cast-0913.png
+SHA256：4e4659482f6fffc92c13a0ad15daaf79c20885fb3dd74d0a64d5eb758ac2d174
+用户消息中编辑参考图片可见：true
+下载：内置浏览器pageAssets，原PNG未改动。

@@ -1,4 +1,4 @@
-import { Btn, K, P, attack, balance, normal, throwMove, utility, type MoveData, type ProjectileSpawn } from '@core/index';
+﻿import { Btn, K, P, attack, balance, normal, throwMove, utility, type MoveData, type ProjectileSpawn } from '@core/index';
 
 const { BURN, SUPER_COST, ULTIMATE_COST, DODGE_COST } = balance;
 
@@ -7,12 +7,12 @@ const meteor = (frame: number, x: number): ProjectileSpawn => ({
   frame,
   kind: 'meteor',
   x,
-  y: -300,
+  y: -188,
   vx: 0,
-  vy: 6,
-  gravity: 0.3,
+  vy: 5.2,
+  gravity: 0.28,
   ttl: 80,
-  box: [-16, -32, 32, 32],
+  box: [-20, -36, 40, 42],
   dieOnGround: true,
   knockback: { x: 4, y: -7 },
 });
@@ -37,9 +37,9 @@ export const akainuMoves: readonly MoveData[] = [
     id: 'sp_daifunka_ren', name: '大喷火·连', type: 'super', stance: 'stand', button: P, motion: '236236',
     meterCost: SUPER_COST, invuln: 10, burn: BURN,
     segments: [
-      { startup: 14, active: 5, hitbox: [20, -110, 110, 70] },
-      { startup: 10, active: 5, hitbox: [24, -100, 120, 70] },
-      { startup: 10, active: 6, hitbox: [28, -120, 140, 90] },
+      { startup: 14, active: 5, hitbox: [20, -110, 150, 70] },
+      { startup: 10, active: 5, hitbox: [24, -100, 160, 70] },
+      { startup: 10, active: 6, hitbox: [28, -120, 170, 90] },
     ],
     recovery: 34, damage: 105,
     hitstun: 30, blockstun: 22, hitstop: 14,
@@ -47,7 +47,7 @@ export const akainuMoves: readonly MoveData[] = [
   }),
   utility({
     id: 'sp_meteor_rain', name: '流星火山·雨', type: 'super', button: K, motion: '214214',
-    meterCost: SUPER_COST, invuln: 10, startup: 30, recovery: 30,
+    meterCost: SUPER_COST, invuln: 10, startup: 30, recovery: 30, cast: 12,
     damage: 45, guard: 'high', hitstun: 26, blockstun: 18, hitstop: 10, burn: BURN,
     projectiles: [
       meteor(20, 40), meteor(24, 90), meteor(28, 140), meteor(32, 190),
@@ -57,22 +57,22 @@ export const akainuMoves: readonly MoveData[] = [
 
   // ======== 特殊技 ========
   attack({
-    id: 'sp_daifunka', name: '大喷火', stance: 'stand', button: P, motion: '236', armor: true, burn: BURN,
-    segments: [{ startup: 18, active: 5, hitbox: [20, -110, 110, 70] }],
-    recovery: 26, damage: 160,
+    id: 'sp_daifunka', name: '大喷火', stance: 'stand', button: P, motion: '236', armor: true, armorFrames: 11, burn: BURN,
+    segments: [{ startup: 20, active: 5, hitbox: [20, -110, 160, 70] }],
+    recovery: 32, damage: 130,
     hitstun: 30, blockstun: 22, hitstop: 14,
     knockback: { x: 13, y: -6 }, wallBounce: true, stepX: 1,
   }),
   utility({
     id: 'sp_inugami', name: '犬噛红莲', button: P, motion: '214',
-    startup: 16, recovery: 22,
-    damage: 90, guard: 'mid', hitstun: 24, blockstun: 18, hitstop: 10,
-    knockback: { x: 7, y: 0 },
+    startup: 16, recovery: 26,
+    damage: 60, guard: 'mid', hitstun: 20, blockstun: 16, hitstop: 9,
+    knockback: { x: 6, y: 0 },
     projectiles: [{ frame: 14, kind: 'dog', x: 40, y: -50, vx: 4.5, vy: 0, ttl: 140, box: [-20, -26, 40, 40] }],
   }),
   utility({
     id: 'sp_meteor', name: '流星火山', button: K, motion: '214',
-    startup: 24, recovery: 20,
+    startup: 24, recovery: 20, cast: 10,
     damage: 50, guard: 'high', hitstun: 24, blockstun: 16, hitstop: 10, burn: BURN,
     projectiles: [meteor(18, 70), meteor(22, 130), meteor(26, 190)],
   }),
@@ -99,7 +99,7 @@ export const akainuMoves: readonly MoveData[] = [
   normal({
     id: 'cd', name: '熔岩双掌', stance: 'stand', button: Btn.C, plus: Btn.D,
     startup: 18, active: 5, recovery: 26,
-    hitbox: [14, -90, 64, 40], damage: 100,
+    hitbox: [14, -90, 120, 40], damage: 100,
     hitstun: 32, blockstun: 22, hitstop: 15,
     knockback: { x: 12, y: -5 }, wallBounce: true, stepX: 1.2,
   }),
@@ -125,9 +125,9 @@ export const akainuMoves: readonly MoveData[] = [
 
   // ======== 特殊普通技 ========
   normal({
-    id: 'f_c', name: '熔岩重锤', stance: 'stand', button: Btn.C, direction: 6, armor: true,
+    id: 'f_c', name: '熔岩重锤', stance: 'stand', button: Btn.C, direction: 6, armor: true, armorFrames: 9,
     startup: 16, active: 4, recovery: 20,
-    hitbox: [14, -110, 56, 40], damage: 95, guard: 'high',
+    hitbox: [14, -110, 120, 40], damage: 95, guard: 'high',
     knockback: { x: 6 },
   }),
 
@@ -147,13 +147,13 @@ export const akainuMoves: readonly MoveData[] = [
   normal({
     id: 'st_c', name: '熔岩拳', stance: 'stand', button: Btn.C,
     startup: 12, active: 4, recovery: 20,
-    hitbox: [16, -92, 56, 30], damage: 90,
+    hitbox: [16, -92, 150, 36], damage: 80,
     knockback: { x: 9 }, stepX: 1.5,
   }),
   normal({
     id: 'st_d', name: '熔岩踢', stance: 'stand', button: Btn.D,
     startup: 13, active: 5, recovery: 22,
-    hitbox: [16, -70, 66, 34], damage: 85,
+    hitbox: [16, -70, 66, 34], damage: 80,
     knockback: { x: 8 },
   }),
 

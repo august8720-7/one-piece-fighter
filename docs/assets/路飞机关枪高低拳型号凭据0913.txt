@@ -1,0 +1,26 @@
+UTC：2026-09-13T11:54:16.705Z
+工具：Codex内置浏览器
+入口：https://chatgpt.com/images
+实际标题：ChatGPT 图像 2.5 | AI 图像生成器
+文字模式：中（非Pro）
+参考：网页PNG剪贴板上传，缩略图按钮已启用
+[
+  {
+    "file": "C:/Users/august/Projects/one-piece-fighter/public/assets/generated/source/luffy-air-jab-contact-guide-0913.png",
+    "sha256": "12f8f75610c9736c0295e71def088b1e42e32978313754c9f3d173c367361faa"
+  },
+  {
+    "file": "C:/Users/august/Projects/one-piece-fighter/public/assets/generated/source/luffy-stretch-repair-0912.png",
+    "sha256": "4a9fc7328e8631c8a5a208dfb6ce4b7ca5a1cd156f334b0e534a06f5cf8020f5"
+  },
+  {
+    "file": "C:/Users/august/AppData/Local/Temp/luffy-remaining-guides0913/机关枪高低拳第一组0913导图.png",
+    "sha256": "0a38bc1846d7aeefabd9240e6159629129d6a1b5075b0fe7f06e9dcac68ad96f"
+  }
+]
+提示词填入并全文读回一致。
+生成会话：https://chatgpt.com/c/6aa68ec7-02d0-83e9-88fa-ef7a6e89a8aa
+原PNG：public/assets/generated/source/luffy-gatling-high-low-0913.png
+SHA256：a509477c4d5ba83fc4349421aff26544d4737814a5d83a10843e793ad69e1bd1
+参考依据：已检查三参考图，精美动漫角色、连续橡胶臂与真实范围导图
+下载：内置浏览器pageAssets，原PNG未改动。

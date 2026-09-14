@@ -1,8 +1,10 @@
-import { describe, expect, it } from 'vitest';
+﻿import { describe, expect, it } from 'vitest';
 import { Btn, FightSim, ROUND_END_FRAMES, px, totalFrames } from '../../src/core';
 import { akainuDef, luffyDef } from '../../src/characters';
 
 const mk = () => new FightSim({ p1: luffyDef, p2: akainuDef, seed: 7, introFrames: 0 });
+/** 从招式数据读伤害，避免数值调整时测试跟着改 */
+const dmg = (def: typeof luffyDef, id: string) => def.moves.find((m) => m.id === id)!.damage;
 const run = (sim: FightSim, p1: number, p2: number, frames: number) => {
   for (let i = 0; i < frames; i++) sim.step({ p1, p2 });
 };
@@ -55,7 +57,7 @@ describe('combat', () => {
     }
     expect(hit).toBe(true);
     const [a, d] = sim.state.fighters;
-    expect(d.hp).toBe(hp0 - 30);
+    expect(d.hp).toBe(hp0 - dmg(luffyDef, 'st_a'));
     expect(d.state).toBe('hit_stand');
     expect(a.hitstop).toBeGreaterThan(0);
     expect(d.hitstop).toBe(a.hitstop);
@@ -68,7 +70,7 @@ describe('combat', () => {
     const hp0 = sim.state.fighters[1].hp;
     tap(sim, Btn.A, 0);
     run(sim, 0, 0, 40);
-    expect(sim.state.fighters[1].hp).toBe(hp0 - 30);
+    expect(sim.state.fighters[1].hp).toBe(hp0 - dmg(luffyDef, 'st_a'));
   });
 
   it('hitstop 期间双方冻结', () => {

@@ -1,77 +1,128 @@
 import Phaser from 'phaser';
 import { characters } from '@characters/index';
+import { loadAnimeCharacters, loadCharacterAtlases, loadPresentationAssets, ANIME_LOAD_RESULT } from '../assets';
+import { sfx } from '../../audio/Sfx';
+import { SCREEN_H, SCREEN_W, font, ui } from '../screen';
+import { UI } from '../ui/MenuList';
+import { evaluateAnimeEntry } from '../anime/entryGate';
+import { audioQuickControls } from '../ui/audioQuickControls';
+import { adoptPresentation, legacyPresentation, presentationLabel, readPresentation, PRESENTATION_LOAD, type PresentationData } from '../presentation';
 import type { FightSceneData } from './FightScene';
 
-/** 注册表键：每个角色实际可用的图集纹理 key（null = 无素材，画色块） */
-export const SPRITE_KEYS = 'spriteKeys';
-export type SpriteKeys = Record<string, string | null>;
+export type PreloadData = FightSceneData & PresentationData & {
+  destination?: 'Title';
+  /** A defensive Fight gate routes here without triggering an automatic retry loop. */
+  failure?: string[];
+};
 
-const VARIANTS = ['atlas', 'placeholder'] as const;
-
-/**
- * 加载角色图集：优先 atlas（正式素材，不进 Git），缺失则回退 placeholder（脚本生成）。
- * 先用 fetch 探测 JSON 是否真实存在（Vite 对缺失文件会回退成 index.html，直接交给 Phaser 会报错），
- * 只把存在的图集加入加载队列。两者都缺时该角色用矢量色块渲染。
- */
+/** A requested anime battle cannot exist until all declared resources have decoded and passed validation. */
 export class PreloadScene extends Phaser.Scene {
-  private data_!: FightSceneData;
+  private data_!: PreloadData;
+  private generation = 0;
 
-  constructor() {
-    super('Preload');
-  }
+  constructor() { super('Preload'); }
 
-  init(data: FightSceneData): void {
-    this.data_ = data;
+  init(data: PreloadData): void {
+    this.data_ = { ...data, ...adoptPresentation(this.registry, data) };
   }
 
   create(): void {
-    void this.run();
-  }
-
-  private async run(): Promise<void> {
-    const keys: SpriteKeys = {};
-    const ids = [...new Set([this.data_.p1, this.data_.p2])].filter((id) => characters[id]);
-    for (const id of ids) {
-      keys[id] = null;
-      for (const variant of VARIANTS) {
-        const base = `assets/characters/${id}/${variant}`;
-        if (await atlasExists(`${base}.json`)) {
-          const key = `${id}-${variant}`;
-          this.load.atlas(key, `${base}.png`, `${base}.json`);
-          keys[id] = key;
-          break;
+    const generation = ++this.generation;
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => { this.generation++; });
+    this.add.rectangle(0, 0, SCREEN_W, SCREEN_H, 0x0b1220).setOrigin(0);
+    if (this.data_.failure?.length) { this.showFailure(this.data_.failure); return; }
+    const label = this.add.text(SCREEN_W / 2, SCREEN_H / 2, '正在载入人物、舞台与声音…', { fontFamily: UI.font, fontSize: font(22), color: UI.dim }).setOrigin(0.5);
+    const data = this.data_;
+    const profile = readPresentation(this.registry);
+    const ids = data.destination === 'Title' ? Object.keys(characters) : [data.p1, data.p2];
+    void Promise.all([
+      profile.art === 'anime' ? loadAnimeCharacters(this, ids) : loadCharacterAtlases(this, ids),
+      loadPresentationAssets(this),
+      sfx().preload(ids),
+    ]).then(([, presentationAssets]) => {
+      if (generation !== this.generation || !this.scene.isActive()) return;
+      label.destroy();
+      const loaded = this.registry.get(ANIME_LOAD_RESULT) as Awaited<ReturnType<typeof loadAnimeCharacters>> | undefined;
+      const invalidIds = [data.p1, data.p2].filter(id => !characters[id]);
+      const issues = invalidIds.length ? [`未知角色：${invalidIds.join('、')}`] : [];
+      if (profile.art === 'anime' && profile.scope === 'full' && !presentationAssets?.ok) {
+        issues.push(...(presentationAssets?.failures.map(failure => failure.message) ?? ['舞台与技能贴图加载未完成']));
+      }
+      if (profile.art === 'anime') {
+        if (!loaded?.ok) issues.push(...(loaded?.failures.map(f => `${characters[f.characterId]?.name ?? f.characterId}：${f.message}`) ?? ['人物加载未完成']));
+        if (!issues.length && !data.destination) {
+          const result = evaluateAnimeEntry(profile, [characters[data.p1]!, characters[data.p2]!], loaded!.assets, loaded!.errors, data.mode);
+          this.registry.set(PRESENTATION_LOAD, result);
+          issues.push(...result.issues);
         }
       }
-    }
+      if (issues.length) { this.showFailure(issues); return; }
+      this.registry.set(PRESENTATION_LOAD, { ok: true, scope: profile.scope, art: profile.art });
+      if (data.destination === 'Title') this.scene.start('Title', profile);
+      else this.scene.start('Fight', { ...data, ...profile });
+    }).catch(error => {
+      if (generation !== this.generation || !this.scene.isActive()) return;
+      label.destroy();
+      this.showFailure([error instanceof Error ? error.message : '资源加载失败']);
+    });
+  }
 
-    const finish = () => {
-      // 加载后再核对一次纹理确实可用
-      for (const id of ids) {
-        const key = keys[id];
-        if (key && !(this.textures.exists(key) && this.textures.get(key).frameTotal > 1)) keys[id] = null;
-      }
-      this.registry.set(SPRITE_KEYS, keys);
-      this.scene.start('Fight', this.data_);
+  private showFailure(issues: string[]): void {
+    this.registry.set(PRESENTATION_LOAD, { ok: false, issues, ...readPresentation(this.registry) });
+    const profile = readPresentation(this.registry);
+    this.add.text(SCREEN_W / 2, ui(94), profile.art === 'anime' ? '新版暂时无法开始' : '游戏暂时无法开始', { fontFamily: UI.font, fontSize: font(30), color: UI.title }).setOrigin(0.5);
+    const incomplete = issues.some(issue => /缺少动作|缺少招式|完整动作覆盖/.test(issue));
+    const summary = incomplete
+      ? '新版人物动作尚未制作齐全，完整比赛尚未开放。'
+      : '人物、舞台或技能贴图未能完整载入，请重试。具体原因可在加载诊断中查看。';
+    this.add.text(SCREEN_W / 2, ui(174), summary, {
+      fontFamily: UI.font, fontSize: font(18), color: UI.text, align: 'center', wordWrap: { width: ui(720), useAdvancedWrap: true },
+    }).setOrigin(0.5, 0);
+    this.add.text(SCREEN_W / 2, ui(294), '资源问题修复后可重试。进入旧版需要你主动选择。', { fontFamily: UI.font, fontSize: font(14), color: UI.dim }).setOrigin(0.5);
+    const button = (x: number, label: string, action: () => void): void => {
+      const text = this.add.text(ui(x), ui(350), label, { fontFamily: UI.font, fontSize: font(18), color: UI.title, backgroundColor: '#20314d', padding: { x: ui(16), y: ui(12) } }).setOrigin(0.5).setInteractive({ useHandCursor: true });
+      text.once('pointerdown', action);
     };
-
-    if (this.load.list.size === 0) {
-      finish();
-      return;
-    }
-    this.load.once(Phaser.Loader.Events.COMPLETE, finish);
-    this.load.start();
+    button(320, '重新载入', () => {
+      const retry = { ...this.data_ };
+      delete retry.failure;
+      this.scene.restart(retry);
+    });
+    button(625, '主动进入旧版', () => {
+      const data = { ...this.data_ };
+      delete data.failure;
+      const legacy = adoptPresentation(this.registry, legacyPresentation(profile));
+      this.scene.restart({ ...data, ...legacy });
+    });
+    audioQuickControls(this, ui(458));
+    const backdrop = this.add.rectangle(ui(36), ui(36), SCREEN_W - ui(72), SCREEN_H - ui(72), 0x101828, 0.98).setOrigin(0).setDepth(20).setVisible(false);
+    const details = this.add.text(ui(64), ui(64), '', { fontFamily: UI.mono, fontSize: font(12), color: UI.text, lineSpacing: ui(3), wordWrap: { width: ui(832), useAdvancedWrap: true } }).setDepth(21).setVisible(false);
+    const close = this.add.text(SCREEN_W - ui(70), SCREEN_H - ui(66), '关闭诊断', { fontFamily: UI.font, fontSize: font(16), color: UI.accent }).setOrigin(1, 1).setDepth(22).setInteractive({ useHandCursor: true }).setVisible(false);
+    const pageLabel = this.add.text(SCREEN_W / 2, ui(433), '', { fontFamily: UI.font, fontSize: font(14), color: UI.dim }).setOrigin(0.5).setDepth(22).setVisible(false);
+    const previous = this.add.text(ui(240), ui(433), '上一页', { fontFamily: UI.font, fontSize: font(16), color: UI.accent }).setOrigin(0.5).setDepth(22).setInteractive({ useHandCursor: true }).setVisible(false);
+    const next = this.add.text(ui(720), ui(433), '下一页', { fontFamily: UI.font, fontSize: font(16), color: UI.accent }).setOrigin(0.5).setDepth(22).setInteractive({ useHandCursor: true }).setVisible(false);
+    let page = 0;
+    let pages: string[] = [];
+    const renderPage = (): void => {
+      details.setText(pages[page] ?? '');
+      pageLabel.setText(`${page + 1} / ${pages.length}`);
+    };
+    previous.on('pointerdown', () => { page = Math.max(0, page - 1); renderPage(); });
+    next.on('pointerdown', () => { page = Math.min(pages.length - 1, page + 1); renderPage(); });
+    const modal = [backdrop, details, close, pageLabel, previous, next];
+    close.on('pointerdown', () => { modal.forEach(item => item.setVisible(false)); });
+    this.add.text(SCREEN_W / 2, ui(397), '查看加载诊断', { fontFamily: UI.font, fontSize: font(14), color: UI.accent }).setOrigin(0.5).setInteractive({ useHandCursor: true }).on('pointerdown', () => {
+      const canvas = this.game.canvas;
+      const rect = canvas.getBoundingClientRect();
+      const content = `${presentationLabel(profile)}  ${profile.quality}\n画布 ${canvas.width}×${canvas.height} / 显示 ${Math.round(rect.width)}×${Math.round(rect.height)} / DPR ${window.devicePixelRatio}\n${issues.join('\n')}`;
+      const lines = content.split('\n').flatMap(line => {
+        const chars = Array.from(line);
+        return Array.from({ length: Math.max(1, Math.ceil(chars.length / 60)) }, (_, index) => chars.slice(index * 60, (index + 1) * 60).join(''));
+      });
+      pages = Array.from({ length: Math.ceil(lines.length / 22) }, (_, index) => lines.slice(index * 22, (index + 1) * 22).join('\n'));
+      page = 0; renderPage(); modal.forEach(item => item.setVisible(true));
+    });
   }
 }
 
-async function atlasExists(url: string): Promise<boolean> {
-  try {
-    const res = await fetch(url, { cache: 'no-cache' });
-    if (!res.ok) return false;
-    const ct = res.headers.get('content-type') ?? '';
-    if (!ct.includes('json')) return false;
-    const json = (await res.json()) as { frames?: unknown };
-    return typeof json === 'object' && json !== null && 'frames' in json;
-  } catch {
-    return false;
-  }
-}
+export { SPRITE_KEYS, type SpriteKeys } from '../assets';

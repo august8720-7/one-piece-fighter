@@ -1,0 +1,22 @@
+UTC：2026-09-13T12:21:51.374Z
+工具：Codex内置浏览器
+入口：https://chatgpt.com/images
+实际标题：ChatGPT 图像 2.5 | AI 图像生成器
+文字模式：中（非Pro）
+参考：网页PNG剪贴板上传，缩略图按钮已启用
+[
+  {
+    "file": "C:/Users/august/Projects/one-piece-fighter/public/assets/generated/source/akainu-crouch-punch-upper-0913.png",
+    "sha256": "d17529b2287a80934b78197fb1d4fbfed715cfc149515e7a23800d2ea0176b1e"
+  },
+  {
+    "file": "C:/Users/august/AppData/Local/Temp/akainu-production-prompts0913/akainu-air-punch-range-guide.png",
+    "sha256": "1f20201f34a280004ef1f8a4030e2ec3984cf8c84c633728b88185455077439b"
+  }
+]
+提示词填入并全文读回一致。
+生成会话：https://chatgpt.com/c/6aa69565-b43c-83ea-87ee-d4e46a466709
+原PNG：public/assets/generated/source/akainu-air-punches-0913.png
+SHA256：a04a0eb02da34fde76b263b768629c2fac9b784526e2e3efc03507ab9049ca60
+参考依据：蹲拳原图身份和骨骼真实范围导图
+下载：内置浏览器pageAssets，原PNG未改动。

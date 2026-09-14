@@ -1,9 +1,10 @@
-import { describe, expect, it } from 'vitest';
+﻿import { describe, expect, it } from 'vitest';
 import { Btn, FightSim, GETUP_FRAMES, KNOCKDOWN_FRAMES, balance, px, type FightSimOptions } from '../../src/core';
 import { akainuDef, luffyDef } from '../../src/characters';
 
 const mk = (extra: Partial<FightSimOptions> = {}) =>
   new FightSim({ p1: luffyDef, p2: akainuDef, seed: 5, introFrames: 0, roundTime: -1, ...extra });
+const dmg = (def: typeof luffyDef, id: string) => def.moves.find((m) => m.id === id)!.damage;
 const run = (sim: FightSim, p1: number, p2: number, frames: number) => {
   for (let i = 0; i < frames; i++) sim.step({ p1, p2 });
 };
@@ -58,7 +59,7 @@ describe('projectiles', () => {
     const hit = events.find((e) => e.kind === 'hit');
     expect(hit?.projectile).toBe(true);
     expect(hit?.attacker).toBe(1);
-    expect(sim.state.fighters[0].hp).toBe(hp0 - 90);
+    expect(sim.state.fighters[0].hp).toBe(hp0 - dmg(akainuDef, 'sp_inugami'));
     expect(sim.state.fighters[0].burnFrames).toBe(0); // 犬噛红莲本身不带灼烧
     expect(sim.state.projectiles.length).toBe(0); // 命中后消失
   });
@@ -101,6 +102,7 @@ describe('projectiles', () => {
     closeIn(sim);
     seqP2(sim, P2.qcb(Btn.B)); // 214K
     expect(sim.state.fighters[1].moveId).toBe('sp_meteor');
+    expect(Math.max(...akainuDef.moves.find((m) => m.id === 'sp_meteor')!.frames.map((f) => f.sprite))).toBe(2);
     run(sim, 0, 0, 30);
     expect(sim.state.projectiles.length).toBe(3);
     expect(sim.state.projectiles.every((p) => p.kind === 'meteor' && p.vy > 0)).toBe(true);
@@ -110,24 +112,21 @@ describe('projectiles', () => {
     if (hit) expect(sim.state.fighters[0].burnFrames).toBeGreaterThan(0);
   });
 
-  it('双方飞行道具相碰对消', () => {
-    const sim = mk();
-    seqP2(sim, P2.qcb(Btn.C));
-    run(sim, 0, 0, 26);
-    seqP1(sim, P1.dd(Btn.A));
-    // 等到弹反发生，赤犬立刻再发一颗迎上去
-    let reflected = false;
-    for (let i = 0; i < 40 && !reflected; i++) {
-      sim.step({ p1: 0, p2: 0 });
-      if (sim.hits.some((e) => e.kind === 'reflect')) reflected = true;
-    }
-    expect(reflected).toBe(true);
-    expect(sim.state.projectiles[0]?.owner).toBe(0);
-    seqP2(sim, P2.qcb(Btn.C));
+  it('双方飞行道具相碰对消（赤犬镜像对局，双方同时发犬噛红莲）', () => {
+    const sim = new FightSim({ p1: akainuDef, p2: akainuDef, seed: 5, introFrames: 0, roundTime: -1 });
+    // P1 面朝右：214 = Down, Down|Left, Left；P2 面朝左：214 = Down, Down|Right, Right
+    const p1 = [Btn.Down, Btn.Down | Btn.Left, Btn.Left | Btn.C];
+    const p2 = P2.qcb(Btn.C);
+    for (let i = 0; i < 3; i++) sim.step({ p1: p1[i]!, p2: p2[i]! });
+    expect(sim.state.fighters[0].moveId).toBe('sp_inugami');
     expect(sim.state.fighters[1].moveId).toBe('sp_inugami');
+    run(sim, 0, 0, 15);
+    expect(sim.state.projectiles.length).toBe(2);
     const events = collect(sim, 60);
     expect(events.some((e) => e.kind === 'clash')).toBe(true);
     expect(sim.state.projectiles.length).toBe(0);
+    expect(sim.state.fighters[0].hp).toBe(akainuDef.maxHp);
+    expect(sim.state.fighters[1].hp).toBe(akainuDef.maxHp);
   });
 });
 
@@ -150,7 +149,7 @@ describe('armor', () => {
     expect(ev.some((e) => e.kind === 'armor')).toBe(true);
     expect(sim.state.fighters[1].state).toBe('attack');
     expect(sim.state.fighters[1].moveId).toBe('sp_daifunka');
-    expect(sim.state.fighters[1].hp).toBe(hp0 - 30);
+    expect(sim.state.fighters[1].hp).toBe(hp0 - dmg(luffyDef, 'st_a'));
     for (let i = 0; i < 12 && sim.state.fighters[0].hitstop > 0; i++) sim.step({ p1: 0, p2: 0 });
     sim.step({ p1: Btn.A, p2: 0 });
     const ev2 = collect(sim, 8);
@@ -194,7 +193,7 @@ describe('install: 二档', () => {
     expect(sim.state.fighters[0].stateFrame).toBe(balance.GEAR_SECOND.specialStartupSkip);
     const ev = collect(sim, 30);
     const first = ev.find((e) => e.kind === 'hit');
-    expect(first?.damage).toBe(Math.floor((22 * 23) / 20));
+    expect(first?.damage).toBe(Math.floor((dmg(luffyDef, 'sp_gatling') * 23) / 20));
 
     // 到时：疲劳
     run(sim, 0, 0, sim.state.fighters[0].installFrames);
@@ -216,19 +215,19 @@ describe('install: 二档', () => {
 });
 
 describe('burn', () => {
-  it('灼烧每秒 10 点持续 3 秒，结束后不再掉，不会把血打到 0', () => {
+  it('灼烧按 BURN.dps 每秒扣血持续 3 秒，结束后不再掉，不会把血打到 0', () => {
     const sim = mk();
     const d = sim.state.fighters[0];
     d.burnFrames = balance.BURN.frames;
     d.burnDps = balance.BURN.dps;
     const hp0 = d.hp;
     run(sim, 0, 0, 60);
-    expect(hp0 - sim.state.fighters[0].hp).toBe(10);
+    expect(hp0 - sim.state.fighters[0].hp).toBe(balance.BURN.dps);
     run(sim, 0, 0, 120);
-    expect(hp0 - sim.state.fighters[0].hp).toBe(30);
+    expect(hp0 - sim.state.fighters[0].hp).toBe(balance.BURN.dps * 3);
     expect(sim.state.fighters[0].burnFrames).toBe(0);
     run(sim, 0, 0, 60);
-    expect(hp0 - sim.state.fighters[0].hp).toBe(30);
+    expect(hp0 - sim.state.fighters[0].hp).toBe(balance.BURN.dps * 3);
 
     const low = mk();
     low.state.fighters[0].hp = 3;

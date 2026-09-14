@@ -5,23 +5,25 @@ export const akainuAi: AiProfile = {
   closeRange: 75,
   midRange: 200,
   far: [
-    { weight: 5, action: { kind: 'special', motion: '214', button: 'P' } }, // 犬噛红莲
-    { weight: 2, action: { kind: 'special', motion: '214', button: 'K' } }, // 流星火山
-    { weight: 2, action: { kind: 'walk', dir: 1, frames: 16 } },
+    { weight: 3, action: { kind: 'special', motion: '214', button: 'P', cooldown: 210 } }, // 犬噛红莲（限频：约 3.5 秒一发）
+    { weight: 2, action: { kind: 'special', motion: '214', button: 'K', cooldown: 300 } }, // 流星火山
+    { weight: 3, action: { kind: 'walk', dir: 1, frames: 16 } },
+    { weight: 3, action: { kind: 'wait', frames: 12 } },
     { weight: 1, action: { kind: 'special', motion: '214214', button: 'K', minMeter: 100 } }, // 流星火山·雨
   ],
   mid: [
-    { weight: 3, action: { kind: 'special', motion: '236', button: 'P' } }, // 大喷火（霸体）
+    { weight: 1, action: { kind: 'special', motion: '236', button: 'P', cooldown: 240 } }, // 大喷火（霸体，限频）
     { weight: 3, action: { kind: 'normal', stance: 'stand', button: 'C' } }, // 熔岩拳
     { weight: 2, action: { kind: 'normal', stance: 'stand', button: 'D' } },
-    { weight: 2, action: { kind: 'special', motion: '214', button: 'P' } },
-    { weight: 2, action: { kind: 'wait', frames: 10 } },
-    { weight: 1, action: { kind: 'walk', dir: 1, frames: 10 } },
+    { weight: 1, action: { kind: 'special', motion: '214', button: 'P', cooldown: 210 } },
+    { weight: 3, action: { kind: 'wait', frames: 10 } },
+    { weight: 2, action: { kind: 'walk', dir: 1, frames: 10 } },
+    { weight: 1, action: { kind: 'block', frames: 14, low: true } },
   ],
   close: [
-    { weight: 3, action: { kind: 'special', motion: '623', button: 'P' } }, // 冥狗
+    { weight: 2, action: { kind: 'special', motion: '623', button: 'P', cooldown: 180 } }, // 冥狗
     { weight: 3, action: { kind: 'normal', stance: 'crouch', button: 'D' } }, // 熔岩下扫
-    { weight: 2, action: { kind: 'normal', stance: 'stand', button: 'A' } },
+    { weight: 3, action: { kind: 'normal', stance: 'stand', button: 'A' } },
     { weight: 2, action: { kind: 'throw' } },
     { weight: 1, action: { kind: 'normal', stance: 'stand', button: 'C', forward: true } }, // 熔岩重锤（霸体）
     { weight: 1, action: { kind: 'special', motion: '22', button: 'P', minMeter: 33 } }, // 熔岩化脱困
@@ -37,10 +39,16 @@ export const akainuAi: AiProfile = {
     { weight: 1, action: { kind: 'jump', dir: 0 } },
   ],
   okizeme: [
-    { weight: 3, action: { kind: 'special', motion: '214', button: 'K' } }, // 流星火山压起身
+    { weight: 3, action: { kind: 'special', motion: '214', button: 'K', cooldown: 240 } }, // 流星火山压起身
     { weight: 2, action: { kind: 'walk', dir: 1, frames: 8 } },
     { weight: 2, action: { kind: 'wait', frames: 10 } },
   ],
+  punish: [
+    { weight: 4, action: { kind: 'normal', stance: 'stand', button: 'C' } },
+    { weight: 3, action: { kind: 'special', motion: '623', button: 'P' } }, // 冥狗
+    { weight: 2, action: { kind: 'special', motion: '236', button: 'P', cooldown: 120 } },
+  ],
+  confirmCombo: { from: 'st_a', action: { kind: 'normal', stance: 'stand', button: 'C' } },
   followups: [
     {
       from: ['st_a', 'cr_a'],

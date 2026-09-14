@@ -1,0 +1,22 @@
+UTC：2026-09-13T20:36:09.640Z
+工具：Codex内置浏览器
+入口：https://chatgpt.com/images
+实际标题：ChatGPT 图像 2.5 | AI 图像生成器
+文字模式：中（非Pro）
+参考：网页PNG剪贴板上传，缩略图按钮已启用
+[
+  {
+    "file": "C:/Users/august/AppData/Local/Temp/akainu-production-prompts0913/akainu-air-kicks-two-active-original-reference.png",
+    "sha256": "4dcd48d65074c7f55a86b9779f2b5a8220caf29173f573076ea14633f5997fd8"
+  },
+  {
+    "file": "C:/Users/august/AppData/Local/Temp/akainu-production-prompts0913/akainu-air-kicks-fixed-body-retract-guide.png",
+    "sha256": "7322e23de731ee8c8abb690301c1ba3b5beea32d065dde9fb6a13b70298cab50"
+  }
+]
+提示词填入并全文读回一致。
+生成会话：https://chatgpt.com/c/6aa70940-2940-83ea-af6e-4569a7b1fa73
+原PNG：public/assets/generated/source/akainu-air-kicks-retracted-repair-0913.png
+SHA256：2bec40fbb6fb6be7693b7e3d5869cce48173ec7e2363ecb686de54244f4190ec
+参考依据：原六姿中的两张有效姿，身体与虚拟根固定，普通脚和熔岩脚分别收回至真实范围内
+下载：内置浏览器pageAssets，原PNG未改动。

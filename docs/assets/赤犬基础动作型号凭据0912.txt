@@ -1,0 +1,18 @@
+赤犬基础动作 akainu-basics-0912 的独立型号依据快照
+记录日期：2026-09-12（Asia/Shanghai）。精确生成完成时间未记录，不虚构秒级时间，也不把下载文件名中的时间当作生成时间。
+提交前官方入口：https://chatgpt.com/images/
+提交前页面依据：主任务在 Edge tab 843467452 观察到页面标题“ChatGPT 图像 2.5 | AI 图像生成器”，先核对已附母版与完整提示词，再点击发送。
+绘图型号记录：GPT Image 2.5；provider: chatgpt-web。
+生成会话：https://chatgpt.com/c/6aa43b28-9e58-83ea-9a08-3a590713c7ad
+会话标题：生成格斗动作原画表
+最终图片名：绿幕背景下的动漫格斗角色动作表情集
+参考母版：public/assets/generated/source/characters-master-0912.png
+参考母版 SHA256：1e0e47229db7bee69789282efdec93ca737a3d1dfb4582f06eed2881a5ddad51
+完整提示词：docs/assets/赤犬基础动作原始提示词0912.txt
+原始下载：C:/Users/august/Downloads/ChatGPT Image 2026年9月12日 01_37_56.png.crdownload
+原下载经 PNG IEND 与 Pillow verify 检查通过后按原字节复制；文件扩展名保留了浏览器的临时下载后缀，不能据此推断内容不完整。
+本地源图：public/assets/generated/source/akainu-basics-0912.png，1448×1086 PNG。
+本地源图 SHA256：ce90f3b01d55bcae3f77c7f7dee92a7f4c11f98c5e4ea89b4e59b9babc5c7515
+观察来源：同一主任务的网页操作记录与交接；本子任务未重新访问网页，只复核本地源图并逐姿势目检。
+证据边界：网页 6 Pro 按钮或提示词里的型号名称不是绘图型号依据；上述型号记录依据生成前官方图像入口的实际页面标识，不声称可验证后台路由元数据。
+状态：基础姿势候选；走路换腿与支撑脚需复核，正常速度和可操控样板未验收。缺蹲防，不用其他姿势冒充。

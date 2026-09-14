@@ -1,0 +1,891 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-12",
+  "status": "candidate-not-art-accepted",
+  "source": {
+    "file": "public/assets/generated/source/fighters-footwork-0912.png",
+    "sha256": "079373888f771ff619aab3d15425c0b3dde4cd1057c628985c7575daedd8ed15",
+    "model": "GPT Image 2.5",
+    "provider": "chatgpt-web",
+    "sessionUrl": "https://chatgpt.com/c/6aa43dbe-8db0-83e9-9756-7b141ff69c1f",
+    "generatedAt": "2026-09-12",
+    "generatedAtPrecision": "day; precise completion time not recorded",
+    "modelEvidence": {
+      "file": "docs/assets/格斗步法与蹲防型号凭据0912.txt",
+      "sha256": "4bebdc595653db77cc3a0e6cc033fadbbf2a29b29716c073b70bcddadf3c5dcd"
+    },
+    "prompt": {
+      "file": "docs/assets/格斗步法与蹲防提示词0912.txt",
+      "sha256": "c167641c4dcba84481dd5001108f798121caf1117e4668d18dc118965d74301a"
+    }
+  },
+  "sourceDimensions": [
+    1448,
+    1086
+  ],
+  "calibration": {
+    "luffy": {
+      "unitScale": 2.419452887537994,
+      "scaleBasis": "Fixed row3/column1 neutral alpha height=329px, original master same-character neutral alpha height=796px. Apply 796/329 uniformly to all poses of this character on the shared sheet. Character.scale remains0.22. No per-pose scale fitting."
+    },
+    "akainu": {
+      "unitScale": 2.6782608695652175,
+      "scaleBasis": "Fixed row3/column3 neutral alpha height=345px, original master same-character neutral alpha height=924px. Apply 924/345 uniformly to all poses of this character on the shared sheet. Character.scale remains0.22. No per-pose scale fitting."
+    }
+  },
+  "frames": [
+    {
+      "character": "luffy",
+      "name": "step_1",
+      "crop": [
+        21,
+        31,
+        339,
+        320
+      ],
+      "root": [
+        160,
+        312
+      ],
+      "sockets": {
+        "shoulder": [
+          192,
+          88
+        ],
+        "wrist": [
+          233,
+          107
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        332,
+        313
+      ],
+      "visibleHeight": 306,
+      "effectiveScale": 0.5322796352583586,
+      "geometry": {
+        "size": {
+          "width": 180,
+          "height": 170
+        },
+        "root": {
+          "x": 85.16474164133739,
+          "y": 166.0712462006079
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 102.19768996960485,
+            "y": 46.84060790273556
+          },
+          "wrist": {
+            "x": 124.02115501519756,
+            "y": 56.953920972644376
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 76373,
+        "despilledEdgePixels": 1450
+      },
+      "status": "computed-in-memory-only; fragment-delivered-to-luffy-owner"
+    },
+    {
+      "character": "luffy",
+      "name": "step_2",
+      "crop": [
+        423,
+        30,
+        251,
+        323
+      ],
+      "root": [
+        120,
+        315
+      ],
+      "sockets": {
+        "shoulder": [
+          152,
+          98
+        ],
+        "wrist": [
+          181,
+          113
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        244,
+        316
+      ],
+      "visibleHeight": 309,
+      "effectiveScale": 0.5322796352583586,
+      "geometry": {
+        "size": {
+          "width": 134,
+          "height": 172
+        },
+        "root": {
+          "x": 63.873556231003036,
+          "y": 167.66808510638296
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 80.90650455927052,
+            "y": 52.16340425531914
+          },
+          "wrist": {
+            "x": 96.34261398176291,
+            "y": 60.14759878419453
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 51446,
+        "despilledEdgePixels": 1337
+      },
+      "status": "computed-in-memory-only; fragment-delivered-to-luffy-owner"
+    },
+    {
+      "character": "luffy",
+      "name": "step_3",
+      "crop": [
+        760,
+        25,
+        282,
+        327
+      ],
+      "root": [
+        145,
+        319
+      ],
+      "sockets": {
+        "shoulder": [
+          172,
+          94
+        ],
+        "wrist": [
+          197,
+          112
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        275,
+        320
+      ],
+      "visibleHeight": 313,
+      "effectiveScale": 0.5322796352583586,
+      "geometry": {
+        "size": {
+          "width": 150,
+          "height": 174
+        },
+        "root": {
+          "x": 77.18054711246201,
+          "y": 169.7972036474164
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 91.55209726443769,
+            "y": 50.034285714285716
+          },
+          "wrist": {
+            "x": 104.85908814589665,
+            "y": 59.615319148936166
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 61688,
+        "despilledEdgePixels": 1352
+      },
+      "status": "computed-in-memory-only; fragment-delivered-to-luffy-owner"
+    },
+    {
+      "character": "luffy",
+      "name": "step_4",
+      "crop": [
+        1089,
+        30,
+        325,
+        321
+      ],
+      "root": [
+        178,
+        313
+      ],
+      "sockets": {
+        "shoulder": [
+          207,
+          95
+        ],
+        "wrist": [
+          228,
+          109
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        318,
+        314
+      ],
+      "visibleHeight": 307,
+      "effectiveScale": 0.5322796352583586,
+      "geometry": {
+        "size": {
+          "width": 173,
+          "height": 171
+        },
+        "root": {
+          "x": 94.74577507598784,
+          "y": 166.60352583586626
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 110.18188449848024,
+            "y": 50.56656534954407
+          },
+          "wrist": {
+            "x": 121.35975683890577,
+            "y": 58.01848024316109
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 72929,
+        "despilledEdgePixels": 1397
+      },
+      "status": "computed-in-memory-only; fragment-delivered-to-luffy-owner"
+    },
+    {
+      "character": "luffy",
+      "name": "guard_crouch",
+      "crop": [
+        388,
+        771,
+        287,
+        276
+      ],
+      "root": [
+        155,
+        268
+      ],
+      "sockets": {
+        "shoulder": [
+          123,
+          77
+        ],
+        "wrist": [
+          161,
+          73
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        280,
+        269
+      ],
+      "visibleHeight": 262,
+      "effectiveScale": 0.5322796352583586,
+      "geometry": {
+        "size": {
+          "width": 153,
+          "height": 147
+        },
+        "root": {
+          "x": 82.50334346504559,
+          "y": 142.6509422492401
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 65.47039513677811,
+            "y": 40.98553191489361
+          },
+          "wrist": {
+            "x": 85.69702127659573,
+            "y": 38.85641337386018
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 51537,
+        "despilledEdgePixels": 1197
+      },
+      "status": "computed-in-memory-only; fragment-delivered-to-luffy-owner"
+    },
+    {
+      "character": "luffy",
+      "name": "footwork_idle_reference",
+      "crop": [
+        27,
+        704,
+        315,
+        343
+      ],
+      "root": [
+        154,
+        335
+      ],
+      "sockets": {
+        "shoulder": [
+          199,
+          95
+        ],
+        "wrist": [
+          243,
+          111
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        308,
+        336
+      ],
+      "visibleHeight": 329,
+      "effectiveScale": 0.5322796352583586,
+      "geometry": {
+        "size": {
+          "width": 168,
+          "height": 183
+        },
+        "root": {
+          "x": 81.97106382978723,
+          "y": 178.31367781155015
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 105.92364741641337,
+            "y": 50.56656534954407
+          },
+          "wrist": {
+            "x": 129.34395136778116,
+            "y": 59.08303951367781
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 73348,
+        "despilledEdgePixels": 1570
+      },
+      "status": "computed-in-memory-only; fragment-delivered-to-luffy-owner"
+    },
+    {
+      "character": "akainu",
+      "name": "step_1",
+      "crop": [
+        19,
+        355,
+        355,
+        338
+      ],
+      "root": [
+        162,
+        330
+      ],
+      "sockets": {
+        "shoulder": [
+          259,
+          91
+        ],
+        "wrist": [
+          280,
+          108
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        348,
+        331
+      ],
+      "visibleHeight": 324,
+      "effectiveScale": 0.5892173913043478,
+      "geometry": {
+        "size": {
+          "width": 209,
+          "height": 199
+        },
+        "root": {
+          "x": 95.45321739130435,
+          "y": 194.44173913043477
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 152.60730434782607,
+            "y": 53.61878260869565
+          },
+          "wrist": {
+            "x": 164.98086956521738,
+            "y": 63.63547826086956
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 57536,
+        "despilledEdgePixels": 1309
+      },
+      "file": "public/assets/characters/akainu/anime/step_1-candidate-0912.png",
+      "sha256": "ee8197f37b85af286faf7e5203345e8f033f11309075af951e86e5f818686f6f"
+    },
+    {
+      "character": "akainu",
+      "name": "step_2",
+      "crop": [
+        391,
+        355,
+        308,
+        338
+      ],
+      "root": [
+        152,
+        330
+      ],
+      "sockets": {
+        "shoulder": [
+          228,
+          85
+        ],
+        "wrist": [
+          259,
+          100
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        301,
+        331
+      ],
+      "visibleHeight": 324,
+      "effectiveScale": 0.5892173913043478,
+      "geometry": {
+        "size": {
+          "width": 181,
+          "height": 199
+        },
+        "root": {
+          "x": 89.56104347826087,
+          "y": 194.44173913043477
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 134.3415652173913,
+            "y": 50.08347826086956
+          },
+          "wrist": {
+            "x": 152.60730434782607,
+            "y": 58.92173913043478
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 44252,
+        "despilledEdgePixels": 1347
+      },
+      "file": "public/assets/characters/akainu/anime/step_2-candidate-0912.png",
+      "sha256": "b5f8dbc66a8e1e1e21bedfe9216452360ba46163777d85f27a846b3f42bea490"
+    },
+    {
+      "character": "akainu",
+      "name": "step_3",
+      "crop": [
+        736,
+        354,
+        331,
+        339
+      ],
+      "root": [
+        169,
+        331
+      ],
+      "sockets": {
+        "shoulder": [
+          247,
+          92
+        ],
+        "wrist": [
+          269,
+          104
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        324,
+        332
+      ],
+      "visibleHeight": 325,
+      "effectiveScale": 0.5892173913043478,
+      "geometry": {
+        "size": {
+          "width": 195,
+          "height": 200
+        },
+        "root": {
+          "x": 99.57773913043478,
+          "y": 195.0309565217391
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 145.5366956521739,
+            "y": 54.208
+          },
+          "wrist": {
+            "x": 158.49947826086955,
+            "y": 61.278608695652174
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 52470,
+        "despilledEdgePixels": 1234
+      },
+      "file": "public/assets/characters/akainu/anime/step_3-candidate-0912.png",
+      "sha256": "f7264476bc18a2da8089dcb3d40787764c1262da2295b83abe6424baccf45bf5"
+    },
+    {
+      "character": "akainu",
+      "name": "step_4",
+      "crop": [
+        1103,
+        358,
+        338,
+        335
+      ],
+      "root": [
+        164,
+        327
+      ],
+      "sockets": {
+        "shoulder": [
+          240,
+          81
+        ],
+        "wrist": [
+          268,
+          98
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        331,
+        328
+      ],
+      "visibleHeight": 321,
+      "effectiveScale": 0.5892173913043478,
+      "geometry": {
+        "size": {
+          "width": 199,
+          "height": 197
+        },
+        "root": {
+          "x": 96.63165217391304,
+          "y": 192.67408695652173
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 141.41217391304346,
+            "y": 47.726608695652175
+          },
+          "wrist": {
+            "x": 157.9102608695652,
+            "y": 57.74330434782608
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 52240,
+        "despilledEdgePixels": 1293
+      },
+      "file": "public/assets/characters/akainu/anime/step_4-candidate-0912.png",
+      "sha256": "8f62ba294c3e9a4572e2410d9ced3585e00d1f963d9452f69595aa9ef1d13bd7"
+    },
+    {
+      "character": "akainu",
+      "name": "guard_crouch",
+      "crop": [
+        1110,
+        743,
+        323,
+        306
+      ],
+      "root": [
+        157,
+        298
+      ],
+      "sockets": {
+        "shoulder": [
+          231,
+          115
+        ],
+        "wrist": [
+          227,
+          79
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        316,
+        299
+      ],
+      "visibleHeight": 292,
+      "effectiveScale": 0.5892173913043478,
+      "geometry": {
+        "size": {
+          "width": 190,
+          "height": 180
+        },
+        "root": {
+          "x": 92.50713043478261,
+          "y": 175.58678260869564
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 136.10921739130436,
+            "y": 67.75999999999999
+          },
+          "wrist": {
+            "x": 133.75234782608695,
+            "y": 46.54817391304348
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 39801,
+        "despilledEdgePixels": 1101
+      },
+      "file": "public/assets/characters/akainu/anime/guard_crouch-candidate-0912.png",
+      "sha256": "71c105efaf0271950831b94e2d3f784946379af12b50a70b0bf452c4200b1e3f"
+    },
+    {
+      "character": "akainu",
+      "name": "footwork_idle_reference",
+      "crop": [
+        721,
+        690,
+        346,
+        359
+      ],
+      "root": [
+        184,
+        351
+      ],
+      "sockets": {
+        "shoulder": [
+          251,
+          94
+        ],
+        "wrist": [
+          274,
+          114
+        ]
+      },
+      "sourceAlphaBounds": [
+        7,
+        7,
+        339,
+        352
+      ],
+      "visibleHeight": 345,
+      "effectiveScale": 0.5892173913043478,
+      "geometry": {
+        "size": {
+          "width": 204,
+          "height": 212
+        },
+        "root": {
+          "x": 108.416,
+          "y": 206.81530434782607
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 147.8935652173913,
+            "y": 55.386434782608696
+          },
+          "wrist": {
+            "x": 161.4455652173913,
+            "y": 67.17078260869565
+          }
+        }
+      },
+      "processingStats": {
+        "removedBorderPixels": 57694,
+        "despilledEdgePixels": 1377
+      },
+      "file": "public/assets/characters/akainu/anime/footwork_idle_reference-candidate-0912.png",
+      "sha256": "69627c407dcddb92e679702fbeac8238799d377ed87ab31cb9e3049bfe434ecb"
+    }
+  ],
+  "movementSubpixelsPerTick": {
+    "luffy": {
+      "forward": 614,
+      "backward": 461
+    },
+    "akainu": {
+      "forward": 435,
+      "backward": 333
+    }
+  },
+  "screenScale": 2,
+  "walkTiming": {
+    "forwardTicksPerDrawing": 6,
+    "backwardTicksPerDrawing": 8,
+    "backwardFrameOrder": [
+      4,
+      3,
+      2,
+      1
+    ]
+  },
+  "footContactEstimates": {
+    "luffy": {
+      "manualFrontFootSourcePoints": [
+        [
+          315,
+          335
+        ],
+        [
+          635,
+          335
+        ],
+        [
+          1008,
+          316
+        ],
+        [
+          1371,
+          335
+        ]
+      ],
+      "manualRearFootSourcePoints": [
+        [
+          50,
+          338
+        ],
+        [
+          455,
+          340
+        ],
+        [
+          790,
+          337
+        ],
+        [
+          1120,
+          336
+        ]
+      ],
+      "forwardRootShiftPerDrawingScreenPx": 28.78125,
+      "frontFootWorldDeltaStep1To2": 6.425505319148947,
+      "frontFootWorldDeltaStep4ToNext1": 44.749639057750755,
+      "caveat": "Approximate selected visible sole points, not tracked skeletal joints or acceptance thresholds; verify real loop visually."
+    },
+    "akainu": {
+      "manualFrontFootSourcePoints": [
+        [
+          325,
+          678
+        ],
+        [
+          651,
+          678
+        ],
+        [
+          1029,
+          650
+        ],
+        [
+          1392,
+          679
+        ]
+      ],
+      "manualRearFootSourcePoints": [
+        [
+          65,
+          682
+        ],
+        [
+          461,
+          682
+        ],
+        [
+          800,
+          682
+        ],
+        [
+          1138,
+          682
+        ]
+      ],
+      "forwardRootShiftPerDrawingScreenPx": 20.390625,
+      "frontFootWorldDeltaStep1To2": -0.8212010869565205,
+      "frontFootWorldDeltaStep4ToNext1": 31.585755434782612,
+      "caveat": "Approximate selected visible sole points, not tracked skeletal joints or acceptance thresholds; verify real loop visually."
+    }
+  },
+  "crouchGuardGeometry": {
+    "luffy": {
+      "sourceVisibleHeight": 262,
+      "neutralVisibleHeight": 329,
+      "faceSourceApprox": [
+        538,
+        839
+      ],
+      "faceAboveRootScreenPx": 106.45592705167174,
+      "opposingAkainuJabScreenY": [
+        -172,
+        -140
+      ],
+      "verticalHurtOverlapPx": 0
+    },
+    "akainu": {
+      "sourceVisibleHeight": 292,
+      "neutralVisibleHeight": 345,
+      "faceSourceApprox": [
+        1303,
+        804
+      ],
+      "faceAboveRootScreenPx": 139.64452173913043,
+      "opposingLuffyJabScreenY": [
+        -156,
+        -128
+      ],
+      "verticalHurtOverlapPx": 8,
+      "opposingLuffyPistolScreenY": [
+        -160,
+        -120
+      ],
+      "pistolVerticalHurtOverlapPx": 16
+    },
+    "interpretation": "Full alpha height includes hats/coats and alone cannot fail the drawing. Face points are manual estimates. Actual contact/guard inputs need in-game acceptance."
+  },
+  "media": [
+    {
+      "file": ".local-releases/footwork-0912/跟步与蹲防接触表0912.png",
+      "sha256": "315c933df016e46cb9005432644b1d617f9d245363a03c7741f582b750d01a89"
+    },
+    {
+      "file": ".local-releases/footwork-0912/双角色真实步速候选0912.gif",
+      "sha256": "08a1808480c6b6487dd462f18d52add1b3bfd65375c6f82dacaf27b860d4a78b"
+    },
+    {
+      "file": ".local-releases/footwork-0912/蹲防与真实攻击框0912.png",
+      "sha256": "17a43e3e6915e1dedeaa78aa3ead2d55328e2a6a3b34a88eae527ee22e26b822"
+    }
+  ],
+  "luffyDelivery": "TEMP/luffy-footwork-fragment-0912.json handed to audio_finish; no Luffy subtree or standalone Luffy PNG written by this task.",
+  "artFindings": [
+    "Grounded advance/close-foot progression is more legible than prior same-leg marching.",
+    "The fourth-to-first seam still moves the apparent planted front sole forward; quantify as approximate preview evidence, not acceptance.",
+    "Crouch-guard full silhouette height is higher than logical hurtbox, but real opposing attack bands explain expected hit/miss; do not force per-pose resize."
+  ]
+}

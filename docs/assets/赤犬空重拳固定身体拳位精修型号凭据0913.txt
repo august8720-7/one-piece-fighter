@@ -1,0 +1,22 @@
+UTC：2026-09-13T21:37:34.967Z
+工具：Codex内置浏览器
+入口：https://chatgpt.com/images
+实际标题：ChatGPT 图像 2.5 | AI 图像生成器
+文字模式：中（非Pro）
+参考：网页PNG剪贴板上传，缩略图按钮已启用
+[
+  {
+    "file": "C:/Users/august/AppData/Local/Temp/akainu-production-prompts0913/akainu-j_c-forward-corrected-body-reference.png",
+    "sha256": "ef2d2e60b4716098fc5eedc295c7d427167309dc9b3b846a6de22526ec628f8d"
+  },
+  {
+    "file": "C:/Users/august/AppData/Local/Temp/akainu-production-prompts0913/akainu-j_c-fixed-body-final-fist-target-guide.png",
+    "sha256": "1508b871f72f67c0e49b516eb4cfefc353795470a577bf0c8b15467dfa5b89af"
+  }
+]
+提示词填入并全文读回一致。
+生成会话：https://chatgpt.com/c/6aa717a5-a880-83ea-bd6b-a9c7488394fb
+原PNG：public/assets/generated/source/akainu-air-heavy-fixed-fist-0913.png
+SHA256：d72d1bae41383dc12401ccc562108fb2edff88e5d223a961b4c83a36b1abc26f
+参考依据：固定身体的拳中心精修，仅模型重绘连接；待实际空中范围审核
+下载：内置浏览器pageAssets，原PNG未改动。

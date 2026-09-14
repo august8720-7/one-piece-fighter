@@ -1,0 +1,18 @@
+格斗步法与蹲防 fighters-footwork-0912 的独立型号依据快照
+记录日期：2026-09-12（Asia/Shanghai）。精确生成完成时间未记录，不把下载文件名中的时间当作生成时间。
+提交前官方入口：https://chatgpt.com/images/
+提交前页面依据：主任务在 Edge tab 843467452 核实页面标题“ChatGPT 图像 2.5 | AI 图像生成器”，附人物母版 reference，读回完整提示词后点击发送。
+绘图型号记录：GPT Image 2.5；provider: chatgpt-web。
+生成会话：https://chatgpt.com/c/6aa43dbe-8db0-83e9-9756-7b141ff69c1f
+会话标题：生成格斗原画
+最终图片名：路飞与赤犬格斗动作精灵表
+参考母版：public/assets/generated/source/characters-master-0912.png
+参考母版 SHA256：1e0e47229db7bee69789282efdec93ca737a3d1dfb4582f06eed2881a5ddad51
+完整提示词：docs/assets/格斗步法与蹲防提示词0912.txt
+原始下载：C:/Users/august/Downloads/ChatGPT Image 2026年9月12日 01_53_05.png.crdownload
+主任务已核对原下载结构，并按原字节复制。本子任务另行复核本地 PNG 的 Pillow verify、尺寸及 SHA256。
+本地源图：public/assets/generated/source/fighters-footwork-0912.png，1448×1086 PNG RGB。
+本地源图 SHA256：079373888f771ff619aab3d15425c0b3dde4cd1057c628985c7575daedd8ed15
+观察来源：同一主任务的网页操作记录与交接；本子任务未重新访问网页。
+证据边界：网页 6 Pro 按钮或提示词中的型号名称不作绘图型号依据；型号记录依据生成前官方图像入口的实际页面标识，不声称可验证后台路由元数据。
+状态：跟步与蹲防候选，需按角色真实前后移动速度检查落脚、循环衔接与滑步；尚未通过可操控样板验收。

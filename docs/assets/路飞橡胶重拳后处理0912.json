@@ -1,0 +1,837 @@
+{
+  "status": "offline-candidate-not-art-or-gameplay-acceptance",
+  "date": "2026-09-12",
+  "sourceBoundary": "Every adopted frame retains an original Image2.5 source path and frozen evidence hashes. Local transform resamples those original pixels only; derived PNGs are outputs, not sources.",
+  "sources": {
+    "stretch_first_0912": {
+      "file": "public/assets/generated/source/luffy-stretch-0912.png",
+      "sha256": "a9913420776191da89c3b838279eea177b7ae631245b52d1c9d7f57613c25fb1",
+      "model": "GPT Image 2.5",
+      "provider": "chatgpt-web",
+      "sessionUrl": "https://chatgpt.com/c/6aa43548-ce74-83e9-96c1-4bdb135acf2a",
+      "generatedAt": "2026-09-12",
+      "generatedAtPrecision": "day; exact completion time not recorded",
+      "unitScale": 1.8729411764705883,
+      "scaleBasis": "One source-wide calibration from pose 1 visible idle height 425px to master visible idle height 796px. Applied identically to all poses; no pose-specific bounds normalization.",
+      "modelEvidence": {
+        "file": "docs/assets/路飞伸臂型号凭据0912.txt",
+        "sha256": "c7d1b01ef169d9c4363d91b682d0c4334e6d98cb050d016b0285e47d6f0c77d4"
+      },
+      "prompt": {
+        "file": "docs/assets/路飞伸臂原始提示词0912.txt",
+        "sha256": "2c09b910aa38ddcf89aace3fef42fca09d2c662eff06152a82e7634f1f869685"
+      }
+    },
+    "stretch_repair_0912": {
+      "file": "public/assets/generated/source/luffy-stretch-repair-0912.png",
+      "sha256": "4a9fc7328e8631c8a5a208dfb6ce4b7ca5a1cd156f334b0e534a06f5cf8020f5",
+      "modelEvidence": {
+        "file": "docs/assets/路飞伸臂返工型号凭据0912.txt",
+        "sha256": "8f1d244ae262bed7eddc63d42c0643b476cf265eb7b0eed4e948be7cd182670d"
+      },
+      "prompt": {
+        "file": "docs/assets/路飞伸臂返工提示词0912.txt",
+        "sha256": "ee6d56804caf31c8cbbb1001e1761ce3d097a70dcaacb1455a9bcfe42ba532b9"
+      },
+      "model": "GPT Image 2.5",
+      "provider": "chatgpt-web",
+      "sessionUrl": "https://chatgpt.com/c/6aa43c01-68c4-83ea-a6d5-3cb735b3be34",
+      "generatedAt": "2026-09-12",
+      "generatedAtPrecision": "day; exact completion time not recorded",
+      "unitScale": 3.0615384615384613,
+      "scaleBasis": "One source-wide calibration: repaired sheet neutral visible bbox[322,13,580,273], height260 to master height796. All three poses share unitScale796/260. Local rubber transform is separate and never a body/pose scale."
+    }
+  },
+  "calibration": {
+    "method": "Explicit green key tolerance32; foreground bbox exact to threshold. Anatomical landmarks manually inspected in native-resolution grid; center is distal fist bounding-box center, +/-3 source px landmark uncertainty. root is midpoint of support footprint outer x extents; ground y is bottom-exclusive foreground edge.",
+    "renderScale": 2,
+    "characterScale": 0.22,
+    "referenceVisibleHeight": 796,
+    "neutralVisibleBbox": [
+      322,
+      13,
+      580,
+      273
+    ],
+    "neutralVisibleHeight": 260,
+    "neutralRootSource": [
+      451,
+      273
+    ],
+    "unitScale": 3.0615384615384613,
+    "sourceToScreenScale": 0.6735384615384615,
+    "activeVisibleBbox": [
+      318,
+      278,
+      1174,
+      506
+    ],
+    "activeRootSource": [
+      449.5,
+      506.0
+    ],
+    "activeShoulderSource": [
+      490,
+      340
+    ],
+    "activeCuffSource": [
+      550,
+      348.5
+    ],
+    "straightSegmentStartSource": [
+      580.0,
+      348.5
+    ],
+    "wristSource": [
+      1128.0,
+      342.5
+    ],
+    "fistBboxSource": [
+      1128,
+      326,
+      1174,
+      363
+    ],
+    "fistCenterSource": [
+      1151.0,
+      344.5
+    ],
+    "fistCenterScreen": [
+      472.4872307692308,
+      -108.77646153846153
+    ],
+    "fistFrontScreen": 487.97861538461535,
+    "fistScreenVerticalInterval": [
+      -121.23692307692308,
+      -96.316
+    ],
+    "actualStCHitboxScreen": [
+      28,
+      -160,
+      280,
+      40
+    ],
+    "targetHitboxFrontScreen": 308,
+    "targetFistCenterYScreen": -140
+  },
+  "geometryFit": {
+    "applied": false,
+    "preserve": "No body, support foot, root, shoulder, sleeve/cuff movement or scaling. x<580 stays fixed. Compress only straight skin segment from source x580 to1128; distal wrist/fist remains rigid; rotate compressed extension about source anchor [580,348.5]. A short seam interpolation after fixed cuff is needed to avoid a crack, to be visually checked.",
+    "straightSectionHorizontalScale": 0.5188810292742096,
+    "rotateDegreesClockwiseSourceYAxisDown": -8.683742416469698,
+    "straightSectionBeforeLengthSource": 548.0,
+    "straightSectionAfterHorizontalLengthSource": 284.3468040422669,
+    "fistCenterAfterSource": [
+      883.2196947007108,
+      298.1425308359982
+    ],
+    "wristAfterSource": [
+      860.1813883978627,
+      299.63800490670303
+    ],
+    "fistCenterAfterScreen": [
+      292.12689590764796,
+      -140.0
+    ],
+    "fistFrontAfterScreen": 308.0,
+    "fistVerticalIntervalAfterScreen": [
+      -153.53791708033876,
+      -128.19083093324937
+    ],
+    "fistCenterDisplacementScreen": [
+      -180.3603348615828,
+      -31.22353846153846
+    ],
+    "assessment": "The computed local edit is feasible in geometry: about half straight length and about9deg upward rotation. Body/shoulder do not need repaint for range. This is not art or seam acceptance; no transform output or atlas has been produced."
+  },
+  "animation": {
+    "frames": [
+      "stretch_windup",
+      "stretch_active",
+      "stretch_retract",
+      "stretch_recoil",
+      "stretch_return"
+    ],
+    "loop": false,
+    "exposures": [
+      {
+        "frame": 0,
+        "ticks": 9
+      },
+      {
+        "frame": 1,
+        "ticks": 4
+      },
+      {
+        "frame": 2,
+        "ticks": 4
+      },
+      {
+        "frame": 3,
+        "ticks": 6
+      },
+      {
+        "frame": 4,
+        "ticks": 6
+      }
+    ]
+  },
+  "frames": {
+    "stretch_windup": {
+      "config": {
+        "source": "stretch_first_0912",
+        "crop": [
+          590,
+          54,
+          389,
+          419
+        ],
+        "root": [
+          194,
+          411
+        ],
+        "sockets": {
+          "shoulder": [
+            123,
+            85
+          ],
+          "wrist": [
+            61,
+            129
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 32,
+          "despill": true,
+          "seeds": [],
+          "despillRadius": 3
+        },
+        "note": "Real source pose from first sheet; rejected extension drawings from that sheet remain unused. Fixed neutral-based source calibration."
+      },
+      "geometry": {
+        "size": {
+          "width": 160,
+          "height": 173
+        },
+        "root": {
+          "x": 79.93712941176472,
+          "y": 169.35134117647058
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 50.68178823529412,
+            "y": 35.024
+          },
+          "wrist": {
+            "x": 25.134870588235295,
+            "y": 53.1540705882353
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 109776,
+        "despilledEdgePixels": 2973
+      },
+      "output": {
+        "file": "public/assets/characters/luffy/anime/stretch_windup-candidate-0912.png",
+        "sha256": "471b7890494c8d0514b732522cf0d65dce8301c4bd67a858750a8c4c2adfd8f9"
+      }
+    },
+    "stretch_active": {
+      "config": {
+        "source": "stretch_repair_0912",
+        "crop": [
+          310,
+          274,
+          872,
+          234
+        ],
+        "root": [
+          139.5,
+          232
+        ],
+        "sockets": {
+          "shoulder": [
+            180,
+            66
+          ],
+          "wrist": [
+            818,
+            68.5
+          ],
+          "fist": [
+            841,
+            70.5
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 32,
+          "despill": true,
+          "despillRadius": 3,
+          "seeds": [
+            [
+              91,
+              74
+            ]
+          ]
+        },
+        "excludeRects": [
+          [
+            90,
+            230,
+            100,
+            4
+          ]
+        ],
+        "transform": {
+          "type": "rubber-straight",
+          "anchor": [
+            270,
+            74.5
+          ],
+          "wrist": [
+            818,
+            68.5
+          ],
+          "region": [
+            270,
+            41,
+            602,
+            62
+          ],
+          "compression": 0.5188810292742096,
+          "rotationDegrees": -8.683742416469698,
+          "transitionLength": 40,
+          "protectedRects": [
+            [
+              0,
+              0,
+              270,
+              234
+            ],
+            [
+              0,
+              103,
+              872,
+              131
+            ]
+          ],
+          "note": "Frozen geometry calibration from source neutral260px and actual st_c hitbox. Only source rubber segment pixels are remapped; no paint or body scaling."
+        }
+      },
+      "geometry": {
+        "size": {
+          "width": 587,
+          "height": 158
+        },
+        "root": {
+          "x": 93.95861538461538,
+          "y": 156.26092307692306
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 121.23692307692308,
+            "y": 44.453538461538464
+          },
+          "wrist": {
+            "x": 370.5683259085912,
+            "y": 17.268182381776306
+          },
+          "fist": {
+            "x": 386.08551129226333,
+            "y": 16.260923076923067
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 170034,
+        "despilledEdgePixels": 2975,
+        "transform": {
+          "type": "rubber-straight",
+          "parameters": {
+            "type": "rubber-straight",
+            "anchor": [
+              270,
+              74.5
+            ],
+            "wrist": [
+              818,
+              68.5
+            ],
+            "region": [
+              270,
+              41,
+              602,
+              62
+            ],
+            "compression": 0.5188810292742096,
+            "rotationDegrees": -8.683742416469698,
+            "transitionLength": 40,
+            "protectedRects": [
+              [
+                0,
+                0,
+                270,
+                234
+              ],
+              [
+                0,
+                103,
+                872,
+                131
+              ]
+            ],
+            "note": "Frozen geometry calibration from source neutral260px and actual st_c hitbox. Only source rubber segment pixels are remapped; no paint or body scaling."
+          },
+          "protectedPixelsChanged": 0,
+          "protectedRegionHashes": [
+            {
+              "rect": [
+                0,
+                0,
+                270,
+                234
+              ],
+              "beforeSha256": "d9b1416b88da1ee4844f62173b50b9c0fbbd406de47e92bca9d2db7285df6ec5",
+              "afterSha256": "d9b1416b88da1ee4844f62173b50b9c0fbbd406de47e92bca9d2db7285df6ec5"
+            },
+            {
+              "rect": [
+                0,
+                103,
+                872,
+                131
+              ],
+              "beforeSha256": "27512832882c1d7713c097702ab0b7629d181b1bf414f7fd7ef13e55c8632db5",
+              "afterSha256": "27512832882c1d7713c097702ab0b7629d181b1bf414f7fd7ef13e55c8632db5"
+            }
+          ],
+          "rootUnchanged": [
+            139.5,
+            232.0
+          ],
+          "transformedSockets": {
+            "shoulder": [
+              180.0,
+              66.0
+            ],
+            "wrist": [
+              550.1813883978626,
+              25.63800490670306
+            ],
+            "fist": [
+              573.2196947007108,
+              24.14253083599816
+            ]
+          }
+        }
+      },
+      "output": {
+        "file": "public/assets/characters/luffy/anime/stretch_active-candidate-0912.png",
+        "sha256": "c679107bab7b991e1d9416dab33bd74e21ea4569323c42663e71dfcdb5653f99"
+      }
+    },
+    "stretch_retract": {
+      "config": {
+        "source": "stretch_repair_0912",
+        "crop": [
+          310,
+          274,
+          872,
+          234
+        ],
+        "root": [
+          139.5,
+          232
+        ],
+        "sockets": {
+          "shoulder": [
+            180,
+            66
+          ],
+          "wrist": [
+            818,
+            68.5
+          ],
+          "fist": [
+            841,
+            70.5
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 32,
+          "despill": true,
+          "despillRadius": 3,
+          "seeds": [
+            [
+              91,
+              74
+            ]
+          ]
+        },
+        "excludeRects": [
+          [
+            90,
+            230,
+            100,
+            4
+          ]
+        ],
+        "transform": {
+          "type": "rubber-straight",
+          "anchor": [
+            270,
+            74.5
+          ],
+          "wrist": [
+            818,
+            68.5
+          ],
+          "region": [
+            270,
+            41,
+            602,
+            62
+          ],
+          "compression": 0.4,
+          "rotationDegrees": -8.683742416469698,
+          "transitionLength": 40,
+          "protectedRects": [
+            [
+              0,
+              0,
+              270,
+              234
+            ],
+            [
+              0,
+              103,
+              872,
+              131
+            ]
+          ],
+          "note": "Finite recovery bridge using the exact same original straight rubber section, cuff, body and fist. Compression.40, same small angle; not a new body drawing or gameplay change."
+        }
+      },
+      "geometry": {
+        "size": {
+          "width": 587,
+          "height": 158
+        },
+        "root": {
+          "x": 93.95861538461538,
+          "y": 156.26092307692306
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 121.23692307692308,
+            "y": 44.453538461538464
+          },
+          "wrist": {
+            "x": 327.1924415429643,
+            "y": 23.89302991587533
+          },
+          "fist": {
+            "x": 342.7096269266365,
+            "y": 22.88577061102209
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 170034,
+        "despilledEdgePixels": 2975,
+        "transform": {
+          "type": "rubber-straight",
+          "parameters": {
+            "type": "rubber-straight",
+            "anchor": [
+              270,
+              74.5
+            ],
+            "wrist": [
+              818,
+              68.5
+            ],
+            "region": [
+              270,
+              41,
+              602,
+              62
+            ],
+            "compression": 0.4,
+            "rotationDegrees": -8.683742416469698,
+            "transitionLength": 40,
+            "protectedRects": [
+              [
+                0,
+                0,
+                270,
+                234
+              ],
+              [
+                0,
+                103,
+                872,
+                131
+              ]
+            ],
+            "note": "Finite recovery bridge using the exact same original straight rubber section, cuff, body and fist. Compression.40, same small angle; not a new body drawing or gameplay change."
+          },
+          "protectedPixelsChanged": 0,
+          "protectedRegionHashes": [
+            {
+              "rect": [
+                0,
+                0,
+                270,
+                234
+              ],
+              "beforeSha256": "d9b1416b88da1ee4844f62173b50b9c0fbbd406de47e92bca9d2db7285df6ec5",
+              "afterSha256": "d9b1416b88da1ee4844f62173b50b9c0fbbd406de47e92bca9d2db7285df6ec5"
+            },
+            {
+              "rect": [
+                0,
+                103,
+                872,
+                131
+              ],
+              "beforeSha256": "27512832882c1d7713c097702ab0b7629d181b1bf414f7fd7ef13e55c8632db5",
+              "afterSha256": "27512832882c1d7713c097702ab0b7629d181b1bf414f7fd7ef13e55c8632db5"
+            }
+          ],
+          "rootUnchanged": [
+            139.5,
+            232.0
+          ],
+          "transformedSockets": {
+            "shoulder": [
+              180.0,
+              66.0
+            ],
+            "wrist": [
+              485.78137734793694,
+              35.47389092124021
+            ],
+            "fist": [
+              508.81968365078507,
+              33.97841685053531
+            ]
+          }
+        }
+      },
+      "output": {
+        "file": "public/assets/characters/luffy/anime/stretch_retract-candidate-0912.png",
+        "sha256": "1b87d14ba99009044e42bf7d13ec199651450857e1d0eeb261e85592146b820c"
+      }
+    },
+    "stretch_recoil": {
+      "config": {
+        "source": "stretch_repair_0912",
+        "crop": [
+          310,
+          499,
+          531,
+          225
+        ],
+        "root": [
+          139.5,
+          219
+        ],
+        "sockets": {
+          "shoulder": [
+            180,
+            69
+          ],
+          "wrist": [
+            481,
+            56
+          ],
+          "fist": [
+            502,
+            57
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 32,
+          "despill": true,
+          "despillRadius": 3,
+          "seeds": [
+            [
+              93,
+              75
+            ]
+          ]
+        },
+        "excludeRects": [
+          [
+            0,
+            0,
+            66,
+            8
+          ],
+          [
+            195,
+            0,
+            88,
+            7
+          ]
+        ],
+        "note": "Actual curved recoil from row3 of immutable repair sheet. Small rectangles exclude neighboring active-pose sole fragments only; body is not scaled or warped."
+      },
+      "geometry": {
+        "size": {
+          "width": 358,
+          "height": 152
+        },
+        "root": {
+          "x": 93.95861538461538,
+          "y": 147.50492307692306
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 121.23692307692308,
+            "y": 46.47415384615385
+          },
+          "wrist": {
+            "x": 323.972,
+            "y": 37.71815384615385
+          },
+          "fist": {
+            "x": 338.1163076923077,
+            "y": 38.39169230769231
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 93658,
+        "despilledEdgePixels": 2324
+      },
+      "output": {
+        "file": "public/assets/characters/luffy/anime/stretch_recoil-candidate-0912.png",
+        "sha256": "a92ca5663af5b6eb91c9a4e6a9f9ae6fde8245508fa53513c85f812a7a93ca0c"
+      }
+    },
+    "stretch_return": {
+      "config": {
+        "source": "stretch_first_0912",
+        "crop": [
+          579,
+          984,
+          381,
+          440
+        ],
+        "root": [
+          190,
+          432
+        ],
+        "sockets": {
+          "shoulder": [
+            246,
+            129
+          ],
+          "wrist": [
+            311,
+            137
+          ]
+        },
+        "transparency": {
+          "mode": "border-key",
+          "color": [
+            0,
+            255,
+            0
+          ],
+          "tolerance": 32,
+          "despill": true,
+          "seeds": [
+            [
+              129,
+              153
+            ],
+            [
+              115,
+              187
+            ],
+            [
+              233,
+              210
+            ]
+          ],
+          "despillRadius": 3
+        },
+        "note": "Real source pose from first sheet; rejected extension drawings from that sheet remain unused. Fixed neutral-based source calibration."
+      },
+      "geometry": {
+        "size": {
+          "width": 157,
+          "height": 181
+        },
+        "root": {
+          "x": 78.28894117647059,
+          "y": 178.00432941176473
+        },
+        "sockets": {
+          "shoulder": {
+            "x": 101.36357647058824,
+            "y": 53.1540705882353
+          },
+          "wrist": {
+            "x": 128.14663529411766,
+            "y": 56.450447058823535
+          }
+        }
+      },
+      "processing": {
+        "removedBorderPixels": 112431,
+        "despilledEdgePixels": 2997
+      },
+      "output": {
+        "file": "public/assets/characters/luffy/anime/stretch_return-candidate-0912.png",
+        "sha256": "9bb191713087bf317ab095f410a5551f8e0cf6abde54211a684faf6643f2e9da"
+      }
+    }
+  },
+  "preview": {
+    "gif": "C:\\Users\\august\\AppData\\Local\\Temp\\opf-luffy-stc-29ticks-0912.gif",
+    "contactSheet": "C:\\Users\\august\\AppData\\Local\\Temp\\opf-luffy-stc-frames-0912.png",
+    "gifDurationsMilliseconds": [
+      600,
+      150,
+      70,
+      60,
+      100,
+      100,
+      600
+    ],
+    "logicTicks": 29,
+    "logicMilliseconds": 483.3333333333333,
+    "gifActionMilliseconds": 480,
+    "boundary": "GIF uses10ms duration quantization; runtime exposures remain exact9/4/16 logical ticks."
+  },
+  "transitionBoundary": "The real curved recoil still reaches about258screenpx and snaps back to a real neutral-return drawing; the last return and basic idle have independently generated faces/cloth lines. These changes are exposed in the normal-speed sample, not hidden with body scaling or fake in-between bodies."
+}

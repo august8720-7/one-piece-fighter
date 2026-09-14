@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
-import { Btn, SUBPIXEL, VIEW_H, toNumpad, type Box, type FightSim, type WorldState } from '@core/index';
+import { Btn, SUBPIXEL, toNumpad, type Box, type FightSim, type WorldState } from '@core/index';
+import { RENDER_SCALE, SCREEN_H, ui, font } from './screen';
+import { UI } from './ui/MenuList';
 
 type Proj = (v: number) => number;
 
@@ -11,13 +13,14 @@ export class DebugOverlay {
   private readonly gfx: Phaser.GameObjects.Graphics;
   private readonly text: Phaser.GameObjects.Text;
 
-  constructor(scene: Phaser.Scene, defaultOn = false) {
+  constructor(scene: Phaser.Scene, defaultOn = false, worldLayer?: Phaser.GameObjects.Container) {
     this.showBoxes = defaultOn;
     this.showFrames = defaultOn;
     this.showInputs = defaultOn;
     this.gfx = scene.add.graphics().setDepth(100);
+    worldLayer?.add(this.gfx);
     this.text = scene.add
-      .text(4, VIEW_H - 44, '', { fontFamily: 'monospace', fontSize: '8px', color: '#e0fbfc' })
+      .text(ui(8), SCREEN_H - ui(80), '', { fontFamily: UI.mono, fontSize: font(12), color: '#e0fbfc' })
       .setOrigin(0, 1)
       .setDepth(101);
 
@@ -32,7 +35,7 @@ export class DebugOverlay {
     g.clear();
 
     if (this.showBoxes) {
-      const rect = (b: Box) => g.strokeRect(toX(b.x), toY(b.y), b.w / SUBPIXEL, b.h / SUBPIXEL);
+      const rect = (b: Box) => g.strokeRect(toX(b.x), toY(b.y), (b.w / SUBPIXEL) * RENDER_SCALE, (b.h / SUBPIXEL) * RENDER_SCALE);
       for (const f of w.fighters) {
         g.lineStyle(1, 0xffd60a, 0.9);
         rect(sim.pushbox(f));

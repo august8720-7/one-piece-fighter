@@ -1,0 +1,10 @@
+日期：2026-09-12，Asia/Shanghai。
+提交前核对官方入口https://chatgpt.com/images/，Edge tab 843467446标题“ChatGPT 图像 2.5 | AI 图像生成器”。核实后从网页资料库选择“路飞与赤犬并肩战斗姿态”并提交。6 Pro按钮不是图像型号依据。未取得后台模型元数据。
+生成会话：https://chatgpt.com/c/6aa437fb-c8c4-83ea-9ca6-25647f740ca1
+会话标题：生成路飞动作原画表。最终图片名：路飞战斗动作精灵图表。
+参考母版SHA256：1e0e47229db7bee69789282efdec93ca737a3d1dfb4582f06eed2881a5ddad51。
+原始下载：C:/Users/august/Downloads/ChatGPT Image 2026年9月12日 01_23_38.png.crdownload 。PNG IEND及Pillow verify通过，原字节复制。
+本地源图：public/assets/generated/source/luffy-basics-0912.png，1448×1086。
+SHA256：f49543edb8162c997d98497b9e51489258acece6e780f03f2d26ee6fa2f1c42a。
+精确完成时间未记录；资料库显示9月12日1:20。下载时间不作为生成时间。
+状态：基础动作候选，逐帧裁切与正常速度实机检查前不标完成。

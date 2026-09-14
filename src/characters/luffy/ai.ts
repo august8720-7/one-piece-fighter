@@ -12,10 +12,12 @@ export const luffyAi: AiProfile = {
     { weight: 1, action: { kind: 'special', motion: '22', button: 'K', minMeter: 100 } }, // 二档
   ],
   mid: [
-    { weight: 4, action: { kind: 'normal', stance: 'stand', button: 'C' } }, // 橡胶手枪
-    { weight: 2, action: { kind: 'normal', stance: 'stand', button: 'D' } }, // 橡胶印章
-    { weight: 2, action: { kind: 'special', motion: '236', button: 'P' } }, // 机关枪
-    { weight: 2, action: { kind: 'walk', dir: 1, frames: 12 } },
+    { weight: 2, action: { kind: 'normal', stance: 'stand', button: 'C' } }, // 橡胶手枪
+    { weight: 1, action: { kind: 'normal', stance: 'stand', button: 'D' } }, // 橡胶印章
+    { weight: 1, action: { kind: 'special', motion: '236', button: 'P', cooldown: 90 } }, // 机关枪
+    { weight: 2, action: { kind: 'walk', dir: 1, frames: 10 } },
+    { weight: 3, action: { kind: 'block', frames: 16, low: true } }, // 等对手先动，确反交给 punish
+    { weight: 2, action: { kind: 'wait', frames: 8 } },
     { weight: 1, action: { kind: 'jump', dir: 1, attack: 'D', delay: 14 } },
     { weight: 1, action: { kind: 'roll', dir: 1 } },
   ],
@@ -34,8 +36,8 @@ export const luffyAi: AiProfile = {
   ],
   projectileAnswer: [
     { weight: 4, action: { kind: 'special', motion: '22', button: 'P' } }, // 橡胶气球
+    { weight: 3, action: { kind: 'block', frames: 28, low: false } },
     { weight: 2, action: { kind: 'jump', dir: 1 } },
-    { weight: 2, action: { kind: 'block', frames: 24 } },
     { weight: 1, action: { kind: 'roll', dir: 1 } },
   ],
   okizeme: [
@@ -43,6 +45,14 @@ export const luffyAi: AiProfile = {
     { weight: 2, action: { kind: 'wait', frames: 8 } },
     { weight: 1, action: { kind: 'normal', stance: 'crouch', button: 'B' } },
   ],
+  punish: [
+    { weight: 4, action: { kind: 'normal', stance: 'stand', button: 'C' } }, // 橡胶手枪确反
+    { weight: 3, action: { kind: 'special', motion: '236', button: 'P' } }, // 机关枪
+    { weight: 2, action: { kind: 'special', motion: '623', button: 'P' } }, // 回旋弹
+    { weight: 2, action: { kind: 'throw' } },
+  ],
+  armorBreak: { kind: 'special', motion: '623', button: 'P' },
+  confirmCombo: { from: 'st_a', action: { kind: 'normal', stance: 'stand', button: 'C' } },
   followups: [
     {
       from: ['st_a', 'cr_a'],

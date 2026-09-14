@@ -1,8 +1,6 @@
-import type { AnimTable } from '@render/animations';
+import { spriteAnimations } from '@render/animations';
+import manifest from '../../../scripts/sprite_manifest.json';
+import { akainuMoves } from './moves';
 
-/** 赤犬状态动画覆盖（未列出的用 DEFAULT_ANIMS）。 */
-export const akainuAnims: AnimTable = {
-  idle: { frames: 4, fps: 6, loop: true },
-  walk_fwd: { frames: 4, fps: 8, loop: true },
-  walk_back: { frames: 4, fps: 8, loop: true },
-};
+/** 同系列连续精灵；不完整的招式复刻在清单 note 中明示。 */
+export const akainuAnims = spriteAnimations(manifest.characters.akainu.states, manifest.characters.akainu.moves, akainuMoves);

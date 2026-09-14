@@ -1,0 +1,608 @@
+{
+  "status": "candidate-only; parent visual comparison reviewed; runtime/browser acceptance pending",
+  "sources": {
+    "daifunka_first_0912": {
+      "file": "public/assets/generated/source/akainu-daifunka-0912.png",
+      "sha256": "2e368daae4d8a8ea3eb2f4fe85080698cd8fff01d3bc5b1f9783d0d5a89185b4",
+      "model": "GPT Image 2.5",
+      "provider": "chatgpt-web",
+      "sessionUrl": "https://chatgpt.com/c/6aa44725-9c44-83ea-b267-3f9f61d794b1",
+      "generatedAt": "2026-09-12",
+      "generatedAtPrecision": "day; download timestamp is not generation completion timestamp",
+      "modelEvidence": {
+        "file": "docs/assets/赤犬大喷火型号凭据0912.txt",
+        "sha256": "0d3d9097cac1de170990e09c38506ffaac4469c3f8ff18733cfaa0301b7678c3"
+      },
+      "prompt": {
+        "file": "docs/assets/赤犬大喷火原始提示词0912.txt",
+        "sha256": "a1936af2bafffba10731dd89e0d0e69810a46c39d2644839e0336032a5bb91f0"
+      },
+      "unitScale": 2.783132530120482,
+      "scaleBasis": "One source-wide calibration from inspected neutral alpha bbox [149, 14, 474, 346], visible height 332px to master Akainu height924. Every pose uses this same scale; no pose bbox fitting. Active magma extension is a separate recorded midsection-only transform."
+    },
+    "daifunka_repair_0912": {
+      "file": "public/assets/generated/source/akainu-daifunka-repair-0912.png",
+      "sha256": "e4f9916eea877136e090cb88ec3d27723601a85775d111025cfdfc447ec880f8",
+      "model": "GPT Image 2.5",
+      "provider": "chatgpt-web",
+      "sessionUrl": "https://chatgpt.com/c/6aa449ea-7934-83ea-b7d8-f95237d69f00",
+      "generatedAt": "2026-09-12",
+      "generatedAtPrecision": "day; download timestamp is not generation completion timestamp",
+      "modelEvidence": {
+        "file": "docs/assets/赤犬大喷火返工型号凭据0912.txt",
+        "sha256": "0275a30d904c3a3c143a9f6afb9437ba3c31d5a8b54af863b182a5003d008ab8"
+      },
+      "prompt": {
+        "file": "docs/assets/赤犬大喷火返工原始提示词0912.txt",
+        "sha256": "23096be40747d56b3e4a4542bff18bb936d7a1b950f2e96c14cf3558abbdcf98"
+      },
+      "unitScale": 2.2427184466019416,
+      "scaleBasis": "One source-wide calibration from inspected neutral alpha bbox [142, 15, 559, 427], visible height 412px to master Akainu height924. Every pose uses this same scale; no pose bbox fitting. Active magma extension is a separate recorded midsection-only transform."
+    }
+  },
+  "frames": {
+    "daifunka_neutral": {
+      "source": "daifunka_repair_0912",
+      "crop": [
+        120,
+        0,
+        460,
+        445
+      ],
+      "root": [
+        228,
+        426
+      ],
+      "sockets": {
+        "shoulder": [
+          311,
+          141
+        ],
+        "wrist": [
+          381,
+          142
+        ]
+      },
+      "transparency": {
+        "mode": "border-key",
+        "color": [
+          0,
+          255,
+          0
+        ],
+        "tolerance": 64,
+        "despill": true,
+        "seeds": [
+          [
+            96,
+            328
+          ]
+        ],
+        "despillRadius": 3
+      },
+      "note": "Manually registered source coordinates. Fixed column/row ground reference, same source-wide scale; no move timing, damage, range or core root changes. Repaired cell1 neutral, 2 startup ticks. Closed green pockets between cape/leg or molten fire strands were individually marked and inspected; explicit seeds plus a 3px source-edge despill remove background only."
+    },
+    "daifunka_charge": {
+      "source": "daifunka_repair_0912",
+      "crop": [
+        980,
+        0,
+        460,
+        445
+      ],
+      "root": [
+        222,
+        426
+      ],
+      "sockets": {
+        "shoulder": [
+          305,
+          140
+        ],
+        "wrist": [
+          353,
+          155
+        ]
+      },
+      "transparency": {
+        "mode": "border-key",
+        "color": [
+          0,
+          255,
+          0
+        ],
+        "tolerance": 64,
+        "despill": true,
+        "seeds": [
+          [
+            85,
+            327
+          ],
+          [
+            82,
+            342
+          ]
+        ],
+        "despillRadius": 3
+      },
+      "note": "Manually registered source coordinates. Fixed column/row ground reference, same source-wide scale; no move timing, damage, range or core root changes. Repaired cell2; same lead arm molten, 12 startup ticks. Closed green pockets between cape/leg or molten fire strands were individually marked and inspected; explicit seeds plus a 3px source-edge despill remove background only."
+    },
+    "daifunka_release": {
+      "source": "daifunka_first_0912",
+      "crop": [
+        100,
+        360,
+        520,
+        360
+      ],
+      "root": [
+        218,
+        342
+      ],
+      "sockets": {
+        "shoulder": [
+          308,
+          94
+        ],
+        "wrist": [
+          453,
+          94
+        ]
+      },
+      "transparency": {
+        "mode": "border-key",
+        "color": [
+          0,
+          255,
+          0
+        ],
+        "tolerance": 64,
+        "despill": true,
+        "seeds": [],
+        "despillRadius": 3
+      },
+      "note": "Manually registered source coordinates. Fixed column/row ground reference, same source-wide scale; no move timing, damage, range or core root changes. First-sheet cell3, same lead shoulder/arm. Fixed left-column root318, ground702; 6 final startup ticks. Closed green pockets between cape/leg or molten fire strands were individually marked and inspected; explicit seeds plus a 3px source-edge despill remove background only."
+    },
+    "daifunka_active": {
+      "source": "daifunka_repair_0912",
+      "crop": [
+        80,
+        466,
+        840,
+        442
+      ],
+      "root": [
+        268,
+        426
+      ],
+      "sockets": {
+        "shoulder": [
+          348,
+          111
+        ],
+        "wrist": [
+          640,
+          114
+        ],
+        "fist_tip": [
+          799,
+          114
+        ],
+        "fist_center": [
+          720,
+          114
+        ]
+      },
+      "transparency": {
+        "mode": "border-key",
+        "color": [
+          0,
+          255,
+          0
+        ],
+        "tolerance": 64,
+        "despill": true,
+        "seeds": [
+          [
+            371,
+            139
+          ],
+          [
+            403,
+            142
+          ],
+          [
+            478,
+            144
+          ],
+          [
+            491,
+            144
+          ],
+          [
+            454,
+            147
+          ],
+          [
+            450,
+            150
+          ],
+          [
+            446,
+            151
+          ],
+          [
+            590,
+            159
+          ],
+          [
+            93,
+            322
+          ]
+        ],
+        "despillRadius": 3
+      },
+      "note": "Manually registered source coordinates. Fixed column/row ground reference, same source-wide scale; no move timing, damage, range or core root changes. Repaired cell3. The approved finite magma correction extends source x500..720 by199px; x720 onward rigid fist translates. No body or fist scaling. 5 active ticks. A 5x2px explicitly inspected lime-green background pocket at crop[595,156] is excluded before transform; all ten source pixels are background green (not rock/fire/body). Closed green pockets between cape/leg or molten fire strands were individually marked and inspected; explicit seeds plus a 3px source-edge despill remove background only.",
+      "excludeRects": [
+        [
+          595,
+          156,
+          5,
+          2
+        ]
+      ],
+      "transform": {
+        "type": "magma-straight",
+        "anchor": [
+          420,
+          114
+        ],
+        "wrist": [
+          640,
+          114
+        ],
+        "region": [
+          420,
+          0,
+          420,
+          238
+        ],
+        "extensionPixels": 199,
+        "protectedRects": [
+          [
+            0,
+            0,
+            420,
+            442
+          ],
+          [
+            420,
+            238,
+            420,
+            204
+          ]
+        ],
+        "note": "One approved candidate trial under docs/assets/大喷火局部校准方法0912.md. Source molten midsection only, 1.904545x horizontal. Fixed body/shoulder/sleeve/feet/opposite glove; distal fist exact integer translation199. Visible rock elongation is an acknowledged limitation, not art acceptance."
+      }
+    },
+    "daifunka_recover": {
+      "source": "daifunka_repair_0912",
+      "crop": [
+        990,
+        466,
+        510,
+        442
+      ],
+      "root": [
+        212,
+        426
+      ],
+      "sockets": {
+        "shoulder": [
+          314,
+          146
+        ],
+        "wrist": [
+          397,
+          139
+        ]
+      },
+      "transparency": {
+        "mode": "border-key",
+        "color": [
+          0,
+          255,
+          0
+        ],
+        "tolerance": 64,
+        "despill": true,
+        "seeds": [
+          [
+            414,
+            92
+          ],
+          [
+            429,
+            151
+          ],
+          [
+            428,
+            153
+          ],
+          [
+            422,
+            154
+          ],
+          [
+            424,
+            155
+          ],
+          [
+            368,
+            183
+          ],
+          [
+            370,
+            183
+          ],
+          [
+            87,
+            325
+          ]
+        ],
+        "despillRadius": 3
+      },
+      "note": "Manually registered source coordinates. Fixed column/row ground reference, same source-wide scale; no move timing, damage, range or core root changes. Repaired cell4, withdrawn same lead arm, 28 recovery ticks to keep the recovery visibly occupied. Closed green pockets between cape/leg or molten fire strands were individually marked and inspected; explicit seeds plus a 3px source-edge despill remove background only."
+    },
+    "daifunka_guard": {
+      "source": "daifunka_first_0912",
+      "crop": [
+        875,
+        710,
+        370,
+        360
+      ],
+      "root": [
+        167,
+        344
+      ],
+      "sockets": {
+        "shoulder": [
+          242,
+          103
+        ],
+        "wrist": [
+          298,
+          113
+        ]
+      },
+      "transparency": {
+        "mode": "border-key",
+        "color": [
+          0,
+          255,
+          0
+        ],
+        "tolerance": 64,
+        "despill": true,
+        "seeds": [
+          [
+            68,
+            264
+          ]
+        ],
+        "despillRadius": 3
+      },
+      "note": "Manually registered source coordinates. Fixed column/row ground reference, same source-wide scale; no move timing, damage, range or core root changes. First-sheet cell6, normal glove returns to guard. Right-column root318+724=1042, ground1054; only4 final recovery ticks so guard does not falsely signal readiness for16 ticks. Closed green pockets between cape/leg or molten fire strands were individually marked and inspected; explicit seeds plus a 3px source-edge despill remove background only."
+    }
+  },
+  "sequence": {
+    "frames": [
+      "daifunka_neutral",
+      "daifunka_charge",
+      "daifunka_release",
+      "daifunka_active",
+      "daifunka_recover",
+      "daifunka_guard"
+    ],
+    "loop": false,
+    "exposures": [
+      {
+        "frame": 0,
+        "ticks": 2
+      },
+      {
+        "frame": 1,
+        "ticks": 12
+      },
+      {
+        "frame": 2,
+        "ticks": 6
+      },
+      {
+        "frame": 3,
+        "ticks": 5
+      },
+      {
+        "frame": 4,
+        "ticks": 28
+      },
+      {
+        "frame": 5,
+        "ticks": 4
+      }
+    ]
+  },
+  "manualRootRegistration": {
+    "repairColumnsX": [
+      348,
+      1202
+    ],
+    "repairGroundY": [
+      426,
+      892
+    ],
+    "firstColumnsX": [
+      318,
+      1042
+    ],
+    "firstGroundY": [
+      346,
+      702,
+      1054
+    ]
+  },
+  "processing": {
+    "daifunka_neutral": {
+      "removedBorderPixels": 102423,
+      "despilledEdgePixels": 2426
+    },
+    "daifunka_charge": {
+      "removedBorderPixels": 100856,
+      "despilledEdgePixels": 2437
+    },
+    "daifunka_release": {
+      "removedBorderPixels": 107240,
+      "despilledEdgePixels": 2464
+    },
+    "daifunka_active": {
+      "removedBorderPixels": 215264,
+      "despilledEdgePixels": 3778,
+      "transform": {
+        "type": "magma-straight",
+        "parameters": {
+          "type": "magma-straight",
+          "anchor": [
+            420,
+            114
+          ],
+          "wrist": [
+            640,
+            114
+          ],
+          "region": [
+            420,
+            0,
+            420,
+            238
+          ],
+          "extensionPixels": 199,
+          "protectedRects": [
+            [
+              0,
+              0,
+              420,
+              442
+            ],
+            [
+              420,
+              238,
+              420,
+              204
+            ]
+          ],
+          "note": "One approved candidate trial under docs/assets/大喷火局部校准方法0912.md. Source molten midsection only, 1.904545x horizontal. Fixed body/shoulder/sleeve/feet/opposite glove; distal fist exact integer translation199. Visible rock elongation is an acknowledged limitation, not art acceptance."
+        },
+        "segmentScaleX": 1.9045454545454545,
+        "extensionPixels": 199,
+        "protectedPixelsChanged": 0,
+        "protectedRegionHashes": [
+          {
+            "rect": [
+              0,
+              0,
+              420,
+              442
+            ],
+            "beforeSha256": "65ca9589105bdce55a3db649e2cdc6e2a2c03b5b74df83f50f68f25bd7497d9d",
+            "afterSha256": "65ca9589105bdce55a3db649e2cdc6e2a2c03b5b74df83f50f68f25bd7497d9d"
+          },
+          {
+            "rect": [
+              420,
+              238,
+              420,
+              204
+            ],
+            "beforeSha256": "bb0e69407e1cb33efd1b12d1036e08c412624752cf6179eb61abe041e60d05fa",
+            "afterSha256": "bb0e69407e1cb33efd1b12d1036e08c412624752cf6179eb61abe041e60d05fa"
+          }
+        ],
+        "fistPixelsChanged": 0,
+        "fistBeforeSha256": "16b1ef7644db4459c17d98367c6b06227ddbbf385d02d25453da38c805ce0a9d",
+        "fistAfterSha256": "16b1ef7644db4459c17d98367c6b06227ddbbf385d02d25453da38c805ce0a9d",
+        "canvasBefore": [
+          840,
+          442
+        ],
+        "canvasAfter": [
+          1039,
+          442
+        ],
+        "rootUnchanged": [
+          268.0,
+          426.0
+        ],
+        "transformedSockets": {
+          "shoulder": [
+            348.0,
+            111.0
+          ],
+          "wrist": [
+            839.0,
+            114.0
+          ],
+          "fist_tip": [
+            998.0,
+            114.0
+          ],
+          "fist_center": [
+            919.0,
+            114.0
+          ]
+        }
+      }
+    },
+    "daifunka_recover": {
+      "removedBorderPixels": 114354,
+      "despilledEdgePixels": 2810
+    },
+    "daifunka_guard": {
+      "removedBorderPixels": 66238,
+      "despilledEdgePixels": 2061
+    }
+  },
+  "candidateArtifactDirectory": "C:\\Users\\august\\AppData\\Local\\Temp\\magma-calibration-0912",
+  "gifTiming": "57 logical ticks950ms. GIF centisecond quantization uses30/200/100/90/460/70ms; actual runtime exposures remain exact2/12/6/5/28/4 ticks.",
+  "limits": [
+    "Midsection rock texture elongates; no claim of final art acceptance.",
+    "Shoulder/wrist/root registration is manual, not inferred engine anatomy.",
+    "Root remains fixed per source column and row; return pose body/feet differ and need normal-speed runtime review.",
+    "No new generated pixels or body/fist scaling; both original PNGs retained."
+  ],
+  "qa": {
+    "greenDominantPixelCount": {
+      "daifunka_neutral": 0,
+      "daifunka_charge": 0,
+      "daifunka_release": 0,
+      "daifunka_active": 0,
+      "daifunka_recover": 0,
+      "daifunka_guard": 0
+    },
+    "greenThreshold": "alpha>=128,G>120,G>1.5R,G>1.5B,R<100,B<100",
+    "beforeConnection": true,
+    "afterConnection": true,
+    "protectedPixelsChanged": 0,
+    "fistPixelsChanged": 0,
+    "logicTicks": [
+      2,
+      12,
+      6,
+      5,
+      28,
+      4
+    ],
+    "tests": "11 files /94 tests passed; typecheck and targeted lint passed; no build performed by this subtask",
+    "actualBrowserAcceptance": "pending root unified pack/build and real input check"
+  }
+}

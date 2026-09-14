@@ -1,0 +1,14 @@
+日期：2026-09-12，Asia/Shanghai。生成完成时间只记录到日；未取得精确完成时刻，不以下载文件名代替。
+网页操作证据由本轮主代理提供：生成前，Edge 标签页 843467449 返回 https://chatgpt.com/images，核对标题“ChatGPT 图像 2.5 | AI 图像生成器”。从网页资料库附加人物母版和未采用的六姿势伸臂图，发送前回读完整提示词。
+型号证据边界：以上为官方网页入口的型号标识；未取得服务端模型元数据。没有以提示词中的模型名称或聊天推理模型按钮作为图像型号证明。
+生成会话：https://chatgpt.com/c/6aa43c01-68c4-83ea-a6d5-3cb735b3be34
+会话标题：生成路飞原画。
+图片标题：路飞橡胶拳动画帧组。
+完整提示词：docs/assets/路飞伸臂返工提示词0912.txt。
+参考母版：public/assets/generated/source/characters-master-0912.png，SHA256 1e0e47229db7bee69789282efdec93ca737a3d1dfb4582f06eed2881a5ddad51。
+未采用的参考六姿势图：public/assets/generated/source/luffy-stretch-0912.png，SHA256 a9913420776191da89c3b838279eea177b7ae631245b52d1c9d7f57613c25fb1。
+原始下载：C:/Users/august/Downloads/ChatGPT Image 2026年9月12日 01_41_02.png.crdownload。主代理核验 PNG 结构后复制原字节，不以页面截图代替源图。
+本地源图：public/assets/generated/source/luffy-stretch-repair-0912.png。
+本轮几何核验代理独立读取的文件尺寸：2172×724。
+本地源图 SHA256：4a9fc7328e8631c8a5a208dfb6ce4b7ca5a1cd156f334b0e534a06f5cf8020f5。
+本记录仅冻结来源和网页型号依据。画面是否符合角色、身体完整性、真实招式判定与动作可读性，由另行几何和实机验收决定；不据此宣称美术验收通过。
