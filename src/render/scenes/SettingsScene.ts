@@ -13,7 +13,9 @@ type Tab = 'audio' | 'p1' | 'p2';
 const AUDIO_ROWS: readonly { label: string; group: AudioGroup | null }[] = [
   { label: '总音量', group: null }, { label: '打击 / 技能音效', group: 'sfx' },
   { label: '人物台词', group: 'voice' }, { label: '战场环境声', group: 'ambient' },
+  { label: '背景音乐', group: 'music' },
 ];
+const AUDIO_ACTIONS = ['mute', 'enable', 'sfx', 'voice', 'music', 'stop', 'retry', 'defaults', 'diagnostics', 'back'] as const;
 
 /** Compact settings keep sound recovery and both players' keys reachable by mouse or keyboard. */
 export class SettingsScene extends Phaser.Scene {
@@ -71,7 +73,7 @@ export class SettingsScene extends Phaser.Scene {
   private selectTab(tab: Tab): void {
     if (this.waiting) return;
     this.tab = tab; this.menu?.destroy();
-    this.menu = new MenuList(this, ui(90), ui(166), this.items(), 25, '16px');
+    this.menu = new MenuList(this, ui(90), ui(158), this.items(), this.tab === 'audio' ? 22 : 25, '16px');
     this.tabs.forEach((button, i) => button.setColor(i === ['audio', 'p1', 'p2'].indexOf(tab) ? UI.title : UI.dim));
     this.notice = ''; getInputHub().flush();
   }
@@ -85,7 +87,8 @@ export class SettingsScene extends Phaser.Scene {
       return { label: `${row.label.padEnd(12)} ${Math.round(value * 100)}%` };
     });
     return [...rows, { label: `静音    ${sfx().muted ? '已开启' : '已关闭'}` },
-      { label: '开启声音' }, { label: '试听打击音' }, { label: '重试失败音频' },
+      { label: '开启声音' }, { label: '试听打击音' }, { label: '试听人物声音' },
+      { label: '试听音乐（8秒）' }, { label: '停止试听' }, { label: '重试失败音频' },
       { label: '恢复默认声音设置' }, { label: '查看游戏诊断' }, { label: '保存并返回' }];
   }
   private async audioAction(index: number): Promise<void> {
@@ -93,33 +96,35 @@ export class SettingsScene extends Phaser.Scene {
     const session = this.audioSession;
     const current = (): boolean => !this.audioUiClosed && session === this.audioSession;
     const audio = sfx();
-    if (index === 4) audio.toggleMute();
-    if (index === 5) {
+    const action = AUDIO_ACTIONS[index - AUDIO_ROWS.length];
+    if (action === 'mute') audio.toggleMute();
+    if (action === 'enable') {
       await audio.enableSound();
       if (!current()) return;
       this.notice = '已请求开启；原音量设置已保留。';
     }
-    if (index === 6) {
-      const played = await audio.preview('hit_heavy');
+    if (action === 'sfx' || action === 'voice' || action === 'music') {
+      const played = action === 'music' ? await audio.previewMusic() : await audio.preview(action === 'voice' ? 'voice.luffy.attack' : 'hit_heavy');
       if (!current()) return;
-      this.notice = played ? '试听已经过战斗音效通路播放。' : `试听未输出：${sfxHudText(audio.hudState())}`;
+      this.notice = played ? '已请求试听，请以右侧分组状态与实际听感为准。' : `试听未输出：${sfxHudText(audio.hudState(action))}`;
     }
-    if (index === 7) {
+    if (action === 'stop') { audio.cancelPreview(); this.notice = '试听已停止。'; }
+    if (action === 'retry') {
       this.notice = '正在重试失败音频…';
       const result = await audio.retryFailed();
       if (!current()) return;
       this.notice = result.failed.length ? `仍有 ${result.failed.length} 项失败，诊断可查看原因。` : '失败音频重试结束。';
     }
-    if (index === 8) { audio.restoreDefaults(); this.notice = '已按本次操作恢复游戏声音默认设置。'; }
-    if (index === 9) this.diagnostics.open();
-    if (index === 10) this.leave();
+    if (action === 'defaults') { audio.restoreDefaults(); this.notice = '已按本次操作恢复游戏声音默认设置。'; }
+    if (action === 'diagnostics') this.diagnostics.open();
+    if (action === 'back') this.leave();
     if (current() && this.scene.isActive()) this.menu.setItems(this.items());
   }
   override update(_t: number, dt: number): void {
     if (this.diagnostics.visible) { getInputHub().flush(); return; }
     const audio = sfx();
     this.status.setText(this.tab === 'audio'
-      ? `${sfxHudText(audio.hudState()) || '游戏音频通路正常'}\n\n开启声音会保留原音量。总音量或音效音量为零时，请用左侧调高。\n\n人物台词尚未完成听辨，不以音效代替。\n\n${this.notice}`
+      ? `${AUDIO_ROWS.filter(row => row.group).map(row => `${row.label}：${sfxHudText(audio.hudState(row.group!))}`).join('\n')}\n\n开启声音保留原音量。人物发声时音乐自动降低；移动和待机语音有间隔。\n\n${this.notice}`
       : `选择动作后按确认，再按新键。Esc 取消当前重绑。\n\nStart：Enter（P1）\n小键盘 Enter（P2）\n\n${keyConflicts(this.cfg)[0] ?? '当前无键位冲突'}`);
     const hub = getInputHub();
     for (let i = 0, steps = this.step.advance(dt); i < steps; i++) {
@@ -141,7 +146,7 @@ export class SettingsScene extends Phaser.Scene {
           if (row.group) audio.setGroupVolume(row.group, next); else audio.setVolume(next);
           this.menu.setItems(this.items());
         } else if (action === 'select') void this.audioAction(index);
-        this.hint.setText('试听受总音量、音效分组和静音控制；M 可切换静音。');
+        this.hint.setText('试听受总音量、对应分组和静音控制；M 可切换静音。');
       } else if (action === 'select') {
         if (index < ACTIONS.length) {
           const selected = ACTIONS[index]!; this.waiting = { side: this.tab, action: selected };

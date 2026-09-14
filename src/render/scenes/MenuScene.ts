@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { sfx } from '../../audio/Sfx';
 import { getInputHub } from '@input/InputHub';
 import { FixedStep } from '../FixedStep';
 import { SCREEN_H, SCREEN_W, font, ui } from '../screen';
@@ -26,6 +27,7 @@ export class MenuScene extends Phaser.Scene {
   init(data: PresentationData = {}): void { adoptPresentation(this.registry, data); }
 
   create(): void {
+    sfx().resume(); sfx().playMusic('menu');
     drawPanel(this, 'MODE SELECT', `${confirmHint()}   ↑↓ 选择`);
     this.step = new FixedStep();
     this.menu = new MenuList(this, SCREEN_W / 2 - ui(140), ui(180), ITEMS.map((i) => ({ label: i.label })), 40, '22px');

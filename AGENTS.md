@@ -40,6 +40,16 @@ tests/           Vitest 测试，按 src 中的纯逻辑模块分目录
 
 ## 硬约束
 
+### 0914 声音体验修复（当前授权）
+
+- 用户已批准 `docs/声音体验修复计划0914.md` 并要求开始执行：补走路/待机/普通攻击声音、菜单与战斗音乐、混音及分组设置，验证后更新原 GitHub Pages 地址。保留战斗核心、人物、判定与数值；中间由代理自行检查。
+- `public/assets/audio/music/` 保存正式压缩配乐；原始下载及作者许可文本放 `public/assets/audio/sources/music-0914/`。来源/截取/处理/哈希及听辨结论放 `docs/assets/` 与显式清单；未听辨或未确认用途的语音不计入正式覆盖。新增音乐和短音遵循当前公开运行包白名单规则。
+- `src/audio/musicManifest.json` 保存运行曲目路径与播放参数，`scripts/daily_audio_manifest.json` 保存新增日常短音来源与处理记录；人物映射仍归 `scripts/voice_manifest.json` 管理。声音调度读现有战斗/动画状态，不修改 core。
+- `.local-releases/声音修复-0914/` 保存 baseline/（复制前清单、原运行包与源码Git包）、candidate/（本轮构建）、acceptance/（媒体及测试记录）；发布包继续按时间放既有公开部署目录。先清单、复制、校验，保留原线上及本地0913构建，不删除旧文件。
+- 0914声音修复验收通过后，`开始游戏.cmd` 指向 `playCandidate.mjs --release candidate-0914 --full`，该显式标识只映射 `.local-releases/声音修复-0914/candidate/`，默认4178端口。0913完整动漫回退仍使用 `--release candidate-0913 --full` 的4177端口，旧像素入口及样板入口保留。启动器仍不构建、不安装、不发布，完整内容与首页哈希校验规则不变。
+- 0914声音修复公开包的时间目录可包含 `publish/`：从既有 `origin/gh-pages` 建立的独立Git工作树，只复制 `site/` 白名单文件用于追加提交。复制前后清单保留，不删除旧部署文件、不重建孤立历史、不强制推送；`publish/` 本身不是新素材来源。
+- 暂停/掉焦后音乐保存位置，回合重置仅清理战斗短音，场景切换单独控制音乐；待机与移动不积压补播。旧静音和音量保留，新增music只补默认值。新增音频必须在公开构建中验证。
+
 ### 0913 完整游戏改造（当前授权，覆盖旧过程门槛）
 
 - 用户已批准 `docs/游戏改造计划0913.md`，连续完成两角色、一舞台、全部现有招式的人机、本地双人、训练和完整比赛。优先级为能完整玩、画面精美统一、攻防有趣。保留 Phaser 与固定 60 Hz 战斗底座。
@@ -114,7 +124,7 @@ npm run build       # vite build
 
 开发预览：`npm run dev`，默认 http://localhost:5173
 
-本地游玩入口：根目录 `开始游戏.cmd` 调用 `scripts/playCandidate.mjs --release candidate-0913 --full`，只在本机启动已验证的 `.local-releases/candidate-0913/` 并打开完整动漫标题；`开始旧版游戏.cmd` 调用 `scripts/playLocal.mjs` 服务保留的旧 `dist/`。不安装依赖、不自动构建或发布。维护入口时保持这一边界。
+本地游玩入口：根目录 `开始游戏.cmd` 调用 `scripts/playCandidate.mjs --release candidate-0914 --full`，只在本机启动已验证的 `.local-releases/声音修复-0914/candidate/`（4178端口）并打开完整动漫标题。0913动漫回退仍为 `--release candidate-0913 --full`（4177端口）；`开始旧版游戏.cmd` 调用 `scripts/playLocal.mjs` 服务保留的旧 `dist/`。不安装依赖、不自动构建或发布。维护入口时保持这一边界。
 入口复用已占用端口时必须核对完整构建内容标识及首页哈希，不得只凭相同游戏标题判为当前版本。运行中磁盘构建改变时明确要求重启，不能混用新旧资源。该机制可先修复，不代表已获完整动漫游戏放行或切换默认画风。
 
 内部样板入口：根目录 `体验新版样板.cmd` 保持调用 `scripts/playCandidate.mjs --release candidate-0913`，只服务 `.local-releases/candidate-0913/` 并打开 `?art=anime&mode=training`。完整游戏按钮显式增加 `--full`，打开 `?art=anime&scope=full&quality=high` 标题；日志区分完整候选和样板。启动器不构建、不下载依赖、不发布。0912旧样板仍可通过 `node scripts/playCandidate.mjs --release candidate-0912` 打开；`--full`不支持0912。候选不存在或占用端口不是相同完整内容与首页哈希时明确报错。

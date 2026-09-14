@@ -60,6 +60,7 @@ export class CharacterSelectScene extends Phaser.Scene {
   }
 
   create(): void {
+    sfx().resume(); sfx().playMusic('menu');
     this.step = new FixedStep();
     this.cards = [];
     this.tags = null;

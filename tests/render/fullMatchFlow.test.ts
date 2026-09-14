@@ -11,7 +11,7 @@ import type { ResultData } from '../../src/render/scenes/ResultScene';
 
 const shared = vi.hoisted(() => ({
   input: { snapshot: vi.fn(() => ({ p1: 0, p2: 0 })), edges: vi.fn(() => ({ p1: 0, p2: 0 })), flush: vi.fn(), keyConfig: { p1: {}, p2: {} } },
-  audio: { stopAll: vi.fn(), playCue: vi.fn(), playEvent: vi.fn(), play: vi.fn(), resume: vi.fn(), pause: vi.fn(), unlock: vi.fn(), hudState: vi.fn(() => 'ready') },
+  audio: { clearFightSounds: vi.fn(), playMusic: vi.fn(), interruptDailyVoice: vi.fn(), stopAll: vi.fn(), playCue: vi.fn(), playEvent: vi.fn(), play: vi.fn(), resume: vi.fn(), pause: vi.fn(), unlock: vi.fn(), hudState: vi.fn(() => 'ready') },
 }));
 vi.mock('phaser', () => ({ default: { Scene: class {}, Scenes: { Events: { SHUTDOWN: 'shutdown' } }, Core: { Events: { BLUR: 'blur', HIDDEN: 'hidden' } } } }));
 vi.mock('../../src/input/InputHub', () => ({ getInputHub: () => shared.input }));

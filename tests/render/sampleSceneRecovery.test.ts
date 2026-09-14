@@ -1,3 +1,4 @@
+import { DailyAudio } from '../../src/audio/DailyAudio';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { Btn, FightSim, px, type WorldState } from '../../src/core';
 import { akainuDef, luffyDef } from '../../src/characters';
@@ -5,7 +6,7 @@ import { AnimeSampleController } from '../../src/render/anime/sampleMode';
 
 const shared = vi.hoisted(() => ({
   input: { snapshot: vi.fn(() => ({ p1: 0, p2: 0 })), flush: vi.fn() },
-  audio: { stopAll: vi.fn(), playCue: vi.fn(), hudState: vi.fn(() => 'ready') },
+  audio: { clearFightSounds: vi.fn(), playCue: vi.fn(), hudState: vi.fn(() => 'ready') },
 }));
 vi.mock('phaser', () => ({ default: { Scene: class {} } }));
 vi.mock('../../src/input/InputHub', () => ({ getInputHub: () => shared.input }));
@@ -47,7 +48,7 @@ describe('candidate scene recovery before presentation', () => {
       lastInput: { p1: 0, p2: 0 }, pendingTraining: { p1: 0, p2: 0 }, previousTraining: { p1: 0, p2: 0 },
       trainStep: false, trainFreeze: false, trainTick: 0, trainScale: 1,
       tutorial: null, tutorialCompletePending: false, checkGamepadDisconnect: vi.fn(),
-      fx, skillFx, after, hud, audio: shared.audio, afterStep, draw,
+      dailyAudio: new DailyAudio(), fx, skillFx, after, hud, audio: shared.audio, afterStep, draw,
       superDim: rectangle(), flash: rectangle(), koDim: rectangle(),
       superDimFrames: 10, flashAlpha: 0.6, shake: 4, slowAcc: 0, wasRoundOver: false,
       prevProj: new Map([[7, { kind: 'dog', x: 0, y: 0 }]]),
@@ -58,8 +59,8 @@ describe('candidate scene recovery before presentation', () => {
       muteText: { style: { color: '#e8c36a' }, setText: vi.fn(), setColor: vi.fn() }, trainingText: { setY: vi.fn(), setText: vi.fn() },
     });
     let ticks = 0;
-    while (ticks < 80 && !shared.audio.stopAll.mock.calls.length) { scene.update(0, 16.67); ticks++; }
-    expect(shared.audio.stopAll).toHaveBeenCalledOnce();
+    while (ticks < 80 && !shared.audio.clearFightSounds.mock.calls.length) { scene.update(0, 16.67); ticks++; }
+    expect(shared.audio.clearFightSounds).toHaveBeenCalledOnce();
     expect(shared.audio.playCue).toHaveBeenCalledWith('marineford_ambient');
     expect(shared.input.flush).toHaveBeenCalledOnce();
     expect(afterStep).toHaveBeenCalledTimes(ticks - 1);

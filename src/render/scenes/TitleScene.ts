@@ -23,6 +23,7 @@ export class TitleScene extends Phaser.Scene {
   init(data: PresentationData = {}): void { adoptPresentation(this.registry, data); }
 
   create(): void {
+    sfx().resume(); sfx().playMusic('menu');
     this.leaving = false;
     this.frame = 0;
     this.step = new FixedStep();

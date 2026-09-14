@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { DailyAudio } from '../../audio/DailyAudio';
 import {
   FightSim,
   GROUND_Y,
@@ -124,6 +125,7 @@ export class FightScene extends Phaser.Scene {
   private diagnostics!: DiagnosticsPanel;
   private sim!: FightSim;
   private readonly audio = sfx();
+  private readonly dailyAudio = new DailyAudio();
   private skillFx!: SkillEffects;
   private superDim!: Phaser.GameObjects.Rectangle;
   private superDimFrames = 0;
@@ -297,8 +299,10 @@ export class FightScene extends Phaser.Scene {
     this.worldLayer.add(this.gfx);
     this.fx = new Particles(this, 512, this.worldLayer);
     this.skillFx = new SkillEffects(this, this.worldLayer);
-    this.audio.stopAll();
+    this.audio.clearFightSounds();
+    this.dailyAudio.reset();
     this.audio.resume();
+    this.audio.playMusic('battle', this.mode === 'training' ? 0.7 : 1);
     this.audio.playCue('marineford_ambient');
     this.superDimFrames = 0;
     this.superDim = this.add.rectangle(0, 0, SCREEN_W, SCREEN_H, 0x06080f).setOrigin(0).setDepth(-2).setAlpha(0);
@@ -369,7 +373,7 @@ export class FightScene extends Phaser.Scene {
       this.game.events.off(Phaser.Core.Events.BLUR, this.pauseOnFocusLoss, this);
       this.game.events.off(Phaser.Core.Events.HIDDEN, this.pauseOnFocusLoss, this);
       this.moveList?.hide();
-      this.audio.stopAll();
+      this.audio.clearFightSounds();
       this.skillFx.clear();
     });
 
@@ -461,7 +465,7 @@ export class FightScene extends Phaser.Scene {
   }
 
   private syncAudioPause(): void {
-    if (this.paused || this.moveList?.visible || this.trainFreeze || this.settingsOverlay) this.audio.pause();
+    if (this.paused || this.moveList?.visible || this.trainFreeze || this.settingsOverlay) { this.audio.pause(); this.dailyAudio.interrupt(); }
     else this.audio.resume();
   }
 
@@ -541,7 +545,8 @@ export class FightScene extends Phaser.Scene {
     for (const popup of this.popups) popup.text.destroy();
     this.popups = [];
     this.hud.reset();
-    this.audio.stopAll(); this.audio.playCue('marineford_ambient');
+    this.dailyAudio.reset();
+    this.audio.clearFightSounds(); this.audio.playCue('marineford_ambient');
     this.syncAudioPause();
     // F6 also works under pause/menus, where update() returns before its usual drawing pass.
     if (this.sampleResetWorld) this.drawWorld(this.sampleResetWorld);
@@ -694,8 +699,9 @@ export class FightScene extends Phaser.Scene {
     this.drawWorld(w);
     const koSlow = w.phase === 'round_end' && w.phaseFrame < FightScene.SLOWMO_FRAMES && w.timer !== 0;
     this.koDim.setAlpha(koSlow ? 0.32 : 0);
-    const audioHud = sfx().hudState();
-    this.muteText.setText(sfxHudText(audioHud));
+    const unavailableGroup = (['music', 'voice'] as const).find(group => ['download_failed', 'decode_failed', 'start_failed', 'unavailable'].includes(this.audio.hudState(group)));
+    const audioHud = this.audio.hudState(unavailableGroup);
+    this.muteText.setText(`${unavailableGroup === 'music' ? '音乐：' : unavailableGroup === 'voice' ? '人物：' : ''}${sfxHudText(audioHud)}`);
     const audioColor = audioHud === 'muted' ? '#d98a7a' : '#e8c36a';
     // Phaser setColor redraws and uploads the text texture even if unchanged.
     if (this.muteText.style.color !== audioColor) this.muteText.setColor(audioColor);
@@ -772,6 +778,17 @@ export class FightScene extends Phaser.Scene {
     this.tickProjectiles(w, sx, sy);
     this.hud.onEvents(this.sim.hits, 1);
 
+    const dailyFighters = w.fighters.map(f => {
+      const table = this.viewAnims[f.player];
+      const pose = currentAnimation(this.sim, f, table);
+      if (f.state !== 'idle' && !['walk_fwd', 'walk_back', 'dash', 'backdash'].includes(f.state) && !f.state.startsWith('jump_')) this.audio.interruptDailyVoice(f.player);
+      return { player: f.player, characterId: f.def.id, state: f.state, x: f.x, airborne: f.airborne,
+        animationFrame: pose.index, animationFrames: table[pose.anim]?.frames ?? 1, hitstop: f.hitstop };
+    });
+    for (const cue of this.dailyAudio.step(dailyFighters, w.phase === 'fight', this.sim.hits.length > 0)) {
+      this.audio.playCue(cue.id, cue.player === undefined ? {} : { player: cue.player });
+    }
+
     for (const f of w.fighters) {
       const i = f.player;
       // 落地 / 倒地 / 冲刺尘土
@@ -827,11 +844,13 @@ export class FightScene extends Phaser.Scene {
         this.fx.clear(); this.after.clear(); this.skillFx.clear(); this.prevProj.clear();
         this.prevInstances = [-1, -1]; this.prevSegments = [null, null];
         this.prevMoveIds = [null, null];
-        this.audio.stopAll(); this.audio.playCue('marineford_ambient');
+        this.dailyAudio.reset();
+        this.audio.clearFightSounds(); this.audio.playCue('marineford_ambient');
       }
       if (w.phase === 'fight') this.audio.playEvent({ phase: 'round_start', characterId: this.data_.p1, player: 0 });
       if (w.phase === 'round_end') {
-        this.audio.stopAll();
+        this.dailyAudio.interrupt();
+        this.audio.clearFightSounds();
         this.audio.playCue('marineford_ambient');
         const loser = w.roundWinner === null ? null : w.fighters[w.roundWinner === 0 ? 1 : 0]!;
         if (loser && w.timer !== 0) {

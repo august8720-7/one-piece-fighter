@@ -1,4 +1,4 @@
-export type AudioGroup = 'sfx' | 'voice' | 'ambient';
+export type AudioGroup = 'sfx' | 'voice' | 'ambient' | 'music';
 
 /** Readiness describes the selected in-game bus, never the user's physical speakers. */
 export type AudioHudState = 'muted' | 'master_zero' | 'group_zero' | 'paused' | 'locked' | 'loading'

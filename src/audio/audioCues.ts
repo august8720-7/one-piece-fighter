@@ -109,7 +109,7 @@ export function eventCues(event: FightAudioEvent, hasCue: (id: string) => boolea
     case 'start':
       // A normal with a material profile (stretch heavy) still has a real startup cue.
       if (moveAudio) add(stageCue(event.characterId, moveAudio, 'start'));
-      if (!move.startsWith('sp_') && !move.startsWith('ult_')) break;
+      if (!move.startsWith('sp_') && !move.startsWith('ult_')) { voice('effort'); break; }
       if (!moveAudio) add(event.characterId === 'akainu' ? 'magma' : 'special');
       if (hasCue(`voice.${event.characterId}.${move}`)) voice(move);
       else voice('attack');

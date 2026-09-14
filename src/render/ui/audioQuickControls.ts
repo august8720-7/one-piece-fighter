@@ -25,7 +25,7 @@ export function audioQuickControls(scene: Phaser.Scene, y: number): void {
       });
     });
   });
-  const refresh = (): void => { status.setText(sfxHudText(audio.hudState())); };
+  const refresh = (): void => { status.setText(`音效：${sfxHudText(audio.hudState())} · 人物：${sfxHudText(audio.hudState('voice'))} · 音乐：${sfxHudText(audio.hudState('music'))}`); };
   scene.events.on('update', refresh);
   scene.events.once('shutdown', () => {
     closed = true;

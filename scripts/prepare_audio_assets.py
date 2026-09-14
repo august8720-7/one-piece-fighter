@@ -281,6 +281,9 @@ def main() -> None:
     ledger = {'version': 1, 'prepared_date': '2026-09-12', 'script': 'scripts/prepare_audio_assets.py', 'script_sha256': sha(Path(__file__)), 'sample_rate': rate, 'sources': sources_used, 'products': products, 'voice_candidates': voice_candidates, 'listening_status': 'Pending user/qualified listener review; no audio-understanding tool available in this execution', 'manifest_voice_policy': 'Unheard/ASR-only voice candidates are excluded from cues'}
     (sources / 'audio-preparation-ledger-0912.json').write_text(json.dumps(ledger, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
     catalog = apply_voices(root, catalog)
+    daily = root / 'scripts/daily_audio_manifest.json'
+    if daily.exists():
+        catalog.update(json.loads(daily.read_text(encoding='utf-8'))['cues'])
     (root / 'src/audio/sampleManifest.json').write_text(json.dumps({'version': 1, 'cues': catalog}, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
     audition_order = ['hit-light-1', 'hit-heavy-1', 'guard', 'whoosh-1', 'luffy-stretch-start', 'luffy-stretch-release', 'luffy-stretch-end', 'akainu-daifunka-start', 'akainu-daifunka-release', 'akainu-daifunka-end', 'akainu-meteor-release', 'akainu-meteor-end']
     audition = []

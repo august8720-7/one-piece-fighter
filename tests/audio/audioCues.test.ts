@@ -62,12 +62,12 @@ describe('战斗音频纯映射', () => {
     expect(eventCues(hit, known('voice.akainu.hurt'))).toEqual([{ id: 'magma_hit', player: 1 }]);
   });
 
-  it('普通拳脚和方向派生不播放整句招名或通用招式喊声', () => {
+  it('普通拳脚使用短出力，伸缩重拳保留起手挥出回收', () => {
     for (const moveId of ['st_a', 'cr_d', 'f_c', 'j_c']) {
       const cues = eventCues(event({ phase: 'start', moveId }), () => true);
-      expect(cues).toEqual([]);
+      expect(cues).toEqual([{ id: 'voice.luffy.effort', player: 0 }]);
     }
-    expect(eventCues(event({ phase: 'start', moveId: 'st_c' }), () => true)).toEqual([{ id: 'sfx.luffy.stretch.start', player: 0 }]);
+    expect(eventCues(event({ phase: 'start', moveId: 'st_c' }), () => true)).toEqual([{ id: 'sfx.luffy.stretch.start', player: 0 }, { id: 'voice.luffy.effort', player: 0 }]);
     expect(eventCues(event({ phase: 'swing', moveId: 'st_c' }), () => true)).toEqual([{ id: 'sfx.luffy.stretch.release', player: 0 }]);
     expect(eventCues(event({ phase: 'recover', moveId: 'st_c' }), () => true)).toEqual([{ id: 'sfx.luffy.stretch.end', player: 0 }]);
     expect(eventCues(event({ phase: 'swing', moveId: 'st_a' }), () => true)).toEqual([{ id: 'whoosh', player: 0 }]);

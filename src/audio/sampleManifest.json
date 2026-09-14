@@ -599,6 +599,56 @@
       "priority": 5,
       "maxInstances": 1
     },
+    "sfx.luffy.footstep": {
+      "files": [
+        "assets/audio/sfx/luffy-step-0-0914.wav",
+        "assets/audio/sfx/luffy-step-1-0914.wav",
+        "assets/audio/sfx/luffy-step-2-0914.wav"
+      ],
+      "group": "sfx",
+      "gain": 0.55,
+      "priority": 12,
+      "cooldownMs": 110,
+      "maxInstances": 2,
+      "source": "docs/assets/日常声音与音乐来源0914.md"
+    },
+    "sfx.luffy.movement": {
+      "files": [
+        "assets/audio/sfx/whoosh-1-0912.wav"
+      ],
+      "group": "sfx",
+      "gain": 0.25,
+      "priority": 12,
+      "cooldownMs": 180,
+      "maxInstances": 1,
+      "source": "docs/assets/音频来源0912.md",
+      "note": "Existing recorded swish, reused for rapid movement; not claimed as a new clothing recording."
+    },
+    "sfx.akainu.footstep": {
+      "files": [
+        "assets/audio/sfx/akainu-step-0-0914.wav",
+        "assets/audio/sfx/akainu-step-1-0914.wav",
+        "assets/audio/sfx/akainu-step-2-0914.wav"
+      ],
+      "group": "sfx",
+      "gain": 0.68,
+      "priority": 12,
+      "cooldownMs": 110,
+      "maxInstances": 2,
+      "source": "docs/assets/日常声音与音乐来源0914.md"
+    },
+    "sfx.akainu.movement": {
+      "files": [
+        "assets/audio/sfx/whoosh-1-0912.wav"
+      ],
+      "group": "sfx",
+      "gain": 0.25,
+      "priority": 12,
+      "cooldownMs": 180,
+      "maxInstances": 1,
+      "source": "docs/assets/音频来源0912.md",
+      "note": "Existing recorded swish, reused for rapid movement; not claimed as a new clothing recording."
+    },
     "voice.luffy.attack": {
       "files": [
         "assets/audio/voice/luffy/candidate-review-attack-0912.wav",
@@ -679,6 +729,88 @@
       "gain": 0.85,
       "source": "docs/assets/人物声线确认0913.md",
       "note": "User confirmed character voice in audition; generic game-event placement is an implementation choice. Exact words and named moves are not certified."
+    },
+    "voice.luffy.effort": {
+      "files": [
+        "assets/audio/voice/luffy/candidate-review-attack-0912.wav",
+        "assets/audio/voice/luffy/candidate-review-attack-2-0912.wav"
+      ],
+      "group": "voice",
+      "characterId": "luffy",
+      "gain": 0.62,
+      "source": "docs/assets/人物声线确认0913.md",
+      "note": "Reuses the previously auditioned short exertion recording, at lower gain and with movement/normal cooldown. No new words, source audio or voice clone.",
+      "priority": 50,
+      "cooldownMs": 450,
+      "maxInstances": 1
+    },
+    "voice.luffy.move": {
+      "files": [
+        "assets/audio/voice/luffy/candidate-review-attack-0912.wav",
+        "assets/audio/voice/luffy/candidate-review-attack-2-0912.wav"
+      ],
+      "group": "voice",
+      "characterId": "luffy",
+      "gain": 0.62,
+      "source": "docs/assets/人物声线确认0913.md",
+      "note": "Reuses the previously auditioned short exertion recording, at lower gain and with movement/normal cooldown. No new words, source audio or voice clone.",
+      "priority": 9,
+      "cooldownMs": 0,
+      "maxInstances": 1
+    },
+    "voice.akainu.effort": {
+      "files": [
+        "assets/audio/voice/akainu/candidate-review-attack-0912.wav"
+      ],
+      "group": "voice",
+      "characterId": "akainu",
+      "gain": 0.62,
+      "source": "docs/assets/人物声线确认0913.md",
+      "note": "Reuses the previously auditioned short exertion recording, at lower gain and with movement/normal cooldown. No new words, source audio or voice clone.",
+      "priority": 50,
+      "cooldownMs": 450,
+      "maxInstances": 1
+    },
+    "voice.akainu.move": {
+      "files": [
+        "assets/audio/voice/akainu/candidate-review-attack-0912.wav"
+      ],
+      "group": "voice",
+      "characterId": "akainu",
+      "gain": 0.62,
+      "source": "docs/assets/人物声线确认0913.md",
+      "note": "Reuses the previously auditioned short exertion recording, at lower gain and with movement/normal cooldown. No new words, source audio or voice clone.",
+      "priority": 9,
+      "cooldownMs": 0,
+      "maxInstances": 1
+    },
+    "voice.luffy.idle": {
+      "files": [
+        "assets/audio/voice/luffy/daily-idle-1-0914.wav",
+        "assets/audio/voice/luffy/daily-idle-2-0914.wav"
+      ],
+      "group": "voice",
+      "characterId": "luffy",
+      "gain": 0.7,
+      "source": "docs/assets/日常声音与音乐来源0914.md",
+      "note": "User listened to these four waiting lines and accepted them on 2026-09-14. Exact transcript is not certified.",
+      "priority": 10,
+      "cooldownMs": 0,
+      "maxInstances": 1
+    },
+    "voice.akainu.idle": {
+      "files": [
+        "assets/audio/voice/akainu/daily-idle-1-0914.wav",
+        "assets/audio/voice/akainu/daily-idle-2-0914.wav"
+      ],
+      "group": "voice",
+      "characterId": "akainu",
+      "gain": 0.7,
+      "source": "docs/assets/日常声音与音乐来源0914.md",
+      "note": "User listened to these four waiting lines and accepted them on 2026-09-14. Exact transcript is not certified.",
+      "priority": 10,
+      "cooldownMs": 0,
+      "maxInstances": 1
     }
   }
 }

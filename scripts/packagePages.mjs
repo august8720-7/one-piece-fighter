@@ -47,6 +47,9 @@ for (const id of ['luffy', 'akainu']) {
 for (const name of ['backdrop', 'floor']) add(`assets/stages/marineford/${name}.webp`);
 const samples = readJson(path.join(root, 'src/audio/sampleManifest.json'));
 for (const cue of Object.values(samples.cues)) for (const file of cue.files) add(file);
+const music = readJson(path.join(root, 'src/audio/musicManifest.json'));
+for (const track of Object.values(music.tracks)) add(track.file);
+add('assets/audio/music/CREDITS.txt');
 
 const manifest = [...files].sort().map(file => {
   const data = readFileSync(safePath(source, file));

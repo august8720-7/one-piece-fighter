@@ -56,6 +56,31 @@ function setup(catalog = sampleCatalog, fetcher = vi.fn<typeof fetch>(async () =
 }
 
 describe('sample-first playback and cache', () => {
+  it('chatter yields to either speaker and combat cancels it even when the new voice is unavailable', async () => {
+    const rig = setup({
+      'voice.luffy.idle': { files: ['/idle.wav'], group: 'voice', priority: 10, cooldownMs: 0 },
+      'voice.akainu.idle': { files: ['/idle2.wav'], group: 'voice', priority: 10, cooldownMs: 0 },
+      'voice.akainu.effort': { files: ['/effort.wav'], group: 'voice', priority: 50, cooldownMs: 0 },
+    });
+    await rig.engine.preload(); await rig.engine.unlock();
+    expect(rig.engine.playCue('voice.luffy.idle', { player: 0 })).toBe(true);
+    expect(rig.engine.playCue('voice.akainu.idle', { player: 1 })).toBe(false);
+    rig.engine.playEvent({ phase: 'start', characterId: 'luffy', player: 0, moveId: 'st_a', moveInstance: 1 });
+    expect(rig.engine.diagnostics().playing).toHaveLength(0);
+    rig.engine.playEvent({ phase: 'start', characterId: 'akainu', player: 1, moveId: 'st_a', moveInstance: 1 });
+    expect(rig.engine.diagnostics().playing.map(s => s.cueId)).toEqual(['voice.akainu.effort']);
+    expect(rig.engine.playCue('voice.luffy.idle', { player: 0 })).toBe(false);
+  });
+
+  it('adds only the music default to an old save and keeps each original volume and mute setting', () => {
+    const storage = { getItem: () => JSON.stringify({ muted: true, volume: 0, groups: { sfx: 0.2, voice: 0.7, ambient: 0 } }), setItem: vi.fn() };
+    const engine = new AudioEngine({ storage, catalog: {} });
+    expect(engine.settings()).toEqual({ muted: true, volume: 0, groups: { sfx: 0.2, voice: 0.7, ambient: 0, music: 0.5 } });
+    expect(storage.setItem).not.toHaveBeenCalled();
+    engine.toggleMute(); expect(engine.hudState('music')).toBe('master_zero');
+    engine.setVolume(0.4); engine.setGroupVolume('music', 0); expect(engine.hudState('music')).toBe('group_zero');
+  });
+
   it('preloads without creating a context, decodes once after a gesture, and actually plays the decoded sample', async () => {
     const rig = setup({ hit_light: sampleCatalog.hit_light! });
     await rig.engine.preload();
@@ -144,7 +169,7 @@ describe('sample-first playback and cache', () => {
     expect(rig.engine.unlock()).toBe(first);
     expect(rig.device.decodeAudioData).toHaveBeenCalledOnce();
     expect(rig.factory).toHaveBeenCalledOnce();
-    expect(rig.gains).toHaveLength(4);
+    expect(rig.gains).toHaveLength(5);
     finishDecode(rig.device.createBuffer());
     await Promise.all([first, second, concurrentPreload]);
     expect(rig.engine.hudState()).toBe('ready');
@@ -572,7 +597,7 @@ describe('audio recovery, honest status and same-bus preview', () => {
     expect(await rig.engine.preview()).toBe(false);
     expect(rig.sources).toHaveLength(0);
     rig.engine.restoreDefaults();
-    expect(rig.engine.settings()).toEqual({ muted: false, volume: 0.6, groups: { sfx: 0.8, voice: 0.9, ambient: 0.3 } });
+    expect(rig.engine.settings()).toEqual({ muted: false, volume: 0.6, groups: { sfx: 0.8, voice: 0.9, ambient: 0.3, music: 0.5 } });
     expect(rig.engine.hudState()).toBe('ready');
   });
 
@@ -586,8 +611,8 @@ describe('audio recovery, honest status and same-bus preview', () => {
     expect(rig.engine.hudState()).toBe('paused');
     expect(rig.gains[0]!.gain.value).toBe(0.4);
     expect(rig.gains[1]!.gain.value).toBe(0.2);
-    expect(rig.sources[0]!.connect).toHaveBeenCalledWith(rig.gains[4]);
-    expect(rig.gains[4]!.connect).toHaveBeenCalledWith(rig.gains[1]);
+    expect(rig.sources[0]!.connect).toHaveBeenCalledWith(rig.gains[5]);
+    expect(rig.gains[5]!.connect).toHaveBeenCalledWith(rig.gains[1]);
     expect(rig.gains[1]!.connect).toHaveBeenCalledWith(rig.gains[0]);
     expect(rig.gains[0]!.connect).toHaveBeenCalledWith(rig.device.destination);
     rig.engine.toggleMute();

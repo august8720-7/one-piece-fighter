@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { sfx } from '../../audio/Sfx';
 import { characters } from '@characters/index';
 import { getInputHub } from '@input/InputHub';
 import { spriteFrame } from '../assets';
@@ -29,6 +30,7 @@ export class ResultScene extends Phaser.Scene {
   create(): void {
     this.step = new FixedStep();
     const d = this.data_;
+    sfx().resume(); sfx().playMusic(d.mode === 'cpu' && d.winner === 1 ? 'defeat' : 'victory');
     const winnerId = d.winner === 0 ? d.p1 : d.p2;
     const name = characters[winnerId]?.name ?? winnerId;
     const who = d.mode === 'cpu' && d.winner === 1 ? 'CPU' : `P${d.winner + 1}`;

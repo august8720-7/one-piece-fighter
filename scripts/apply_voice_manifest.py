@@ -11,7 +11,7 @@ def apply_voices(root: Path, catalog: dict) -> dict:
     result = {key: value for key, value in catalog.items() if not key.startswith('voice.')}
     for entry in selection['cues']:
         character, event = entry['character'], entry['event']
-        if character not in ('luffy', 'akainu') or event not in ('attack', 'hurt', 'ko', 'win'):
+        if character not in ('luffy', 'akainu') or event not in ('attack', 'hurt', 'ko', 'win', 'effort', 'move', 'idle'):
             raise ValueError('Only reviewed characters and generic event uses are allowed')
         cue_id = f'voice.{character}.{event}'
         if cue_id in result:
@@ -31,9 +31,16 @@ def apply_voices(root: Path, catalog: dict) -> dict:
         result[cue_id] = {
             'files': files, 'group': 'voice', 'characterId': character,
             'gain': 0.85 if event != 'hurt' else 0.65,
-            'source': selection['evidence'],
-            'note': 'User confirmed character voice in audition; generic game-event placement is an implementation choice. Exact words and named moves are not certified.',
+            'source': entry.get('evidence', selection['evidence']),
+            'note': entry.get('note', 'User confirmed character voice in audition; generic game-event placement is an implementation choice. Exact words and named moves are not certified.'),
         }
+        if event in ('idle', 'move', 'effort'):
+            if event == 'idle' and entry.get('reviewStatus') != 'accepted':
+                raise ValueError('Idle lines require explicit semantic listening evidence')
+            result[cue_id].update(priority=10 if event == 'idle' else 9 if event == 'move' else 50,
+                                  gain=0.7 if event == 'idle' else 0.62,
+                                  cooldownMs=0 if event in ('idle', 'move') else 450,
+                                  maxInstances=1)
     return result
 
 

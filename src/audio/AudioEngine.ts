@@ -1,12 +1,13 @@
 import sampleManifest from './sampleManifest.json';
 import { createCueCatalog, eventCues } from './audioCues';
 import { synthesize } from './synthesize';
+import { MusicPlayer, type MusicCatalog } from './MusicPlayer';
 import type { AudioCue, AudioFailureKind, AudioGroup, AudioHudState, AudioPreloadReport, AudioSettings, AudioTraceEntry, CueCatalog, FightAudioEvent, SfxKind } from './audioTypes';
 
 const STORAGE_KEY = 'opf.audio.v1';
-const GROUPS: readonly AudioGroup[] = ['sfx', 'voice', 'ambient'];
-const GROUP_LIMITS: Record<AudioGroup, number> = { sfx: 10, voice: 2, ambient: 2 };
-const DEFAULT_LEVELS: Record<AudioGroup, number> = { sfx: 0.8, voice: 0.9, ambient: 0.3 };
+const GROUPS: readonly AudioGroup[] = ['sfx', 'voice', 'ambient', 'music'];
+const GROUP_LIMITS: Record<AudioGroup, number> = { sfx: 10, voice: 2, ambient: 2, music: 2 };
+const DEFAULT_LEVELS: Record<AudioGroup, number> = { sfx: 0.8, voice: 0.9, ambient: 0.3, music: 0.5 };
 const TRACE_LIMIT = 64;
 type AudioStorage = Pick<Storage, 'getItem' | 'setItem'>;
 
@@ -39,12 +40,15 @@ export interface AudioEngineOptions {
   storage?: AudioStorage | null;
   now?: () => number;
   catalog?: CueCatalog;
+  musicCatalog?: MusicCatalog;
+  mediaFactory?: () => HTMLAudioElement;
 }
 
 const volumeValue = (value: number, fallback: number): number => Number.isFinite(value) ? Math.max(0, Math.min(1, Math.round(value * 10) / 10)) : fallback;
 
 /** One tracked WebAudio playback path for samples and fallback effects. */
 export class AudioEngine {
+  private readonly music: MusicPlayer;
   private context: AudioContext | null = null;
   private master: GainNode | null = null;
   private groups: Record<AudioGroup, GainNode> | null = null;
@@ -67,6 +71,7 @@ export class AudioEngine {
   private retryResume: (() => void) | null = null;
   private activationError: { kind: 'unavailable' | 'resume_failed'; message: string } | null = null;
   private playbackError: string | null = null;
+  private playbackErrorGroup: AudioGroup | null = null;
   private previewVersion = 0;
   private diagnosticsEnabled = false;
   private readonly traceEntries: AudioTraceEntry[] = [];
@@ -79,6 +84,7 @@ export class AudioEngine {
   volume = 0.6;
 
   constructor(options: AudioEngineOptions = {}) {
+    this.music = new MusicPlayer(options.musicCatalog, options.mediaFactory);
     this.catalog = createCueCatalog(options.catalog ?? sampleManifest.cues as unknown as CueCatalog);
     this.factory = options.contextFactory ?? (() => new AudioContext());
     this.fetcher = options.fetch ?? (typeof fetch === 'function' ? fetch.bind(globalThis) : null);
@@ -110,7 +116,8 @@ export class AudioEngine {
     if (this.paused) return 'paused';
     if (this.activationError) return this.activationError.kind;
     if (this.context?.state !== 'running') return 'locked';
-    if (this.playbackError) return 'start_failed';
+    if (group === 'music') return this.music.state();
+    if (this.playbackError && this.playbackErrorGroup === group) return 'start_failed';
     const entries = this.groupSamples(group);
     if (entries.some(sample => sample.loading || sample.decoding)) return 'loading';
     if (entries.some(sample => sample.errorKind === 'download')) return 'download_failed';
@@ -152,7 +159,8 @@ export class AudioEngine {
           gain.connect(this.master!);
           return gain;
         };
-        this.groups = { sfx: channel(), voice: channel(), ambient: channel() };
+        this.groups = { sfx: channel(), voice: channel(), ambient: channel(), music: channel() };
+        this.music.attach(this.context, this.groups.music);
         this.applyGains();
         if (this.diagnosticsEnabled) this.attachMeters();
       }
@@ -161,6 +169,7 @@ export class AudioEngine {
       if (this.destroyed) return;
       if (this.context.state !== 'running') throw new Error(`AudioContext is ${this.context.state}`);
       this.activationError = null;
+      this.syncMusic();
       this.trace('control', 'unlocked');
       await Promise.all([...this.samples.values()].map((entry) => this.decode(entry)));
       this.restoreLoops();
@@ -218,6 +227,7 @@ export class AudioEngine {
   /** A closing audio UI owns its audition, not the next scene's combat, menu sounds or ambience. */
   cancelPreview(): void {
     this.previewVersion++;
+    this.music.cancelPreview();
     for (const sound of [...this.playing.values()]) if (sound.preview) this.stop(sound);
   }
 
@@ -244,6 +254,7 @@ export class AudioEngine {
 
   /** Explicit retry fetches failed resources again, including corrupt HTTP-200 audio bytes. */
   async retryFailed(): Promise<AudioPreloadReport> {
+    this.music.retry();
     const urls = [...this.samples].filter(([, sample]) => sample.error).map(([url]) => url);
     await Promise.all(urls.map(url => this.load(url, true)));
     return this.preloadReport(urls);
@@ -318,6 +329,10 @@ export class AudioEngine {
 
   playEvent(event: FightAudioEvent): void {
     if (this.destroyed) return;
+    if (event.phase === 'start' || event.phase === 'ko') this.interruptDailyVoice(event.player);
+    if (event.phase === 'hit' || event.phase === 'block' || event.phase === 'throw') {
+      if (event.defenderPlayer !== undefined) this.interruptDailyVoice(event.defenderPlayer);
+    }
     this.trace('event', `${event.phase}:${event.player}:${event.characterId}:${event.moveId ?? ''}:${event.moveInstance ?? ''}`);
     if (event.phase === 'round_start') this.eventKeys.clear();
     if ((event.phase === 'start' || event.phase === 'swing' || event.phase === 'recover') && event.moveInstance !== undefined) {
@@ -356,9 +371,9 @@ export class AudioEngine {
     let buffer: AudioBuffer | undefined;
     let mode: 'sample' | 'synth' = 'sample';
     if (files.length) {
-      const index = this.variants.get(cueId) ?? 0;
+      const index = this.variants.get(key) ?? 0;
       buffer = this.samples.get(files[index % files.length]!)!.buffer!;
-      this.variants.set(cueId, index + 1);
+      this.variants.set(key, index + 1);
     } else if (cue.fallback && cue.group === 'sfx') {
       mode = 'synth';
       buffer = this.fallbackBuffers.get(cue.fallback);
@@ -392,15 +407,17 @@ export class AudioEngine {
       else { source?.disconnect(); gain?.disconnect(); }
       return this.playbackFailed(cueId, error);
     }
-    this.playbackError = null;
+    if (this.playbackErrorGroup === cue.group) { this.playbackError = null; this.playbackErrorGroup = null; }
     this.lastPlayed.set(key, this.now());
     if (mode === 'sample') this.sampledPlays++; else this.fallbackPlays++;
     this.trace('play', mode, cueId);
+    this.updateMusicDuck();
     return true;
   }
 
   private playbackFailed(cueId: string, error: unknown): false {
     this.playbackError = error instanceof Error ? error.message : 'playback failed';
+    this.playbackErrorGroup = this.catalog[cueId]?.group ?? 'sfx';
     this.trace('failure', `start: ${this.playbackError}`, cueId);
     return false;
   }
@@ -414,6 +431,8 @@ export class AudioEngine {
     const priority = cue.priority ?? 40;
     const current = [...this.playing.values()];
     if (cue.group === 'voice') {
+      // Ambient chatter never overlaps either fighter's more useful speech.
+      if (priority <= 10 && current.some(sound => sound.group === 'voice')) return false;
       const speaker = current.filter((sound) => sound.group === 'voice' && sound.player === player);
       if (speaker.some((sound) => sound.priority > priority)) return false;
       for (const sound of speaker) this.stop(sound);
@@ -439,9 +458,16 @@ export class AudioEngine {
     sound.source.onended = null;
     sound.source.disconnect();
     sound.gain.disconnect();
+    this.updateMusicDuck();
   }
 
   stopAll(): void {
+    this.music.stop();
+    this.clearFightSounds();
+  }
+
+  /** Round cleanup leaves the current music and its playback position intact. */
+  clearFightSounds(): void {
     this.previewVersion++;
     for (const sound of [...this.playing.values()]) this.stop(sound);
     this.loops.clear();
@@ -450,6 +476,7 @@ export class AudioEngine {
     this.variants.clear();
     this.paused = false;
     this.trace('control', 'stop_all');
+    this.syncMusic();
   }
 
   /** Permanent game teardown. Scene exits use stopAll() so decoded samples remain reusable. */
@@ -458,6 +485,7 @@ export class AudioEngine {
     this.destroyed = true;
     this.retryResume?.();
     this.stopAll();
+    this.music.destroy();
     for (const sample of this.samples.values()) sample.abort?.abort();
     this.samples.clear();
     this.fallbackBuffers.clear();
@@ -472,13 +500,18 @@ export class AudioEngine {
   }
 
   pause(): void {
+    if (this.paused) return;
     this.previewVersion++;
+    this.music.cancelPreview();
     this.paused = true;
     for (const sound of [...this.playing.values()]) this.stop(sound);
+    this.syncMusic();
   }
 
   resume(): void {
+    if (!this.paused) return;
     this.paused = false;
+    this.syncMusic();
     this.restoreLoops();
   }
 
@@ -539,7 +572,28 @@ export class AudioEngine {
   private applyGains(): void {
     if (this.master) this.master.gain.value = this.muted ? 0 : this.volume;
     if (this.groups) for (const group of GROUPS) this.groups[group].gain.value = this.levels[group];
+    this.syncMusic();
   }
+
+  playMusic(id: string, level = 1): void { this.music.request(id, level); this.syncMusic(); }
+
+  async previewMusic(): Promise<boolean> {
+    this.cancelPreview();
+    const version = this.previewVersion;
+    await this.unlock();
+    if (version !== this.previewVersion || this.destroyed) return false;
+    this.music.preview();
+    return !this.muted && this.volume > 0 && this.levels.music > 0 && this.context?.state === 'running';
+  }
+
+  interruptDailyVoice(player: 0 | 1): void {
+    for (const sound of [...this.playing.values()]) {
+      if (sound.group === 'voice' && sound.player === player && sound.priority <= 10) this.stop(sound);
+    }
+  }
+
+  private updateMusicDuck(): void { this.music.duck([...this.playing.values()].some(sound => sound.group === 'voice')); }
+  private syncMusic(): void { this.music.control(!this.destroyed && !this.muted && this.volume > 0 && this.levels.music > 0, this.paused); }
 
   private save(): void {
     try { this.storage?.setItem(STORAGE_KEY, JSON.stringify({ muted: this.muted, volume: this.volume, groups: this.levels })); } catch { /* Storage may be disabled. */ }
@@ -609,6 +663,7 @@ export class AudioEngine {
     return {
       state: this.hudState(), paused: this.paused, destroyed: this.destroyed, sampledPlays: this.sampledPlays, fallbackPlays: this.fallbackPlays,
       contextState: this.context?.state ?? 'not_created', settings: this.settings(),
+      groupStates: Object.fromEntries(GROUPS.map(group => [group, this.hudState(group)])), music: this.music.diagnostics(),
       activationError: this.activationError, playbackError: this.playbackError,
       pending: samples.filter(sample => sample.loading || sample.decoding).length,
       downloading: samples.filter(sample => sample.loading && !sample.bytes).length,

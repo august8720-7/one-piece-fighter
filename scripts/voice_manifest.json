@@ -111,6 +111,122 @@
           "source_end_seconds": 107.975
         }
       ]
+    },
+    {
+      "character": "luffy",
+      "event": "effort",
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/luffy/candidate-review-attack-0912.wav",
+          "sha256": "3660479bd25473ea8079bec87972fdcc9b0260eb0b52be10d28f2ee1563e192b",
+          "source_url": "https://www.youtube.com/watch?v=QwK-FAA-VRU",
+          "source_start_seconds": 3.115,
+          "source_end_seconds": 3.665
+        },
+        {
+          "path": "public/assets/audio/voice/luffy/candidate-review-attack-2-0912.wav",
+          "sha256": "3954ed4d9a63b8ed145642e71e7727d692a7b9e704bc230098b96b1885a4e06b",
+          "source_url": "https://www.youtube.com/watch?v=QwK-FAA-VRU",
+          "source_start_seconds": 3.915,
+          "source_end_seconds": 4.675
+        }
+      ],
+      "note": "Reuses the previously auditioned short exertion recording, at lower gain and with movement/normal cooldown. No new words, source audio or voice clone."
+    },
+    {
+      "character": "luffy",
+      "event": "move",
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/luffy/candidate-review-attack-0912.wav",
+          "sha256": "3660479bd25473ea8079bec87972fdcc9b0260eb0b52be10d28f2ee1563e192b",
+          "source_url": "https://www.youtube.com/watch?v=QwK-FAA-VRU",
+          "source_start_seconds": 3.115,
+          "source_end_seconds": 3.665
+        },
+        {
+          "path": "public/assets/audio/voice/luffy/candidate-review-attack-2-0912.wav",
+          "sha256": "3954ed4d9a63b8ed145642e71e7727d692a7b9e704bc230098b96b1885a4e06b",
+          "source_url": "https://www.youtube.com/watch?v=QwK-FAA-VRU",
+          "source_start_seconds": 3.915,
+          "source_end_seconds": 4.675
+        }
+      ],
+      "note": "Reuses the previously auditioned short exertion recording, at lower gain and with movement/normal cooldown. No new words, source audio or voice clone."
+    },
+    {
+      "character": "akainu",
+      "event": "effort",
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/akainu/candidate-review-attack-0912.wav",
+          "sha256": "411b11be44481c8e53f075ea7324cab4091a5fe4526929d9575174608380d0f7",
+          "source_url": "https://www.youtube.com/watch?v=LelknEdihUw",
+          "source_start_seconds": 3.175,
+          "source_end_seconds": 3.505
+        }
+      ],
+      "note": "Reuses the previously auditioned short exertion recording, at lower gain and with movement/normal cooldown. No new words, source audio or voice clone."
+    },
+    {
+      "character": "akainu",
+      "event": "move",
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/akainu/candidate-review-attack-0912.wav",
+          "sha256": "411b11be44481c8e53f075ea7324cab4091a5fe4526929d9575174608380d0f7",
+          "source_url": "https://www.youtube.com/watch?v=LelknEdihUw",
+          "source_start_seconds": 3.175,
+          "source_end_seconds": 3.505
+        }
+      ],
+      "note": "Reuses the previously auditioned short exertion recording, at lower gain and with movement/normal cooldown. No new words, source audio or voice clone."
+    },
+    {
+      "character": "luffy",
+      "event": "idle",
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/luffy/daily-idle-1-0914.wav",
+          "sha256": "93b01fc68d39aa16c06ca52ae3346be9173461988f5240cf3fa6549a4510f1ec",
+          "source_url": "https://www.youtube.com/watch?v=QwK-FAA-VRU",
+          "source_start_seconds": 70.5,
+          "source_end_seconds": 72.05
+        },
+        {
+          "path": "public/assets/audio/voice/luffy/daily-idle-2-0914.wav",
+          "sha256": "381c160fccc582d07d46a24d8e51efe63b922cfbb41ffee6ee3bac5ef58730dd",
+          "source_url": "https://www.youtube.com/watch?v=QwK-FAA-VRU",
+          "source_start_seconds": 75.3,
+          "source_end_seconds": 77.2
+        }
+      ],
+      "reviewStatus": "accepted",
+      "evidence": "docs/assets/日常声音与音乐来源0914.md",
+      "note": "User listened to these four waiting lines and accepted them on 2026-09-14. Exact transcript is not certified."
+    },
+    {
+      "character": "akainu",
+      "event": "idle",
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/akainu/daily-idle-1-0914.wav",
+          "sha256": "2a00c556d8ed531b37b1f87a082724a652344d025ee683e7ea6a8b6fade031bb",
+          "source_url": "https://www.youtube.com/watch?v=LelknEdihUw",
+          "source_start_seconds": 24.15,
+          "source_end_seconds": 25.75
+        },
+        {
+          "path": "public/assets/audio/voice/akainu/daily-idle-2-0914.wav",
+          "sha256": "bd05e975e1fd474a22163ba8dfcf0891a58ca94b297a92f9af42fcda2fe22809",
+          "source_url": "https://www.youtube.com/watch?v=LelknEdihUw",
+          "source_start_seconds": 25.95,
+          "source_end_seconds": 27.65
+        }
+      ],
+      "reviewStatus": "accepted",
+      "evidence": "docs/assets/日常声音与音乐来源0914.md",
+      "note": "User listened to these four waiting lines and accepted them on 2026-09-14. Exact transcript is not certified."
     }
   ],
   "evidence": "docs/assets/人物声线确认0913.md"

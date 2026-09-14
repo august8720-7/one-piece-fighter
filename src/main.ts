@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { sfx } from './audio/Sfx';
 import { SCREEN_H, SCREEN_W } from '@render/screen';
 import { BootScene } from '@render/scenes/BootScene';
 import { CharacterSelectScene } from '@render/scenes/CharacterSelectScene';
@@ -12,7 +13,7 @@ import { TitleScene } from '@render/scenes/TitleScene';
 const startupParams = new URLSearchParams(window.location.search);
 if (startupParams.get('art') === 'anime') document.body.dataset.art = 'anime';
 
-new Phaser.Game({
+const game = new Phaser.Game({
   type: Phaser.AUTO,
   parent: 'game',
   width: SCREEN_W,
@@ -31,3 +32,11 @@ new Phaser.Game({
   input: { gamepad: false },
   scene: [BootScene, TitleScene, MenuScene, CharacterSelectScene, SettingsScene, PreloadScene, FightScene, ResultScene],
 });
+
+// FightScene owns its explicit pause menu; other scenes resume music when focus returns.
+game.events.on(Phaser.Core.Events.BLUR, () => sfx().pause());
+game.events.on(Phaser.Core.Events.HIDDEN, () => sfx().pause());
+const resumeMenuAudio = (): void => { if (!game.scene.isActive('Fight')) sfx().resume(); };
+game.events.on(Phaser.Core.Events.FOCUS, resumeMenuAudio);
+game.events.on(Phaser.Core.Events.VISIBLE, resumeMenuAudio);
+game.events.once(Phaser.Core.Events.DESTROY, () => { void sfx().destroy(); });
