@@ -24,6 +24,9 @@ https://creativecommons.org/licenses/by/3.0/
 Changes: selected clips, high-pass filtering, limiting, short fades and WAV conversion.
 
 No affiliation or endorsement by these authors is implied.
+2026-09-15 network delivery: the same edited music and short recordings are encoded
+as Ogg Opus (menu 80 kbps; other music and short cues 96 kbps). Durations and event
+mappings are retained. The music licenses above continue to apply to these encodes.
 Character voices are separate One Piece Pirate Warriors 4 excerpts, from previously
 documented recordings by Dude! Rude!: youtube.com/watch?v=QwK-FAA-VRU and
 youtube.com/watch?v=LelknEdihUw. They are NOT licensed by the CC music licenses above.
