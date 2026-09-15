@@ -12,7 +12,7 @@ export interface PresentationProfile {
 export type PresentationData = Partial<PresentationProfile>;
 export const PRESENTATION = 'presentationProfile';
 export const PRESENTATION_LOAD = 'presentationLoadResult';
-export const PRESENTATION_VERSION = '0914';
+export const PRESENTATION_VERSION = '0915';
 const LEGACY: PresentationProfile = { art: 'legacy', quality: 'performance', scope: 'full' };
 
 interface Registry {

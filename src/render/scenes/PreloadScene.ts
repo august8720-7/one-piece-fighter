@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { characters } from '@characters/index';
-import { loadAnimeCharacters, loadCharacterAtlases, loadPresentationAssets, ANIME_LOAD_RESULT } from '../assets';
+import { loadAnimeCharacters, loadAnimeInterfaces, loadCharacterAtlases, loadPresentationAssets, type AnimeLoadResult } from '../assets';
 import { sfx } from '../../audio/Sfx';
 import { SCREEN_H, SCREEN_W, font, ui } from '../screen';
 import { UI } from '../ui/MenuList';
@@ -8,12 +8,13 @@ import { evaluateAnimeEntry } from '../anime/entryGate';
 import { audioQuickControls } from '../ui/audioQuickControls';
 import { adoptPresentation, legacyPresentation, presentationLabel, readPresentation, PRESENTATION_LOAD, type PresentationData } from '../presentation';
 import type { FightSceneData } from './FightScene';
-import { AssetDownloads } from '../assetDownloads';
+import { sharedDownloads } from '../assetDownloads';
 
 export type PreloadData = FightSceneData & PresentationData & {
   destination?: 'Title';
   /** A defensive Fight gate routes here without triggering an automatic retry loop. */
   failure?: string[];
+  retryAudio?: boolean;
 };
 
 /** A requested anime battle cannot exist until all declared resources have decoded and passed validation. */
@@ -35,18 +36,29 @@ export class PreloadScene extends Phaser.Scene {
     const label = this.add.text(SCREEN_W / 2, SCREEN_H / 2, '正在载入人物与舞台…', { fontFamily: UI.font, fontSize: font(22), color: UI.dim, align: 'center' }).setOrigin(0.5);
     const hint = this.add.text(SCREEN_W / 2, SCREEN_H / 2 + ui(90), '首次打开需要下载高清素材，较慢网络请稍候。', { fontFamily: UI.font, fontSize: font(15), color: UI.dim }).setOrigin(0.5);
     const active = (): boolean => generation === this.generation && this.scene.isActive();
-    const downloads = new AssetDownloads(progress => {
-      if (active()) label.setText(`正在载入人物与舞台…\n已完成 ${progress.completed} 份文件${progress.retry ? '\n连接较慢，正在自动重试…' : ''}`);
-    });
     const data = this.data_;
     const profile = readPresentation(this.registry);
+    const menu = profile.art === 'anime' && data.destination === 'Title';
+    const downloads = sharedDownloads(this.game ?? this.registry);
+    const audio = sfx();
+    audio.useDownloads(downloads);
+    const unsubscribe = downloads.observe(progress => {
+      if (!active()) return;
+      const bytes = progress.totalBytes === undefined ? `已完成 ${progress.completed} 份文件`
+        : `${((progress.receivedBytes ?? 0) / 1_000_000).toFixed(1)} / ${(progress.totalBytes / 1_000_000).toFixed(1)} MB`;
+      label.setText(`${menu ? '正在准备菜单…' : '正在准备完整比赛…'}\n${bytes}${progress.retry ? '\n连接较慢，正在自动重试…' : ''}`);
+    });
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, unsubscribe);
+    const finish = (): void => { unsubscribe(); label.destroy(); hint.destroy(); };
     const ids = data.destination === 'Title' ? Object.keys(characters) : [data.p1, data.p2];
+    const loadAudio = () => menu ? audio.preloadMenu() : audio.preload(ids);
     void Promise.all([
-      profile.art === 'anime' ? loadAnimeCharacters(this, ids, downloads) : loadCharacterAtlases(this, ids),
-      loadPresentationAssets(this, downloads),
-    ]).then(async ([, presentationAssets]) => {
+      menu ? loadAnimeInterfaces(this, ids, downloads) : profile.art === 'anime' ? loadAnimeCharacters(this, ids, downloads) : loadCharacterAtlases(this, ids),
+      loadPresentationAssets(this, downloads, menu ? 'menu' : 'fight'),
+      data.retryAudio ? audio.retryFailed().then(loadAudio) : loadAudio(),
+    ]).then(([characterResult, presentationAssets, audioResult]) => {
       if (generation !== this.generation || !this.scene.isActive()) return;
-      const loaded = this.registry.get(ANIME_LOAD_RESULT) as Awaited<ReturnType<typeof loadAnimeCharacters>> | undefined;
+      const loaded = profile.art === 'anime' ? characterResult as AnimeLoadResult : undefined;
       const invalidIds = [data.p1, data.p2].filter(id => !characters[id]);
       const issues = invalidIds.length ? [`未知角色：${invalidIds.join('、')}`] : [];
       if (profile.art === 'anime' && profile.scope === 'full' && !presentationAssets?.ok) {
@@ -54,26 +66,21 @@ export class PreloadScene extends Phaser.Scene {
       }
       if (profile.art === 'anime') {
         if (!loaded?.ok) issues.push(...(loaded?.failures.map(f => `${characters[f.characterId]?.name ?? f.characterId}：${f.message}`) ?? ['人物加载未完成']));
-        if (!issues.length && !data.destination) {
+        if (!issues.length && !menu && !data.destination) {
           const result = evaluateAnimeEntry(profile, [characters[data.p1]!, characters[data.p2]!], loaded!.assets, loaded!.errors, data.mode);
           this.registry.set(PRESENTATION_LOAD, result);
           issues.push(...result.issues);
         }
       }
-      if (issues.length) { label.destroy(); hint.destroy(); this.showFailure(issues); return; }
-      // Large images finish first; seventy short sounds must not compete with them.
-      label.setText('正在载入声音…');
-      await sfx().preload(ids, (completed, total) => {
-        if (active()) label.setText(`正在载入声音…\n已处理 ${completed} / ${total} 份文件`);
-      });
-      if (!active()) return;
-      label.destroy(); hint.destroy();
-      this.registry.set(PRESENTATION_LOAD, { ok: true, scope: profile.scope, art: profile.art });
+      if (profile.art === 'anime' && !audio.muted && audioResult.failed.length) issues.push(`声音未能载入：${audioResult.failed.join('、')}`);
+      if (issues.length) { finish(); this.showFailure(issues); return; }
+      finish();
+      this.registry.set(PRESENTATION_LOAD, { ok: true, scope: profile.scope, art: profile.art, stage: menu ? 'menu' : 'fight' });
       if (data.destination === 'Title') this.scene.start('Title', profile);
       else this.scene.start('Fight', { ...data, ...profile });
     }).catch(error => {
       if (generation !== this.generation || !this.scene.isActive()) return;
-      label.destroy(); hint.destroy();
+      finish();
       this.showFailure([error instanceof Error ? error.message : '资源加载失败']);
     });
   }
@@ -87,7 +94,7 @@ export class PreloadScene extends Phaser.Scene {
     const summary = incomplete
       ? '新版人物动作尚未制作齐全，完整比赛尚未开放。'
       : timedOut ? '素材下载超时，自动重试后仍未完成。请检查网络后重新载入；已下载的文件会先检查是否可复用。'
-        : '人物、舞台或技能贴图未能完整载入，请重试。具体原因可在加载诊断中查看。';
+        : '人物、舞台、技能或声音未能完整载入，请重试。具体原因可在加载诊断中查看。';
     this.add.text(SCREEN_W / 2, ui(174), summary, {
       fontFamily: UI.font, fontSize: font(18), color: UI.text, align: 'center', wordWrap: { width: ui(720), useAdvancedWrap: true },
     }).setOrigin(0.5, 0);
@@ -99,7 +106,7 @@ export class PreloadScene extends Phaser.Scene {
     button(320, '重新载入', () => {
       const retry = { ...this.data_ };
       delete retry.failure;
-      this.scene.restart(retry);
+      this.scene.restart({ ...retry, retryAudio: true });
     });
     button(625, '主动进入旧版', () => {
       const data = { ...this.data_ };

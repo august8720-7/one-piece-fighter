@@ -4,13 +4,19 @@ import { akainuDef, luffyDef } from '../../src/characters';
 import { DEFAULT_ANIMS, type AnimeRuntimeManifest } from '../../src/render/animations';
 import type { AnimeLoadResult, PresentationAssetLoadResult } from '../../src/render/assets';
 
-const mocks = vi.hoisted(() => ({ loadAnime: vi.fn(), loadLegacy: vi.fn(async () => ({})), loadStage: vi.fn(), preloadAudio: vi.fn(async () => {}) }));
+const mocks = vi.hoisted(() => ({
+  loadAnime: vi.fn(), loadInterfaces: vi.fn(async () => ({ ok: true, failures: [] })),
+  loadLegacy: vi.fn(async () => ({})), loadStage: vi.fn(),
+  preloadAudio: vi.fn(async () => ({ fetched: 0, decoded: 0, failed: [] as string[] })),
+  preloadMenu: vi.fn(async () => ({ fetched: 0, decoded: 0, failed: [] as string[] })),
+  retryAudio: vi.fn(async () => ({ fetched: 0, decoded: 0, failed: [] as string[] })),
+}));
 vi.mock('phaser', () => ({ default: { Scene: class {}, Scenes: { Events: { SHUTDOWN: 'shutdown' } } } }));
 vi.mock('../../src/render/assets', () => ({
   ANIME_LOAD_RESULT: 'animeLoadResult', SPRITE_KEYS: 'spriteKeys',
-  loadAnimeCharacters: mocks.loadAnime, loadCharacterAtlases: mocks.loadLegacy, loadPresentationAssets: mocks.loadStage,
+  loadAnimeCharacters: mocks.loadAnime, loadAnimeInterfaces: mocks.loadInterfaces, loadCharacterAtlases: mocks.loadLegacy, loadPresentationAssets: mocks.loadStage,
 }));
-vi.mock('../../src/audio/Sfx', () => ({ sfx: () => ({ preload: mocks.preloadAudio }) }));
+vi.mock('../../src/audio/Sfx', () => ({ sfx: () => ({ preload: mocks.preloadAudio, preloadMenu: mocks.preloadMenu, useDownloads: vi.fn(), retryFailed: mocks.retryAudio, muted: false }) }));
 vi.mock('../../src/render/ui/audioQuickControls', () => ({ audioQuickControls: () => {} }));
 vi.mock('../../src/render/ui/MenuList', () => ({ UI: { font: 'sans-serif', mono: 'monospace', title: '#fff', text: '#fff', dim: '#ccc', accent: '#eee' } }));
 import { PreloadScene, type PreloadData } from '../../src/render/scenes/PreloadScene';
@@ -62,7 +68,11 @@ function fixture(data: PreloadData = entry) {
   return { scene, navigation, values, controls };
 }
 const flush = async () => { for (let tick = 0; tick < 10; tick++) await Promise.resolve(); };
-beforeEach(() => { vi.clearAllMocks(); mocks.loadStage.mockResolvedValue(stageReady()); });
+beforeEach(() => {
+  vi.clearAllMocks(); mocks.loadStage.mockResolvedValue(stageReady());
+  mocks.loadInterfaces.mockResolvedValue({ ok: true, failures: [] });
+  mocks.preloadAudio.mockResolvedValue({ fetched: 0, decoded: 0, failed: [] });
+});
 
 describe('preload prevents invalid battles', () => {
   it('does not create Fight until resource loading has finished', async () => {
@@ -71,7 +81,7 @@ describe('preload prevents invalid battles', () => {
     mocks.loadAnime.mockImplementation(() => new Promise<AnimeLoadResult>(done => { resolve = done; }));
     current.scene.create();
     expect(current.navigation.start).not.toHaveBeenCalled();
-    expect(mocks.preloadAudio).not.toHaveBeenCalled();
+    expect(mocks.preloadAudio).toHaveBeenCalledTimes(1);
     current.values.set('animeLoadResult', valid());
     resolve(valid());
     await flush();
@@ -88,7 +98,7 @@ describe('preload prevents invalid battles', () => {
     await flush();
     expect(current.navigation.start).not.toHaveBeenCalled();
     expect(mocks.loadLegacy).not.toHaveBeenCalled();
-    expect(mocks.preloadAudio).not.toHaveBeenCalled();
+    expect(mocks.preloadAudio).toHaveBeenCalledTimes(1);
     current.controls.get('重新载入')!();
     expect(current.navigation.restart).toHaveBeenLastCalledWith(expect.objectContaining({ art: 'anime', scope: 'sample', quality: 'high' }));
     current.controls.get('主动进入旧版')!();
@@ -133,7 +143,7 @@ describe('preload prevents invalid battles', () => {
     expect(current.navigation.start).toHaveBeenCalledWith('Fight', expect.objectContaining({ art: 'anime', scope: 'full', mode: 'cpu' }));
   });
 
-  it('full anime title also waits for required presentation resources', async () => {
+  it('the menu gate still blocks a missing required backdrop', async () => {
     const current = fixture({ ...entry, scope: 'full', destination: 'Title' });
     mocks.loadAnime.mockImplementation(async () => { current.values.set('animeLoadResult', valid()); return valid(); });
     let complete!: (result: PresentationAssetLoadResult) => void;
@@ -143,6 +153,28 @@ describe('preload prevents invalid battles', () => {
     complete(stageFailed('marineford-backdrop')); await flush();
     expect(current.navigation.start).not.toHaveBeenCalled();
     expect(current.controls.has('重新载入')).toBe(true);
+  });
+
+  it('admits an interactive menu without requesting the complete combat atlas or battle sounds', async () => {
+    const current = fixture({ ...entry, scope: 'full', destination: 'Title' });
+    mocks.loadStage.mockResolvedValue({ ...stageReady(), requested: ['marineford-backdrop'], loaded: ['marineford-backdrop'] });
+    current.scene.create(); await flush();
+    expect(current.navigation.start).toHaveBeenCalledWith('Title', expect.objectContaining({ art: 'anime' }));
+    expect(mocks.loadAnime).not.toHaveBeenCalled();
+    expect(mocks.preloadAudio).not.toHaveBeenCalled();
+    expect(mocks.preloadMenu).toHaveBeenCalledTimes(1);
+    expect(mocks.loadStage).toHaveBeenCalledWith(current.scene, expect.anything(), 'menu');
+  });
+
+  it('does not admit a full match with failed required sounds', async () => {
+    const current = fixture({ ...entry, mode: 'cpu', scope: 'full' });
+    mocks.loadAnime.mockResolvedValue(valid(true));
+    mocks.preloadAudio.mockResolvedValue({ fetched: 1, decoded: 1, failed: ['voice.ogg'] });
+    current.scene.create(); await flush();
+    expect(current.navigation.start).not.toHaveBeenCalled();
+    expect(current.values.get('presentationLoadResult')).toMatchObject({ ok: false, issues: ['声音未能载入：voice.ogg'] });
+    current.controls.get('重新载入')!();
+    expect(current.navigation.restart).toHaveBeenCalledWith(expect.objectContaining({ retryAudio: true }));
   });
 
   it.each(['legacy', 'sample'] as const)('%s retains optional presentation loading', async mode => {

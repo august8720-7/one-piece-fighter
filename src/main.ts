@@ -9,6 +9,7 @@ import { PreloadScene } from '@render/scenes/PreloadScene';
 import { ResultScene } from '@render/scenes/ResultScene';
 import { SettingsScene } from '@render/scenes/SettingsScene';
 import { TitleScene } from '@render/scenes/TitleScene';
+import { sharedDownloads } from '@render/assetDownloads';
 
 const startupParams = new URLSearchParams(window.location.search);
 if (startupParams.get('art') === 'anime') document.body.dataset.art = 'anime';
@@ -39,4 +40,4 @@ game.events.on(Phaser.Core.Events.HIDDEN, () => sfx().pause());
 const resumeMenuAudio = (): void => { if (!game.scene.isActive('Fight')) sfx().resume(); };
 game.events.on(Phaser.Core.Events.FOCUS, resumeMenuAudio);
 game.events.on(Phaser.Core.Events.VISIBLE, resumeMenuAudio);
-game.events.once(Phaser.Core.Events.DESTROY, () => { void sfx().destroy(); });
+game.events.once(Phaser.Core.Events.DESTROY, () => { sharedDownloads(game).destroy(); void sfx().destroy(); });

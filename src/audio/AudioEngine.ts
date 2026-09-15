@@ -2,6 +2,7 @@ import sampleManifest from './sampleManifest.json';
 import { createCueCatalog, eventCues } from './audioCues';
 import { synthesize } from './synthesize';
 import { MusicPlayer, type MusicCatalog } from './MusicPlayer';
+import { deliveryRecord, type AssetDownloads } from '../render/assetDownloads';
 import type { AudioCue, AudioFailureKind, AudioGroup, AudioHudState, AudioPreloadReport, AudioSettings, AudioTraceEntry, CueCatalog, FightAudioEvent, SfxKind } from './audioTypes';
 
 const STORAGE_KEY = 'opf.audio.v1';
@@ -58,6 +59,7 @@ export class AudioEngine {
   private readonly storage: AudioStorage | null;
   private readonly now: () => number;
   private readonly samples = new Map<string, CachedSample>();
+  private downloads: AssetDownloads | null = null;
   private readonly fallbackBuffers = new Map<SfxKind, AudioBuffer>();
   private readonly playing = new Map<number, PlayingSound>();
   private readonly loops = new Set<string>();
@@ -231,6 +233,14 @@ export class AudioEngine {
     for (const sound of [...this.playing.values()]) if (sound.preview) this.stop(sound);
   }
 
+  useDownloads(downloads: AssetDownloads): void { this.downloads = downloads; }
+
+  async preloadMenu(): Promise<AudioPreloadReport> {
+    const urls = [...new Set(['menu_move', 'menu_confirm'].flatMap(id => [...(this.catalog[id]?.files ?? [])]))];
+    await this.loadMany(urls, false);
+    return this.preloadReport(urls);
+  }
+
   async preload(characterIds?: readonly string[], onProgress?: (completed: number, total: number) => void): Promise<AudioPreloadReport> {
     if (this.destroyed) return { fetched: 0, decoded: 0, failed: [] };
     const selected = characterIds ? new Set(characterIds) : null;
@@ -256,6 +266,7 @@ export class AudioEngine {
   async retryFailed(): Promise<AudioPreloadReport> {
     this.music.retry();
     const urls = [...this.samples].filter(([, sample]) => sample.error).map(([url]) => url);
+    if (this.downloads) await Promise.all(urls.map(url => this.downloads!.invalidate(url)));
     await this.loadMany(urls, true);
     return this.preloadReport(urls);
   }
@@ -295,12 +306,19 @@ export class AudioEngine {
     sample.loading = (async () => {
       const abort = new AbortController();
       sample.abort = abort;
-      const timeout = setTimeout(() => abort.abort(), 30_000);
+      const managed = this.downloads && deliveryRecord(url);
+      // The shared pool owns queued-file deadlines and retries. An audio timer
+      // must not expire before that file even gets a download slot.
+      const timeout = managed ? undefined : setTimeout(() => abort.abort(), 30_000);
       try {
-        if (!this.fetcher) throw new Error('fetch unavailable');
-        const response = await this.fetcher(url, { signal: abort.signal, cache: retry ? 'reload' : 'default' });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const bytes = await response.arrayBuffer();
+        let bytes: ArrayBuffer;
+        if (managed) bytes = await this.downloads!.read(url, response => response.arrayBuffer());
+        else {
+          if (!this.fetcher) throw new Error('fetch unavailable');
+          const response = await this.fetcher(url, { signal: abort.signal, cache: retry ? 'reload' : 'default' });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          bytes = await response.arrayBuffer();
+        }
         if (!bytes.byteLength) throw new Error('empty audio response');
         if (this.destroyed) return;
         sample.bytes = bytes;

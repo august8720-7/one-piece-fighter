@@ -29,8 +29,21 @@ for (const file of files) {
   for (const match of text.matchAll(/["']\.\/([^"'?#]+\.(?:js|css))["']/g)) add(path.posix.join(path.posix.dirname(file), match[1]));
 }
 const ui = readJson(path.join(root, 'src/render/anime/uiArtManifest.json'));
+const deliveryBuild = existsSync(path.join(source, 'delivery-build.json')) ? readJson(path.join(source, 'delivery-build.json')) : null;
+if (deliveryBuild) {
+  const delivery = readJson(path.join(root, 'src/render/deliveryManifest.json'));
+  if (deliveryBuild.version !== delivery.version) throw new Error('Delivery build version differs from packaging manifest');
+  add('delivery-build.json');
+  for (const record of Object.values(delivery.records)) {
+    const bytes = readFileSync(safePath(source, record.file));
+    if (bytes.length !== record.bytes || hash(bytes) !== record.sha256) throw new Error(`Delivery content mismatch: ${record.file}`);
+    add(record.file);
+  }
+}
 for (const id of ['luffy', 'akainu']) {
   const base = `assets/characters/${id}`;
+  for (const name of ['atlas.png', 'atlas.json', 'placeholder.png', 'placeholder.json']) add(`${base}/${name}`);
+  if (deliveryBuild) continue;
   const runtimeFile = `${base}/anime/runtime.json`;
   const runtime = readJson(safePath(source, runtimeFile));
   if (runtime.characterId !== id || runtime.textureDensity !== 2 || !runtime.pages?.length) throw new Error(`Invalid anime bundle: ${id}`);
@@ -44,11 +57,11 @@ for (const id of ['luffy', 'akainu']) {
   add(`assets/fx/${id}.png`);
   add(`assets/fx/${id}.json`);
 }
-for (const name of ['backdrop', 'floor']) add(`assets/stages/marineford/${name}.webp`);
+if (!deliveryBuild) for (const name of ['backdrop', 'floor']) add(`assets/stages/marineford/${name}.webp`);
 const samples = readJson(path.join(root, 'src/audio/sampleManifest.json'));
-for (const cue of Object.values(samples.cues)) for (const file of cue.files) add(file);
+if (!deliveryBuild) for (const cue of Object.values(samples.cues)) for (const file of cue.files) add(file);
 const music = readJson(path.join(root, 'src/audio/musicManifest.json'));
-for (const track of Object.values(music.tracks)) add(track.file);
+if (!deliveryBuild) for (const track of Object.values(music.tracks)) add(track.file);
 add('assets/audio/music/CREDITS.txt');
 
 const manifest = [...files].sort().map(file => {

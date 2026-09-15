@@ -3,6 +3,7 @@ import { Btn } from '@core/index';
 import { sfx } from '../../audio/Sfx';
 import { getInputHub } from '@input/InputHub';
 import { interfaceFrame, spriteFrame } from '../assets';
+import { sharedDownloads, warmFightDownloads } from '../assetDownloads';
 import { FixedStep } from '../FixedStep';
 import { SCREEN_H, SCREEN_W, font, ui } from '../screen';
 import { UI, drawPanel } from '../ui/MenuList';
@@ -72,6 +73,13 @@ export class TitleScene extends Phaser.Scene {
     getInputHub().flush();
     this.prompt.setInteractive({ useHandCursor: true }).once('pointerdown', () => this.enterMenu());
     audioQuickControls(this, ui(435));
+    if (anime) {
+      const downloads = sharedDownloads(this.game);
+      sfx().useDownloads(downloads);
+      // Share verified bytes across scenes without uploading all combat textures
+      // while the player is still navigating a fast, cached menu.
+      void warmFightDownloads(downloads).catch(() => { /* The match gate reports and retries failed resources. */ });
+    }
   }
 
   private enterMenu(): void {

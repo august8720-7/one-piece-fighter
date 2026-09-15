@@ -3,6 +3,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { loadPresentationAssets, PRESENTATION_ASSET_LOAD_RESULT, REQUIRED_FX_FRAMES } from '../../src/render/assets';
 import { adoptPresentation } from '../../src/render/presentation';
 
+vi.mock('../../src/render/deliveryManifest.json', () => ({ default: { version: 'fixtures', records: {} } }));
+
 vi.mock('phaser', () => ({ default: { Textures: { FilterMode: { LINEAR: 0, NEAREST: 1 } } } }));
 
 // These names are the inspected stage/effect contract, independent of the generated local PNGs.
@@ -50,6 +52,13 @@ beforeEach(() => {
   bundles = { akainu: atlas('akainu'), luffy: atlas('luffy') };
   httpFailures = new Set(); brokenImages = new Set(); stalledImages = new Set(); jsonOverrides = new Map();
   const blobSources = new WeakMap<Blob, string>();
+  const NativeBlob = Blob;
+  vi.stubGlobal('Blob', class extends NativeBlob {
+    constructor(parts: BlobPart[], options?: BlobPropertyBag) {
+      super(parts, options);
+      if (parts[0] instanceof ArrayBuffer) blobSources.set(this, new TextDecoder().decode(parts[0]));
+    }
+  });
   const imageSources = new Map<string, string>();
   let nextImage = 0;
   vi.spyOn(URL, 'createObjectURL').mockImplementation(blob => {

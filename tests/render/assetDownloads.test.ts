@@ -5,6 +5,24 @@ afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals(); });
 const delay = <T>(ms: number, value: T): Promise<T> => new Promise(resolve => setTimeout(() => resolve(value), ms));
 
 describe('public first-load downloads', () => {
+  it('aborts active downloads and rejects queued work on permanent game teardown', async () => {
+    vi.useFakeTimers();
+    const signals: AbortSignal[] = [];
+    vi.stubGlobal('fetch', vi.fn((_url: string, init: RequestInit) => {
+      signals.push(init.signal as AbortSignal);
+      return new Promise<Response>(() => {});
+    }));
+    const pool = new AssetDownloads();
+    const pending = Promise.allSettled(Array.from({ length: 8 }, (_, i) => pool.read(`${i}.png`, r => r.text())));
+    await vi.advanceTimersByTimeAsync(0);
+    expect(fetch).toHaveBeenCalledTimes(4);
+    pool.destroy();
+    expect((await pending).every(result => result.status === 'rejected')).toBe(true);
+    expect(signals.every(signal => signal.aborted)).toBe(true);
+    expect(fetch).toHaveBeenCalledTimes(4);
+    expect(vi.getTimerCount()).toBe(0);
+    await expect(pool.read('later.png', r => r.text())).rejects.toThrow('游戏已退出');
+  });
   it('accepts a body still downloading after eight seconds', async () => {
     vi.useFakeTimers();
     vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, headers: new Headers(), arrayBuffer: () => delay(12_000, new ArrayBuffer(2)) })));

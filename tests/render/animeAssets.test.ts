@@ -2,12 +2,17 @@ import type Phaser from 'phaser';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { AnimeRuntimeManifest } from '../../src/render/animations';
 
+// These intentionally synthetic PNG/runtime bytes have their own content checks;
+// they must not be resolved through the unrelated generated production manifest.
+const delivery = vi.hoisted(() => ({ version: 'fixtures', records: {} as Record<string, unknown> }));
+vi.mock('../../src/render/deliveryManifest.json', () => ({ default: delivery }));
+
 vi.mock('phaser', () => ({ default: { Textures: { FilterMode: { LINEAR: 0, NEAREST: 1 } } } }));
 vi.mock('../../src/render/anime/uiArtManifest.json', () => ({ default: { schemaVersion: 1, characters: Object.fromEntries(['luffy', 'akainu'].map(id => [id, {
   image: `assets/characters/${id}/anime/ui-0913.png`, sha256: '91086ccb573b998c1b20821323e09709e71cfd78b5166b33453be5ffb73e678e', width: 512, height: 512,
   frames: { body: { x: 0, y: 0, w: 512, h: 512 }, portrait: { x: 100, y: 0, w: 120, h: 120 } },
 }])) } }));
-import { ANIME_CHARACTERS, ANIME_ERRORS, interfaceFrame, loadAnimeCharacters, type AnimeCharacterAssets } from '../../src/render/assets';
+import { ANIME_CHARACTERS, ANIME_ERRORS, ANIME_INTERFACES, interfaceFrame, loadAnimeCharacters, type AnimeCharacterAssets } from '../../src/render/assets';
 import { ASSET_DOWNLOAD_TIMEOUT, ASSET_DOWNLOAD_ATTEMPTS } from '../../src/render/assetDownloads';
 import { adoptPresentation } from '../../src/render/presentation';
 
@@ -47,6 +52,7 @@ function fakeScene() {
 let bundle: ReturnType<typeof candidate>;
 let requestedImages: string[];
 beforeEach(() => {
+  for (const key of Object.keys(delivery.records)) delete delivery.records[key];
   bundle = candidate();
   requestedImages = [];
   let objectId = 0;
@@ -75,6 +81,33 @@ beforeEach(() => {
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
 describe('candidate asset reloads', () => {
+  it('reuses a fully registered delivery version without fetching or decoding it again', async () => {
+    const state = fakeScene();
+    const first = await loadAnimeCharacters(state.scene, ['luffy']);
+    // These markers exercise the version fast path; no network record is read.
+    delivery.records['assets/characters/luffy/anime/runtime.json'] = {};
+    delivery.records['assets/characters/luffy/anime/ui-0913.png'] = {};
+    expect(state.values.get(ANIME_INTERFACES)).toBeTruthy();
+    vi.mocked(fetch).mockClear(); state.addAtlas.mockClear(); requestedImages.length = 0;
+    const second = await loadAnimeCharacters(state.scene, ['luffy']);
+    expect(second.ok).toBe(true);
+    expect(second.assets.luffy).toBe(first.assets.luffy);
+    expect(fetch).not.toHaveBeenCalled();
+    expect(state.addAtlas).not.toHaveBeenCalled();
+    expect(requestedImages).toHaveLength(0);
+  });
+
+  it('joins background preparation during character selection without losing the other fighter', async () => {
+    const state = fakeScene();
+    const [background, selection] = await Promise.all([
+      loadAnimeCharacters(state.scene, ['luffy', 'akainu']), loadAnimeCharacters(state.scene, ['luffy']),
+    ]);
+    expect(background.ok && selection.ok).toBe(true);
+    expect(Object.keys(state.assets()).sort()).toEqual(['akainu', 'luffy']);
+    expect(fetch).toHaveBeenCalledTimes(8);
+    expect(state.addAtlas).toHaveBeenCalledTimes(4);
+    expect(requestedImages).toHaveLength(4);
+  });
   it('loads identical PNG bytes when the host cannot stream a response into Blob storage', async () => {
     const baseline = fakeScene();
     await loadAnimeCharacters(baseline.scene, ['luffy']);
@@ -140,7 +173,7 @@ describe('candidate asset reloads', () => {
     } else {
       expect(result.ok).toBe(false);
       expect(result.errors.luffy).toContain(frame);
-      expect(state.addAtlas).not.toHaveBeenCalled();
+      expect(state.addAtlas.mock.calls.every(([key]) => key.includes('-anime-ui-'))).toBe(true);
     }
   });
 
@@ -224,7 +257,9 @@ describe('candidate asset reloads', () => {
     expect(failed.failures[0]?.characterId).toBe('luffy');
     expect(failed.assets.luffy).toBeUndefined();
     expect(state.assets().luffy).toBeUndefined();
-    expect(interfaceFrame(state.scene, 'luffy', 'body')).toBeNull();
+    // Combat remains blocked, while independently verified menu art stays usable.
+    if (failure === 'decode') expect(interfaceFrame(state.scene, 'luffy', 'body')).toBeNull();
+    else expect(interfaceFrame(state.scene, 'luffy', 'body')).toEqual({ key: previous.uiKey, frame: 'luffy/ui/body' });
     expect(failed.errors.luffy).toBeTruthy();
     expect(failed.assets.akainu).toBe(other);
     expect(interfaceFrame(state.scene, 'akainu', 'body')).toEqual({ key: other.uiKey, frame: 'akainu/ui/body' });
@@ -334,7 +369,7 @@ describe('candidate asset reloads', () => {
     expect(asset.frameTextures!['luffy/idle/0']).toBe(asset.key);
   });
 
-  it.each(['shadow', 'undeclared'] as const)('rejects a %s frame on page two before installing any of the bundle', async issue => {
+  it.each(['shadow', 'undeclared'] as const)('rejects a %s frame on page two before installing any combat texture', async issue => {
     const state = fakeScene();
     bundle.runtime.schemaVersion = 2;
     bundle.runtime.textureDensity = 2;
@@ -357,7 +392,7 @@ describe('candidate asset reloads', () => {
     expect(failed.failures[0]).toMatchObject({ code: 'invalid' });
     expect(failed.failures[0]?.message).toContain(`p1/${injected}`);
     expect(state.assets()).toEqual({});
-    expect(state.addAtlas).not.toHaveBeenCalled();
+    expect(state.addAtlas.mock.calls.every(([key]) => key.includes('-anime-ui-'))).toBe(true);
     delete pageFrames[injected];
     const repaired = await loadAnimeCharacters(state.scene, ['luffy']);
     expect(repaired.ok).toBe(true);

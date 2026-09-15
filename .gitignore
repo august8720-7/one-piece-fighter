@@ -31,5 +31,6 @@ public/assets/audio/**
 !public/assets/**/.gitkeep
 public/assets/generated/
 public/assets/fx/
+public/assets/delivery/
 # 未采用的历史程序绘图试验，保留本机，不作为正式素材提交
 assets-src/characters/*/pixel/

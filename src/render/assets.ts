@@ -4,7 +4,7 @@ import { characters } from '@characters/index';
 import { readPresentation } from './presentation';
 import uiArtManifest from './anime/uiArtManifest.json';
 import { MOVE_PRESENTATIONS } from './fx/movePresentation';
-import { AssetDownloadError, AssetDownloads } from './assetDownloads';
+import { AssetDownloadError, AssetDownloads, DELIVERY_VERSION, deliveryRecord, sharedDownloads } from './assetDownloads';
 
 export const SPRITE_KEYS = 'spriteKeys';
 export type SpriteKeys = Record<string, string | null>;
@@ -12,7 +12,7 @@ export const SPRITE_SOURCES = 'spriteSources';
 export type SpriteSources = Record<string, 'atlas' | 'placeholder' | null>;
 export const ANIME_CHARACTERS = 'animeCharacters';
 export const ANIME_ERRORS = 'animeErrors';
-export interface AnimeCharacterAsset { key: string; runtime: AnimeRuntimeManifest; frameTextures?: Record<string, string>; uiKey?: string }
+export interface AnimeCharacterAsset { key: string; runtime: AnimeRuntimeManifest; frameTextures?: Record<string, string>; uiKey?: string; deliveryVersion?: string }
 export type AnimeCharacterAssets = Record<string, AnimeCharacterAsset>;
 export const ANIME_LOAD_RESULT = 'animeLoadResult';
 export type AssetErrorCode = 'unavailable' | 'timeout' | 'invalid' | 'decode' | 'integrity' | 'texture';
@@ -23,6 +23,56 @@ export interface AnimeLoadResult {
   assets: AnimeCharacterAssets;
   errors: Record<string, string>;
   failures: AssetFailure[];
+}
+export const ANIME_INTERFACES = 'animeInterfaces';
+interface InterfaceAsset { key: string; version: string }
+type InterfaceAssets = Record<string, InterfaceAsset>;
+const characterWork = new WeakMap<object, Map<string, Promise<AnimeCharacterAsset>>>();
+const interfaceWork = new WeakMap<object, Map<string, Promise<string>>>();
+const presentationWork = new WeakMap<object, Map<string, Promise<void>>>();
+
+function workMap<T>(owner: object, store: WeakMap<object, Map<string, Promise<T>>>): Map<string, Promise<T>> {
+  let map = store.get(owner);
+  if (!map) { map = new Map(); store.set(owner, map); }
+  return map;
+}
+
+/** Menus only need these independent high-resolution crops, never the combat atlas. */
+export async function loadAnimeInterfaces(scene: Phaser.Scene, ids: readonly string[], downloads = sharedDownloads(scene.game ?? scene.registry)): Promise<{ ok: boolean; failures: AssetFailure[] }> {
+  const failures: AssetFailure[] = [];
+  await Promise.all([...new Set(ids)].map(async id => {
+    try { await loadInterface(scene, id, downloads); }
+    catch (error) { failures.push(assetFailure(id, error)); }
+  }));
+  return { ok: failures.length === 0, failures };
+}
+
+async function loadInterface(scene: Phaser.Scene, id: string, downloads: AssetDownloads): Promise<string> {
+  const records = (): InterfaceAssets => (scene.registry.get(ANIME_INTERFACES) as InterfaceAssets | undefined) ?? {};
+  const previous = records()[id];
+  const source = uiArtManifest.characters[id as keyof typeof uiArtManifest.characters];
+  if (source && deliveryRecord(source.image) && previous?.version === DELIVERY_VERSION
+    && scene.textures.exists(previous.key) && ['body', 'portrait'].every(kind => scene.textures.get(previous.key).has(`${id}/ui/${kind}`))) return previous.key;
+  const tasks = workMap(scene.textures, interfaceWork);
+  let work = tasks.get(id);
+  if (!work) {
+    work = (async () => {
+      const art = await fetchAnimeInterface(id, downloads);
+      const key = `${id}-anime-ui-${art.identity}`;
+      const texture = scene.textures.exists(key) ? scene.textures.get(key) : scene.textures.addAtlas(key, art.image, art.atlas);
+      if (!texture) throw new AssetLoadError('texture', '人物界面纹理注册失败');
+      texture.setFilter(Phaser.Textures.FilterMode.LINEAR);
+      scene.registry.set(ANIME_INTERFACES, { ...records(), [id]: { key, version: DELIVERY_VERSION } });
+      return key;
+    })().catch(error => {
+      const current = { ...records() };
+      delete current[id];
+      scene.registry.set(ANIME_INTERFACES, current);
+      throw error;
+    }).finally(() => { tasks.delete(id); });
+    tasks.set(id, work);
+  }
+  return work;
 }
 export const PRESENTATION_ASSET_LOAD_RESULT = 'presentationAssetLoadResult';
 export interface PresentationAssetFailure { key: string; code: AssetErrorCode; message: string }
@@ -83,9 +133,9 @@ export async function loadCharacterAtlases(scene: Phaser.Scene, ids: readonly st
 }
 
 /** Candidate artwork lives beside the complete legacy character, never replacing its registry key. */
-export async function loadAnimeCharacters(scene: Phaser.Scene, ids: readonly string[], downloads = new AssetDownloads()): Promise<AnimeLoadResult> {
-  // A mirror match reloads one fighter; menus still need the other verified portrait.
-  const assets: AnimeCharacterAssets = { ...((scene.registry.get(ANIME_CHARACTERS) as AnimeCharacterAssets | undefined) ?? {}) };
+export async function loadAnimeCharacters(scene: Phaser.Scene, ids: readonly string[], downloads = sharedDownloads(scene.game ?? scene.registry)): Promise<AnimeLoadResult> {
+  const previousAssets = (scene.registry.get(ANIME_CHARACTERS) as AnimeCharacterAssets | undefined) ?? {};
+  const assets: AnimeCharacterAssets = { ...previousAssets };
   const errors: Record<string, string> = { ...((scene.registry.get(ANIME_ERRORS) as Record<string, string> | undefined) ?? {}) };
   const failures: AssetFailure[] = [];
   const requested = [...new Set(ids)];
@@ -96,6 +146,20 @@ export async function loadAnimeCharacters(scene: Phaser.Scene, ids: readonly str
   }
   await Promise.all(requested.map(async id => {
     try {
+      const previous = previousAssets[id];
+      if (deliveryRecord(`assets/characters/${id}/anime/runtime.json`) && previous?.deliveryVersion === DELIVERY_VERSION
+        && Object.keys(previous.runtime.attachments).every(name => {
+          const key = previous.frameTextures?.[name] ?? previous.key;
+          return scene.textures.exists(key) && scene.textures.get(key).has(name);
+        })) {
+        await loadInterface(scene, id, downloads);
+        assets[id] = previous;
+        return;
+      }
+      const tasks = workMap(scene.textures, characterWork);
+      let work = tasks.get(id);
+      if (!work) {
+        work = (async (): Promise<AnimeCharacterAsset> => {
       const base = `assets/characters/${id}/anime/`;
       const value: unknown = await downloads.read(`${base}runtime.json`, response => response.json());
       const invalid = validateAnimeRuntimeManifest(value, characters[id]?.moves);
@@ -107,13 +171,13 @@ export async function loadAnimeCharacters(scene: Phaser.Scene, ids: readonly str
         if (image.naturalWidth > 4096 || image.naturalHeight > 4096) throw new AssetLoadError('texture', `人物图集单页超过 4096：${page.id}`);
         if ((page.width !== undefined && image.naturalWidth !== page.width) || (page.height !== undefined && image.naturalHeight !== page.height)) throw new AssetLoadError('invalid', `人物分页尺寸不匹配：${page.id}`);
         return { page, atlas, image, imageHash };
-      })), fetchAnimeInterface(id, downloads)]);
+      })), loadInterface(scene, id, downloads)]);
       // Do not announce a retryable result while the parallel UI decode still
       // holds object URLs or can deliver a late completion into the next load.
       if (pageResult.status === 'rejected') throw pageResult.reason;
       if (uiResult.status === 'rejected') throw uiResult.reason;
       const pages = pageResult.value;
-      const uiArt = uiResult.value;
+      const uiKey = uiResult.value;
       // Page files must not inject or shadow a frame assigned elsewhere. Validate the
       // complete atlas namespace before installing any immutable texture.
       for (const { page, atlas } of pages) for (const name of Object.keys(atlas.frames)) {
@@ -142,20 +206,28 @@ export async function loadAnimeCharacters(scene: Phaser.Scene, ids: readonly str
         if (page.id === 'p0') key = pageKey;
         for (const name of Object.keys(atlas.frames)) frameTextures[name] = pageKey;
       }
-      const uiKey = `${id}-anime-ui-${uiArt.identity}`;
-      const uiTexture = scene.textures.exists(uiKey) ? scene.textures.get(uiKey) : scene.textures.addAtlas(uiKey, uiArt.image, uiArt.atlas);
-      if (!uiTexture) throw new AssetLoadError('texture', '人物界面纹理注册失败');
-      uiTexture.setFilter(Phaser.Textures.FilterMode.LINEAR);
-      assets[id] = { key, runtime: value, frameTextures, uiKey };
+      return { key, runtime: value, frameTextures, uiKey, deliveryVersion: DELIVERY_VERSION };
+        })().finally(() => { tasks.delete(id); });
+        tasks.set(id, work);
+      }
+      assets[id] = await work;
     } catch (error) {
       const failure = assetFailure(id, error);
       errors[id] = failure.message;
       failures.push(failure);
     }
   }));
-  scene.registry.set(ANIME_CHARACTERS, assets);
-  scene.registry.set(ANIME_ERRORS, errors);
-  const result = { ok: failures.length === 0, requested, assets, errors, failures };
+  // Concurrent background/select loads may finish in either order. Publish only
+  // the requested characters into the latest registry, never a stale snapshot.
+  const latest = { ...((scene.registry.get(ANIME_CHARACTERS) as AnimeCharacterAssets | undefined) ?? {}) };
+  const latestErrors = { ...((scene.registry.get(ANIME_ERRORS) as Record<string, string> | undefined) ?? {}) };
+  for (const id of requested) {
+    if (assets[id]) latest[id] = assets[id]; else delete latest[id];
+    if (errors[id]) latestErrors[id] = errors[id]; else delete latestErrors[id];
+  }
+  scene.registry.set(ANIME_CHARACTERS, latest);
+  scene.registry.set(ANIME_ERRORS, latestErrors);
+  const result = { ok: failures.length === 0, requested, assets: latest, errors: latestErrors, failures };
   scene.registry.set(ANIME_LOAD_RESULT, result);
   return result;
 }
@@ -201,7 +273,8 @@ async function fetchAnimeInterface(id: string, downloads: AssetDownloads): Promi
   const record = uiArtManifest.characters[id as keyof typeof uiArtManifest.characters];
   if (!record) throw new AssetLoadError('invalid', '人物界面配置缺失');
   const { image, imageHash } = await fetchAnimeImage(record.image, downloads);
-  if (imageHash !== record.sha256) throw new AssetLoadError('integrity', '人物界面原图内容校验失败，请重新载入');
+  const delivery = deliveryRecord(record.image);
+  if ((delivery && delivery.sourceSha256 !== record.sha256) || imageHash !== (delivery?.sha256 ?? record.sha256)) throw new AssetLoadError('integrity', '人物界面原图内容校验失败，请重新载入');
   if (image.naturalWidth !== record.width || image.naturalHeight !== record.height || Math.max(record.width, record.height) > 4096) {
     throw new AssetLoadError('invalid', '人物界面图片尺寸不匹配');
   }
@@ -218,8 +291,9 @@ async function fetchAnimeInterface(id: string, downloads: AssetDownloads): Promi
 async function fetchAnimeImage(url: string, downloads: AssetDownloads): Promise<{ image: HTMLImageElement; imageHash: string }> {
   // Keep arrayBuffer: some embedded Chromium hosts fail large response.blob().
   const bytes = await downloads.read(url, response => response.arrayBuffer());
-  const imageHash = await sha256(bytes);
-  const objectUrl = URL.createObjectURL(new Blob([bytes], { type: 'image/png' }));
+  const delivery = deliveryRecord(url);
+  const imageHash = delivery?.sha256 ?? await sha256(bytes);
+  const objectUrl = URL.createObjectURL(new Blob([bytes], { type: delivery?.contentType ?? (url.endsWith('.webp') ? 'image/webp' : 'image/png') }));
   try { return { image: await fetchImage(objectUrl), imageHash }; }
   finally { URL.revokeObjectURL(objectUrl); }
 }
@@ -292,7 +366,8 @@ function validatePresentationTexture(scene: Phaser.Scene, key: string, frames: r
 }
 
 async function presentationImage(url: string, downloads: AssetDownloads): Promise<HTMLImageElement> {
-  const objectUrl = URL.createObjectURL(await downloads.read(url, response => response.blob()));
+  const bytes = await downloads.read(url, response => response.arrayBuffer());
+  const objectUrl = URL.createObjectURL(new Blob([bytes], { type: deliveryRecord(url)?.contentType ?? (url.endsWith('.webp') ? 'image/webp' : 'image/png') }));
   try {
     const image = await fetchImage(objectUrl);
     if (!Number.isInteger(image.naturalHeight) || image.naturalHeight <= 0) throw new AssetLoadError('decode', '表现图片尺寸非法');
@@ -301,16 +376,20 @@ async function presentationImage(url: string, downloads: AssetDownloads): Promis
 }
 
 /** Full anime requires its declared stage/FX pack; optional callers still receive failures for inspection. */
-export async function loadPresentationAssets(scene: Phaser.Scene, downloads = new AssetDownloads()): Promise<PresentationAssetLoadResult> {
+export async function loadPresentationAssets(scene: Phaser.Scene, downloads = sharedDownloads(scene.game ?? scene.registry), scope: 'menu' | 'fight' = 'fight'): Promise<PresentationAssetLoadResult> {
   const profile = readPresentation(scene.registry);
   const required = profile.art === 'anime' && profile.scope === 'full';
   const requests = [
     ...['backdrop', 'floor'].map(name => ({ key: `marineford-${name}`, image: `assets/stages/marineford/${name}.webp`, atlas: null, frames: [] as readonly string[] })),
     ...['akainu', 'luffy'].map(id => ({ key: `fx-${id}`, image: `assets/fx/${id}.png`, atlas: `assets/fx/${id}.json`, frames: REQUIRED_FX_FRAMES[id]! })),
-  ];
+  ].filter(request => scope !== 'menu' || request.key === 'marineford-backdrop');
   const results = await Promise.all(requests.map(async request => {
     try {
       if (!scene.textures.exists(request.key)) {
+        const tasks = workMap(scene.textures, presentationWork);
+        let work = tasks.get(request.key);
+        if (!work) {
+          work = (async () => {
         const [imageResult, atlasResult] = await Promise.allSettled([
           presentationImage(request.image, downloads),
           request.atlas ? downloads.read(request.atlas, response => response.json()) : Promise.resolve(null),
@@ -322,6 +401,10 @@ export async function loadPresentationAssets(scene: Phaser.Scene, downloads = ne
           ? scene.textures.addAtlas(request.key, image, presentationAtlas(atlasResult.value, image, request.frames))
           : scene.textures.addImage(request.key, image);
         if (!texture) throw new AssetLoadError('texture', '表现纹理注册失败');
+          })().finally(() => { tasks.delete(request.key); });
+          tasks.set(request.key, work);
+        }
+        await work;
       }
       validatePresentationTexture(scene, request.key, request.frames);
       return { key: request.key };
@@ -335,7 +418,7 @@ export async function loadPresentationAssets(scene: Phaser.Scene, downloads = ne
   }));
   const failures = results.flatMap(result => result.failure ? [result.failure] : []);
   const result = { ok: failures.length === 0, required, requested: requests.map(request => request.key), loaded: results.filter(result => !result.failure).map(result => result.key), failures };
-  scene.registry.set(PRESENTATION_ASSET_LOAD_RESULT, result);
+  if (scope === 'fight') scene.registry.set(PRESENTATION_ASSET_LOAD_RESULT, result);
   return result;
 }
 
@@ -361,6 +444,7 @@ export function spriteFrame(scene: Phaser.Scene, charId: string, anim: string, i
 export function interfaceFrame(scene: Phaser.Scene, charId: string, kind: 'body' | 'portrait'): { key: string; frame: string } | null {
   if (readPresentation(scene.registry).art !== 'anime') return null;
   const asset = (scene.registry.get(ANIME_CHARACTERS) as AnimeCharacterAssets | undefined)?.[charId];
+  const uiKey = (scene.registry.get(ANIME_INTERFACES) as InterfaceAssets | undefined)?.[charId]?.key ?? asset?.uiKey;
   const frame = `${charId}/ui/${kind}`;
-  return asset?.uiKey && scene.textures.exists(asset.uiKey) && scene.textures.get(asset.uiKey).has(frame) ? { key: asset.uiKey, frame } : null;
+  return uiKey && scene.textures.exists(uiKey) && scene.textures.get(uiKey).has(frame) ? { key: uiKey, frame } : null;
 }

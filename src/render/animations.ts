@@ -301,7 +301,7 @@ export function validateAnimeRuntimeManifest(value: unknown, moves?: readonly Mo
   if (!record(value)) return ['manifest must be an object'];
   if ((value.schemaVersion !== 1 && value.schemaVersion !== 2) || value.style !== 'anime' || value.continuous !== true) errors.push('unsupported schema/style/continuous capability');
   if (typeof value.characterId !== 'string' || !/^[a-z][a-z0-9_]*$/.test(value.characterId)) errors.push('invalid characterId');
-  if (!record(value.atlas) || value.atlas.image !== 'atlas.png' || value.atlas.data !== 'atlas.json') errors.push('atlas must reference local atlas.png and atlas.json');
+  if (!record(value.atlas) || !['atlas.png', 'atlas.webp'].includes(String(value.atlas.image)) || value.atlas.data !== 'atlas.json') errors.push('atlas must reference local atlas.png/webp and atlas.json');
   if (value.textureDensity !== undefined && (!finite(value.textureDensity) || value.textureDensity <= 0 || value.textureDensity > 4)) errors.push('textureDensity must be in (0,4]');
   const pages = new Map<string, Record<string, unknown>>();
   if (value.schemaVersion === 2) {
@@ -309,7 +309,7 @@ export function validateAnimeRuntimeManifest(value: unknown, moves?: readonly Mo
     if (!Array.isArray(value.pages) || !value.pages.length) errors.push('schema 2 requires atlas pages');
     else for (const [index, page] of value.pages.entries()) {
       const id = `p${index}`, stem = index === 0 ? 'atlas' : `atlas-${id}`;
-      if (!record(page) || page.id !== id || page.image !== `${stem}.png` || page.data !== `${stem}.json` || !positiveInteger(page.width) || !positiveInteger(page.height) || page.width > 4096 || page.height > 4096) {
+      if (!record(page) || page.id !== id || ![`${stem}.png`, `${stem}.webp`].includes(String(page.image)) || page.data !== `${stem}.json` || !positiveInteger(page.width) || !positiveInteger(page.height) || page.width > 4096 || page.height > 4096) {
         errors.push(`invalid atlas page ${id}: expected local files and dimensions within 4096`);
         continue;
       }

@@ -1,5 +1,6 @@
 import manifest from './musicManifest.json';
 import type { AudioHudState } from './audioTypes';
+import { deliveryRecord } from '../render/assetDownloads';
 
 export interface MusicTrack { file: string; loop: boolean; gain: number; title: string }
 export type MusicCatalog = Record<string, MusicTrack>;
@@ -108,7 +109,8 @@ export class MusicPlayer {
           if (this.current !== stream) return;
           this.fail(stream, media.error?.code === 3 ? 'decode_failed' : 'download_failed', media.error?.message || `Media error ${media.error?.code ?? 0}`);
         };
-        media.src = this.catalog[id]!.file;
+        const file = this.catalog[id]!.file;
+        media.src = deliveryRecord(file)?.file ?? file;
       } catch (error) {
         this.failure = String(error); this.clearStreams(); return;
       }
