@@ -56,6 +56,80 @@ function setup(catalog = sampleCatalog, fetcher = vi.fn<typeof fetch>(async () =
 }
 
 describe('sample-first playback and cache', () => {
+  it('announces final round only from explicit match state, including extra rounds after draws', async () => {
+    const rig = setup(Object.fromEntries(['round1', 'round2', 'round3', 'nextRound'].map(id => [
+      `announcer.${id}`, { files: [`/${id}.wav`], group: 'voice', priority: 95, cooldownMs: 0 },
+    ])));
+    await rig.engine.preload(); await rig.engine.unlock();
+    const heard = vi.fn(); rig.engine.onVoice(heard);
+    for (const [round, finalRound, expected] of [[1, false, 'round1'], [2, false, 'round2'], [3, false, 'nextRound'], [4, false, 'nextRound'], [5, true, 'round3']] as const) {
+      expect(rig.engine.playPresentation({ phase: 'round', key: `round-${round}`, round, finalRound })).toBe(true);
+      expect(heard).toHaveBeenLastCalledWith(expect.objectContaining({ cueId: `announcer.${expected}` }));
+    }
+    expect(rig.engine.playPresentation({ phase: 'round', key: 'legacy-round-3', round: 3 })).toBe(true);
+    expect(heard).toHaveBeenLastCalledWith(expect.objectContaining({ cueId: 'announcer.nextRound' }));
+    await rig.engine.destroy();
+  });
+
+  it('preloads both first-selection replies before combat, decodes on the title gesture and speaks on the first confirmation', async () => {
+    const rig = setup({
+      menu_move: { files: ['/menu-move.wav'], group: 'sfx' },
+      menu_confirm: { files: ['/menu-confirm.wav'], group: 'sfx' },
+      'voice.luffy.select': { files: ['/luffy-select.wav'], group: 'voice', characterId: 'luffy', cooldownMs: 0 },
+      'voice.akainu.select': { files: ['/akainu-select.wav'], group: 'voice', characterId: 'akainu', cooldownMs: 0 },
+      'voice.luffy.attack': { files: ['/combat-only.wav'], group: 'voice', characterId: 'luffy' },
+    });
+    // PreloadScene menu gate has no AudioContext yet, and must not wait for combat.
+    expect(await rig.engine.preloadMenu()).toEqual({ fetched: 4, decoded: 0, failed: [] });
+    expect(rig.fetcher.mock.calls.map(([url]) => url)).toEqual(['/menu-move.wav', '/menu-confirm.wav', '/luffy-select.wav', '/akainu-select.wav']);
+    expect(rig.factory).not.toHaveBeenCalled();
+    // Title's actual user gesture unlocks and decodes the minimal menu package.
+    await rig.engine.unlock();
+    expect(rig.device.decodeAudioData).toHaveBeenCalledTimes(4);
+    const heard = vi.fn();
+    rig.engine.onVoice(heard);
+    for (const [player, characterId] of [[0, 'luffy'], [1, 'akainu']] as const) {
+      expect(rig.engine.playPresentation({ phase: 'select', key: `select-${player}`, player, characterId })).toBe(true);
+      expect(heard).toHaveBeenLastCalledWith(expect.objectContaining({ cueId: `voice.${characterId}.select`, file: `/${characterId}-select.wav`, player }));
+    }
+    expect(rig.fetcher).toHaveBeenCalledTimes(4);
+    // Returning from a match clears instance keys but keeps decoded menu replies.
+    rig.engine.clearFightSounds();
+    expect(rig.engine.playPresentation({ phase: 'select', key: 'select-0', player: 0, characterId: 'luffy' })).toBe(true);
+    expect(rig.engine.playPresentation({ phase: 'select', key: 'select-0', player: 0, characterId: 'luffy' })).toBe(false);
+    expect(rig.device.decodeAudioData).toHaveBeenCalledTimes(4);
+    await rig.engine.destroy();
+  });
+
+  it('emits captions only for successfully started samples and clears them when interrupted', async () => {
+    const rig = setup();
+    const heard = vi.fn();
+    const unsubscribe = rig.engine.onVoice(heard);
+    expect(rig.engine.playCue('voice.luffy.sp_gatling', { player: 0 })).toBe(false);
+    expect(heard).not.toHaveBeenCalled();
+    await rig.engine.preload(); await rig.engine.unlock();
+    expect(rig.engine.playCue('voice.luffy.sp_gatling', { player: 0 })).toBe(true);
+    expect(heard).toHaveBeenLastCalledWith({ cueId: 'voice.luffy.sp_gatling', file: '/assets/audio/voice/luffy/gatling.wav', player: 0, text: '', transcriptVerified: false, durationMs: 1000 });
+    rig.engine.pause();
+    expect(heard).toHaveBeenLastCalledWith(null);
+    unsubscribe();
+    await rig.engine.destroy();
+  });
+
+  it('deduplicates presentation events without queueing muted or unavailable announcements', async () => {
+    const rig = setup({ 'announcer.fight': { files: ['/fight.wav'], group: 'voice', priority: 95, cooldownMs: 0 } });
+    await rig.engine.preload(); await rig.engine.unlock();
+    expect(rig.engine.playPresentation({ phase: 'fight', key: 'round-1' })).toBe(true);
+    expect(rig.engine.playPresentation({ phase: 'fight', key: 'round-1' })).toBe(false);
+    rig.engine.clearFightSounds();
+    rig.engine.toggleMute();
+    expect(rig.engine.playPresentation({ phase: 'fight', key: 'round-2' })).toBe(false);
+    rig.engine.toggleMute();
+    expect(rig.engine.playPresentation({ phase: 'fight', key: 'round-2' })).toBe(false);
+    expect(rig.engine.diagnostics().playing).toHaveLength(0);
+    await rig.engine.destroy();
+  });
+
   it('downloads at most four samples together and reports all completed files', async () => {
     const pending: (() => void)[] = [];
     let active = 0; let peak = 0;

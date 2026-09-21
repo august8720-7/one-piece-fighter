@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { matchControls } from '../ui/matchControls';
 import { sfx } from '../../audio/Sfx';
 import { characters } from '@characters/index';
 import { getInputHub } from '@input/InputHub';
@@ -42,8 +43,7 @@ export class ResultScene extends Phaser.Scene {
     } else if (readPresentation(this.registry).art === 'anime') {
       this.add.text(SCREEN_W - ui(200), SCREEN_H / 2, '胜利动作资源不可用', { fontFamily: UI.font, fontSize: font(16), color: UI.dim }).setOrigin(0.5);
     }
-    const quotes = characters[winnerId]?.quotes ?? [];
-    const quote = quotes[Math.floor(Math.random() * quotes.length)] ?? '';
+    const quote = ''; // Spoken victory subtitles are supplied by the verified audio record.
     this.add
       .text(ui(110), ui(150), `${who}  ${name}  WINS`, { fontFamily: UI.font, fontSize: font(32), color: d.winner === 0 ? UI.p1 : UI.p2, fontStyle: 'bold' })
       .setOrigin(0, 0.5)
@@ -65,7 +65,7 @@ export class ResultScene extends Phaser.Scene {
         const d = this.data_;
         const diff = d.difficulty ? { difficulty: d.difficulty } : {};
         const profile = readPresentation(this.registry);
-        if (this.menu.index === 0) this.scene.start('Preload', { p1: d.p1, p2: d.p2, mode: d.mode, ...diff, ...profile } satisfies FightSceneData);
+        if (this.menu.index === 0) this.scene.start('Preload', { p1: d.p1, p2: d.p2, mode: d.mode, controlModes: matchControls(d.mode, getInputHub().controlModes), ...diff, ...profile } satisfies FightSceneData);
         else if (this.menu.index === 1) this.scene.start('CharacterSelect', { mode: d.mode, ...diff, ...profile });
         else this.scene.start('Title', profile);
         return;

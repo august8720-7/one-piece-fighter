@@ -1,8 +1,11 @@
-import { Btn } from '@core/index';
+import { Btn, type ControlMode, type ControlModes } from '@core/index';
 
 /** 可重绑的动作（Start 固定为 Enter / NumpadEnter / 手柄 Start） */
-export const ACTIONS = ['Up', 'Down', 'Left', 'Right', 'A', 'B', 'C', 'D', 'Roll', 'Blowback'] as const;
+export const CLASSIC_ACTIONS = ['Up', 'Down', 'Left', 'Right', 'A', 'B', 'C', 'D', 'Roll', 'Blowback'] as const;
+export const SKILL_ACTIONS = ['Skill1', 'Skill2', 'Skill3', 'Skill4', 'Skill5', 'Skill6', 'Skill7', 'Skill8', 'Skill9'] as const;
+export const ACTIONS = [...CLASSIC_ACTIONS, ...SKILL_ACTIONS] as const;
 export type Action = (typeof ACTIONS)[number];
+export function actionsFor(mode: ControlMode): readonly Action[] { return mode === 'simple' ? ACTIONS : CLASSIC_ACTIONS; }
 
 export const ACTION_LABEL: Record<Action, string> = {
   Up: '上 / 跳',
@@ -15,6 +18,8 @@ export const ACTION_LABEL: Record<Action, string> = {
   D: 'D 重脚',
   Roll: '翻滚 (A+B)',
   Blowback: '吹飞 (C+D)',
+  Skill1: '技能1', Skill2: '技能2', Skill3: '技能3', Skill4: '技能4', Skill5: '技能5', Skill6: '技能6',
+  Skill7: '超必杀1', Skill8: '超必杀2', Skill9: '终极技',
 };
 
 /** 动作 → 位图（Roll / Blowback 是宏） */
@@ -29,10 +34,12 @@ export const ACTION_BITS: Record<Action, number> = {
   D: Btn.D,
   Roll: Btn.A | Btn.B,
   Blowback: Btn.C | Btn.D,
+  Skill1: Btn.Skill1, Skill2: Btn.Skill2, Skill3: Btn.Skill3, Skill4: Btn.Skill4, Skill5: Btn.Skill5,
+  Skill6: Btn.Skill6, Skill7: Btn.Skill7, Skill8: Btn.Skill8, Skill9: Btn.Skill9,
 };
 
 /** 动作 → KeyboardEvent.code */
-export type KeyBinding = Record<Action, string>;
+export type KeyBinding = Record<(typeof CLASSIC_ACTIONS)[number], string> & Partial<Record<(typeof SKILL_ACTIONS)[number], string>>;
 
 export const DEFAULT_P1: KeyBinding = {
   Up: 'KeyW',
@@ -75,14 +82,43 @@ export const P2_NO_NUMPAD: KeyBinding = {
 };
 
 const STORAGE_KEY = 'opf.keys.v1';
+const SIMPLE_STORAGE_KEY = 'opf.keys.simple.v2';
+const MODE_STORAGE_KEY = 'opf.controls.v2';
+
+export const DEFAULT_SIMPLE_P1: KeyBinding = {
+  ...DEFAULT_P1, Skill1: 'KeyQ', Skill2: 'KeyE', Skill3: 'KeyR', Skill4: 'KeyF', Skill5: 'KeyG',
+  Skill6: 'KeyZ', Skill7: 'KeyX', Skill8: 'KeyC', Skill9: 'KeyV',
+};
+export const DEFAULT_SIMPLE_P2: KeyBinding = {
+  ...DEFAULT_P2, Skill1: 'Numpad7', Skill2: 'Numpad8', Skill3: 'Numpad9', Skill4: 'NumpadDivide', Skill5: 'NumpadMultiply',
+  Skill6: 'NumpadSubtract', Skill7: 'NumpadAdd', Skill8: 'NumpadDecimal', Skill9: 'Numpad0',
+};
+export const P2_SIMPLE_NO_NUMPAD: KeyBinding = {
+  ...P2_NO_NUMPAD, Skill1: 'Digit1', Skill2: 'Digit2', Skill3: 'Digit3', Skill4: 'Digit4', Skill5: 'Digit5',
+  Skill6: 'Digit6', Skill7: 'Digit7', Skill8: 'Digit8', Skill9: 'Digit9',
+};
+
+export function loadControlModes(): ControlModes {
+  try {
+    const parsed: unknown = JSON.parse(globalThis.localStorage?.getItem(MODE_STORAGE_KEY) ?? 'null');
+    if (Array.isArray(parsed) && parsed.length === 2 && parsed.every(mode => mode === 'classic' || mode === 'simple')) {
+      return [parsed[0] as ControlMode, parsed[1] as ControlMode];
+    }
+  } catch { /* Unavailable storage does not block play. */ }
+  return ['simple', 'simple'];
+}
+
+export function saveControlModes(modes: ControlModes): void {
+  try { globalThis.localStorage?.setItem(MODE_STORAGE_KEY, JSON.stringify(modes)); } catch { /* Keep session choices. */ }
+}
 
 export interface KeyConfig {
   p1: KeyBinding;
   p2: KeyBinding;
 }
 
-export function defaultKeyConfig(): KeyConfig {
-  return { p1: { ...DEFAULT_P1 }, p2: { ...DEFAULT_P2 } };
+export function defaultKeyConfig(modes: ControlModes = ['classic', 'classic']): KeyConfig {
+  return { p1: { ...(modes[0] === 'simple' ? DEFAULT_SIMPLE_P1 : DEFAULT_P1) }, p2: { ...(modes[1] === 'simple' ? DEFAULT_SIMPLE_P2 : DEFAULT_P2) } };
 }
 
 /** 动作优先：M 被玩家绑定时，静音改在设置页操作。 */
@@ -91,16 +127,16 @@ export function muteShortcutAvailable(cfg: KeyConfig): boolean {
 }
 
 /** 读取本地保存的键位；损坏或缺失时用默认值补齐。 */
-export function loadKeyConfig(): KeyConfig {
-  const cfg = defaultKeyConfig();
+function loadProfile(mode: ControlMode): KeyConfig {
+  const cfg = defaultKeyConfig([mode, mode]);
   try {
-    const raw = globalThis.localStorage?.getItem(STORAGE_KEY);
+    const raw = globalThis.localStorage?.getItem(mode === 'classic' ? STORAGE_KEY : SIMPLE_STORAGE_KEY);
     if (!raw) return cfg;
     const parsed = JSON.parse(raw) as Partial<Record<'p1' | 'p2', Partial<Record<string, unknown>>>>;
     for (const side of ['p1', 'p2'] as const) {
       const src = parsed[side];
       if (!src) continue;
-      for (const a of ACTIONS) {
+      for (const a of actionsFor(mode)) {
         const v = src[a];
         if (typeof v === 'string' && v.length > 0) cfg[side][a] = v;
       }
@@ -111,18 +147,34 @@ export function loadKeyConfig(): KeyConfig {
   return cfg;
 }
 
-export function saveKeyConfig(cfg: KeyConfig): void {
-  try {
-    globalThis.localStorage?.setItem(STORAGE_KEY, JSON.stringify(cfg));
-  } catch {
-    // 隐私模式等场景下写入失败不影响游戏
+export function loadKeyConfig(modes: ControlModes = ['classic', 'classic']): KeyConfig {
+  return { p1: loadProfile(modes[0]).p1, p2: loadProfile(modes[1]).p2 };
+}
+
+export function saveKeyConfig(cfg: KeyConfig, modes: ControlModes = ['classic', 'classic']): void {
+  for (const mode of ['classic', 'simple'] as const) {
+    if (!modes.includes(mode)) continue;
+    const profile = loadProfile(mode);
+    for (const [index, side] of ['p1', 'p2'].entries()) {
+      if (modes[index] !== mode) continue;
+      const player = side as keyof KeyConfig;
+      for (const action of actionsFor(mode)) {
+        const code = cfg[player][action];
+        if (code) profile[player][action] = code;
+      }
+    }
+    try { globalThis.localStorage?.setItem(mode === 'classic' ? STORAGE_KEY : SIMPLE_STORAGE_KEY, JSON.stringify(profile)); }
+    catch { /* Privacy mode does not block play. */ }
   }
 }
 
 /** 键位表 → code → 位图（同一个键可同时属于两个玩家，位图分开） */
 export function toKeyMap(b: KeyBinding): Record<string, number> {
   const out: Record<string, number> = {};
-  for (const a of ACTIONS) out[b[a]] = (out[b[a]] ?? 0) | ACTION_BITS[a];
+  for (const a of ACTIONS) {
+    const code = b[a];
+    if (code) out[code] = (out[code] ?? 0) | ACTION_BITS[a];
+  }
   return out;
 }
 
@@ -132,6 +184,7 @@ export function keyConflicts(cfg: KeyConfig): string[] {
   for (const side of ['p1', 'p2'] as const) {
     for (const a of ACTIONS) {
       const code = cfg[side][a];
+      if (!code) continue;
       const arr = map.get(code) ?? [];
       arr.push(`${side.toUpperCase()} ${ACTION_LABEL[a]}`);
       map.set(code, arr);
@@ -139,17 +192,23 @@ export function keyConflicts(cfg: KeyConfig): string[] {
   }
   const out: string[] = [];
   for (const [code, owners] of map) {
+    if (isReservedKey(code)) out.push(`${keyLabel(code)} 是菜单或调试保留键`);
     if (owners.length > 1) out.push(`${keyLabel(code)} → ${owners.join(' / ')}`);
   }
   return out;
 }
 
 /** 给人看的键名 */
-export function keyLabel(code: string): string {
+export function isReservedKey(code: string): boolean {
+  return ['Enter', 'NumpadEnter', 'Escape', 'Tab'].includes(code) || /^F\d{1,2}$/.test(code);
+}
+
+export function keyLabel(code: string | undefined): string {
+  if (!code) return '—';
   if (code.startsWith('Key')) return code.slice(3);
   if (code.startsWith('Digit')) return code.slice(5);
   if (code.startsWith('Arrow')) return { ArrowUp: '↑', ArrowDown: '↓', ArrowLeft: '←', ArrowRight: '→' }[code] ?? code;
-  if (code.startsWith('Numpad')) return 'Num' + code.slice(6);
+  if (code.startsWith('Numpad')) return 'Num' + ({ Divide: '/', Multiply: '*', Subtract: '-', Add: '+', Decimal: '.', Enter: 'Enter' }[code.slice(6)] ?? code.slice(6));
   const extra: Record<string, string> = { Comma: ',', Period: '.', Slash: '/', ShiftRight: 'RShift', Quote: "'", Semicolon: ';' };
   return extra[code] ?? code;
 }

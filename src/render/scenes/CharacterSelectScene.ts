@@ -1,12 +1,15 @@
+import { VoiceSubtitles } from '../ui/VoiceSubtitles';
 import Phaser from 'phaser';
-import { Btn, type InputFrame } from '@core/index';
+import { Btn, type InputFrame, type ControlModes } from '@core/index';
 import { characters } from '@characters/index';
 import { sfx } from '../../audio/Sfx';
+import { keyLabel } from '@input/keymap';
 import { getInputHub } from '@input/InputHub';
 import { interfaceFrame, spriteFrame } from '../assets';
 import { FixedStep } from '../FixedStep';
 import { SCREEN_H, SCREEN_W, font, ui } from '../screen';
 import { UI, drawPanel } from '../ui/MenuList';
+import { controlModeLabel, matchControls } from '../ui/matchControls';
 import { confirmHint } from '../ui/controlHint';
 import type { Difficulty } from '../../ai/types';
 import type { FightSceneData, GameMode } from './FightScene';
@@ -40,8 +43,11 @@ export class CharacterSelectScene extends Phaser.Scene {
   private status!: Phaser.GameObjects.Text;
   private tags: [Phaser.GameObjects.Text, Phaser.GameObjects.Text] | null = null;
   private countdown = -1;
+  private confirmation = 0;
   private difficulty: Difficulty = 'normal';
   private tutorial = false;
+  private controlModes: ControlModes = ['simple', 'simple'];
+  private modesText!: Phaser.GameObjects.Text;
   private diffText: Phaser.GameObjects.Text | null = null;
 
   constructor() {
@@ -50,6 +56,7 @@ export class CharacterSelectScene extends Phaser.Scene {
 
   init(data: Data): void {
     adoptPresentation(this.registry, data);
+    this.controlModes = getInputHub().controlModes;
     this.mode = data?.mode ?? 'versus';
     this.difficulty = data?.difficulty ?? 'normal';
     this.tutorial = !!data?.tutorial;
@@ -61,6 +68,7 @@ export class CharacterSelectScene extends Phaser.Scene {
 
   create(): void {
     sfx().resume(); sfx().playMusic('menu');
+    new VoiceSubtitles(this, 100);
     this.step = new FixedStep();
     this.cards = [];
     this.tags = null;
@@ -109,6 +117,7 @@ export class CharacterSelectScene extends Phaser.Scene {
       this.add.text(0, 0, 'P1', tagStyle).setOrigin(0.5).setDepth(6),
       this.add.text(0, 0, this.mode === 'versus' ? 'P2' : this.mode === 'cpu' ? 'CPU' : '木桩', tagStyle).setOrigin(0.5).setDepth(6),
     ];
+    this.modesText = this.add.text(SCREEN_W / 2, ui(461), '', { fontFamily: UI.font, fontSize: font(14), color: UI.text, align: 'center' }).setOrigin(0.5);
     getInputHub().flush();
   }
 
@@ -145,6 +154,7 @@ export class CharacterSelectScene extends Phaser.Scene {
         }
         continue;
       }
+      if (bits & Btn.C) this.toggleControls(p);
       if (bits & Btn.Left) {
         this.cursor[p] = (this.cursor[p] + IDS.length - 1) % IDS.length;
         sfx().play('menu_move');
@@ -156,6 +166,7 @@ export class CharacterSelectScene extends Phaser.Scene {
       if (bits & (Btn.A | Btn.Start)) {
         this.locked[p] = true;
         sfx().play('menu_confirm');
+        sfx().playPresentation({ phase: 'select', key: `select-${++this.confirmation}`, characterId: IDS[this.cursor[p]]!, player: p });
       }
     }
     if (this.locked[0] && this.locked[1] && this.countdown < 0) this.countdown = 45;
@@ -164,6 +175,7 @@ export class CharacterSelectScene extends Phaser.Scene {
   private handleSolo(e: InputFrame): void {
     const bits = e.p1 | e.p2;
     const p = this.locked[0] ? 1 : 0;
+    if (p === 0 && bits & Btn.C) this.toggleControls(0);
     if (this.mode === 'cpu' && bits & (Btn.Up | Btn.Down)) {
       const i = DIFFICULTIES.indexOf(this.difficulty);
       const n = DIFFICULTIES.length;
@@ -186,8 +198,17 @@ export class CharacterSelectScene extends Phaser.Scene {
     if (bits & (Btn.A | Btn.Start)) {
       this.locked[p] = true;
       sfx().play('menu_confirm');
+      sfx().playPresentation({ phase: 'select', key: `select-${++this.confirmation}`, characterId: IDS[this.cursor[p]]!, player: p });
       if (p === 1) this.countdown = 45;
     }
+  }
+
+  private toggleControls(side: 0 | 1): void {
+    const modes: [ControlModes[0], ControlModes[1]] = [...this.controlModes];
+    modes[side] = modes[side] === 'simple' ? 'classic' : 'simple';
+    this.controlModes = modes;
+    getInputHub().setControlModes(modes);
+    sfx().play('menu_move');
   }
 
   private start(): void {
@@ -195,6 +216,7 @@ export class CharacterSelectScene extends Phaser.Scene {
       p1: IDS[this.cursor[0]]!,
       p2: IDS[this.cursor[1]]!,
       mode: this.mode,
+      controlModes: matchControls(this.mode, this.controlModes),
       difficulty: this.difficulty,
       tutorial: this.tutorial,
       ...readPresentation(this.registry),
@@ -220,6 +242,7 @@ export class CharacterSelectScene extends Phaser.Scene {
       const x = x0 + this.cursor[p] * (CARD_W + ui(32)) + (p === 0 ? ui(30) : CARD_W - ui(30));
       this.tags?.[p].setText(labels[p]!).setPosition(x, CARD_Y + CARD_H - ui(66));
     }
+    this.modesText.setText(`P1：${controlModeLabel(this.controlModes[0])}    ${this.mode === 'versus' ? 'P2：' + controlModeLabel(this.controlModes[1]) : 'CPU / 木桩：经典'}\n${keyLabel(getInputHub().keyConfig.p1.C)} / ${keyLabel(getInputHub().keyConfig.p2.C)} 切换对应玩家操作 · 手柄请选择经典`);
     this.diffText?.setText(`CPU 难度：◀ ${DIFF_LABEL[this.difficulty]} ▶`);
     const p1Name = characters[IDS[this.cursor[0]]!]!.name;
     const p2Name = characters[IDS[this.cursor[1]]!]!.name;

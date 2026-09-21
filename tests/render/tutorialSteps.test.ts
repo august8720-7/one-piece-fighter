@@ -10,6 +10,9 @@ const hit = (moveId: string, comboHits = 1): HitEvent => ({ frame: 1, kind: 'hit
 
 describe('tutorialSteps', () => {
   it('空挥、后退和旧连击不冒充完成', () => {
+    expect(tutorialStepDone('special', { ...ctx, p1State: 'attack', p1MoveId: 'sp_gatling' })).toBe(false);
+    expect(tutorialStepDone('special', { ...ctx, events: [{ ...hit('sp_gatling'), kind: 'block' }] })).toBe(false);
+    expect(tutorialStepDone('special', { ...ctx, events: [hit('sp_gatling')] })).toBe(true);
     expect(tutorialStepDone('light', { ...ctx, p1State: 'attack', p1MoveId: 'st_a' })).toBe(false);
     expect(tutorialStepDone('block', { ...ctx, p1State: 'walk_back', p1Bits: Btn.Left })).toBe(false);
     expect(tutorialStepDone('combo', { ...ctx, p1MoveId: 'st_c', p2ComboHits: 5 })).toBe(false);
@@ -21,6 +24,8 @@ describe('tutorialSteps', () => {
     expect(tutorialInstruction('special', 'luffy', keys, 1)).toContain('S → S+D → D+X');
     expect(tutorialInstruction('special', 'luffy', keys, -1)).toContain('S → S+A → A+X');
     expect(tutorialSpecial('akainu').moveId).toBe('sp_daifunka');
+    keys.p1.Skill1 = 'KeyT';
+    expect(tutorialInstruction('special', 'luffy', keys, -1, 'simple')).toContain('按 T 橡胶机关枪打中一次');
   });
   for (const [p1, p2] of [[luffyDef, akainuDef], [akainuDef, luffyDef]]) {
     it(`${p1!.name} 通过真实输入和碰撞完成全部六步`, () => {
@@ -44,6 +49,8 @@ describe('tutorialSteps', () => {
       for (let f = 0; f < 1500 && progress.stepId === 'block'; f++) tick(Btn.Left, dummy.input(sim, 1)!);
       expect(progress.stepId).toBe('special');
       close(); tick(Btn.Down); tick(Btn.Down | Btn.Right); tick(Btn.Right | Btn.A);
+      expect(progress.stepId).toBe('special');
+      for (let f = 0; f < 90 && progress.stepId === 'special'; f++) tick(0);
       expect(progress.stepId).toBe('combo');
       close(); tick(Btn.C); for (let f = 0; f < 60; f++) tick(0);
       expect(progress.stepId).toBe('combo');

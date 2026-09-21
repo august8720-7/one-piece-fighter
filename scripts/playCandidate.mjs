@@ -7,12 +7,14 @@ import { openLocalUrl } from './openLocalUrl.mjs';
 
 const releaseIndex = process.argv.indexOf('--release');
 const release = releaseIndex < 0 ? 'candidate-0912' : process.argv[releaseIndex + 1];
-if (!['candidate-0912', 'candidate-0913', 'candidate-0914', 'candidate-0915'].includes(release)) throw new Error('Unknown local candidate release.');
+if (!['candidate-0912', 'candidate-0913', 'candidate-0914', 'candidate-0915', 'candidate-0922', 'classic-1'].includes(release)) throw new Error('Unknown local candidate release.');
 const full = process.argv.includes('--full');
 if (full && release === 'candidate-0912') throw new Error('--full requires --release candidate-0913, candidate-0914 or candidate-0915.');
-const root = resolve(dirname(fileURLToPath(import.meta.url)), '..', '.local-releases', release === 'candidate-0915' ? '加载提速-0915/playable' : release === 'candidate-0914' ? '声音修复-0914/candidate' : release);
+const releasePaths = { 'candidate-0922': '操作演出-0922/playable', 'classic-1': '操作演出-0922/baseline/v1', 'candidate-0915': '加载提速-0915/playable', 'candidate-0914': '声音修复-0914/candidate' };
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..', '.local-releases', releasePaths[release] ?? release);
 const portIndex = process.argv.indexOf('--port');
-const port = portIndex < 0 ? release === 'candidate-0915' ? 4179 : release === 'candidate-0914' ? 4178 : release === 'candidate-0913' ? 4177 : 4176 : Number(process.argv[portIndex + 1]);
+const defaultPorts = { 'candidate-0922': 4180, 'classic-1': 4181, 'candidate-0915': 4179, 'candidate-0914': 4178, 'candidate-0913': 4177 };
+const port = portIndex < 0 ? defaultPorts[release] ?? 4176 : Number(process.argv[portIndex + 1]);
 if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('Invalid local port.');
 const origin = `http://127.0.0.1:${port}`;
 const url = `${origin}/${full ? '?art=anime&scope=full&quality=high' : '?art=anime&mode=training'}`;
@@ -71,7 +73,7 @@ try {
 const indexHash = files.get('index.html').hash;
 
 function openCandidate() {
-  console.log(`${full ? '完整动漫候选' : '新版限定动作样板'}：${url}`);
+  console.log(`${release === 'classic-1' ? '冻结1.0完整动漫版' : full ? '完整动漫候选' : '新版限定动作样板'}：${url}`);
   console.log('保留此窗口；按 Ctrl+C 停止本地服务。此入口不会构建、安装依赖或发布。');
   if (process.argv.includes('--no-open')) return;
   openLocalUrl(url);
@@ -82,7 +84,7 @@ const server = createServer(async (request, response) => {
   let path;
   try {
     const pathname = decodeURIComponent(new URL(request.url ?? '/', origin).pathname);
-    path = resolve(root, `.${pathname === '/' ? '/index.html' : pathname}`);
+    path = resolve(root, `.${pathname.endsWith('/') ? pathname + 'index.html' : pathname}`);
   } catch { response.writeHead(400).end(); return; }
   if (!path.startsWith(root + sep)) { response.writeHead(403).end(); return; }
   const expected = files.get(fileKey(path));

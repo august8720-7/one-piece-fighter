@@ -11,6 +11,7 @@ const outputRoot = path.resolve(process.argv[3] ?? path.join(root, '.local-relea
 const release = path.join(outputRoot, stamp);
 const site = path.join(release, 'site');
 const files = new Set(['index.html']);
+const rollbackFiles = new Map();
 const readJson = file => JSON.parse(readFileSync(file, 'utf8'));
 const hash = data => createHash('sha256').update(data).digest('hex');
 const safePath = (base, relative) => {
@@ -19,6 +20,21 @@ const safePath = (base, relative) => {
   if (!resolved.startsWith(`${base}${path.sep}`)) throw new Error(`Path outside package: ${relative}`);
   return resolved;
 };
+// Frozen v1 comes only from the verified release snapshot, never the source tree.
+const rollbackIndex = process.argv.indexOf('--v1');
+if (rollbackIndex >= 0) {
+  if (!process.argv[rollbackIndex + 1]) throw new Error('Missing --v1 snapshot');
+  const rollbackRoot = path.resolve(process.argv[rollbackIndex + 1]);
+  const verified = readJson(rollbackRoot + '-verified.json');
+  if (!verified.verified || path.resolve(verified.destination) !== rollbackRoot) throw new Error('Unverified v1 snapshot');
+  for (const entry of verified.files) {
+    if (!/^(index\.html|delivery-build\.json|\.nojekyll|\.gitattributes|assets\/[a-zA-Z0-9_./-]+\.(js|css|json|png|webp|bin|ogg|wav|mp3|txt))$/.test(entry.file)) throw new Error(`Not a runtime rollback file: ${entry.file}`);
+    const file = safePath(rollbackRoot, entry.file);
+    const bytes = readFileSync(file);
+    if (bytes.length !== entry.bytes || hash(bytes) !== entry.sha256) throw new Error(`Frozen v1 changed: ${entry.file}`);
+    rollbackFiles.set(`v1/${entry.file}`, file);
+  }
+}
 const add = relative => { safePath(source, relative); files.add(relative); };
 const html = readFileSync(path.join(source, 'index.html'), 'utf8');
 for (const match of html.matchAll(/(?:src|href)="\.\/(assets\/[^"?#]+\.(?:js|css))"/g)) add(match[1]);
@@ -64,8 +80,8 @@ const music = readJson(path.join(root, 'src/audio/musicManifest.json'));
 if (!deliveryBuild) for (const track of Object.values(music.tracks)) add(track.file);
 add('assets/audio/music/CREDITS.txt');
 
-const manifest = [...files].sort().map(file => {
-  const data = readFileSync(safePath(source, file));
+const manifest = [...files, ...rollbackFiles.keys()].sort().map(file => {
+  const data = readFileSync(rollbackFiles.get(file) ?? safePath(source, file));
   if (data.length > 100 * 1024 * 1024) throw new Error(`GitHub file limit: ${file}`);
   return { file, bytes: data.length, sha256: hash(data) };
 });
@@ -76,7 +92,7 @@ writeFileSync(path.join(release, 'copy-before.json'), JSON.stringify({ source, f
 for (const entry of manifest) {
   const destination = safePath(site, entry.file);
   mkdirSync(path.dirname(destination), { recursive: true });
-  copyFileSync(safePath(source, entry.file), destination);
+  copyFileSync(rollbackFiles.get(entry.file) ?? safePath(source, entry.file), destination);
   if (hash(readFileSync(destination)) !== entry.sha256) throw new Error(`Copy mismatch: ${entry.file}`);
 }
 
@@ -96,7 +112,7 @@ if (!html.includes('    <script type="module"')) throw new Error('Missing module
 writeFileSync(path.join(site, 'index.html'), html.replace('    <script type="module"', `${defaults}    <script type="module"`));
 writeFileSync(path.join(site, '.nojekyll'), '');
 writeFileSync(path.join(site, '.gitattributes'), '* -text\n');
-const published = [...files, '.nojekyll', '.gitattributes'].sort().map(file => {
+const published = [...files, ...rollbackFiles.keys(), '.nojekyll', '.gitattributes'].sort().map(file => {
   const bytes = readFileSync(safePath(site, file));
   return { file, bytes: bytes.length, sha256: hash(bytes) };
 });

@@ -27,6 +27,7 @@ export const luffyDef: FighterDef = {
   hurtboxCrouch: [[-16, -60, 32, 60]],
   hurtboxAir: [[-13, -84, 26, 66]],
   moves: luffyMoves,
+  skillSlots: ['sp_gatling', 'sp_bazooka', 'sp_rifle', 'sp_rocket', 'sp_balloon', 'sp_gear2', 'sp_storm', 'sp_gigant_pistol', 'ult_red_hawk'],
   color: 0xe63946,
   tagline: '速攻 · 连段 · 二档',
   quotes: ['我是要成为海贼王的男人！', '还没完呢，再来！', '橡胶……手枪！'],

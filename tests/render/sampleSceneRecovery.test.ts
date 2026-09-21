@@ -55,6 +55,7 @@ describe('candidate scene recovery before presentation', () => {
       prevInstances: [4, 8], prevSegments: ['active', 'active'], prevMoveIds: ['st_a', 'sp_daifunka'],
       prevStates: ['hit_air', 'attack'], prevAirborne: [true, false], winVoiceRound: 1,
       popups: [popup], tickPopups: vi.fn(), syncAudioPause: vi.fn(), refreshControlHint: vi.fn(),
+      skillBar: { draw: vi.fn() }, subtitles: { setY: vi.fn() },
       data_: { p1: 'luffy', p2: 'akainu' }, presentations: [null, null], registry: { get: () => undefined },
       muteText: { style: { color: '#e8c36a' }, setText: vi.fn(), setColor: vi.fn() }, trainingText: { setY: vi.fn(), setText: vi.fn() },
     });

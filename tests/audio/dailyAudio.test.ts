@@ -5,13 +5,15 @@ const fighter = (overrides: Partial<DailyFighter> = {}): DailyFighter => ({ play
   airborne: false, animationFrame: 0, animationFrames: 4, hitstop: 0, ...overrides });
 
 describe('daily sound timing from actual game ticks', () => {
-  it('speaks after six seconds, only 2–4 times per minute and offsets the other player', () => {
+  it('waits four seconds and gives the longest-silent player one global slot every twenty seconds per player', () => {
     const daily = new DailyAudio(), heard: [number, number][] = [];
     for (let tick = 1; tick <= 3600; tick++) {
-      for (const cue of daily.step([fighter(), fighter({ player: 1 })], true, false)) heard.push([tick, cue.player!]);
+      for (const cue of daily.step([fighter(), fighter({ player: 1 })], true, false)) {
+        heard.push([tick, cue.player!]); daily.notePlayed(cue.player!);
+      }
     }
-    expect(heard.filter(([, player]) => player === 0).map(([tick]) => tick)).toEqual([360, 1440, 2520, 3600]);
-    expect(heard.filter(([, player]) => player === 1).map(([tick]) => tick)).toEqual([480, 1560, 2640]);
+    expect(heard.filter(([, player]) => player === 0).map(([tick]) => tick)).toEqual([240, 1440, 2640]);
+    expect(heard.filter(([, player]) => player === 1).map(([tick]) => tick)).toEqual([241, 1441, 2641]);
   });
   it('requires sustained movement, shares cooldown across direction, dash and jump, and is silent when stuck against a wall', () => {
     const daily = new DailyAudio(); let x = 0; const voices: number[] = [];
@@ -19,21 +21,39 @@ describe('daily sound timing from actual game ticks', () => {
       x++;
       const state = tick === 31 ? 'dash' : tick === 61 ? 'jump_fwd' : tick % 2 ? 'walk_back' : 'walk_fwd';
       const cues = daily.step([fighter({ state, x, animationFrame: Math.floor(tick / 6) % 4 })], true, false);
-      if (cues.some(c => c.id.endsWith('.move'))) voices.push(tick);
+      if (cues.some(c => c.id.endsWith('.move'))) { voices.push(tick); daily.notePlayed(0); }
     }
-    expect(voices).toEqual([24, 744]);
+    expect(voices).toEqual([24]);
     for (let tick = 0; tick < 100; tick++) expect(daily.step([fighter({ state: 'walk_fwd', x, animationFrame: tick % 4 })], true, false)).toEqual([]);
   });
-  it('drops elapsed idle after pause, contacts delay chatter and new rounds start fresh', () => {
+  it('drops elapsed idle after pause, contacts delay chatter and new matches start fresh', () => {
     const daily = new DailyAudio();
-    for (let i = 0; i < 350; i++) daily.step([fighter()], true, false);
+    for (let i = 0; i < 230; i++) daily.step([fighter()], true, false);
     daily.interrupt();
-    for (let i = 0; i < 359; i++) expect(daily.step([fighter()], true, false)).toEqual([]);
+    for (let i = 0; i < 239; i++) expect(daily.step([fighter()], true, false)).toEqual([]);
     expect(daily.step([fighter()], true, true)).toEqual([]);
     for (let i = 0; i < 119; i++) expect(daily.step([fighter()], true, false)).toEqual([]);
     expect(daily.step([fighter()], true, false)[0]?.id).toBe('voice.luffy.idle');
     daily.reset();
-    for (let i = 0; i < 359; i++) expect(daily.step([fighter()], true, false)).toEqual([]);
+    for (let i = 0; i < 239; i++) expect(daily.step([fighter()], true, false)).toEqual([]);
+  });
+  it('keeps the voice spacing across an interrupted round while requiring fresh idle time', () => {
+    const daily = new DailyAudio();
+    for (let tick = 0; tick < 240; tick++) daily.step([fighter()], true, false);
+    daily.notePlayed(0);
+    daily.interrupt();
+    for (let tick = 0; tick < 120; tick++) expect(daily.step([fighter()], false, false)).toEqual([]);
+    for (let tick = 1; tick < 1200; tick++) expect(daily.step([fighter()], true, false)).toEqual([]);
+    expect(daily.step([fighter()], true, false)).toEqual([{ id: 'voice.luffy.idle', player: 0 }]);
+  });
+  it('does not accrue a queue while voice is busy and does not consume cooldown for rejected playback', () => {
+    const daily = new DailyAudio();
+    const fighters = [fighter(), fighter({ player: 1 })];
+    for (let i = 0; i < 600; i++) expect(daily.step(fighters, true, false, true)).toEqual([]);
+    expect(daily.step(fighters, true, false)).toEqual([{ id: 'voice.luffy.idle', player: 0 }]);
+    expect(daily.step(fighters, true, false)).toEqual([{ id: 'voice.luffy.idle', player: 0 }]);
+    daily.notePlayed(0);
+    expect(daily.step(fighters, true, false)).toEqual([{ id: 'voice.luffy.idle', player: 1 }]);
   });
   it('emits footsteps at distinct visible contact frames rather than every rendering tick', () => {
     const daily = new DailyAudio(); const at: number[] = [];

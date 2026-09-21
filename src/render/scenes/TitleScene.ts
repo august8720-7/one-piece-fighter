@@ -55,7 +55,7 @@ export class TitleScene extends Phaser.Scene {
       .setDepth(3)
       .setStroke('#2a1c12', ui(8));
     this.add
-      .text(SCREEN_W / 2, ui(250), '顶上战争 · 路飞 vs 赤犬', { fontFamily: UI.font, fontSize: font(18), color: UI.text })
+      .text(SCREEN_W / 2, ui(250), '2.0 · 一键技能 · 顶上战争', { fontFamily: UI.font, fontSize: font(18), color: UI.text })
       .setOrigin(0.5)
       .setDepth(3);
     this.prompt = this.add
@@ -73,6 +73,7 @@ export class TitleScene extends Phaser.Scene {
     getInputHub().flush();
     this.prompt.setInteractive({ useHandCursor: true }).once('pointerdown', () => this.enterMenu());
     audioQuickControls(this, ui(435));
+    this.add.text(SCREEN_W / 2, ui(479), '游玩冻结 1.0 原版 ↗', { fontFamily: UI.font, fontSize: font(15), color: UI.title }).setOrigin(0.5).setDepth(3).setInteractive({ useHandCursor: true }).on('pointerdown', () => { window.location.assign(new URL('v1/', new URL('./', window.location.href)).href); });
     if (anime) {
       const downloads = sharedDownloads(this.game);
       sfx().useDownloads(downloads);

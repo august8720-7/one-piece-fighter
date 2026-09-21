@@ -1,7 +1,9 @@
 import Phaser from 'phaser';
+import type { ControlModes } from '@core/index';
+import { controlModeLabel } from '../ui/matchControls';
 import { sfx, sfxHudText, type AudioGroup } from '../../audio/Sfx';
 import { getInputHub } from '@input/InputHub';
-import { ACTIONS, ACTION_LABEL, P2_NO_NUMPAD, defaultKeyConfig, keyConflicts, keyLabel, type Action, type KeyConfig } from '@input/keymap';
+import { isReservedKey, actionsFor, ACTION_LABEL, P2_NO_NUMPAD, P2_SIMPLE_NO_NUMPAD, defaultKeyConfig, keyConflicts, keyLabel, type Action, type KeyConfig } from '@input/keymap';
 import { FixedStep } from '../FixedStep';
 import { SCREEN_H, SCREEN_W, ui, font } from '../screen';
 import { MenuList, UI, drawPanel } from '../ui/MenuList';
@@ -22,6 +24,8 @@ export class SettingsScene extends Phaser.Scene {
   private step = new FixedStep();
   private menu!: MenuList;
   private cfg!: KeyConfig;
+  private modes: ControlModes = ['simple', 'simple'];
+  private keyPage = 0;
   private waiting: { side: 'p1' | 'p2'; action: Action } | null = null;
   private hint!: Phaser.GameObjects.Text;
   private status!: Phaser.GameObjects.Text;
@@ -45,7 +49,8 @@ export class SettingsScene extends Phaser.Scene {
     this.audioSession++;
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.closeAudioUi());
     drawPanel(this, '设置', `${confirmHint()}   Tab 切换分类   ← → 调整音量`);
-    this.cfg = structuredClone(getInputHub().keyConfig);
+    this.modes = getInputHub().controlModes;
+    this.cfg = structuredClone(getInputHub().keyConfigFor(this.modes));
     this.diagnostics = new DiagnosticsPanel(this);
     this.tabs = (['声音', 'P1 键位', 'P2 键位']).map((label, index) => {
       const button = this.add.text(ui(220 + index * 260), ui(119), label, {
@@ -72,14 +77,20 @@ export class SettingsScene extends Phaser.Scene {
   }
   private selectTab(tab: Tab): void {
     if (this.waiting) return;
-    this.tab = tab; this.menu?.destroy();
+    this.tab = tab; this.keyPage = 0; this.menu?.destroy();
     this.menu = new MenuList(this, ui(90), ui(158), this.items(), this.tab === 'audio' ? 22 : 25, '16px');
     this.tabs.forEach((button, i) => button.setColor(i === ['audio', 'p1', 'p2'].indexOf(tab) ? UI.title : UI.dim));
-    this.notice = ''; getInputHub().flush();
+    this.notice = ''; this.hint.setText(''); getInputHub().flush();
   }
-  private items(): { label: string }[] {
+  private pageActions(): readonly Action[] {
+    if (this.tab === 'audio') return [];
+    return actionsFor(this.modes[this.tab === 'p1' ? 0 : 1]).slice(this.keyPage * 8, this.keyPage * 8 + 8);
+  }
+  private items(): { label: string; disabled?: boolean }[] {
     if (this.tab !== 'audio') return [
-      ...ACTIONS.map(action => ({ label: `${ACTION_LABEL[action].padEnd(12)} ${keyLabel(this.cfg[this.tab as 'p1' | 'p2'][action])}` })),
+      { label: `操作：${controlModeLabel(this.modes[this.tab === 'p1' ? 0 : 1])}（确认切换）` },
+      { label: `键位第 ${this.keyPage + 1} / ${Math.ceil(actionsFor(this.modes[this.tab === 'p1' ? 0 : 1]).length / 8)} 页（确认翻页）` },
+      ...Array.from({ length: 8 }, (_, index) => { const action = this.pageActions()[index]; return action ? { label: `${ACTION_LABEL[action].padEnd(12)} ${keyLabel(this.cfg[this.tab as 'p1' | 'p2'][action] ?? '')}` } : { label: '', disabled: true }; }),
       { label: '恢复默认键位' }, { label: 'P2 使用无小键盘布局' }, { label: '保存并返回' },
     ];
     const rows = AUDIO_ROWS.map(row => {
@@ -125,13 +136,14 @@ export class SettingsScene extends Phaser.Scene {
     const audio = sfx();
     this.status.setText(this.tab === 'audio'
       ? `${AUDIO_ROWS.filter(row => row.group).map(row => `${row.label}：${sfxHudText(audio.hudState(row.group!))}`).join('\n')}\n\n开启声音保留原音量。人物发声时音乐自动降低；移动和待机语音有间隔。\n\n${this.notice}`
-      : `选择动作后按确认，再按新键。Esc 取消当前重绑。\n\nStart：Enter（P1）\n小键盘 Enter（P2）\n\n${keyConflicts(this.cfg)[0] ?? '当前无键位冲突'}`);
+      : `选择动作后按确认，再按新键。Esc 取消重绑。模式修改从下场生效；键位保存后生效。手柄请选择经典。\n\nStart：Enter（P1）\n小键盘 Enter（P2）\n\n${keyConflicts(this.cfg)[0] ?? '当前无键位冲突'}`);
     const hub = getInputHub();
     for (let i = 0, steps = this.step.advance(dt); i < steps; i++) {
       if (this.waiting) {
         const code = hub.keyboard.takeLastCode(); hub.edges();
         if (code === 'Escape') { this.waiting = null; this.hint.setText(''); }
-        else if (code && !code.startsWith('F')) {
+        else if (code && isReservedKey(code)) { this.hint.setText('该键为菜单 / 调试保留键，请换一个键。'); }
+        else if (code) {
           this.cfg[this.waiting.side][this.waiting.action] = code; this.waiting = null;
           this.menu.setItems(this.items()); this.hint.setText('');
         }
@@ -148,21 +160,34 @@ export class SettingsScene extends Phaser.Scene {
         } else if (action === 'select') void this.audioAction(index);
         this.hint.setText('试听受总音量、对应分组和静音控制；M 可切换静音。');
       } else if (action === 'select') {
-        if (index < ACTIONS.length) {
-          const selected = ACTIONS[index]!; this.waiting = { side: this.tab, action: selected };
+        const actions = this.pageActions();
+        if (index === 0) {
+          hub.setKeyConfig(this.cfg, this.modes);
+          const next: [ControlModes[0], ControlModes[1]] = [...this.modes];
+          const side = this.tab === 'p1' ? 0 : 1;
+          next[side] = next[side] === 'simple' ? 'classic' : 'simple';
+          this.modes = next;
+          hub.setControlModes(next);
+          this.cfg = structuredClone(hub.keyConfigFor(next));
+          this.keyPage = 0; this.menu.setItems(this.items());
+        } else if (index === 1) {
+          this.keyPage = (this.keyPage + 1) % Math.ceil(actionsFor(this.modes[this.tab === 'p1' ? 0 : 1]).length / 8);
+          this.menu.setItems(this.items());
+        } else if (index - 2 < actions.length) {
+          const selected = actions[index - 2]!; this.waiting = { side: this.tab, action: selected };
           hub.keyboard.takeLastCode(); this.hint.setText(`按新键绑定 ${this.tab.toUpperCase()} ${ACTION_LABEL[selected]} · Esc 取消`);
-        } else if (index === ACTIONS.length) {
-          this.cfg[this.tab] = defaultKeyConfig()[this.tab]; this.menu.setItems(this.items());
-        } else if (index === ACTIONS.length + 1) {
-          this.cfg.p2 = { ...P2_NO_NUMPAD }; this.menu.setItems(this.items());
-        } else { this.leave(); return; }
+        } else if (index === 10) {
+          this.cfg[this.tab] = defaultKeyConfig(this.modes)[this.tab]; this.menu.setItems(this.items());
+        } else if (index === 11) {
+          this.cfg.p2 = { ...(this.modes[1] === 'simple' ? P2_SIMPLE_NO_NUMPAD : P2_NO_NUMPAD) }; this.menu.setItems(this.items());
+        } else if (index === 12) { this.leave(); return; }
       }
     }
   }
   private leave(): void {
     if (this.waiting || this.audioUiClosed) return;
     this.closeAudioUi();
-    this.diagnostics.close(); getInputHub().setKeyConfig(this.cfg); getInputHub().flush();
+    this.diagnostics.close(); getInputHub().setKeyConfig(this.cfg, this.modes); getInputHub().flush();
     if (this.resumeScene) { this.scene.stop(); this.game.events.emit('opf-settings-closed'); }
     else this.scene.start(this.back, this.backData);
   }

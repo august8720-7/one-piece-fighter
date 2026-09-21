@@ -1,3 +1,7 @@
+import { VoiceSubtitles } from '../ui/VoiceSubtitles';
+import type { ControlModes } from '@core/index';
+import { matchControls } from '../ui/matchControls';
+import { SkillBar } from '../hud/SkillBar';
 import Phaser from 'phaser';
 import { DailyAudio } from '../../audio/DailyAudio';
 import {
@@ -53,6 +57,7 @@ export interface FightSceneData extends PresentationData {
   difficulty?: Difficulty;
   /** 强制显示新手引导 */
   tutorial?: boolean;
+  controlModes?: ControlModes;
 }
 
 /** 地面在屏幕中的 y（像素）。 */
@@ -138,6 +143,8 @@ export class FightScene extends Phaser.Scene {
   private stage!: Marineford;
   private debug!: DebugOverlay;
   private hud!: Hud;
+  private skillBar!: SkillBar;
+  private subtitles!: VoiceSubtitles;
   private views: [FighterView | null, FighterView | null] = [null, null];
   private viewAnims: [AnimTable, AnimTable] = [{}, {}];
   private presentations: [CharacterPresentation | null, CharacterPresentation | null] = [null, null];
@@ -283,8 +290,11 @@ export class FightScene extends Phaser.Scene {
         ? new Cpu(1, characterAi[data.p2] ?? characterAi['akainu']!, data.difficulty ?? 'normal', (Date.now() & 0xffff) | 1)
         : null;
 
+    const controls = matchControls(this.mode, this.data_.controlModes ?? getInputHub().controlModes, sampleRequested);
+    this.data_.controlModes = controls;
+    getInputHub().useMatchControls(controls);
     this.sim = new FightSim(
-      this.mode === 'training' ? { p1, p2, seed: 1, introFrames: 0, roundTime: -1 } : { p1, p2, seed: 1 },
+      this.mode === 'training' ? { p1, p2, seed: 1, introFrames: 0, roundTime: -1, controlModes: controls } : { p1, p2, seed: 1, controlModes: controls },
     );
     if (this.mode === 'training') this.sim.training = { infiniteHp: true, infiniteMeter: true };
     getInputHub().flush();
@@ -327,7 +337,10 @@ export class FightScene extends Phaser.Scene {
     this.prevInstances = [-1, -1];
     this.prevSegments = [null, null];
     this.prevMoveIds = [null, null];
-    this.hud = new Hud(this, [p1.name, p2.name], [p1.quotes ?? [], p2.quotes ?? []], animeRequested ? 'anime' : 'classic', [p1.id, p2.id]);
+    this.hud = new Hud(this, [p1.name, p2.name], [[], []], animeRequested ? 'anime' : 'classic', [p1.id, p2.id], controls);
+    this.subtitles = new VoiceSubtitles(this, 90);
+    if (this.mode !== 'training') this.audio.playPresentation({ phase: 'round', key: `round-${this.sim.state.round}`, round: this.sim.state.round, finalRound: this.sim.state.wins.every(win => win === 1) });
+    this.skillBar = new SkillBar(this, controls);
     this.debug = new DebugOverlay(this, false, this.worldLayer);
 
     // 精灵视图：Preload 决定了每个角色可用的图集 key
@@ -355,15 +368,16 @@ export class FightScene extends Phaser.Scene {
       )
       .setOrigin(0.5, 0)
       .setDepth(52);
+    if (controls.includes('simple')) this.controlText.setVisible(false);
     this.trainingText = this.add
       .text(SCREEN_W / 2, ui(101), '', { fontFamily: UI.mono, fontSize: font(12), color: sampleRequested ? '#c7d9de' : '#ffd60a' })
       .setOrigin(0.5, 0)
       .setDepth(52)
       .setVisible(this.mode === 'training');
 
-    this.moveList = new MoveListPanel(this, [p1, p2]);
-    if (!sampleRequested && this.mode === 'training' && (data.tutorial || !tutorialDismissed())) {
-      this.tutorial = new TutorialCoach(this, data.p1, () => { this.tutorialCompletePending = true; });
+    this.moveList = new MoveListPanel(this, [p1, p2], controls);
+    if (!sampleRequested && this.mode === 'training' && (data.tutorial || !tutorialDismissed(controls[0]))) {
+      this.tutorial = new TutorialCoach(this, data.p1, () => { this.tutorialCompletePending = true; }, controls[0]);
     }
     this.game.events.on('opf-settings-closed', this.onSettingsClosed, this);
     this.game.events.on(Phaser.Core.Events.BLUR, this.pauseOnFocusLoss, this);
@@ -372,6 +386,7 @@ export class FightScene extends Phaser.Scene {
       this.game.events.off('opf-settings-closed', this.onSettingsClosed, this);
       this.game.events.off(Phaser.Core.Events.BLUR, this.pauseOnFocusLoss, this);
       this.game.events.off(Phaser.Core.Events.HIDDEN, this.pauseOnFocusLoss, this);
+      getInputHub().useMatchControls(null);
       this.moveList?.hide();
       this.audio.clearFightSounds();
       this.skillFx.clear();
@@ -438,12 +453,21 @@ export class FightScene extends Phaser.Scene {
     this.setPauseUiVisible(this.paused && !this.moveList?.visible);
   }
 
+  private discardPendingInput(): void {
+    this.sim.clearInputs();
+    this.pendingTraining = { p1: 0, p2: 0 };
+    this.previousTraining = { p1: 0, p2: 0 };
+    this.lastInput = { p1: 0, p2: 0 };
+    getInputHub().flush();
+  }
+
   private togglePause(tutorialComplete = false): void {
     const phase = this.sim.state.phase;
     if (!this.paused && phase !== 'fight' && phase !== 'intro') return;
     this.paused = !this.paused;
     this.syncAudioPause();
     if (this.paused) {
+      this.discardPendingInput();
       const bg = this.add.rectangle(0, 0, SCREEN_W, SCREEN_H, 0x000000, 0.6).setOrigin(0).setDepth(200);
       const title = this.add
         .text(SCREEN_W / 2, ui(140), tutorialComplete ? '基础练习完成' : 'PAUSE', { fontFamily: UI.font, fontSize: font(40), color: UI.title, fontStyle: 'bold' })
@@ -465,7 +489,7 @@ export class FightScene extends Phaser.Scene {
   }
 
   private syncAudioPause(): void {
-    if (this.paused || this.moveList?.visible || this.trainFreeze || this.settingsOverlay) { this.audio.pause(); this.dailyAudio.interrupt(); }
+    if (this.paused || this.moveList?.visible || this.trainFreeze || this.settingsOverlay) { this.audio.pause(); this.dailyAudio.interrupt(); this.subtitles.clear(); }
     else this.audio.resume();
   }
 
@@ -490,7 +514,7 @@ export class FightScene extends Phaser.Scene {
         break;
       case 'cpu':
         this.togglePause();
-        this.scene.start('Preload', cpuChallengeData(this.data_));
+        this.scene.start('Preload', cpuChallengeData({ ...this.data_, controlModes: getInputHub().controlModes }));
         break;
       case 'characters':
         this.togglePause();
@@ -553,6 +577,8 @@ export class FightScene extends Phaser.Scene {
   }
 
   private drawWorld(w: WorldState): void {
+    this.subtitles.setY(this.tutorial?.active ? 193 : 90);
+    this.skillBar.draw(this.sim, getInputHub().keyConfig);
     this.draw(w);
     this.after.draw();
     this.fx.draw();
@@ -577,6 +603,7 @@ export class FightScene extends Phaser.Scene {
 
   private toggleMoveList(): void {
     if (this.settingsOverlay || !this.moveList) return;
+    if (!this.moveList.visible) this.discardPendingInput();
     const w = this.sim.state;
     this.moveList.toggle(getInputHub().keyConfig, [w.fighters[0]!.facing === 1, w.fighters[1]!.facing === 1]);
     this.setPauseUiVisible(this.paused && !this.moveList.visible);
@@ -785,8 +812,9 @@ export class FightScene extends Phaser.Scene {
       return { player: f.player, characterId: f.def.id, state: f.state, x: f.x, airborne: f.airborne,
         animationFrame: pose.index, animationFrames: table[pose.anim]?.frames ?? 1, hitstop: f.hitstop };
     });
-    for (const cue of this.dailyAudio.step(dailyFighters, w.phase === 'fight', this.sim.hits.length > 0)) {
-      this.audio.playCue(cue.id, cue.player === undefined ? {} : { player: cue.player });
+    for (const cue of this.dailyAudio.step(dailyFighters, w.phase === 'fight', this.sim.hits.length > 0, this.audio.voiceBusy())) {
+      const played = this.audio.playCue(cue.id, cue.player === undefined ? {} : { player: cue.player });
+      if (played && cue.id.startsWith('voice.') && cue.player !== undefined) this.dailyAudio.notePlayed(cue.player);
     }
 
     for (const f of w.fighters) {
@@ -844,10 +872,12 @@ export class FightScene extends Phaser.Scene {
         this.fx.clear(); this.after.clear(); this.skillFx.clear(); this.prevProj.clear();
         this.prevInstances = [-1, -1]; this.prevSegments = [null, null];
         this.prevMoveIds = [null, null];
-        this.dailyAudio.reset();
+        // A new round clears idle buildup, but does not bypass the 20-second voice interval.
+        this.dailyAudio.interrupt();
         this.audio.clearFightSounds(); this.audio.playCue('marineford_ambient');
+        this.audio.playPresentation({ phase: 'round', key: `round-${w.round}`, round: w.round, finalRound: w.wins.every(win => win === 1) });
       }
-      if (w.phase === 'fight') this.audio.playEvent({ phase: 'round_start', characterId: this.data_.p1, player: 0 });
+      if (w.phase === 'fight') this.audio.playPresentation({ phase: 'fight', key: `fight-${w.round}`, round: w.round });
       if (w.phase === 'round_end') {
         this.dailyAudio.interrupt();
         this.audio.clearFightSounds();
@@ -858,6 +888,7 @@ export class FightScene extends Phaser.Scene {
           this.flashAlpha = 0.85;
           this.shake = 6;
           this.audio.playEvent({ phase: 'ko', characterId: loser.def.id, player: loser.player });
+          this.audio.playPresentation({ phase: 'ko', key: `ko-${w.round}`, round: w.round });
         }
         this.slowAcc = 0;
       }

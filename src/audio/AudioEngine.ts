@@ -2,6 +2,8 @@ import sampleManifest from './sampleManifest.json';
 import { createCueCatalog, eventCues } from './audioCues';
 import { synthesize } from './synthesize';
 import { MusicPlayer, type MusicCatalog } from './MusicPlayer';
+import { voiceLine } from './voiceLines';
+import type { PresentationAudioEvent, VoicePlayback } from './audioTypes';
 import { deliveryRecord, type AssetDownloads } from '../render/assetDownloads';
 import type { AudioCue, AudioFailureKind, AudioGroup, AudioHudState, AudioPreloadReport, AudioSettings, AudioTraceEntry, CueCatalog, FightAudioEvent, SfxKind } from './audioTypes';
 
@@ -66,6 +68,9 @@ export class AudioEngine {
   private readonly lastPlayed = new Map<string, number>();
   private readonly variants = new Map<string, number>();
   private readonly eventKeys = new Set<string>();
+  private readonly presentationKeys = new Set<string>();
+  private readonly voiceListeners = new Set<(voice: VoicePlayback | null) => void>();
+  private captionSoundId: number | null = null;
   private nextId = 0;
   private paused = false;
   private destroyed = false;
@@ -236,7 +241,10 @@ export class AudioEngine {
   useDownloads(downloads: AssetDownloads): void { this.downloads = downloads; }
 
   async preloadMenu(): Promise<AudioPreloadReport> {
-    const urls = [...new Set(['menu_move', 'menu_confirm'].flatMap(id => [...(this.catalog[id]?.files ?? [])]))];
+    // First selection happens before the fight preload gate. Fetch its tiny
+    // replies now; the title's real gesture will decode these cached bytes.
+    const ids = ['menu_move', 'menu_confirm', ...Object.keys(this.catalog).filter(id => id.startsWith('voice.') && id.endsWith('.select'))];
+    const urls = [...new Set(ids.flatMap(id => [...(this.catalog[id]?.files ?? [])]))];
     await this.loadMany(urls, false);
     return this.preloadReport(urls);
   }
@@ -359,12 +367,17 @@ export class AudioEngine {
 
   playEvent(event: FightAudioEvent): void {
     if (this.destroyed) return;
-    if (event.phase === 'start' || event.phase === 'ko') this.interruptDailyVoice(event.player);
+    if (event.phase === 'start' || event.phase === 'ko') this.interruptDailyVoice();
     if (event.phase === 'hit' || event.phase === 'block' || event.phase === 'throw') {
-      if (event.defenderPlayer !== undefined) this.interruptDailyVoice(event.defenderPlayer);
+      this.interruptDailyVoice();
     }
     this.trace('event', `${event.phase}:${event.player}:${event.characterId}:${event.moveId ?? ''}:${event.moveInstance ?? ''}`);
     if (event.phase === 'round_start') this.eventKeys.clear();
+    if (event.phase === 'win') {
+      const key = `win:${event.player}`;
+      if (this.eventKeys.has(key)) return;
+      this.eventKeys.add(key);
+    }
     if ((event.phase === 'start' || event.phase === 'swing' || event.phase === 'recover') && event.moveInstance !== undefined) {
       const key = `${event.phase}:${event.player}:${event.characterId}:${event.moveInstance}:${event.phase === 'swing' ? event.segmentId ?? 0 : 0}`;
       if (this.eventKeys.has(key)) { this.trace('drop', `duplicate_event:${key}`); return; }
@@ -379,6 +392,29 @@ export class AudioEngine {
   /** Returns false when dropped/unavailable; old combat events are never queued. */
   playCue(cueId: string, options: { player?: 0 | 1; ui?: boolean } = {}): boolean {
     return this.playCueInternal(cueId, options, false);
+  }
+
+  onVoice(listener: (voice: VoicePlayback | null) => void): () => void {
+    this.voiceListeners.add(listener);
+    return () => { this.voiceListeners.delete(listener); };
+  }
+
+  /** Daily requests are dropped while another line is sounding; nothing is queued. */
+  voiceBusy(): boolean {
+    return this.hudState('voice') !== 'ready' || [...this.playing.values()].some(sound => sound.group === 'voice');
+  }
+
+  playPresentation(event: PresentationAudioEvent): boolean {
+    const key = `${event.phase}:${event.key}:${event.player ?? 'global'}`;
+    if (this.presentationKeys.has(key)) return false;
+    this.presentationKeys.add(key);
+    if (this.presentationKeys.size > 128) this.presentationKeys.delete(this.presentationKeys.values().next().value!);
+    const roundCue = event.finalRound === true ? 'announcer.round3'
+      : (event.round ?? 1) > 2 ? 'announcer.nextRound' : `announcer.round${event.round === 2 ? 2 : 1}`;
+    const cue = event.phase === 'select' || event.phase === 'win'
+      ? `voice.${event.characterId}.${event.phase}`
+      : event.phase === 'round' ? roundCue : `announcer.${event.phase}`;
+    return this.playCue(cue, { ...(event.player === undefined ? {} : { player: event.player }), ui: event.phase === 'select' });
   }
 
   private playCueInternal(cueId: string, options: { player?: 0 | 1; ui?: boolean }, preview: boolean): boolean {
@@ -399,10 +435,12 @@ export class AudioEngine {
     const files = cue.files.filter((url) => !!this.samples.get(url)?.buffer);
     for (const file of cue.files) if (!this.samples.has(file)) void this.load(file);
     let buffer: AudioBuffer | undefined;
+    let selectedFile: string | undefined;
     let mode: 'sample' | 'synth' = 'sample';
     if (files.length) {
       const index = this.variants.get(key) ?? 0;
-      buffer = this.samples.get(files[index % files.length]!)!.buffer!;
+      selectedFile = files[index % files.length]!;
+      buffer = this.samples.get(selectedFile)!.buffer!;
       this.variants.set(key, index + 1);
     } else if (cue.fallback && cue.group === 'sfx') {
       mode = 'synth';
@@ -442,7 +480,18 @@ export class AudioEngine {
     if (mode === 'sample') this.sampledPlays++; else this.fallbackPlays++;
     this.trace('play', mode, cueId);
     this.updateMusicDuck();
+    if (cue.group === 'voice' && selectedFile && sound) {
+      this.captionSoundId = sound.id;
+      const line: VoicePlayback = { cueId, file: selectedFile, ...(options.player === undefined ? {} : { player: options.player }), ...voiceLine(selectedFile), durationMs: buffer.duration * 1000 };
+      this.notifyVoice(line);
+    }
     return true;
+  }
+
+  private notifyVoice(line: VoicePlayback | null): void {
+    for (const listener of this.voiceListeners) {
+      try { listener(line); } catch { /* A presentation listener cannot interrupt the mixer. */ }
+    }
   }
 
   private playbackFailed(cueId: string, error: unknown): false {
@@ -463,6 +512,9 @@ export class AudioEngine {
     if (cue.group === 'voice') {
       // Ambient chatter never overlaps either fighter's more useful speech.
       if (priority <= 10 && current.some(sound => sound.group === 'voice')) return false;
+      if (priority > 10) for (const sound of current) {
+        if (sound.group === 'voice' && sound.priority <= 10) this.stop(sound);
+      }
       const speaker = current.filter((sound) => sound.group === 'voice' && sound.player === player);
       if (speaker.some((sound) => sound.priority > priority)) return false;
       for (const sound of speaker) this.stop(sound);
@@ -484,6 +536,7 @@ export class AudioEngine {
   }
 
   private release(sound: PlayingSound): void {
+    if (this.captionSoundId === sound.id) { this.captionSoundId = null; this.notifyVoice(null); }
     this.playing.delete(sound.id);
     sound.source.onended = null;
     sound.source.disconnect();
@@ -503,6 +556,7 @@ export class AudioEngine {
     this.loops.clear();
     this.lastPlayed.clear();
     this.eventKeys.clear();
+    this.presentationKeys.clear();
     this.variants.clear();
     this.paused = false;
     this.trace('control', 'stop_all');
@@ -616,9 +670,9 @@ export class AudioEngine {
     return !this.muted && this.volume > 0 && this.levels.music > 0 && this.context?.state === 'running';
   }
 
-  interruptDailyVoice(player: 0 | 1): void {
+  interruptDailyVoice(player?: 0 | 1): void {
     for (const sound of [...this.playing.values()]) {
-      if (sound.group === 'voice' && sound.player === player && sound.priority <= 10) this.stop(sound);
+      if (sound.group === 'voice' && (player === undefined || sound.player === player) && sound.priority <= 10) this.stop(sound);
     }
   }
 

@@ -1,4 +1,4 @@
-import { Btn, type HitEvent } from '@core/index';
+import { Btn, type HitEvent, type ControlMode } from '@core/index';
 import { keyLabel, type KeyConfig } from '@input/keymap';
 
 export const TUTORIAL_STEPS = ['walk', 'light', 'heavy', 'block', 'special', 'combo'] as const;
@@ -27,7 +27,7 @@ export function tutorialStepDone(step: TutorialStepId, ctx: TutorialContext): bo
   if (step === 'light') return hits.some((e) => e.moveId === 'st_a');
   if (step === 'heavy') return hits.some((e) => e.moveId === 'st_c');
   if (step === 'block') return ctx.events.some((e) => e.kind === 'block' && e.defender === 0);
-  if (step === 'special') return ctx.p1State === 'attack' && ctx.p1MoveId === tutorialSpecial(ctx.p1CharId).moveId;
+  if (step === 'special') return hits.some(e => e.moveId === tutorialSpecial(ctx.p1CharId).moveId);
   return !!ctx.comboStarted && hits.some((e) => e.moveId === 'st_c' && e.comboHits >= 2);
 }
 
@@ -55,7 +55,7 @@ export class TutorialProgress {
   }
 }
 
-export function tutorialInstruction(step: TutorialStepId, charId: string, keys: KeyConfig, facing: 1 | -1): string {
+export function tutorialInstruction(step: TutorialStepId, charId: string, keys: KeyConfig, facing: 1 | -1, mode: ControlMode = 'classic'): string {
   const k = keys.p1;
   const forward = keyLabel(facing === 1 ? k.Right : k.Left);
   const back = keyLabel(facing === 1 ? k.Left : k.Right);
@@ -65,7 +65,7 @@ export function tutorialInstruction(step: TutorialStepId, charId: string, keys: 
     case 'light': return `走到对手身边，按 ${light} 轻拳打中一次（空挥不算）`;
     case 'heavy': return `按 ${heavy} 重拳打中一次；打不到就再靠近一些`;
     case 'block': return `木桩会靠近出拳，按住 ${back} 后方向，成功挡住一次`;
-    case 'special': return `快速依次按 ${down} → ${down}+${forward} → ${forward}+${light}：${tutorialSpecial(charId).name}`;
+    case 'special': if (mode === 'simple') return `走近对手，按 ${keyLabel(k.Skill1 ?? '')} ${tutorialSpecial(charId).name}打中一次（空挥不算）`; return `快速依次按 ${down} → ${down}+${forward} → ${forward}+${light}：${tutorialSpecial(charId).name}`;
     case 'combo': return `靠近后按 ${light}，轻拳打中立刻按 ${heavy}：轻拳 → 重拳连中两下`;
   }
 }

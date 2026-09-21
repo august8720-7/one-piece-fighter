@@ -1,8 +1,8 @@
-import type { InputFrame } from '@core/index';
+import type { ControlModes, InputFrame } from '@core/index';
 import { sfx } from '../audio/Sfx';
 import { GamepadInput } from './gamepad';
 import { KeyboardInput } from './keyboard';
-import { loadKeyConfig, muteShortcutAvailable, saveKeyConfig, type KeyConfig } from './keymap';
+import { loadControlModes, loadKeyConfig, muteShortcutAvailable, saveControlModes, saveKeyConfig, type KeyConfig } from './keymap';
 
 /**
  * 输入总线：键盘 + 手柄按位或，全局单例（跨场景保留监听与键位）。
@@ -12,10 +12,15 @@ export class InputHub {
   readonly keyboard: KeyboardInput;
   readonly gamepad = new GamepadInput();
   private config: KeyConfig;
+  private modes: ControlModes;
+  private matchModes: ControlModes | null = null;
+  private profiles: Record<'classic' | 'simple', KeyConfig>;
   private prev: InputFrame = { p1: 0, p2: 0 };
 
   constructor() {
-    this.config = loadKeyConfig();
+    this.modes = loadControlModes();
+    this.profiles = { classic: loadKeyConfig(), simple: loadKeyConfig(['simple', 'simple']) };
+    this.config = this.keyConfigFor(this.modes);
     this.keyboard = new KeyboardInput(this.config);
     // 第一次用户手势解锁音频；M 键静音
     const unlock = () => sfx().unlock();
@@ -30,10 +35,33 @@ export class InputHub {
     return this.config;
   }
 
-  setKeyConfig(cfg: KeyConfig): void {
-    this.config = cfg;
-    this.keyboard.setConfig(cfg);
-    saveKeyConfig(cfg);
+  get controlModes(): ControlModes { return this.modes; }
+
+  keyConfigFor(modes: ControlModes): KeyConfig {
+    return { p1: { ...this.profiles[modes[0]].p1 }, p2: { ...this.profiles[modes[1]].p2 } };
+  }
+
+  setControlModes(modes: ControlModes): void {
+    this.modes = [...modes];
+    saveControlModes(this.modes);
+    this.refreshConfig();
+  }
+
+  useMatchControls(modes: ControlModes | null): void {
+    this.matchModes = modes ? [...modes] : null;
+    this.refreshConfig();
+  }
+
+  setKeyConfig(cfg: KeyConfig, modes: ControlModes = this.modes): void {
+    this.profiles[modes[0]].p1 = { ...cfg.p1 };
+    this.profiles[modes[1]].p2 = { ...cfg.p2 };
+    saveKeyConfig(cfg, modes);
+    this.refreshConfig();
+  }
+
+  private refreshConfig(): void {
+    this.config = this.keyConfigFor(this.matchModes ?? this.modes);
+    this.keyboard.setConfig(this.config);
   }
 
   snapshot(): InputFrame {

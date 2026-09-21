@@ -811,6 +811,104 @@
       "priority": 10,
       "cooldownMs": 0,
       "maxInstances": 1
+    },
+    "voice.luffy.select": {
+      "files": [
+        "assets/audio/voice/luffy/daily-idle-1-0914.wav"
+      ],
+      "group": "voice",
+      "characterId": "luffy",
+      "gain": 0.7,
+      "source": "docs/assets/日常声音与音乐来源0914.md",
+      "note": "Existing accepted short response; selection placement, no certified transcript.",
+      "priority": 60,
+      "cooldownMs": 0,
+      "maxInstances": 1
+    },
+    "voice.akainu.select": {
+      "files": [
+        "assets/audio/voice/akainu/daily-idle-1-0914.wav"
+      ],
+      "group": "voice",
+      "characterId": "akainu",
+      "gain": 0.7,
+      "source": "docs/assets/日常声音与音乐来源0914.md",
+      "note": "Existing accepted short response; selection placement, no certified transcript.",
+      "priority": 60,
+      "cooldownMs": 0,
+      "maxInstances": 1
+    },
+    "announcer.round1": {
+      "files": [
+        "assets/audio/announcer/round1-0922.wav"
+      ],
+      "group": "voice",
+      "gain": 0.72,
+      "priority": 95,
+      "cooldownMs": 0,
+      "maxInstances": 1,
+      "source": "docs/assets/人物台词与播报0922.md",
+      "note": "Original system-synthesized announcer, not KOF or character voice. Human audition pending."
+    },
+    "announcer.round2": {
+      "files": [
+        "assets/audio/announcer/round2-0922.wav"
+      ],
+      "group": "voice",
+      "gain": 0.72,
+      "priority": 95,
+      "cooldownMs": 0,
+      "maxInstances": 1,
+      "source": "docs/assets/人物台词与播报0922.md",
+      "note": "Original system-synthesized announcer, not KOF or character voice. Human audition pending."
+    },
+    "announcer.round3": {
+      "files": [
+        "assets/audio/announcer/round3-0922.wav"
+      ],
+      "group": "voice",
+      "gain": 0.72,
+      "priority": 95,
+      "cooldownMs": 0,
+      "maxInstances": 1,
+      "source": "docs/assets/人物台词与播报0922.md",
+      "note": "Original system-synthesized announcer, not KOF or character voice. Human audition pending."
+    },
+    "announcer.fight": {
+      "files": [
+        "assets/audio/announcer/fight-0922.wav"
+      ],
+      "group": "voice",
+      "gain": 0.72,
+      "priority": 95,
+      "cooldownMs": 0,
+      "maxInstances": 1,
+      "source": "docs/assets/人物台词与播报0922.md",
+      "note": "Original system-synthesized announcer, not KOF or character voice. Human audition pending."
+    },
+    "announcer.ko": {
+      "files": [
+        "assets/audio/announcer/ko-0922.wav"
+      ],
+      "group": "voice",
+      "gain": 0.72,
+      "priority": 95,
+      "cooldownMs": 0,
+      "maxInstances": 1,
+      "source": "docs/assets/人物台词与播报0922.md",
+      "note": "Original system-synthesized announcer, not KOF or character voice. Human audition pending."
+    },
+    "announcer.nextRound": {
+      "files": [
+        "assets/audio/announcer/nextRound-0922.wav"
+      ],
+      "group": "voice",
+      "gain": 0.72,
+      "priority": 95,
+      "cooldownMs": 0,
+      "maxInstances": 1,
+      "source": "docs/assets/人物台词与播报0922.md",
+      "note": "Original system-synthesized announcer, not KOF or character voice. Human audition pending."
     }
   }
 }

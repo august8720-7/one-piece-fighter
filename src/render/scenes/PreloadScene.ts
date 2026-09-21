@@ -42,6 +42,9 @@ export class PreloadScene extends Phaser.Scene {
     const downloads = sharedDownloads(this.game ?? this.registry);
     const audio = sfx();
     audio.useDownloads(downloads);
+    // Selection is complete: stream the existing battle track while assets load,
+    // rather than finishing a menu-track download that will immediately be abandoned.
+    if (data.destination !== 'Title') audio.playMusic('battle', data.mode === 'training' ? 0.7 : 1);
     const unsubscribe = downloads.observe(progress => {
       if (!active()) return;
       const bytes = progress.totalBytes === undefined ? `已完成 ${progress.completed} 份文件`

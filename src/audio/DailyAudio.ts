@@ -8,7 +8,7 @@ interface Speaker {
   state: string; x: number; animationFrame: number; idle: number; moving: number;
   voiceAt: number; idleAt: number; footAt: number;
 }
-const fresh = (): Speaker => ({ state: '', x: 0, animationFrame: -1, idle: 0, moving: 0, voiceAt: -720, idleAt: -1080, footAt: -12 });
+const fresh = (): Speaker => ({ state: '', x: 0, animationFrame: -1, idle: 0, moving: 0, voiceAt: -1200, idleAt: -1200, footAt: -12 });
 const moving = (state: string) => ['walk_fwd', 'walk_back', 'dash', 'backdash'].includes(state);
 
 /** Uses only completed simulation ticks and displayed poses; no wall-clock backlog or core writes. */
@@ -20,11 +20,15 @@ export class DailyAudio {
   reset(): void { this.tick = 0; this.contactAt = -120; this.speakers = [fresh(), fresh()]; }
   interrupt(): void { for (const speaker of this.speakers) { speaker.idle = 0; speaker.moving = 0; } }
 
-  step(fighters: readonly DailyFighter[], active: boolean, contact: boolean): CueRequest[] {
+  /** Call only when the engine accepted the requested daily voice. */
+  notePlayed(player: 0 | 1): void { this.speakers[player].voiceAt = this.tick; this.speakers[player].idleAt = this.tick; }
+
+  step(fighters: readonly DailyFighter[], active: boolean, contact: boolean, voiceBusy = false): CueRequest[] {
     if (!active) { this.interrupt(); return []; }
     this.tick++;
     if (contact) this.contactAt = this.tick;
     const cues: CueRequest[] = [];
+    const candidates: CueRequest[] = [];
     for (const f of fighters) {
       const s = this.speakers[f.player];
       const changed = s.state !== f.state;
@@ -38,15 +42,17 @@ export class DailyAudio {
         }
         const burst = changed && (f.state === 'dash' || f.state === 'backdash' || f.state.startsWith('jump_'));
         if (burst) cues.push({ id: `sfx.${f.characterId}.movement`, player: f.player });
-        if ((s.moving >= 24 || burst) && this.tick - s.voiceAt >= 720) {
-          cues.push({ id: `voice.${f.characterId}.move`, player: f.player }); s.voiceAt = this.tick;
+        if ((s.moving >= 24 || burst) && this.tick - s.voiceAt >= 1200) {
+          candidates.push({ id: `voice.${f.characterId}.move`, player: f.player });
         }
-        if (s.idle >= 360 + f.player * 120 && this.tick - this.contactAt >= 120 && this.tick - s.idleAt >= 1080 && this.tick - s.voiceAt >= 180) {
-          cues.push({ id: `voice.${f.characterId}.idle`, player: f.player }); s.idleAt = this.tick; s.voiceAt = this.tick;
+        if (s.idle >= 240 && this.tick - this.contactAt >= 120 && this.tick - s.voiceAt >= 1200) {
+          candidates.push({ id: `voice.${f.characterId}.idle`, player: f.player });
         }
       }
       s.state = f.state; s.x = f.x; s.animationFrame = f.animationFrame;
     }
+    candidates.sort((a, b) => this.speakers[a.player!].voiceAt - this.speakers[b.player!].voiceAt || a.player! - b.player!);
+    if (!voiceBusy && candidates[0]) cues.push(candidates[0]);
     return cues;
   }
 }

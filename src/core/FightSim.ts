@@ -16,7 +16,9 @@ import { firstActiveFrame, frameAt, inStartupOrActive } from './moveBuilder';
 import { Rng } from './Rng';
 import {
   ANY_ATTACK,
+  ANY_SKILL,
   ATTACK_BUTTONS,
+  SKILL_BUTTONS,
   Btn,
   INPUT_HISTORY,
   MAX_JUGGLE,
@@ -27,6 +29,7 @@ import {
   type Box,
   type BoxPx,
   type BurnDef,
+  type ControlModes,
   type FighterDef,
   type FighterState,
   type FrameData,
@@ -42,6 +45,9 @@ import {
   type ProjectileEndEvent,
   type ProjectileEndReason,
   type ProjectileState,
+  type SkillAvailability,
+  type SkillFeedback,
+  type SkillReason,
   type Stance,
   type StateId,
   type WorldState,
@@ -64,6 +70,8 @@ export interface FightSimOptions {
   roundTime?: number;
   /** 先胜几局赢下比赛 */
   roundsToWin?: number;
+  /** 旧输入与旧回放省略时仍按经典指令解释。 */
+  controlModes?: ControlModes;
 }
 
 export const PREJUMP_FRAMES = 3;
@@ -139,6 +147,8 @@ interface StrikeContact {
  */
 export class FightSim {
   readonly rng: Rng;
+  readonly controlModes: ControlModes;
+  readonly skillFeedback: [SkillFeedback | null, SkillFeedback | null] = [null, null];
   private frame = 0;
   private readonly fighters: [FighterState, FighterState];
   private projectiles: ProjectileState[] = [];
@@ -160,6 +170,7 @@ export class FightSim {
   training: TrainingOptions = { infiniteHp: false, infiniteMeter: false };
 
   constructor(private readonly opts: FightSimOptions) {
+    this.controlModes = [opts.controlModes?.[0] ?? 'classic', opts.controlModes?.[1] ?? 'classic'];
     this.rng = new Rng(opts.seed ?? 1);
     this.introFrames = opts.introFrames ?? INTRO_FRAMES;
     const rt = opts.roundTime ?? DEFAULT_ROUND_TIME;
@@ -196,8 +207,21 @@ export class FightSim {
     return this.projectileEndEvents;
   }
 
+  /** Scene pause/focus loss discards pending input, without advancing or cancelling an action. */
+  clearInputs(): void {
+    for (const f of this.fighters) {
+      f.bits = 0;
+      f.prevBits = 0;
+      f.history = [];
+      f.buffered = null;
+      f.bufferTtl = 0;
+    }
+    this.skillFeedback[0] = this.skillFeedback[1] = null;
+  }
+
   /** 重开一局：位置与血量复位，气槽保留（KOF 口径）。 */
   resetRound(): void {
+    this.skillFeedback[0] = this.skillFeedback[1] = null;
     this.clearStepEvents();
     this.clearProjectiles('round_reset');
     const meters = [this.fighters[0].meter, this.fighters[1].meter];
@@ -221,6 +245,7 @@ export class FightSim {
 
   /** 训练模式：把双方拉回初始位置与中立状态，保留血量与气。 */
   resetPositions(): void {
+    this.skillFeedback[0] = this.skillFeedback[1] = null;
     this.clearStepEvents();
     this.clearProjectiles('position_reset');
     for (const f of this.fighters) {
@@ -370,6 +395,10 @@ export class FightSim {
 
   /** 冻结阶段：只记录输入（保持边沿检测连续），不推进状态。 */
   private readInputOnly(f: FighterState, bits: number): void {
+    if (this.controlModes[f.player] === 'simple') {
+      const slot = SKILL_BUTTONS.findIndex(bit => (bits & ~f.bits & bit) !== 0);
+      if (slot >= 0) this.skillFeedback[f.player] = { slot, frame: this.frame, reason: 'phase' };
+    }
     f.prevBits = f.bits;
     f.bits = bits;
     this.pushHistory(f, bits);
@@ -490,6 +519,34 @@ export class FightSim {
     return f.def.moves.find((m) => m.install?.id === f.install)?.install ?? null;
   }
 
+  /** UI 查询与实际快捷出招共用资格检查；不会写战斗状态。 */
+  skillAvailability(player: PlayerIndex, slot: number): SkillAvailability {
+    const f = this.fighters[player];
+    const m = this.skillMove(f, slot);
+    let reason: SkillReason;
+    if (!m) reason = 'missing';
+    else if (this.phase !== 'fight') reason = 'phase';
+    else if (f.state === 'attack') {
+      const from = this.move(f);
+      reason = from && f.hasHit && f.stateFrame + 1 <= f.cancelUntil
+        ? this.skillMoveReason(f, m, from) : 'cancel';
+    } else if (!OPERABLE.has(f.state) && !f.state.startsWith('jump_')) reason = 'recovery';
+    else reason = this.skillMoveReason(f, m, null);
+    return { moveId: m?.id ?? '', available: reason === 'ready', reason };
+  }
+
+  private skillMove(f: FighterState, slot: number): MoveData | null {
+    const id = Number.isInteger(slot) && slot >= 0 && slot < SKILL_BUTTONS.length ? f.def.skillSlots?.[slot] : undefined;
+    return f.def.moves.find(m => m.id === id && !!m.input.motion) ?? null;
+  }
+
+  private skillMoveReason(f: FighterState, m: MoveData, from: MoveData | null): SkillReason {
+    if ((m.input.stance === 'air') !== f.airborne) return 'air';
+    if (from && MOVE_RANK[m.type] <= MOVE_RANK[from.type] && !from.chain?.includes(m.id)) return 'cancel';
+    if ((m.meterCost ?? 0) > f.meter) return 'meter';
+    return 'ready';
+  }
+
   /** 应用强化 / 疲劳的移速倍率 */
   private speed(f: FighterState, v: number): number {
     const inst = this.installDef(f);
@@ -535,14 +592,19 @@ export class FightSim {
     f.bits = bits;
     this.pushHistory(f, bits);
 
-    if (pressed & ANY_ATTACK) {
+    const simple = this.controlModes[f.player] === 'simple';
+    const newAttack = pressed & (ANY_ATTACK | (simple ? ANY_SKILL : 0));
+    const slot = simple ? SKILL_BUTTONS.findIndex(bit => (pressed & bit) !== 0) : -1;
+    if (newAttack) {
       f.buffered = {
         bits,
-        pressed: pressed & ANY_ATTACK,
+        pressed: slot >= 0 ? SKILL_BUTTONS[slot]! : pressed & ANY_ATTACK,
         facing: f.facing,
-        motions: MOTION_PRIORITY.filter((motion) => matchMotion(f.history, motion)),
+        motions: simple ? [] : MOTION_PRIORITY.filter((motion) => matchMotion(f.history, motion)),
+        ...(slot >= 0 ? { skillSlot: slot } : {}),
       };
       f.bufferTtl = BUTTON_BUFFER;
+      if (slot >= 0) this.skillFeedback[f.player] = { slot, frame: this.frame, reason: this.skillAvailability(f.player, slot).reason };
     }
 
     if (NEUTRAL.has(f.state) && f.comboHits > 0) {
@@ -555,7 +617,7 @@ export class FightSim {
       f.hitstop--;
       return;
     }
-    if (!(pressed & ANY_ATTACK) && f.bufferTtl > 0 && --f.bufferTtl === 0) f.buffered = null;
+    if (!newAttack && f.bufferTtl > 0 && --f.bufferTtl === 0) f.buffered = null;
 
     const mv = f.def.movement;
 
@@ -724,6 +786,18 @@ export class FightSim {
    */
   private tryAttack(f: FighterState, opp: FighterState, intent: AttackIntent | null, from: MoveData | null): boolean {
     if (!intent) return false;
+    if (intent.skillSlot !== undefined) {
+      if (this.controlModes[f.player] !== 'simple') return false;
+      const m = this.skillMove(f, intent.skillSlot);
+      const reason = m ? this.skillMoveReason(f, m, from) : 'missing';
+      if (m && reason === 'ready') {
+        this.skillFeedback[f.player] = { slot: intent.skillSlot, frame: this.frame, reason: 'ready' };
+        this.startMove(f, m);
+        return true;
+      }
+      // Preserve only the ordinary four-frame buffer; never downgrade to another move.
+      return false;
+    }
     const { bits, pressed } = intent;
     const stance: Stance = f.airborne ? 'air' : has(bits, Btn.Down) ? 'crouch' : 'stand';
     const h = horizontalRelative(bits, intent.facing);

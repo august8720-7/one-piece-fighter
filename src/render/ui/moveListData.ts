@@ -1,5 +1,5 @@
-import { Btn, K, METER_STOCK, P, type FighterDef, type MoveData } from '@core/index';
-import { keyLabel, type KeyBinding } from '@input/keymap';
+import { Btn, K, METER_STOCK, P, type FighterDef, type MoveData, type ControlMode } from '@core/index';
+import { keyLabel, type KeyBinding, type Action } from '@input/keymap';
 
 export const MOVE_GROUPS = [
   { id: 'ground', label: '地面招式' },
@@ -41,7 +41,9 @@ export function motionArrows(motion: string, facingRight: boolean): string {
   return [...motion].map((digit) => right[facingRight ? digit : mirror[digit] ?? digit] ?? digit).join('');
 }
 
-export function moveCommand(move: MoveData, bind: KeyBinding, facingRight: boolean): string {
+export function moveCommand(move: MoveData, bind: KeyBinding, facingRight: boolean, mode: ControlMode = 'classic', slots: readonly string[] = []): string {
+  const slot = slots.indexOf(move.id);
+  if (mode === 'simple' && slot >= 0) return `${keyLabel(bind[`Skill${slot + 1}` as Action] ?? '')} · 一键（需满足空地 / 气量 / 取消条件）`;
   const direction: string[] = [];
   if (move.input.stance === 'crouch' || move.input.down) direction.push('↓');
   if (move.input.direction) direction.push(motionArrows(String(move.input.direction), facingRight));

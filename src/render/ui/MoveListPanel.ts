@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { Btn, type FighterDef, type InputFrame, type MoveData } from '@core/index';
+import { Btn, type FighterDef, type InputFrame, type MoveData, type ControlModes } from '@core/index';
 import { keyLabel, type KeyBinding, type KeyConfig } from '@input/keymap';
 import { LAYOUT_H as SCREEN_H, LAYOUT_W as SCREEN_W } from '../screen';
 import { layoutGroup } from './layoutGroup';
@@ -17,6 +17,7 @@ export class MoveListPanel {
   constructor(
     private readonly scene: Phaser.Scene,
     private readonly defs: [FighterDef, FighterDef],
+    private readonly modes: ControlModes = ['classic', 'classic'],
   ) {}
 
   toggle(cfg: KeyConfig, facing: [boolean, boolean]): void {
@@ -103,7 +104,7 @@ export class MoveListPanel {
       }).setDepth(211);
       this.nodes.push(head, keys);
       const pageRows = rows.slice(this.page * MOVES_PER_PAGE, (this.page + 1) * MOVES_PER_PAGE);
-      pageRows.forEach((move, i) => this.drawMove(move, bind, face, x, 147 + i * 33));
+      pageRows.forEach((move, i) => this.drawMove(move, bind, face, x, 147 + i * 33, player as 0 | 1));
       if (!pageRows.length) {
         this.nodes.push(this.scene.add.text(x, 163, rows.length ? '本角色的招式已在前页列出' : '本角色无此类招式', {
           fontFamily: UI.font, fontSize: '15px', color: UI.dim,
@@ -129,12 +130,12 @@ export class MoveListPanel {
     this.nodes.push(group);
   }
 
-  private drawMove(move: MoveData, bind: KeyBinding, face: boolean, x: number, y: number): void {
+  private drawMove(move: MoveData, bind: KeyBinding, face: boolean, x: number, y: number, player: 0 | 1): void {
     const name = this.scene.add.text(x, y, move.name, { fontFamily: UI.font, fontSize: '15px', color: UI.text }).setDepth(211);
     const properties = this.scene.add.text(x + 416, y + 1, moveProperties(move), {
       fontFamily: UI.font, fontSize: '12px', color: UI.dim,
     }).setOrigin(1, 0).setDepth(211);
-    const command = this.scene.add.text(x, y + 17, moveCommand(move, bind, face), {
+    const command = this.scene.add.text(x, y + 17, moveCommand(move, bind, face, this.modes[player], this.defs[player].skillSlots), {
       fontFamily: UI.font, fontSize: '13px', color: UI.title,
     }).setDepth(211);
     this.nodes.push(name, properties, command);

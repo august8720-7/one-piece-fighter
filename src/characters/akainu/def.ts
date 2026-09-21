@@ -27,6 +27,7 @@ export const akainuDef: FighterDef = {
   hurtboxCrouch: [[-19, -68, 38, 68]],
   hurtboxAir: [[-16, -96, 32, 74]],
   moves: akainuMoves,
+  skillSlots: ['sp_daifunka', 'sp_inugami', 'sp_meigou', 'sp_meteor', 'sp_ground_split', 'sp_magma_body', 'sp_daifunka_ren', 'sp_meteor_rain', 'ult_meigou_end'],
   color: 0xf4a261,
   tagline: '压制 · 霸体 · 灼烧',
   quotes: ['正义，必胜。', '恶，必须彻底铲除。', '这就是海军的正义。'],

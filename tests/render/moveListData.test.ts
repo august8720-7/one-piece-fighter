@@ -6,6 +6,23 @@ import { MOVE_GROUPS, MOVES_PER_PAGE, motionArrows, moveCommand, moveProperties,
 const luffyMove = (id: string) => luffyDef.moves.find((move) => move.id === id)!;
 
 describe('完整出招表', () => {
+  it('两角色全部九技能在一键模式显示当前绑定，普通招式保留经典输入', () => {
+    const keys = defaultKeyConfig(['simple', 'simple']).p1;
+    for (const def of [luffyDef, akainuDef]) {
+      expect(def.skillSlots).toHaveLength(9);
+      for (const id of def.skillSlots!) {
+        const move = def.moves.find(item => item.id === id)!;
+        const right = moveCommand(move, keys, true, 'simple', def.skillSlots);
+        expect(right).toContain('一键');
+        expect(moveCommand(move, keys, false, 'simple', def.skillSlots)).toBe(right);
+        expect(moveCommand(move, keys, true, 'classic', def.skillSlots)).not.toContain('一键');
+      }
+      const normal = def.moves.find(item => item.id === 'st_a')!;
+      expect(moveCommand(normal, keys, true, 'simple', def.skillSlots)).toBe(moveCommand(normal, keys, true));
+    }
+    keys.Skill1 = 'KeyT';
+    expect(moveCommand(luffyMove('sp_gatling'), keys, true, 'simple', luffyDef.skillSlots)).toMatch(/^T · 一键/);
+  });
   for (const def of [luffyDef, akainuDef]) {
     it(`${def.name} 所有招式恰好出现一次，翻页不会漏招`, () => {
       const listed = MOVE_GROUPS.flatMap((group) => {

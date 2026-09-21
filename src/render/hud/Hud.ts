@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { LOGIC_FPS, MAX_METER, METER_STOCK, type HitEvent, type WorldState } from '@core/index';
+import { LOGIC_FPS, MAX_METER, METER_STOCK, type HitEvent, type WorldState, type ControlModes } from '@core/index';
 import { LAYOUT_H as SCREEN_H, LAYOUT_W as SCREEN_W } from '../screen';
 import { layoutGroup } from '../ui/layoutGroup';
 import { UI } from '../ui/MenuList';
@@ -46,7 +46,7 @@ export class Hud {
   private readonly flagText: [Phaser.GameObjects.Text, Phaser.GameObjects.Text];
   private readonly sourceText: Phaser.GameObjects.Text;
 
-  constructor(scene: Phaser.Scene, names: [string, string], quotes: [readonly string[], readonly string[]] = [[], []], private readonly theme: 'classic' | 'anime' = 'classic', characterIds?: [string, string]) {
+  constructor(scene: Phaser.Scene, names: [string, string], quotes: [readonly string[], readonly string[]] = [[], []], private readonly theme: 'classic' | 'anime' = 'classic', characterIds?: [string, string], private readonly controlModes: ControlModes = ['classic', 'classic']) {
     const existing = new Set(scene.children.list);
     const anime = theme === 'anime';
     this.quotes = quotes;
@@ -224,6 +224,7 @@ export class Hud {
       if (f.armorBroken && f.state === 'attack') flags.push('破霸');
       this.flagText[i]!.setText(flags.join('  ')).setPosition(i === 0 ? x0 : x0 + BAR_W, BAR_Y + BAR_H + 24).setOrigin(i === 0 ? 0 : 1, 0);
 
+      if (this.controlModes[i] === 'classic') {
       const mx0 = i === 0 ? MARGIN : SCREEN_W - MARGIN - METER_W;
       g.fillStyle(anime ? 0x0c151d : 0x000000, 1).fillRect(mx0 - 3, METER_Y - 3, METER_W + 6, METER_H + 6);
       g.fillStyle(anime ? ANIME.meterEmpty : 0x2a1f12, 1).fillRect(mx0, METER_Y, METER_W, METER_H);
@@ -238,6 +239,7 @@ export class Hud {
       }
       g.lineStyle(2, anime ? ANIME.border : 0xc9b27a, 0.75).strokeRect(mx0 - 2, METER_Y - 2, METER_W + 4, METER_H + 4);
       this.meterText[i]!.setText(`${stocks}`);
+      } else this.meterText[i]!.setVisible(false);
 
       const cs = this.comboShow[i]!;
       const t = this.combo[i]!;

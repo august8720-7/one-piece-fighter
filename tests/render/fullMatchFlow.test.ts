@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type Phaser from 'phaser';
-import { Btn, FightSim, px, totalFrames, type FighterDef } from '../../src/core';
+import { Btn, FightSim, px, totalFrames, type FighterDef, type ControlModes } from '../../src/core';
 import { akainuDef, luffyDef } from '../../src/characters';
 import { defaultKeyConfig } from '../../src/input/keymap';
 import { DEFAULT_ANIMS, type AnimeRuntimeManifest } from '../../src/render/animations';
@@ -10,8 +10,8 @@ import { cpuChallengeData } from '../../src/render/ui/fightNavigation';
 import type { ResultData } from '../../src/render/scenes/ResultScene';
 
 const shared = vi.hoisted(() => ({
-  input: { snapshot: vi.fn(() => ({ p1: 0, p2: 0 })), edges: vi.fn(() => ({ p1: 0, p2: 0 })), flush: vi.fn(), keyConfig: { p1: {}, p2: {} } },
-  audio: { clearFightSounds: vi.fn(), playMusic: vi.fn(), interruptDailyVoice: vi.fn(), stopAll: vi.fn(), playCue: vi.fn(), playEvent: vi.fn(), play: vi.fn(), resume: vi.fn(), pause: vi.fn(), unlock: vi.fn(), hudState: vi.fn(() => 'ready') },
+  input: { controlModes: ['classic', 'classic'] as ControlModes, useMatchControls: vi.fn(), setControlModes: vi.fn(), snapshot: vi.fn(() => ({ p1: 0, p2: 0 })), edges: vi.fn(() => ({ p1: 0, p2: 0 })), flush: vi.fn(), keyConfig: { p1: {}, p2: {} } },
+  audio: { onVoice: vi.fn(() => vi.fn()), playPresentation: vi.fn(), voiceBusy: vi.fn(() => false), clearFightSounds: vi.fn(), playMusic: vi.fn(), interruptDailyVoice: vi.fn(), stopAll: vi.fn(), playCue: vi.fn(), playEvent: vi.fn(), play: vi.fn(), resume: vi.fn(), pause: vi.fn(), unlock: vi.fn(), hudState: vi.fn(() => 'ready') },
 }));
 vi.mock('phaser', () => ({ default: { Scene: class {}, Scenes: { Events: { SHUTDOWN: 'shutdown' } }, Core: { Events: { BLUR: 'blur', HIDDEN: 'hidden' } } } }));
 vi.mock('../../src/input/InputHub', () => ({ getInputHub: () => shared.input }));
@@ -38,7 +38,7 @@ vi.mock('../../src/render/hud/Hud', () => ({ Hud: class {
   constructor(scene: Phaser.Scene) { scene.add.text(0, 0, 'hud-fixture').setDepth(50); }
 } }));
 vi.mock('../../src/render/ui/DiagnosticsPanel', () => ({ DiagnosticsPanel: class { visible = false; } }));
-vi.mock('../../src/render/ui/MoveListPanel', () => ({ MoveListPanel: class { visible = false; } }));
+vi.mock('../../src/render/ui/MoveListPanel', () => ({ MoveListPanel: class { visible = false; toggle() { this.visible = !this.visible; } } }));
 vi.mock('../../src/render/ui/TutorialCoach', () => ({ TutorialCoach: class {}, tutorialDismissed: () => true }));
 import { FightScene, type FightSceneData } from '../../src/render/scenes/FightScene';
 import { MenuScene } from '../../src/render/scenes/MenuScene';
@@ -112,6 +112,7 @@ function fight(entry: FightSceneData = data) {
 
 beforeEach(() => {
   vi.clearAllMocks();
+  shared.input.controlModes = ['classic', 'classic'];
   shared.input.keyConfig = defaultKeyConfig();
   shared.input.snapshot.mockReturnValue({ p1: 0, p2: 0 }); shared.input.edges.mockReturnValue({ p1: 0, p2: 0 });
   vi.stubGlobal('window', { location: { search: '?art=anime&scope=sample&mode=training&hold=st_c/0' } });
@@ -119,6 +120,31 @@ beforeEach(() => {
 afterEach(() => vi.unstubAllGlobals());
 
 describe('complete anime match routing after legitimate coverage readiness', () => {
+  it('pause and move list discard pending scene input without advancing combat', () => {
+    const { scene, sim } = fight();
+    const clear = vi.spyOn(sim, 'clearInputs');
+    Object.assign(scene, { pendingTraining: { p1: Btn.Skill1, p2: Btn.A }, previousTraining: { p1: Btn.Skill1, p2: 0 }, lastInput: { p1: Btn.Skill1, p2: 0 } });
+    const frame = sim.state.frame;
+    Reflect.apply(Reflect.get(scene, 'togglePause'), scene, []);
+    expect(clear).toHaveBeenCalledOnce();
+    for (const field of ['pendingTraining', 'previousTraining', 'lastInput']) expect(Reflect.get(scene, field)).toEqual({ p1: 0, p2: 0 });
+    Reflect.apply(Reflect.get(scene, 'toggleMoveList'), scene, []);
+    expect(clear).toHaveBeenCalledTimes(2);
+    expect(sim.state.frame).toBe(frame);
+  });
+  it('freezes mixed match controls, keeps CPU classic, and rematch picks newly saved preferences', () => {
+    const mixed = fight({ ...data, controlModes: ['simple', 'classic'] });
+    expect(mixed.sim.controlModes).toEqual(['simple', 'classic']);
+    expect(shared.input.useMatchControls).toHaveBeenCalledWith(['simple', 'classic']);
+    shared.input.controlModes = ['classic', 'simple'];
+    expect(mixed.sim.controlModes).toEqual(['simple', 'classic']);
+    const result = configure(new ResultScene());
+    result.scene.init({ ...data, controlModes: ['simple', 'classic'], winner: 0, wins: [2, 0] });
+    Object.assign(result.scene, { step: { advance: () => 1 }, menu: { index: 0, update: () => 'select' } });
+    result.scene.update(0, 1000 / 60);
+    expect(result.navigation.start).toHaveBeenCalledWith('Preload', expect.objectContaining({ controlModes: ['classic', 'simple'] }));
+    expect(fight({ ...data, mode: 'cpu', controlModes: ['simple', 'simple'] }).sim.controlModes).toEqual(['simple', 'classic']);
+  });
   it.each(['anime', 'legacy'] as const)('%s creation keeps combat visuals together and HUD/debug text outside the world transform', art => {
     const { scene, displays } = fight({ ...data, art });
     const world = Reflect.get(scene, 'worldLayer') as Phaser.GameObjects.Container;

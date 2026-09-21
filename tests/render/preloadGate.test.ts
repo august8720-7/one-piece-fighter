@@ -10,13 +10,14 @@ const mocks = vi.hoisted(() => ({
   preloadAudio: vi.fn(async () => ({ fetched: 0, decoded: 0, failed: [] as string[] })),
   preloadMenu: vi.fn(async () => ({ fetched: 0, decoded: 0, failed: [] as string[] })),
   retryAudio: vi.fn(async () => ({ fetched: 0, decoded: 0, failed: [] as string[] })),
+  playMusic: vi.fn(),
 }));
 vi.mock('phaser', () => ({ default: { Scene: class {}, Scenes: { Events: { SHUTDOWN: 'shutdown' } } } }));
 vi.mock('../../src/render/assets', () => ({
   ANIME_LOAD_RESULT: 'animeLoadResult', SPRITE_KEYS: 'spriteKeys',
   loadAnimeCharacters: mocks.loadAnime, loadAnimeInterfaces: mocks.loadInterfaces, loadCharacterAtlases: mocks.loadLegacy, loadPresentationAssets: mocks.loadStage,
 }));
-vi.mock('../../src/audio/Sfx', () => ({ sfx: () => ({ preload: mocks.preloadAudio, preloadMenu: mocks.preloadMenu, useDownloads: vi.fn(), retryFailed: mocks.retryAudio, muted: false }) }));
+vi.mock('../../src/audio/Sfx', () => ({ sfx: () => ({ preload: mocks.preloadAudio, preloadMenu: mocks.preloadMenu, useDownloads: vi.fn(), retryFailed: mocks.retryAudio, playMusic: mocks.playMusic, muted: false }) }));
 vi.mock('../../src/render/ui/audioQuickControls', () => ({ audioQuickControls: () => {} }));
 vi.mock('../../src/render/ui/MenuList', () => ({ UI: { font: 'sans-serif', mono: 'monospace', title: '#fff', text: '#fff', dim: '#ccc', accent: '#eee' } }));
 import { PreloadScene, type PreloadData } from '../../src/render/scenes/PreloadScene';
@@ -163,6 +164,7 @@ describe('preload prevents invalid battles', () => {
     expect(mocks.loadAnime).not.toHaveBeenCalled();
     expect(mocks.preloadAudio).not.toHaveBeenCalled();
     expect(mocks.preloadMenu).toHaveBeenCalledTimes(1);
+    expect(mocks.playMusic).not.toHaveBeenCalled();
     expect(mocks.loadStage).toHaveBeenCalledWith(current.scene, expect.anything(), 'menu');
   });
 
@@ -173,6 +175,7 @@ describe('preload prevents invalid battles', () => {
     current.scene.create(); await flush();
     expect(current.navigation.start).not.toHaveBeenCalled();
     expect(current.values.get('presentationLoadResult')).toMatchObject({ ok: false, issues: ['声音未能载入：voice.ogg'] });
+    expect(mocks.playMusic).toHaveBeenCalledWith('battle', 1);
     current.controls.get('重新载入')!();
     expect(current.navigation.restart).toHaveBeenCalledWith(expect.objectContaining({ retryAudio: true }));
   });

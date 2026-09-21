@@ -63,6 +63,27 @@ export interface CueRequest {
   player?: 0 | 1;
 }
 
+export interface PresentationAudioEvent {
+  phase: 'select' | 'round' | 'fight' | 'ko' | 'win';
+  /** Unique confirmation/round/match instance; repeated renders must reuse it. */
+  key: string;
+  characterId?: string;
+  player?: 0 | 1;
+  round?: number;
+  /** Only the match rules know whether both players are one win from victory. */
+  finalRound?: boolean;
+}
+
+/** Emitted only for a sample that actually started. Null clears a stopped subtitle. */
+export interface VoicePlayback {
+  cueId: string;
+  file: string;
+  player?: 0 | 1;
+  text: string;
+  transcriptVerified: boolean;
+  durationMs: number;
+}
+
 export interface AudioPreloadReport {
   fetched: number;
   decoded: number;

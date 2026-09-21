@@ -1,21 +1,21 @@
 import Phaser from 'phaser';
-import type { FightSim } from '@core/index';
+import type { FightSim, ControlMode } from '@core/index';
 import { getInputHub } from '@input/InputHub';
 import { LAYOUT_W as SCREEN_W } from '../screen';
 import { layoutGroup } from './layoutGroup';
 import { UI } from './MenuList';
 import { TUTORIAL_STEPS, TutorialProgress, tutorialInstruction } from './tutorialSteps';
 
-const STORAGE = 'opf.tutorial.v3';
-export function tutorialDone(): boolean {
-  try { return globalThis.localStorage?.getItem(STORAGE) === 'complete'; } catch { return false; }
+const storage = (mode: ControlMode): string => mode === 'classic' ? 'opf.tutorial.v3' : 'opf.tutorial.simple.v1';
+export function tutorialDone(mode: ControlMode = 'classic'): boolean {
+  try { return globalThis.localStorage?.getItem(storage(mode)) === 'complete'; } catch { return false; }
 }
-export function tutorialDismissed(): boolean {
-  try { return ['complete', 'skipped'].includes(globalThis.localStorage?.getItem(STORAGE) ?? ''); } catch { return false; }
+export function tutorialDismissed(mode: ControlMode = 'classic'): boolean {
+  try { return ['complete', 'skipped'].includes(globalThis.localStorage?.getItem(storage(mode)) ?? ''); } catch { return false; }
 }
-function saveTutorial(result: 'complete' | 'skipped'): void {
+function saveTutorial(result: 'complete' | 'skipped', mode: ControlMode): void {
   try {
-    if (!tutorialDone()) globalThis.localStorage?.setItem(STORAGE, result);
+    if (!tutorialDone(mode)) globalThis.localStorage?.setItem(storage(mode), result);
   } catch { /* 隐私模式不影响练习 */ }
 }
 
@@ -31,7 +31,7 @@ export class TutorialCoach {
   active = true;
   get stepId(): (typeof TUTORIAL_STEPS)[number] | null { return this.active ? this.progress.stepId : null; }
 
-  constructor(scene: Phaser.Scene, private readonly p1CharId: string, private readonly onComplete: () => void) {
+  constructor(scene: Phaser.Scene, private readonly p1CharId: string, private readonly onComplete: () => void, private readonly mode: ControlMode = 'classic') {
     this.box = scene.add.rectangle(SCREEN_W / 2, 111, 760, 100, 0x0b1220, 0.94).setDepth(70).setStrokeStyle(2, 0xc9a227);
     this.title = scene.add.text(SCREEN_W / 2, 76, '', { fontFamily: UI.font, fontSize: '18px', color: UI.title, fontStyle: 'bold' }).setOrigin(0.5).setDepth(71);
     this.body = scene.add.text(SCREEN_W / 2, 107, '', { fontFamily: UI.font, fontSize: '16px', color: UI.text }).setOrigin(0.5).setDepth(71);
@@ -44,7 +44,7 @@ export class TutorialCoach {
   skip(): void {
     if (!this.active) return;
     this.active = false;
-    saveTutorial('skipped');
+    saveTutorial('skipped', this.mode);
     this.hide();
   }
   tick(sim: FightSim, p1: number): void {
@@ -55,7 +55,7 @@ export class TutorialCoach {
       this.feedbackFrames = 90;
       if (!this.progress.stepId) {
         this.active = false;
-        saveTutorial('complete');
+        saveTutorial('complete', this.mode);
         // The completion callback opens the challenge menu; keep one clear completion heading.
         this.hide();
         this.onComplete();
@@ -73,7 +73,7 @@ export class TutorialCoach {
     if (!step) return;
     const names = { walk: '移动', light: '轻拳', heavy: '重拳', block: '防御', special: '特殊技', combo: '短连段' };
     this.title.setText(`${TUTORIAL_STEPS.indexOf(step) + 1}/${TUTORIAL_STEPS.length} ${names[step]}`);
-    this.body.setText(tutorialInstruction(step, this.p1CharId, getInputHub().keyConfig, facing));
+    this.body.setText(tutorialInstruction(step, this.p1CharId, getInputHub().keyConfig, facing, this.mode));
     this.status.setText(this.feedbackFrames > 0 ? '上一步完成 ✓' : step === 'combo' ? '如果断连，等对手站稳，再从轻拳开始' : '按 Esc 可暂停、改键或查看完整出招表');
   }
 }

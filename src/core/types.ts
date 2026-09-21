@@ -11,6 +11,8 @@ export interface Box {
 
 export type Facing = 1 | -1;
 export type PlayerIndex = 0 | 1;
+export type ControlMode = 'classic' | 'simple';
+export type ControlModes = readonly [ControlMode, ControlMode];
 
 /** 按键位图。方向按绝对方向存储，镜像由 core 处理。 */
 export enum Btn {
@@ -23,7 +25,22 @@ export enum Btn {
   C = 1 << 6, // 重拳
   D = 1 << 7, // 重脚
   Start = 1 << 8,
+  Skill1 = 1 << 9,
+  Skill2 = 1 << 10,
+  Skill3 = 1 << 11,
+  Skill4 = 1 << 12,
+  Skill5 = 1 << 13,
+  Skill6 = 1 << 14,
+  Skill7 = 1 << 15,
+  Skill8 = 1 << 16,
+  Skill9 = 1 << 17,
 }
+
+export const SKILL_BUTTONS = [Btn.Skill1, Btn.Skill2, Btn.Skill3, Btn.Skill4, Btn.Skill5, Btn.Skill6, Btn.Skill7, Btn.Skill8, Btn.Skill9] as const;
+export const ANY_SKILL = SKILL_BUTTONS.reduce((mask, bit) => mask | bit, 0);
+export type SkillReason = 'ready' | 'meter' | 'air' | 'recovery' | 'cancel' | 'phase' | 'missing';
+export interface SkillAvailability { moveId: string; available: boolean; reason: SkillReason }
+export interface SkillFeedback { slot: number; frame: number; reason: SkillReason }
 
 export const ATTACK_BUTTONS = [Btn.A, Btn.B, Btn.C, Btn.D] as const;
 export type AttackButton = (typeof ATTACK_BUTTONS)[number];
@@ -289,6 +306,8 @@ export interface FighterDef {
   hurtboxCrouch: readonly BoxPx[];
   hurtboxAir: readonly BoxPx[];
   moves: readonly MoveData[];
+  /** 一键技能槽位，顺序固定，不依赖招式表排序。 */
+  skillSlots?: readonly string[];
   /** 占位渲染颜色 */
   color: number;
   /** 胜利台词（演出用，随机取一句） */
@@ -335,6 +354,8 @@ export interface AttackIntent {
   pressed: number;
   facing: Facing;
   motions: readonly MotionId[];
+  /** 仅简易输入声明；经典输入不改变既有意图结构。 */
+  skillSlot?: number;
 }
 
 export interface FighterState {
