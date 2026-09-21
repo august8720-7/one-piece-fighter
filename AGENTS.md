@@ -49,6 +49,7 @@ tests/           Vitest 测试，按 src 中的纯逻辑模块分目录
 - 音频制作脚本与显式清单放 `scripts/`，来源、逐句原文/译文/用途/哈希及未知项放 `docs/assets/`；新增原始候选只放本地 `public/assets/audio/sources/voice-0922/`，采用短句放 `public/assets/audio/voice/`，播报放 `public/assets/audio/announcer/`。均沿用本地素材忽略规则；网页公开包只含采用后的运行资源。缺少准确听辨不伪称专属喊招，字幕与正式语音共用同一条记录。
 - 本轮允许按任务分工并行：主代理维护输入/核心与集成，独立代理可分别维护声音、渲染UI和CPU复现；每个文件组仅一位写入者，CPU候选独立留证、无可靠改进则不合入。所有内部验证自主推进，最终集中真人试听/复玩，不逐项重复审批。
 - 最终独立验证18项技能、经典回放、完整流程、1.0回退、720p/1080p、带声音对照、15分钟前台运行与5Mbps/150ms加载目标（菜单4秒/首拳25秒）；四项工程检查全通过。工程、受控性能、人物听辨和主观好玩分别记录，不互相代替。
+- 0922本地交付使用 `index-B4BjPNrS.js`：718项测试及四项工程检查、36次真实键盘技能、经典69,628帧回放和900秒桌面运行通过。`开始游戏.cmd`已切换4180的2.0，`开始1.0经典版.cmd`保留4181的冻结0915，2.0标题也可进入独立`v1/`。新人物候选台词未听辨、不采用；CPU候选无稳定改善、不合入。具体性能边界、公开发布状态及证据见 `docs/2.0实施与验收0922.md`，不得将本次可玩交付写成全部台词或CPU漏洞已完成。
 
 ### 0915 加载提速（当前授权）
 
@@ -150,7 +151,7 @@ npm run build       # vite build
 
 开发预览：`npm run dev`，默认 http://localhost:5173
 
-本地游玩入口：根目录 `开始游戏.cmd` 调用 `scripts/playCandidate.mjs --release candidate-0915 --full`，只在本机启动已验证的 `.local-releases/加载提速-0915/playable/`（4179端口）并打开完整动漫标题。0914声音版回退使用 `--release candidate-0914 --full`（4178端口），0913动漫回退使用 `--release candidate-0913 --full`（4177端口）；`开始旧版游戏.cmd` 调用 `scripts/playLocal.mjs` 服务保留的旧 `dist/`。不安装依赖、不自动构建或发布。维护入口时保持这一边界。
+本地游玩入口：根目录 `开始游戏.cmd` 调用 `scripts/playCandidate.mjs --release candidate-0922 --full`，只在本机启动已验证的 `.local-releases/操作演出-0922/playable/`（4180端口）并打开完整动漫2.0标题。`开始1.0经典版.cmd`调用 `--release classic-1 --full`（4181端口），服务冻结0915完整动漫版；原0915入口也可用 `--release candidate-0915 --full`（4179端口）。0914声音版回退使用 `--release candidate-0914 --full`（4178端口），0913动漫回退使用 `--release candidate-0913 --full`（4177端口）；`开始旧版游戏.cmd` 调用 `scripts/playLocal.mjs` 服务保留的旧 `dist/`。不安装依赖、不自动构建或发布。维护入口时保持这一边界。
 入口复用已占用端口时必须核对完整构建内容标识及首页哈希，不得只凭相同游戏标题判为当前版本。运行中磁盘构建改变时明确要求重启，不能混用新旧资源。该机制可先修复，不代表已获完整动漫游戏放行或切换默认画风。
 
 内部样板入口：根目录 `体验新版样板.cmd` 保持调用 `scripts/playCandidate.mjs --release candidate-0913`，只服务 `.local-releases/candidate-0913/` 并打开 `?art=anime&mode=training`。完整游戏按钮显式增加 `--full`，打开 `?art=anime&scope=full&quality=high` 标题；日志区分完整候选和样板。启动器不构建、不下载依赖、不发布。0912旧样板仍可通过 `node scripts/playCandidate.mjs --release candidate-0912` 打开；`--full`不支持0912。候选不存在或占用端口不是相同完整内容与首页哈希时明确报错。
