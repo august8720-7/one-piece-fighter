@@ -80,6 +80,80 @@
         "despillRadius": 1,
         "despillMethod": "geometric-source-edge"
       }
+    },
+    "labubu": {
+      "image": "assets/characters/labubu/anime/ui-corrected-0922.png",
+      "sha256": "0792c1652a6bed093bbe3da9a04edeba3a302da14cc5c79a19322b2148333620",
+      "width": 435,
+      "height": 724,
+      "frames": {
+        "body": {
+          "x": 0,
+          "y": 0,
+          "w": 435,
+          "h": 724
+        },
+        "portrait": {
+          "x": 20,
+          "y": 0,
+          "w": 400,
+          "h": 450
+        }
+      },
+      "source": {
+        "file": "public/assets/generated/source/labubu-mother-corrected-0922.png",
+        "sha256": "2ceb759998d911beacf10dffd2b996e5cd218012612bf08df9421937569f1044",
+        "crop": [
+          881,
+          0,
+          435,
+          724
+        ]
+      },
+      "enabled": true,
+      "reviewStatus": "corrected-static-shape-reviewed-candidate",
+      "processing": {
+        "scale": 1,
+        "method": "explicit crop; original RGBA preserved",
+        "pixelsEqual": true
+      }
+    },
+    "twinkle": {
+      "image": "assets/characters/twinkle/anime/ui-corrected-0922.png",
+      "sha256": "ef02df5b31b8a1b7ab3558fc1762cf6e8e2a7085468a399885432d4739af432d",
+      "width": 585,
+      "height": 650,
+      "frames": {
+        "body": {
+          "x": 0,
+          "y": 0,
+          "w": 585,
+          "h": 650
+        },
+        "portrait": {
+          "x": 15,
+          "y": 10,
+          "w": 545,
+          "h": 410
+        }
+      },
+      "source": {
+        "file": "public/assets/generated/source/twinkle-mother-corrected-0922.png",
+        "sha256": "1bc9aeed3dcb54ef3b5dfe2c7c7b1a2286b033e05d528fff40d7a5bc51952ae5",
+        "crop": [
+          802,
+          40,
+          585,
+          650
+        ]
+      },
+      "enabled": true,
+      "reviewStatus": "corrected-static-shape-reviewed-candidate",
+      "processing": {
+        "scale": 1,
+        "method": "explicit crop; original RGBA preserved",
+        "pixelsEqual": true
+      }
     }
   }
 }

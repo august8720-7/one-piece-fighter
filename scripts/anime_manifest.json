@@ -805,6 +805,69 @@
             "file": "docs/assets/路飞火箭頭頸局部收回原始提示词0913.txt",
             "sha256": "4ca0a8383714e3e15098764d0e73b1ce58c3d0cdfaba0e206df8ee0f181b155f"
           }
+        },
+        "held_leg_flip_0927": {
+          "file": "public/assets/generated/source/luffy-held-leg-flip-0927.png",
+          "sha256": "8abdbafe151925ea1964dd804900d59d75d7eded17f86d3dae24cdc76b9b1f10",
+          "model": "GPT Image 2.5",
+          "provider": "chatgpt-web",
+          "sessionUrl": "https://chatgpt.com/c/6aa4331f-0a30-83ea-94a5-4e1e3e211060",
+          "generatedAt": "2026-09-27",
+          "generatedAtPrecision": "first observed complete local day; actual generation timestamp not exposed",
+          "firstObservedCompletedDate": "2026-09-27",
+          "requestedTextModel": "最新 (0926 user-approved official UI label)",
+          "observedTextModelLabel": "最新",
+          "browserLabel": "Codex内置浏览器",
+          "observedReasoningEffort": "极高",
+          "recordedAt": "2026-09-26T22:55:39.303405+00:00",
+          "unitScale": 0.924506387921022,
+          "modelEvidence": {
+            "file": "docs/assets/luffy_held_leg_flip_0927型号凭据0927.txt",
+            "sha256": "109f90aa9a4af58b55d2891312b1e706ecd8a5d6e1d223b85cfa49647386dadb"
+          },
+          "prompt": {
+            "file": "docs/assets/路飞抱腿受投补图提示词0927.txt",
+            "sha256": "126d7824be9a5b0cd8f3aa8dd611b31fb2ef8c66b959e41928bd314ee9150e68"
+          },
+          "referenceSources": {},
+          "adoptionStatus": "paired_sample_candidate",
+          "reviewNotes": "Allow one original victim pose under this review three explicit fixed registrations; preserve old fighter scale/pages/roots. Static review only; runtime center/release/corner checks remain pending. Evidence: D:\\one-piece-fighter-crossover-0922\\acceptance\\legacy-held-pair-0927\\20260927-072345\\results\\legacy-held-proposal-final.json",
+          "retrievalMethod": "Unchanged PNG bytes from rendered same-origin image blob via Cua CDP in Codex in-app browser",
+          "referenceFiles": [
+            {
+              "file": "public/assets/generated/source/characters-master-0912.png",
+              "sha256": "1e0e47229db7bee69789282efdec93ca737a3d1dfb4582f06eed2881a5ddad51",
+              "role": "existing accepted shared character master in this same official conversation"
+            }
+          ],
+          "reviewHistory": [
+            {
+              "at": "2026-09-26T23:49:52.197793+00:00",
+              "beforeScopeUpdate": {
+                "adoptionStatus": "shape_reviewed_candidate",
+                "reviewNotes": "Parent viewed full dark-alpha composite: existing anime design, straw hat/red jacket/X scar/yellow sash/blue shorts/sandals retained; complete standing scale reference and distinct loss-of-balance pose with one ankle at lower right and head/body away. No runtime pairing or release acceptance yet."
+              }
+            }
+          ],
+          "permittedSampleAttackers": {
+            "labubu": [
+              "sp_leg_flip",
+              "throw_fwd",
+              "throw_back"
+            ],
+            "twinkle": [
+              "throw_fwd",
+              "throw_back"
+            ]
+          },
+          "reactions": [
+            "held_leg_flip",
+            "held_labubu_throw",
+            "held_twinkle_throw"
+          ],
+          "pairedReviewEvidence": "D:\\one-piece-fighter-crossover-0922\\acceptance\\legacy-held-pair-0927\\20260927-072345\\results\\catalog-sample-scope-request.json",
+          "pairedReviewedAt": "2026-09-26T23:49:52.197793+00:00",
+          "scaleBasis": "Whole-source neutral alpha>=64 bbox[42, 18, 782, 879], height861px calibrated to existing same-character master height796px. Existing character.scale0.22 stays unchanged. Apply796/861 to all held registrations; no per-pose scale or fit."
         }
       },
       "frames": {
@@ -9731,6 +9794,75 @@
             "despillNote": "Source-bound original solid-contact body plus explicit Image 2.5 head-neck patch. Source-specific green gaps and connected edge despill only; all non-green authored pixels unchanged after keying."
           },
           "note": "Head-neck-only Image 2.5 repaint over protected original body. Same-column root341.5 / virtual floor984; feet intentionally raised. No hitbox, timing, whole-body or opponent-dependent transform."
+        },
+        "held_leg_flip": {
+          "source": "held_leg_flip_0927",
+          "crop": [
+            887,
+            0,
+            887,
+            887
+          ],
+          "root": [
+            596.6568011443208,
+            919.6055538497255
+          ],
+          "sockets": {
+            "grip": [
+              734,
+              790
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "0927 static candidate only for labubu sp_leg_flip: measured real ankle with fixed core root distance30. New named conditional reaction; existing ordinary thrown and every legacy frame/root stay unchanged. No runtime translation, rotation, or body rescale."
+        },
+        "held_labubu_throw": {
+          "source": "held_leg_flip_0927",
+          "crop": [
+            887,
+            0,
+            887,
+            887
+          ],
+          "root": [
+            543.234810415715,
+            1051.564641388762
+          ],
+          "sockets": {
+            "grip": [
+              734,
+              790
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "0927 static candidate only for labubu throw_fwd,throw_back: measured real ankle with fixed core root distance31. New named conditional reaction; existing ordinary thrown and every legacy frame/root stay unchanged. No runtime translation, rotation, or body rescale."
+        },
+        "held_twinkle_throw": {
+          "source": "held_leg_flip_0927",
+          "crop": [
+            887,
+            0,
+            887,
+            887
+          ],
+          "root": [
+            586.293398812243,
+            1175.7890589310186
+          ],
+          "sockets": {
+            "grip": [
+              810,
+              839
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "0927 static candidate only for twinkle throw_fwd,throw_back: measured real forefoot with fixed core root distance32. New named conditional reaction; existing ordinary thrown and every legacy frame/root stay unchanged. No runtime translation, rotation, or body rescale."
         }
       },
       "anims": {
@@ -11152,6 +11284,42 @@
             {
               "frame": 2,
               "ticks": 16
+            }
+          ]
+        },
+        "held_leg_flip": {
+          "frames": [
+            "held_leg_flip"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 24
+            }
+          ]
+        },
+        "held_labubu_throw": {
+          "frames": [
+            "held_labubu_throw"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 22
+            }
+          ]
+        },
+        "held_twinkle_throw": {
+          "frames": [
+            "held_twinkle_throw"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 23
             }
           ]
         }
@@ -15278,7 +15446,18 @@
         "0913 integrated luffy-redhawk-long-repair-ready0913 after source/geometry and actual-core review; runtime visual acceptance separate.",
         "0913 integrated luffy-sweep-repair-ready0913 after source/geometry and actual-core review; runtime visual acceptance separate.",
         "0913 integrated luffy-air-final-two-ready0913 after source/geometry and actual-core review; runtime visual acceptance separate."
-      ]
+      ],
+      "pageBreakBefore": [
+        "held_leg_flip"
+      ],
+      "conditionalHeldReview0927": {
+        "status": "paired-static-sample-pending-normal-speed",
+        "independentNewVictimPoses": 1,
+        "conditionalRegistrations": 3,
+        "appendOnly": true,
+        "oldPngBytesMustStayEqual": true,
+        "evidence": "D:/one-piece-fighter-crossover-0922/acceptance/legacy-held-pair-0927/20260927-072345/results/legacy-held-proposal-final.json"
+      }
     },
     "akainu": {
       "scale": 0.22,
@@ -16038,6 +16217,137 @@
             "file": "docs/assets/赤犬空中双掌腕桥连接返工原始提示词0913.txt",
             "sha256": "3c2c579eae08b4c7643367fd49041ef4f137d82da73d83e857974ec5e563dfa9"
           }
+        },
+        "held_leg_flip_0927": {
+          "file": "public/assets/generated/source/akainu-held-leg-flip-0927.png",
+          "sha256": "a89984996e178346f427dc07331209369dd914326800f9dbe1903c8e44705431",
+          "model": "GPT Image 2.5",
+          "provider": "chatgpt-web",
+          "sessionUrl": "https://chatgpt.com/c/6aa4331f-0a30-83ea-94a5-4e1e3e211060",
+          "generatedAt": "2026-09-27",
+          "generatedAtPrecision": "first observed complete local day; actual generation timestamp not exposed",
+          "firstObservedCompletedDate": "2026-09-27",
+          "requestedTextModel": "最新 (0926 user-approved official UI label)",
+          "observedTextModelLabel": "最新",
+          "browserLabel": "Codex内置浏览器",
+          "observedReasoningEffort": "极高",
+          "recordedAt": "2026-09-26T23:10:18.051268+00:00",
+          "unitScale": 1.130966952264382,
+          "modelEvidence": {
+            "file": "docs/assets/akainu_held_leg_flip_0927型号凭据0927.txt",
+            "sha256": "8049927db5933205af00a8c37d52289efa183082024c25f36f3ead88696b93f0"
+          },
+          "prompt": {
+            "file": "docs/assets/赤犬抱腿受投补图提示词0927.txt",
+            "sha256": "4a986c310ad825012e36bfc80dfe8a2841a4ab0c663ce3beeccdca569647ce8b"
+          },
+          "referenceSources": {},
+          "adoptionStatus": "paired_sample_candidate",
+          "reviewNotes": "Allow only when composed with the required same-coordinate hat patches; unpatched original remains prohibited for runtime adoption. One independent original pose and three registrations. Static review only; runtime center/release/corner checks remain pending. Evidence: D:\\one-piece-fighter-crossover-0922\\acceptance\\legacy-held-pair-0927\\20260927-072345\\results\\legacy-held-proposal-final.json",
+          "retrievalMethod": "Unchanged PNG bytes from rendered same-origin image blob via Cua CDP in Codex in-app browser",
+          "referenceFiles": [
+            {
+              "file": "public/assets/generated/source/characters-master-0912.png",
+              "sha256": "1e0e47229db7bee69789282efdec93ca737a3d1dfb4582f06eed2881a5ddad51",
+              "role": "accepted shared master with blank white cap and blue stripes"
+            }
+          ],
+          "reviewHistory": [
+            {
+              "at": "2026-09-26T23:49:52.197793+00:00",
+              "beforeScopeUpdate": {
+                "adoptionStatus": "candidate_needs_hat_patch",
+                "reviewNotes": "Full anime identity and distinct full-body held pose inspected, ankle clear at lower right. New MARINE lettering on both hats differs from the accepted blank-cap master/basics; do not adopt unpatched. Same-canvas local hat correction requested; body/limbs/coat must retain original pixels. Pairing not yet reviewed."
+              }
+            }
+          ],
+          "permittedSampleAttackers": {
+            "labubu": [
+              "sp_leg_flip",
+              "throw_fwd",
+              "throw_back"
+            ],
+            "twinkle": [
+              "throw_fwd",
+              "throw_back"
+            ]
+          },
+          "reactions": [
+            "held_leg_flip",
+            "held_labubu_throw",
+            "held_twinkle_throw"
+          ],
+          "requiredPatchDonorKey": "akainu_held_hat_fix_0927",
+          "requiredPatchRects": [
+            [
+              475,
+              50,
+              42,
+              18
+            ],
+            [
+              1445,
+              100,
+              50,
+              22
+            ]
+          ],
+          "pairedReviewEvidence": "D:\\one-piece-fighter-crossover-0922\\acceptance\\legacy-held-pair-0927\\20260927-072345\\results\\catalog-sample-scope-request.json",
+          "pairedReviewedAt": "2026-09-26T23:49:52.197793+00:00",
+          "scaleBasis": "Whole-source neutral alpha>=64 bbox[70, 26, 754, 843], height817px calibrated to existing same-character master height924px. Existing character.scale0.22 stays unchanged. Apply924/817 to all held registrations; no per-pose scale or fit."
+        },
+        "held_hat_fix_0927": {
+          "file": "public/assets/generated/source/akainu-held-hat-fix-0927.png",
+          "sha256": "7cf1396bacba39b7aa3d82f3ca42fcecd9b58c23a712888d454d7449c4d2ba53",
+          "model": "GPT Image 2.5",
+          "provider": "chatgpt-web",
+          "sessionUrl": "https://chatgpt.com/c/6aa4331f-0a30-83ea-94a5-4e1e3e211060",
+          "generatedAt": "2026-09-27",
+          "generatedAtPrecision": "first observed complete local day; actual generation timestamp not exposed",
+          "firstObservedCompletedDate": "2026-09-27",
+          "requestedTextModel": "最新 (0926 user-approved official UI label)",
+          "observedTextModelLabel": "最新",
+          "browserLabel": "Codex内置浏览器",
+          "observedReasoningEffort": "极高",
+          "recordedAt": "2026-09-26T23:24:16.881980+00:00",
+          "unitScale": 1,
+          "modelEvidence": {
+            "file": "docs/assets/akainu_held_hat_fix_0927型号凭据0927.txt",
+            "sha256": "a3e34c33a21d91199d53282f4c12e5088075738f797edc5a6c0c588faf3a3935"
+          },
+          "prompt": {
+            "file": "docs/assets/赤犬受投帽饰纠正提示词0927.txt",
+            "sha256": "5d989a1fbd090e6710f009b004b55c47469f42668028acedcd15bf494d25e0db"
+          },
+          "referenceSources": {
+            "akainu_held_leg_flip_0927": "a89984996e178346f427dc07331209369dd914326800f9dbe1903c8e44705431"
+          },
+          "reviewHistory": [
+            {
+              "at": "2026-09-26T23:49:52.197793+00:00",
+              "beforeScopeUpdate": {}
+            }
+          ],
+          "adoptionStatus": "paired_sample_candidate",
+          "reviewNotes": "Same-canvas hat-patch donor only. Do not use donor whole body or standalone pose. Static review only; runtime center/release/corner checks remain pending. Evidence: D:\\one-piece-fighter-crossover-0922\\acceptance\\legacy-held-pair-0927\\20260927-072345\\results\\legacy-held-proposal-final.json",
+          "permittedBaseKey": "akainu_held_leg_flip_0927",
+          "permittedRects": [
+            [
+              475,
+              50,
+              42,
+              18
+            ],
+            [
+              1445,
+              100,
+              50,
+              22
+            ]
+          ],
+          "pairedReviewEvidence": "D:\\one-piece-fighter-crossover-0922\\acceptance\\legacy-held-pair-0927\\20260927-072345\\results\\catalog-sample-scope-request.json",
+          "pairedReviewedAt": "2026-09-26T23:49:52.197793+00:00",
+          "retrievalMethod": "Unchanged PNG bytes from rendered same-origin image blob via Cua CDP in Codex in-app browser; bounded hat patches only."
         }
       },
       "frames": {
@@ -24116,6 +24426,135 @@
             "despillNote": "Explicit source-coordinate regions derived from all visually inspected magenta fringe marks: neutral wrist, stance inner-knee gap, reach hip fringe, and trapped rear calf/coat gap. Only green-dominant pixels processed; nongreen artwork protected."
           },
           "note": "Existing distinct source drawing, retained crop/root/sockets and reviewed green removal. Ground y397/797 and root x=observed pelvis x-10 calibrated from the same-sheet neutral. Selected for the simplified four-pose dash at exposures [6,3,3,4]; no repeated aliases, limb warp or new pixels. Real-game run-stop-attack and visible foot-slip review pending."
+        },
+        "held_leg_flip": {
+          "source": "held_leg_flip_0927",
+          "crop": [
+            820,
+            0,
+            954,
+            887
+          ],
+          "root": [
+            726.7291114250876,
+            876.9457680918188
+          ],
+          "sockets": {
+            "grip": [
+              839,
+              771
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "0927 static candidate only for labubu sp_leg_flip: measured real ankle with fixed core root distance30. New named conditional reaction; existing ordinary thrown and every legacy frame/root stay unchanged. No runtime translation, rotation, or body rescale.",
+          "sourcePatches": [
+            {
+              "source": "held_hat_fix_0927",
+              "rect": [
+                475,
+                50,
+                42,
+                18
+              ]
+            },
+            {
+              "source": "held_hat_fix_0927",
+              "rect": [
+                1445,
+                100,
+                50,
+                22
+              ]
+            }
+          ]
+        },
+        "held_labubu_throw": {
+          "source": "held_leg_flip_0927",
+          "crop": [
+            820,
+            0,
+            954,
+            887
+          ],
+          "root": [
+            683.0594254230618,
+            984.8154269972451
+          ],
+          "sockets": {
+            "grip": [
+              839,
+              771
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "0927 static candidate only for labubu throw_fwd,throw_back: measured real ankle with fixed core root distance31. New named conditional reaction; existing ordinary thrown and every legacy frame/root stay unchanged. No runtime translation, rotation, or body rescale.",
+          "sourcePatches": [
+            {
+              "source": "held_hat_fix_0927",
+              "rect": [
+                475,
+                50,
+                42,
+                18
+              ]
+            },
+            {
+              "source": "held_hat_fix_0927",
+              "rect": [
+                1445,
+                100,
+                50,
+                22
+              ]
+            }
+          ]
+        },
+        "held_twinkle_throw": {
+          "source": "held_leg_flip_0927",
+          "crop": [
+            820,
+            0,
+            954,
+            887
+          ],
+          "root": [
+            712.1315426997245,
+            1091.3074576938213
+          ],
+          "sockets": {
+            "grip": [
+              895,
+              816
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "0927 static candidate only for twinkle throw_fwd,throw_back: measured real forefoot with fixed core root distance32. New named conditional reaction; existing ordinary thrown and every legacy frame/root stay unchanged. No runtime translation, rotation, or body rescale.",
+          "sourcePatches": [
+            {
+              "source": "held_hat_fix_0927",
+              "rect": [
+                475,
+                50,
+                42,
+                18
+              ]
+            },
+            {
+              "source": "held_hat_fix_0927",
+              "rect": [
+                1445,
+                100,
+                50,
+                22
+              ]
+            }
+          ]
         }
       },
       "anims": {
@@ -25336,6 +25775,42 @@
             {
               "frame": 3,
               "ticks": 4
+            }
+          ]
+        },
+        "held_leg_flip": {
+          "frames": [
+            "held_leg_flip"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 24
+            }
+          ]
+        },
+        "held_labubu_throw": {
+          "frames": [
+            "held_labubu_throw"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 22
+            }
+          ]
+        },
+        "held_twinkle_throw": {
+          "frames": [
+            "held_twinkle_throw"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 23
             }
           ]
         }
@@ -27976,7 +28451,18 @@
         "0913 integrated upper-forward-initial-candidate after source/geometry and actual-core review; runtime visual acceptance separate.",
         "0913 integrated akainu-magma-body-review0913 after source/geometry and actual-core review; runtime visual acceptance separate.",
         "0913 integrated akainu-dog-ground-ready0913 after source/geometry and actual-core review; runtime visual acceptance separate."
-      ]
+      ],
+      "pageBreakBefore": [
+        "held_leg_flip"
+      ],
+      "conditionalHeldReview0927": {
+        "status": "paired-static-sample-pending-normal-speed",
+        "independentNewVictimPoses": 1,
+        "conditionalRegistrations": 3,
+        "appendOnly": true,
+        "oldPngBytesMustStayEqual": true,
+        "evidence": "D:/one-piece-fighter-crossover-0922/acceptance/legacy-held-pair-0927/20260927-072345/results/legacy-held-proposal-final.json"
+      }
     }
   },
   "_exampleCharacter_NOT_BUILT": {

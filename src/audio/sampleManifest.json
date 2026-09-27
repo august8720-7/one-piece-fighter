@@ -909,6 +909,172 @@
       "maxInstances": 1,
       "source": "docs/assets/人物台词与播报0922.md",
       "note": "Original system-synthesized announcer, not KOF or character voice. Human audition pending."
+    },
+    "voice.labubu.select": {
+      "files": [
+        "assets/audio/voice/labubu/select-0926.wav"
+      ],
+      "group": "voice",
+      "characterId": "labubu",
+      "gain": 0.7,
+      "source": "docs/assets/联动语音接入0926.md",
+      "note": "Exact clip auditioned by the user; copied without audio edits. Original Chinese subtitle is bound to the same file/hash. No other event or candidate is implied accepted.",
+      "priority": 60,
+      "cooldownMs": 0,
+      "maxInstances": 1
+    },
+    "voice.twinkle.select": {
+      "files": [
+        "assets/audio/voice/twinkle/select-0926.mp3"
+      ],
+      "group": "voice",
+      "characterId": "twinkle",
+      "gain": 0.7,
+      "source": "docs/assets/联动语音接入0926.md",
+      "note": "Exact clip auditioned by the user; copied without audio edits. Original Chinese subtitle is bound to the same file/hash. No other event or candidate is implied accepted.",
+      "priority": 60,
+      "cooldownMs": 0,
+      "maxInstances": 1
+    },
+    "voice.labubu.attack": {
+      "files": [
+        "assets/audio/voice/labubu/attack-0927.mp3"
+      ],
+      "group": "voice",
+      "characterId": "labubu",
+      "gain": 0.65,
+      "source": "docs/assets/联动语音接入0926.md",
+      "note": "Agent-internal native audio model content review; the user approved the reference voice identity, not this individual sentence. Original bytes and exact-file subtitle are preserved.",
+      "cooldownMs": 900
+    },
+    "voice.twinkle.win": {
+      "files": [
+        "assets/audio/voice/twinkle/win-0927.mp3"
+      ],
+      "group": "voice",
+      "characterId": "twinkle",
+      "gain": 0.65,
+      "source": "docs/assets/联动语音接入0926.md",
+      "note": "Agent-internal native audio model content review; the user approved the reference voice identity, not this individual sentence. Original bytes and exact-file subtitle are preserved.",
+      "cooldownMs": 2100
+    },
+    "voice.twinkle.hurt": {
+      "files": [
+        "assets/audio/voice/twinkle/hurt-0927.wav"
+      ],
+      "group": "voice",
+      "characterId": "twinkle",
+      "gain": 0.65,
+      "source": "docs/assets/联动语音接入0926.md",
+      "note": "Agent-internal native audio model reviewed the actual shortened clip-M. User approved the reference timbre only. Exact native PCM and the same-file subtitle are preserved.",
+      "cooldownMs": 700
+    },
+    "voice.labubu.ko": {
+      "files": [
+        "assets/audio/voice/labubu/ko-0927.mp3"
+      ],
+      "group": "voice",
+      "characterId": "labubu",
+      "gain": 0.65,
+      "source": "docs/assets/联动语音接入0926.md",
+      "note": "Agent-internal native audio model reviewed the actual anonymous KO clip. User approved reference timbre only; new sentence was not individually user-auditioned. Original bytes and exact-file caption are preserved.",
+      "cooldownMs": 1500
+    },
+    "voice.twinkle.ko": {
+      "files": [
+        "assets/audio/voice/twinkle/ko-0927.mp3"
+      ],
+      "group": "voice",
+      "characterId": "twinkle",
+      "gain": 0.65,
+      "source": "docs/assets/联动语音接入0926.md",
+      "note": "Agent-internal native audio model reviewed the actual anonymous KO clip. User approved reference timbre only; new sentence was not individually user-auditioned. Original bytes and exact-file caption are preserved.",
+      "cooldownMs": 2000
+    },
+    "voice.twinkle.attack": {
+      "files": [
+        "assets/audio/voice/twinkle/attack-0927.mp3"
+      ],
+      "group": "voice",
+      "characterId": "twinkle",
+      "gain": 0.65,
+      "source": "docs/assets/联动语音接入0926.md",
+      "note": "Agent-internal native audio model accepted the exact anonymous clip. User approved reference timbre only. Generic special/ultimate call, not a normal-effort cue or named move claim.",
+      "cooldownMs": 2000
+    },
+    "voice.twinkle.idle": {
+      "files": [
+        "assets/audio/voice/twinkle/idle-0927.mp3"
+      ],
+      "group": "voice",
+      "characterId": "twinkle",
+      "gain": 0.65,
+      "source": "docs/assets/联动语音接入0926.md",
+      "note": "Agent-internal native audio review, not individual user audition. Existing low-priority idle timing and combat interruption remain unchanged; original bytes preserved.",
+      "priority": 10,
+      "cooldownMs": 0,
+      "maxInstances": 1
+    },
+    "voice.labubu.idle": {
+      "files": [
+        "assets/audio/voice/labubu/idle-0927.mp3"
+      ],
+      "group": "voice",
+      "characterId": "labubu",
+      "gain": 0.65,
+      "source": "docs/assets/联动语音接入0926.md",
+      "note": "Agent-internal native audio review, not individual user audition. Whisper 啊 disagreement retained; display punctuation is separate from the unchanged reviewed words. Existing idle scheduling remains unchanged.",
+      "priority": 10,
+      "cooldownMs": 0,
+      "maxInstances": 1
+    },
+    "voice.labubu.win": {
+      "files": [
+        "assets/audio/voice/labubu/win-0927.mp3"
+      ],
+      "group": "voice",
+      "characterId": "labubu",
+      "gain": 0.65,
+      "source": "docs/assets/联动语音接入0926.md",
+      "note": "Agent-internal native audio review of actual clip-O, not individual user audition. Original new MP3 bytes and exact-file caption preserved; older rejected/unresolved win candidates remain unused.",
+      "cooldownMs": 1200
+    },
+    "voice.labubu.hurt": {
+      "files": [
+        "assets/audio/voice/labubu/hurt-0927.wav"
+      ],
+      "group": "voice",
+      "characterId": "labubu",
+      "gain": 0.65,
+      "source": "docs/assets/联动语音接入0926.md",
+      "note": "Exact shortened clip independently reviewed by native audio model. User approved reference identity only. Observed words and requested generation text are distinct; native PCM and exact-file caption preserved.",
+      "cooldownMs": 1100
+    },
+    "voice.labubu.effort": {
+      "files": [
+        "assets/audio/voice/labubu/effort-0927.wav"
+      ],
+      "group": "voice",
+      "characterId": "labubu",
+      "gain": 0.62,
+      "source": "docs/assets/联动语音接入0926.md",
+      "note": "Exact shortened clip independently reviewed by native audio model. User approved reference identity only. Observed words and requested generation text are distinct; native PCM and exact-file caption preserved.",
+      "priority": 50,
+      "cooldownMs": 650,
+      "maxInstances": 1
+    },
+    "voice.twinkle.effort": {
+      "files": [
+        "assets/audio/voice/twinkle/effort-0927.wav"
+      ],
+      "group": "voice",
+      "characterId": "twinkle",
+      "gain": 0.62,
+      "source": "docs/assets/联动语音接入0926.md",
+      "note": "Exact shortened clip independently reviewed by native audio model. User approved reference identity only. Observed words and requested generation text are distinct; native PCM and exact-file caption preserved.",
+      "priority": 50,
+      "cooldownMs": 900,
+      "maxInstances": 1
     }
   }
 }

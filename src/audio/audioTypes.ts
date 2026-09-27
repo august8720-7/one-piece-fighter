@@ -54,7 +54,7 @@ export interface FightAudioEvent {
   counter?: boolean;
   defenderId?: string;
   defenderPlayer?: 0 | 1;
-  projectileKind?: 'meteor' | 'dog';
+  projectileKind?: string;
   endReason?: ProjectileEndReason;
 }
 

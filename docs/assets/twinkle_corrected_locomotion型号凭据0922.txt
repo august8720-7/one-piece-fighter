@@ -1,0 +1,13 @@
+2026-09-22，Asia/Shanghai。
+工具：Codex内置浏览器。
+生成前实际核对入口：https://chatgpt.com/images/
+页面标题：ChatGPT 图像 2.5 | AI 图像生成器
+文字模式：中（非Pro），不作为图像型号依据。
+生成会话：https://chatgpt.com/c/6ab273db-77a0-83ea-a838-2f690d5680cc
+原图：public/assets/generated/source/twinkle-corrected-locomotion-0922.png
+原图SHA256：f1a1cd16d488f0d635ac6df6e9bf4bc1625f0b79cbabf937d255e19e68475e8a
+提示词：docs/assets/星星人纠正步态提示词0922.txt
+提示词SHA256：2ec7592a889e6c749f8886db47ca9911e3e24d48fc3c67954215f9331306c07a
+PNG校验通过，尺寸：1254x1254。
+生成日期已知；精确完成时刻未记录。
+当前为候选原画；PNG、型号证据不代替正常速度美术验收。

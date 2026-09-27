@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, relative, resolve } from 'node:path';
+import { parseArgs } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import { characters } from '../src/characters';
 import { GETUP_FRAMES, KNOCKDOWN_FRAMES, LANDING_FRAMES, PREJUMP_FRAMES, THROW_TECH_FRAMES, totalFrames, type FighterDef, type MoveData } from '../src/core';
@@ -20,14 +21,21 @@ interface Source extends Receipt { model: string; provider: string; generatedAt:
 interface SourcePatch { source: string; rect: number[] }
 interface SourceFrame { source: string; sourcePatches?: SourcePatch[]; crop?: number[]; transform?: Record<string, unknown>; status?: string; note?: string }
 interface SourceAnimation { frames: string[]; exposures: { frame: number; ticks: number }[]; throwExposures?: { frame: number; ticks: number }[]; airbornePhases?: AirbornePhases; loop: boolean }
-interface AuthoringCharacter {
+export interface AuthoringCharacter {
   sources: Record<string, Source>;
   frames: Record<string, SourceFrame>;
   anims: Record<string, SourceAnimation>;
   referenceFrames_NOT_BUILT?: Record<string, SourceFrame>;
   reviewFrames_NOT_BUILT?: Record<string, SourceFrame>;
 }
-interface Authoring { characters: Record<string, AuthoringCharacter> }
+export interface Authoring {
+  characters: Record<string, AuthoringCharacter>;
+  sourceManifest?: Receipt;
+  sourceCatalog?: Receipt;
+  generator?: Receipt;
+}
+export interface AuthoringManifestInput { file: string; sha256: string; authoring: Authoring; provenance?: Record<string, Receipt> }
+export interface AuthoringOwner { file: string; sha256: string; authoring: AuthoringCharacter }
 interface SourceUsageInput {
   sources: Record<string, { file: string }>;
   frames: Record<string, SourceFrame>;
@@ -40,11 +48,50 @@ interface Atlas { frames: Record<string, { frame: { x: number; y: number; w: num
 const phaseIdentity = (phases: AirbornePhases | undefined): string => JSON.stringify(phases
   ? [phases.rising, phases.falling, phases.apex?.frame ?? null, phases.apex?.maxSpeed ?? null] : null);
 
+/** One character has exactly one authoring manifest. Changing a crossover manifest
+ * must never invalidate an unchanged legacy character atlas. */
+export function assignAuthoringManifests(inputs: readonly AuthoringManifestInput[]): Map<string, AuthoringOwner> {
+  const owners = new Map<string, AuthoringOwner>();
+  for (const input of inputs) for (const [id, authoring] of Object.entries(input.authoring.characters)) {
+    if (owners.has(id)) throw new Error(`角色 ${id} 被多个作者清单重复声明`);
+    owners.set(id, { file: input.file, sha256: input.sha256, authoring });
+  }
+  return owners;
+}
+
+function loadAuthoringManifests(files: readonly string[]): { inputs: AuthoringManifestInput[]; owners: Map<string, AuthoringOwner> } {
+  const inputs = files.map(file => {
+    const bytes = readFileSync(resolve(ROOT, file));
+    const authoring = JSON.parse(bytes.toString('utf8').replace(/^\uFEFF/, '')) as Partial<Authoring> & { schemaVersion?: number };
+    if (authoring.schemaVersion !== 1 || !authoring.characters || typeof authoring.characters !== 'object') throw new Error(`不支持的作者清单：${file}`);
+    const provenance = verifyAuthoringProvenance(file, authoring);
+    return { file, sha256: sha(bytes), authoring: authoring as Authoring, provenance };
+  });
+  return { inputs, owners: assignAuthoringManifests(inputs) };
+}
+
 function receipt(receipt: Receipt | undefined) {
   if (!receipt?.file) return { file: null, expectedSha256: null, actualSha256: null, ok: false };
   const file = resolve(ROOT, receipt.file);
   const hash = existsSync(file) ? sha(readFileSync(file)) : null;
   return { file: receipt.file, expectedSha256: receipt.sha256, actualSha256: hash, ok: hash !== null && hash === receipt.sha256 };
+}
+
+export function verifyAuthoringProvenance(
+  file: string,
+  authoring: Partial<Authoring>,
+  verify: (value: Receipt) => boolean = value => receipt(value).ok,
+): Record<string, Receipt> {
+  const fields = ['sourceManifest', 'sourceCatalog', 'generator'] as const;
+  const present = fields.filter(field => Object.hasOwn(authoring, field));
+  if ((file.endsWith('.resolved.json') || present.length) && present.length !== fields.length) throw new Error(`resolved作者清单缺少三项来源凭据：${file}`);
+  const provenance: Record<string, Receipt> = {};
+  for (const field of present) {
+    const value = authoring[field];
+    if (!value?.file || !value.sha256 || !verify(value)) throw new Error(`${field}来源凭据哈希不匹配：${value?.file ?? file}`);
+    provenance[field] = value;
+  }
+  return provenance;
 }
 
 /** Hash decoded, alpha-trimmed RGBA pixels, so atlas coordinates/frame renaming cannot fake a new pose. */
@@ -126,7 +173,9 @@ const STATE_NAMES: Record<string, string> = {
   idle: '站立', walk_fwd: '前进', walk_back: '后退', crouch: '蹲下', prejump: '起跳', jump_neutral: '垂直跳', jump_fwd: '前跳', jump_back: '后跳', landing: '落地', dash: '冲刺', backdash: '后撤步', roll_fwd: '前翻滚', roll_back: '后翻滚', block_stand: '站防', block_crouch: '蹲防', hit_stand: '站立受击', hit_crouch: '蹲下受击', hit_air: '空中受击', knockdown: '倒地', getup: '起身', throw: '投技连接', thrown: '被投', throw_tech: '拆投', ko: 'KO', win: '胜利', portrait: '菜单画像',
 };
 
-function inspectCharacter(def: FighterDef, authoring: AuthoringCharacter | undefined, manifestHash: string) {
+function inspectCharacter(def: FighterDef, owner: AuthoringOwner | undefined) {
+  const authoring = owner?.authoring;
+  const manifestHash = owner?.sha256;
   const base = `public/assets/characters/${def.id}/anime`;
   const runtimeFile = `${base}/runtime.json`;
   const raw: unknown = existsSync(resolve(ROOT, runtimeFile)) ? json(runtimeFile) : null;
@@ -142,7 +191,7 @@ function inspectCharacter(def: FighterDef, authoring: AuthoringCharacter | undef
         const png = readFileSync(resolve(ROOT, base, page.image));
         const width = png.readUInt32BE(16), height = png.readUInt32BE(20);
         const atlas = json<Atlas>(`${base}/${page.data}`);
-        if (atlas.meta?.manifestSha256 !== manifestHash) fileIssues.push(`${page.id}记录的素材清单哈希与当前清单不一致`);
+        if (manifestHash && atlas.meta?.manifestSha256 !== manifestHash) fileIssues.push(`${page.id}记录的素材清单哈希与所属作者清单不一致`);
         if (width > 4096 || height > 4096) fileIssues.push(`${page.id}超过4096单页限制`);
         if ((page.width !== undefined && page.width !== width) || (page.height !== undefined && page.height !== height)) fileIssues.push(`${page.id}图片与声明尺寸不一致`);
         for (const [name, geometry] of Object.entries(runtime.attachments)) {
@@ -203,6 +252,7 @@ function inspectCharacter(def: FighterDef, authoring: AuthoringCharacter | undef
   const gateReady = !!full?.ok && !fileIssues.length && rows.every(row => row.status === 'covered');
   return {
     id: def.id, name: def.name, runtimeFile, runtimeSha256: existsSync(resolve(ROOT, runtimeFile)) ? sha(readFileSync(resolve(ROOT, runtimeFile))) : null,
+    sourceManifest: owner ? { file: owner.file, sha256: owner.sha256 } : null,
     textureDensity: runtime?.textureDensity ?? null, pages, rgbaBytes: pages.reduce((sum, page) => sum + page.rgbaBytes, 0),
     runtimeCoverageValid: full?.ok ?? false, productionCoverageGateReady: gateReady,
     visualAcceptance: 'not-inferred-from-coverage', stateCount: count('state'), moveCount: count('move'), fileIssues,
@@ -211,21 +261,33 @@ function inspectCharacter(def: FighterDef, authoring: AuthoringCharacter | undef
   };
 }
 
-export function runAnimeCoverage(): boolean {
-  const manifestFile = 'scripts/anime_manifest.json';
-  const manifestHash = sha(readFileSync(resolve(ROOT, manifestFile)));
-  const authoring = json<Authoring>(manifestFile);
-  const characterReports = Object.values(characters).map(def => inspectCharacter(def, authoring.characters[def.id], manifestHash));
+export interface CoverageOptions { authorManifests?: readonly string[]; characterIds?: readonly string[]; reportJson?: string; reportMd?: string }
+
+export function runAnimeCoverage(options: CoverageOptions = {}): boolean {
+  const manifestFiles = options.authorManifests ?? ['scripts/anime_manifest.json'];
+  const reportJson = options.reportJson ?? REPORT_JSON;
+  const reportMd = options.reportMd ?? REPORT_MD;
+  const reportJsonLink = relative(dirname(resolve(ROOT, reportMd)), resolve(ROOT, reportJson)).replaceAll('\\', '/');
+  const { inputs, owners } = loadAuthoringManifests(manifestFiles);
+  if (inputs.length > 1 && (!options.reportJson || !options.reportMd)) {
+    throw new Error('多作者清单覆盖审计必须显式指定独立 --report-json 与 --report-md，不能覆盖旧报告');
+  }
+  const selected = options.characterIds ? [...new Set(options.characterIds)] : Object.keys(characters);
+  const unknown = selected.filter(id => !characters[id]);
+  if (unknown.length) throw new Error(`未知角色：${unknown.join('、')}`);
+  const characterReports = selected.map(id => inspectCharacter(characters[id]!, owners.get(id)));
   const ready = characterReports.every(report => report.productionCoverageGateReady);
   const report = {
-    generatedAt: new Date().toISOString(), sourceManifest: { file: manifestFile, sha256: manifestHash },
+    generatedAt: new Date().toISOString(),
+    sourceManifest: inputs.length === 1 ? { file: inputs[0]!.file, sha256: inputs[0]!.sha256 } : null,
+    sourceManifests: inputs.map(input => ({ file: input.file, sha256: input.sha256, characters: Object.keys(input.authoring.characters).sort(), provenance: input.provenance })),
     productionCoverageGateReady: ready, visualAcceptance: 'requires-normal-speed-in-game-review',
     rules: ['从实际角色招式表和DEFAULT_ANIMS枚举，不以文件名或动画数量代替全覆盖', '逐帧核验实际图集/源码裁切映射及原图、型号证据、提示词哈希', '解码图集并对去透明边后的RGBA像素做哈希；复制/改名同一idle不会增加覆盖', '移动/攻击必须有至少两种不同实际姿势；合法静态站防、蹲防、KO不因单张自动判错', '相似/复用姿势留待内部画面检查；覆盖通过不等于画面、听感或好玩通过'],
     characters: characterReports,
   };
-  mkdirSync(dirname(resolve(ROOT, REPORT_JSON)), { recursive: true });
-  writeFileSync(resolve(ROOT, REPORT_JSON), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
-  const lines = ['# 全动作技能覆盖0913', '', `生成时间：${report.generatedAt}。命令：\`npx vite-node scripts/checkAnimeCoverage.ts\`。`, '',
+  mkdirSync(dirname(resolve(ROOT, reportJson)), { recursive: true });
+  writeFileSync(resolve(ROOT, reportJson), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
+  const lines = ['# 全动作技能覆盖', '', `生成时间：${report.generatedAt}。命令：\`npx vite-node scripts/checkAnimeCoverage.ts\`。`, '',
     `**完整动漫比赛的素材覆盖门槛：${ready ? '通过（仍须正常速度画面验收）' : '未通过，不能解除完整比赛限制'}。**`, '',
     '这份报告核查实际动漫人物图集、作者清单、原始图片和来源记录。招式覆盖指新人物的出招动作；已有战斗规则、独立技能特效和声音另行验收。已覆盖仅表示结构与来源可核验，不表示动作已经精美或真人复玩合格。缺少的动作保持缺少，不采用旧像素人物或重复站立图填充。', '',
     '| 角色 | 基础状态 | 招式 | 无效项 | 解码纹理内存 | 完整覆盖 |', '|---|---:|---:|---:|---:|---|',
@@ -263,11 +325,23 @@ export function runAnimeCoverage(): boolean {
     lines.push('', `本次实际覆盖缺失：${missing.join('、') || '无'}。已声明但无效：${invalid.join('、') || '无'}。候选原备注和未引用帧定义保留在 JSON 的 sourceUsage 中；不由本段增加完成数。`, '');
   }
   lines.push(
-    `完整逐帧像素哈希、原图裁切、连接来源、逻辑帧、分页与未采用候选见[JSON明细](../${REPORT_JSON})。`, '',
+    `完整逐帧像素哈希、原图裁切、连接来源、逻辑帧、分页与未采用候选见[JSON明细](${reportJsonLink})。`, '',
     '脚本退出码：覆盖未通过为1，覆盖及来源检查通过为0。退出码不表达主观美术验收结果。', '');
-  writeFileSync(resolve(ROOT, REPORT_MD), lines.join('\n'), 'utf8');
-  console.log(JSON.stringify({ productionCoverageGateReady: ready, reports: [relativePath(resolve(ROOT, REPORT_JSON)), REPORT_MD], characters: characterReports.map(char => ({ id: char.id, states: char.stateCount, moves: char.moveCount, fileIssues: char.fileIssues })) }));
+  mkdirSync(dirname(resolve(ROOT, reportMd)), { recursive: true });
+  writeFileSync(resolve(ROOT, reportMd), lines.join('\n'), 'utf8');
+  console.log(JSON.stringify({ productionCoverageGateReady: ready, sourceManifests: report.sourceManifests, reports: [relativePath(resolve(ROOT, reportJson)), relativePath(resolve(ROOT, reportMd))], characters: characterReports.map(char => ({ id: char.id, sourceManifest: char.sourceManifest, states: char.stateCount, moves: char.moveCount, fileIssues: char.fileIssues })) }));
   return ready;
 }
 
-if (process.env.VITEST !== 'true') process.exitCode = runAnimeCoverage() ? 0 : 1;
+if (process.env.VITEST !== 'true') {
+  const { values } = parseArgs({ options: {
+    'author-manifest': { type: 'string', multiple: true }, character: { type: 'string', multiple: true },
+    'report-json': { type: 'string' }, 'report-md': { type: 'string' },
+  }, allowPositionals: false });
+  const options: CoverageOptions = {};
+  if (values['author-manifest']) options.authorManifests = values['author-manifest'];
+  if (values.character) options.characterIds = values.character;
+  if (values['report-json']) options.reportJson = values['report-json'];
+  if (values['report-md']) options.reportMd = values['report-md'];
+  process.exitCode = runAnimeCoverage(options) ? 0 : 1;
+}

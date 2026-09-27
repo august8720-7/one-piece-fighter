@@ -1,13 +1,13 @@
 import {
-  Btn, horizontalRelative, isDoubleTap, toNumpad,
-  type FighterDef, type FighterState, type FightSim, type InputFrame, type MoveData, type PlayerIndex, type WorldState,
+  Btn, K, P, horizontalRelative, isDoubleTap, toNumpad,
+  type FighterDef, type FighterState, type FightSim, type InputFrame, type MotionId, type MoveData, type PlayerIndex, type WorldState,
 } from '@core/index';
 import { actionCanReach } from '../../ai/attackRange';
-import { DEFAULT_ANIMS, validateAnimeRuntimeManifest, type AnimeRuntimeManifest } from '../animations';
+import { DEFAULT_ANIMS, heldReactionForMove, heldReactionFrameIssues, validateAnimeRuntimeManifest, type AnimeRuntimeManifest } from '../animations';
 
 export const SAMPLE_DUMMY_MODES = ['stand', 'block', 'counter', 'ability', 'human'] as const;
 export type SampleDummyMode = typeof SAMPLE_DUMMY_MODES[number];
-export const SAMPLE_DUMMY_LABELS: Record<SampleDummyMode, string> = { stand: '站立', block: '站防', counter: '近身轻拳反击', ability: '大喷火循环', human: '人控' };
+export const SAMPLE_DUMMY_LABELS: Record<SampleDummyMode, string> = { stand: '站立', block: '站防', counter: '近身轻拳反击', ability: '代表技能循环', human: '人控' };
 export const SAMPLE_INPUT_NOTICE = '内部动作样板：只开放素材及反应链完整的能力；完整比赛仍需全动作验收。';
 
 const BASE_STATES = ['idle', 'walk_fwd', 'walk_back', 'crouch', 'block_stand', 'block_crouch', 'hit_stand', 'hit_crouch'];
@@ -52,6 +52,11 @@ export function sampleMoveIssues(move: MoveData, runtime: AnimeRuntimeManifest, 
     target(['thrown']);
     if (move.throwData.techWindow > 0) { own(['throw_tech']); target(['throw_tech']); }
   }
+  const reaction = heldReactionForMove(runtime.characterId, move);
+  if (reaction) {
+    if (!opponent) issues.push(`对手缺少条件受投 ${reaction}`);
+    else issues.push(...heldReactionFrameIssues(opponent.characterId, opponent.anims, opponent.attachments, reaction).map(issue => `对手 ${issue}`));
+  }
   // An authored projectile may be reflected later. Its caster must support the resulting reaction as well.
   if (move.projectiles?.length) own(AIR_REACTIONS);
   return issues;
@@ -59,6 +64,39 @@ export function sampleMoveIssues(move: MoveData, runtime: AnimeRuntimeManifest, 
 
 const PRACTICE_NEUTRAL = new Set(['idle', 'walk_fwd', 'walk_back', 'crouch']);
 const safeNeutral = (fighter: FighterState): boolean => !fighter.airborne && fighter.hitstop === 0 && PRACTICE_NEUTRAL.has(fighter.state);
+const SUPPORTED_MOTIONS = new Set<MotionId>(['236', '214', '623', '22', '236236', '214214']);
+
+interface SampleAbility {
+  move: MoveData;
+  motion: MotionId;
+  button: 'P' | 'K';
+  press: number;
+}
+
+/** Use only an authored move still present in the restricted sample fighter. */
+function sampleAbility(fighter: FighterState): SampleAbility | null {
+  for (const moveId of fighter.def.skillSlots ?? []) {
+    const move = fighter.def.moves.find(candidate => candidate.id === moveId);
+    const motion = move?.input.motion;
+    if (!move || move.input.stance !== 'stand' || !motion || !SUPPORTED_MOTIONS.has(motion)) continue;
+    if (move.input.button === P) return { move, motion, button: 'P', press: Btn.A };
+    if (move.input.button === K) return { move, motion, button: 'K', press: Btn.B };
+  }
+  return null;
+}
+
+function classicMotionInput(motion: MotionId, press: number, facing: 1 | -1): number[] {
+  const forward = facing === 1 ? Btn.Right : Btn.Left;
+  const back = facing === 1 ? Btn.Left : Btn.Right;
+  switch (motion) {
+    case '236': return [Btn.Down, Btn.Down | forward, forward | press];
+    case '214': return [Btn.Down, Btn.Down | back, back | press];
+    case '623': return [forward, 0, Btn.Down, Btn.Down | forward, Btn.Down | forward | press];
+    case '22': return [Btn.Down, 0, Btn.Down | press];
+    case '236236': return [Btn.Down, Btn.Down | forward, forward, 0, Btn.Down, Btn.Down | forward, forward | press];
+    case '214214': return [Btn.Down, Btn.Down | back, back, 0, Btn.Down, Btn.Down | back, back | press];
+  }
+}
 
 /** Training's infiniteHp only heals after burn ends; it does not make KO unreachable. */
 export function sampleResetReason(sim: FightSim): 'neutral' | 'ended' | null {
@@ -97,8 +135,12 @@ export interface SampleCoverage {
 }
 
 /** Full matches can reach every locomotion/reaction state, and every current move. */
-export function validateFullCoverage(def: FighterDef, runtime: AnimeRuntimeManifest): SampleCoverage {
+export function validateFullCoverage(def: FighterDef, runtime: AnimeRuntimeManifest, opponent?: FighterDef): SampleCoverage {
   const requiredStates = Object.keys(DEFAULT_ANIMS).filter(name => name !== 'portrait');
+  for (const move of opponent?.moves ?? []) {
+    const reaction = heldReactionForMove(opponent!.id, move);
+    if (reaction && !requiredStates.includes(reaction)) requiredStates.push(reaction);
+  }
   const missingStates = requiredStates.filter(name => !runtime.anims[name]);
   const missingMoves = def.moves.filter(move => !runtime.anims[move.id]).map(move => move.id);
   const errors = validateAnimeRuntimeManifest(runtime, def.moves);
@@ -113,6 +155,10 @@ export function validateSampleCoverage(
 ): SampleCoverage {
   const required = new Set(BASE_STATES);
   const incoming = opponent.moves;
+  for (const move of incoming) {
+    const reaction = heldReactionForMove(opponent.id, move);
+    if (reaction) required.add(reaction);
+  }
   if (incoming.some(launches)) for (const name of AIR_REACTIONS) required.add(name);
   if (incoming.some(move => move.throwData)) required.add('thrown');
   if ([...incoming, ...def.moves].some(move => (move.throwData?.techWindow ?? 0) > 0)) required.add('throw_tech');
@@ -126,7 +172,7 @@ export function validateSampleCoverage(
   const missingStates = [...required].filter(name => !runtime.anims[name]);
   const errors = validateAnimeRuntimeManifest(runtime, def.moves);
   if (def.id !== runtime.characterId) errors.push('candidate character mismatch');
-  if (def.id !== 'luffy' && def.id !== 'akainu') errors.push('unsupported sample character');
+  if (!['luffy', 'akainu', 'labubu', 'twinkle'].includes(def.id)) errors.push('unsupported sample character');
   return { ok: errors.length === 0 && missingStates.length === 0 && missingMoves.length === 0, requiredStates: [...required], missingStates, missingMoves, errors };
 }
 
@@ -176,14 +222,14 @@ export class AnimeSampleController {
   mode: SampleDummyMode = 'stand';
   private readonly gates = [new DirectionGate(), new DirectionGate()] as const;
   private counterHeld = false;
-  private abilityStep = 0;
-  private abilityForward: Btn.Left | Btn.Right = Btn.Left;
+  private abilityQueue: number[] = [];
   private abilityWait = 30;
 
   constructor(readonly dummyPlayer: PlayerIndex = 1, readonly capabilities: readonly [Readonly<SampleCapabilities>, Readonly<SampleCapabilities>] = [CLOSED_SAMPLE_CAPABILITIES, CLOSED_SAMPLE_CAPABILITIES]) {}
 
   availableModes(sim?: FightSim): readonly SampleDummyMode[] {
-    const enabled = sim?.state.fighters[this.dummyPlayer].def.moves.some(move => move.id === 'sp_daifunka');
+    const fighter = sim?.state.fighters[this.dummyPlayer];
+    const enabled = fighter ? sampleAbility(fighter) !== null : false;
     return enabled ? SAMPLE_DUMMY_MODES : SAMPLE_DUMMY_MODES.filter(mode => mode !== 'ability');
   }
 
@@ -191,7 +237,7 @@ export class AnimeSampleController {
     const modes = this.availableModes(sim);
     this.mode = modes[(modes.indexOf(this.mode) + 1) % modes.length]!;
     this.counterHeld = false;
-    this.abilityStep = 0;
+    this.abilityQueue = [];
     this.abilityWait = 30;
     return this.mode;
   }
@@ -199,7 +245,7 @@ export class AnimeSampleController {
   reset(): void {
     this.gates.forEach(gate => gate.reset());
     this.counterHeld = false;
-    this.abilityStep = 0;
+    this.abilityQueue = [];
     this.abilityWait = 30;
   }
 
@@ -238,22 +284,25 @@ export class AnimeSampleController {
   }
 
   private abilityInput(sim: FightSim, me: FighterState, opponent: FighterState): number {
-    if (!me.def.moves.some(move => move.id === 'sp_daifunka') || sim.state.phase !== 'fight' || !safeNeutral(me)) {
-      this.abilityStep = 0;
+    const ability = sampleAbility(me);
+    if (!ability || sim.state.phase !== 'fight' || !safeNeutral(me)) {
+      this.abilityQueue = [];
       return 0;
     }
-    if (this.abilityStep === 1) { this.abilityStep = 2; return Btn.Down | this.abilityForward; }
-    if (this.abilityStep === 2) {
-      this.abilityStep = 0;
-      this.abilityWait = 30;
-      return this.abilityForward | Btn.A;
+    if (this.abilityQueue.length) {
+      const bits = this.abilityQueue.shift()!;
+      if (!this.abilityQueue.length) this.abilityWait = 30;
+      return bits;
     }
     if (!safeNeutral(opponent)) return 0;
     if (this.abilityWait > 0) { this.abilityWait--; return 0; }
     const forward = me.facing === 1 ? Btn.Right : Btn.Left;
-    if (!actionCanReach({ kind: 'special', motion: '236', button: 'P' }, me, opponent)) return forward;
-    this.abilityForward = forward;
-    this.abilityStep = 1;
-    return Btn.Down;
+    if (!actionCanReach({ kind: 'special', motion: ability.motion, button: ability.button }, me, opponent)) return forward;
+    this.abilityQueue = classicMotionInput(ability.motion, ability.press, me.facing);
+    const bits = this.abilityQueue.shift() ?? 0;
+    if (!this.abilityQueue.length) {
+      this.abilityWait = 30;
+    }
+    return bits;
   }
 }

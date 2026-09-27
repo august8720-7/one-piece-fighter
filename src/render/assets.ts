@@ -3,8 +3,10 @@ import { animeAtlasPages, isAnimeRuntimeManifest, validateAnimeRuntimeManifest, 
 import { characters } from '@characters/index';
 import { readPresentation } from './presentation';
 import uiArtManifest from './anime/uiArtManifest.json';
-import { MOVE_PRESENTATIONS } from './fx/movePresentation';
 import { AssetDownloadError, AssetDownloads, DELIVERY_VERSION, deliveryRecord, sharedDownloads } from './assetDownloads';
+import { CHARACTER_RESOURCE_PLANS, presentationResources, type PresentationResource } from './resourcePlan';
+
+export { REQUIRED_FX_FRAMES } from './resourcePlan';
 
 export const SPRITE_KEYS = 'spriteKeys';
 export type SpriteKeys = Record<string, string | null>;
@@ -25,11 +27,28 @@ export interface AnimeLoadResult {
   failures: AssetFailure[];
 }
 export const ANIME_INTERFACES = 'animeInterfaces';
-interface InterfaceAsset { key: string; version: string }
+interface InterfaceAsset { key: string; version: string; sourceIdentity: string }
 type InterfaceAssets = Record<string, InterfaceAsset>;
 const characterWork = new WeakMap<object, Map<string, Promise<AnimeCharacterAsset>>>();
 const interfaceWork = new WeakMap<object, Map<string, Promise<string>>>();
 const presentationWork = new WeakMap<object, Map<string, Promise<void>>>();
+
+function interfaceSourceIdentity(id: string): string {
+  const source = uiArtManifest.characters[id as keyof typeof uiArtManifest.characters];
+  return JSON.stringify(source ? [source.sha256, source.width, source.height, source.frames] : null);
+}
+
+/** Every menu entry uses the same validated version and complete-frame check. */
+export function areAnimeInterfacesReady(scene: Phaser.Scene, ids: readonly string[]): boolean {
+  const loaded = (scene.registry.get(ANIME_INTERFACES) as InterfaceAssets | undefined) ?? {};
+  return ids.every(id => {
+    const source = uiArtManifest.characters[id as keyof typeof uiArtManifest.characters], asset = loaded[id];
+    return !!source && !('enabled' in source && source.enabled === false)
+      && asset?.version === DELIVERY_VERSION && asset.sourceIdentity === interfaceSourceIdentity(id)
+      && scene.textures.exists(asset.key)
+      && ['body', 'portrait'].every(kind => scene.textures.get(asset.key).has(`${id}/ui/${kind}`));
+  });
+}
 
 function workMap<T>(owner: object, store: WeakMap<object, Map<string, Promise<T>>>): Map<string, Promise<T>> {
   let map = store.get(owner);
@@ -51,8 +70,10 @@ async function loadInterface(scene: Phaser.Scene, id: string, downloads: AssetDo
   const records = (): InterfaceAssets => (scene.registry.get(ANIME_INTERFACES) as InterfaceAssets | undefined) ?? {};
   const previous = records()[id];
   const source = uiArtManifest.characters[id as keyof typeof uiArtManifest.characters];
-  if (source && deliveryRecord(source.image) && previous?.version === DELIVERY_VERSION
-    && scene.textures.exists(previous.key) && ['body', 'portrait'].every(kind => scene.textures.get(previous.key).has(`${id}/ui/${kind}`))) return previous.key;
+  if (source && 'enabled' in source && source.enabled === false) {
+    throw new AssetLoadError('invalid', `角色 ${id} 的界面原画正在造型复核，暂不采用`);
+  }
+  if (source && deliveryRecord(source.image) && previous && areAnimeInterfacesReady(scene, [id])) return previous.key;
   const tasks = workMap(scene.textures, interfaceWork);
   let work = tasks.get(id);
   if (!work) {
@@ -61,8 +82,9 @@ async function loadInterface(scene: Phaser.Scene, id: string, downloads: AssetDo
       const key = `${id}-anime-ui-${art.identity}`;
       const texture = scene.textures.exists(key) ? scene.textures.get(key) : scene.textures.addAtlas(key, art.image, art.atlas);
       if (!texture) throw new AssetLoadError('texture', '人物界面纹理注册失败');
+      if (!['body', 'portrait'].every(kind => texture.has(`${id}/ui/${kind}`))) throw new AssetLoadError('invalid', '人物界面缺少全身或头像帧');
       texture.setFilter(Phaser.Textures.FilterMode.LINEAR);
-      scene.registry.set(ANIME_INTERFACES, { ...records(), [id]: { key, version: DELIVERY_VERSION } });
+      scene.registry.set(ANIME_INTERFACES, { ...records(), [id]: { key, version: DELIVERY_VERSION, sourceIdentity: interfaceSourceIdentity(id) } });
       return key;
     })().catch(error => {
       const current = { ...records() };
@@ -83,12 +105,6 @@ export interface PresentationAssetLoadResult {
   loaded: string[];
   failures: PresentationAssetFailure[];
 }
-// Move bodies/impacts plus the material effects used directly by SkillEffects.
-// Both character atlases are needed even in mirror matches: guard/reflect uses Luffy's rebound.
-export const REQUIRED_FX_FRAMES: Readonly<Record<string, readonly string[]>> = Object.fromEntries(
-  Object.entries({ akainu: ['dog', 'meteor', 'eruption', 'smoke', 'flame'], luffy: ['impact', 'rebound', 'steam', 'wind'] })
-    .map(([id, direct]) => [id, [...new Set([...direct, ...Object.values(MOVE_PRESENTATIONS[id] ?? {}).flatMap(move => [move.body, move.impact])])].sort()]),
-);
 const VARIANTS = ['atlas', 'placeholder'] as const;
 const REQUEST_TIMEOUT = 8000;
 
@@ -376,13 +392,16 @@ async function presentationImage(url: string, downloads: AssetDownloads): Promis
 }
 
 /** Full anime requires its declared stage/FX pack; optional callers still receive failures for inspection. */
-export async function loadPresentationAssets(scene: Phaser.Scene, downloads = sharedDownloads(scene.game ?? scene.registry), scope: 'menu' | 'fight' = 'fight'): Promise<PresentationAssetLoadResult> {
+export async function loadPresentationAssets(
+  scene: Phaser.Scene,
+  downloads = sharedDownloads(scene.game ?? scene.registry),
+  scope: 'menu' | 'fight' = 'fight',
+  characterIds: readonly string[] = ['luffy', 'akainu'],
+): Promise<PresentationAssetLoadResult> {
   const profile = readPresentation(scene.registry);
   const required = profile.art === 'anime' && profile.scope === 'full';
-  const requests = [
-    ...['backdrop', 'floor'].map(name => ({ key: `marineford-${name}`, image: `assets/stages/marineford/${name}.webp`, atlas: null, frames: [] as readonly string[] })),
-    ...['akainu', 'luffy'].map(id => ({ key: `fx-${id}`, image: `assets/fx/${id}.png`, atlas: `assets/fx/${id}.json`, frames: REQUIRED_FX_FRAMES[id]! })),
-  ].filter(request => scope !== 'menu' || request.key === 'marineford-backdrop');
+  const plan = presentationResources(scope, characterIds);
+  const requests: readonly PresentationResource[] = plan.resources;
   const results = await Promise.all(requests.map(async request => {
     try {
       if (!scene.textures.exists(request.key)) {
@@ -416,10 +435,39 @@ export async function loadPresentationAssets(scene: Phaser.Scene, downloads = sh
       return { key: request.key, failure: { key: request.key, code: reason.code, message: `${request.key}：${message}` } };
     }
   }));
-  const failures = results.flatMap(result => result.failure ? [result.failure] : []);
+  const failures = [
+    ...results.flatMap(result => result.failure ? [result.failure] : []),
+    ...plan.unknownCharacterIds.map(id => ({ key: `fx-${id}`, code: 'invalid' as const, message: `fx-${id}：角色表现资源未声明` })),
+  ];
   const result = { ok: failures.length === 0, required, requested: requests.map(request => request.key), loaded: results.filter(result => !result.failure).map(result => result.key), failures };
   if (scope === 'fight') scene.registry.set(PRESENTATION_ASSET_LOAD_RESULT, result);
   return result;
+}
+
+/** Call only after Fight has shut down. Verified byte/cache entries remain reusable;
+ * this releases decoded combat textures for characters that are no longer selected. */
+export function releaseUnusedFightAssets(scene: Phaser.Scene, retainedCharacterIds: readonly string[]): string[] {
+  const retained = new Set(retainedCharacterIds);
+  const removed: string[] = [];
+  const remove = (key: string): void => {
+    if (!scene.textures.exists(key)) return;
+    scene.textures.remove(key);
+    removed.push(key);
+  };
+  for (const [id, plan] of Object.entries(CHARACTER_RESOURCE_PLANS)) {
+    if (!retained.has(id)) for (const resource of plan.presentation) remove(resource.key);
+  }
+  const assets = { ...((scene.registry.get(ANIME_CHARACTERS) as AnimeCharacterAssets | undefined) ?? {}) };
+  const errors = { ...((scene.registry.get(ANIME_ERRORS) as Record<string, string> | undefined) ?? {}) };
+  for (const [id, asset] of Object.entries(assets)) {
+    if (retained.has(id)) continue;
+    for (const key of new Set([asset.key, ...Object.values(asset.frameTextures ?? {})])) remove(key);
+    delete assets[id];
+    delete errors[id];
+  }
+  scene.registry.set(ANIME_CHARACTERS, assets);
+  scene.registry.set(ANIME_ERRORS, errors);
+  return removed;
 }
 
 export function spriteFrame(scene: Phaser.Scene, charId: string, anim: string, index = 0): { key: string; frame: string } | null {

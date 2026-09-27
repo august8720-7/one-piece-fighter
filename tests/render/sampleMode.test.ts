@@ -1,13 +1,17 @@
 import { describe, expect, it } from 'vitest';
 import { Btn, FightSim, px, totalFrames, type FighterDef, type InputFrame, type StateId } from '../../src/core';
-import { akainuDef, luffyDef } from '../../src/characters';
+import { akainuDef, labubuDef, luffyDef, twinkleDef } from '../../src/characters';
 import { AnimeSampleController, createSampleFighter, resetSampleRound, sampleCapabilities, sampleHoldPose, sampleResetReason, validateSampleCoverage } from '../../src/render/anime/sampleMode';
 import type { AnimeRuntimeManifest } from '../../src/render/animations';
 
 const BASE = ['idle', 'walk_fwd', 'walk_back', 'crouch', 'block_stand', 'block_crouch', 'hit_stand', 'hit_crouch'];
-function runtime(def: FighterDef, states = BASE): AnimeRuntimeManifest {
+function runtime(
+  def: FighterDef,
+  states = BASE,
+  extraMoves: readonly string[] = def.id === 'luffy' ? ['st_c'] : ['sp_daifunka'],
+): AnimeRuntimeManifest {
   const value: AnimeRuntimeManifest = { schemaVersion: 1, characterId: def.id, style: 'anime', continuous: true, atlas: { image: 'atlas.png', data: 'atlas.json' }, anims: {}, attachments: {} };
-  for (const name of [...states, 'st_a', ...(def.id === 'luffy' ? ['st_c'] : ['sp_daifunka'])]) {
+  for (const name of [...states, 'st_a', ...extraMoves]) {
     const move = def.moves.find(move => move.id === name);
     if (!states.includes(name) && !move) continue;
     value.anims[name] = { frames: 1, fps: 60, loop: !move, pixelArt: false, exposures: [{ frame: 0, ticks: move ? totalFrames(move) : 8 }] };
@@ -222,6 +226,16 @@ function abilityPractice(wall = false) {
   return { sim, controller };
 }
 
+function restrictedAbilityPair(def: FighterDef, opponent: FighterDef, moveId: string): [FighterDef, FighterDef] {
+  const ownStates = moveId === 'sp_tiny_star' ? [...BASE, ...AIR] : BASE;
+  const ownArt = runtime(def, ownStates, [moveId]);
+  const opponentArt = runtime(opponent, [...BASE, ...AIR], []);
+  return [
+    createSampleFighter(def, ownArt, { opponentRuntime: opponentArt }),
+    createSampleFighter(opponent, opponentArt, { opponentRuntime: ownArt }),
+  ];
+}
+
 describe('sample ability dummy and practice recovery', () => {
   it('offers the ability loop only for the actual enabled dummy move list', () => {
     const controller = new AnimeSampleController(), base = make(), { sim } = abilityPractice();
@@ -254,6 +268,49 @@ describe('sample ability dummy and practice recovery', () => {
     expect(frames).toContain(forward);
     expect(frames.slice(-3)).toEqual([Btn.Down, Btn.Down | forward, forward | Btn.A]);
     expect(sim.state.fighters[1].moveId).toBe('sp_daifunka');
+  });
+
+  it.each([
+    ['akainu', akainuDef, 'sp_daifunka'],
+    ['labubu', labubuDef, 'sp_pounce_rush'],
+    ['twinkle', twinkleDef, 'sp_tiny_star'],
+  ] as const)('%s代表技能用真实经典输入从双方位置均可出招', (_id, def, moveId) => {
+    for (const dummyPlayer of [0, 1] as const) {
+      const [dummy, target] = restrictedAbilityPair(def, luffyDef, moveId);
+      const sim = new FightSim({
+        p1: dummyPlayer === 0 ? dummy : target,
+        p2: dummyPlayer === 1 ? dummy : target,
+        introFrames: 0,
+        roundTime: -1,
+      });
+      sim.training = { infiniteHp: true, infiniteMeter: true };
+      const controller = new AnimeSampleController(dummyPlayer);
+      expect(controller.availableModes(sim)).toContain('ability');
+      controller.mode = 'ability';
+      const trace: number[] = [];
+      for (let tick = 0; tick < 600 && sim.state.fighters[dummyPlayer].moveId !== moveId; tick++) {
+        const input = controller.input(sim, { p1: 0, p2: 0 });
+        const bits = dummyPlayer === 0 ? input.p1 : input.p2;
+        trace.push(bits);
+        expect(bits & ~(Btn.Left | Btn.Right | Btn.Down | Btn.Up | Btn.A | Btn.B | Btn.C | Btn.D | Btn.Start)).toBe(0);
+        sim.step(input);
+      }
+      expect(sim.state.fighters[dummyPlayer].moveId).toBe(moveId);
+      const forward = dummyPlayer === 0 ? Btn.Right : Btn.Left;
+      expect(trace.slice(-3)).toEqual([Btn.Down, Btn.Down | forward, forward | Btn.A]);
+    }
+  });
+
+  it('素材过滤移除Skill1后不开放能力模式，也不会偷用原角色完整招式', () => {
+    const incompleteArt = runtime(labubuDef, BASE, []);
+    const targetArt = runtime(luffyDef, BASE, []);
+    const incomplete = createSampleFighter(labubuDef, incompleteArt, { opponentRuntime: targetArt });
+    expect(incomplete.moves.map(move => move.id)).toEqual(['st_a']);
+    const sim = new FightSim({ p1: createSampleFighter(luffyDef, targetArt, { opponentRuntime: incompleteArt }), p2: incomplete, introFrames: 0, roundTime: -1 });
+    const controller = new AnimeSampleController();
+    expect(controller.availableModes(sim)).not.toContain('ability');
+    controller.mode = 'ability';
+    expect(controller.input(sim, { p1: 0, p2: 0 }).p2).toBe(0);
   });
 
   it.each(['mid', 'wall', 'tech'] as const)('waits for the complete real reaction before ordinary recovery (%s)', variant => {

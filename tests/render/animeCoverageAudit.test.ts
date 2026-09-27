@@ -1,5 +1,40 @@
 import { describe, expect, it } from 'vitest';
-import { inspectFrameSources, inspectPoseOriginality, inspectSourceUsage } from '../../scripts/checkAnimeCoverage';
+import { assignAuthoringManifests, inspectFrameSources, inspectPoseOriginality, inspectSourceUsage, verifyAuthoringProvenance, type AuthoringCharacter } from '../../scripts/checkAnimeCoverage';
+
+const emptyAuthoring = (): AuthoringCharacter => ({ sources: {}, frames: {}, anims: {} });
+
+describe('each character keeps its own authoring manifest identity', () => {
+  it('assigns legacy and crossover hashes independently', () => {
+    const owners = assignAuthoringManifests([
+      { file: 'scripts/anime_manifest.json', sha256: 'legacy-hash', authoring: { characters: { luffy: emptyAuthoring(), akainu: emptyAuthoring() } } },
+      { file: 'scripts/crossover_manifest0922.json', sha256: 'crossover-hash', authoring: { characters: { labubu: emptyAuthoring(), twinkle: emptyAuthoring() } } },
+    ]);
+    expect(owners.get('luffy')).toMatchObject({ file: 'scripts/anime_manifest.json', sha256: 'legacy-hash' });
+    expect(owners.get('akainu')).toMatchObject({ file: 'scripts/anime_manifest.json', sha256: 'legacy-hash' });
+    expect(owners.get('labubu')).toMatchObject({ file: 'scripts/crossover_manifest0922.json', sha256: 'crossover-hash' });
+    expect(owners.get('twinkle')).toMatchObject({ file: 'scripts/crossover_manifest0922.json', sha256: 'crossover-hash' });
+  });
+
+  it('rejects ambiguous ownership instead of choosing one manifest silently', () => {
+    expect(() => assignAuthoringManifests([
+      { file: 'one.json', sha256: 'one', authoring: { characters: { labubu: emptyAuthoring() } } },
+      { file: 'two.json', sha256: 'two', authoring: { characters: { labubu: emptyAuthoring() } } },
+    ])).toThrow('角色 labubu 被多个作者清单重复声明');
+  });
+
+  it('requires custom, catalog and generator receipts together for a resolved manifest', () => {
+    const receipts = {
+      sourceManifest: { file: 'scripts/custom.json', sha256: 'custom' },
+      sourceCatalog: { file: 'scripts/catalog.json', sha256: 'catalog' },
+      generator: { file: 'scripts/builder.py', sha256: 'generator' },
+    };
+    expect(verifyAuthoringProvenance('scripts/crossover.resolved.json', receipts, () => true)).toEqual(receipts);
+    expect(() => verifyAuthoringProvenance('scripts/crossover.resolved.json', { sourceManifest: receipts.sourceManifest }, () => true))
+      .toThrow('resolved作者清单缺少三项来源凭据');
+    expect(() => verifyAuthoringProvenance('scripts/crossover.resolved.json', receipts, value => value.file !== 'scripts/catalog.json'))
+      .toThrow('sourceCatalog来源凭据哈希不匹配');
+  });
+});
 
 describe('production anime coverage cannot be fabricated with renamed stills', () => {
   it('rejects idle pixels under attack and movement names, even with many duplicate entries', () => {

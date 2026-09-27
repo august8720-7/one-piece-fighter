@@ -20,21 +20,33 @@ const safePath = (base, relative) => {
   if (!resolved.startsWith(`${base}${path.sep}`)) throw new Error(`Path outside package: ${relative}`);
   return resolved;
 };
-// Frozen v1 comes only from the verified release snapshot, never the source tree.
-const rollbackIndex = process.argv.indexOf('--v1');
-if (rollbackIndex >= 0) {
-  if (!process.argv[rollbackIndex + 1]) throw new Error('Missing --v1 snapshot');
-  const rollbackRoot = path.resolve(process.argv[rollbackIndex + 1]);
-  const verified = readJson(rollbackRoot + '-verified.json');
-  if (!verified.verified || path.resolve(verified.destination) !== rollbackRoot) throw new Error('Unverified v1 snapshot');
+const runtimeFile = /^(index\.html|delivery-build\.json|\.nojekyll|\.gitattributes|assets\/[a-zA-Z0-9_./-]+\.(js|css|json|png|webp|avif|bin|ogg|wav|mp3|txt))$/;
+const loadFrozen = (flag, mount, allowNestedV1 = false) => {
+  const snapshotIndex = process.argv.indexOf(flag);
+  if (snapshotIndex < 0) return;
+  if (!process.argv[snapshotIndex + 1]) throw new Error(`Missing ${flag} snapshot`);
+  const snapshotRoot = path.resolve(process.argv[snapshotIndex + 1]);
+  const verified = readJson(snapshotRoot + '-verified.json');
+  if (!verified.verified || path.resolve(verified.destination) !== snapshotRoot || !Array.isArray(verified.files)) throw new Error(`Unverified ${mount} snapshot`);
+  const seen = new Set();
   for (const entry of verified.files) {
-    if (!/^(index\.html|delivery-build\.json|\.nojekyll|\.gitattributes|assets\/[a-zA-Z0-9_./-]+\.(js|css|json|png|webp|bin|ogg|wav|mp3|txt))$/.test(entry.file)) throw new Error(`Not a runtime rollback file: ${entry.file}`);
-    const file = safePath(rollbackRoot, entry.file);
+    if (!entry || typeof entry.file !== 'string' || seen.has(entry.file)) throw new Error(`Invalid ${mount} snapshot inventory`);
+    seen.add(entry.file);
+    const candidate = allowNestedV1 && entry.file.startsWith('v1/') ? entry.file.slice(3) : entry.file;
+    if (!runtimeFile.test(candidate) || (!allowNestedV1 && entry.file.startsWith('v1/')) || candidate.startsWith('v1/')) {
+      throw new Error(`Not a runtime ${mount} file: ${entry.file}`);
+    }
+    const file = safePath(snapshotRoot, entry.file);
     const bytes = readFileSync(file);
-    if (bytes.length !== entry.bytes || hash(bytes) !== entry.sha256) throw new Error(`Frozen v1 changed: ${entry.file}`);
-    rollbackFiles.set(`v1/${entry.file}`, file);
+    if (bytes.length !== entry.bytes || hash(bytes) !== entry.sha256) throw new Error(`Frozen ${mount} changed: ${entry.file}`);
+    const destination = `${mount}/${entry.file}`;
+    if (rollbackFiles.has(destination)) throw new Error(`Duplicate frozen path: ${destination}`);
+    rollbackFiles.set(destination, file);
   }
-}
+};
+// Frozen versions come only from verified release snapshots, never the source tree.
+loadFrozen('--v1', 'v1');
+loadFrozen('--v2', 'v2', true);
 const add = relative => { safePath(source, relative); files.add(relative); };
 const html = readFileSync(path.join(source, 'index.html'), 'utf8');
 for (const match of html.matchAll(/(?:src|href)="\.\/(assets\/[^"?#]+\.(?:js|css))"/g)) add(match[1]);
@@ -45,12 +57,44 @@ for (const file of files) {
   for (const match of text.matchAll(/["']\.\/([^"'?#]+\.(?:js|css))["']/g)) add(path.posix.join(path.posix.dirname(file), match[1]));
 }
 const ui = readJson(path.join(root, 'src/render/anime/uiArtManifest.json'));
+const disabledCharacters = Object.entries(ui.characters ?? {}).filter(([, record]) => record?.enabled === false);
+if (disabledCharacters.length) {
+  throw new Error(`Disabled character art cannot enter a formal runtime package: ${disabledCharacters.map(([id, record]) => `${id} (${record.reviewStatus ?? 'review blocked'})`).join(', ')}`);
+}
 const deliveryBuild = existsSync(path.join(source, 'delivery-build.json')) ? readJson(path.join(source, 'delivery-build.json')) : null;
+const delivery = readJson(path.join(root, 'src/render/deliveryManifest.json'));
+const characterIds = Object.keys(ui.characters ?? {});
+if (!characterIds.length) throw new Error('No declared runtime characters');
+const deliveryUrls = Object.keys(delivery.records);
+const physicalDeliveryRecords = Object.entries(delivery.records).flatMap(([logical, record]) => {
+  const alternate = record.avif;
+  if (alternate && (!/^assets\/characters\/[a-z0-9_]+\/anime\/atlas(?:-p\d+)?\.webp$/.test(logical)
+    || record.contentType !== 'image/webp' || alternate.contentType !== 'image/avif'
+    || record.preserveRgba || record.slice || alternate.slice
+    || alternate.source !== record.source || alternate.sourceSha256 !== record.sourceSha256)) {
+    throw new Error(`Invalid alternate atlas record: ${logical}`);
+  }
+  return alternate ? [record, alternate] : [record];
+});
+const characterFxUrls = id => deliveryUrls.filter(url => url.startsWith(`assets/fx/${id}.`) || url.startsWith(`assets/fx/${id}/`));
 if (deliveryBuild) {
-  const delivery = readJson(path.join(root, 'src/render/deliveryManifest.json'));
   if (deliveryBuild.version !== delivery.version) throw new Error('Delivery build version differs from packaging manifest');
+  for (const id of characterIds) {
+    const runtime = `assets/characters/${id}/anime/runtime.json`;
+    const uiImage = ui.characters[id]?.image;
+    const fx = characterFxUrls(id);
+    if (!delivery.records[runtime] || !uiImage || !delivery.records[uiImage]
+      || !fx.some(url => url.endsWith('.json')) || !fx.some(url => /\.(png|webp)$/.test(url))) {
+      throw new Error(`Incomplete declared delivery character: ${id}`);
+    }
+  }
+  if (characterIds.some(id => !['luffy', 'akainu'].includes(id))) {
+    for (const file of ['assets/fx/common/atlas.png', 'assets/fx/common/atlas.json']) {
+      if (!delivery.records[file]) throw new Error(`Missing declared common resource: ${file}`);
+    }
+  }
   add('delivery-build.json');
-  for (const record of Object.values(delivery.records)) {
+  for (const record of physicalDeliveryRecords) {
     const bytes = readFileSync(safePath(source, record.file));
     if (bytes.length !== record.bytes || hash(bytes) !== record.sha256) throw new Error(`Delivery content mismatch: ${record.file}`);
     add(record.file);
@@ -59,7 +103,9 @@ if (deliveryBuild) {
 for (const id of ['luffy', 'akainu']) {
   const base = `assets/characters/${id}`;
   for (const name of ['atlas.png', 'atlas.json', 'placeholder.png', 'placeholder.json']) add(`${base}/${name}`);
-  if (deliveryBuild) continue;
+}
+if (!deliveryBuild) for (const id of characterIds) {
+  const base = `assets/characters/${id}`;
   const runtimeFile = `${base}/anime/runtime.json`;
   const runtime = readJson(safePath(source, runtimeFile));
   if (runtime.characterId !== id || runtime.textureDensity !== 2 || !runtime.pages?.length) throw new Error(`Invalid anime bundle: ${id}`);
@@ -69,9 +115,15 @@ for (const id of ['luffy', 'akainu']) {
     add(`${base}/anime/${page.data}`);
   }
   add(ui.characters[id].image);
-  for (const name of ['atlas.png', 'atlas.json', 'placeholder.png', 'placeholder.json']) add(`${base}/${name}`);
-  add(`assets/fx/${id}.png`);
-  add(`assets/fx/${id}.json`);
+  const fx = characterFxUrls(id);
+  if (!fx.some(url => url.endsWith('.json')) || !fx.some(url => /\.(png|webp)$/.test(url))) throw new Error(`Incomplete declared FX bundle: ${id}`);
+  for (const file of fx) add(file);
+}
+if (!deliveryBuild && characterIds.some(id => !['luffy', 'akainu'].includes(id))) {
+  for (const file of ['assets/fx/common/atlas.png', 'assets/fx/common/atlas.json']) {
+    if (!delivery.records[file]) throw new Error(`Missing declared common resource: ${file}`);
+    add(file);
+  }
 }
 if (!deliveryBuild) for (const name of ['backdrop', 'floor']) add(`assets/stages/marineford/${name}.webp`);
 const samples = readJson(path.join(root, 'src/audio/sampleManifest.json'));

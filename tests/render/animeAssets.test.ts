@@ -12,7 +12,7 @@ vi.mock('../../src/render/anime/uiArtManifest.json', () => ({ default: { schemaV
   image: `assets/characters/${id}/anime/ui-0913.png`, sha256: '91086ccb573b998c1b20821323e09709e71cfd78b5166b33453be5ffb73e678e', width: 512, height: 512,
   frames: { body: { x: 0, y: 0, w: 512, h: 512 }, portrait: { x: 100, y: 0, w: 120, h: 120 } },
 }])) } }));
-import { ANIME_CHARACTERS, ANIME_ERRORS, ANIME_INTERFACES, interfaceFrame, loadAnimeCharacters, type AnimeCharacterAssets } from '../../src/render/assets';
+import { ANIME_CHARACTERS, ANIME_ERRORS, ANIME_INTERFACES, areAnimeInterfacesReady, interfaceFrame, loadAnimeCharacters, loadAnimeInterfaces, type AnimeCharacterAssets } from '../../src/render/assets';
 import { ASSET_DOWNLOAD_TIMEOUT, ASSET_DOWNLOAD_ATTEMPTS } from '../../src/render/assetDownloads';
 import { adoptPresentation } from '../../src/render/presentation';
 
@@ -81,6 +81,28 @@ beforeEach(() => {
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
 describe('candidate asset reloads', () => {
+  it('only declares a menu ready for its validated source version and both UI frames', async () => {
+    const state = fakeScene();
+    expect(areAnimeInterfacesReady(state.scene, ['luffy'])).toBe(false);
+    expect((await loadAnimeInterfaces(state.scene, ['luffy'])).ok).toBe(true);
+    expect(areAnimeInterfacesReady(state.scene, ['luffy'])).toBe(true);
+    expect(areAnimeInterfacesReady(state.scene, ['luffy', 'akainu'])).toBe(false);
+    const loaded = state.values.get(ANIME_INTERFACES) as Record<string, { key: string; version: string; sourceIdentity: string }>;
+    loaded.luffy!.sourceIdentity = 'different-source';
+    expect(areAnimeInterfacesReady(state.scene, ['luffy'])).toBe(false);
+  });
+
+  it('fails a newly installed UI missing a required frame instead of entering a scene loop', async () => {
+    const state = fakeScene(), install = state.addAtlas.getMockImplementation()!;
+    state.addAtlas.mockImplementationOnce((key, image, data) => {
+      const frames = { ...(data as { frames: Record<string, unknown> }).frames };
+      delete frames['luffy/ui/portrait'];
+      return install(key, image, { frames });
+    });
+    expect(await loadAnimeInterfaces(state.scene, ['luffy'])).toMatchObject({ ok: false, failures: [{ code: 'invalid' }] });
+    expect(areAnimeInterfacesReady(state.scene, ['luffy'])).toBe(false);
+  });
+
   it('reuses a fully registered delivery version without fetching or decoding it again', async () => {
     const state = fakeScene();
     const first = await loadAnimeCharacters(state.scene, ['luffy']);

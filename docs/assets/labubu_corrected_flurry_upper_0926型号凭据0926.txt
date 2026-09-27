@@ -1,0 +1,16 @@
+2026-09-26，Asia/Shanghai。
+工具：Microsoft Edge。
+生成前实际核对入口：https://chatgpt.com/images/
+页面标题：ChatGPT 图像 2.5 | AI 图像生成器
+用户0926已接受官方网页“最新＋极高”。
+网页实际模型选项：最新。
+网页实际思考强度：极高，不作为图像型号依据。
+未显示的后台文字模型变体不作推断。
+生成会话：https://chatgpt.com/c/6ab2769a-0afc-83ea-81d1-8d0795f50b14
+原图：public/assets/generated/source/labubu-corrected-flurry-upper-0926.png
+原图SHA256：4a5269cb832def01cb8d0500444c8ffdbe63683d18c81f25cc52dab97d2824df
+提示词：docs/assets/LABUBU纠正连拍上挑提示词0922.txt
+提示词SHA256：2d537bf9aea6afc3e513a72f114984bb81acbc9b196e5533090b65511bc40c38
+PNG校验通过，尺寸：1448x1086。
+生成日期已知；精确完成时刻未记录。
+当前为候选原画；PNG、型号证据不代替正常速度美术验收。

@@ -1,0 +1,13 @@
+2026-09-22，Asia/Shanghai。
+工具：Codex内置浏览器。
+生成前实际访问：https://chatgpt.com/images/。
+实际页面标题：ChatGPT 图像 2.5 | AI 图像生成器。
+文字模式：最新模型，中（非Pro）；这是文字模式，非图像型号依据。
+生成入口：官方ChatGPT网页的“创建图像”。
+生成会话：https://chatgpt.com/c/6ab24946-bf88-83ea-a6f3-19cb2e15476e
+页面图片标题：毛绒兔与星星角色六视图素材板。
+原始PNG：public/assets/generated/source/crossover-mother-0922.png
+SHA256：f14b61324dbee290e7d9af3db51dcf5531ec7dcc51265054721b33f2550dd41f
+1536x1024 RGBA。Pillow verify通过；透明通道0到254，已在深色背景合成检查透明效果。
+生成日期2026-09-22；网页仅显示制作耗时，精确完成时刻未记录。
+作为母版和界面立绘来源，不冒充动作/美术最终验收。

@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { AssetDownloads, type DeliveryRecord } from '../../src/render/assetDownloads';
+import { DeliveryFormatSelection } from '../../src/render/deliveryFormats';
 
 afterEach(() => { vi.unstubAllGlobals(); });
 
@@ -19,6 +20,22 @@ function cacheFixture() {
 }
 
 describe('verified content delivery', () => {
+  it('downloads only the resolved AVIF and never silently falls back after an integrity failure', async () => {
+    const logical = 'assets/characters/luffy/anime/atlas.webp';
+    const webp = { ...record('webp', 'assets/delivery/body.webp'), contentType: 'image/webp' };
+    const avif = { ...record('avif', 'assets/delivery/body.avif'), contentType: 'image/avif', source: webp.source, sourceSha256: webp.sourceSha256 };
+    const choice = new DeliveryFormatSelection({ [logical]: { ...webp, avif } });
+    await choice.prepare(async () => true);
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValueOnce(new Response('bad!')).mockResolvedValueOnce(new Response('avif')));
+    const pool = new AssetDownloads(undefined, { records: choice.records(), cache: async () => null });
+    await expect(pool.read(logical, response => response.text())).rejects.toMatchObject({ code: 'integrity' });
+    expect(fetch).toHaveBeenCalledTimes(1);
+    expect(await pool.read(logical, async response => ({ type: response.headers.get('content-type'), body: await response.text() })))
+      .toEqual({ type: 'image/avif', body: 'avif' });
+    expect(fetch).toHaveBeenNthCalledWith(2, avif.file, expect.objectContaining({ cache: 'reload' }));
+    expect(fetch).not.toHaveBeenCalledWith(webp.file, expect.anything());
+  });
+
   it('downloads one bank for concurrent independent clips and preserves their exact boundaries', async () => {
     const source = record();
     vi.stubGlobal('fetch', vi.fn(async () => new Response('firstSECOND')));
@@ -27,6 +44,7 @@ describe('verified content delivery', () => {
     } });
     expect(await Promise.all([pool.read('a', r => r.text()), pool.read('b', r => r.text())])).toEqual(['first', 'SECOND']);
     expect(fetch).toHaveBeenCalledTimes(1);
+    expect(fetch).toHaveBeenLastCalledWith(source.file, expect.objectContaining({ cache: 'default' }));
     expect(await pool.read('a', r => r.text())).toBe('first');
     expect(fetch).toHaveBeenCalledTimes(1);
     expect(pool.diagnostics.memoryHits).toBe(1);
@@ -63,6 +81,17 @@ describe('verified content delivery', () => {
     expect(saved.cache.put).not.toHaveBeenCalled();
     expect(await pool.read('a', r => r.text())).toBe('firstSECOND');
     expect(fetch).toHaveBeenCalledTimes(2);
+    expect(fetch).toHaveBeenLastCalledWith(record().file, expect.objectContaining({ cache: 'reload' }));
+  });
+
+  it('bypasses HTTP reuse after explicit invalidation without weakening hash checks', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('firstSECOND')));
+    const pool = new AssetDownloads(undefined, { cache: async () => null, records: { a: record() } });
+    await pool.read('a', r => r.text());
+    await pool.invalidate('a');
+    expect(await pool.read('a', r => r.text())).toBe('firstSECOND');
+    expect(fetch).toHaveBeenCalledTimes(2);
+    expect(fetch).toHaveBeenLastCalledWith(record().file, expect.objectContaining({ cache: 'reload' }));
   });
 
   it('keeps a playable network result when cache quota is exhausted', async () => {

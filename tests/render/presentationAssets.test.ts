@@ -1,6 +1,6 @@
 import type Phaser from 'phaser';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { loadPresentationAssets, PRESENTATION_ASSET_LOAD_RESULT, REQUIRED_FX_FRAMES } from '../../src/render/assets';
+import { loadPresentationAssets, PRESENTATION_ASSET_LOAD_RESULT, releaseUnusedFightAssets, REQUIRED_FX_FRAMES } from '../../src/render/assets';
 import { adoptPresentation } from '../../src/render/presentation';
 
 vi.mock('../../src/render/deliveryManifest.json', () => ({ default: { version: 'fixtures', records: {} } }));
@@ -9,8 +9,11 @@ vi.mock('phaser', () => ({ default: { Textures: { FilterMode: { LINEAR: 0, NEARE
 
 // These names are the inspected stage/effect contract, independent of the generated local PNGs.
 const frameNames = {
+  common: ['impact', 'rebound', 'smoke'],
   akainu: ['dog', 'eruption', 'fissure', 'flame', 'magma_fist', 'melt', 'meteor', 'pierce', 'smoke'],
   luffy: ['gatling', 'giant_fist', 'impact', 'rebound', 'red_hawk', 'rubber_fist', 'shockwave', 'steam', 'wind'],
+  labubu: ['impact', 'wind', 'charge'],
+  twinkle: ['star', 'wave', 'impact', 'spark', 'shield'],
 };
 type Frame = { frame: { x: number; y: number; w: number; h: number }; rotated?: boolean; sourceSize?: { w: number; h: number } };
 type Atlas = { frames: Record<string, Frame>; meta: { size: { w: number; h: number } } };
@@ -43,13 +46,13 @@ function fixture(art: 'anime' | 'legacy' = 'anime', scope: 'full' | 'sample' = '
   return { scene: { registry, textures: manager } as unknown as Phaser.Scene, values, textures, manager, failedRegistrations };
 }
 
-let bundles: { akainu: Atlas; luffy: Atlas };
+let bundles: { common: Atlas; akainu: Atlas; luffy: Atlas; labubu: Atlas; twinkle: Atlas };
 let httpFailures: Set<string>;
 let brokenImages: Set<string>;
 let stalledImages: Set<string>;
 let jsonOverrides: Map<string, string>;
 beforeEach(() => {
-  bundles = { akainu: atlas('akainu'), luffy: atlas('luffy') };
+  bundles = { common: atlas('common'), akainu: atlas('akainu'), luffy: atlas('luffy'), labubu: atlas('labubu'), twinkle: atlas('twinkle') };
   httpFailures = new Set(); brokenImages = new Set(); stalledImages = new Set(); jsonOverrides = new Map();
   const blobSources = new WeakMap<Blob, string>();
   const NativeBlob = Blob;
@@ -79,7 +82,8 @@ beforeEach(() => {
   vi.stubGlobal('fetch', vi.fn(async (url: string) => {
     if (httpFailures.has(url)) return new Response('', { status: 404 });
     if (url.endsWith('.json')) {
-      const id = url.includes('akainu') ? 'akainu' : 'luffy';
+      const id = url.includes('akainu') ? 'akainu' : url.includes('labubu') ? 'labubu'
+        : url.includes('twinkle') ? 'twinkle' : url.includes('common') ? 'common' : 'luffy';
       return new Response(jsonOverrides.get(url) ?? JSON.stringify(bundles[id]), { headers: { 'Content-Type': 'application/json' } });
     }
     const response = new Response(url, { headers: { 'Content-Type': url.endsWith('.webp') ? 'image/webp' : 'image/png' } });
@@ -93,16 +97,16 @@ afterEach(() => { vi.useRealTimers(); vi.restoreAllMocks(); vi.unstubAllGlobals(
 describe('full anime stage and effect resources', () => {
   it('loads both stage files and both complete effect atlases, then validates cached textures without growth', async () => {
     const current = fixture();
-    expect(REQUIRED_FX_FRAMES).toEqual(frameNames);
+    expect(REQUIRED_FX_FRAMES).toEqual({ akainu: frameNames.akainu, labubu: frameNames.labubu, luffy: frameNames.luffy, twinkle: frameNames.twinkle });
     const result = await loadPresentationAssets(current.scene);
-    expect(result).toMatchObject({ ok: true, required: true, failures: [], loaded: ['marineford-backdrop', 'marineford-floor', 'fx-akainu', 'fx-luffy'] });
+    expect(result).toMatchObject({ ok: true, required: true, failures: [], loaded: ['marineford-backdrop', 'marineford-floor', 'fx-common', 'fx-luffy', 'fx-akainu'] });
     expect(current.values.get(PRESENTATION_ASSET_LOAD_RESULT)).toBe(result);
-    for (const [id, names] of Object.entries(frameNames)) for (const name of names) expect(current.textures.get(`fx-${id}`)!.has(name)).toBe(true);
-    expect(fetch).toHaveBeenCalledTimes(6);
+    for (const id of ['common', 'akainu', 'luffy'] as const) for (const name of frameNames[id]) expect(current.textures.get(`fx-${id}`)!.has(name)).toBe(true);
+    expect(fetch).toHaveBeenCalledTimes(8);
     expect(await loadPresentationAssets(current.scene)).toEqual(result);
-    expect(fetch).toHaveBeenCalledTimes(6);
-    expect(current.textures.size).toBe(4);
-    expect(URL.revokeObjectURL).toHaveBeenCalledTimes(4);
+    expect(fetch).toHaveBeenCalledTimes(8);
+    expect(current.textures.size).toBe(5);
+    expect(URL.revokeObjectURL).toHaveBeenCalledTimes(5);
     expect(fetch).toHaveBeenCalledWith('assets/stages/marineford/backdrop.webp', expect.objectContaining({ cache: 'no-cache' }));
   });
 
@@ -114,10 +118,10 @@ describe('full anime stage and effect resources', () => {
     expect(current.textures.has(`marineford-${name}`)).toBe(false);
     httpFailures.delete(url);
     expect(await loadPresentationAssets(current.scene)).toMatchObject({ ok: true, failures: [] });
-    expect(current.textures.size).toBe(4);
+    expect(current.textures.size).toBe(5);
   });
 
-  it.each(Object.entries(frameNames).flatMap(([id, names]) => names.map(name => [id as keyof typeof frameNames, name] as const)))('rejects missing required %s/%s despite other valid frames', async (id, name) => {
+  it.each((['common', 'akainu', 'luffy'] as const).flatMap(id => frameNames[id].map(name => [id, name] as const)))('rejects missing required %s/%s despite other valid frames', async (id, name) => {
     const current = fixture();
     delete bundles[id].frames[name];
     const result = await loadPresentationAssets(current.scene);
@@ -147,10 +151,10 @@ describe('full anime stage and effect resources', () => {
     (reason === 'http' ? httpFailures : brokenImages).add(url);
     expect(await loadPresentationAssets(current.scene)).toMatchObject({ ok: false, failures: [{ key: 'fx-luffy', code: reason === 'http' ? 'unavailable' : 'decode' }] });
     expect(current.textures.has('fx-luffy')).toBe(false);
-    expect(URL.revokeObjectURL).toHaveBeenCalledTimes(reason === 'http' ? 3 : 4);
+    expect(URL.revokeObjectURL).toHaveBeenCalledTimes(reason === 'http' ? 4 : 5);
     httpFailures.clear(); brokenImages.clear();
     expect(await loadPresentationAssets(current.scene)).toMatchObject({ ok: true, failures: [] });
-    expect(current.textures.size).toBe(4);
+    expect(current.textures.size).toBe(5);
   });
 
   it('finishes an aborted image decode before offering retry', async () => {
@@ -159,7 +163,7 @@ describe('full anime stage and effect resources', () => {
     const loading = loadPresentationAssets(current.scene);
     await vi.advanceTimersByTimeAsync(8001);
     expect(await loading).toMatchObject({ ok: false, failures: [{ key: 'fx-akainu', code: 'timeout' }] });
-    expect(URL.revokeObjectURL).toHaveBeenCalledTimes(4);
+    expect(URL.revokeObjectURL).toHaveBeenCalledTimes(5);
     expect(vi.getTimerCount()).toBe(0);
     stalledImages.clear();
     expect(await loadPresentationAssets(current.scene)).toMatchObject({ ok: true, failures: [] });
@@ -171,7 +175,7 @@ describe('full anime stage and effect resources', () => {
     expect(await loadPresentationAssets(current.scene)).toMatchObject({ ok: false, failures: [{ key: 'fx-akainu', code: 'texture', message: expect.stringContaining('dog') }] });
     expect(current.manager.remove).toHaveBeenCalledWith('fx-akainu');
     expect(await loadPresentationAssets(current.scene)).toMatchObject({ ok: true, failures: [] });
-    expect(current.textures.size).toBe(4);
+    expect(current.textures.size).toBe(5);
   });
 
   it('rejects a cached image whose dimensions have become invalid', async () => {
@@ -191,5 +195,46 @@ describe('full anime stage and effect resources', () => {
   it.each([['legacy', 'full'], ['anime', 'sample']] as const)('%s/%s keeps failures optional while returning an inspectable result', async (art, scope) => {
     const current = fixture(art, scope); httpFailures.add('assets/fx/akainu.json');
     expect(await loadPresentationAssets(current.scene)).toMatchObject({ ok: false, required: false, failures: [{ key: 'fx-akainu' }] });
+  });
+
+  it('loads common plus one mirrored fighter once and never requests an unselected fighter', async () => {
+    const current = fixture();
+    const result = await loadPresentationAssets(current.scene, undefined, 'fight', ['luffy', 'luffy']);
+    expect(result).toMatchObject({
+      ok: true,
+      requested: ['marineford-backdrop', 'marineford-floor', 'fx-common', 'fx-luffy'],
+      loaded: ['marineford-backdrop', 'marineford-floor', 'fx-common', 'fx-luffy'],
+    });
+    expect(fetch).toHaveBeenCalledTimes(6);
+    expect(fetch).not.toHaveBeenCalledWith(expect.stringContaining('akainu'), expect.anything());
+  });
+
+  it('ignores a broken unselected pack but fails an undeclared selected character explicitly', async () => {
+    const current = fixture();
+    httpFailures.add('assets/fx/akainu.json');
+    expect(await loadPresentationAssets(current.scene, undefined, 'fight', ['luffy'])).toMatchObject({ ok: true, failures: [] });
+    const unknown = await loadPresentationAssets(current.scene, undefined, 'fight', ['missing']);
+    expect(unknown).toMatchObject({ ok: false, failures: [{ key: 'fx-missing', code: 'invalid', message: expect.stringContaining('未声明') }] });
+    expect(fetch).not.toHaveBeenCalledWith('assets/fx/akainu.json', expect.anything());
+  });
+
+  it('fails a declared but incomplete selected fighter without borrowing an old fighter pack', async () => {
+    const current = fixture();
+    httpFailures.add('assets/fx/labubu/atlas.png');
+    const result = await loadPresentationAssets(current.scene, undefined, 'fight', ['labubu']);
+    expect(result).toMatchObject({ ok: false, failures: [{ key: 'fx-labubu', code: 'unavailable' }] });
+    expect(result.requested).toContain('fx-labubu');
+    expect(result.requested).not.toContain('fx-luffy');
+    expect(result.requested).not.toContain('fx-akainu');
+  });
+
+  it('releases unselected decoded FX after a fight while retaining common and current textures', async () => {
+    const current = fixture();
+    await loadPresentationAssets(current.scene);
+    expect(releaseUnusedFightAssets(current.scene, ['luffy'])).toEqual(['fx-akainu']);
+    expect(current.textures.has('fx-akainu')).toBe(false);
+    expect(current.textures.has('fx-luffy')).toBe(true);
+    expect(current.textures.has('fx-common')).toBe(true);
+    expect(current.textures.has('marineford-floor')).toBe(true);
   });
 });

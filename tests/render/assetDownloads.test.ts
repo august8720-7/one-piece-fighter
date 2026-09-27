@@ -1,8 +1,13 @@
+import { createHash } from 'node:crypto';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { AssetDownloads, ASSET_DOWNLOAD_TIMEOUT } from '../../src/render/assetDownloads';
+import { AssetDownloads, ASSET_DOWNLOAD_TIMEOUT, warmFightDownloads, type DeliveryRecord } from '../../src/render/assetDownloads';
 
 afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals(); });
 const delay = <T>(ms: number, value: T): Promise<T> => new Promise(resolve => setTimeout(() => resolve(value), ms));
+const hash = (text: string): string => createHash('sha256').update(text).digest('hex');
+function record(body: string, file: string): DeliveryRecord {
+  return { file, bytes: body.length, sha256: hash(body), contentType: 'application/octet-stream', source: file, sourceSha256: hash(`source:${body}`) };
+}
 
 describe('public first-load downloads', () => {
   it('aborts active downloads and rejects queued work on permanent game teardown', async () => {
@@ -88,5 +93,79 @@ describe('public first-load downloads', () => {
     vi.stubGlobal('fetch', vi.fn(async () => response));
     await expect(new AssetDownloads().read('runtime.json', r => r.json())).rejects.toMatchObject({ url: 'runtime.json', code: kind === 'json' ? 'invalid' : 'unavailable' });
     expect(fetch).toHaveBeenCalledTimes(1);
+  });
+
+  it('warms only common files until selected characters are declared, with mirror and physical-file dedupe', async () => {
+    const records = {
+      'assets/stages/marineford/backdrop.webp': record('stage', 'assets/delivery/stage-test.webp'),
+      'assets/characters/luffy/anime/runtime.json': record('luffy-bank', 'assets/delivery/luffy-test.bin'),
+      'assets/characters/luffy/anime/atlas.webp': record('luffy-bank', 'assets/delivery/luffy-test.bin'),
+      'assets/characters/akainu/anime/runtime.json': record('akainu', 'assets/delivery/akainu-test.json'),
+    };
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const body = url.includes('stage-test') ? 'stage' : url.includes('luffy-test') ? 'luffy-bank' : 'akainu';
+      return new Response(body);
+    }));
+    const pool = new AssetDownloads(undefined, { records, cache: async () => null });
+    await warmFightDownloads(pool);
+    expect(fetch).toHaveBeenCalledTimes(1);
+    expect(fetch).toHaveBeenLastCalledWith('assets/delivery/stage-test.webp', expect.anything());
+    await warmFightDownloads(pool, ['luffy', 'luffy']);
+    expect(fetch).toHaveBeenCalledTimes(2);
+    expect(fetch).toHaveBeenLastCalledWith('assets/delivery/luffy-test.bin', expect.anything());
+    expect(fetch).not.toHaveBeenCalledWith('assets/delivery/akainu-test.json', expect.anything());
+  });
+
+  it('starts the second locked fighter metadata before queued first-fighter images', async () => {
+    const bodies = Object.fromEntries(Array.from({ length: 5 }, (_, i) => [`assets/characters/luffy/anime/atlas-p${i}.webp`, `image-${i}`]));
+    const runtime = 'assets/characters/akainu/anime/runtime.json';
+    bodies[runtime] = '{}';
+    const records = Object.fromEntries(Object.entries(bodies).map(([url, body]) => [url, {
+      ...record(body, `assets/delivery/${url.split('/').at(-1)}`), contentType: url.endsWith('.json') ? 'application/json' : 'image/webp',
+    }]));
+    const releases = new Map<string, () => void>();
+    const physicalBodies = Object.fromEntries(Object.entries(records).map(([url, value]) => [value.file, bodies[url]]));
+    vi.stubGlobal('fetch', vi.fn((url: string) => url.endsWith('/runtime.json') ? Promise.resolve(new Response('{}'))
+      : new Promise<Response>(resolve => releases.set(url, () => resolve(new Response(physicalBodies[url]))))));
+    const pool = new AssetDownloads(undefined, { records, cache: async () => null });
+    const warmed = warmFightDownloads(pool, ['luffy']);
+    await vi.waitFor(() => expect(releases.size).toBe(4));
+    const secondFighter = warmFightDownloads(pool, ['akainu']);
+    // One slot frees while three images still block. The new fighter's
+    // geometry must be ready before the previously queued fifth large image.
+    let runtimeReady = false;
+    const geometry = pool.read(runtime, response => response.json()).then(() => { runtimeReady = true; });
+    releases.get('assets/delivery/atlas-p0.webp')!();
+    await vi.waitFor(() => expect(runtimeReady).toBe(true));
+    await vi.waitFor(() => expect(releases.size).toBe(5));
+    expect(fetch).toHaveBeenNthCalledWith(5, 'assets/delivery/runtime.json', expect.anything());
+    for (const release of releases.values()) release();
+    await Promise.all([geometry, warmed, secondFighter]);
+    expect(fetch).toHaveBeenCalledTimes(6);
+  });
+
+  it('promotes a selected download ahead of queued background work while sharing its promise', async () => {
+    const bodies = Object.fromEntries(['a', 'b', 'c', 'd', 'selected', 'other'].map(name => [name, name]));
+    const records = Object.fromEntries(Object.keys(bodies).map(name => [name, record(name, `assets/delivery/${name}-test.bin`)]));
+    const started: string[] = [];
+    const releases = new Map<string, () => void>();
+    vi.stubGlobal('fetch', vi.fn((url: string) => {
+      const name = /\/([a-z]+)-test\.bin$/.exec(url)?.[1] ?? '';
+      started.push(name);
+      return new Promise<Response>(resolve => releases.set(name, () => resolve(new Response(bodies[name]))));
+    }));
+    const pool = new AssetDownloads(undefined, { records, cache: async () => null });
+    const active = ['a', 'b', 'c', 'd'].map(name => pool.read(name, response => response.text(), 'background'));
+    const selectedBackground = pool.read('selected', response => response.text(), 'background');
+    const other = pool.read('other', response => response.text(), 'background');
+    await vi.waitFor(() => expect(started).toEqual(['a', 'b', 'c', 'd']));
+    const selectedCritical = pool.read('selected', response => response.text(), 'critical');
+    releases.get('a')!();
+    await vi.waitFor(() => expect(started.at(-1)).toBe('selected'));
+    releases.get('b')!(); releases.get('c')!(); releases.get('d')!(); releases.get('selected')!();
+    await vi.waitFor(() => expect(started).toContain('other'));
+    releases.get('other')!();
+    expect(await Promise.all([...active, selectedBackground, selectedCritical, other])).toEqual(['a', 'b', 'c', 'd', 'selected', 'selected', 'other']);
+    expect(started).toEqual(['a', 'b', 'c', 'd', 'selected', 'other']);
   });
 });

@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { characters } from '@characters/index';
-import { loadAnimeCharacters, loadAnimeInterfaces, loadCharacterAtlases, loadPresentationAssets, type AnimeLoadResult } from '../assets';
+import { loadAnimeCharacters, loadAnimeInterfaces, loadCharacterAtlases, loadPresentationAssets, releaseUnusedFightAssets, type AnimeLoadResult } from '../assets';
 import { sfx } from '../../audio/Sfx';
 import { SCREEN_H, SCREEN_W, font, ui } from '../screen';
 import { UI } from '../ui/MenuList';
@@ -9,9 +9,10 @@ import { audioQuickControls } from '../ui/audioQuickControls';
 import { adoptPresentation, legacyPresentation, presentationLabel, readPresentation, PRESENTATION_LOAD, type PresentationData } from '../presentation';
 import type { FightSceneData } from './FightScene';
 import { sharedDownloads } from '../assetDownloads';
+import { TITLE_CHARACTER_IDS } from '../ui/titleRoster';
 
 export type PreloadData = FightSceneData & PresentationData & {
-  destination?: 'Title';
+  destination?: 'Title' | 'CharacterSelect';
   /** A defensive Fight gate routes here without triggering an automatic retry loop. */
   failure?: string[];
   retryAudio?: boolean;
@@ -38,13 +39,13 @@ export class PreloadScene extends Phaser.Scene {
     const active = (): boolean => generation === this.generation && this.scene.isActive();
     const data = this.data_;
     const profile = readPresentation(this.registry);
-    const menu = profile.art === 'anime' && data.destination === 'Title';
+    const menu = profile.art === 'anime' && data.destination !== undefined;
     const downloads = sharedDownloads(this.game ?? this.registry);
     const audio = sfx();
     audio.useDownloads(downloads);
-    // Selection is complete: stream the existing battle track while assets load,
-    // rather than finishing a menu-track download that will immediately be abandoned.
-    if (data.destination !== 'Title') audio.playMusic('battle', data.mode === 'training' ? 0.7 : 1);
+    // Give required fighter assets the link. Fight.create starts the unchanged
+    // battle track with the actual opening, instead of playing its intro while waiting.
+    if (!data.destination) audio.stopMusic();
     const unsubscribe = downloads.observe(progress => {
       if (!active()) return;
       const bytes = progress.totalBytes === undefined ? `已完成 ${progress.completed} 份文件`
@@ -53,11 +54,13 @@ export class PreloadScene extends Phaser.Scene {
     });
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, unsubscribe);
     const finish = (): void => { unsubscribe(); label.destroy(); hint.destroy(); };
-    const ids = data.destination === 'Title' ? Object.keys(characters) : [data.p1, data.p2];
+    const ids = data.destination === 'Title' && profile.art === 'anime' ? [...TITLE_CHARACTER_IDS]
+      : data.destination ? Object.keys(characters) : [data.p1, data.p2];
+    if (!menu) releaseUnusedFightAssets(this, ids);
     const loadAudio = () => menu ? audio.preloadMenu() : audio.preload(ids);
     void Promise.all([
       menu ? loadAnimeInterfaces(this, ids, downloads) : profile.art === 'anime' ? loadAnimeCharacters(this, ids, downloads) : loadCharacterAtlases(this, ids),
-      loadPresentationAssets(this, downloads, menu ? 'menu' : 'fight'),
+      loadPresentationAssets(this, downloads, menu ? 'menu' : 'fight', menu ? [] : ids),
       data.retryAudio ? audio.retryFailed().then(loadAudio) : loadAudio(),
     ]).then(([characterResult, presentationAssets, audioResult]) => {
       if (generation !== this.generation || !this.scene.isActive()) return;
@@ -80,6 +83,11 @@ export class PreloadScene extends Phaser.Scene {
       finish();
       this.registry.set(PRESENTATION_LOAD, { ok: true, scope: profile.scope, art: profile.art, stage: menu ? 'menu' : 'fight' });
       if (data.destination === 'Title') this.scene.start('Title', profile);
+      else if (data.destination === 'CharacterSelect') {
+        const selection = { ...data, ...profile };
+        delete selection.destination; delete selection.failure; delete selection.retryAudio;
+        this.scene.start('CharacterSelect', selection);
+      }
       else this.scene.start('Fight', { ...data, ...profile });
     }).catch(error => {
       if (generation !== this.generation || !this.scene.isActive()) return;

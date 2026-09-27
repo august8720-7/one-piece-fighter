@@ -13,10 +13,10 @@ type MoveAudioStage = 'start' | 'release' | 'end';
 interface MoveAudioProfile {
   family: string;
   fallback: Readonly<Record<MoveAudioStage, SfxKind>>;
-  projectile?: 'meteor' | 'dog';
+  projectile?: 'meteor' | 'dog' | 'star' | 'star_fall' | 'star_wave';
 }
 
-const profile = (family: string, start: SfxKind, release: SfxKind, end: SfxKind, projectile?: 'meteor' | 'dog'): MoveAudioProfile => ({
+const profile = (family: string, start: SfxKind, release: SfxKind, end: SfxKind, projectile?: MoveAudioProfile['projectile']): MoveAudioProfile => ({
   family, fallback: { start, release, end }, ...(projectile ? { projectile } : {}),
 });
 const AKAINU_AUDIO = {
@@ -35,7 +35,26 @@ const LUFFY_AUDIO = {
   balloon: profile('balloon', 'whoosh', 'special', 'whoosh'),
   stretch: profile('stretch', 'whoosh', 'whoosh', 'whoosh'),
 };
-const AUDIO_FAMILIES: Readonly<Record<string, Readonly<Record<string, MoveAudioProfile>>>> = { akainu: AKAINU_AUDIO, luffy: LUFFY_AUDIO };
+const LABUBU_AUDIO = {
+  rush: profile('rush', 'whoosh', 'special', 'whoosh'),
+  flurry: profile('flurry', 'whoosh', 'hit_light', 'whoosh'),
+  upper: profile('upper', 'whoosh', 'special', 'whoosh'),
+  slide: profile('slide', 'whoosh', 'whoosh', 'whoosh'),
+  grapple: profile('grapple', 'whoosh', 'throw', 'whoosh'),
+  drive: profile('drive', 'special', 'special', 'whoosh'),
+  charge: profile('charge', 'special', 'hit_heavy', 'whoosh'),
+};
+const TWINKLE_AUDIO = {
+  star: profile('star', 'special', 'whoosh', 'special', 'star'),
+  push: profile('push', 'special', 'special', 'whoosh'),
+  fall: profile('fall', 'special', 'whoosh', 'special', 'star_fall'),
+  reflect: profile('reflect', 'special', 'block', 'whoosh'),
+  blink: profile('blink', 'special', 'whoosh', 'whoosh'),
+  wave: profile('wave', 'special', 'special', 'whoosh', 'star_wave'),
+};
+const AUDIO_FAMILIES: Readonly<Record<string, Readonly<Record<string, MoveAudioProfile>>>> = {
+  akainu: AKAINU_AUDIO, luffy: LUFFY_AUDIO, labubu: LABUBU_AUDIO, twinkle: TWINKLE_AUDIO,
+};
 const MOVE_AUDIO: Readonly<Record<string, Readonly<Record<string, MoveAudioProfile>>>> = {
   akainu: {
     sp_daifunka: AKAINU_AUDIO.daifunka, sp_daifunka_ren: AKAINU_AUDIO.daifunka,
@@ -50,6 +69,20 @@ const MOVE_AUDIO: Readonly<Record<string, Readonly<Record<string, MoveAudioProfi
     sp_gigant_pistol: LUFFY_AUDIO.gigant, ult_red_hawk: LUFFY_AUDIO.red_hawk,
     sp_gear2: LUFFY_AUDIO.gear2, sp_balloon: LUFFY_AUDIO.balloon,
     sp_bazooka: LUFFY_AUDIO.stretch, sp_rifle: LUFFY_AUDIO.stretch, sp_rocket: LUFFY_AUDIO.stretch,
+  },
+  labubu: {
+    sp_pounce_rush: LABUBU_AUDIO.rush, sp_prank_flurry: LABUBU_AUDIO.flurry,
+    sp_flip_upper: LABUBU_AUDIO.upper, sp_low_slide: LABUBU_AUDIO.slide,
+    sp_leg_flip: LABUBU_AUDIO.grapple, sp_mischief_drive: LABUBU_AUDIO.drive,
+    sp_tumble_riot: LABUBU_AUDIO.flurry, sp_monster_charge: LABUBU_AUDIO.charge,
+    ult_monster_mayhem: LABUBU_AUDIO.charge,
+  },
+  twinkle: {
+    sp_tiny_star: TWINKLE_AUDIO.star, sp_starlight_push: TWINKLE_AUDIO.push,
+    sp_upward_spark: TWINKLE_AUDIO.star, sp_falling_star: TWINKLE_AUDIO.fall,
+    sp_star_reflect: TWINKLE_AUDIO.reflect, sp_blink_dodge: TWINKLE_AUDIO.blink,
+    sp_star_rain: TWINKLE_AUDIO.fall, sp_shining_wave: TWINKLE_AUDIO.wave,
+    ult_star_symphony: TWINKLE_AUDIO.star,
   },
 };
 const stageCue = (character: string, moveAudio: MoveAudioProfile, stage: MoveAudioStage): string => `sfx.${character}.${moveAudio.family}.${stage}`;
@@ -129,7 +162,7 @@ export function eventCues(event: FightAudioEvent, hasCue: (id: string) => boolea
     case 'block': add('block'); break;
     case 'reflect':
       // The reflector owns this contact; moveId still names the incoming projectile.
-      add(event.characterId === 'luffy' ? 'sfx.luffy.stretch.release' : 'block');
+      add(event.characterId === 'luffy' ? 'sfx.luffy.stretch.release' : event.characterId === 'twinkle' ? 'sfx.twinkle.reflect.release' : 'block');
       break;
     case 'throw': add('throw'); break;
     case 'landing': add('body_land'); break;
@@ -143,6 +176,9 @@ export function eventCues(event: FightAudioEvent, hasCue: (id: string) => boolea
       // Contact events already sound once. Administrative cleanup never sounds like an impact.
       if (event.projectileKind === 'meteor' && event.endReason === 'ground') add(projectileAudio?.projectile === 'meteor' ? stageCue(materialCharacter, projectileAudio, 'end') : 'meteor_land');
       if (event.projectileKind === 'dog' && (event.endReason === 'timeout' || event.endReason === 'out_of_bounds') && projectileAudio?.projectile === 'dog') add(stageCue(materialCharacter, projectileAudio, 'end'));
+      if (projectileAudio?.projectile === 'star_fall' && event.endReason === 'ground') add(stageCue(materialCharacter, projectileAudio, 'end'));
+      if ((projectileAudio?.projectile === 'star' || projectileAudio?.projectile === 'star_wave')
+        && (event.endReason === 'timeout' || event.endReason === 'out_of_bounds')) add(stageCue(materialCharacter, projectileAudio, 'end'));
       break;
   }
   return result;

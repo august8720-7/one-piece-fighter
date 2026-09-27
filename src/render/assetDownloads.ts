@@ -1,17 +1,13 @@
 import deliveryManifest from './deliveryManifest.json';
+import { fightDownloadUrls } from './resourcePlan';
+import { DeliveryFormatSelection, type DeliveryDefinition, type DeliveryRecord } from './deliveryFormats';
+import { probeAvifAlpha } from './avifProbe';
 
-export interface DeliveryRecord {
-  file: string;
-  sha256: string;
-  bytes: number;
-  contentType: string;
-  source: string;
-  sourceSha256: string;
-  slice?: { offset: number; length: number };
-}
+export type { DeliveryRecord } from './deliveryFormats';
 export const DELIVERY_VERSION = deliveryManifest.version;
-export const DELIVERY_RECORDS: Readonly<Record<string, DeliveryRecord>> = deliveryManifest.records;
-export const deliveryRecord = (url: string): DeliveryRecord | undefined => DELIVERY_RECORDS[url];
+const deliveryFormat = new DeliveryFormatSelection(deliveryManifest.records as Readonly<Record<string, DeliveryDefinition>>);
+export const prepareDeliveryFormat = (forceWebp = false): Promise<'webp' | 'avif'> => deliveryFormat.prepare(probeAvifAlpha, 300, forceWebp);
+export const deliveryRecord = (url: string): DeliveryRecord | undefined => deliveryFormat.records()[url];
 
 /** Network limits apply to each active file, not an entire character or time in the queue. */
 export const ASSET_DOWNLOAD_TIMEOUT = 90_000;
@@ -24,6 +20,7 @@ export class AssetDownloadError extends Error {
 }
 
 export interface DownloadProgress { completed: number; url: string; retry: boolean; receivedBytes?: number; totalBytes?: number }
+export type DownloadPriority = 'critical' | 'background';
 type ByteCache = Pick<Cache, 'match' | 'put' | 'delete'>;
 export interface AssetDownloadOptions {
   records?: Readonly<Record<string, DeliveryRecord>>;
@@ -34,9 +31,20 @@ export interface AssetDownloadOptions {
 export class AssetDownloads {
   private active = 0;
   private completed = 0;
-  private readonly queue: (() => void)[] = [];
+  private sequence = 0;
+  private readonly queue: Array<{
+    identity: string;
+    priority: DownloadPriority;
+    sequence: number;
+    kind: number;
+    imageBytes: number;
+    resolve: () => void;
+    reject: (error: unknown) => void;
+  }> = [];
   private readonly pending = new Map<string, Promise<ArrayBuffer>>();
+  private readonly requestedPriorities = new Map<string, DownloadPriority>();
   private readonly verified = new Map<string, ArrayBuffer>();
+  private readonly bypassHttpCache = new Set<string>();
   private readonly transfers = new Map<string, { received: number; total: number }>();
   private readonly listeners = new Set<(progress: DownloadProgress) => void>();
   private readonly cancellations = new Set<() => void>();
@@ -49,7 +57,7 @@ export class AssetDownloads {
 
   constructor(onProgress?: (progress: DownloadProgress) => void, options: AssetDownloadOptions = {}) {
     if (onProgress) this.listeners.add(onProgress);
-    this.records = options.records ?? DELIVERY_RECORDS;
+    this.records = options.records ?? deliveryFormat.records();
     this.cacheFactory = options.cache ?? (async () => {
       try { return globalThis.caches ? await caches.open('opf-delivery-v1') : null; }
       catch { this.diagnostics.cacheErrors++; return null; }
@@ -67,9 +75,10 @@ export class AssetDownloads {
     if (this.destroyed) return;
     this.destroyed = true;
     for (const cancel of this.cancellations) cancel();
-    for (const queued of this.queue.splice(0)) queued();
+    for (const queued of this.queue.splice(0)) queued.reject(new AssetDownloadError('unavailable', queued.identity, '游戏已退出，停止资源下载'));
     this.listeners.clear();
     this.verified.clear();
+    this.bypassHttpCache.clear();
   }
 
   private checkActive(url: string): void {
@@ -79,7 +88,9 @@ export class AssetDownloads {
   async invalidate(url: string): Promise<void> {
     const record = this.records[url];
     if (!record) return;
-    this.verified.delete(`${record.file}:${record.sha256}`);
+    const identity = `${record.file}:${record.sha256}`;
+    this.verified.delete(identity);
+    this.bypassHttpCache.add(identity);
     try {
       const cache = await this.cachePromise;
       if (cache) await cache.delete(new URL(record.file, globalThis.location?.href ?? 'http://localhost/').href);
@@ -97,12 +108,12 @@ export class AssetDownloads {
     for (const listener of this.listeners) listener(progress);
   }
 
-  async read<T>(url: string, consume: (response: Response) => Promise<T>): Promise<T> {
+  async read<T>(url: string, consume: (response: Response) => Promise<T>, priority: DownloadPriority = 'critical'): Promise<T> {
     this.checkActive(url);
     const record = this.records[url];
-    if (!record) return this.readNetwork(url, consume);
+    if (!record) return this.readNetwork(url, consume, priority, url);
     this.validateRecord(url, record);
-    const bytes = await this.readVerified(url, record);
+    const bytes = await this.readVerified(url, record, priority);
     this.checkActive(url);
     const selected = record.slice ? bytes.slice(record.slice.offset, record.slice.offset + record.slice.length) : bytes;
     try { return await consume(new Response(selected, { headers: { 'content-type': record.contentType } })); }
@@ -113,7 +124,7 @@ export class AssetDownloads {
   }
 
   private validateRecord(url: string, record: DeliveryRecord): void {
-    if (!/^assets\/delivery\/[a-z0-9-]+\.(webp|json|bin|ogg)$/.test(record.file)
+    if (!/^assets\/delivery\/[a-z0-9-]+\.(webp|avif|json|bin|ogg)$/.test(record.file)
       || !/^[a-f0-9]{64}$/.test(record.sha256) || !Number.isSafeInteger(record.bytes) || record.bytes <= 0
       || (record.slice && (!Number.isSafeInteger(record.slice.offset) || !Number.isSafeInteger(record.slice.length)
       || record.slice.offset < 0 || record.slice.length <= 0 || record.slice.offset + record.slice.length > record.bytes))) {
@@ -128,12 +139,16 @@ export class AssetDownloads {
     return Array.from(new Uint8Array(hash), byte => byte.toString(16).padStart(2, '0')).join('') === record.sha256;
   }
 
-  private readVerified(url: string, record: DeliveryRecord): Promise<ArrayBuffer> {
+  private readVerified(url: string, record: DeliveryRecord, priority: DownloadPriority): Promise<ArrayBuffer> {
     const identity = `${record.file}:${record.sha256}`;
     const ready = this.verified.get(identity);
     if (ready) { this.diagnostics.memoryHits++; return Promise.resolve(ready); }
     const pending = this.pending.get(identity);
-    if (pending) return pending;
+    if (pending) {
+      if (priority === 'critical') this.promote(identity);
+      return pending;
+    }
+    this.requestedPriorities.set(identity, priority);
     this.transfers.set(identity, { received: 0, total: record.bytes });
     const promise = (async () => {
       const cache = await (this.cachePromise ??= this.cacheFactory().catch(() => { this.diagnostics.cacheErrors++; return null; }));
@@ -150,6 +165,7 @@ export class AssetDownloads {
               return bytes;
             }
             this.diagnostics.corruptCache++;
+            this.bypassHttpCache.add(identity);
             await cache.delete(key);
           }
         } catch { this.diagnostics.cacheErrors++; }
@@ -182,25 +198,49 @@ export class AssetDownloads {
         if (!await this.verify(bytes, record)) throw new AssetDownloadError('integrity', url, '资源内容校验失败，请重试或更新页面');
         transfer.received = bytes.byteLength;
         return bytes;
-      });
+      }, priority, identity, this.bypassHttpCache.has(identity) ? 'reload' : 'default',
+      url.endsWith('/runtime.json') ? 0 : url.endsWith('.json') ? 1 : record.contentType.startsWith('image/') ? 2 : 3,
+      record.contentType.startsWith('image/') ? record.bytes : 0);
       this.diagnostics.networkFiles++;
       if (cache) {
         try { await cache.put(key, new Response(bytes, { headers: { 'content-type': record.slice ? 'application/octet-stream' : record.contentType } })); }
         catch { this.diagnostics.cacheErrors++; }
       }
       return bytes;
-    })().then(bytes => { this.checkActive(url); this.verified.set(identity, bytes); return bytes; })
-      .finally(() => { this.pending.delete(identity); });
+    })().then(bytes => { this.checkActive(url); this.bypassHttpCache.delete(identity); this.verified.set(identity, bytes); return bytes; })
+      .catch(error => {
+        if (error instanceof AssetDownloadError && error.code === 'integrity') this.bypassHttpCache.add(identity);
+        throw error;
+      })
+      .finally(() => { this.pending.delete(identity); this.requestedPriorities.delete(identity); });
     this.pending.set(identity, promise);
     return promise;
   }
 
-  private async readNetwork<T>(url: string, consume: (response: Response) => Promise<T>): Promise<T> {
+  private promote(identity: string): void {
+    this.requestedPriorities.set(identity, 'critical');
+    const queued = this.queue.find(entry => entry.identity === identity);
+    if (queued) queued.priority = 'critical';
+  }
+
+  private pump(): void {
+    while (!this.destroyed && this.active < 4 && this.queue.length) {
+      // A later character lock can add its metadata after the first fighter's
+      // large files. Reorder pending work across both locks, without interrupting
+      // active transfers or letting background files delay required resources.
+      this.queue.sort((a, b) => Number(b.priority === 'critical') - Number(a.priority === 'critical')
+        || a.kind - b.kind || b.imageBytes - a.imageBytes || a.sequence - b.sequence);
+      const next = this.queue.shift();
+      if (!next) return;
+      this.active++;
+      next.resolve();
+    }
+  }
+
+  private async readNetwork<T>(url: string, consume: (response: Response) => Promise<T>, priority: DownloadPriority, identity: string, cacheMode: RequestCache = 'no-cache', kind = 3, imageBytes = 0): Promise<T> {
     await new Promise<void>((resolve, reject) => {
-      const start = (): void => {
-        try { this.checkActive(url); this.active++; resolve(); } catch (error) { reject(error); }
-      };
-      if (this.active < 4) start(); else this.queue.push(start);
+      this.queue.push({ identity, priority: this.requestedPriorities.get(identity) ?? priority, sequence: this.sequence++, kind, imageBytes, resolve, reject });
+      this.pump();
     });
     try {
       for (let attempt = 0; ; attempt++) {
@@ -222,9 +262,9 @@ export class AssetDownloads {
             }, ASSET_DOWNLOAD_TIMEOUT);
           });
           const request = async (): Promise<T> => {
-            // Revalidate cached bytes with the server: reuse unchanged files without
-            // letting stale metadata bypass the existing content/geometry checks.
-            const response = await fetch(url, { signal: controller.signal, cache: 'no-cache' });
+            // Hashed files can reuse HTML preloads; every byte is still verified.
+            // Raw mutable URLs revalidate, while retries bypass HTTP caches.
+            const response = await fetch(url, { signal: controller.signal, cache: attempt === 0 ? cacheMode : 'reload' });
             if (!response.ok) {
               transientHttp = response.status === 408 || response.status === 429 || response.status >= 500;
               throw new AssetDownloadError('unavailable', url, `下载失败（HTTP ${response.status}）`);
@@ -249,9 +289,12 @@ export class AssetDownloads {
       }
     } finally {
       this.active--;
-      this.queue.shift()?.();
+      this.pump();
     }
   }
+
+  /** Used by the declarative warm plan so tests and alternate builds keep their own manifest. */
+  deliveryRecords(): Readonly<Record<string, DeliveryRecord>> { return this.records; }
 }
 
 /** One queue and content cache outlive scene changes, while each Game owns its own lifetime. */
@@ -264,10 +307,18 @@ export function sharedDownloads(owner: object): AssetDownloads {
 
 /** Warm immutable bytes in menus. Large GPU textures are installed by Preload,
  * so a fast persistent-cache hit cannot stall character-selection input. */
-export async function warmFightDownloads(downloads: AssetDownloads): Promise<void> {
+export async function warmFightDownloads(downloads: AssetDownloads, characterIds: readonly string[] = []): Promise<void> {
   const unique = new Map<string, string>();
-  for (const [url, record] of Object.entries(DELIVERY_RECORDS)) {
-    if (!url.startsWith('assets/audio/music/') && !unique.has(record.file)) unique.set(record.file, url);
+  const records = downloads.deliveryRecords();
+  for (const url of fightDownloadUrls(records, characterIds)) {
+    const record = records[url];
+    if (record && !unique.has(record.file)) unique.set(record.file, url);
   }
-  await Promise.all([...unique.values()].map(url => downloads.read(url, response => response.arrayBuffer())));
+  // Resolve page geometry before large transfers occupy every slot. Start the
+  // largest images early so their decode can overlap the remaining small files.
+  const rank = (url: string): number => url.endsWith('/runtime.json') ? 0
+    : url.endsWith('.json') ? 1 : records[url]?.contentType.startsWith('image/') ? 2 : 3;
+  const ordered = [...unique.values()].sort((a, b) => rank(a) - rank(b)
+    || (rank(a) === 2 ? records[b]!.bytes - records[a]!.bytes : 0));
+  await Promise.all(ordered.map(url => downloads.read(url, response => response.arrayBuffer(), characterIds.length ? 'critical' : 'background')));
 }

@@ -8,9 +8,13 @@ export const TUTORIAL_HOLD: Record<TutorialStepId, number> = { walk: 24, light: 
 const SPECIAL_BY_CHAR: Record<string, { moveId: string; name: string }> = {
   luffy: { moveId: 'sp_gatling', name: '橡胶机关枪' },
   akainu: { moveId: 'sp_daifunka', name: '大喷火' },
+  labubu: { moveId: 'sp_pounce_rush', name: '扑扑突袭' },
+  twinkle: { moveId: 'sp_tiny_star', name: '小星弹' },
 };
 export function tutorialSpecial(charId: string): { moveId: string; name: string } {
-  return SPECIAL_BY_CHAR[charId] ?? SPECIAL_BY_CHAR.luffy!;
+  const special = SPECIAL_BY_CHAR[charId];
+  if (!special) throw new Error(`未知教学角色：${charId}`);
+  return special;
 }
 export interface TutorialContext {
   p1Bits: number;

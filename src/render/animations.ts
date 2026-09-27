@@ -88,6 +88,52 @@ export interface AnimDef {
 
 export type AnimTable = Record<string, AnimDef>;
 
+/** Reactions to explicit connected moves, never replacements for the global thrown state. */
+export const HELD_LEG_FLIP = 'held_leg_flip';
+export const HELD_LABUBU_THROW = 'held_labubu_throw';
+export const HELD_TWINKLE_THROW = 'held_twinkle_throw';
+export const HELD_REACTION_ANIMS = [HELD_LEG_FLIP, HELD_LABUBU_THROW, HELD_TWINKLE_THROW] as const;
+export type HeldReactionId = typeof HELD_REACTION_ANIMS[number];
+export const isHeldReactionAnim = (name: string): name is HeldReactionId => HELD_REACTION_ANIMS.some(reaction => reaction === name);
+
+export function heldReactionForMove(attackerId: string, move: Pick<MoveData, 'id' | 'throwData'> | null): HeldReactionId | null {
+  if (!move?.throwData) return null;
+  if (attackerId === 'labubu' && move.id === 'sp_leg_flip') return HELD_LEG_FLIP;
+  if (move.id !== 'throw_fwd' && move.id !== 'throw_back') return null;
+  return attackerId === 'labubu' ? HELD_LABUBU_THROW : attackerId === 'twinkle' ? HELD_TWINKLE_THROW : null;
+}
+
+/** Reads the actual pair and the attacker's clock; thrown's own clock does not advance. */
+export function connectedHeldReaction(sim: FightSim, victim: FighterState): { anim: HeldReactionId; index: 0 } | null {
+  if (sim.state.fighters[victim.player] !== victim || victim.state !== 'thrown' || victim.airborne) return null;
+  const attacker = sim.state.fighters[victim.player === 0 ? 1 : 0];
+  if (attacker.state !== 'throw' || attacker.hasHit) return null;
+  const move = sim.move(attacker), anim = heldReactionForMove(attacker.def.id, move);
+  if (!anim || !move?.throwData || !Number.isInteger(attacker.stateFrame)
+    || attacker.stateFrame < 0 || attacker.stateFrame >= move.throwData.releaseFrame) return null;
+  return { anim, index: 0 };
+}
+
+/** Structural gate only: the named grip still needs real pixel/contact acceptance. */
+export function heldReactionFrameIssues(
+  characterId: string, table: AnimTable, attachments: CharacterPresentation['attachments'], reaction: HeldReactionId = HELD_LEG_FLIP,
+): string[] {
+  const name = frameName(characterId, reaction, 0), anim = table[reaction], frame = attachments[name];
+  const issues: string[] = [];
+  if (!record(anim)) issues.push(`${name}: missing conditional reaction animation`);
+  else {
+    if (anim.frames !== 1 || anim.loop !== false) issues.push(`${name}: held reaction must declare one non-looping pose`);
+    if (!Array.isArray(anim.exposures) || !anim.exposures.length
+      || !anim.exposures.every(exposure => record(exposure) && exposure.frame === 0 && positiveInteger(exposure.ticks))) issues.push(`${name}: held reaction requires explicit valid exposure`);
+  }
+  if (!record(frame) || !record(frame.size) || !positiveInteger(frame.size.width) || !positiveInteger(frame.size.height)
+    || !point(frame.root) || !record(frame.sockets)) return [...issues, `${name}: missing or invalid attachment geometry`];
+  const grip = frame.sockets.grip;
+  if (!record(grip) || !finite(grip.x) || !finite(grip.y)
+    || grip.x < 0 || grip.y < 0 || grip.x >= frame.size.width || grip.y >= frame.size.height) issues.push(`${name}: missing or invalid grip socket`);
+  return issues;
+}
+
 /** Named strings hold a debug pose; timed presentation uses an explicit logical clock. */
 export type AnimationOverride = string | { anim: string; stateFrame: number };
 
@@ -369,6 +415,10 @@ export function validateAnimeRuntimeManifest(value: unknown, moves?: readonly Mo
     if (positiveInteger(anim.frames)) for (let index = 0; index < anim.frames; index++) {
       checkFrame(frameName(String(value.characterId), name, index));
     }
+  }
+  // Conditional on the actual caster's moves; once declared, each pose must be complete.
+  for (const reaction of HELD_REACTION_ANIMS) if (Object.hasOwn(value.anims, reaction)) {
+    errors.push(...heldReactionFrameIssues(String(value.characterId), value.anims as AnimTable, attachments as CharacterPresentation['attachments'], reaction));
   }
   if (value.foregroundFrames !== undefined) {
     if (!record(value.foregroundFrames)) errors.push('foregroundFrames must be an explicit frame map');

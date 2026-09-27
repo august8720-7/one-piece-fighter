@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { createCueCatalog, eventCues, hitSfxKind } from '../../src/audio/audioCues';
 import type { FightAudioEvent, ProjectileEndReason } from '../../src/audio/audioTypes';
 import { Btn, FightSim, type HitEvent } from '../../src/core';
-import { akainuDef, luffyDef } from '../../src/characters';
+import { akainuDef, labubuDef, luffyDef, twinkleDef } from '../../src/characters';
 import sampleManifest from '../../src/audio/sampleManifest.json';
 
 const event = (patch: Partial<FightAudioEvent>): FightAudioEvent => ({ phase: 'hit', characterId: 'luffy', player: 0, moveId: 'st_a', ...patch });
@@ -116,6 +116,19 @@ describe('战斗音频纯映射', () => {
     expect(eventCues({ ...reflected, phase: 'hit' }, known())).toEqual([{ id: 'magma_hit', player: 1 }]);
   });
 
+  it('路飞弹反星星弹后仍使用twinkle材质，不误判为赤犬岩浆', () => {
+    const reflected = event({
+      characterId: 'luffy', materialCharacterId: 'twinkle', moveId: 'sp_tiny_star',
+      projectileKind: 'twinkle_tiny_star', player: 0,
+    });
+    expect(eventCues({ ...reflected, phase: 'projectile_spawn' }, known()))
+      .toEqual([{ id: 'sfx.twinkle.star.release', player: 0 }]);
+    expect(eventCues({ ...reflected, phase: 'projectile_end', endReason: 'timeout' }, known()))
+      .toEqual([{ id: 'sfx.twinkle.star.end', player: 0 }]);
+    expect(eventCues({ ...reflected, phase: 'hit', damage: 40 }, known()))
+      .toEqual([{ id: 'hit_light', player: 0 }]);
+  });
+
   it.each([0, 1] as const)('P%s 实际气球反弹只响橡胶段，弹回后被格挡仍响普通格挡', (reflector) => {
     const sim = new FightSim({ p1: reflector === 0 ? luffyDef : akainuDef, p2: reflector === 1 ? luffyDef : akainuDef, seed: 5, introFrames: 0, roundTime: -1 });
     const caster = reflector === 0 ? 1 : 0;
@@ -144,13 +157,43 @@ describe('战斗音频纯映射', () => {
     }
   });
 
-  it('三十六个阶段只提供音效回退，录制文件覆盖后保留缺素材时的退路', () => {
+  it('旧两角三十六个阶段保持不变，录制文件覆盖后保留缺素材时的退路', () => {
     const catalog = createCueCatalog({ 'sfx.luffy.gear2.release': { files: ['/assets/audio/sfx/steam.wav'], group: 'sfx' } });
-    const stages = Object.entries(catalog).filter(([id]) => id.startsWith('sfx.'));
-    expect(stages).toHaveLength(36);
-    expect(stages.every(([, cue]) => cue.group === 'sfx' && !!cue.fallback)).toBe(true);
+    const legacyStages = Object.entries(catalog).filter(([id]) => /^sfx\.(luffy|akainu)\./.test(id));
+    expect(legacyStages).toHaveLength(36);
+    expect(legacyStages.every(([, cue]) => cue.group === 'sfx' && !!cue.fallback)).toBe(true);
     expect(catalog['sfx.luffy.gear2.release']).toMatchObject({ files: ['/assets/audio/sfx/steam.wav'], characterId: 'luffy', fallback: 'whoosh' });
     expect(catalog['sfx.akainu.meteor.release']!.cooldownMs).toBeLessThan(1000 * 4 / 60);
+  });
+
+  it('新增两角保留三阶段音效，九技能只使用已采用的通用语音而不冒充专属喊招', () => {
+    const catalog = createCueCatalog({});
+    const families = {
+      labubu: ['rush', 'flurry', 'upper', 'slide', 'grapple', 'drive', 'charge'],
+      twinkle: ['star', 'push', 'fall', 'reflect', 'blink', 'wave'],
+    } as const;
+    for (const [characterId, expectedFamilies] of Object.entries(families)) {
+      const expected = expectedFamilies.flatMap(family => ['start', 'release', 'end'].map(stage => `sfx.${characterId}.${family}.${stage}`)).sort();
+      const actual = Object.keys(catalog).filter(id => id.startsWith(`sfx.${characterId}.`)).sort();
+      expect(actual).toEqual(expected);
+      for (const id of actual) expect(catalog[id]).toMatchObject({ group: 'sfx', characterId, fallback: expect.any(String) });
+    }
+    const delivered = sampleManifest.cues as Record<string, unknown>;
+    expect(Object.keys(delivered).filter(id => /^voice\.(labubu|twinkle)\./.test(id)).sort())
+      .toEqual([
+        'voice.labubu.attack', 'voice.labubu.effort', 'voice.labubu.hurt', 'voice.labubu.idle', 'voice.labubu.ko', 'voice.labubu.select', 'voice.labubu.win',
+        'voice.twinkle.attack', 'voice.twinkle.effort', 'voice.twinkle.hurt', 'voice.twinkle.idle', 'voice.twinkle.ko', 'voice.twinkle.select', 'voice.twinkle.win',
+      ]);
+    for (const def of [labubuDef, twinkleDef]) {
+      expect(def.skillSlots).toHaveLength(9);
+      for (const moveId of def.skillSlots!) {
+        const cues = eventCues(event({ phase: 'start', characterId: def.id, moveId }), id => id in delivered);
+        expect(cues.some(cue => cue.id.startsWith(`sfx.${def.id}.`))).toBe(true);
+        expect(cues.filter(cue => cue.id.startsWith('voice.'))).toEqual([{ id: `voice.${def.id}.attack`, player: 0 }]);
+      }
+      expect(eventCues(event({ phase: 'start', characterId: def.id, moveId: 'st_a' }), id => id in delivered)
+        .filter(cue => cue.id.startsWith('voice.'))).toEqual([{ id: `voice.${def.id}.effort`, player: 0 }]);
+    }
   });
 
   it('轻重击分界维持原伤害阈值，反击不受伤害大小限制', () => {

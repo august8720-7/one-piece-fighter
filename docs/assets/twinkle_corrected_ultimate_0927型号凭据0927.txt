@@ -1,0 +1,16 @@
+2026-09-27，Asia/Shanghai。
+工具：Microsoft Edge。
+生成前实际核对入口：https://chatgpt.com/images/
+页面标题：ChatGPT 图像 2.5 | AI 图像生成器
+用户0926已接受官方网页“最新＋极高”。
+网页实际模型选项：最新。
+网页实际思考强度：极高，不作为图像型号依据。
+未显示的后台文字模型变体不作推断。
+生成会话：https://chatgpt.com/c/6ab273db-77a0-83ea-a838-2f690d5680cc
+原图：public/assets/generated/source/twinkle-corrected-ultimate-0927.png
+原图SHA256：6edc1f31424e2e85ba7f47a11206557c404d7f4dba86f25014aba885a30dd3f1
+提示词：docs/assets/星星人纠正终极合奏提示词0922.txt
+提示词SHA256：13c119cff7983a62fa5163a2e9ec092d2ade1c4bb65f51b18c2a05cebf3ce5ff
+PNG校验通过，尺寸：1254x1254。
+本记录日期是首次观察到结果已完成的本地日期；服务器实际生成日期/时刻未公开，跨日请求不据此猜测。
+当前为候选原画；PNG、型号证据不代替正常速度美术验收。

@@ -661,6 +661,9 @@ export class AudioEngine {
 
   playMusic(id: string, level = 1): void { this.music.request(id, level); this.syncMusic(); }
 
+  /** A match-loading screen releases long streams without cutting selection voices. */
+  stopMusic(): void { this.music.stop(); }
+
   async previewMusic(): Promise<boolean> {
     this.cancelPreview();
     const version = this.previewVersion;

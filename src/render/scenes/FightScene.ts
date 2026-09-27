@@ -31,7 +31,7 @@ import { Marineford } from '../stage/Marineford';
 import { Afterimages } from '../fx/Afterimages';
 import { Particles } from '../fx/Particles';
 import { SkillEffects } from '../fx/SkillEffects';
-import { activeSegment } from '../fx/movePresentation';
+import { activeSegment, endedProjectileVisual, projectileMaterial, projectileMoveMaterial } from '../fx/movePresentation';
 import { animDrawScale, currentAnimation, frameName, validateAnimeRuntimeManifest, type AnimTable, type CharacterPresentation } from '../animations';
 import { sfx, sfxHudText } from '../../audio/Sfx';
 import { MenuList, UI } from '../ui/MenuList';
@@ -192,7 +192,7 @@ export class FightScene extends Phaser.Scene {
   private prevInstances: [number, number] = [-1, -1];
   private prevSegments: [string | null, string | null] = [null, null];
   private prevMoveIds: [string | null, string | null] = [null, null];
-  private prevProj = new Map<number, { kind: string; x: number; y: number }>();
+  private prevProj = new Map<number, ProjectileState>();
   /** 训练预览：URL `hold=st_c/1` 让 P1 定格在该招式帧（命中帧通常是 /1） */
   private holdPose: string | undefined;
 
@@ -285,9 +285,14 @@ export class FightScene extends Phaser.Scene {
     this.shake = 0;
     this.wasRoundOver = false;
     this.dummy = new Dummy();
+    const cpuProfile = characterAi[data.p2];
+    if (this.mode === 'cpu' && !cpuProfile) {
+      this.scene.start('Preload', { ...this.data_, failure: [`角色 ${data.p2} 缺少CPU策略配置`] });
+      return;
+    }
     this.cpu =
       this.mode === 'cpu'
-        ? new Cpu(1, characterAi[data.p2] ?? characterAi['akainu']!, data.difficulty ?? 'normal', (Date.now() & 0xffff) | 1)
+        ? new Cpu(1, cpuProfile!, data.difficulty ?? 'normal', (Date.now() & 0xffff) | 1)
         : null;
 
     const controls = matchControls(this.mode, this.data_.controlModes ?? getInputHub().controlModes, sampleRequested);
@@ -761,7 +766,7 @@ export class FightScene extends Phaser.Scene {
       const defender = w.fighters[h.defender]!;
       const dir: 1 | -1 = attacker.facing;
       this.skillFx.contact(h, w);
-      const audioEvent = { characterId: attacker.def.id, materialCharacterId: h.projectile ? 'akainu' : attacker.def.id, player: attacker.player, moveId: h.moveId, moveInstance: attacker.moveInstance, damage: h.damage, counter: h.counter, defenderId: defender.def.id, defenderPlayer: defender.player };
+      const audioEvent = { characterId: attacker.def.id, materialCharacterId: h.projectile ? projectileMoveMaterial(h.moveId) ?? attacker.def.id : attacker.def.id, player: attacker.player, moveId: h.moveId, moveInstance: attacker.moveInstance, damage: h.damage, counter: h.counter, defenderId: defender.def.id, defenderPlayer: defender.player };
       switch (h.kind) {
         case 'hit':
           this.shake = Math.max(this.shake, Math.min(4, 1 + h.damage / 30));
@@ -1238,20 +1243,25 @@ export class FightScene extends Phaser.Scene {
     for (const p of w.projectiles) {
       if (!this.prevProj.has(p.id)) {
         const owner = w.fighters[p.owner]!;
-        this.audio.playEvent({ phase: 'projectile_spawn', characterId: owner.def.id, materialCharacterId: 'akainu', player: p.owner, moveId: p.moveId, projectileKind: p.kind === 'meteor' ? 'meteor' : 'dog' });
+        this.audio.playEvent({ phase: 'projectile_spawn', characterId: owner.def.id, materialCharacterId: projectileMaterial(p.kind) ?? owner.def.id, player: p.owner, moveId: p.moveId, projectileKind: p.kind });
       }
       if (p.kind === 'meteor') this.fx.meteorTrail(sx(p.x), sy(p.y));
     }
     for (const end of this.sim.projectileEnds) {
-      this.skillFx.projectileEnd(end);
+      const material = projectileMaterial(end.kind);
+      this.skillFx.projectileEnd(end, endedProjectileVisual(end, w, material ? characters[material]?.moves ?? [] : [], this.prevProj.get(end.id)));
       const owner = w.fighters[end.owner]!;
-      this.audio.playEvent({ phase: 'projectile_end', characterId: owner.def.id, materialCharacterId: 'akainu', player: end.owner, moveId: end.moveId, projectileKind: end.kind === 'meteor' ? 'meteor' : 'dog', endReason: end.reason });
+      // A wide single-hit wave may be born and consumed before any live-projectile sample.
+      if (end.kind === 'twinkle_shining_wave' && !this.prevProj.has(end.id) && (end.reason === 'hit' || end.reason === 'block' || end.reason === 'clash')) {
+        this.audio.playEvent({ phase: 'projectile_spawn', characterId: owner.def.id, materialCharacterId: material ?? owner.def.id, player: end.owner, moveId: end.moveId, projectileKind: end.kind });
+      }
+      this.audio.playEvent({ phase: 'projectile_end', characterId: owner.def.id, materialCharacterId: projectileMaterial(end.kind) ?? owner.def.id, player: end.owner, moveId: end.moveId, projectileKind: end.kind, endReason: end.reason });
       if (end.reason === 'ground' && end.kind === 'meteor') {
         this.fx.groundBurst(sx(end.x), sy(GROUND_Y));
         this.shake = Math.max(this.shake, 2.5);
       }
     }
     this.prevProj.clear();
-    for (const p of w.projectiles) this.prevProj.set(p.id, { kind: p.kind, x: p.x, y: p.y });
+    for (const p of w.projectiles) this.prevProj.set(p.id, { ...p });
   }
 }

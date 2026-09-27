@@ -117,6 +117,8 @@ export interface ThrowData {
   duration: number;
   /** 抓住时对手相对攻击者的水平偏移（像素，面朝方向为正） */
   holdOffset: number;
+  /** Explicit opt-in: keep both held roots inside the stage without shortening holdOffset. */
+  keepHoldOffsetAtWall?: boolean;
   /** 4+按键 时把对手甩到身后 */
   switchSides: boolean;
 }

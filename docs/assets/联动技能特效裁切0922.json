@@ -1,0 +1,157 @@
+{
+  "source": {
+    "file": "public/assets/generated/source/crossover-fx-0922.png",
+    "sha256": "60d16122efe125f2e0c3a391a3f1a8fc922958dc769f6bb04b5bc2f7df7ba682",
+    "model": "GPT Image 2.5",
+    "provider": "chatgpt-web",
+    "sessionUrl": "https://chatgpt.com/c/6ab28469-12e8-83ea-b290-a9c3ed3ad710",
+    "prompt": {
+      "file": "docs/assets/联动技能特效提示词0922.txt",
+      "sha256": "4fdee71e10a3a544ca8c7d7a8c431ddd2401fb739809d15177f4bbfa23c12ba2"
+    },
+    "modelEvidence": {
+      "file": "docs/assets/crossover_fx型号凭据0922.txt",
+      "sha256": "4297d73ff00cfdf335a87fb4d0c79303713c0fbaa0af5366b8f12da7ded3c29a"
+    }
+  },
+  "manifestSha256": "6eb43cc45eb1dfe275003683f3fba095c6f454206f5de08f78b5b118ae745459",
+  "processing": "explicit crop and byte-preserving packing only; no generated pixels, alpha filtering, rescale or color change",
+  "characters": [
+    {
+      "character": "labubu",
+      "frames": [
+        {
+          "name": "wind",
+          "crop": [
+            83,
+            148,
+            377,
+            196
+          ],
+          "rgbaSha256": "46427ef88c0c60edc810a4ca6d86a49581313b237c66753ee0fa865a16bd38a6",
+          "pixelsEqual": true,
+          "maxCropEdgeAlpha": 3
+        },
+        {
+          "name": "impact",
+          "crop": [
+            611,
+            108,
+            259,
+            265
+          ],
+          "rgbaSha256": "a119a69f6eb0818bef21ed07598899da603c064bbe6a3ddb1b0047650be15bb7",
+          "pixelsEqual": true,
+          "maxCropEdgeAlpha": 3
+        },
+        {
+          "name": "charge",
+          "crop": [
+            1059,
+            58,
+            269,
+            329
+          ],
+          "rgbaSha256": "553ef0dd9aafbd0d0e2beba6518feaff55fefaaeb7e4e3694fc309d4d6b2a61b",
+          "pixelsEqual": true,
+          "maxCropEdgeAlpha": 4
+        }
+      ],
+      "size": [
+        937,
+        345
+      ]
+    },
+    {
+      "character": "twinkle",
+      "frames": [
+        {
+          "name": "star",
+          "crop": [
+            132,
+            426,
+            249,
+            245
+          ],
+          "rgbaSha256": "8753533e8f36c4436f42df84a19b3fdb72e4f7844f47a5e7a166e4fe97d523aa",
+          "pixelsEqual": true,
+          "maxCropEdgeAlpha": 2
+        },
+        {
+          "name": "wave",
+          "crop": [
+            529,
+            461,
+            413,
+            210
+          ],
+          "rgbaSha256": "aea63ddf8928587e57eca3068f3f9ffe9fceb242cec6d50e4b5ea718f7fe6632",
+          "pixelsEqual": true,
+          "maxCropEdgeAlpha": 2
+        },
+        {
+          "name": "impact",
+          "crop": [
+            1065,
+            426,
+            284,
+            255
+          ],
+          "rgbaSha256": "5cf5b45685f48956bee9285f184403914b5929e8fc2ffcda59cd66786b7bdc82",
+          "pixelsEqual": true,
+          "maxCropEdgeAlpha": 2
+        },
+        {
+          "name": "spark",
+          "crop": [
+            160,
+            783,
+            224,
+            216
+          ],
+          "rgbaSha256": "dba02d7f1d6d86a5746896e46102388b565d92b914a2bc7b9f4839811662d54e",
+          "pixelsEqual": true,
+          "maxCropEdgeAlpha": 3
+        },
+        {
+          "name": "shield",
+          "crop": [
+            654,
+            724,
+            170,
+            325
+          ],
+          "rgbaSha256": "d39b82f40ebcd6c2891853782b1fb01cd04dff7b6a9229eb58e36e827418ee7d",
+          "pixelsEqual": true,
+          "maxCropEdgeAlpha": 2
+        }
+      ],
+      "size": [
+        1388,
+        341
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "file": "public/assets/fx/labubu/atlas.png",
+      "bytes": 367297,
+      "sha256": "091ec80040ce8fab4ba744755023ec7d7c5f3bdf2705d067a41a91212082b1ed"
+    },
+    {
+      "file": "public/assets/fx/labubu/atlas.json",
+      "bytes": 1312,
+      "sha256": "79a86b11cc461033d4d037ebfa0e20cff5648046beb65961f7338a164e23c5cf"
+    },
+    {
+      "file": "public/assets/fx/twinkle/atlas.png",
+      "bytes": 517874,
+      "sha256": "60d28abca2395a9fe580c181de931ab874b6dd78f1950f6eab36bc39a06a0078"
+    },
+    {
+      "file": "public/assets/fx/twinkle/atlas.json",
+      "bytes": 1981,
+      "sha256": "11b2797e610221d9dedd7466e93a78b59a317179062b5b98b93c1266494f0184"
+    }
+  ]
+}

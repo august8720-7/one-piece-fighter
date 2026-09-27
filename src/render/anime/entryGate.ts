@@ -31,7 +31,7 @@ export function evaluateAnimeEntry(
   for (const side of [0, 1] as const) {
     const def = definitions[side]!;
     const runtime = assets[def.id]!.runtime;
-    const coverage = profile.scope === 'full' ? validateFullCoverage(def, runtime)
+    const coverage = profile.scope === 'full' ? validateFullCoverage(def, runtime, definitions[side === 0 ? 1 : 0]!)
       : validateSampleCoverage(def, runtime, definitions[side === 0 ? 1 : 0]!, { infiniteHp: true });
     if (coverage.missingStates.length) issues.push(`${def.name}缺少动作：${coverage.missingStates.join('、')}`);
     if (coverage.missingMoves.length) issues.push(`${def.name}缺少招式：${coverage.missingMoves.join('、')}`);

@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import type { FightSim, FighterState } from '@core/index';
-import { attachmentPoint, currentAnimation, frameName, type AnimationOverride, type AnimTable, type AttachmentPoint, type CharacterPresentation } from './animations';
+import { attachmentPoint, connectedHeldReaction, currentAnimation, frameName, heldReactionFrameIssues, isHeldReactionAnim, type AnimationOverride, type AnimTable, type AttachmentPoint, type CharacterPresentation } from './animations';
 import { frameFramingBounds, unionFightBounds, type FightBounds } from './fightFraming';
 
 /**
@@ -48,9 +48,15 @@ export class FighterView {
     override?: AnimationOverride,
     scale = 1,
   ): boolean {
-    const { anim, index: visualIndex } = currentAnimation(sim, f, this.anims, override);
+    const reaction = this.strictFrames ? connectedHeldReaction(sim, f) : null;
+    const { anim, index: visualIndex } = reaction ?? currentAnimation(sim, f, this.anims, override);
     const index = !override && !this.continuous && f.state === 'attack' ? sim.currentFrame(f)?.sprite ?? 0 : visualIndex;
     let name = frameName(this.charId, anim, index);
+    if (reaction && (!this.presentation || heldReactionFrameIssues(this.charId, this.anims, this.presentation.attachments, reaction.anim).length)) {
+      this.missing.add(name);
+      this.hide();
+      return false;
+    }
     const requestedTexture = this.presentation?.frameTextures?.[name] ?? this.textureKey;
     if (requestedTexture !== this.activeTextureKey) {
       this.sprite.setTexture(requestedTexture);
@@ -142,7 +148,8 @@ export class FighterView {
     const anim = this.drawnFrame.split('/')[1]!;
     let names = this.framingGroups.get(anim);
     if (!names) {
-      const families = anim === 'hit_air' || anim === 'thrown' || anim === 'ko' ? [anim, 'knockdown'] : [anim];
+      const families = isHeldReactionAnim(anim) ? [anim, 'hit_air', 'knockdown']
+        : anim === 'hit_air' || anim === 'thrown' || anim === 'ko' ? [anim, 'knockdown'] : [anim];
       names = Object.keys(this.presentation.attachments).filter(name => families.some(family => name.startsWith(`${this.charId}/${family}/`)));
       this.framingGroups.set(anim, names);
     }

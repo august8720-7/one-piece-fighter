@@ -1,5 +1,8 @@
 import { describe, expect, it, vi } from 'vitest';
 import { AudioEngine } from '../../src/audio/AudioEngine';
+import { createCueCatalog } from '../../src/audio/audioCues';
+import sampleManifest from '../../src/audio/sampleManifest.json';
+import voiceSelection from '../../scripts/voice_manifest.json';
 import type { CueCatalog } from '../../src/audio/audioTypes';
 
 function audioDevice() {
@@ -98,6 +101,200 @@ describe('sample-first playback and cache', () => {
     expect(rig.engine.playPresentation({ phase: 'select', key: 'select-0', player: 0, characterId: 'luffy' })).toBe(true);
     expect(rig.engine.playPresentation({ phase: 'select', key: 'select-0', player: 0, characterId: 'luffy' })).toBe(false);
     expect(rig.device.decodeAudioData).toHaveBeenCalledTimes(4);
+    await rig.engine.destroy();
+  });
+
+  it('preloads the adopted crossover selection clips and captions the exact file for either player', async () => {
+    const rig = setup(createCueCatalog(sampleManifest.cues as CueCatalog));
+    const heard = vi.fn();
+    rig.engine.onVoice(heard);
+    const report = await rig.engine.preloadMenu();
+    expect(report).toEqual({ fetched: 4, decoded: 0, failed: [] });
+    const urls = rig.fetcher.mock.calls.map(([url]) => url);
+    expect(urls.filter(url => String(url).includes('/voice/labubu/'))).toEqual(['assets/audio/voice/labubu/select-0926.wav']);
+    expect(urls.filter(url => String(url).includes('/voice/twinkle/'))).toEqual(['assets/audio/voice/twinkle/select-0926.mp3']);
+    expect(urls.some(url => String(url).includes('/sources/'))).toBe(false);
+    await rig.engine.unlock();
+    for (const player of [0, 1] as const) {
+      for (const [characterId, file, text] of [
+        ['labubu', 'assets/audio/voice/labubu/select-0926.wav', '嘿嘿，来追我呀！'],
+        ['twinkle', 'assets/audio/voice/twinkle/select-0926.mp3', '一起闪闪发光吧。'],
+      ] as const) {
+        rig.engine.clearFightSounds();
+        expect(rig.engine.playPresentation({ phase: 'select', key: `${characterId}-${player}`, characterId, player })).toBe(true);
+        expect(heard).toHaveBeenLastCalledWith(expect.objectContaining({
+          cueId: `voice.${characterId}.select`, file, text, transcriptVerified: true, player,
+        }));
+      }
+    }
+    expect(rig.fetcher).toHaveBeenCalledTimes(4);
+    expect(rig.device.decodeAudioData).toHaveBeenCalledTimes(4);
+    await rig.engine.destroy();
+  });
+
+  it('keeps adopted crossover voices owned by the selected character during fight loading', async () => {
+    const rig = setup(createCueCatalog(sampleManifest.cues as CueCatalog));
+    await rig.engine.preload(['labubu']);
+    const voices = rig.fetcher.mock.calls.map(([url]) => String(url)).filter(url => url.includes('/voice/'));
+    expect(voices.every(file => file.startsWith('assets/audio/voice/labubu/'))).toBe(true);
+    expect(voices).toEqual(expect.arrayContaining(['assets/audio/voice/labubu/attack-0927.mp3', 'assets/audio/voice/labubu/ko-0927.mp3', 'assets/audio/voice/labubu/select-0926.wav']));
+    await rig.engine.destroy();
+  });
+
+  it('plays internally reviewed attack and win lines with exact-file captions and the attack cooldown', async () => {
+    const rig = setup(createCueCatalog(sampleManifest.cues as CueCatalog));
+    await rig.engine.preload(['labubu', 'twinkle']);
+    await rig.engine.unlock();
+    const heard = vi.fn();
+    rig.engine.onVoice(heard);
+    const attack = (moveInstance: number) => rig.engine.playEvent({
+      phase: 'start', characterId: 'labubu', player: 0, moveId: 'sp_pounce_rush', moveInstance,
+    });
+    attack(1);
+    expect(heard).toHaveBeenLastCalledWith(expect.objectContaining({
+      cueId: 'voice.labubu.attack', file: 'assets/audio/voice/labubu/attack-0927.mp3',
+      text: '看招！', transcriptVerified: true, player: 0,
+    }));
+    rig.advance(899);
+    attack(2);
+    expect(heard.mock.calls.filter(([voice]) => voice?.cueId === 'voice.labubu.attack')).toHaveLength(1);
+    rig.advance(1);
+    attack(3);
+    expect(heard.mock.calls.filter(([voice]) => voice?.cueId === 'voice.labubu.attack')).toHaveLength(2);
+    const starAttack = (moveInstance: number) => rig.engine.playEvent({
+      phase: 'start', characterId: 'twinkle', player: 1, moveId: 'sp_tiny_star', moveInstance,
+    });
+    starAttack(1);
+    expect(heard).toHaveBeenLastCalledWith(expect.objectContaining({
+      cueId: 'voice.twinkle.attack', file: 'assets/audio/voice/twinkle/attack-0927.mp3',
+      text: '星星，出击。', transcriptVerified: true, player: 1,
+    }));
+    rig.advance(1999);
+    starAttack(2);
+    expect(heard.mock.calls.filter(([voice]) => voice?.cueId === 'voice.twinkle.attack')).toHaveLength(1);
+    rig.advance(1);
+    starAttack(3);
+    expect(heard.mock.calls.filter(([voice]) => voice?.cueId === 'voice.twinkle.attack')).toHaveLength(2);
+    for (const player of [0, 1] as const) {
+      expect(rig.engine.playPresentation({ phase: 'win', key: `twinkle-win-${player}`, characterId: 'twinkle', player })).toBe(true);
+      expect(heard).toHaveBeenLastCalledWith(expect.objectContaining({
+        cueId: 'voice.twinkle.win', file: 'assets/audio/voice/twinkle/win-0927.mp3',
+        text: '星星赢啦', transcriptVerified: true, player,
+      }));
+    }
+    rig.engine.clearFightSounds();
+    for (const player of [0, 1] as const) {
+      expect(rig.engine.playPresentation({ phase: 'win', key: `labubu-win-${player}`, characterId: 'labubu', player })).toBe(true);
+      expect(heard).toHaveBeenLastCalledWith(expect.objectContaining({
+        cueId: 'voice.labubu.win', file: 'assets/audio/voice/labubu/win-0927.mp3',
+        text: '我赢啦。', transcriptVerified: true, player,
+      }));
+    }
+    await rig.engine.destroy();
+  });
+
+  it('uses each reviewed short hurt clip for the actual defender and respects its full-length cooldown', async () => {
+    const rig = setup(createCueCatalog(sampleManifest.cues as CueCatalog));
+    await rig.engine.preload(['labubu', 'twinkle']);
+    await rig.engine.unlock();
+    const heard = vi.fn();
+    rig.engine.onVoice(heard);
+    for (const [defenderId, cooldownMs] of [['labubu', 1100], ['twinkle', 700]] as const) {
+      const clip = voiceSelection.cues.find(cue => cue.character === defenderId && cue.event === 'hurt')!.clips[0]!;
+      expect(cooldownMs).toBeGreaterThanOrEqual((clip.source_end_seconds - clip.source_start_seconds) * 1000);
+      for (const defenderPlayer of [0, 1] as const) {
+        rig.engine.clearFightSounds();
+        const hit = () => rig.engine.playEvent({
+          phase: 'hit', characterId: defenderId === 'labubu' ? 'twinkle' : 'labubu', player: defenderPlayer === 0 ? 1 : 0,
+          defenderId, defenderPlayer, moveId: 'st_a', damage: 34,
+        });
+        hit();
+        expect(heard).toHaveBeenLastCalledWith(expect.objectContaining({
+          cueId: `voice.${defenderId}.hurt`, file: `assets/audio/voice/${defenderId}/hurt-0927.wav`,
+          text: '哎呀', transcriptVerified: true, player: defenderPlayer,
+        }));
+        rig.advance(cooldownMs - 1);
+        hit();
+        expect(heard.mock.calls.filter(([voice]) => voice?.cueId === `voice.${defenderId}.hurt` && voice.player === defenderPlayer)).toHaveLength(1);
+        rig.advance(1);
+        hit();
+        expect(heard.mock.calls.filter(([voice]) => voice?.cueId === `voice.${defenderId}.hurt` && voice.player === defenderPlayer)).toHaveLength(2);
+      }
+    }
+    await rig.engine.destroy();
+  });
+
+  it.each([
+    ['labubu', '哼！', 650], ['twinkle', '呀', 900],
+  ] as const)('plays %s normal effort with observed wording and a cooldown covering its native clip', async (characterId, text, cooldownMs) => {
+    const catalog = createCueCatalog(sampleManifest.cues as CueCatalog);
+    const rig = setup(catalog);
+    const clip = voiceSelection.cues.find(cue => cue.character === characterId && cue.event === 'effort')!.clips[0]!;
+    expect(catalog[`voice.${characterId}.effort`]!.cooldownMs).toBe(cooldownMs);
+    expect(cooldownMs).toBeGreaterThanOrEqual((clip.source_end_seconds - clip.source_start_seconds) * 1000);
+    await rig.engine.preload([characterId]);
+    await rig.engine.unlock();
+    const heard = vi.fn();
+    rig.engine.onVoice(heard);
+    for (const player of [0, 1] as const) {
+      rig.engine.clearFightSounds();
+      const normal = (moveInstance: number) => rig.engine.playEvent({ phase: 'start', characterId, player, moveId: 'st_a', moveInstance });
+      normal(1);
+      expect(heard).toHaveBeenLastCalledWith(expect.objectContaining({
+        cueId: `voice.${characterId}.effort`, file: `assets/audio/voice/${characterId}/effort-0927.wav`,
+        text, transcriptVerified: true, player,
+      }));
+      rig.advance(cooldownMs - 1);
+      normal(2);
+      expect(heard.mock.calls.filter(([voice]) => voice?.cueId === `voice.${characterId}.effort` && voice.player === player)).toHaveLength(1);
+      rig.advance(1);
+      normal(3);
+      expect(heard.mock.calls.filter(([voice]) => voice?.cueId === `voice.${characterId}.effort` && voice.player === player)).toHaveLength(2);
+    }
+    await rig.engine.destroy();
+  });
+
+  it('uses each defeated character KO file and protects it from lower-priority hurt speech', async () => {
+    const rig = setup(createCueCatalog(sampleManifest.cues as CueCatalog));
+    await rig.engine.preload(['labubu', 'twinkle']);
+    await rig.engine.unlock();
+    const heard = vi.fn();
+    rig.engine.onVoice(heard);
+    for (const [characterId, player, text] of [
+      ['labubu', 0, '我还会回来的。'], ['twinkle', 1, '星星先休息一下。'],
+    ] as const) {
+      rig.engine.clearFightSounds();
+      rig.engine.playEvent({ phase: 'ko', characterId, player });
+      expect(heard).toHaveBeenLastCalledWith(expect.objectContaining({
+        cueId: `voice.${characterId}.ko`, file: `assets/audio/voice/${characterId}/ko-0927.mp3`,
+        text, transcriptVerified: true, player,
+      }));
+      expect(rig.engine.playCue(`voice.${characterId}.hurt`, { player })).toBe(false);
+      expect(rig.engine.diagnostics().playing.some(sound => sound.cueId === `voice.${characterId}.ko`)).toBe(true);
+    }
+    await rig.engine.destroy();
+  });
+
+  it('keeps reviewed idle replies below combat speech and captions their actual words', async () => {
+    const rig = setup(createCueCatalog(sampleManifest.cues as CueCatalog));
+    await rig.engine.preload(['labubu', 'twinkle']);
+    await rig.engine.unlock();
+    const heard = vi.fn();
+    rig.engine.onVoice(heard);
+    for (const [characterId, player, text] of [
+      ['labubu', 0, '快来陪我玩呀！'], ['twinkle', 1, '让星光陪你玩。'],
+    ] as const) {
+      rig.engine.clearFightSounds();
+      expect(rig.engine.playCue(`voice.${characterId}.idle`, { player })).toBe(true);
+      expect(heard).toHaveBeenLastCalledWith(expect.objectContaining({
+        cueId: `voice.${characterId}.idle`, file: `assets/audio/voice/${characterId}/idle-0927.mp3`,
+        text, transcriptVerified: true, player,
+      }));
+      rig.engine.playEvent({ phase: 'start', characterId, player, moveId: characterId === 'labubu' ? 'sp_pounce_rush' : 'sp_tiny_star', moveInstance: player + 1 });
+      expect(rig.engine.diagnostics().playing.some(sound => sound.cueId.endsWith('.idle'))).toBe(false);
+      const otherCharacter = characterId === 'labubu' ? 'twinkle' : 'labubu';
+      expect(rig.engine.playCue(`voice.${otherCharacter}.idle`, { player: player === 0 ? 1 : 0 })).toBe(false);
+    }
     await rig.engine.destroy();
   });
 

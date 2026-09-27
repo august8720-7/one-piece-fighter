@@ -1,0 +1,74 @@
+[
+  {
+    "character": "labubu",
+    "image": "assets/characters/labubu/anime/ui-0922.png",
+    "sha256": "9885d6f52558ebef50fe8699175c1e6860bb00cf64d9a92773294589df5e748e",
+    "width": 425,
+    "height": 557,
+    "frames": {
+      "body": {
+        "x": 0,
+        "y": 0,
+        "w": 425,
+        "h": 557
+      },
+      "portrait": {
+        "x": 65,
+        "y": 130,
+        "w": 335,
+        "h": 275
+      }
+    },
+    "source": {
+      "file": "public/assets/generated/source/crossover-mother-0922.png",
+      "sha256": "f14b61324dbee290e7d9af3db51dcf5531ec7dcc51265054721b33f2550dd41f",
+      "crop": [
+        132,
+        0,
+        425,
+        557
+      ]
+    },
+    "processing": {
+      "scale": 1,
+      "method": "explicit crop; original RGBA preserved",
+      "pixelsEqual": true
+    }
+  },
+  {
+    "character": "twinkle",
+    "image": "assets/characters/twinkle/anime/ui-0922.png",
+    "sha256": "fe3061e62b2d17714bc5f70f39cbca188fca4dbc5593a0a105981ffb750b1988",
+    "width": 456,
+    "height": 450,
+    "frames": {
+      "body": {
+        "x": 0,
+        "y": 0,
+        "w": 456,
+        "h": 450
+      },
+      "portrait": {
+        "x": 100,
+        "y": 105,
+        "w": 290,
+        "h": 290
+      }
+    },
+    "source": {
+      "file": "public/assets/generated/source/crossover-mother-0922.png",
+      "sha256": "f14b61324dbee290e7d9af3db51dcf5531ec7dcc51265054721b33f2550dd41f",
+      "crop": [
+        108,
+        559,
+        456,
+        450
+      ]
+    },
+    "processing": {
+      "scale": 1,
+      "method": "explicit crop; original RGBA preserved",
+      "pixelsEqual": true
+    }
+  }
+]

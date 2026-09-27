@@ -1,0 +1,13 @@
+2026-09-22，Asia/Shanghai。
+工具：Codex内置浏览器。
+生成前实际核对入口：https://chatgpt.com/images/
+页面标题：ChatGPT 图像 2.5 | AI 图像生成器
+文字模式：中（非Pro），不作为图像型号依据。
+生成会话：https://chatgpt.com/c/6ab2769a-0afc-83ea-81d1-8d0795f50b14
+原图：public/assets/generated/source/labubu-mother-corrected-0922.png
+原图SHA256：2ceb759998d911beacf10dffd2b996e5cd218012612bf08df9421937569f1044
+提示词：docs/assets/LABUBU官方参考纠正母版提示词0922.txt
+提示词SHA256：9205144bd8642dd8d83cb972e90a8b6a654b97fae6515382fd9170d9de56c37f
+PNG校验通过，尺寸：2172x724。
+生成日期已知；精确完成时刻未记录。
+当前为候选原画；PNG、型号证据不代替正常速度美术验收。

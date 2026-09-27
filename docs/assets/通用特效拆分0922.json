@@ -1,0 +1,56 @@
+{
+  "kind": "pixel-preserving-adopted-atlas-split",
+  "frames": [
+    {
+      "name": "impact",
+      "source": "public/assets/fx/luffy.png",
+      "sha256": "7040525132e0b1e54fe295dd05f7cd63019fceae6c2a3b930426525c6bc8f5b3",
+      "rect": [
+        690,
+        697,
+        320,
+        306
+      ],
+      "rgbaSha256": "d6791201346ea4998f20dc56577533262121aa3ae529a173c8f11d1664f37f1a",
+      "pixelsEqual": true
+    },
+    {
+      "name": "rebound",
+      "source": "public/assets/fx/luffy.png",
+      "sha256": "7040525132e0b1e54fe295dd05f7cd63019fceae6c2a3b930426525c6bc8f5b3",
+      "rect": [
+        10,
+        782,
+        320,
+        136
+      ],
+      "rgbaSha256": "0e0c572162e8d68ff569bfbc36d523da28a563fe93f85ecd8f474e89b75cf113",
+      "pixelsEqual": true
+    },
+    {
+      "name": "smoke",
+      "source": "public/assets/fx/akainu.png",
+      "sha256": "2f066a29b07468c4a0831ab9b767bcba51fddeae251f0b5896e65e2ea92db329",
+      "rect": [
+        350,
+        723,
+        320,
+        254
+      ],
+      "rgbaSha256": "8b78cc1257e67b86bc696642e8cd8b02e72d89beaf82b2ebdf487ce1ee712f62",
+      "pixelsEqual": true
+    }
+  ],
+  "outputs": [
+    {
+      "file": "public/assets/fx/common/atlas.png",
+      "bytes": 272972,
+      "sha256": "9898dea0cdd18e5f72af00976ca122f86da8023a0bdce3c5d036860d42aab24a"
+    },
+    {
+      "file": "public/assets/fx/common/atlas.json",
+      "bytes": 1208,
+      "sha256": "ba29e595dbb0232590a1bb49e98ec27125f1a0d11405c796b96cfa80886dcaa2"
+    }
+  ]
+}

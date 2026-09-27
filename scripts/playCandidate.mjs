@@ -7,13 +7,16 @@ import { openLocalUrl } from './openLocalUrl.mjs';
 
 const releaseIndex = process.argv.indexOf('--release');
 const release = releaseIndex < 0 ? 'candidate-0912' : process.argv[releaseIndex + 1];
-if (!['candidate-0912', 'candidate-0913', 'candidate-0914', 'candidate-0915', 'candidate-0922', 'classic-1'].includes(release)) throw new Error('Unknown local candidate release.');
+if (!['candidate-0912', 'candidate-0913', 'candidate-0914', 'candidate-0915', 'candidate-0922', 'candidate-crossover-0922', 'classic-1', 'classic-2'].includes(release)) throw new Error('Unknown local candidate release.');
 const full = process.argv.includes('--full');
-if (full && release === 'candidate-0912') throw new Error('--full requires --release candidate-0913, candidate-0914 or candidate-0915.');
+if (full && release === 'candidate-0912') throw new Error('--full requires a complete candidate release.');
 const releasePaths = { 'candidate-0922': '操作演出-0922/playable', 'classic-1': '操作演出-0922/baseline/v1', 'candidate-0915': '加载提速-0915/playable', 'candidate-0914': '声音修复-0914/candidate' };
-const root = resolve(dirname(fileURLToPath(import.meta.url)), '..', '.local-releases', releasePaths[release] ?? release);
+const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const crossoverRoot = resolve(process.env.OPF_CROSSOVER_ROOT ?? 'D:/one-piece-fighter-crossover-0922');
+const externalPaths = { 'candidate-crossover-0922': resolve(crossoverRoot, 'playable'), 'classic-2': resolve(crossoverRoot, 'baseline/v2') };
+const root = externalPaths[release] ?? resolve(projectRoot, '.local-releases', releasePaths[release] ?? release);
 const portIndex = process.argv.indexOf('--port');
-const defaultPorts = { 'candidate-0922': 4180, 'classic-1': 4181, 'candidate-0915': 4179, 'candidate-0914': 4178, 'candidate-0913': 4177 };
+const defaultPorts = { 'candidate-crossover-0922': 4182, 'classic-2': 4183, 'candidate-0922': 4180, 'classic-1': 4181, 'candidate-0915': 4179, 'candidate-0914': 4178, 'candidate-0913': 4177 };
 const port = portIndex < 0 ? defaultPorts[release] ?? 4176 : Number(process.argv[portIndex + 1]);
 if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('Invalid local port.');
 const origin = `http://127.0.0.1:${port}`;
@@ -22,7 +25,7 @@ const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const types = {
   '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
   '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8',
-  '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.svg': 'image/svg+xml',
+  '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.avif': 'image/avif', '.svg': 'image/svg+xml',
   '.wav': 'audio/wav', '.ogg': 'audio/ogg', '.mp3': 'audio/mpeg', '.webm': 'video/webm',
 };
 const samePath = (left, right) => process.platform === 'win32' ? left.toLowerCase() === right.toLowerCase() : left === right;
@@ -73,7 +76,8 @@ try {
 const indexHash = files.get('index.html').hash;
 
 function openCandidate() {
-  console.log(`${release === 'classic-1' ? '冻结1.0完整动漫版' : full ? '完整动漫候选' : '新版限定动作样板'}：${url}`);
+  const label = release === 'classic-1' ? '冻结1.0完整动漫版' : release === 'classic-2' ? '冻结2.0完整动漫版' : full ? '完整动漫候选' : '新版限定动作样板';
+  console.log(`${label}：${url}`);
   console.log('保留此窗口；按 Ctrl+C 停止本地服务。此入口不会构建、安装依赖或发布。');
   if (process.argv.includes('--no-open')) return;
   openLocalUrl(url);

@@ -2,22 +2,23 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { totalFrames, type FighterDef } from '../../src/core';
 import { akainuDef, luffyDef } from '../../src/characters';
 import { DEFAULT_ANIMS, type AnimeRuntimeManifest } from '../../src/render/animations';
-import type { AnimeLoadResult, PresentationAssetLoadResult } from '../../src/render/assets';
+import type { AnimeLoadResult, AssetFailure, PresentationAssetLoadResult } from '../../src/render/assets';
 
 const mocks = vi.hoisted(() => ({
-  loadAnime: vi.fn(), loadInterfaces: vi.fn(async () => ({ ok: true, failures: [] })),
-  loadLegacy: vi.fn(async () => ({})), loadStage: vi.fn(),
+  loadAnime: vi.fn(), loadInterfaces: vi.fn(async () => ({ ok: true, failures: [] as AssetFailure[] })),
+  loadLegacy: vi.fn(async () => ({})), loadStage: vi.fn(), releaseUnused: vi.fn(),
   preloadAudio: vi.fn(async () => ({ fetched: 0, decoded: 0, failed: [] as string[] })),
   preloadMenu: vi.fn(async () => ({ fetched: 0, decoded: 0, failed: [] as string[] })),
   retryAudio: vi.fn(async () => ({ fetched: 0, decoded: 0, failed: [] as string[] })),
-  playMusic: vi.fn(),
+  playMusic: vi.fn(), stopMusic: vi.fn(),
 }));
 vi.mock('phaser', () => ({ default: { Scene: class {}, Scenes: { Events: { SHUTDOWN: 'shutdown' } } } }));
 vi.mock('../../src/render/assets', () => ({
   ANIME_LOAD_RESULT: 'animeLoadResult', SPRITE_KEYS: 'spriteKeys',
   loadAnimeCharacters: mocks.loadAnime, loadAnimeInterfaces: mocks.loadInterfaces, loadCharacterAtlases: mocks.loadLegacy, loadPresentationAssets: mocks.loadStage,
+  releaseUnusedFightAssets: mocks.releaseUnused,
 }));
-vi.mock('../../src/audio/Sfx', () => ({ sfx: () => ({ preload: mocks.preloadAudio, preloadMenu: mocks.preloadMenu, useDownloads: vi.fn(), retryFailed: mocks.retryAudio, playMusic: mocks.playMusic, muted: false }) }));
+vi.mock('../../src/audio/Sfx', () => ({ sfx: () => ({ preload: mocks.preloadAudio, preloadMenu: mocks.preloadMenu, useDownloads: vi.fn(), retryFailed: mocks.retryAudio, playMusic: mocks.playMusic, stopMusic: mocks.stopMusic, muted: false }) }));
 vi.mock('../../src/render/ui/audioQuickControls', () => ({ audioQuickControls: () => {} }));
 vi.mock('../../src/render/ui/MenuList', () => ({ UI: { font: 'sans-serif', mono: 'monospace', title: '#fff', text: '#fff', dim: '#ccc', accent: '#eee' } }));
 import { PreloadScene, type PreloadData } from '../../src/render/scenes/PreloadScene';
@@ -163,9 +164,48 @@ describe('preload prevents invalid battles', () => {
     expect(current.navigation.start).toHaveBeenCalledWith('Title', expect.objectContaining({ art: 'anime' }));
     expect(mocks.loadAnime).not.toHaveBeenCalled();
     expect(mocks.preloadAudio).not.toHaveBeenCalled();
+    expect(mocks.loadInterfaces).toHaveBeenCalledWith(current.scene, ['labubu', 'twinkle'], expect.anything());
     expect(mocks.preloadMenu).toHaveBeenCalledTimes(1);
     expect(mocks.playMusic).not.toHaveBeenCalled();
-    expect(mocks.loadStage).toHaveBeenCalledWith(current.scene, expect.anything(), 'menu');
+    expect(mocks.stopMusic).not.toHaveBeenCalled();
+    expect(mocks.loadStage).toHaveBeenCalledWith(current.scene, expect.anything(), 'menu', []);
+    expect(mocks.releaseUnused).not.toHaveBeenCalled();
+  });
+
+  it('waits for the whole selection UI and preserves match choices without leaking routing flags', async () => {
+    const current = fixture({ ...entry, p1: 'twinkle', p2: 'labubu', mode: 'cpu', difficulty: 'hard', tutorial: true,
+      controlModes: ['classic', 'simple'], scope: 'full', destination: 'CharacterSelect', retryAudio: true });
+    let done!: (result: { ok: boolean; failures: [] }) => void;
+    mocks.loadInterfaces.mockImplementationOnce(() => new Promise(resolve => { done = resolve; }));
+    current.scene.create();
+    expect(current.navigation.start).not.toHaveBeenCalled();
+    expect(mocks.loadInterfaces).toHaveBeenCalledWith(current.scene, ['luffy', 'akainu', 'labubu', 'twinkle'], expect.anything());
+    expect(mocks.playMusic).not.toHaveBeenCalled();
+    expect(mocks.releaseUnused).not.toHaveBeenCalled();
+    done({ ok: true, failures: [] }); await flush();
+    expect(current.navigation.start).toHaveBeenCalledWith('CharacterSelect', expect.objectContaining({
+      p1: 'twinkle', p2: 'labubu', mode: 'cpu', difficulty: 'hard', tutorial: true, controlModes: ['classic', 'simple'], art: 'anime', scope: 'full',
+    }));
+    const data = current.navigation.start.mock.calls[0]![1];
+    expect(data).not.toHaveProperty('destination'); expect(data).not.toHaveProperty('retryAudio');
+    expect(mocks.loadAnime).not.toHaveBeenCalled();
+  });
+
+  it('a missing selection portrait stops at the retry page instead of bouncing between scenes', async () => {
+    const current = fixture({ ...entry, scope: 'full', destination: 'CharacterSelect' });
+    mocks.loadInterfaces.mockResolvedValueOnce({ ok: false, failures: [{ characterId: 'luffy', code: 'invalid', message: 'missing portrait' }] });
+    current.scene.create(); await flush();
+    expect(current.navigation.start).not.toHaveBeenCalled();
+    expect(current.controls.has('重新载入')).toBe(true);
+    current.controls.get('重新载入')!();
+    expect(current.navigation.restart).toHaveBeenCalledWith(expect.objectContaining({ destination: 'CharacterSelect' }));
+  });
+
+  it('releases only old combat textures before loading the selected fight pair', async () => {
+    mocks.loadAnime.mockResolvedValue(valid());
+    const current = fixture();
+    current.scene.create(); await flush();
+    expect(mocks.releaseUnused).toHaveBeenCalledWith(current.scene, ['luffy', 'akainu']);
   });
 
   it('does not admit a full match with failed required sounds', async () => {
@@ -175,7 +215,8 @@ describe('preload prevents invalid battles', () => {
     current.scene.create(); await flush();
     expect(current.navigation.start).not.toHaveBeenCalled();
     expect(current.values.get('presentationLoadResult')).toMatchObject({ ok: false, issues: ['声音未能载入：voice.ogg'] });
-    expect(mocks.playMusic).toHaveBeenCalledWith('battle', 1);
+    expect(mocks.playMusic).not.toHaveBeenCalled();
+    expect(mocks.stopMusic).toHaveBeenCalledTimes(1);
     current.controls.get('重新载入')!();
     expect(current.navigation.restart).toHaveBeenCalledWith(expect.objectContaining({ retryAudio: true }));
   });

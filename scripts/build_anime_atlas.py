@@ -502,12 +502,20 @@ def pack_frames(images: dict[str, Image.Image], maximum: int) -> tuple[Image.Ima
     return atlas, positions
 
 
-def pack_action_pages(images: dict[str, Image.Image], anims: dict, maximum: int, foregrounds: dict[str, str] | None = None) -> tuple[list[tuple[Image.Image, dict]], dict[str, int]]:
+def pack_action_pages(images: dict[str, Image.Image], anims: dict, maximum: int, foregrounds: dict[str, str] | None = None, page_break_before: list[str] | None = None) -> tuple[list[tuple[Image.Image, dict]], dict[str, int]]:
     """Keep each action's newly encountered crops together; shared crops are stored once.
 
     A single action too large for one page is an explicit authoring error. Paging
     must not quietly resize the drawings or duplicate them to claim coverage.
+    Explicit breaks flush before an action's new crops, leaving shared crops in
+    their original pages. Omitted breaks preserve the existing packing order.
     """
+    require(page_break_before is None or isinstance(page_break_before, list), "pageBreakBefore must be a list of action names")
+    requested_breaks = [] if page_break_before is None else page_break_before
+    require(all(isinstance(action, str) and bool(NAME.fullmatch(action)) for action in requested_breaks), "pageBreakBefore must contain valid action names")
+    require(len(set(requested_breaks)) == len(requested_breaks), "pageBreakBefore action names must be unique")
+    require(all(action in anims for action in requested_breaks), "pageBreakBefore references an unknown action")
+    breaks = set(requested_breaks)
     pages, frame_pages, current = [], {}, {}
 
     def flush() -> None:
@@ -524,6 +532,9 @@ def pack_action_pages(images: dict[str, Image.Image], anims: dict, maximum: int,
         require(isinstance(mapping, list) and bool(mapping) and all(isinstance(frame, str) and frame in images for frame in mapping), f"{action}: every frame must name an explicit crop")
         mapping = [part for frame in mapping for part in ([frame, foregrounds[frame]] if foregrounds and frame in foregrounds else [frame])]
         added = {name: images[name] for name in mapping if name not in frame_pages and name not in current}
+        if action in breaks:
+            require(bool(added), f"{action}: pageBreakBefore requires at least one newly encountered crop")
+            flush()
         if not added:
             continue
         try:
@@ -590,7 +601,9 @@ def build_character(character: str, config: dict, manifest_hash: str) -> tuple[d
             foregrounds[name] = layer
     anims = config.get("anims")
     require(isinstance(anims, dict) and bool(anims), "anims must contain explicitly mapped actions")
-    pages, frame_pages = pack_action_pages(images, anims, config.get("maxTextureSize"), foregrounds)
+    page_break_before = config.get("pageBreakBefore", [])
+    require(isinstance(page_break_before, list), "pageBreakBefore must be a list of action names")
+    pages, frame_pages = pack_action_pages(images, anims, config.get("maxTextureSize"), foregrounds, page_break_before)
     runtime = {"schemaVersion": 2, "characterId": character, "style": "anime", "continuous": True, "textureDensity": density, "atlas": {"image": "atlas.png", "data": "atlas.json"}, "pages": [], "framePages": {}, "anims": {}, "attachments": {}}
     atlas_frames, used = [{} for _ in pages], set()
     for name, anim in anims.items():

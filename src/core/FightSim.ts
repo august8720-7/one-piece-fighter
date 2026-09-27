@@ -924,7 +924,17 @@ export class FightSim {
     if (att.state !== 'throw' || def.state !== 'thrown') return;
     const m = this.move(att);
     if (!m?.throwData) return;
-    def.x = att.x + att.facing * px(m.throwData.holdOffset);
+    const offset = att.facing * px(m.throwData.holdOffset);
+    if (m.throwData.keepHoldOffsetAtWall) {
+      // Intersect both legal root intervals before the ordinary per-fighter clamp.
+      // All existing throws remain on the original path unless their data opts in.
+      const attackerHalf = (att.def.pushboxStand[2] * SUBPIXEL) >> 1;
+      const defenderHalf = (def.def.pushboxStand[2] * SUBPIXEL) >> 1;
+      const minX = Math.max(STAGE_LEFT + attackerHalf, STAGE_LEFT + defenderHalf - offset);
+      const maxX = Math.min(STAGE_RIGHT - attackerHalf, STAGE_RIGHT - defenderHalf - offset);
+      att.x = Math.max(minX, Math.min(maxX, att.x));
+    }
+    def.x = att.x + offset;
     def.y = GROUND_Y;
     def.facing = att.facing === 1 ? -1 : 1;
   }

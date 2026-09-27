@@ -5,9 +5,10 @@ import { SCREEN_H, SCREEN_W, font } from '../screen';
 import { UI } from '../ui/MenuList';
 import type { FightSceneData, GameMode } from './FightScene';
 import { adoptPresentation, presentationFromQuery } from '../presentation';
+import { prepareDeliveryFormat } from '../assetDownloads';
 
 /**
- * 启动：加载全部角色图集（菜单 / 选人 / 结算也要用），然后进标题；
+ * 启动：动漫标题只加载界面依赖，锁角后再加载本场角色；旧版保留原图集入口。
  * 带 URL 参数时直达战斗（开发 / 冒烟测试用）：?mode=versus|cpu|training&p1=luffy&p2=akainu&difficulty=easy|normal|hard
  */
 export class BootScene extends Phaser.Scene {
@@ -19,7 +20,11 @@ export class BootScene extends Phaser.Scene {
     this.add.rectangle(0, 0, SCREEN_W, SCREEN_H, 0x0b1220).setOrigin(0);
     this.add.text(SCREEN_W / 2, SCREEN_H / 2, 'LOADING', { fontFamily: UI.font, fontSize: font(22), color: UI.dim }).setOrigin(0.5);
     const profile = adoptPresentation(this.registry, presentationFromQuery(new URLSearchParams(window.location.search)));
-    if (profile.art === 'anime') this.route();
+    if (profile.art === 'anime') {
+      // Opt-out is diagnostic/compatibility only; unsupported/slow probes also retain WebP.
+      const forceWebp = new URLSearchParams(window.location.search).get('codec') === 'webp';
+      void prepareDeliveryFormat(forceWebp).then(() => { if (this.scene.isActive()) this.route(); });
+    }
     else void loadCharacterAtlases(this, Object.keys(characters)).then(() => { if (this.scene.isActive()) this.route(); });
   }
 
