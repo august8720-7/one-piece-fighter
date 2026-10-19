@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "shanks_walk_repair_0929",
+  "file": "public/assets/generated/source/roster-shanks-walk-repair-0929.png",
+  "sha256": "9ddbfc788216c4c1e4ad4a925d147520bcd1f3081cc244583737adaed386a621",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "本次页面仅公开ChatGPT与文字最新极高，具体图像模型未公开且未核实。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Microsoft Edge",
+  "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+  "observedCompletedAt": "2026-09-29T23:42:18+08:00",
+  "uiObservation": "Microsoft Edge同一官方图像会话。发送此定向行走修正前再次核对菜单：最新radio选中、极高第4项。textbox.fill写入完整提示词后单次发送；最终回复一张2x3五姿图，第六格空白，查看器标生成的图像4，实际img1536x1024。23:42:18为完成结果的复核观察时刻，不是服务器生成时间。下载按钮单次点击，Edge暂存后缀未结束；PNG完整签名/IEND/解码均核实，原临时文件保留，按复制前后清单核对SHA256存候选，未声称下载UI完成。",
+  "prompt": {
+    "file": "docs/assets/shanks-walk-repair-prompt0929.txt",
+    "sha256": "372e6d6ba37a34745440ae48d3c8aa401b61230ff9d154549b3ca5a5ebdeee40"
+  },
+  "referenceSources": {
+    "pirate_mother_0929": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b",
+    "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-09-29T15:44:56.460626+00:00",
+  "referenceFiles": {
+    "pirate_mother_0929": {
+      "file": "public/assets/generated/source/roster-pirate-mother-0929.png",
+      "sha256": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b"
+    },
+    "shanks_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-shanks-locomotion-0929.png",
+      "sha256": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+    }
+  },
+  "originalPngSize": [
+    1536,
+    1024
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_stc_wide1017",
+  "file": "public/assets/generated/source/luffy-gear5-stc-wide1017.png",
+  "sha256": "40c5cfc77544b9d6791694b36fffb9be2d9b5fd5912736c6978fb19c1ddc4239",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方图像入口未披露具体图像型号；GPT-6沿本主会话此前实际文字模型标签，不能推定后台图像型号。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+  "observedCompletedAt": "2026-10-17T05:31:42.116Z",
+  "uiObservation": "根代理实际下载并view_image提供：主会话新增一张单姿宽幅长拳有效原画，沿最初五档母版身份；新增上传附件仅为程序绘制抽象stc-target.png指南，不是人物原画，也不能进入runtime或计动作。该指南原在six-game1014/reference/gear5-contact-guide1017；为了原recorder的reference-guide允许根，来源执行者另复制到roster-0929/reference/gear5-contact-guide1017/stc-target-samebytes1017.png，复制前后同SHA且原指南保留，票据记录真实映射。沿此前实际GPT-6/极高设置；本次完成截图绑定原结果，不冒称含新菜单。观察时刻为根提供下载后完成复核，不是服务器生成时间。根看身体完整但仍填满高，根到拳粗比约1.25H、可能仍短；只交render快速量测，不反复精测同失败稿，不改变st_c旧判定、不提前采用。C下载保留，D原PNG同字节复制，没有修图。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-stc-wide-prompt1017.txt",
+    "sha256": "e22522f4e7320025f39424e155e59cc7d6fd368187cb9163a781635a3daa889e"
+  },
+  "referenceSources": {
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+    "stc_target": "ee22a6101a6d75c9a925d3cbbee10dbf35e4f535bc020dbe83e539f9f6751a92"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T05:36:05.451204+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/stc-wide-web1017.png",
+    "sha256": "6242b4519892b943f4893734bef01c9b36d69c3ea944158723a9d5bd7bfb93c4"
+  },
+  "referenceFiles": {
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    },
+    "stc_target": {
+      "file": "D:/one-piece-fighter-crossover-0922/roster-0929/reference/gear5-contact-guide1017/stc-target-samebytes1017.png",
+      "sha256": "ee22a6101a6d75c9a925d3cbbee10dbf35e4f535bc020dbe83e539f9f6751a92",
+      "kind": "reference-guide-not-runtime"
+    }
+  },
+  "originalPngSize": [
+    1672,
+    941
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

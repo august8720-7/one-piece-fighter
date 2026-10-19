@@ -1,0 +1,705 @@
+{
+  "schemaVersion": 1,
+  "status": "partial-candidate-awaiting-normal-speed-and-contact-review",
+  "notes": [
+    "First locomotion attempt retained but rejected for extra waist sword handles.",
+    "Correction is a new whole-image candidate: it changed more than the requested waist area. No pixel-preservation or sourcePatch claim is made.",
+    "Neutral visible alpha>=8 bbox[32,21,445,400], height379. Entire sheet uses one character scale188/379 with density2 for target world height94.",
+    "Three drawn blades are visible in every frame; waist no longer carries the three extra grip handles.",
+    "Nine independent crops are the only authored poses. Reversed walking reuses the same real four walking drawings.",
+    "Remaining states, attacks, skills, conditional throws and audio are absent and must keep full-game gates closed.",
+    "1003 recovered existing reaction sheet, adopted six independently drawn candidate poses. Knockdown has only two clearly identifiable blades and getup tip touches right edge; both remain unused pending correction. No claims of full-state coverage.",
+    "1003 independently redrawn down/getup repair now shows all three blades and complete tips; candidate roots retain actual source geometry. Knockdown mouth-held blade extends below lower torso baseline, requiring floor review; no renderer offset workaround."
+  ],
+  "characters": {
+    "zoro": {
+      "scale": 0.49604221635883905,
+      "textureDensity": 2,
+      "maxTextureSize": 4096,
+      "sources": {
+        "zoro_sword_repair_0929": {
+          "file": "public/assets/generated/source/roster-zoro-sword-repair-0929.png",
+          "sha256": "09fb1df4358b3f0046ca20c18eef1b0acf31fa7a6c650dce1b834907fb7d74c9",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "本次官方页未公开具体图像模型，仍记录未核实；最新及极高只描述文字选项。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6abbe218-2044-83e8-b500-931a2779e800",
+          "observedCompletedAt": "2026-09-30T00:16:43+08:00",
+          "uiObservation": "在同一索隆分支续作，发送修正前菜单实际最新radio选中、极高第4项。完整修正提示词经textbox.fill后单次发送；官方查看器出现生成的图像3，img1254x1254。00:16:43为完成结果再次观察时间，不是服务器生成时间。Edge单次下载临时PNG签名/IEND/完整解码及hash核实，保留临时原文件后复制候选。图中腰间多余剑柄已去除，但实际重绘了部分身体/动作/刀朝向，不能声称原坐标和其余像素都保持，也不把它当仅腰部贴补；它是独立新候选，须重新裁切和统一标尺。",
+          "prompt": {
+            "file": "docs/assets/zoro-sword-repair-prompt0929.txt",
+            "sha256": "4abbe27989daad5e008c32eca9472a1bc7cdd1ebec65152da6f97b5db395b766"
+          },
+          "referenceSources": {
+            "pirate_mother_0929": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b",
+            "zoro_locomotion_0929": "1466a5c9f7387af06dcde8d73ccd49378a58399c3d364eb511bdb525c4aa8a37"
+          },
+          "unitScale": 1,
+          "recordedAt": "2026-09-29T16:19:24.945118+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/zoro_sword_repair_0929来源凭据0929.txt",
+            "sha256": "9d0a4390dab8829f7168bb68f15a80b81533f5ff9ccb0ce3d607911d6f91ada5"
+          }
+        },
+        "zoro_reactions_1003": {
+          "file": "public/assets/generated/source/roster-zoro-reactions-1003.png",
+          "sha256": "1190ff3a5461e3bec7034af84508067d10a56b8d7dc9738465db2d55a52a6e87",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面未公开具体图像型号，不推断后台模型。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbe218-2044-83e8-b500-931a2779e800",
+          "observedCompletedAt": "2026-10-03T00:38:00+08:00",
+          "uiObservation": "1003恢复索隆正式分支后发现第二张反应提示词和结果已经存在，不重复发送。此时间为既有完成结果复核，不是历史提交或服务器生成时间。当前菜单实见最新radio选中、极高第4项，仅证明复核时状态。downloadMedia针对末尾实际可见结果，工具等待回执超时但新PNG落盘Downloads；1254x1254RGBA完整PNG解码及hash核实，保留原件后清单复制。实际倒地图只可辨认口衔刀和近手刀，第三刀不清楚；起身右刀尖临近原图边界，这两姿保留候选但暂不采用。",
+          "prompt": {
+            "file": "docs/assets/zoro-reactions-prompt0929.txt",
+            "sha256": "83bef6c4621ab20b91e93b518ea9ceea40e4147515c6829e0fc3fdeda509a737"
+          },
+          "referenceSources": {
+            "zoro_sword_repair_0929": "09fb1df4358b3f0046ca20c18eef1b0acf31fa7a6c650dce1b834907fb7d74c9"
+          },
+          "unitScale": 0.959493670886076,
+          "recordedAt": "2026-10-02T16:41:58.849710+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/zoro_reactions_1003来源凭据0929.txt",
+            "sha256": "ce7bb26ce2ee886c8a433041ba95184a5484f6d9fc7dba27994b15a993fff96b"
+          },
+          "scaleBasis": "Reaction-sheet neutral alpha>=8 bounds[17,22,448,417], height395px calibrated uniformly to original corrected neutral379px. No per-pose scaling."
+        },
+        "zoro_down_getup_repair_1003": {
+          "file": "public/assets/generated/source/roster-zoro-down-getup-repair-1003.png",
+          "sha256": "5c704a879238d0873c77b76f25acffeaed0dc4aaf6102bfd20eee57d610ee581",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面未公开具体图像型号，不推断后台模型。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbe218-2044-83e8-b500-931a2779e800",
+          "observedCompletedAt": "2026-10-03T01:05:00+08:00",
+          "uiObservation": "1003同一索隆分支定向修复倒地缺第三刀及起身边界。提交前菜单最新radio选中、极高第4项，完整textbox.fill后读回全文，单次点击发送。网页今天0:46有完整新提示词，末尾实际生成新图并显示回答已完成；01:05为本次完成结果复核时刻，不是服务器生成时间。downloadMedia等待回执超时，但Downloads新增1550675bytes完整1536x1024RGBA PNG，解码、实图与hash核对并清单复制。新图倒地两手刀与口衔刀各自可辨；起身三刀完整且离边。只证明源图及静态审查，不证明原速或实机验收。",
+          "prompt": {
+            "file": "docs/assets/zoro-down-getup-repair-prompt1003.txt",
+            "sha256": "53ed4b8c157b0f608f58c3dcaf00b17cb662c5e96d4e69ecb13a662208e43290"
+          },
+          "referenceSources": {
+            "zoro_reactions_1003": "1190ff3a5461e3bec7034af84508067d10a56b8d7dc9738465db2d55a52a6e87",
+            "zoro_sword_repair_0929": "09fb1df4358b3f0046ca20c18eef1b0acf31fa7a6c650dce1b834907fb7d74c9"
+          },
+          "unitScale": 0.6966911764705882,
+          "recordedAt": "2026-10-02T17:08:29.656204+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/zoro_down_getup_repair_1003来源凭据0929.txt",
+            "sha256": "676444f1ac6fdeaf1e0cd69adf0d95900718cc385bf88d24a4f5966162e8987b"
+          },
+          "scaleBasis": "New neutral alpha>=8 bounds[52,16,695,560] height544px, whole-sheet ratio379/544; no pose-specific fitting."
+        },
+        "zoro_mouth_up_left_1013": {
+          "file": "public/assets/generated/source/roster-zoro-mouth-up-left-1013.png",
+          "sha256": "998ce79f4abe51ad81d0c4f0fefebe4c569b79818202689ad14775278cafa15f",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方网页未公开具体图像型号，不推断后台版本。",
+          "observedTextModelLabel": "GPT-6",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbe218-2044-83e8-b500-931a2779e800",
+          "observedCompletedAt": "2026-10-13T16:12:10.402627+08:00",
+          "recordedAt": "2026-10-13T16:12:10.402627+08:00",
+          "uiObservation": "root在同一已核GPT-6/极高4/5会话的IAB，实际上传前一张失败原PNG与本地左上箭头参考并提交独立短提示，随后直接将已显示原始PNG字节保存D盘。本子代理完整解码与实看新图及局部：口刀已真实向左上延伸、咬柄与嘴相连，两手刀独立且三刀完整。记录时间为本次复核，不是服务端首次生成时间。文字型号采用root同次现场确认；图片具体型号未公开。",
+          "prompt": {
+            "file": "docs/assets/zoro-mouth-up-left-correction1013.txt",
+            "sha256": "9d00a96bab6f9a4879f4d3f8630669185dcd15e19f18e1a0835624d1de4836b4"
+          },
+          "referenceSources": {
+            "zoro_floor_repair_1013": "feb2bac53792910b9140c7e7868c6361a6f4ffdc58a91e8678b95fd480c7f194",
+            "zoro_mouth_up_left_angle_guide1013": "61b383ed6061a0ac961c981a1335bf01b793327dfb762cf9e60c2df33b03f233"
+          },
+          "screenshot": {
+            "file": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\character-closure1013\\image-requests\\zoro-gpt6-confirmed-iab1013.jpg",
+            "sha256": "0b833896b058b9e4c191bc3ed9679dfbad6b7305616a96657f2a3fcfb9b43f49"
+          },
+          "completionScreenshot": {
+            "file": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\character-closure1013\\image-requests\\zoro-up-left-completed1013.jpg",
+            "sha256": "cd9842f8315692c7d5826c3ea553547b3c277ec18de6966587651be2d460e453"
+          },
+          "unitScale": 0.5156462585034014,
+          "scaleBasis": "Actual neutral alpha>=8 height735px; entire source uses379/735. No per-pose scale or compensating root shift.",
+          "sourceImageSize": [
+            1942,
+            809
+          ],
+          "sourceBytes": 900022,
+          "status": "static-three-sword-ground-and-scale-reviewed-runtime-pending",
+          "sourceEvidence": {
+            "file": "docs/assets/zoro_mouth_up_left_1013来源凭据1013.txt",
+            "sha256": "36de539a617b037736a640651c9fd1ac662fd5d52e181395c12ff73671404739"
+          }
+        }
+      },
+      "frames": {
+        "idle": {
+          "source": "zoro_sword_repair_0929",
+          "crop": [
+            23,
+            11,
+            432,
+            401
+          ],
+          "root": [
+            178,
+            389
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "walk_0": {
+          "source": "zoro_sword_repair_0929",
+          "crop": [
+            466,
+            22,
+            410,
+            391
+          ],
+          "root": [
+            151,
+            380
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "walk_1": {
+          "source": "zoro_sword_repair_0929",
+          "crop": [
+            878,
+            21,
+            370,
+            390
+          ],
+          "root": [
+            148,
+            376
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "walk_2": {
+          "source": "zoro_sword_repair_0929",
+          "crop": [
+            37,
+            438,
+            420,
+            385
+          ],
+          "root": [
+            170,
+            375
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "walk_3": {
+          "source": "zoro_sword_repair_0929",
+          "crop": [
+            519,
+            440,
+            356,
+            384
+          ],
+          "root": [
+            105,
+            373
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_a_start": {
+          "source": "zoro_sword_repair_0929",
+          "crop": [
+            879,
+            440,
+            366,
+            388
+          ],
+          "root": [
+            139,
+            378
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_a_active": {
+          "source": "zoro_sword_repair_0929",
+          "crop": [
+            30,
+            860,
+            478,
+            368
+          ],
+          "root": [
+            157,
+            358
+          ],
+          "sockets": {
+            "weapon_grip": [
+              279,
+              98
+            ],
+            "weapon_tip": [
+              467,
+              76
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              455,
+              130,
+              23,
+              238
+            ]
+          ]
+        },
+        "st_a_recover": {
+          "source": "zoro_sword_repair_0929",
+          "crop": [
+            484,
+            856,
+            400,
+            373
+          ],
+          "root": [
+            156,
+            361
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              65,
+              25,
+              45
+            ]
+          ]
+        },
+        "hit_stand": {
+          "source": "zoro_sword_repair_0929",
+          "crop": [
+            914,
+            864,
+            329,
+            364
+          ],
+          "root": [
+            152,
+            355
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "crouch": {
+          "source": "zoro_reactions_1003",
+          "crop": [
+            457,
+            124,
+            433,
+            298
+          ],
+          "root": [
+            167,
+            287
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "block_stand": {
+          "source": "zoro_reactions_1003",
+          "crop": [
+            884,
+            24,
+            366,
+            401
+          ],
+          "root": [
+            131,
+            389
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "block_crouch": {
+          "source": "zoro_reactions_1003",
+          "crop": [
+            40,
+            539,
+            398,
+            295
+          ],
+          "root": [
+            164,
+            279
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "hit_crouch": {
+          "source": "zoro_reactions_1003",
+          "crop": [
+            491,
+            539,
+            360,
+            292
+          ],
+          "root": [
+            136,
+            278
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "jump_neutral": {
+          "source": "zoro_reactions_1003",
+          "crop": [
+            859,
+            442,
+            386,
+            385
+          ],
+          "root": [
+            168,
+            375
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "hit_air": {
+          "source": "zoro_reactions_1003",
+          "crop": [
+            6,
+            864,
+            427,
+            348
+          ],
+          "root": [
+            211,
+            333
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "knockdown": {
+          "source": "zoro_mouth_up_left_1013",
+          "crop": [
+            946,
+            318,
+            996,
+            426
+          ],
+          "root": [
+            523.5,
+            414
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "rootReview": "Measured body support; three-sword/floor/scale static review passed. Normal-speed FightScene review remains pending."
+        },
+        "getup": {
+          "source": "zoro_down_getup_repair_1003",
+          "crop": [
+            150,
+            590,
+            658,
+            424
+          ],
+          "root": [
+            188,
+            410
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "rootReview": "Candidate contact root; actual floor/weapon and facing must be reviewed in FightScene."
+        }
+      },
+      "anims": {
+        "idle": {
+          "frames": [
+            "idle"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "walk_fwd": {
+          "frames": [
+            "walk_0",
+            "walk_1",
+            "walk_2",
+            "walk_3"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 8
+            },
+            {
+              "frame": 1,
+              "ticks": 8
+            },
+            {
+              "frame": 2,
+              "ticks": 8
+            },
+            {
+              "frame": 3,
+              "ticks": 8
+            }
+          ]
+        },
+        "walk_back": {
+          "frames": [
+            "walk_3",
+            "walk_2",
+            "walk_1",
+            "walk_0"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 8
+            },
+            {
+              "frame": 1,
+              "ticks": 8
+            },
+            {
+              "frame": 2,
+              "ticks": 8
+            },
+            {
+              "frame": 3,
+              "ticks": 8
+            }
+          ]
+        },
+        "st_a": {
+          "frames": [
+            "st_a_start",
+            "st_a_active",
+            "st_a_recover"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 5
+            },
+            {
+              "frame": 1,
+              "ticks": 3
+            },
+            {
+              "frame": 2,
+              "ticks": 11
+            }
+          ]
+        },
+        "hit_stand": {
+          "frames": [
+            "hit_stand"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "crouch": {
+          "frames": [
+            "crouch"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "block_stand": {
+          "frames": [
+            "block_stand"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "block_crouch": {
+          "frames": [
+            "block_crouch"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "hit_crouch": {
+          "frames": [
+            "hit_crouch"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "jump_neutral": {
+          "frames": [
+            "jump_neutral"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "hit_air": {
+          "frames": [
+            "hit_air"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "knockdown": {
+          "frames": [
+            "knockdown"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "getup": {
+          "frames": [
+            "getup"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        }
+      }
+    }
+  },
+  "unusedReviewCrops": {
+    "knockdown_rejected1003": {
+      "source": "zoro_reactions_1003",
+      "crop": [
+        409,
+        1060,
+        441,
+        176
+      ],
+      "reason": "Only two blades clearly identifiable; do not invent hidden third."
+    },
+    "getup_rejected1003": {
+      "source": "zoro_reactions_1003",
+      "crop": [
+        892,
+        908,
+        362,
+        290
+      ],
+      "reason": "Right blade tip at source boundary; requires margin correction."
+    }
+  }
+}

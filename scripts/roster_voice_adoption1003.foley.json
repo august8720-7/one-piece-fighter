@@ -1,0 +1,3325 @@
+{
+  "version": 1,
+  "scope": "candidate for parent integration; not a formal sample manifest",
+  "createdAtUtc": "2026-10-03T07:27:22.291008+00:00",
+  "sources": {
+    "glass": {
+      "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\roster-1003\\foley\\glass-break-till-behrend-1003.wav",
+      "sha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+      "decodedSeconds": 1.308843537414966,
+      "url": "https://opengameart.org/sites/default/files/glass_breaking.wav",
+      "page": "https://opengameart.org/content/glass-break",
+      "author": "Till Behrend / TinyWorlds",
+      "license": "CC0",
+      "sourcePageSha256": "169833dc6e39659192c33e6eb422d59d25f00c25da829b4e124333953c6e872a"
+    },
+    "wind_background_noise_2.wav": {
+      "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\wind_background_noise_2.wav",
+      "sha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+      "decodedSeconds": 44.50961451247166,
+      "path": "public/assets/audio/sources/wind_background_noise_2.wav",
+      "duration_seconds": 44.509615,
+      "original_sample_rate": 44100,
+      "url": "https://opengameart.org/content/mild-wind-background-noise",
+      "author": "Bashar3A / Bashar from Skirmish.io",
+      "license": "CC0"
+    },
+    "swish/swosh-02.flac": {
+      "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-02.flac",
+      "sha256": "6148210eed26653d305eedc7f43e0f623864d434f0f4d8e3a540f623a823ff26",
+      "decodedSeconds": 0.20217687074829932,
+      "path": "public/assets/audio/sources/swish/swosh-02.flac",
+      "duration_seconds": 0.202177,
+      "original_sample_rate": 44100,
+      "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+      "author": "qubodup / Iwan Gabovitch",
+      "license": "CC0"
+    },
+    "swish/swosh-04.flac": {
+      "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-04.flac",
+      "sha256": "651afe743f1713c01b46a43a8fe099e5f866b46c22a98682c7d05728cfa4f5ae",
+      "decodedSeconds": 0.25551020408163266,
+      "path": "public/assets/audio/sources/swish/swosh-04.flac",
+      "duration_seconds": 0.25551,
+      "original_sample_rate": 44100,
+      "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+      "author": "qubodup / Iwan Gabovitch",
+      "license": "CC0"
+    },
+    "swish/swosh-07.flac": {
+      "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-07.flac",
+      "sha256": "2c33fea0dd6daed6e68e39d13be78d90455698650415d54a9af3fdfb3f1437b2",
+      "decodedSeconds": 0.33015873015873015,
+      "path": "public/assets/audio/sources/swish/swosh-07.flac",
+      "duration_seconds": 0.330159,
+      "original_sample_rate": 44100,
+      "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+      "author": "qubodup / Iwan Gabovitch",
+      "license": "CC0"
+    },
+    "hits/hit19.mp3.flac": {
+      "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\hits\\hit19.mp3.flac",
+      "sha256": "ef5773159eec3b6bc59f613acf7b7c8f0d7ff68d306f00f53dfa116f8c5bb438",
+      "decodedSeconds": 1.0982086167800453,
+      "path": "public/assets/audio/sources/hits/hit19.mp3.flac",
+      "duration_seconds": 1.098209,
+      "original_sample_rate": 44100,
+      "url": "https://opengameart.org/content/37-hitspunches",
+      "author": "Independent.nu; submitted by qubodup",
+      "license": "CC0"
+    },
+    "hits/hit03.mp3.flac": {
+      "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\hits\\hit03.mp3.flac",
+      "sha256": "b97c1246a9b3c02f1d0e0ce6ce0f36a407de32ff912c00c1ddadcf0b8196235e",
+      "decodedSeconds": 1.0720861678004534,
+      "path": "public/assets/audio/sources/hits/hit03.mp3.flac",
+      "duration_seconds": 1.072086,
+      "original_sample_rate": 44100,
+      "url": "https://opengameart.org/content/37-hitspunches",
+      "author": "Independent.nu; submitted by qubodup",
+      "license": "CC0"
+    },
+    "swish/swosh-03.flac": {
+      "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-03.flac",
+      "sha256": "2111003e4c61b8f3589f926f549ffc36094319da7b99238624c7d64e91bddc09",
+      "decodedSeconds": 0.5755102040816327,
+      "path": "public/assets/audio/sources/swish/swosh-03.flac",
+      "duration_seconds": 0.57551,
+      "original_sample_rate": 44100,
+      "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+      "author": "qubodup / Iwan Gabovitch",
+      "license": "CC0"
+    },
+    "swish/swosh-05.flac": {
+      "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-05.flac",
+      "sha256": "f8e711a61eb4d6f271a2ce71ba355148bc6f53628b21292338a27a9b7673cc1e",
+      "decodedSeconds": 0.41551020408163264,
+      "path": "public/assets/audio/sources/swish/swosh-05.flac",
+      "duration_seconds": 0.41551,
+      "original_sample_rate": 44100,
+      "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+      "author": "qubodup / Iwan Gabovitch",
+      "license": "CC0"
+    },
+    "hits/hit04.mp3.flac": {
+      "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\hits\\hit04.mp3.flac",
+      "sha256": "729d8301e133c3038ec5818b73965c7f2364dd49ba1347c7a057d74e3ffe8e10",
+      "decodedSeconds": 1.150453514739229,
+      "path": "public/assets/audio/sources/hits/hit04.mp3.flac",
+      "duration_seconds": 1.150454,
+      "original_sample_rate": 44100,
+      "url": "https://opengameart.org/content/37-hitspunches",
+      "author": "Independent.nu; submitted by qubodup",
+      "license": "CC0"
+    },
+    "hits/hit01.mp3.flac": {
+      "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\hits\\hit01.mp3.flac",
+      "sha256": "bdab6cd6c1d261efc363da24e205372daa88718b98bb149677d74459b24245d8",
+      "decodedSeconds": 1.0459637188208617,
+      "path": "public/assets/audio/sources/hits/hit01.mp3.flac",
+      "duration_seconds": 1.045964,
+      "original_sample_rate": 44100,
+      "url": "https://opengameart.org/content/37-hitspunches",
+      "author": "Independent.nu; submitted by qubodup",
+      "license": "CC0"
+    },
+    "hits/hit09.mp3.flac": {
+      "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\hits\\hit09.mp3.flac",
+      "sha256": "97666669bdb698ee5a9061a8dbe78fa6cb873f3158899f3689d5e9efdde8cf0a",
+      "decodedSeconds": 0.6018820861678005,
+      "path": "public/assets/audio/sources/hits/hit09.mp3.flac",
+      "duration_seconds": 0.601882,
+      "original_sample_rate": 44100,
+      "url": "https://opengameart.org/content/37-hitspunches",
+      "author": "Independent.nu; submitted by qubodup",
+      "license": "CC0"
+    }
+  },
+  "sourceChecks": {
+    "filesUnchanged": true,
+    "newRawGlassBytes": 230924,
+    "newRawGlassSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3"
+  },
+  "files": [
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_lance",
+      "family": "ice_lance",
+      "stage": "start",
+      "cueId": "sfx.aokiji.ice_lance.start",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_lance-start-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_lance-start-cc0-1003.wav",
+      "bytes": 21212,
+      "sha256": "6f1d7237d830ad10d92b395fd70b0627b994e835358f0c60fa01bd0c235cc128",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.24,
+      "peakAbs": 0.6023560209424084,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.1,
+          "endSeconds": 0.32,
+          "speed": 1,
+          "gain": 0.55,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": true,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "wind_background_noise_2.wav",
+          "sourceSha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "beginSeconds": 4,
+          "endSeconds": 4.24,
+          "speed": 1,
+          "gain": 0.15,
+          "highpassHz": 1900,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_lance",
+      "family": "ice_lance",
+      "stage": "release",
+      "cueId": "sfx.aokiji.ice_lance.release",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_lance-release-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_lance-release-cc0-1003.wav",
+      "bytes": 29150,
+      "sha256": "309a8d0f06b740647f49ba9be1aba6c4337cbb19b264dc012fd66df1f7cf18d5",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.33,
+      "peakAbs": 0.78,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-02.flac",
+          "sourceSha256": "6148210eed26653d305eedc7f43e0f623864d434f0f4d8e3a540f623a823ff26",
+          "beginSeconds": 0,
+          "endSeconds": 0.20217687074829932,
+          "speed": 1.3,
+          "gain": 0.75,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.05,
+          "endSeconds": 0.38,
+          "speed": 1,
+          "gain": 0.6,
+          "highpassHz": 900,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_lance",
+      "family": "ice_lance",
+      "stage": "end",
+      "cueId": "sfx.aokiji.ice_lance.end",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_lance-end-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_lance-end-cc0-1003.wav",
+      "bytes": 17684,
+      "sha256": "572b21e8b4633ac1488711f6cc27e35b563259c5e599f93194580f601a8711bd",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.2,
+      "peakAbs": 0.44999999999999996,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.65,
+          "endSeconds": 0.85,
+          "speed": 1,
+          "gain": 0.3,
+          "highpassHz": 1200,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_blade",
+      "family": "ice_blade",
+      "stage": "start",
+      "cueId": "sfx.aokiji.ice_blade.start",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_blade-start-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_blade-start-cc0-1003.wav",
+      "bytes": 17684,
+      "sha256": "185cf3462a785d2573fdf223264aa6c0564f699c4058f3dce2b5499d30038373",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.2,
+      "peakAbs": 0.65,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.04,
+          "endSeconds": 0.24,
+          "speed": 1,
+          "gain": 0.45,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": true,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_blade",
+      "family": "ice_blade",
+      "stage": "release",
+      "cueId": "sfx.aokiji.ice_blade.release",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_blade-release-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_blade-release-cc0-1003.wav",
+      "bytes": 26504,
+      "sha256": "8161803fd325ae2bbc0f0063efe16e2dccaa48821ad98b96b189e74f4e63c7a6",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.3,
+      "peakAbs": 0.78,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-04.flac",
+          "sourceSha256": "651afe743f1713c01b46a43a8fe099e5f866b46c22a98682c7d05728cfa4f5ae",
+          "beginSeconds": 0,
+          "endSeconds": 0.25551020408163266,
+          "speed": 1.1,
+          "gain": 0.8,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.12,
+          "endSeconds": 0.42,
+          "speed": 1,
+          "gain": 0.4,
+          "highpassHz": 650,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_blade",
+      "family": "ice_blade",
+      "stage": "end",
+      "cueId": "sfx.aokiji.ice_blade.end",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_blade-end-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_blade-end-cc0-1003.wav",
+      "bytes": 9842,
+      "sha256": "c5cd4090b74ffbce2496cf45348c10ba6b0dd1d1d6220ff3a0efa3aba8033da0",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.11108843537414965,
+      "peakAbs": 0.44999999999999996,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-04.flac",
+          "sourceSha256": "651afe743f1713c01b46a43a8fe099e5f866b46c22a98682c7d05728cfa4f5ae",
+          "beginSeconds": 0.1,
+          "endSeconds": 0.25551020408163266,
+          "speed": 1.4,
+          "gain": 0.3,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_uplift",
+      "family": "ice_uplift",
+      "stage": "start",
+      "cueId": "sfx.aokiji.ice_uplift.start",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_uplift-start-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_uplift-start-cc0-1003.wav",
+      "bytes": 19448,
+      "sha256": "013125b02d19aea7368e14b1302e76656834b12152aa5bc64de439445f0edc1c",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.22,
+      "peakAbs": 0.65,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.2,
+          "endSeconds": 0.42,
+          "speed": 1,
+          "gain": 0.5,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": true,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_uplift",
+      "family": "ice_uplift",
+      "stage": "release",
+      "cueId": "sfx.aokiji.ice_uplift.release",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_uplift-release-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_uplift-release-cc0-1003.wav",
+      "bytes": 26504,
+      "sha256": "7d66d53caaae6380ea2099f2581db65147805b8d992971f315c983efae046832",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.3,
+      "peakAbs": 0.78,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-07.flac",
+          "sourceSha256": "2c33fea0dd6daed6e68e39d13be78d90455698650415d54a9af3fdfb3f1437b2",
+          "beginSeconds": 0,
+          "endSeconds": 0.33015873015873015,
+          "speed": 1.25,
+          "gain": 0.7,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.02,
+          "endSeconds": 0.38,
+          "speed": 1.2,
+          "gain": 0.65,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_uplift",
+      "family": "ice_uplift",
+      "stage": "end",
+      "cueId": "sfx.aokiji.ice_uplift.end",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_uplift-end-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_uplift-end-cc0-1003.wav",
+      "bytes": 20330,
+      "sha256": "5188b825a32acc409262a18701b3995d0693e85216ca89a540fc484cc6565121",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.23,
+      "peakAbs": 0.45,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.8,
+          "endSeconds": 1.03,
+          "speed": 1,
+          "gain": 0.25,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_spike",
+      "family": "ice_spike",
+      "stage": "start",
+      "cueId": "sfx.aokiji.ice_spike.start",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_spike-start-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_spike-start-cc0-1003.wav",
+      "bytes": 29150,
+      "sha256": "c4cebb9f0197c65b209f0280dc60c9f934eacf22a87c99e9460265d548bd18d7",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.33,
+      "peakAbs": 0.65,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "wind_background_noise_2.wav",
+          "sourceSha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "beginSeconds": 4,
+          "endSeconds": 4.33,
+          "speed": 1,
+          "gain": 0.3,
+          "highpassHz": null,
+          "lowpassHz": 1500,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.4,
+          "endSeconds": 0.68,
+          "speed": 1,
+          "gain": 0.55,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": true,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_spike",
+      "family": "ice_spike",
+      "stage": "release",
+      "cueId": "sfx.aokiji.ice_spike.release",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_spike-release-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_spike-release-cc0-1003.wav",
+      "bytes": 52964,
+      "sha256": "df24ca581a462b40107165fc831c3929fa0a4de99b8e1b8f50978ef0eae4d6e3",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.6,
+      "peakAbs": 0.78,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "hits/hit19.mp3.flac",
+          "sourceSha256": "ef5773159eec3b6bc59f613acf7b7c8f0d7ff68d306f00f53dfa116f8c5bb438",
+          "beginSeconds": 0,
+          "endSeconds": 0.34,
+          "speed": 1,
+          "gain": 0.55,
+          "highpassHz": null,
+          "lowpassHz": 2000,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0,
+          "endSeconds": 0.48,
+          "speed": 0.8,
+          "gain": 0.8,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_spike",
+      "family": "ice_spike",
+      "stage": "end",
+      "cueId": "sfx.aokiji.ice_spike.end",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_spike-end-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_spike-end-cc0-1003.wav",
+      "bytes": 26504,
+      "sha256": "a2b275ad345c4e4227cd639ab740120c4c370fbdc368227cced7bbeaaf3163f8",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.3,
+      "peakAbs": 0.45,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.72,
+          "endSeconds": 1.02,
+          "speed": 1,
+          "gain": 0.35,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_mirror",
+      "family": "ice_mirror",
+      "stage": "start",
+      "cueId": "sfx.aokiji.ice_mirror.start",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_mirror-start-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_mirror-start-cc0-1003.wav",
+      "bytes": 7884,
+      "sha256": "5bbe859a2b4ac98dd9c05550fa5a364ec11ea3771bc26317fa7d166a7127fe06",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.08888888888888889,
+      "peakAbs": 0.39716692189892805,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.18,
+          "endSeconds": 0.34,
+          "speed": 1.8,
+          "gain": 0.7,
+          "highpassHz": 1400,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_mirror",
+      "family": "ice_mirror",
+      "stage": "release",
+      "cueId": "sfx.aokiji.ice_mirror.release",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_mirror-release-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_mirror-release-cc0-1003.wav",
+      "bytes": 15920,
+      "sha256": "d961a799c0ae2b00d2f128451c034de002ba13c12ed5faec942451c949402d30",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.18,
+      "peakAbs": 0.78,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "hits/hit03.mp3.flac",
+          "sourceSha256": "b97c1246a9b3c02f1d0e0ce6ce0f36a407de32ff912c00c1ddadcf0b8196235e",
+          "beginSeconds": 0,
+          "endSeconds": 0.16,
+          "speed": 1.6,
+          "gain": 0.45,
+          "highpassHz": 1400,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.08,
+          "endSeconds": 0.35,
+          "speed": 1.5,
+          "gain": 0.75,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_mirror",
+      "family": "ice_mirror",
+      "stage": "end",
+      "cueId": "sfx.aokiji.ice_mirror.end",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_mirror-end-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_mirror-end-cc0-1003.wav",
+      "bytes": 17684,
+      "sha256": "b915b1c3fe84bee25518e523913a6f7918592240188e5a56ffa7ef4c3ff9dd98",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.2,
+      "peakAbs": 0.45,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.62,
+          "endSeconds": 0.84,
+          "speed": 1.1,
+          "gain": 0.25,
+          "highpassHz": 1800,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_body",
+      "family": "ice_body",
+      "stage": "start",
+      "cueId": "sfx.aokiji.ice_body.start",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_body-start-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_body-start-cc0-1003.wav",
+      "bytes": 15920,
+      "sha256": "adf032899e2a39e19be9c450b54e528470ef511774ee5c3037b375f2cbfa1ea3",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.18,
+      "peakAbs": 0.65,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.18,
+          "endSeconds": 0.36,
+          "speed": 1,
+          "gain": 0.5,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": true,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_body",
+      "family": "ice_body",
+      "stage": "release",
+      "cueId": "sfx.aokiji.ice_body.release",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_body-release-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_body-release-cc0-1003.wav",
+      "bytes": 19448,
+      "sha256": "448e8e681861115c7fe927a8866c4ac4e814331c6da727bd3b0f65de4040a329",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.22,
+      "peakAbs": 0.7799999999999999,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-03.flac",
+          "sourceSha256": "2111003e4c61b8f3589f926f549ffc36094319da7b99238624c7d64e91bddc09",
+          "beginSeconds": 0,
+          "endSeconds": 0.3,
+          "speed": 1.4,
+          "gain": 0.6,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.13,
+          "endSeconds": 0.35,
+          "speed": 1,
+          "gain": 0.45,
+          "highpassHz": 1800,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_body",
+      "family": "ice_body",
+      "stage": "end",
+      "cueId": "sfx.aokiji.ice_body.end",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_body-end-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_body-end-cc0-1003.wav",
+      "bytes": 19448,
+      "sha256": "c531b4337c5011960f8dfc30c2f475ffaa6a37e30abd4d42704e64186524ae4d",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.22,
+      "peakAbs": 0.009993695218807898,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "wind_background_noise_2.wav",
+          "sourceSha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "beginSeconds": 4,
+          "endSeconds": 4.22,
+          "speed": 1,
+          "gain": 0.25,
+          "highpassHz": 2100,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_pheasant",
+      "family": "ice_pheasant",
+      "stage": "start",
+      "cueId": "sfx.aokiji.ice_pheasant.start",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_pheasant-start-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_pheasant-start-cc0-1003.wav",
+      "bytes": 30914,
+      "sha256": "1c77528474952553a77cd957be0a9a9cfc52b8a5fb02e2899a5ffdf2205e924d",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.35,
+      "peakAbs": 0.65,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.2,
+          "endSeconds": 0.5,
+          "speed": 1,
+          "gain": 0.65,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": true,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "wind_background_noise_2.wav",
+          "sourceSha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "beginSeconds": 4,
+          "endSeconds": 4.35,
+          "speed": 1,
+          "gain": 0.25,
+          "highpassHz": 850,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_pheasant",
+      "family": "ice_pheasant",
+      "stage": "release",
+      "cueId": "sfx.aokiji.ice_pheasant.release",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_pheasant-release-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_pheasant-release-cc0-1003.wav",
+      "bytes": 45908,
+      "sha256": "c84d330f55cc066f51bc9cae142690bfd0eb6b99133525443eda4b596ecc779a",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.52,
+      "peakAbs": 0.78,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "wind_background_noise_2.wav",
+          "sourceSha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "beginSeconds": 4,
+          "endSeconds": 4.5,
+          "speed": 1,
+          "gain": 0.4,
+          "highpassHz": 700,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "swish/swosh-05.flac",
+          "sourceSha256": "f8e711a61eb4d6f271a2ce71ba355148bc6f53628b21292338a27a9b7673cc1e",
+          "beginSeconds": 0,
+          "endSeconds": 0.4,
+          "speed": 0.8,
+          "gain": 0.7,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0,
+          "endSeconds": 0.52,
+          "speed": 1,
+          "gain": 0.65,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_pheasant",
+      "family": "ice_pheasant",
+      "stage": "end",
+      "cueId": "sfx.aokiji.ice_pheasant.end",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_pheasant-end-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_pheasant-end-cc0-1003.wav",
+      "bytes": 29150,
+      "sha256": "4581e8183c2551aeb57df5835752fe079e6e5fe55f9f14140467e3db691ab0b3",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.33,
+      "peakAbs": 0.45,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.64,
+          "endSeconds": 0.97,
+          "speed": 1,
+          "gain": 0.35,
+          "highpassHz": 700,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_glacier_line",
+      "family": "glacier_line",
+      "stage": "start",
+      "cueId": "sfx.aokiji.glacier_line.start",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-glacier_line-start-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-glacier_line-start-cc0-1003.wav",
+      "bytes": 35324,
+      "sha256": "25996f8a88f97b1527c14d87ae7dbe9dbf6244d830599c2b1e770bc3c1ee9b74",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.4,
+      "peakAbs": 0.65,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "wind_background_noise_2.wav",
+          "sourceSha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "beginSeconds": 4,
+          "endSeconds": 4.4,
+          "speed": 1,
+          "gain": 0.3,
+          "highpassHz": null,
+          "lowpassHz": 1300,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.42,
+          "endSeconds": 0.69,
+          "speed": 1,
+          "gain": 0.5,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": true,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_glacier_line",
+      "family": "glacier_line",
+      "stage": "release",
+      "cueId": "sfx.aokiji.glacier_line.release",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-glacier_line-release-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-glacier_line-release-cc0-1003.wav",
+      "bytes": 42220,
+      "sha256": "984b5d2d6f834ef9b6547e0456e8403438efdc280aaeba7481c6b0234816e991",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.4781859410430839,
+      "peakAbs": 0.78,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0,
+          "endSeconds": 0.38,
+          "speed": 1,
+          "gain": 0.75,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.08,
+          "endSeconds": 0.41,
+          "speed": 0.9,
+          "gain": 0.65,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0.08
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.15,
+          "endSeconds": 0.5,
+          "speed": 1.1,
+          "gain": 0.65,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0.16
+        },
+        {
+          "source": "hits/hit19.mp3.flac",
+          "sourceSha256": "ef5773159eec3b6bc59f613acf7b7c8f0d7ff68d306f00f53dfa116f8c5bb438",
+          "beginSeconds": 0,
+          "endSeconds": 0.38,
+          "speed": 1,
+          "gain": 0.35,
+          "highpassHz": null,
+          "lowpassHz": 1700,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_glacier_line",
+      "family": "glacier_line",
+      "stage": "end",
+      "cueId": "sfx.aokiji.glacier_line.end",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-glacier_line-end-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-glacier_line-end-cc0-1003.wav",
+      "bytes": 36362,
+      "sha256": "5e16e03d6730e119fd1a3c76204484748a8297770850974f8090f8cd422c2bd2",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.4117687074829932,
+      "peakAbs": 0.45,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.8,
+          "endSeconds": 1.15,
+          "speed": 0.85,
+          "gain": 0.35,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "ult_ice_age",
+      "family": "ice_age",
+      "stage": "start",
+      "cueId": "sfx.aokiji.ice_age.start",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_age-start-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_age-start-cc0-1003.wav",
+      "bytes": 52964,
+      "sha256": "a9bb5a989c562596722840012df85df5a01383cb9d1d42f66870ab48183c4455",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.6,
+      "peakAbs": 0.6500000000000001,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "wind_background_noise_2.wav",
+          "sourceSha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "beginSeconds": 4,
+          "endSeconds": 4.6,
+          "speed": 1,
+          "gain": 0.35,
+          "highpassHz": null,
+          "lowpassHz": 1100,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.08,
+          "endSeconds": 0.48,
+          "speed": 0.8,
+          "gain": 0.65,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": true,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "ult_ice_age",
+      "family": "ice_age",
+      "stage": "release",
+      "cueId": "sfx.aokiji.ice_age.release",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_age-release-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_age-release-cc0-1003.wav",
+      "bytes": 66194,
+      "sha256": "2f1af5b354a37ff896ccdb676731cb11296fc6d1fc36189e8b48c16905a186e9",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.75,
+      "peakAbs": 0.78,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0,
+          "endSeconds": 0.65,
+          "speed": 0.72,
+          "gain": 0.8,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.06,
+          "endSeconds": 0.51,
+          "speed": 1.1,
+          "gain": 0.45,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0.12
+        },
+        {
+          "source": "hits/hit19.mp3.flac",
+          "sourceSha256": "ef5773159eec3b6bc59f613acf7b7c8f0d7ff68d306f00f53dfa116f8c5bb438",
+          "beginSeconds": 0,
+          "endSeconds": 0.4,
+          "speed": 0.75,
+          "gain": 0.5,
+          "highpassHz": null,
+          "lowpassHz": 1500,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "aokiji",
+      "moveId": "ult_ice_age",
+      "family": "ice_age",
+      "stage": "end",
+      "cueId": "sfx.aokiji.ice_age.end",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_age-end-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/aokiji-ice_age-end-cc0-1003.wav",
+      "bytes": 52964,
+      "sha256": "dc945c7e0b5d59fe567ca387993e4a1ad877ba0231af7be6c1a48d8f75ba2e7f",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.6,
+      "peakAbs": 0.45,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.72,
+          "endSeconds": 1.22,
+          "speed": 0.8,
+          "gain": 0.35,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "wind_background_noise_2.wav",
+          "sourceSha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "beginSeconds": 4,
+          "endSeconds": 4.45,
+          "speed": 1,
+          "gain": 0.18,
+          "highpassHz": null,
+          "lowpassHz": 1200,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_haki_slash",
+      "family": "haki_slash",
+      "stage": "start",
+      "cueId": "sfx.shanks.haki_slash.start",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-haki_slash-start-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-haki_slash-start-cc0-1003.wav",
+      "bytes": 32538,
+      "sha256": "f98c8ed6e9f244818df8fa71abbe80f2297d74e8beee852506efdb89b962ad74",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.3684126984126984,
+      "peakAbs": 0.65,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-03.flac",
+          "sourceSha256": "2111003e4c61b8f3589f926f549ffc36094319da7b99238624c7d64e91bddc09",
+          "beginSeconds": 0,
+          "endSeconds": 0.35,
+          "speed": 0.95,
+          "gain": 0.65,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": true,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_haki_slash",
+      "family": "haki_slash",
+      "stage": "release",
+      "cueId": "sfx.shanks.haki_slash.release",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-haki_slash-release-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-haki_slash-release-cc0-1003.wav",
+      "bytes": 36362,
+      "sha256": "2cd9cc609015cab47da698a7cb8665ff8e4958d294fbf3722cee891901b65cc4",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.4117687074829932,
+      "peakAbs": 0.78,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-05.flac",
+          "sourceSha256": "f8e711a61eb4d6f271a2ce71ba355148bc6f53628b21292338a27a9b7673cc1e",
+          "beginSeconds": 0,
+          "endSeconds": 0.35,
+          "speed": 0.85,
+          "gain": 0.9,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "wind_background_noise_2.wav",
+          "sourceSha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "beginSeconds": 4,
+          "endSeconds": 4.4,
+          "speed": 1,
+          "gain": 0.2,
+          "highpassHz": 350,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_haki_slash",
+      "family": "haki_slash",
+      "stage": "end",
+      "cueId": "sfx.shanks.haki_slash.end",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-haki_slash-end-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-haki_slash-end-cc0-1003.wav",
+      "bytes": 17684,
+      "sha256": "65d4b61f062f9c735e3ca9b589f5d63c962ce03b7005985da660c55a0219d615",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.2,
+      "peakAbs": 0.45,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-05.flac",
+          "sourceSha256": "f8e711a61eb4d6f271a2ce71ba355148bc6f53628b21292338a27a9b7673cc1e",
+          "beginSeconds": 0.1,
+          "endSeconds": 0.34,
+          "speed": 1.2,
+          "gain": 0.25,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_single_arm_cut",
+      "family": "single_arm_cut",
+      "stage": "start",
+      "cueId": "sfx.shanks.single_arm_cut.start",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-single_arm_cut-start-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-single_arm_cut-start-cc0-1003.wav",
+      "bytes": 14744,
+      "sha256": "ffa3a5a498f264b1b74fb68970a96ec3fa946211b0dd00e618137cfb3a9668e8",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.16666666666666666,
+      "peakAbs": 0.65,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-02.flac",
+          "sourceSha256": "6148210eed26653d305eedc7f43e0f623864d434f0f4d8e3a540f623a823ff26",
+          "beginSeconds": 0,
+          "endSeconds": 0.2,
+          "speed": 1.2,
+          "gain": 0.6,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_single_arm_cut",
+      "family": "single_arm_cut",
+      "stage": "release",
+      "cueId": "sfx.shanks.single_arm_cut.release",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-single_arm_cut-release-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-single_arm_cut-release-cc0-1003.wav",
+      "bytes": 32248,
+      "sha256": "581bf704e331f93ef517bfe4b09e0e1006b4442d02721f0d7338460a8cb8499b",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.365124716553288,
+      "peakAbs": 0.78,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-04.flac",
+          "sourceSha256": "651afe743f1713c01b46a43a8fe099e5f866b46c22a98682c7d05728cfa4f5ae",
+          "beginSeconds": 0,
+          "endSeconds": 0.25551020408163266,
+          "speed": 1.25,
+          "gain": 0.8,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "swish/swosh-07.flac",
+          "sourceSha256": "2c33fea0dd6daed6e68e39d13be78d90455698650415d54a9af3fdfb3f1437b2",
+          "beginSeconds": 0,
+          "endSeconds": 0.33015873015873015,
+          "speed": 1.2,
+          "gain": 0.75,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0.09
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_single_arm_cut",
+      "family": "single_arm_cut",
+      "stage": "end",
+      "cueId": "sfx.shanks.single_arm_cut.end",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-single_arm_cut-end-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-single_arm_cut-end-cc0-1003.wav",
+      "bytes": 13614,
+      "sha256": "9208909864032fccb554b58129007f718b516155bb4948af6710614a591ba23a",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.1538548752834467,
+      "peakAbs": 0.45,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-03.flac",
+          "sourceSha256": "2111003e4c61b8f3589f926f549ffc36094319da7b99238624c7d64e91bddc09",
+          "beginSeconds": 0,
+          "endSeconds": 0.2,
+          "speed": 1.3,
+          "gain": 0.25,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_rising_guard",
+      "family": "rising_guard",
+      "stage": "start",
+      "cueId": "sfx.shanks.rising_guard.start",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-rising_guard-start-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-rising_guard-start-cc0-1003.wav",
+      "bytes": 32400,
+      "sha256": "ddc8e457da77922c3fb874cf3346ed8a53ede758d826d96ffee4c4e10d602b93",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.3668480725623583,
+      "peakAbs": 0.6499999999999999,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-07.flac",
+          "sourceSha256": "2c33fea0dd6daed6e68e39d13be78d90455698650415d54a9af3fdfb3f1437b2",
+          "beginSeconds": 0,
+          "endSeconds": 0.33015873015873015,
+          "speed": 0.9,
+          "gain": 0.55,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": true,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_rising_guard",
+      "family": "rising_guard",
+      "stage": "release",
+      "cueId": "sfx.shanks.rising_guard.release",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-rising_guard-release-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-rising_guard-release-cc0-1003.wav",
+      "bytes": 25366,
+      "sha256": "c87e27da0a3832f89edf8661f93b3dbcad3f73a9843912dd6eb8ecfa8f4c74dc",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.2870975056689342,
+      "peakAbs": 0.78,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-07.flac",
+          "sourceSha256": "2c33fea0dd6daed6e68e39d13be78d90455698650415d54a9af3fdfb3f1437b2",
+          "beginSeconds": 0,
+          "endSeconds": 0.33015873015873015,
+          "speed": 1.15,
+          "gain": 0.8,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "hits/hit03.mp3.flac",
+          "sourceSha256": "b97c1246a9b3c02f1d0e0ce6ce0f36a407de32ff912c00c1ddadcf0b8196235e",
+          "beginSeconds": 0,
+          "endSeconds": 0.2,
+          "speed": 1.6,
+          "gain": 0.3,
+          "highpassHz": 1000,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_rising_guard",
+      "family": "rising_guard",
+      "stage": "end",
+      "cueId": "sfx.shanks.rising_guard.end",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-rising_guard-end-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-rising_guard-end-cc0-1003.wav",
+      "bytes": 11474,
+      "sha256": "186f4ead56df096b11728cee642070c0bdd4170d2d1cc9a1ccf39217ad9be11f",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.12959183673469388,
+      "peakAbs": 0.45,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-04.flac",
+          "sourceSha256": "651afe743f1713c01b46a43a8fe099e5f866b46c22a98682c7d05728cfa4f5ae",
+          "beginSeconds": 0.1,
+          "endSeconds": 0.25551020408163266,
+          "speed": 1.2,
+          "gain": 0.25,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_step_thrust",
+      "family": "step_thrust",
+      "stage": "start",
+      "cueId": "sfx.shanks.step_thrust.start",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-step_thrust-start-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-step_thrust-start-cc0-1003.wav",
+      "bytes": 17876,
+      "sha256": "711db555b4fed989d01ee37ecebe8fe6bf194fd9002164cd53a240d256952a7d",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.20217687074829932,
+      "peakAbs": 0.46963350785340313,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "hits/hit04.mp3.flac",
+          "sourceSha256": "729d8301e133c3038ec5818b73965c7f2364dd49ba1347c7a057d74e3ffe8e10",
+          "beginSeconds": 0.15,
+          "endSeconds": 0.31,
+          "speed": 1,
+          "gain": 0.4,
+          "highpassHz": null,
+          "lowpassHz": 600,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "swish/swosh-02.flac",
+          "sourceSha256": "6148210eed26653d305eedc7f43e0f623864d434f0f4d8e3a540f623a823ff26",
+          "beginSeconds": 0,
+          "endSeconds": 0.20217687074829932,
+          "speed": 1,
+          "gain": 0.45,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": true,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_step_thrust",
+      "family": "step_thrust",
+      "stage": "release",
+      "cueId": "sfx.shanks.step_thrust.release",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-step_thrust-release-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-step_thrust-release-cc0-1003.wav",
+      "bytes": 12342,
+      "sha256": "548e7cf89dd31e966f7f4c3543c98298d489400c1317a51e5f74915551cfd791",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.13943310657596372,
+      "peakAbs": 0.78,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-02.flac",
+          "sourceSha256": "6148210eed26653d305eedc7f43e0f623864d434f0f4d8e3a540f623a823ff26",
+          "beginSeconds": 0,
+          "endSeconds": 0.20217687074829932,
+          "speed": 1.45,
+          "gain": 0.9,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "hits/hit01.mp3.flac",
+          "sourceSha256": "bdab6cd6c1d261efc363da24e205372daa88718b98bb149677d74459b24245d8",
+          "beginSeconds": 0,
+          "endSeconds": 0.15,
+          "speed": 1.5,
+          "gain": 0.2,
+          "highpassHz": 500,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_step_thrust",
+      "family": "step_thrust",
+      "stage": "end",
+      "cueId": "sfx.shanks.step_thrust.end",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-step_thrust-end-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-step_thrust-end-cc0-1003.wav",
+      "bytes": 7292,
+      "sha256": "e4bfc81d47bb53b619f07d0ceb6c393bf816dbba977dd3cb41e1b172fb855549",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.08217687074829932,
+      "peakAbs": 0.45,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-02.flac",
+          "sourceSha256": "6148210eed26653d305eedc7f43e0f623864d434f0f4d8e3a540f623a823ff26",
+          "beginSeconds": 0.12,
+          "endSeconds": 0.20217687074829932,
+          "speed": 1,
+          "gain": 0.25,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_low_cut",
+      "family": "low_cut",
+      "stage": "start",
+      "cueId": "sfx.shanks.low_cut.start",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-low_cut-start-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-low_cut-start-cc0-1003.wav",
+      "bytes": 21212,
+      "sha256": "8a5549e471d100bf0d51fc4d8458b652b5975d0aed4c33d8a7fd31f35fe09fb0",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.24,
+      "peakAbs": 0.65,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-03.flac",
+          "sourceSha256": "2111003e4c61b8f3589f926f549ffc36094319da7b99238624c7d64e91bddc09",
+          "beginSeconds": 0,
+          "endSeconds": 0.24,
+          "speed": 1,
+          "gain": 0.5,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": true,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_low_cut",
+      "family": "low_cut",
+      "stage": "release",
+      "cueId": "sfx.shanks.low_cut.release",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-low_cut-release-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-low_cut-release-cc0-1003.wav",
+      "bytes": 26888,
+      "sha256": "a925876da565f1f2b82d40c8cacb7a313f799418dc26b99596e7c4de083f1236",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.30435374149659866,
+      "peakAbs": 0.78,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-03.flac",
+          "sourceSha256": "2111003e4c61b8f3589f926f549ffc36094319da7b99238624c7d64e91bddc09",
+          "beginSeconds": 0,
+          "endSeconds": 0.35,
+          "speed": 1.15,
+          "gain": 0.9,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_low_cut",
+      "family": "low_cut",
+      "stage": "end",
+      "cueId": "sfx.shanks.low_cut.end",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-low_cut-end-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-low_cut-end-cc0-1003.wav",
+      "bytes": 13760,
+      "sha256": "e2cc88f909578a88ce9b93447a706f1e430ea22500d87c6338d82c3be05efdd3",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.15551020408163266,
+      "peakAbs": 0.45,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-04.flac",
+          "sourceSha256": "651afe743f1713c01b46a43a8fe099e5f866b46c22a98682c7d05728cfa4f5ae",
+          "beginSeconds": 0.1,
+          "endSeconds": 0.25551020408163266,
+          "speed": 1,
+          "gain": 0.25,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_sidestep",
+      "family": "sidestep",
+      "stage": "start",
+      "cueId": "sfx.shanks.sidestep.start",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-sidestep-start-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-sidestep-start-cc0-1003.wav",
+      "bytes": 13274,
+      "sha256": "ab17ef6b53a8ff1525e0c34919197fae1c95553ce2c97435544dab17f6ad473f",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.15,
+      "peakAbs": 0.22363347107549797,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "hits/hit04.mp3.flac",
+          "sourceSha256": "729d8301e133c3038ec5818b73965c7f2364dd49ba1347c7a057d74e3ffe8e10",
+          "beginSeconds": 0.15,
+          "endSeconds": 0.3,
+          "speed": 1,
+          "gain": 0.3,
+          "highpassHz": null,
+          "lowpassHz": 650,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_sidestep",
+      "family": "sidestep",
+      "stage": "release",
+      "cueId": "sfx.shanks.sidestep.release",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-sidestep-release-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-sidestep-release-cc0-1003.wav",
+      "bytes": 10852,
+      "sha256": "5f71783c612ef5f763b391c615413e49bffb9ad75763bd5e2777dfbb6e2c152d",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.12253968253968255,
+      "peakAbs": 0.78,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-02.flac",
+          "sourceSha256": "6148210eed26653d305eedc7f43e0f623864d434f0f4d8e3a540f623a823ff26",
+          "beginSeconds": 0,
+          "endSeconds": 0.20217687074829932,
+          "speed": 1.65,
+          "gain": 0.7,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_sidestep",
+      "family": "sidestep",
+      "stage": "end",
+      "cueId": "sfx.shanks.sidestep.end",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-sidestep-end-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-sidestep-end-cc0-1003.wav",
+      "bytes": 12072,
+      "sha256": "e870679a172a8df807e90b986d7f3cb0cbd560970437d3893664d69e71469900",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.1363718820861678,
+      "peakAbs": 0.1342940245572672,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "hits/hit04.mp3.flac",
+          "sourceSha256": "729d8301e133c3038ec5818b73965c7f2364dd49ba1347c7a057d74e3ffe8e10",
+          "beginSeconds": 0.15,
+          "endSeconds": 0.3,
+          "speed": 1.1,
+          "gain": 0.25,
+          "highpassHz": null,
+          "lowpassHz": 600,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_divine_departure",
+      "family": "divine_departure",
+      "stage": "start",
+      "cueId": "sfx.shanks.divine_departure.start",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-divine_departure-start-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-divine_departure-start-cc0-1003.wav",
+      "bytes": 44144,
+      "sha256": "83ffaa446d3c31e0ef58afaf4864c5401fc58a30b0fbee9c74af7318ae324648",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.5,
+      "peakAbs": 0.65,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-05.flac",
+          "sourceSha256": "f8e711a61eb4d6f271a2ce71ba355148bc6f53628b21292338a27a9b7673cc1e",
+          "beginSeconds": 0,
+          "endSeconds": 0.4,
+          "speed": 0.8,
+          "gain": 0.6,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": true,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "wind_background_noise_2.wav",
+          "sourceSha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "beginSeconds": 4,
+          "endSeconds": 4.33,
+          "speed": 1,
+          "gain": 0.25,
+          "highpassHz": null,
+          "lowpassHz": 850,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_divine_departure",
+      "family": "divine_departure",
+      "stage": "release",
+      "cueId": "sfx.shanks.divine_departure.release",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-divine_departure-release-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-divine_departure-release-cc0-1003.wav",
+      "bytes": 41204,
+      "sha256": "e8e62fa6a99cdf26a26139a734690921fbe64b1228e2c7010d912ea97324bb9d",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.4666666666666667,
+      "peakAbs": 0.78,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-05.flac",
+          "sourceSha256": "f8e711a61eb4d6f271a2ce71ba355148bc6f53628b21292338a27a9b7673cc1e",
+          "beginSeconds": 0,
+          "endSeconds": 0.35,
+          "speed": 0.75,
+          "gain": 0.85,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "hits/hit09.mp3.flac",
+          "sourceSha256": "97666669bdb698ee5a9061a8dbe78fa6cb873f3158899f3689d5e9efdde8cf0a",
+          "beginSeconds": 0,
+          "endSeconds": 0.3,
+          "speed": 0.9,
+          "gain": 0.6,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "wind_background_noise_2.wav",
+          "sourceSha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "beginSeconds": 4,
+          "endSeconds": 4.45,
+          "speed": 1,
+          "gain": 0.25,
+          "highpassHz": 750,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_divine_departure",
+      "family": "divine_departure",
+      "stage": "end",
+      "cueId": "sfx.shanks.divine_departure.end",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-divine_departure-end-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-divine_departure-end-cc0-1003.wav",
+      "bytes": 29098,
+      "sha256": "ab6a6d063d03465e620b462060452234ad69afe23bba5d0baba0df453167ef94",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.3294104308390023,
+      "peakAbs": 0.44999999999999996,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-03.flac",
+          "sourceSha256": "2111003e4c61b8f3589f926f549ffc36094319da7b99238624c7d64e91bddc09",
+          "beginSeconds": 0,
+          "endSeconds": 0.28,
+          "speed": 0.85,
+          "gain": 0.3,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_emperor_cuts",
+      "family": "emperor_cuts",
+      "stage": "start",
+      "cueId": "sfx.shanks.emperor_cuts.start",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-emperor_cuts-start-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-emperor_cuts-start-cc0-1003.wav",
+      "bytes": 22580,
+      "sha256": "7fa6d7714faab5c00c3a6b288aae45d777893696dceb4a2cd32366937a83f3f6",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.25551020408163266,
+      "peakAbs": 0.5175043630017452,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-04.flac",
+          "sourceSha256": "651afe743f1713c01b46a43a8fe099e5f866b46c22a98682c7d05728cfa4f5ae",
+          "beginSeconds": 0,
+          "endSeconds": 0.25551020408163266,
+          "speed": 1,
+          "gain": 0.55,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": true,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_emperor_cuts",
+      "family": "emperor_cuts",
+      "stage": "release",
+      "cueId": "sfx.shanks.emperor_cuts.release",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-emperor_cuts-release-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-emperor_cuts-release-cc0-1003.wav",
+      "bytes": 39304,
+      "sha256": "4f20d4d29f0a035c4915dcbfadd6806703b354e8b201f1bb5243619b21bd6001",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.445124716553288,
+      "peakAbs": 0.78,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-02.flac",
+          "sourceSha256": "6148210eed26653d305eedc7f43e0f623864d434f0f4d8e3a540f623a823ff26",
+          "beginSeconds": 0,
+          "endSeconds": 0.20217687074829932,
+          "speed": 1.25,
+          "gain": 0.75,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "swish/swosh-04.flac",
+          "sourceSha256": "651afe743f1713c01b46a43a8fe099e5f866b46c22a98682c7d05728cfa4f5ae",
+          "beginSeconds": 0,
+          "endSeconds": 0.25551020408163266,
+          "speed": 1.35,
+          "gain": 0.8,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0.08
+        },
+        {
+          "source": "swish/swosh-07.flac",
+          "sourceSha256": "2c33fea0dd6daed6e68e39d13be78d90455698650415d54a9af3fdfb3f1437b2",
+          "beginSeconds": 0,
+          "endSeconds": 0.33015873015873015,
+          "speed": 1.2,
+          "gain": 0.8,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0.17
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_emperor_cuts",
+      "family": "emperor_cuts",
+      "stage": "end",
+      "cueId": "sfx.shanks.emperor_cuts.end",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-emperor_cuts-end-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-emperor_cuts-end-cc0-1003.wav",
+      "bytes": 20330,
+      "sha256": "f84b63b749df21099ce6dbdf274270f0cac4800db1e3a6757d3581181752daf1",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.23,
+      "peakAbs": 0.45,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-05.flac",
+          "sourceSha256": "f8e711a61eb4d6f271a2ce71ba355148bc6f53628b21292338a27a9b7673cc1e",
+          "beginSeconds": 0.12,
+          "endSeconds": 0.35,
+          "speed": 1,
+          "gain": 0.25,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "ult_red_hair_finale",
+      "family": "red_hair_finale",
+      "stage": "start",
+      "cueId": "sfx.shanks.red_hair_finale.start",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-red_hair_finale-start-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-red_hair_finale-start-cc0-1003.wav",
+      "bytes": 52964,
+      "sha256": "ecbea50a225d91339efb3375566eb8e5787e8e4f3352e1d24b703e96fe82fd56",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.6,
+      "peakAbs": 0.65,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "wind_background_noise_2.wav",
+          "sourceSha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "beginSeconds": 4,
+          "endSeconds": 4.6,
+          "speed": 1,
+          "gain": 0.4,
+          "highpassHz": null,
+          "lowpassHz": 900,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "swish/swosh-05.flac",
+          "sourceSha256": "f8e711a61eb4d6f271a2ce71ba355148bc6f53628b21292338a27a9b7673cc1e",
+          "beginSeconds": 0,
+          "endSeconds": 0.41551020408163264,
+          "speed": 0.75,
+          "gain": 0.65,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": true,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "ult_red_hair_finale",
+      "family": "red_hair_finale",
+      "stage": "release",
+      "cueId": "sfx.shanks.red_hair_finale.release",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-red_hair_finale-release-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-red_hair_finale-release-cc0-1003.wav",
+      "bytes": 47028,
+      "sha256": "fd14958a9557600bf5594e5adf1bdf6b370958883dd23955e59d0950db3b912d",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.5326984126984127,
+      "peakAbs": 0.7800000000000001,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "swish/swosh-05.flac",
+          "sourceSha256": "f8e711a61eb4d6f271a2ce71ba355148bc6f53628b21292338a27a9b7673cc1e",
+          "beginSeconds": 0,
+          "endSeconds": 0.35,
+          "speed": 0.7,
+          "gain": 0.85,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "hits/hit19.mp3.flac",
+          "sourceSha256": "ef5773159eec3b6bc59f613acf7b7c8f0d7ff68d306f00f53dfa116f8c5bb438",
+          "beginSeconds": 0,
+          "endSeconds": 0.42,
+          "speed": 0.8,
+          "gain": 0.55,
+          "highpassHz": null,
+          "lowpassHz": 2300,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "swish/swosh-07.flac",
+          "sourceSha256": "2c33fea0dd6daed6e68e39d13be78d90455698650415d54a9af3fdfb3f1437b2",
+          "beginSeconds": 0,
+          "endSeconds": 0.33015873015873015,
+          "speed": 0.8,
+          "gain": 0.45,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0.12
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    },
+    {
+      "character": "shanks",
+      "moveId": "ult_red_hair_finale",
+      "family": "red_hair_finale",
+      "stage": "end",
+      "cueId": "sfx.shanks.red_hair_finale.end",
+      "candidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-red_hair_finale-end-cc0-1003.wav",
+      "proposedRuntimeFile": "assets/audio/sfx/shanks-red_hair_finale-end-cc0-1003.wav",
+      "bytes": 37088,
+      "sha256": "ebb05f1acf0b702c2251bb9ed3d0eb837123f6be9c85fc201128cb4c6e5c4cbf",
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "durationSeconds": 0.42,
+      "peakAbs": 0.36084541941742765,
+      "pcmFullScaleSamples": 0,
+      "headAndTailSampleZero": true,
+      "recipes": [
+        {
+          "source": "wind_background_noise_2.wav",
+          "sourceSha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "beginSeconds": 4,
+          "endSeconds": 4.42,
+          "speed": 1,
+          "gain": 0.25,
+          "highpassHz": 850,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "swish/swosh-04.flac",
+          "sourceSha256": "651afe743f1713c01b46a43a8fe099e5f866b46c22a98682c7d05728cfa4f5ae",
+          "beginSeconds": 0.12,
+          "endSeconds": 0.25551020408163266,
+          "speed": 1,
+          "gain": 0.25,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "humanListened": false,
+      "nativeAudioReviewed": false,
+      "gamePlaybackVerified": false,
+      "adopted": false
+    }
+  ],
+  "cues": {
+    "sfx.aokiji.ice_lance.start": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_lance-start-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.45,
+      "priority": 30,
+      "cooldownMs": 80,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_lance.release": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_lance-release-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_lance.end": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_lance-end-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.3,
+      "priority": 20,
+      "cooldownMs": 35,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_blade.start": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_blade-start-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.45,
+      "priority": 30,
+      "cooldownMs": 80,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_blade.release": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_blade-release-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_blade.end": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_blade-end-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.3,
+      "priority": 20,
+      "cooldownMs": 35,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_uplift.start": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_uplift-start-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.45,
+      "priority": 30,
+      "cooldownMs": 80,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_uplift.release": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_uplift-release-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_uplift.end": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_uplift-end-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.3,
+      "priority": 20,
+      "cooldownMs": 35,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_spike.start": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_spike-start-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.45,
+      "priority": 30,
+      "cooldownMs": 80,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_spike.release": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_spike-release-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_spike.end": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_spike-end-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.3,
+      "priority": 20,
+      "cooldownMs": 35,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_mirror.start": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_mirror-start-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.45,
+      "priority": 30,
+      "cooldownMs": 80,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_mirror.release": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_mirror-release-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_mirror.end": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_mirror-end-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.3,
+      "priority": 20,
+      "cooldownMs": 35,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_body.start": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_body-start-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.45,
+      "priority": 30,
+      "cooldownMs": 80,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_body.release": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_body-release-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_body.end": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_body-end-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.3,
+      "priority": 20,
+      "cooldownMs": 35,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_pheasant.start": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_pheasant-start-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.45,
+      "priority": 30,
+      "cooldownMs": 80,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_pheasant.release": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_pheasant-release-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_pheasant.end": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_pheasant-end-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.3,
+      "priority": 20,
+      "cooldownMs": 35,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.glacier_line.start": {
+      "files": [
+        "assets/audio/sfx/aokiji-glacier_line-start-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.45,
+      "priority": 30,
+      "cooldownMs": 80,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.glacier_line.release": {
+      "files": [
+        "assets/audio/sfx/aokiji-glacier_line-release-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.glacier_line.end": {
+      "files": [
+        "assets/audio/sfx/aokiji-glacier_line-end-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.3,
+      "priority": 20,
+      "cooldownMs": 35,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_age.start": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_age-start-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.45,
+      "priority": 30,
+      "cooldownMs": 80,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_age.release": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_age-release-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.aokiji.ice_age.end": {
+      "files": [
+        "assets/audio/sfx/aokiji-ice_age-end-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.3,
+      "priority": 20,
+      "cooldownMs": 35,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.haki_slash.start": {
+      "files": [
+        "assets/audio/sfx/shanks-haki_slash-start-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.45,
+      "priority": 30,
+      "cooldownMs": 80,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.haki_slash.release": {
+      "files": [
+        "assets/audio/sfx/shanks-haki_slash-release-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.haki_slash.end": {
+      "files": [
+        "assets/audio/sfx/shanks-haki_slash-end-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.3,
+      "priority": 20,
+      "cooldownMs": 35,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.single_arm_cut.start": {
+      "files": [
+        "assets/audio/sfx/shanks-single_arm_cut-start-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.45,
+      "priority": 30,
+      "cooldownMs": 80,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.single_arm_cut.release": {
+      "files": [
+        "assets/audio/sfx/shanks-single_arm_cut-release-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.single_arm_cut.end": {
+      "files": [
+        "assets/audio/sfx/shanks-single_arm_cut-end-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.3,
+      "priority": 20,
+      "cooldownMs": 35,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.rising_guard.start": {
+      "files": [
+        "assets/audio/sfx/shanks-rising_guard-start-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.45,
+      "priority": 30,
+      "cooldownMs": 80,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.rising_guard.release": {
+      "files": [
+        "assets/audio/sfx/shanks-rising_guard-release-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.rising_guard.end": {
+      "files": [
+        "assets/audio/sfx/shanks-rising_guard-end-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.3,
+      "priority": 20,
+      "cooldownMs": 35,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.step_thrust.start": {
+      "files": [
+        "assets/audio/sfx/shanks-step_thrust-start-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.45,
+      "priority": 30,
+      "cooldownMs": 80,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.step_thrust.release": {
+      "files": [
+        "assets/audio/sfx/shanks-step_thrust-release-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.step_thrust.end": {
+      "files": [
+        "assets/audio/sfx/shanks-step_thrust-end-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.3,
+      "priority": 20,
+      "cooldownMs": 35,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.low_cut.start": {
+      "files": [
+        "assets/audio/sfx/shanks-low_cut-start-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.45,
+      "priority": 30,
+      "cooldownMs": 80,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.low_cut.release": {
+      "files": [
+        "assets/audio/sfx/shanks-low_cut-release-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.low_cut.end": {
+      "files": [
+        "assets/audio/sfx/shanks-low_cut-end-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.3,
+      "priority": 20,
+      "cooldownMs": 35,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.sidestep.start": {
+      "files": [
+        "assets/audio/sfx/shanks-sidestep-start-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.45,
+      "priority": 30,
+      "cooldownMs": 80,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.sidestep.release": {
+      "files": [
+        "assets/audio/sfx/shanks-sidestep-release-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.sidestep.end": {
+      "files": [
+        "assets/audio/sfx/shanks-sidestep-end-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.3,
+      "priority": 20,
+      "cooldownMs": 35,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.divine_departure.start": {
+      "files": [
+        "assets/audio/sfx/shanks-divine_departure-start-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.45,
+      "priority": 30,
+      "cooldownMs": 80,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.divine_departure.release": {
+      "files": [
+        "assets/audio/sfx/shanks-divine_departure-release-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.divine_departure.end": {
+      "files": [
+        "assets/audio/sfx/shanks-divine_departure-end-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.3,
+      "priority": 20,
+      "cooldownMs": 35,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.emperor_cuts.start": {
+      "files": [
+        "assets/audio/sfx/shanks-emperor_cuts-start-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.45,
+      "priority": 30,
+      "cooldownMs": 80,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.emperor_cuts.release": {
+      "files": [
+        "assets/audio/sfx/shanks-emperor_cuts-release-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.emperor_cuts.end": {
+      "files": [
+        "assets/audio/sfx/shanks-emperor_cuts-end-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.3,
+      "priority": 20,
+      "cooldownMs": 35,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.red_hair_finale.start": {
+      "files": [
+        "assets/audio/sfx/shanks-red_hair_finale-start-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.45,
+      "priority": 30,
+      "cooldownMs": 80,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.red_hair_finale.release": {
+      "files": [
+        "assets/audio/sfx/shanks-red_hair_finale-release-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    },
+    "sfx.shanks.red_hair_finale.end": {
+      "files": [
+        "assets/audio/sfx/shanks-red_hair_finale-end-cc0-1003.wav"
+      ],
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.3,
+      "priority": 20,
+      "cooldownMs": 35,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+    }
+  },
+  "moves": {
+    "aokiji": {
+      "sp_ice_lance": {
+        "family": "ice_lance",
+        "genericEffortCue": "voice.aokiji.effort",
+        "dedicatedMoveVoice": false,
+        "stages": {
+          "start": "sfx.aokiji.ice_lance.start",
+          "release": "sfx.aokiji.ice_lance.release",
+          "end": "sfx.aokiji.ice_lance.end"
+        }
+      },
+      "sp_ice_blade": {
+        "family": "ice_blade",
+        "genericEffortCue": "voice.aokiji.effort",
+        "dedicatedMoveVoice": false,
+        "stages": {
+          "start": "sfx.aokiji.ice_blade.start",
+          "release": "sfx.aokiji.ice_blade.release",
+          "end": "sfx.aokiji.ice_blade.end"
+        }
+      },
+      "sp_ice_uplift": {
+        "family": "ice_uplift",
+        "genericEffortCue": "voice.aokiji.effort",
+        "dedicatedMoveVoice": false,
+        "stages": {
+          "start": "sfx.aokiji.ice_uplift.start",
+          "release": "sfx.aokiji.ice_uplift.release",
+          "end": "sfx.aokiji.ice_uplift.end"
+        }
+      },
+      "sp_ice_spike": {
+        "family": "ice_spike",
+        "genericEffortCue": "voice.aokiji.effort",
+        "dedicatedMoveVoice": false,
+        "stages": {
+          "start": "sfx.aokiji.ice_spike.start",
+          "release": "sfx.aokiji.ice_spike.release",
+          "end": "sfx.aokiji.ice_spike.end"
+        }
+      },
+      "sp_ice_mirror": {
+        "family": "ice_mirror",
+        "genericEffortCue": "voice.aokiji.effort",
+        "dedicatedMoveVoice": false,
+        "stages": {
+          "start": "sfx.aokiji.ice_mirror.start",
+          "release": "sfx.aokiji.ice_mirror.release",
+          "end": "sfx.aokiji.ice_mirror.end"
+        }
+      },
+      "sp_ice_body": {
+        "family": "ice_body",
+        "genericEffortCue": "voice.aokiji.effort",
+        "dedicatedMoveVoice": false,
+        "stages": {
+          "start": "sfx.aokiji.ice_body.start",
+          "release": "sfx.aokiji.ice_body.release",
+          "end": "sfx.aokiji.ice_body.end"
+        }
+      },
+      "sp_ice_pheasant": {
+        "family": "ice_pheasant",
+        "genericEffortCue": "voice.aokiji.effort",
+        "dedicatedMoveVoice": false,
+        "stages": {
+          "start": "sfx.aokiji.ice_pheasant.start",
+          "release": "sfx.aokiji.ice_pheasant.release",
+          "end": "sfx.aokiji.ice_pheasant.end"
+        }
+      },
+      "sp_glacier_line": {
+        "family": "glacier_line",
+        "genericEffortCue": "voice.aokiji.effort",
+        "dedicatedMoveVoice": false,
+        "stages": {
+          "start": "sfx.aokiji.glacier_line.start",
+          "release": "sfx.aokiji.glacier_line.release",
+          "end": "sfx.aokiji.glacier_line.end"
+        }
+      },
+      "ult_ice_age": {
+        "family": "ice_age",
+        "genericEffortCue": "voice.aokiji.effort",
+        "dedicatedMoveVoice": false,
+        "stages": {
+          "start": "sfx.aokiji.ice_age.start",
+          "release": "sfx.aokiji.ice_age.release",
+          "end": "sfx.aokiji.ice_age.end"
+        }
+      }
+    },
+    "shanks": {
+      "sp_haki_slash": {
+        "family": "haki_slash",
+        "genericEffortCue": "voice.shanks.effort",
+        "dedicatedMoveVoice": false,
+        "stages": {
+          "start": "sfx.shanks.haki_slash.start",
+          "release": "sfx.shanks.haki_slash.release",
+          "end": "sfx.shanks.haki_slash.end"
+        }
+      },
+      "sp_single_arm_cut": {
+        "family": "single_arm_cut",
+        "genericEffortCue": "voice.shanks.effort",
+        "dedicatedMoveVoice": false,
+        "stages": {
+          "start": "sfx.shanks.single_arm_cut.start",
+          "release": "sfx.shanks.single_arm_cut.release",
+          "end": "sfx.shanks.single_arm_cut.end"
+        }
+      },
+      "sp_rising_guard": {
+        "family": "rising_guard",
+        "genericEffortCue": "voice.shanks.effort",
+        "dedicatedMoveVoice": false,
+        "stages": {
+          "start": "sfx.shanks.rising_guard.start",
+          "release": "sfx.shanks.rising_guard.release",
+          "end": "sfx.shanks.rising_guard.end"
+        }
+      },
+      "sp_step_thrust": {
+        "family": "step_thrust",
+        "genericEffortCue": "voice.shanks.effort",
+        "dedicatedMoveVoice": false,
+        "stages": {
+          "start": "sfx.shanks.step_thrust.start",
+          "release": "sfx.shanks.step_thrust.release",
+          "end": "sfx.shanks.step_thrust.end"
+        }
+      },
+      "sp_low_cut": {
+        "family": "low_cut",
+        "genericEffortCue": "voice.shanks.effort",
+        "dedicatedMoveVoice": false,
+        "stages": {
+          "start": "sfx.shanks.low_cut.start",
+          "release": "sfx.shanks.low_cut.release",
+          "end": "sfx.shanks.low_cut.end"
+        }
+      },
+      "sp_sidestep": {
+        "family": "sidestep",
+        "genericEffortCue": "voice.shanks.effort",
+        "dedicatedMoveVoice": false,
+        "stages": {
+          "start": "sfx.shanks.sidestep.start",
+          "release": "sfx.shanks.sidestep.release",
+          "end": "sfx.shanks.sidestep.end"
+        }
+      },
+      "sp_divine_departure": {
+        "family": "divine_departure",
+        "genericEffortCue": "voice.shanks.effort",
+        "dedicatedMoveVoice": false,
+        "stages": {
+          "start": "sfx.shanks.divine_departure.start",
+          "release": "sfx.shanks.divine_departure.release",
+          "end": "sfx.shanks.divine_departure.end"
+        }
+      },
+      "sp_emperor_cuts": {
+        "family": "emperor_cuts",
+        "genericEffortCue": "voice.shanks.effort",
+        "dedicatedMoveVoice": false,
+        "stages": {
+          "start": "sfx.shanks.emperor_cuts.start",
+          "release": "sfx.shanks.emperor_cuts.release",
+          "end": "sfx.shanks.emperor_cuts.end"
+        }
+      },
+      "ult_red_hair_finale": {
+        "family": "red_hair_finale",
+        "genericEffortCue": "voice.shanks.effort",
+        "dedicatedMoveVoice": false,
+        "stages": {
+          "start": "sfx.shanks.red_hair_finale.start",
+          "release": "sfx.shanks.red_hair_finale.release",
+          "end": "sfx.shanks.red_hair_finale.end"
+        }
+      }
+    }
+  },
+  "candidateSkillCount": 18,
+  "candidateCueCount": 54,
+  "adoptedCueCount": 0,
+  "remainingReview": "Native listening plus actual game release/hit/end/mix; technical signal metrics are not sound acceptance"
+}

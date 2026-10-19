@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_locomotion_0929",
+  "sourceFile": "public/assets/generated/source/roster-shanks-locomotion-0929.png",
+  "sourceSha256": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+  "status": "partial-candidate-not-normal-speed-acceptance",
+  "observations": [
+    "Pillow fully decoded an actual 1254x1254 RGBA PNG with alpha extrema 0-255; source bytes retained unchanged.",
+    "White-background diagnostic confirms one visible right arm, no second hand, one saber, complete feet and consistent clothing across the nine poses.",
+    "Initial four requested walk poses include repeated long-stride configurations instead of a complete alternating left/right passing cycle. They remain in unusedReviewCrops and are not mapped as walk_fwd/walk_back.",
+    "The three actual attack drawings depict a short sword thrust, not a hilt jab. Parent approved adopting the light-sword-thrust direction; existing new-candidate move data still awaits measured hitbox review.",
+    "An explicit exclusion removes neighboring drawing fragments in the wide active/recovery crops. No body redraw, per-pose scaling or geometric correction is applied.",
+    "Alpha=1 fringe pixels exist in some transparent gutters; visible-height calibration uses alpha>=8, while output preserves source alpha without inventing pixels."
+  ],
+  "calibration": {
+    "neutralVisibleBoundsAlpha8": [
+      36,
+      20,
+      421,
+      400
+    ],
+    "neutralVisibleHeight": 380,
+    "targetWorldHeight": 94,
+    "characterScale": 0.49473684210526314,
+    "textureDensity": 2,
+    "sourceUnitScale": 1,
+    "basis": "One scale 2*94/380 for the entire sheet; renderer converts baseline artwork pixels to world units with a factor of 1/2."
+  },
+  "attackContactCandidate": {
+    "moveId": "st_a",
+    "requestedDisplayName": "轻剑刺",
+    "sourceRoot": [
+      222,
+      1215
+    ],
+    "sourceWeaponGrip": [
+      343,
+      958
+    ],
+    "sourceWeaponTip": [
+      512,
+      995
+    ],
+    "approxWorldGrip": [
+      29.93,
+      -63.57
+    ],
+    "approxWorldTip": [
+      71.74,
+      -54.42
+    ],
+    "proposedHitboxForParentReview": [
+      27,
+      -67,
+      45,
+      16
+    ],
+    "preserveStartupActiveRecovery": [
+      5,
+      3,
+      10
+    ],
+    "preserveDamage": 34,
+    "status": "requires-parent-data-change-and-real-contact-test"
+  },
+  "atlasCheck": {
+    "command": "python scripts/build_anime_atlas.py shanks --manifest scripts/roster_shanks_manifest0929.json --check",
+    "passed": true,
+    "wroteRuntimeAssets": false,
+    "animations": [
+      "idle",
+      "st_a",
+      "hit_stand"
+    ],
+    "uniqueCrops": 5
+  },
+  "nextRequired": [
+    "Correct alternating walk cycle from new real poses",
+    "Normal-speed sample with measured roots and attack contact",
+    "Independent left-facing asymmetry check",
+    "Complete required reaction states and real sound before public selectable registration"
+  ],
+  "completedDownloadVerification": {
+    "browser": "Codex内置浏览器",
+    "downloadFile": "C:\\Users\\august\\Downloads\\ChatGPT 图像 2026年9月29日 23_43_11.png",
+    "bytes": 1355244,
+    "sha256": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+    "candidateMatches": true,
+    "verifiedAt": "2026-09-29T23:48:49+08:00",
+    "note": "Parent downloaded the same generated first sheet through the normal official viewer; this agent independently compared the resulting PNG with the earlier complete temporary-byte candidate. Original generation receipt and timestamps remain unchanged."
+  }
+}

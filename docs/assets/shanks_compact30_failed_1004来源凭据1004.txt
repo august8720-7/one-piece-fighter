@@ -1,0 +1,50 @@
+{
+  "file": "public/assets/generated/source/roster-shanks-compact30-failed-1004.png",
+  "sha256": "d6a30fda3299260a00c44775c33f09516d2f2f89b57a85e03efe554e2f28a368",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方网页未公开具体图像型号，记unverified，不推断后台型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ac0f91e-dfc4-83ec-9089-110fa53eaf16",
+  "observedCompletedAt": "2026-10-04T11:13:57.109522+08:00",
+  "uiObservation": "主执行者独占会话，单次上传/发送、最新radio/极高第4/5项与完整输入读回有其截图。本素材执行者仅按主执行者pageAssets bundle实际归档原PNG，并独立完整解码/看图/复制哈希；不是本素材执行者的网页提交或型号实查。完成时间是该截图mtime，不称服务器生成时间。双鞋收近而手仍宽伸，故不采用、不写作者活动帧或runtime。",
+  "prompt": {
+    "file": "docs/assets/shanks-compact-hold-prompt1004.txt",
+    "sha256": "9cc5c9fcfa3e2c9bd26cb567f17aff8b211383be142ce06c6d0ed7b5ae50cb19"
+  },
+  "referenceSources": {
+    "compact_held_leg_pair_guide1004": "fd5a225bb19992f6c148c6b718685bd134f0e1e2ac8f55ea27f807b549200d75"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-04T11:38:06.947703+08:00",
+  "screenshot": {
+    "file": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\shanks-completion-1003-1509\\shanks-compact30-completed1004.jpg",
+    "sha256": "521f2e5f99a8efa163c84a985cb51029c5cd1ba4a1ac8ff3d83fd4d1b9c0d992"
+  },
+  "pageAssetsBundle": {
+    "file": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\shanks-completion-1003-1509\\shanks-compact30-space-bundle1004.json",
+    "sha256": "4105a99b39c85bf53e989caadcc03939a1bfef8f2fb526e4025cbcf26c20ae3d"
+  },
+  "reviewStatus": "rejected-candidate-preserved",
+  "runtimeAdopted": false,
+  "schemaVersion": 1,
+  "sourceKey": "shanks_compact30_failed_1004",
+  "referenceFiles": {
+    "compact_held_leg_pair_guide1004": {
+      "file": "D:/one-piece-fighter-crossover-0922/roster-0929/reference/shanks-low-hold-1003/compact-held-leg-pair-guide1004.png",
+      "kind": "reference-guide-not-runtime",
+      "sha256": "fd5a225bb19992f6c148c6b718685bd134f0e1e2ac8f55ea27f807b549200d75"
+    }
+  },
+  "timeMeaning": "actual observed completed result as already recorded; not server generation time",
+  "acceptanceMeaning": "source observation receipt; no image-model identification or complete-role acceptance",
+  "canonicalizedAt": "2026-10-04T13:49:25.663241+08:00",
+  "priorProsePreservedIn": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\first-pair-independent-shanks-1004-081851\\source-receipts-canonical1004-134925"
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_low_hold_front_joint1_1004",
+  "file": "public/assets/generated/source/roster-aokiji-low-hold-front-joint1-1004.png",
+  "sha256": "68821242fd8639281926f6924b1035f2d9d4c063408e6d457e3e0cade189af4d",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "root在新独立青雉官方会话实际核验最新与极高；model/draft/completed截图已保存，具体图像后台型号未公开，不记2.5。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ac1c91d-9a4c-83ee-90f8-5e05fd1c1774",
+  "observedCompletedAt": "2026-10-04T12:09:01.503621+08:00",
+  "uiObservation": "本助手先在Edge实际核验最新radio checked/极高第4共5并留证，但setFiles受已有本地fileURL权限限制，没有填提示或提交，不改扩展权限。单控制者临时交给root现有IAB9，root原生上传fresh原PNG和绿色测点guide，完整joint短提示读回匹配后单次发送，joint-repair-latest-extra-high/draft/sent1004凭据保存。root提交后交回本助手，Edge原确切会话刷新导致一次绑定失联，按真实库存同tab843472206重新绑定恢复，没有重发。实际完整第二条用户消息与提示一致，最新图片查看器标题青雉双姿态透明精灵图，当前img已生成图像2；完成复核截图保存于同层。点击该实际文件菜单在空间中打开，经真实Space URL和DOM可见同名PNG，pageAssets.list/bundle只取已显示的对应image资产，下载1/失败0，原manifest和完整bundle JSON保留。空间sidebar型号不作生成依据。原图两格、相同1774x887，手区靠拢有实际改善；手点仍待量测，不登记接触通过。官方原文件https://chatgpt.com/space/file/libfile_be6a8abaf63c819199293d5d6236c5ec。PNG签名/IEND/Pillowverify/全RGBAdecode/1774x887真实alpha0..255/重复稳定原字节均通过，先清单复制原件、manifest和旧来源表再SHA一致。完成时间取本次完成复核截图，不是服务器首次生成。来源保全不代表握位/美术或实机验收通过，尚未改runtime或作者映射。",
+  "prompt": {
+    "file": "docs/assets/aokiji-low-hold-fresh-front-joint-repair-prompt1004.txt",
+    "sha256": "f51f81985ee0ac521936b76d1ee255b398ea5ba47cb4617c6d9ab887bec6603e"
+  },
+  "referenceSources": {
+    "aokiji_low_hold_front_fresh_1004": "6518a82260d7054597cf57b23c19b1fad8a9fd290323fa9d8643fda87472aa05"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-04T04:13:06.907582+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/aokiji-fresh-front-joint-completed1004.jpg",
+    "sha256": "516e2a4bb971c302cb890b3fa78ae56718e07c17713b83941edb322c7e36f6e5"
+  },
+  "referenceFiles": {
+    "aokiji_low_hold_front_fresh_1004": {
+      "file": "public/assets/generated/source/roster-aokiji-low-hold-front-fresh-1004.png",
+      "sha256": "6518a82260d7054597cf57b23c19b1fad8a9fd290323fa9d8643fda87472aa05"
+    }
+  },
+  "originalPngSize": [
+    1774,
+    887
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

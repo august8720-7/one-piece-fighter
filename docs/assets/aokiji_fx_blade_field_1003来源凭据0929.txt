@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_fx_blade_field_1003",
+  "file": "public/assets/generated/source/roster-aokiji-fx-blade-field-1003.png",
+  "sha256": "aa3282cb39b82e03032ff83cb83383ac6f3622e08f9f6c234d71d8fc0bde2992",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方图像入口未公开具体图像型号，来源保留unverified。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ac0c9f8-7e10-83e8-a1ef-9dfed61cde74",
+  "observedCompletedAt": "2026-10-03T17:54:49.433+08:00",
+  "uiObservation": "同一已核最新/极高独立特效会话，fill完整第二页提示词单次发送，页面思考显示未及时同步后reload恢复已成图。实际查看器标题冰晶战斗特效九宫格Spritesheet，当前img已生成图像2，九格上挑/横斩/冰原真实特效。点击原下载，1039160bytes完整PNG落盘。17:54:49为下载后实际完成复查与截图时刻，不是服务器生成时间。",
+  "prompt": {
+    "file": "docs/assets/aokiji-fx-blade-field-prompt1003.txt",
+    "sha256": "a9c23cd9ccbbd918195ee7c53c5f8bf73bac2dc031f6510e8ab6482fc18f6a34"
+  },
+  "referenceSources": {},
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T10:01:49.017426+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/first-pair-1733-1003/aokiji-fx-blade-field-web-preview.jpg",
+    "sha256": "6c9cb4f3435882b6c117d0bfb3c09fe8b7b6a6771e3162517aaa68348cc0bf95"
+  },
+  "referenceFiles": {},
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

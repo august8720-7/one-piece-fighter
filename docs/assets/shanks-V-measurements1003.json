@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_v_red_hair_finale_1003",
+  "sourceSha256": "912714a762800ee7c60c2f360631776aa7d9ff87478fd1535e9330fde84d6f79",
+  "status": "finale-body-candidate-before-contact-fx-review",
+  "neutralVisibleAlpha8Bounds": [72, 29, 654, 504],
+  "neutralVisibleHeight": 475,
+  "referenceNeutralHeight": 380,
+  "unitScale": 0.8,
+  "scaleBasis": "Whole-source neutral visible alpha>=8 height475px; all three V poses use380/475 versus the original380px reference. No per-pose fitting.",
+  "frames": {
+    "v_start_1003": {"source": "shanks_v_red_hair_finale_1003", "crop": [761, 10, 698, 501], "root": [359, 488], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "v_active_1003": {"source": "shanks_v_red_hair_finale_1003", "crop": [17, 547, 891, 437], "root": [383, 425], "sockets": {"weapon_grip": [576, 201], "weapon_tip": [879, 382]}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[832, 0, 59, 349]]},
+    "v_recover_1003": {"source": "shanks_v_red_hair_finale_1003", "crop": [843, 547, 669, 440], "root": [351, 429], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[0, 354, 59, 33]]}
+  },
+  "anims": {
+    "ult_red_hair_finale": {"frames": ["v_start_1003", "v_active_1003", "v_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 20}, {"frame": 1, "ticks": 7}, {"frame": 2, "ticks": 46}]}
+  },
+  "parentContactReview": {
+    "approxWorldGrip": [38.20, -44.33],
+    "approxWorldTip": [98.15, -8.51],
+    "currentHitbox": [12, -94, 120, 85],
+    "suggestedMeasuredHitbox": [31, -49, 71, 44],
+    "note": "Static proposal only. Original ultimate rectangle covers a larger upper/front volume than this grounded diagonal saber. Parent decides whether actual independent ultimate sweep FX supports that volume or uses measured contact. Preserve330 damage and20/7/46, armor-break/wall-bounce/step rules."
+  },
+  "observations": ["Three independent start/cut/recovery drawings preserve one right arm, full saber and intact feet.", "The body is grounded throughout; independent FX must provide the ultimate visual extent without pretending this is a projectile.", "Source art receipt and alpha diagnostics do not complete sounds or real ultimate input/impact."]
+}

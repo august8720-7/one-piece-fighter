@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_x_divine_departure_1003",
+  "sourceSha256": "4d1ded4449ced17298d69e0cc6e1c5a61f38a52e505daf329922b97beb262d19",
+  "status": "static-divine-cut-body-before-contact-review",
+  "neutralVisibleAlpha8Bounds": [95, 24, 676, 522],
+  "neutralVisibleHeight": 498,
+  "referenceNeutralHeight": 380,
+  "unitScale": 0.7630522088353414,
+  "scaleBasis": "One neutral visible alpha>=8 height498px; all three X poses share380/498 versus the original380px idle. No per-pose fitting.",
+  "frames": {
+    "x_start_1003": {"source": "shanks_x_divine_departure_1003", "crop": [787, 17, 550, 510], "root": [329, 498], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "x_active_1003": {"source": "shanks_x_divine_departure_1003", "crop": [41, 571, 897, 410], "root": [386, 398], "sockets": {"weapon_grip": [581, 194], "weapon_tip": [889, 368]}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[850, 0, 47, 334]]},
+    "x_recover_1003": {"source": "shanks_x_divine_departure_1003", "crop": [885, 565, 624, 427], "root": [285, 416], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[0, 350, 53, 41]]}
+  },
+  "anims": {
+    "sp_divine_departure": {"frames": ["x_start_1003", "x_active_1003", "x_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 15}, {"frame": 1, "ticks": 5}, {"frame": 2, "ticks": 38}]}
+  },
+  "parentContactReview": {
+    "worldGrip": [36.81, -38.51],
+    "worldTip": [94.94, -5.66],
+    "currentHitbox": [14, -82, 103, 63],
+    "suggestedMeasuredHitbox": [28, -43, 70, 41],
+    "note": "Static proposal only. Actual active sword angles down from mid torso to ankle; current hitbox excludes the lowest visible blade and covers a larger upper volume. Parent decides a real sweeping effect or measured contact calibration. Preserve210 damage,15/5/38 and core step/armor-break rules."
+  },
+  "observations": ["Three true independent start/cut/recovery drawings, no second arm, full saber and both feet.", "Exclusions only remove disconnected neighboring figures. Check their source margins in the actual atlas before release.", "Body source does not complete the attack's independent FX or sound."]
+}

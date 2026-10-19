@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-17T04:03:12.196Z",
+  "meaning": "reference-file attachments only; exact old-art rectangular crops, not full originals or new generated sources",
+  "sourceRoot": "D:\\Projects\\one-piece-fighter",
+  "baseline": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/reference/gear5-grip1017/baseline.json",
+  "files": [
+    {
+      "referenceKey": "gear5_grip_reach_reference1017",
+      "source": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\six-game1014\\reference\\gear5-grip1017\\source-crops\\throw_reach-source.png",
+      "target": "public/assets/generated/source/gear5-grip-reference-reach1017.png",
+      "sha256": "cc28d77c1766c30f723835f22eee8a3f61b44153f371d9bfded36ccdfcf41db8",
+      "bytes": 215105,
+      "targetAlreadyIdentical": false,
+      "kind": "existing-base-art-rectangular-reference-crop-not-new-generation",
+      "originalFullPng": {
+        "file": "public/assets/generated/source/luffy-throw-tech-0913.png",
+        "sha256": "d85957056c1c12aee12aa23001cbf010f45fccff5d319b942a8e24cccb9943b1",
+        "crop": [
+          544,
+          68,
+          454,
+          419
+        ]
+      },
+      "cropPixelSha256": "68b419b43ccf1f4e3ba8d1ada2c9b1ec95cd3387e691dd33b1fb11a540e1774d",
+      "fullOriginalPng": false,
+      "newGeneratedImage": false,
+      "runtimeAdopted": false,
+      "copiedSha256": "cc28d77c1766c30f723835f22eee8a3f61b44153f371d9bfded36ccdfcf41db8"
+    },
+    {
+      "referenceKey": "gear5_grip_hold_reference1017",
+      "source": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\six-game1014\\reference\\gear5-grip1017\\source-crops\\throw_hold-source.png",
+      "target": "public/assets/generated/source/gear5-grip-reference-hold1017.png",
+      "sha256": "29ea0d6da55bc5b010c22302cecfaff180132d5742af1d64e27ab1278e7ffa9e",
+      "bytes": 202277,
+      "targetAlreadyIdentical": false,
+      "kind": "existing-base-art-rectangular-reference-crop-not-new-generation",
+      "originalFullPng": {
+        "file": "public/assets/generated/source/luffy-throw-tech-0913.png",
+        "sha256": "d85957056c1c12aee12aa23001cbf010f45fccff5d319b942a8e24cccb9943b1",
+        "crop": [
+          72,
+          531,
+          405,
+          432
+        ]
+      },
+      "cropPixelSha256": "f53f7515936d70c4e9698d10828709ba164ba107cc81e1571d518de7e8015529",
+      "fullOriginalPng": false,
+      "newGeneratedImage": false,
+      "runtimeAdopted": false,
+      "copiedSha256": "29ea0d6da55bc5b010c22302cecfaff180132d5742af1d64e27ab1278e7ffa9e"
+    },
+    {
+      "referenceKey": "gear5_grip_release_reference1017",
+      "source": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\six-game1014\\reference\\gear5-grip1017\\source-crops\\throw_release-source.png",
+      "target": "public/assets/generated/source/gear5-grip-reference-release1017.png",
+      "sha256": "46598cf29afb7798f87555a0fc16a0762c6fa0dd47345efe0f803ac663f9a725",
+      "bytes": 232665,
+      "targetAlreadyIdentical": false,
+      "kind": "existing-base-art-rectangular-reference-crop-not-new-generation",
+      "originalFullPng": {
+        "file": "public/assets/generated/source/luffy-throw-tech-0913.png",
+        "sha256": "d85957056c1c12aee12aa23001cbf010f45fccff5d319b942a8e24cccb9943b1",
+        "crop": [
+          525,
+          525,
+          483,
+          435
+        ]
+      },
+      "cropPixelSha256": "206bbd3ecc0baa318070922e6fc1abcf8f4c137437a1b936f6cc57ff89dba6aa",
+      "fullOriginalPng": false,
+      "newGeneratedImage": false,
+      "runtimeAdopted": false,
+      "copiedSha256": "46598cf29afb7798f87555a0fc16a0762c6fa0dd47345efe0f803ac663f9a725"
+    },
+    {
+      "referenceKey": "gear5_grip_thrown_resist_reference1017",
+      "source": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\six-game1014\\reference\\gear5-grip1017\\source-crops\\thrown_resist-source.png",
+      "target": "public/assets/generated/source/gear5-grip-reference-thrown_resist1017.png",
+      "sha256": "e83aef40947ceef1e66a9dc959ad5413823ef0149ce454d4dc9385916b389e11",
+      "bytes": 222673,
+      "targetAlreadyIdentical": false,
+      "kind": "existing-base-art-rectangular-reference-crop-not-new-generation",
+      "originalFullPng": {
+        "file": "public/assets/generated/source/luffy-throw-tech-0913.png",
+        "sha256": "d85957056c1c12aee12aa23001cbf010f45fccff5d319b942a8e24cccb9943b1",
+        "crop": [
+          72,
+          1008,
+          415,
+          457
+        ]
+      },
+      "cropPixelSha256": "d2a3a1daf5d3106e30b92835253d967fac05fc3b54c8c0f3374715ecbdef4e25",
+      "fullOriginalPng": false,
+      "newGeneratedImage": false,
+      "runtimeAdopted": false,
+      "copiedSha256": "e83aef40947ceef1e66a9dc959ad5413823ef0149ce454d4dc9385916b389e11"
+    },
+    {
+      "referenceKey": "gear5_grip_held_shared_reference1017",
+      "source": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\six-game1014\\reference\\gear5-grip1017\\source-crops\\held-shared-source.png",
+      "target": "public/assets/generated/source/gear5-grip-reference-held-shared1017.png",
+      "sha256": "b5063f0d6b0d14ae3e6b3bee0f56c4abf6f1c216ff58d6aaca0711dc9f6efbe4",
+      "bytes": 608599,
+      "targetAlreadyIdentical": false,
+      "kind": "existing-base-art-rectangular-reference-crop-not-new-generation",
+      "originalFullPng": {
+        "file": "public/assets/generated/source/luffy-held-leg-flip-0927.png",
+        "sha256": "8abdbafe151925ea1964dd804900d59d75d7eded17f86d3dae24cdc76b9b1f10",
+        "crop": [
+          887,
+          0,
+          887,
+          887
+        ]
+      },
+      "cropPixelSha256": "2d9b2daa18afba1e25156f2ef1cdcb6e16040a0d1a48c49aa004a3e239368333",
+      "fullOriginalPng": false,
+      "newGeneratedImage": false,
+      "runtimeAdopted": false,
+      "copiedSha256": "b5063f0d6b0d14ae3e6b3bee0f56c4abf6f1c216ff58d6aaca0711dc9f6efbe4"
+    }
+  ]
+}

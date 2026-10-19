@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_walk_fix1017",
+  "file": "public/assets/generated/source/luffy-gear5-walk-fix1017.png",
+  "sha256": "1f6906dbd3691df68ddee603a7e8d1bd09058ef6f4436bd4a13f47354be40ca5",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方未公开具体图像型号。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+  "observedCompletedAt": "2026-10-17T11:19:09+08:00",
+  "uiObservation": "同一母版及四动作会话，上传既有抽象步态指南后单次生成四格换腿修稿；原件真实下载1254方形RGBA。前两姿为候选，后两姿仍重复同侧腿，未采用为完整循环。时间为归档重新核对时刻，截图是同会话后续再次核对GPT-6极高，非声称服务器生成时间。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-walk-fix-prompt1017.txt",
+    "sha256": "8cedfb0fa1520aae4ac5e9996f4ac2076ee96986dacd202d4c5468515f8d8e4c"
+  },
+  "referenceSources": {
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+    "four_actions": "c56bb922b5b913048cb615679bce6c54ee629caa5ec336e61a4107fd6a25bdb6",
+    "walk": "2f7a15ec7b524c57584026216287b367c8d964bf99d47d583005c3e59c826655"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T03:28:18.019533+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/walk-model1017.png",
+    "sha256": "1046d3f836b5c04d6689fcae9768e868bf003344cde280f35f0dbd675fcef01a"
+  },
+  "referenceFiles": {
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    },
+    "four_actions": {
+      "file": "public/assets/generated/source/luffy-gear5-four-actions1017.png",
+      "sha256": "c56bb922b5b913048cb615679bce6c54ee629caa5ec336e61a4107fd6a25bdb6"
+    },
+    "walk": {
+      "file": "D:/one-piece-fighter-crossover-0922/roster-0929/reference/walk-pose-guide0929.png",
+      "sha256": "2f7a15ec7b524c57584026216287b367c8d964bf99d47d583005c3e59c826655",
+      "kind": "reference-guide-not-runtime"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

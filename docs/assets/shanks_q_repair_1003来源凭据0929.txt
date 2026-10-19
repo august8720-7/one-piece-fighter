@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "shanks_q_repair_1003",
+  "file": "public/assets/generated/source/roster-shanks-q-repair-1003.png",
+  "sha256": "cae50e9d2b8c90c2b60245980fd83356dd00702e648dc21b9665dee90cb1a0d5",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方页面未公开具体图像型号，不推断后台模型。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+  "observedCompletedAt": "2026-10-03T00:30:00+08:00",
+  "uiObservation": "1003同一官方会话继续定向修复Q刀尖。提交前实际菜单最新radio选中、极高第4项，退出查看器后输入区仍明确极高。首版长草稿未发出，换成已保存的精简完整提示词，textbox.fill后读回全文确认，再单次点击发送。页面今天0:27显示完整新提示词；完成复核有已生成图像和回答已完成，00:30为完成复核时间而非服务器生成时间。downloadMedia返回超时但新PNG已落盘，1536x1024RGBA完整解码、PNG及IEND通过，源RGB含隐藏背景而alpha真实透明。原下载保留，复制前后hash一致，未声称工具下载回执成功。",
+  "prompt": {
+    "file": "docs/assets/shanks-q-repair-prompt1003.txt",
+    "sha256": "cd965673316c6644adc70ae3c895424b3ee93db54ae10f7e600d28e2cf8bb553"
+  },
+  "referenceSources": {
+    "shanks_qe_body_1003": "802066e6355c3eeb896ed0006bcccd64f9e267ce040fc0f127f0c23f1d7a9869",
+    "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-02T16:32:36.651708+00:00",
+  "referenceFiles": {
+    "shanks_qe_body_1003": {
+      "file": "public/assets/generated/source/roster-shanks-qe-body-1003.png",
+      "sha256": "802066e6355c3eeb896ed0006bcccd64f9e267ce040fc0f127f0c23f1d7a9869"
+    },
+    "shanks_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-shanks-locomotion-0929.png",
+      "sha256": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+    }
+  },
+  "originalPngSize": [
+    1536,
+    1024
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

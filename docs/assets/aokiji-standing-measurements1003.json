@@ -1,0 +1,451 @@
+{
+  "status": "static-candidate-not-game-contact-or-sound-acceptance",
+  "sourceKey": "aokiji_standing_attacks_1003",
+  "sourceHash": "3ce46ab1696c8cbb0e15e0f6156ffee6a240855250e82f5a4549c18f6126f6d9",
+  "sourceReferenceHeight64": 311,
+  "sourceUnitScale": 1.3086816720257235,
+  "worldPixelsPerSourcePixel": 0.3215434083601286,
+  "frames": [
+    {
+      "frame": "st_b_start_1003",
+      "crop": [
+        106,
+        0,
+        284,
+        326
+      ],
+      "root": [
+        161,
+        318
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [
+        [
+          116,
+          321,
+          28,
+          5
+        ]
+      ],
+      "alpha16Bbox": [
+        8,
+        6,
+        276,
+        318
+      ]
+    },
+    {
+      "frame": "st_b_active_1003",
+      "crop": [
+        467,
+        0,
+        361,
+        326
+      ],
+      "root": [
+        184,
+        318
+      ],
+      "socketsWorldRelativeToRoot": {
+        "shoe_front": [
+          53.3762,
+          -79.4212
+        ],
+        "ankle": [
+          45.6592,
+          -65.9164
+        ]
+      },
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        5,
+        353,
+        318
+      ]
+    },
+    {
+      "frame": "st_b_recover_1003",
+      "crop": [
+        877,
+        0,
+        298,
+        326
+      ],
+      "root": [
+        170,
+        318
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [
+        [
+          177,
+          322,
+          26,
+          4
+        ]
+      ],
+      "alpha16Bbox": [
+        8,
+        7,
+        290,
+        318
+      ]
+    },
+    {
+      "frame": "st_c_start_1003",
+      "crop": [
+        48,
+        314,
+        327,
+        321
+      ],
+      "root": [
+        172,
+        313
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [
+        [
+          185,
+          0,
+          25,
+          4
+        ],
+        [
+          210,
+          0,
+          43,
+          5
+        ],
+        [
+          161,
+          314,
+          33,
+          7
+        ]
+      ],
+      "alpha16Bbox": [
+        8,
+        8,
+        319,
+        313
+      ]
+    },
+    {
+      "frame": "st_c_active_1003",
+      "crop": [
+        444,
+        319,
+        454,
+        316
+      ],
+      "root": [
+        204,
+        308
+      ],
+      "socketsWorldRelativeToRoot": {
+        "weapon_grip": [
+          27.9743,
+          -68.8103
+        ],
+        "weapon_tip": [
+          77.1704,
+          -68.8103
+        ]
+      },
+      "excludeRects": [
+        [
+          443,
+          223,
+          11,
+          33
+        ],
+        [
+          452,
+          182,
+          2,
+          8
+        ]
+      ],
+      "alpha16Bbox": [
+        8,
+        8,
+        446,
+        308
+      ]
+    },
+    {
+      "frame": "st_c_recover_1003",
+      "crop": [
+        880,
+        315,
+        319,
+        320
+      ],
+      "root": [
+        177,
+        312
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [
+        [
+          134,
+          0,
+          23,
+          3
+        ],
+        [
+          158,
+          0,
+          41,
+          4
+        ],
+        [
+          0,
+          94,
+          11,
+          10
+        ],
+        [
+          144,
+          311,
+          38,
+          9
+        ]
+      ],
+      "alpha16Bbox": [
+        8,
+        8,
+        311,
+        312
+      ]
+    },
+    {
+      "frame": "st_d_start_1003",
+      "crop": [
+        72,
+        621,
+        315,
+        326
+      ],
+      "root": [
+        107,
+        318
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [
+        [
+          21,
+          0,
+          39,
+          7
+        ],
+        [
+          254,
+          0,
+          30,
+          3
+        ],
+        [
+          115,
+          317,
+          58,
+          9
+        ],
+        [
+          173,
+          323,
+          8,
+          3
+        ]
+      ],
+      "alpha16Bbox": [
+        8,
+        8,
+        307,
+        318
+      ]
+    },
+    {
+      "frame": "st_d_active_1003",
+      "crop": [
+        450,
+        629,
+        379,
+        319
+      ],
+      "root": [
+        121,
+        311
+      ],
+      "socketsWorldRelativeToRoot": {
+        "shoe_front": [
+          79.7428,
+          -82.6367
+        ],
+        "ankle": [
+          70.0965,
+          -76.8489
+        ]
+      },
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        371,
+        311
+      ]
+    },
+    {
+      "frame": "st_d_recover_1003",
+      "crop": [
+        886,
+        619,
+        279,
+        329
+      ],
+      "root": [
+        112,
+        321
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [
+        [
+          237,
+          0,
+          17,
+          2
+        ],
+        [
+          53,
+          0,
+          39,
+          9
+        ],
+        [
+          265,
+          0,
+          14,
+          3
+        ]
+      ],
+      "alpha16Bbox": [
+        8,
+        8,
+        271,
+        321
+      ]
+    },
+    {
+      "frame": "f_c_start_1003",
+      "crop": [
+        84,
+        931,
+        311,
+        323
+      ],
+      "root": [
+        168,
+        319
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [
+        [
+          75,
+          0,
+          38,
+          9
+        ]
+      ],
+      "alpha16Bbox": [
+        8,
+        8,
+        303,
+        319
+      ]
+    },
+    {
+      "frame": "f_c_active_1003",
+      "crop": [
+        457,
+        958,
+        373,
+        296
+      ],
+      "root": [
+        181,
+        292
+      ],
+      "socketsWorldRelativeToRoot": {
+        "weapon_grip": [
+          18.328,
+          -44.6945
+        ],
+        "weapon_tip": [
+          59.4855,
+          -20.2572
+        ]
+      },
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        365,
+        292
+      ]
+    },
+    {
+      "frame": "f_c_recover_1003",
+      "crop": [
+        878,
+        945,
+        308,
+        309
+      ],
+      "root": [
+        164,
+        305
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        300,
+        305
+      ]
+    }
+  ],
+  "timing": {
+    "st_b": [
+      7,
+      4,
+      12
+    ],
+    "st_c": [
+      11,
+      4,
+      19
+    ],
+    "st_d": [
+      13,
+      5,
+      22
+    ],
+    "f_c": [
+      17,
+      4,
+      23
+    ]
+  },
+  "knownDifferences": [
+    "Both generated B and D kicks are high; original low B box and lower D box do not follow visible shoes. Main agent owns new-role hitbox calibration; body registration does not claim contact acceptance.",
+    "C sword points horizontally at about77world from root; F_C downward tip about60,-20. Main agent should check edge/arc representation."
+  ],
+  "newCrops": 12,
+  "totalCrops": 69,
+  "totalAnims": 33,
+  "recordedAtUtc": "2026-10-03T11:15:45.418879+00:00",
+  "manifestAfterHash": "ca9e8703421c9f8d6894caa22b95ea704838147788a0a3cc6a62b71ae3fb8fc3"
+}

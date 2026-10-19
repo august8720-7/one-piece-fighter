@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "shanks_held_twinkle_focus_1003",
+  "file": "public/assets/generated/source/roster-shanks-held-twinkle-focus-1003.png",
+  "sha256": "8cd86d6e2cd91c1dfee955dda6b8ba85cea60949a47430cbd92c1f63f2bf2bdd",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+  "observedCompletedAt": "2026-10-03T20:31:39.392224+08:00",
+  "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回匹配原文（仅界面空白归一化）后单次发送。页面回答已完成，实际查看器标识内联图片预览两格单臂香克斯。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。本页仅内联预览，无文件查看器下载按钮；以唯一可见img的原生downloadMedia调用单次下载，5秒回执超时但真实GUID PNG已到盘，natural1536x1024与解码一致。上传的抽象参考held-twinkle-focus-guide1003.png实际SHA256为5d5f3b75b52b39338d7c91a44f76303c251285d05385d8f313266ef8f6a46e16，不进入运行图集。 完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。既有images为工作流入口，本次直接续c会话。",
+  "prompt": {
+    "file": "docs/assets/shanks-held-twinkle-focus-prompt1003.txt",
+    "sha256": "a4cad29f5ee7c700d80922f145d4c6fc4605404295c696a41564e850fea100ab"
+  },
+  "referenceSources": {
+    "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+    "shanks_held_joint_repair_1003": "b9f33721ef228bc81ae0da52a4bb2c0cab7cee67cbbcfac7768f47ab7fb82d83"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T12:32:21.266989+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-held-twinkle-focus-viewer1003.jpg",
+    "sha256": "a5a82ef286d83855d146fd133c95c3164774424d62ad1c8df729edfd99dc86ad"
+  },
+  "referenceFiles": {
+    "shanks_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-shanks-locomotion-0929.png",
+      "sha256": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+    },
+    "shanks_held_joint_repair_1003": {
+      "file": "public/assets/generated/source/roster-shanks-held-joint-repair-1003.png",
+      "sha256": "b9f33721ef228bc81ae0da52a4bb2c0cab7cee67cbbcfac7768f47ab7fb82d83"
+    }
+  },
+  "originalPngSize": [
+    1536,
+    1024
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

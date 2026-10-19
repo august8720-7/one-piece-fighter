@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_cd1017",
+  "file": "public/assets/generated/source/luffy-gear5-cd1017.png",
+  "sha256": "1f0fb444796046a0dac4f310abc858f4b0b6766e99d9e203f6bb0dc3da515518",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官网图像入口未披露具体图像型号；GPT-6沿主会话此前实际文字模型标签，不能推定后台图像型号。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+  "observedCompletedAt": "2026-10-17T05:53:43.825Z",
+  "uiObservation": "根代理实际下载并view_image提供：主会话无新upload，延续master与同一人物身份；根看四个真实姿势、横向长臂完整。原raw显示灰色RGB不能直接判为背景；此PNG真实RGBA，alpha范围0到254，1229441个全透明像素、343423个部分透明、无255完全不透明像素；只能证明alpha数据，实际白底合成与人物完整性仍由render核验。交render做统一source尺度/真实接触/邻格保护；不提前采用。沿此前实际GPT-6/极高设定，本完成截图不冒称另含型号菜单。时间为根完成复核、非服务器生成时间。C下载及D原PNG完整保留，不做alpha修补或画新像素。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-remaining-cd-prompt1017.txt",
+    "sha256": "64263e19dfb7174dcbb3aaf7355d05853a81d8a639afab2299d89a1d6c561c60"
+  },
+  "referenceSources": {
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T05:56:03.578372+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/cd-web1017.png",
+    "sha256": "f2440a262997435ee1a3a47a89abc96a4c484abcad91fd893acdb26a5b0ac0f8"
+  },
+  "referenceFiles": {
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    }
+  },
+  "originalPngSize": [
+    1024,
+    1536
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "kizaru_locomotion_0929",
+  "file": "public/assets/generated/source/roster-kizaru-locomotion-0929.png",
+  "sha256": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "本次官方图像入口只显示ChatGPT，未公开具体图像型号；不推断为GPT Image 2.5。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd7c3-ab58-83e8-bc9d-5433cd330260",
+  "observedCompletedAt": "2026-09-29T23:32:25.2748896+08:00",
+  "uiObservation": "首张由主代理在Codex内置浏览器上传本游戏海军母版并单次发送本提示词，实际最新和极高第四项；本人随后在Microsoft Edge接续同会话核对完整提示词、用户附件和九格黄猿生成结果，再次核实菜单最新选中与极高第四项。此时间是当前再次观察已完成回复的时刻，不是服务器首次生成时间。Edge两个下载均保留crdownload后缀，均有完整PNG签名/IEND且Pillow验证和完整解码通过，尺寸1254x1254与网页一致、SHA256相同；按复制前清单保全为原PNG，未声称浏览器下载已完成。",
+  "prompt": {
+    "file": "docs/assets/kizaru-locomotion-prompt0929.txt",
+    "sha256": "ab1ba1a1848ae10d5aeef9f5fa55d4f1437ce4e82765161c4bb0e4caaecc2a28"
+  },
+  "referenceSources": {
+    "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-09-29T15:32:25.538236+00:00",
+  "referenceFiles": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

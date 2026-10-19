@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_ground_kicks_head1017",
+  "file": "public/assets/generated/source/luffy-gear5-ground-kicks-head1017.png",
+  "sha256": "6332dc4274e9aec9c6253cdf4ecfdc58f4f0d1014ab4c15147c5de04fddd6c4c",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方图像入口未公开具体图像型号；GPT-6是实际文字模型标签，不能据此确认图像型号。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad2efa5-3138-83e8-8d2e-f5cf53fa3a56",
+  "observedCompletedAt": "2026-10-17T04:05:49.565Z",
+  "uiObservation": "根代理提供实际观察：正确GPT-6与极高、完整prompt后生成9格，3行分别为st_b、st_d、f_c的起手、有效、回收；这不是同会话先前仅附件、中档生成的母版，后者未采用。观察时间是根代理下载原PNG后查看的完成复核时刻，不是服务器首次生成时间。截图为本组请求前实际模型/极高设置，之后未改，不冒称完成当时截图。根代理已view_image认为静态候选完整可辨，但st_d有效脚掌似高于预期腰部，必须交render独立量测接触，尚不采用。原图仅同字节复制，alpha边界另留票据，未修图。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-ground-kicks-head-prompt1017.txt",
+    "sha256": "1145398649c71c26b0d336480c1a1eb88b6d8c836925523b48cbd1df4fa247a2"
+  },
+  "referenceSources": {
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T04:08:23.178548+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/reaction-model1017.png",
+    "sha256": "34deacc74d0676df30282375cba2e2f11978e7d576210ac902afbb1fdaa15826"
+  },
+  "referenceFiles": {
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

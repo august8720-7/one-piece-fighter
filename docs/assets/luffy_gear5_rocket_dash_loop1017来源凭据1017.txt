@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_rocket_dash_loop1017",
+  "file": "public/assets/generated/source/luffy-gear5-rocket-dash-loop1017.png",
+  "sha256": "9c765304fed2338ba47d8fe881b11e2f5dfe53f1cdd657519e45277fc371c4a7",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官网未披露具体图像型号；GPT-6为实际文字模型标签，不能推定后台图像型号。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad30b00-1890-83e8-af5d-982a71002c85",
+  "observedCompletedAt": "2026-10-17T05:53:43.409Z",
+  "uiObservation": "根代理实际下载并view_image提供：special会话无新upload，延续最初master；两跑姿疑似同一近腿在前，不能当换步或完整循环通过。交audio仅量neutral与有效A并判断步相，不强加B为循环；根将另修真实反相。该会话实际英文Extra High规范化为脚本极高，时序和原标签见docs/assets/luffy-gear5-balloon-ui-observation1017.json；未冒称本完成截图含型号菜单。观测时间为完成复核，不是服务器生成时间。原PNG和C下载保留，来源登记不等于动作/接触/采用验收。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-rocket-dash-loop-prompt1017.txt",
+    "sha256": "85e3597b4f1f7a9e395546c703f893a4c968b0d18e1b8e1d0867a8f8ed8b05f2"
+  },
+  "referenceSources": {
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T05:55:42.655189+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/rocket-dash-loop-web1017.png",
+    "sha256": "05c66dbb572dc64989d5234463602af43b6aecb0dd320887885b18ae92b05b30"
+  },
+  "referenceFiles": {
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    }
+  },
+  "originalPngSize": [
+    2017,
+    780
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "shanks_x_divine_departure_1003",
+  "file": "public/assets/generated/source/roster-shanks-x-divine-departure-1003.png",
+  "sha256": "4d1ded4449ced17298d69e0cc6e1c5a61f38a52e505daf329922b97beb262d19",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+  "observedCompletedAt": "2026-10-03T16:08:09.344561+08:00",
+  "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回全文匹配后单次发送。页面回答已完成，官方查看器标题红发独臂剑士四连战斗姿态 Sprite图。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。查看器下载只点一次，Downloads正式PNG已落盘；完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。没有以download事件回执作为成功证据。既有images为工作流入口，本次直接续c会话。",
+  "prompt": {
+    "file": "docs/assets/shanks-x-divine-departure-prompt1003.txt",
+    "sha256": "e91212bbd5ed0d2d8826033fa06fb190538322dc312e64dde3e51eecefc2e519"
+  },
+  "referenceSources": {
+    "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+    "shanks_z_sidestep_1003": "d266d7870a1dc853b5060dfe3c2c32592a47d5f5f32a101288aea0840e7bc4e0"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T08:10:37.688094+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-x-result-viewer.jpg",
+    "sha256": "b105dcf56f44ac99ecaae8f5edf78fcc4626f06099dc8e21e1fbfe4d0932cd85"
+  },
+  "referenceFiles": {
+    "shanks_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-shanks-locomotion-0929.png",
+      "sha256": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+    },
+    "shanks_z_sidestep_1003": {
+      "file": "public/assets/generated/source/roster-shanks-z-sidestep-1003.png",
+      "sha256": "d266d7870a1dc853b5060dfe3c2c32592a47d5f5f32a101288aea0840e7bc4e0"
+    }
+  },
+  "originalPngSize": [
+    1536,
+    1024
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

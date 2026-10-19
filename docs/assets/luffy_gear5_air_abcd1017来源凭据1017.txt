@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_air_abcd1017",
+  "file": "public/assets/generated/source/luffy-gear5-air-abcd1017.png",
+  "sha256": "fe5884ae3d2da8c4a2566906589a5842eeff5e824fe9c4bfbc86658f7da20757",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方图像界面未公开具体图像型号；GPT-6是本反应会话此前实际核对的文字标签，不能确定图像型号。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad2efa5-3138-83e8-8d2e-f5cf53fa3a56",
+  "observedCompletedAt": "2026-10-17T05:05:13.583Z",
+  "uiObservation": "根代理提供实际原图下载并view_image：完整12格，4行j_a/j_b/j_c/j_d的起手、有效、回收；空中关节不同，无站地冒充。沿本反应会话此前已核GPT-6与极高，本张完成截图可见极高但不冒称含型号菜单。观察时刻是根提供的下载后完成复核2026-10-17T05:05:13.583Z，不是服务器生成时间。master沿本会话初始已上传造型参考，没有额外上传。长拳有效帧紧邻右格云，仍需显式exclude保护本体及真实接触量测；来源登记不自动采用，不通过改数值或改原图清理凑合。C下载保留，D原件同字节复制。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-air-abcd-prompt1017.txt",
+    "sha256": "e8514ce4291cb995505f53feba07245cdf03d63adda18caffda9b8265033d7d1"
+  },
+  "referenceSources": {
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T05:07:41.448310+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/air-abcd-web1017.png",
+    "sha256": "c99dc9c0e2249a2ebf5c343044819e509d36dd35a557b069f348876ae55689ba"
+  },
+  "referenceFiles": {
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    }
+  },
+  "originalPngSize": [
+    1086,
+    1448
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

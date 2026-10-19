@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "pirate_mother_0929",
+  "file": "public/assets/generated/source/roster-pirate-mother-0929.png",
+  "sha256": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "本次官方登录图像页仅显示ChatGPT，具体图像型号没有公开标识，不推断后台型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+  "observedCompletedAt": "2026-09-29T23:14:28+08:00",
+  "uiObservation": "在内置独立images页将实际默认中第二项改为极高第四项，完整粘贴后单次发送；回复显示已生成图像，查看器可见六位海贼母版并下载原PNG。23:14:28为登记阶段再次确认已完成的观察时刻，首次完成精确时间未另记，不是服务器生成时间。",
+  "prompt": {
+    "file": "docs/assets/海贼人物母版提示词0929.txt",
+    "sha256": "e019e8de0ad5fcdb362a7dfaca6754b31aa9af32aacc82cbfe6cdcfb32bc2a29"
+  },
+  "referenceSources": {},
+  "unitScale": 1,
+  "recordedAt": "2026-09-29T15:16:30.336919+00:00",
+  "referenceFiles": {},
+  "originalPngSize": [
+    1536,
+    1024
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_roll_1003",
+  "sourceSha256": "b910e561023df17071e9f9573d35ea076479c797adbb1eb9666278b57d556b6c",
+  "status": "real-roll-body-candidate-before-game-floor-review",
+  "neutralVisibleAlpha8Bounds": [26, 13, 438, 434],
+  "neutralVisibleHeight": 421,
+  "referenceNeutralHeight": 380,
+  "unitScale": 0.9026128266033254,
+  "scaleBasis": "One neutral visible alpha>=8 height421px; all six roll poses use380/421 versus original380px. No individual pose scaling or rotated-stand substitution.",
+  "frames": {
+    "roll_fwd_start_1003": {"source": "shanks_roll_1003", "crop": [441, 122, 358, 310], "root": [190, 298], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "roll_fwd_tuck_1003": {"source": "shanks_roll_1003", "crop": [913, 139, 324, 276], "root": [157, 270], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "roll_fwd_rise_1003": {"source": "shanks_roll_1003", "crop": [26, 505, 344, 325], "root": [218, 314], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "roll_back_start_1003": {"source": "shanks_roll_1003", "crop": [462, 522, 384, 301], "root": [218, 289], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "roll_back_tuck_1003": {"source": "shanks_roll_1003", "crop": [885, 500, 347, 324], "root": [170, 318], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "roll_back_rise_1003": {"source": "shanks_roll_1003", "crop": [10, 862, 384, 361], "root": [241, 348], "sockets": {}, "transparency": {"mode": "source-alpha"}}
+  },
+  "anims": {
+    "roll_fwd": {"frames": ["roll_fwd_start_1003", "roll_fwd_tuck_1003", "roll_fwd_rise_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 5}, {"frame": 1, "ticks": 11}, {"frame": 2, "ticks": 11}]},
+    "roll_back": {"frames": ["roll_back_start_1003", "roll_back_tuck_1003", "roll_back_rise_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 5}, {"frame": 1, "ticks": 11}, {"frame": 2, "ticks": 11}]}
+  },
+  "observations": ["Six actual independently drawn poses use different knee/torso/cape configurations for forward and backward roll, no program rotation or copied stand sprite.", "The forward tuck's right hand and hilt remain visible while much of the saber is naturally occluded by the curled body; no full-blade-visibility claim is made for this pose. Review in normal-speed gameplay is still required.", "Grounded crouches root at visible feet; tucked poses root at their visible rolling-body ground tangent. The logical roll27ticks and invulnerability18ticks remain untouched.", "No throw/grab acceptance is inferred from these ordinary movement poses."]
+}

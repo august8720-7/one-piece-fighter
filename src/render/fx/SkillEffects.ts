@@ -1,20 +1,26 @@
 import Phaser from 'phaser';
 import { GROUND_Y, SUBPIXEL, toWorldBox, type FightSim, type HitEvent, type PlayerIndex, type ProjectileEndEvent, type ProjectileState, type WorldState } from '@core/index';
 import { RENDER_SCALE, UI_SCALE } from '../screen';
-import { MOVE_PRESENTATIONS, PROJECTILE_PRESENTATIONS, projectileMoveMaterial, type ProjectileVisualPose } from './movePresentation';
+import { MOVE_PRESENTATIONS, PROJECTILE_PRESENTATIONS, moveBodyVisual, projectileAnimationAge, projectileMoveMaterial, type ProjectileVisualPose } from './movePresentation';
+import { hasPresentationRuntime, presentationAnimationDuration, resolvePresentationFrame } from './fxRuntime';
+import type { AttachmentPoint } from '../animations';
+import { drawGear5Material, gear5MaterialFor } from './gear5MaterialFx1017';
 
-interface Burst { character: string; frame: string; x: number; y: number; width: number; height: number; life: number; total: number; facing: number; ground: boolean; fixedScale?: boolean; reflected?: boolean }
+interface Burst { character: string; frame: string; x: number; y: number; width: number; height: number; life: number; total: number; facing: number; ground: boolean; fixedScale?: boolean; reflected?: boolean; opacity?: number }
 
 /** Reused texture instances; timings follow simulation steps, positions remain in world space. */
 export class SkillEffects {
   private readonly sprites: Phaser.GameObjects.Image[] = [];
   private readonly bursts: Burst[] = [];
   private cursor = 0;
+  private readonly recovered = new Map<PlayerIndex, string>();
+  private materialGraphics: Phaser.GameObjects.Graphics | null = null;
   constructor(private readonly scene: Phaser.Scene, private readonly worldLayer?: Phaser.GameObjects.Container) {}
 
-  private image(character: string, frame: string, x: number, y: number, width: number, height: number, facing = 1, alpha = 1, originY = 0.5, depth = 35): boolean {
-    const key = `fx-${character}`;
-    if (!this.scene.textures.exists(key) || !this.scene.textures.get(key).has(frame)) return false;
+  private image(character: string, reference: string, x: number, y: number, width: number, height: number, facing = 1, alpha = 1, originY = 0.5, depth = 35, age: number | null = 0): boolean {
+    const resolved = resolvePresentationFrame(this.scene, `fx-${character}`, reference, age);
+    if (!resolved) return false;
+    const { key, frame } = resolved;
     if (this.cursor >= 96) return true;
     let image = this.sprites[this.cursor++];
     if (!image) {
@@ -33,12 +39,32 @@ export class SkillEffects {
 
   clear(): void {
     this.bursts.length = 0;
+    this.recovered.clear();
     for (const image of this.sprites) image.setVisible(false);
+    this.materialGraphics?.clear().setVisible(false);
   }
 
-  private burst(character: string, frame: string, x: number, y: number, width: number, height: number, life: number, facing = 1, ground = false, visual?: Pick<Burst, 'fixedScale' | 'reflected'>): void {
+  private burst(character: string, frame: string, x: number, y: number, width: number, height: number, life: number, facing = 1, ground = false, visual?: Pick<Burst, 'fixedScale' | 'reflected' | 'opacity'>): void {
     if (this.bursts.length >= 40) this.bursts.shift();
+    life = Math.max(life, presentationAnimationDuration(this.scene, `fx-${character}`, frame) ?? 0);
     this.bursts.push({ character, frame, x, y, width, height, life, total: life, facing, ground, ...visual });
+  }
+
+  /** Called on the existing real recovery event, once per actual move instance. */
+  recover(sim: FightSim, player: PlayerIndex): void {
+    const fighter = sim.state.fighters[player], move = sim.move(fighter);
+    const art = move && MOVE_PRESENTATIONS[fighter.def.id]?.[move.id];
+    if (!move || !art?.recoverFrame) return;
+    const identity = `${sim.state.round}:${fighter.def.id}:${fighter.moveInstance}:${move.id}`;
+    if (this.recovered.get(player) === identity) return;
+    this.recovered.set(player, identity);
+    const boxes = [...move.frames].reverse().find(frame => frame.hitboxes?.length)?.hitboxes;
+    if (!boxes?.length) return;
+    const left = Math.min(...boxes.map(box => box[0])), top = Math.min(...boxes.map(box => box[1]));
+    const right = Math.max(...boxes.map(box => box[0] + box[2])), bottom = Math.max(...boxes.map(box => box[1] + box[3]));
+    this.burst(fighter.def.id, art.recoverFrame,
+      fighter.x + fighter.facing * (left + right) / 2 * SUBPIXEL, fighter.y + (top + bottom) / 2 * SUBPIXEL,
+      right - left, bottom - top, 12, fighter.facing, false, { fixedScale: true, opacity: art.bodyAlpha ?? 0.92 });
   }
 
   contact(hit: HitEvent, world: WorldState): void {
@@ -62,7 +88,9 @@ export class SkillEffects {
     if (!style) return;
     if (style.contactBody && pose && (event.reason === 'hit' || event.reason === 'block' || event.reason === 'clash')) {
       const box = toWorldBox(pose.box, event.x, event.y, pose.facing);
-      this.burst(style.character, style.frame,
+      // Preserve the real last projectile frame; impact/fade clips age separately.
+      const contactFrame = resolvePresentationFrame(this.scene, `fx-${style.character}`, style.frame, pose.animationAge === undefined ? 0 : pose.animationAge);
+      if (contactFrame) this.burst(style.character, contactFrame.frame,
         box.x + box.w / 2 + pose.facing * box.w * style.offsetX, box.y + box.h / 2 + box.h * style.offsetY,
         box.w / SUBPIXEL * style.widthScale, box.h / SUBPIXEL * style.heightScale, 8, pose.facing, false,
         { fixedScale: true, reflected: pose.reflected });
@@ -76,7 +104,7 @@ export class SkillEffects {
     // hit/block/clash have their own contact event; resets are silent cleanups.
   }
 
-  begin(): void { this.cursor = 0; }
+  begin(): void { this.cursor = 0; this.materialGraphics?.clear().setVisible(false); }
 
   projectile(p: ProjectileState, sim: FightSim, sx: (x: number) => number, sy: (y: number) => number): boolean {
     const style = PROJECTILE_PRESENTATIONS[p.kind];
@@ -85,23 +113,27 @@ export class SkillEffects {
     const x = sx(b.x + b.w / 2), y = sy(b.y + b.h / 2);
     const width = b.w / SUBPIXEL * RENDER_SCALE, height = b.h / SUBPIXEL * RENDER_SCALE;
     const previousCursor = this.cursor;
+    const sourceMoves = sim.state.fighters.find(fighter => fighter.def.id === style.character)?.def.moves ?? [];
     const result = this.image(style.character, style.frame, x + p.facing * width * style.offsetX,
-      y + height * style.offsetY, width * style.widthScale, height * style.heightScale, p.facing);
+      y + height * style.offsetY, width * style.widthScale, height * style.heightScale, p.facing, 1, 0.5, 35, projectileAnimationAge(p, sourceMoves));
     if (result && p.reflected && this.cursor > previousCursor) this.sprites[this.cursor - 1]?.setTint(0x89dfff);
     return result;
   }
 
-  fighters(sim: FightSim, sx: (x: number) => number, sy: (y: number) => number, bodyInCharacterArt?: (player: PlayerIndex) => boolean): void {
+  fighters(sim: FightSim, sx: (x: number) => number, sy: (y: number) => number,
+    bodyInCharacterArt?: (player: PlayerIndex) => boolean,
+    screenSocket?: (player: PlayerIndex, name: string) => AttachmentPoint | null): void {
     const world = sim.state;
     for (const f of world.fighters) {
       const id = f.def.id, move = sim.move(f), fd = sim.currentFrame(f);
       const art = move && MOVE_PRESENTATIONS[id]?.[move.id];
+      const visual = move && art ? moveBodyVisual(f, move, art) : null;
       const embeddedBody = !!bodyInCharacterArt?.(f.player);
       const x = sx(f.x), y = sy(f.y);
       if (f.install && (id === 'luffy' || id === 'labubu')) {
         for (let i = 0; i < 2; i++) {
           const t = (world.frame + i * 25) % 50;
-          this.image(id, id === 'luffy' ? 'steam' : 'charge', x + (i ? 20 : -24) * UI_SCALE, y - (34 + t * 2) * UI_SCALE, 62 * UI_SCALE, 104 * UI_SCALE, f.facing, 0.30 * (1 - t / 70), 0.5, 8);
+          this.image(id, id === 'luffy' ? 'steam' : 'charge', x + (i ? 20 : -24) * UI_SCALE, y - (34 + t * 2) * UI_SCALE, 62 * UI_SCALE, 104 * UI_SCALE, f.facing, 0.30 * (1 - t / 70), 0.5, 8, world.frame);
         }
       }
       if (f.state === 'throw' && id === 'akainu' && move?.id === 'ult_meigou_end') {
@@ -120,11 +152,32 @@ export class SkillEffects {
         continue;
       }
       if (!move || f.state !== 'attack') continue;
+      const material = gear5MaterialFor(id, f.form, move.id, f.state, !!fd?.hitboxes?.length);
+      if (material) {
+        const palm = screenSocket?.(f.player, 'palm') ?? screenSocket?.(f.player, 'fist_center');
+        const wrist = screenSocket?.(f.player, 'wrist');
+        if (palm && wrist) {
+          // FighterView.socket returns screen pixels after camera-container framing.
+          // Invert that framing once; this Graphics shares the character's layer.
+          const local = (point: AttachmentPoint): AttachmentPoint => this.worldLayer
+            ? { x: (point.x - this.worldLayer.x) / this.worldLayer.scaleX,
+              y: (point.y - this.worldLayer.y) / this.worldLayer.scaleY } : point;
+          if (!this.materialGraphics) {
+            this.materialGraphics = this.scene.add.graphics().setDepth(35);
+            this.worldLayer?.add(this.materialGraphics);
+          }
+          this.materialGraphics.setVisible(true);
+          drawGear5Material(this.materialGraphics, material, local(palm), local(wrist), f.stateFrame, f.facing, RENDER_SCALE);
+        }
+        // Both legacy material atlases contain solid extra arms. Gear5 already
+        // supplies its real arm, so only the socket-bound material above is drawn.
+        continue;
+      }
       // Artwork supplies solid limbs, while vapor, terrain and motion trails remain independent.
       // Contact bursts and detached projectiles keep their own actual-event paths.
-      if (art?.body === 'steam' || art?.body === 'melt' || art?.body === 'charge' || (move?.dodge && art?.body === 'spark')) {
+      if (art?.bodyLayout === 'aura' || art?.body === 'steam' || art?.body === 'melt' || art?.body === 'charge' || (move?.dodge && art?.body === 'spark')) {
         if (!embeddedBody || art.independentBody) {
-          this.image(id, art.body, x, y - 85 * UI_SCALE, 88 * UI_SCALE, 164 * UI_SCALE, f.facing, art.body === 'melt' ? 0.7 : 0.45);
+          this.image(id, art.body, x, y - 85 * UI_SCALE, 88 * UI_SCALE, 164 * UI_SCALE, f.facing, art.body === 'melt' ? 0.7 : 0.45, 0.5, 35, f.stateFrame);
         }
         continue;
       }
@@ -133,17 +186,29 @@ export class SkillEffects {
         const startup = move.frames.slice(0, firstActive < 0 ? 1 : firstActive).reduce((n, frame) => n + frame.duration, 0);
         if (art?.charged && f.stateFrame < startup) {
           const t = f.stateFrame / Math.max(1, startup);
-          this.image(id, art.chargeFrame ?? (id === 'akainu' ? 'flame' : 'steam'), x + f.facing * 24 * UI_SCALE, y - 85 * UI_SCALE, (30 + t * 35) * UI_SCALE, (25 + t * 35) * UI_SCALE, f.facing, 0.4 + t * 0.25);
+          const future = art.chargeLayout === 'bounds' ? move.frames[firstActive]?.hitboxes : undefined;
+          if (future?.length) {
+            const left = Math.min(...future.map(box => box[0])), top = Math.min(...future.map(box => box[1]));
+            const right = Math.max(...future.map(box => box[0] + box[2])), bottom = Math.max(...future.map(box => box[1] + box[3]));
+            this.image(id, art.chargeFrame!, sx(f.x + f.facing * (left + right) / 2 * SUBPIXEL), sy(f.y + (top + bottom) / 2 * SUBPIXEL),
+              (right - left) * RENDER_SCALE * (0.3 + t * 0.7), (bottom - top) * RENDER_SCALE * (0.3 + t * 0.7), f.facing, 0.4 + t * 0.25, 0.5, 35, f.stateFrame);
+          } else this.image(id, art.chargeFrame ?? (id === 'akainu' ? 'flame' : 'steam'), x + f.facing * 24 * UI_SCALE, y - 85 * UI_SCALE, (30 + t * 35) * UI_SCALE, (25 + t * 35) * UI_SCALE, f.facing, 0.4 + t * 0.25, 0.5, 35, f.stateFrame);
         }
         continue;
       }
       if (embeddedBody && !art?.independentBody) continue;
-      for (const [bx, by, bw, bh] of fd.hitboxes) {
+      const layout = art?.bodyLayout ?? (hasPresentationRuntime(this.scene, `fx-${id}`) ? 'bounds' : 'hitboxes');
+      const boxes = layout === 'bounds' ? (() => {
+        const left = Math.min(...fd.hitboxes.map(box => box[0])), top = Math.min(...fd.hitboxes.map(box => box[1]));
+        const right = Math.max(...fd.hitboxes.map(box => box[0] + box[2])), bottom = Math.max(...fd.hitboxes.map(box => box[1] + box[3]));
+        return [[left, top, right - left, bottom - top] as const];
+      })() : fd.hitboxes;
+      for (const [bx, by, bw, bh] of boxes) {
         const centerX = sx(f.x + (bx + bw / 2) * f.facing * SUBPIXEL);
         const centerY = sy(f.y + (by + bh / 2) * SUBPIXEL);
-        const body = art?.body ?? (id === 'luffy' ? 'wind' : 'flame');
+        const body = visual?.reference ?? art?.body ?? (id === 'luffy' ? 'wind' : 'flame');
         const alpha = art?.bodyAlpha ?? (art ? 0.92 : 0.40);
-        this.image(id, body, centerX, centerY, bw * RENDER_SCALE, bh * RENDER_SCALE, f.facing, alpha);
+        this.image(id, body, centerX, centerY, bw * RENDER_SCALE, bh * RENDER_SCALE, f.facing, alpha, 0.5, 35, visual?.age ?? f.stateFrame);
       }
     }
   }
@@ -152,10 +217,10 @@ export class SkillEffects {
     for (const b of this.bursts) {
       const age = b.total - b.life;
       const scale = b.fixedScale ? 1 : 0.75 + Math.min(1, age / 5) * 0.25;
-      const alpha = Math.min(1, b.life / (b.frame === 'smoke' ? 25 : 7));
+      const alpha = Math.min(1, b.life / (b.frame === 'smoke' ? 25 : 7)) * (b.opacity ?? 1);
       const previousCursor = this.cursor;
       this.image(b.character, b.frame, sx(b.x), sy(b.y) - (b.frame === 'smoke' ? age * 0.5 * UI_SCALE : 0),
-        b.width * RENDER_SCALE * scale, b.height * RENDER_SCALE * scale, b.facing, alpha, b.ground ? 1 : 0.5, b.frame === 'smoke' ? 25 : 42);
+        b.width * RENDER_SCALE * scale, b.height * RENDER_SCALE * scale, b.facing, alpha, b.ground ? 1 : 0.5, b.frame === 'smoke' ? 25 : 42, age);
       if (b.reflected && this.cursor > previousCursor) this.sprites[this.cursor - 1]?.setTint(0x89dfff);
     }
     for (let i = this.cursor; i < this.sprites.length; i++) this.sprites[i]!.setVisible(false);

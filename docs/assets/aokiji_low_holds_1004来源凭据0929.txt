@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_low_holds_1004",
+  "file": "public/assets/generated/source/roster-aokiji-low-hold-1004.png",
+  "sha256": "d504a6abfbe0560f471ee57cff06c135771dbe1cd3a99781c596cdc7e6b283e6",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "主集成在原官方会话刷新后实际核验最新radio与极高第4/5，model1004截图保全；具体图像后台型号没有公开，不记2.5。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+  "observedCompletedAt": "2026-10-04T09:11:15.318182+08:00",
+  "uiObservation": "root在原青雉官方IAB会话实际核验最新/极高，原生filechooser上传完整既有站姿与wide抽象低握指南，完整1269字提示读回匹配后只发送一次。model/draft/completed1004截图同层保全。已有完成图在查看器实际可见，但原生下载与downloadMedia未落盘；不重发，使用同一官方文件操作在空间打开，实际https://chatgpt.com/space/file/libfile_40782eb1cef881918fe225032f203377显示同一青雉风格角色三姿态精灵图.png，已显示img源为相应/api/library/files/libfile_40782.../content。支持的pageAssets.list/bundle只取该PNG，downloaded1 failed0，原bundle manifest已保全。这是只读文件取回，空间sidebar模型不作生成依据。本人独立实查PNG签名/IEND/Pillowverify/全RGBAdecode/1586x992真实alpha0..255/重复稳定字节，与rootSHA相等，先清单复制原件与manifest再SHA核验。完成时刻取实际原会话完成复核截图，不是服务器首次生成。原件有手靠自己小腿和边界紧的待审问题，来源登记不等于美术/接触采用。",
+  "prompt": {
+    "file": "docs/assets/aokiji-low-hold-prompt1004.txt",
+    "sha256": "24ed85a9a03541adb52347924fefd22dbf11bbfd3f102cbd5b9fec223b79b310"
+  },
+  "referenceSources": {
+    "aokiji_blow_throws_1003": "a3ebd0fbd0f7ca0541dd92932a899c13d39cfbb508fcc31f4a866edaf7f5fca3"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-04T01:41:51.333203+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/aokiji-low-hold-completed1004.jpg",
+    "sha256": "03f865e204bf66af885e03728b8e51fa1c9b7f9114678c8ba1ee3089045daa8c"
+  },
+  "referenceFiles": {
+    "aokiji_blow_throws_1003": {
+      "file": "public/assets/generated/source/roster-aokiji-blow-throws-1003.png",
+      "sha256": "a3ebd0fbd0f7ca0541dd92932a899c13d39cfbb508fcc31f4a866edaf7f5fca3"
+    }
+  },
+  "originalPngSize": [
+    1586,
+    992
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

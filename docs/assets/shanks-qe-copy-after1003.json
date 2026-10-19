@@ -1,0 +1,9 @@
+{
+  "observedAt": "2026-10-03T00:17:17.288114+08:00",
+  "source": "C:\\Users\\august\\Downloads\\89203f9d-0fb9-458a-8d96-55b0a6d455af.png",
+  "destination": "public\\assets\\generated\\source\\roster-shanks-qe-body-1003.png",
+  "bytes": 1475733,
+  "sha256": "802066e6355c3eeb896ed0006bcccd64f9e267ce040fc0f127f0c23f1d7a9869",
+  "downloadObservation": "downloadMedia on actual visible generated image 5 timed out, but this newly written complete PNG appeared in Downloads. Original retained; no second download requested.",
+  "copiedSha256": "802066e6355c3eeb896ed0006bcccd64f9e267ce040fc0f127f0c23f1d7a9869"
+}

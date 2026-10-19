@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_walk_opposite1017",
+  "file": "public/assets/generated/source/luffy-gear5-walk-opposite1017.png",
+  "sha256": "8fbd59f30d9824f9972ee947b9ee19ce17206013dae5528940c60c89b08a79d0",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方未公开具体图像型号。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+  "observedCompletedAt": "2026-10-17T11:28:50.5847725+08:00",
+  "uiObservation": "同一会话先以红色近腿和蓝色远腿生成诊断，再要求官方恢复正常肤色白裤并降低抬脚，实际下载两格反向半步PNG。仅是静态候选，尚未正常速度循环。母版、四动作、抽象指南均为此前会话真实参考；本轮使用紧前的彩色诊断延续生成，并未重新上传其他私有内容。时间是当前原件归档再核对时刻，非服务器生成时间。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-walk-opposite-prompt1017.txt",
+    "sha256": "77d808a04b10b6ec75890f19f5e7b25b7972468b0016638d64ce4c85ce4e4010"
+  },
+  "referenceSources": {
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+    "diagnostic": "9305ba8ac0ed21fedd6868c5b733468ec8f2ca54136afc4c190170b6cd163ffd"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T03:28:51.348996+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/walk-model1017.png",
+    "sha256": "1046d3f836b5c04d6689fcae9768e868bf003344cde280f35f0dbd675fcef01a"
+  },
+  "referenceFiles": {
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    },
+    "diagnostic": {
+      "file": "public/assets/generated/source/luffy-gear5-walk-diagnostic1017.png",
+      "sha256": "9305ba8ac0ed21fedd6868c5b733468ec8f2ca54136afc4c190170b6cd163ffd"
+    }
+  },
+  "originalPngSize": [
+    1536,
+    1024
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

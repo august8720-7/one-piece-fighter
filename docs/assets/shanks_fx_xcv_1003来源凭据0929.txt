@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "shanks_fx_xcv_1003",
+  "file": "public/assets/generated/source/roster-shanks-fx-xcv-1003.png",
+  "sha256": "43f077e646fd493ba6ff7425e7398ddc585240f43e70cb7dafae258c9bcbbbb7",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "具体图像型号未公开，保留unverified。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ac0d49e-d13c-83ec-9069-0e06a78319ac",
+  "observedCompletedAt": "2026-10-03T19:24:43.036+08:00",
+  "uiObservation": "同一独立特效会话保持极高，fill第二页完整提示单次发送。结果九格神避/终式三阶段与三个独立连斩方向。实际查看器标题九宫格红色能量斩击特效精灵图、img已生成图像2，点击原下载后PNG落盘。19:24:43为下载/截图实际复查时刻，不是服务器生成时间。",
+  "prompt": {
+    "file": "docs/assets/shanks-fx-xcv-prompt1003.txt",
+    "sha256": "f5d67ceda5d929f526965c03b6a6ea0344fc1695d9694724121ad2c0f9d24e20"
+  },
+  "referenceSources": {},
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T11:28:18.491162+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/first-pair-1733-1003/shanks-fx-xcv-web-preview.jpg",
+    "sha256": "a39b21f375a04e227bc05b1be8dccff8c5d9f24f2c6972702ce7c2e428f8ef0f"
+  },
+  "referenceFiles": {},
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

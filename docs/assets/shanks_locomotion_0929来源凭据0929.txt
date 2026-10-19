@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "shanks_locomotion_0929",
+  "file": "public/assets/generated/source/roster-shanks-locomotion-0929.png",
+  "sha256": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "本次官方网页可见ChatGPT，具体图像模型没有公开标识，未核实且不推断后台型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Microsoft Edge",
+  "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+  "observedCompletedAt": "2026-09-29T23:18:22+08:00",
+  "uiObservation": "本子任务在Microsoft Edge打开既有官方图像会话继续；发送前DOM明确最新menuitemradio已选中、强度极高。多行完整提示词通过textbox.fill后单次发送；回复完成，官方查看器可见香克斯3x3九格新图，img实际1254x1254。23:18:22为已完成图的本机观察时刻，不是服务器生成时间。单次点击下载后Edge暂存后缀未结束，但原始PNG签名、EOF的IEND、Pillow完整解码和网页尺寸均核对通过；保留原.crdownload，先清单后逐字节复制，前后SHA256一致，未声称下载UI完成。images为本会话图像工作流入口，本次续作直接打开上述c会话。",
+  "prompt": {
+    "file": "docs/assets/shanks-locomotion-prompt0929.txt",
+    "sha256": "a2ee7335aebd28923f7325fe37a5fe85eacaae2d6c0f6778c2302c0bb3ea3631"
+  },
+  "referenceSources": {
+    "pirate_mother_0929": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-09-29T15:25:41.937216+00:00",
+  "referenceFiles": {
+    "pirate_mother_0929": {
+      "file": "public/assets/generated/source/roster-pirate-mother-0929.png",
+      "sha256": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

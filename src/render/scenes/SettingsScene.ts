@@ -3,6 +3,7 @@ import type { ControlModes } from '@core/index';
 import { controlModeLabel } from '../ui/matchControls';
 import { sfx, sfxHudText, type AudioGroup } from '../../audio/Sfx';
 import { getInputHub } from '@input/InputHub';
+import { awakeningConflicts, type AwakeningBindings } from '@input/awakening';
 import { isReservedKey, actionsFor, ACTION_LABEL, P2_NO_NUMPAD, P2_SIMPLE_NO_NUMPAD, defaultKeyConfig, keyConflicts, keyLabel, type Action, type KeyConfig } from '@input/keymap';
 import { FixedStep } from '../FixedStep';
 import { SCREEN_H, SCREEN_W, ui, font } from '../screen';
@@ -17,16 +18,19 @@ const AUDIO_ROWS: readonly { label: string; group: AudioGroup | null }[] = [
   { label: '人物台词', group: 'voice' }, { label: '战场环境声', group: 'ambient' },
   { label: '背景音乐', group: 'music' },
 ];
-const AUDIO_ACTIONS = ['mute', 'enable', 'sfx', 'voice', 'music', 'stop', 'retry', 'defaults', 'diagnostics', 'back'] as const;
+const AUDIO_ACTIONS = ['mute', 'chatter', 'enable', 'sfx', 'voice', 'music', 'stop', 'retry', 'defaults', 'diagnostics', 'back'] as const;
+type BindAction = Action | 'Awakening';
+const bindLabel = (action: BindAction): string => action === 'Awakening' ? '觉醒（路飞五档）' : ACTION_LABEL[action];
 
 /** Compact settings keep sound recovery and both players' keys reachable by mouse or keyboard. */
 export class SettingsScene extends Phaser.Scene {
   private step = new FixedStep();
   private menu!: MenuList;
   private cfg!: KeyConfig;
+  private awakening!: AwakeningBindings;
   private modes: ControlModes = ['simple', 'simple'];
   private keyPage = 0;
-  private waiting: { side: 'p1' | 'p2'; action: Action } | null = null;
+  private waiting: { side: 'p1' | 'p2'; action: BindAction } | null = null;
   private hint!: Phaser.GameObjects.Text;
   private status!: Phaser.GameObjects.Text;
   private tabs: Phaser.GameObjects.Text[] = [];
@@ -51,6 +55,7 @@ export class SettingsScene extends Phaser.Scene {
     drawPanel(this, '设置', `${confirmHint()}   Tab 切换分类   ← → 调整音量`);
     this.modes = getInputHub().controlModes;
     this.cfg = structuredClone(getInputHub().keyConfigFor(this.modes));
+    this.awakening = getInputHub().awakeningPreferences;
     this.diagnostics = new DiagnosticsPanel(this);
     this.tabs = (['声音', 'P1 键位', 'P2 键位']).map((label, index) => {
       const button = this.add.text(ui(220 + index * 260), ui(119), label, {
@@ -82,15 +87,22 @@ export class SettingsScene extends Phaser.Scene {
     this.tabs.forEach((button, i) => button.setColor(i === ['audio', 'p1', 'p2'].indexOf(tab) ? UI.title : UI.dim));
     this.notice = ''; this.hint.setText(''); getInputHub().flush();
   }
-  private pageActions(): readonly Action[] {
+  private bindingActions(): readonly BindAction[] {
+    return [...actionsFor(this.modes[this.tab === 'p1' ? 0 : 1]), 'Awakening'];
+  }
+  private pageActions(): readonly BindAction[] {
     if (this.tab === 'audio') return [];
-    return actionsFor(this.modes[this.tab === 'p1' ? 0 : 1]).slice(this.keyPage * 8, this.keyPage * 8 + 8);
+    return this.bindingActions().slice(this.keyPage * 8, this.keyPage * 8 + 8);
   }
   private items(): { label: string; disabled?: boolean }[] {
     if (this.tab !== 'audio') return [
       { label: `操作：${controlModeLabel(this.modes[this.tab === 'p1' ? 0 : 1])}（确认切换）` },
-      { label: `键位第 ${this.keyPage + 1} / ${Math.ceil(actionsFor(this.modes[this.tab === 'p1' ? 0 : 1]).length / 8)} 页（确认翻页）` },
-      ...Array.from({ length: 8 }, (_, index) => { const action = this.pageActions()[index]; return action ? { label: `${ACTION_LABEL[action].padEnd(12)} ${keyLabel(this.cfg[this.tab as 'p1' | 'p2'][action] ?? '')}` } : { label: '', disabled: true }; }),
+      { label: `键位第 ${this.keyPage + 1} / ${Math.ceil(this.bindingActions().length / 8)} 页（确认翻页）` },
+      ...Array.from({ length: 8 }, (_, index) => {
+        const action = this.pageActions()[index], side = this.tab as 'p1' | 'p2';
+        const key = action === 'Awakening' ? this.awakening[side] : action ? this.cfg[side][action] : null;
+        return action ? { label: `${bindLabel(action).padEnd(12)} ${keyLabel(key ?? '')}` } : { label: '', disabled: true };
+      }),
       { label: '恢复默认键位' }, { label: 'P2 使用无小键盘布局' }, { label: '保存并返回' },
     ];
     const rows = AUDIO_ROWS.map(row => {
@@ -98,6 +110,7 @@ export class SettingsScene extends Phaser.Scene {
       return { label: `${row.label.padEnd(12)} ${Math.round(value * 100)}%` };
     });
     return [...rows, { label: `静音    ${sfx().muted ? '已开启' : '已关闭'}` },
+      { label: `角色闲聊（移动/待机）  ${sfx().characterChatter ? '已开启' : '已关闭'}` },
       { label: '开启声音' }, { label: '试听打击音' }, { label: '试听人物声音' },
       { label: '试听音乐（8秒）' }, { label: '停止试听' }, { label: '重试失败音频' },
       { label: '恢复默认声音设置' }, { label: '查看游戏诊断' }, { label: '保存并返回' }];
@@ -109,6 +122,7 @@ export class SettingsScene extends Phaser.Scene {
     const audio = sfx();
     const action = AUDIO_ACTIONS[index - AUDIO_ROWS.length];
     if (action === 'mute') audio.toggleMute();
+    if (action === 'chatter') { audio.setCharacterChatter(!audio.characterChatter); this.notice = audio.characterChatter ? '已开启可选闲聊；重要语音仍优先。' : '已关闭日常台词；动作音和重要回应保留。'; }
     if (action === 'enable') {
       await audio.enableSound();
       if (!current()) return;
@@ -135,8 +149,8 @@ export class SettingsScene extends Phaser.Scene {
     if (this.diagnostics.visible) { getInputHub().flush(); return; }
     const audio = sfx();
     this.status.setText(this.tab === 'audio'
-      ? `${AUDIO_ROWS.filter(row => row.group).map(row => `${row.label}：${sfxHudText(audio.hudState(row.group!))}`).join('\n')}\n\n开启声音保留原音量。人物发声时音乐自动降低；移动和待机语音有间隔。\n\n${this.notice}`
-      : `选择动作后按确认，再按新键。Esc 取消重绑。模式修改从下场生效；键位保存后生效。手柄请选择经典。\n\nStart：Enter（P1）\n小键盘 Enter（P2）\n\n${keyConflicts(this.cfg)[0] ?? '当前无键位冲突'}`);
+      ? `${AUDIO_ROWS.filter(row => row.group).map(row => `${row.label}：${sfxHudText(audio.hudState(row.group!))}`).join('\n')}\n\n日常台词默认关闭，动作音仍保留。人物发声时音乐自动降低。\n\n${this.notice}`
+      : `确认后按新键；Esc取消。\n觉醒Backspace解绑；模式下场生效。\n\n五档仅适用于完整动漫版路飞：\n满3格气、地面中立且无强化/疲劳。\n按本页独立觉醒键或手柄LT。\n默认P1 T / P2 PageUp。\n旧版、动作样板、其他角色不适用。\n赛前必需资源失败可重试或返回。\nStart：P1 Enter / P2小键盘Enter。\n${this.conflicts()[0] ?? '当前无键位冲突'}\n${this.notice}`);
     const hub = getInputHub();
     for (let i = 0, steps = this.step.advance(dt); i < steps; i++) {
       if (this.waiting) {
@@ -144,7 +158,13 @@ export class SettingsScene extends Phaser.Scene {
         if (code === 'Escape') { this.waiting = null; this.hint.setText(''); }
         else if (code && isReservedKey(code)) { this.hint.setText('该键为菜单 / 调试保留键，请换一个键。'); }
         else if (code) {
-          this.cfg[this.waiting.side][this.waiting.action] = code; this.waiting = null;
+          const { side, action } = this.waiting;
+          const draftKeys = structuredClone(this.cfg), draftAwakening = { ...this.awakening };
+          if (action === 'Awakening') draftAwakening[side] = code === 'Backspace' ? null : code;
+          else draftKeys[side][action] = code;
+          const conflict = [...keyConflicts(draftKeys), ...awakeningConflicts(draftAwakening, draftKeys)][0];
+          if (conflict) { this.hint.setText(`未保存：${conflict}；请换键，Esc取消。`); continue; }
+          this.cfg = draftKeys; this.awakening = draftAwakening; this.waiting = null;
           this.menu.setItems(this.items()); this.hint.setText('');
         }
         continue;
@@ -162,20 +182,23 @@ export class SettingsScene extends Phaser.Scene {
       } else if (action === 'select') {
         const actions = this.pageActions();
         if (index === 0) {
-          hub.setKeyConfig(this.cfg, this.modes);
+          if (!this.saveKeys()) continue;
           const next: [ControlModes[0], ControlModes[1]] = [...this.modes];
           const side = this.tab === 'p1' ? 0 : 1;
           next[side] = next[side] === 'simple' ? 'classic' : 'simple';
+          const nextKeys = hub.keyConfigFor(next);
+          const conflict = [...keyConflicts(nextKeys), ...awakeningConflicts(this.awakening, nextKeys)][0];
+          if (conflict) { this.notice = `未切换：${conflict}；请先更改或解除觉醒键。`; continue; }
           this.modes = next;
           hub.setControlModes(next);
           this.cfg = structuredClone(hub.keyConfigFor(next));
           this.keyPage = 0; this.menu.setItems(this.items());
         } else if (index === 1) {
-          this.keyPage = (this.keyPage + 1) % Math.ceil(actionsFor(this.modes[this.tab === 'p1' ? 0 : 1]).length / 8);
+          this.keyPage = (this.keyPage + 1) % Math.ceil(this.bindingActions().length / 8);
           this.menu.setItems(this.items());
         } else if (index - 2 < actions.length) {
           const selected = actions[index - 2]!; this.waiting = { side: this.tab, action: selected };
-          hub.keyboard.takeLastCode(); this.hint.setText(`按新键绑定 ${this.tab.toUpperCase()} ${ACTION_LABEL[selected]} · Esc 取消`);
+          hub.keyboard.takeLastCode(); this.hint.setText(`按新键绑定 ${this.tab.toUpperCase()} ${bindLabel(selected)} · Esc取消${selected === 'Awakening' ? ' · Backspace解除' : ''}`);
         } else if (index === 10) {
           this.cfg[this.tab] = defaultKeyConfig(this.modes)[this.tab]; this.menu.setItems(this.items());
         } else if (index === 11) {
@@ -186,10 +209,23 @@ export class SettingsScene extends Phaser.Scene {
   }
   private leave(): void {
     if (this.waiting || this.audioUiClosed) return;
+    if (!this.saveKeys()) return;
     this.closeAudioUi();
-    this.diagnostics.close(); getInputHub().setKeyConfig(this.cfg, this.modes); getInputHub().flush();
+    this.diagnostics.close(); getInputHub().flush();
     if (this.resumeScene) { this.scene.stop(); this.game.events.emit('opf-settings-closed'); }
     else this.scene.start(this.back, this.backData);
+  }
+
+  private conflicts(): string[] { return [...keyConflicts(this.cfg), ...awakeningConflicts(this.awakening, this.cfg)]; }
+  private saveKeys(): boolean {
+    const conflict = this.conflicts()[0];
+    if (conflict) { this.notice = `未保存：${conflict}`; this.hint.setText(this.notice); return false; }
+    const hub = getInputHub();
+    hub.setKeyConfig(this.cfg, this.modes);
+    const result = hub.setAwakeningBindings(this.awakening, this.modes);
+    if (result.conflicts.length) { this.notice = `未保存：${result.conflicts[0]}`; return false; }
+    if (!result.saved) this.notice = '存储不可用：键位仅在本次会话生效。';
+    return true;
   }
 
   private closeAudioUi(): void {

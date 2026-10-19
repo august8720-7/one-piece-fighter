@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_reactions_0929",
+  "sourceFile": "public/assets/generated/source/roster-shanks-reactions-0929.png",
+  "sourceSha256": "e05c579c6fb6c41fd40c40e46c47913de34d83cd1044a5653972d88cff41acaf",
+  "status": "cropped-candidate-awaiting-runtime-review",
+  "decodedSize": [1254, 1254],
+  "alphaRange": [0, 255],
+  "neutralVisibleHeightAlpha8": 418,
+  "referenceNeutralHeight": 380,
+  "sourceUnitScale": 0.9090909090909091,
+  "sourceScaleRule": "380/418 applied to the entire sheet; individual crouching, airborne or lying poses are never fit-scaled.",
+  "realNewPoses": ["crouch", "block_stand", "block_crouch", "hit_crouch", "jump_neutral", "hit_air", "knockdown", "getup"],
+  "calibrationPoseNotCountedAsNew": "row1_col1_idle",
+  "observations": [
+    "Visible white-background composite confirms one arm and one saber in all poses, including getup without an invented left support hand.",
+    "The eight new poses are visually distinct; there is only one true drawing per declared reaction, not a claimed full multi-frame reaction animation.",
+    "Neighbor fragments in crouch, hit_crouch and jump crops are removed by explicit non-body rectangles; transparency remains source-alpha.",
+    "Crouch and block roots are measured from the low sole plane. Airborne roots are virtual anchors and still require actual runtime/hurtbox review.",
+    "Getup sword tip lies below its sole plane in the source artwork. Runtime floor contact must be inspected before that pose is accepted.",
+    "No full-game capability gate, public roster or missing state fallback was changed."
+  ],
+  "diagnostic": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/pirate-art/shanks-reactions-crop-check0929.png"
+}

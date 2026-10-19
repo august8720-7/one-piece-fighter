@@ -7,6 +7,15 @@ vi.mock('../../src/render/deliveryManifest.json', () => ({ default: { version: '
 
 vi.mock('phaser', () => ({ default: { Textures: { FilterMode: { LINEAR: 0, NEAREST: 1 } } } }));
 
+// Exercise the supported single-atlas authoring path with a two-frame fixture.
+// The real first-pair contracts now have independently tested schema-2 pages.
+vi.mock('../../src/render/fx/rosterFxCandidates1003', async importOriginal => {
+  const actual = await importOriginal<typeof import('../../src/render/fx/rosterFxCandidates1003')>();
+  return { ...actual, ROSTER_FX_CANDIDATES: { ...actual.ROSTER_FX_CANDIDATES,
+    aokiji: { ...actual.ROSTER_FX_CANDIDATES.aokiji, runtime: undefined, frames: ['ice_lance', 'ice_impact'] },
+  } };
+});
+
 // These names are the inspected stage/effect contract, independent of the generated local PNGs.
 const frameNames = {
   common: ['impact', 'rebound', 'smoke'],
@@ -92,9 +101,42 @@ beforeEach(() => {
     return response;
   }));
 });
-afterEach(() => { vi.useRealTimers(); vi.restoreAllMocks(); vi.unstubAllGlobals(); });
+afterEach(() => { vi.useRealTimers(); vi.restoreAllMocks(); vi.unstubAllGlobals(); vi.unstubAllEnvs(); });
 
 describe('full anime stage and effect resources', () => {
+  it('loads only the selected development candidate FX and refuses missing impact frames', async () => {
+    vi.stubGlobal('window', { location: { search: '?rosterPreview=0929&p1=aokiji' } });
+    const candidate = atlas('common');
+    candidate.frames = {
+      ice_lance: { frame: { x: 0, y: 0, w: 32, h: 16 } },
+      ice_impact: { frame: { x: 32, y: 0, w: 16, h: 16 } },
+    };
+    jsonOverrides.set('assets/fx/aokiji/atlas.json', JSON.stringify(candidate));
+    const current = fixture('anime', 'sample');
+    expect(await loadPresentationAssets(current.scene, undefined, 'fight', ['aokiji'])).toMatchObject({
+      ok: true, required: false, loaded: expect.arrayContaining(['fx-aokiji']),
+    });
+    expect(fetch).not.toHaveBeenCalledWith('assets/fx/shanks/atlas.png', expect.anything());
+    expect(releaseUnusedFightAssets(current.scene, ['luffy'])).toContain('fx-aokiji');
+    delete candidate.frames.ice_impact;
+    jsonOverrides.set('assets/fx/aokiji/atlas.json', JSON.stringify(candidate));
+    const broken = fixture('anime', 'sample');
+    expect(await loadPresentationAssets(broken.scene, undefined, 'fight', ['aokiji'])).toMatchObject({
+      ok: false, failures: [{ key: 'fx-aokiji', code: 'invalid', message: expect.stringContaining('ice_impact') }],
+    });
+    expect(broken.textures.has('fx-aokiji')).toBe(false);
+  });
+
+  it('does not promote a DEV parameter to production full-match resource coverage', async () => {
+    vi.stubEnv('DEV', false);
+    vi.stubGlobal('window', { location: { search: '?rosterPreview=0929&p1=aokiji' } });
+    const current = fixture('anime', 'full');
+    expect(await loadPresentationAssets(current.scene, undefined, 'fight', ['aokiji'])).toMatchObject({
+      ok: false, required: true, failures: [{ key: 'fx-aokiji', code: 'invalid', message: expect.stringContaining('未声明') }],
+    });
+    expect(fetch).not.toHaveBeenCalledWith('assets/fx/aokiji/atlas.png', expect.anything());
+  });
+
   it('loads both stage files and both complete effect atlases, then validates cached textures without growth', async () => {
     const current = fixture();
     expect(REQUIRED_FX_FRAMES).toEqual({ akainu: frameNames.akainu, labubu: frameNames.labubu, luffy: frameNames.luffy, twinkle: frameNames.twinkle });

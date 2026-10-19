@@ -1,0 +1,1910 @@
+{
+  "scope": "DEV rosterPreview=0929 only; first-pair candidates plus the earlier reviewed Shanks select",
+  "cueId": "voice.shanks.select",
+  "characterId": "shanks",
+  "file": "assets/audio/voice/shanks/select-1003.wav",
+  "sha256": "87801104e09e3f598e17df5c8f70e2dd379c7328782f700061cc5f0e217d220c",
+  "durationSeconds": 1.54,
+  "original": "上がってこい",
+  "label": "香克斯 · 选人",
+  "translation": "上来吧。",
+  "transcriptVerified": true,
+  "sourceUrl": "https://www.youtube.com/watch?v=4OeqldbcPBQ",
+  "sourceSha256": "d1867e96be97174ff8e52ad0e7e636e40001aa4f224b4af3dc042a43369c346f",
+  "sourceStartSeconds": 35.27,
+  "sourceEndSeconds": 36.81,
+  "nativeReview": {
+    "kind": "agent_audio_model",
+    "inputAudioAttached": true,
+    "eventId": "ab5bb1ba2b59496a9f212cbfeaf6a86a",
+    "responseSha256": "d2c7727e373d0b061d6aae84928d83b6e459e7e4f72404d93697d03530e12a9d",
+    "response": "1. 上がってこい\n\n2. 首尾完整，无重复或多余尾声；无背景音乐、杂音或失真。",
+    "evidence": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/voice/review-1002/clip-C-native-review1003.json",
+    "humanListened": false,
+    "gamePlaybackVerified": false
+  },
+  "runtime": {
+    "schemaVersion": 1,
+    "scope": "DEV rosterPreview=0929 only; explicitly selected characters; no release adoption",
+    "voiceQualityStatus": "native-hearing-not-completed",
+    "sfxQualityStatus": "native-hearing-and-game-mix-pending",
+    "formalAdoptedVoices": 0,
+    "formalAdoptedSfx": 0,
+    "cues": {
+      "voice.aokiji.attack": {
+        "files": [
+          "assets/audio/voice/aokiji/preview-attack-kokoro-original1003.wav"
+        ],
+        "group": "voice",
+        "characterId": "aokiji",
+        "gain": 0.85,
+        "priority": 70,
+        "cooldownMs": 556,
+        "maxInstances": 1,
+        "source": "scripts/roster_voice_adoption1003.voices.json",
+        "note": "Original local Kokoro synthetic candidate, never the original actor. Exact prepared PCM trim/hash checked; native hearing and game mix pending; no dedicated move call claim."
+      },
+      "voice.aokiji.effort": {
+        "files": [
+          "assets/audio/voice/aokiji/preview-effort-kokoro-original1003.wav"
+        ],
+        "group": "voice",
+        "characterId": "aokiji",
+        "gain": 0.62,
+        "priority": 70,
+        "cooldownMs": 566,
+        "maxInstances": 1,
+        "source": "scripts/roster_voice_adoption1003.voices.json",
+        "note": "Original local Kokoro synthetic candidate, never the original actor. Exact prepared PCM trim/hash checked; native hearing and game mix pending; no dedicated move call claim."
+      },
+      "voice.aokiji.hurt": {
+        "files": [
+          "assets/audio/voice/aokiji/preview-hurt-kokoro-original1003.wav"
+        ],
+        "group": "voice",
+        "characterId": "aokiji",
+        "gain": 0.65,
+        "priority": 25,
+        "cooldownMs": 476,
+        "maxInstances": 1,
+        "source": "scripts/roster_voice_adoption1003.voices.json",
+        "note": "Original local Kokoro synthetic candidate, never the original actor. Exact prepared PCM trim/hash checked; native hearing and game mix pending; no dedicated move call claim."
+      },
+      "voice.aokiji.idle": {
+        "files": [
+          "assets/audio/voice/aokiji/preview-idle-kokoro-original1003.wav"
+        ],
+        "group": "voice",
+        "characterId": "aokiji",
+        "gain": 0.62,
+        "priority": 10,
+        "cooldownMs": 0,
+        "maxInstances": 1,
+        "source": "scripts/roster_voice_adoption1003.voices.json",
+        "note": "Original local Kokoro synthetic candidate, never the original actor. Exact prepared PCM trim/hash checked; native hearing and game mix pending; no dedicated move call claim."
+      },
+      "voice.aokiji.ko": {
+        "files": [
+          "assets/audio/voice/aokiji/preview-ko-kokoro-original1003.wav"
+        ],
+        "group": "voice",
+        "characterId": "aokiji",
+        "gain": 0.85,
+        "priority": 100,
+        "cooldownMs": 0,
+        "maxInstances": 1,
+        "source": "scripts/roster_voice_adoption1003.voices.json",
+        "note": "Original local Kokoro synthetic candidate, never the original actor. Exact prepared PCM trim/hash checked; native hearing and game mix pending; no dedicated move call claim."
+      },
+      "voice.aokiji.move": {
+        "files": [
+          "assets/audio/voice/aokiji/preview-move-kokoro-original1003.wav"
+        ],
+        "group": "voice",
+        "characterId": "aokiji",
+        "gain": 0.62,
+        "priority": 9,
+        "cooldownMs": 0,
+        "maxInstances": 1,
+        "source": "scripts/roster_voice_adoption1003.voices.json",
+        "note": "Original local Kokoro synthetic candidate, never the original actor. Exact prepared PCM trim/hash checked; native hearing and game mix pending; no dedicated move call claim."
+      },
+      "voice.aokiji.select": {
+        "files": [
+          "assets/audio/voice/aokiji/preview-select-kokoro-original1003.wav"
+        ],
+        "group": "voice",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 60,
+        "cooldownMs": 0,
+        "maxInstances": 1,
+        "source": "scripts/roster_voice_adoption1003.voices.json",
+        "note": "Original local Kokoro synthetic candidate, never the original actor. Exact prepared PCM trim/hash checked; native hearing and game mix pending; no dedicated move call claim."
+      },
+      "voice.aokiji.win": {
+        "files": [
+          "assets/audio/voice/aokiji/preview-win-kokoro-original1003.wav"
+        ],
+        "group": "voice",
+        "characterId": "aokiji",
+        "gain": 0.85,
+        "priority": 70,
+        "cooldownMs": 0,
+        "maxInstances": 1,
+        "source": "scripts/roster_voice_adoption1003.voices.json",
+        "note": "Original local Kokoro synthetic candidate, never the original actor. Exact prepared PCM trim/hash checked; native hearing and game mix pending; no dedicated move call claim."
+      },
+      "voice.shanks.attack": {
+        "files": [
+          "assets/audio/voice/shanks/preview-attack-kokoro-original1003.wav"
+        ],
+        "group": "voice",
+        "characterId": "shanks",
+        "gain": 0.85,
+        "priority": 70,
+        "cooldownMs": 516,
+        "maxInstances": 1,
+        "source": "scripts/roster_voice_adoption1003.voices.json",
+        "note": "Original local Kokoro synthetic candidate, never the original actor. Exact prepared PCM trim/hash checked; native hearing and game mix pending; no dedicated move call claim."
+      },
+      "voice.shanks.effort": {
+        "files": [
+          "assets/audio/voice/shanks/preview-effort-kokoro-original1003.wav"
+        ],
+        "group": "voice",
+        "characterId": "shanks",
+        "gain": 0.62,
+        "priority": 70,
+        "cooldownMs": 516,
+        "maxInstances": 1,
+        "source": "scripts/roster_voice_adoption1003.voices.json",
+        "note": "Original local Kokoro synthetic candidate, never the original actor. Exact prepared PCM trim/hash checked; native hearing and game mix pending; no dedicated move call claim."
+      },
+      "voice.shanks.hurt": {
+        "files": [
+          "assets/audio/voice/shanks/preview-hurt-kokoro-original1003.wav"
+        ],
+        "group": "voice",
+        "characterId": "shanks",
+        "gain": 0.65,
+        "priority": 25,
+        "cooldownMs": 416,
+        "maxInstances": 1,
+        "source": "scripts/roster_voice_adoption1003.voices.json",
+        "note": "Original local Kokoro synthetic candidate, never the original actor. Exact prepared PCM trim/hash checked; native hearing and game mix pending; no dedicated move call claim."
+      },
+      "voice.shanks.idle": {
+        "files": [
+          "assets/audio/voice/shanks/preview-idle-kokoro-original1003.wav"
+        ],
+        "group": "voice",
+        "characterId": "shanks",
+        "gain": 0.62,
+        "priority": 10,
+        "cooldownMs": 0,
+        "maxInstances": 1,
+        "source": "scripts/roster_voice_adoption1003.voices.json",
+        "note": "Original local Kokoro synthetic candidate, never the original actor. Exact prepared PCM trim/hash checked; native hearing and game mix pending; no dedicated move call claim."
+      },
+      "voice.shanks.ko": {
+        "files": [
+          "assets/audio/voice/shanks/preview-ko-kokoro-original1003.wav"
+        ],
+        "group": "voice",
+        "characterId": "shanks",
+        "gain": 0.85,
+        "priority": 100,
+        "cooldownMs": 0,
+        "maxInstances": 1,
+        "source": "scripts/roster_voice_adoption1003.voices.json",
+        "note": "Original local Kokoro synthetic candidate, never the original actor. Exact prepared PCM trim/hash checked; native hearing and game mix pending; no dedicated move call claim."
+      },
+      "voice.shanks.move": {
+        "files": [
+          "assets/audio/voice/shanks/preview-move-kokoro-original1003.wav"
+        ],
+        "group": "voice",
+        "characterId": "shanks",
+        "gain": 0.62,
+        "priority": 9,
+        "cooldownMs": 0,
+        "maxInstances": 1,
+        "source": "scripts/roster_voice_adoption1003.voices.json",
+        "note": "Original local Kokoro synthetic candidate, never the original actor. Exact prepared PCM trim/hash checked; native hearing and game mix pending; no dedicated move call claim."
+      },
+      "voice.shanks.select.synthetic_candidate": {
+        "files": [
+          "assets/audio/voice/shanks/preview-select-kokoro-original1003.wav"
+        ],
+        "group": "voice",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 60,
+        "cooldownMs": 0,
+        "maxInstances": 1,
+        "source": "scripts/roster_voice_adoption1003.voices.json",
+        "note": "Original local Kokoro synthetic candidate, never the original actor. Exact prepared PCM trim/hash checked; native hearing and game mix pending; no dedicated move call claim."
+      },
+      "voice.shanks.win": {
+        "files": [
+          "assets/audio/voice/shanks/preview-win-kokoro-original1003.wav"
+        ],
+        "group": "voice",
+        "characterId": "shanks",
+        "gain": 0.85,
+        "priority": 70,
+        "cooldownMs": 0,
+        "maxInstances": 1,
+        "source": "scripts/roster_voice_adoption1003.voices.json",
+        "note": "Original local Kokoro synthetic candidate, never the original actor. Exact prepared PCM trim/hash checked; native hearing and game mix pending; no dedicated move call claim."
+      },
+      "sfx.aokiji.ice_lance.start": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_lance-start.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.45,
+        "priority": 30,
+        "cooldownMs": 80,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_lance.release": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_lance-release.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_lance.end": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_lance-end.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.3,
+        "priority": 20,
+        "cooldownMs": 35,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_blade.start": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_blade-start.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.45,
+        "priority": 30,
+        "cooldownMs": 80,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_blade.release": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_blade-release.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_blade.end": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_blade-end.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.3,
+        "priority": 20,
+        "cooldownMs": 35,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_uplift.start": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_uplift-start.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.45,
+        "priority": 30,
+        "cooldownMs": 80,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_uplift.release": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_uplift-release.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_uplift.end": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_uplift-end.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.3,
+        "priority": 20,
+        "cooldownMs": 35,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_spike.start": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_spike-start.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.45,
+        "priority": 30,
+        "cooldownMs": 80,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_spike.release": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_spike-release.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_spike.end": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_spike-end.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.3,
+        "priority": 20,
+        "cooldownMs": 35,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_mirror.start": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_mirror-start.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.45,
+        "priority": 30,
+        "cooldownMs": 80,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_mirror.release": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_mirror-release.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_mirror.end": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_mirror-end.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.3,
+        "priority": 20,
+        "cooldownMs": 35,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_body.start": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_body-start.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.45,
+        "priority": 30,
+        "cooldownMs": 80,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_body.release": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_body-release.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_body.end": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_body-end.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.3,
+        "priority": 20,
+        "cooldownMs": 35,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_pheasant.start": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_pheasant-start.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.45,
+        "priority": 30,
+        "cooldownMs": 80,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_pheasant.release": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_pheasant-release.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_pheasant.end": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_pheasant-end.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.3,
+        "priority": 20,
+        "cooldownMs": 35,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.glacier_line.start": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/glacier_line-start.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.45,
+        "priority": 30,
+        "cooldownMs": 80,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.glacier_line.release": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_spike-release.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review. Explicit glacier release reuses one ice-spike release per actual spawn."
+      },
+      "sfx.aokiji.glacier_line.end": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/glacier_line-end.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.3,
+        "priority": 20,
+        "cooldownMs": 35,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_age.start": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_age-start.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.45,
+        "priority": 30,
+        "cooldownMs": 80,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_age.release": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_age-release.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.ice_age.end": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/aokiji/ice_age-end.wav"
+        ],
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.3,
+        "priority": 20,
+        "cooldownMs": 35,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.haki_slash.start": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/haki_slash-start.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.45,
+        "priority": 30,
+        "cooldownMs": 80,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.haki_slash.release": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/haki_slash-release.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.haki_slash.end": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/haki_slash-end.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.3,
+        "priority": 20,
+        "cooldownMs": 35,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.single_arm_cut.start": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/single_arm_cut-start.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.45,
+        "priority": 30,
+        "cooldownMs": 80,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.single_arm_cut.release": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/single_arm_cut-release.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.single_arm_cut.end": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/single_arm_cut-end.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.3,
+        "priority": 20,
+        "cooldownMs": 35,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.rising_guard.start": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/rising_guard-start.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.45,
+        "priority": 30,
+        "cooldownMs": 80,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.rising_guard.release": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/rising_guard-release.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.rising_guard.end": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/rising_guard-end.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.3,
+        "priority": 20,
+        "cooldownMs": 35,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.step_thrust.start": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/step_thrust-start.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.45,
+        "priority": 30,
+        "cooldownMs": 80,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.step_thrust.release": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/step_thrust-release.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.step_thrust.end": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/step_thrust-end.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.3,
+        "priority": 20,
+        "cooldownMs": 35,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.low_cut.start": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/low_cut-start.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.45,
+        "priority": 30,
+        "cooldownMs": 80,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.low_cut.release": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/low_cut-release.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.low_cut.end": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/low_cut-end.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.3,
+        "priority": 20,
+        "cooldownMs": 35,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.sidestep.start": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/sidestep-start.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.45,
+        "priority": 30,
+        "cooldownMs": 80,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.sidestep.release": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/sidestep-release.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.sidestep.end": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/sidestep-end.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.3,
+        "priority": 20,
+        "cooldownMs": 35,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.divine_departure.start": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/divine_departure-start.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.45,
+        "priority": 30,
+        "cooldownMs": 80,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.divine_departure.release": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/divine_departure-release.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.divine_departure.end": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/divine_departure-end.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.3,
+        "priority": 20,
+        "cooldownMs": 35,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.emperor_cuts.start": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/emperor_cuts-start.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.45,
+        "priority": 30,
+        "cooldownMs": 80,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.emperor_cuts.release": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/emperor_cuts-release.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.emperor_cuts.end": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/emperor_cuts-end.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.3,
+        "priority": 20,
+        "cooldownMs": 35,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.red_hair_finale.start": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/red_hair_finale-start.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.45,
+        "priority": 30,
+        "cooldownMs": 80,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.red_hair_finale.release": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/red_hair_finale-release.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.shanks.red_hair_finale.end": {
+        "files": [
+          "assets/audio/sfx/roster-preview1003/shanks/red_hair_finale-end.wav"
+        ],
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.3,
+        "priority": 20,
+        "cooldownMs": 35,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Original game audio design from explicit CC0 audio sources; not official One Piece audio. Candidate awaiting native listening/game mix review."
+      },
+      "sfx.aokiji.footstep": {
+        "files": [
+          "assets/audio/sfx/akainu-step-0-0914.wav",
+          "assets/audio/sfx/akainu-step-1-0914.wav",
+          "assets/audio/sfx/akainu-step-2-0914.wav"
+        ],
+        "group": "sfx",
+        "gain": 0.68,
+        "priority": 12,
+        "cooldownMs": 110,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "characterId": "aokiji",
+        "note": "Existing public CC0 footstep/movement material reused transparently; new character timing/mix still pending. No old character voice reused."
+      },
+      "sfx.aokiji.movement": {
+        "files": [
+          "assets/audio/sfx/whoosh-1-0912.wav"
+        ],
+        "group": "sfx",
+        "gain": 0.25,
+        "priority": 12,
+        "cooldownMs": 180,
+        "maxInstances": 1,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Existing public CC0 footstep/movement material reused transparently; new character timing/mix still pending. No old character voice reused.",
+        "characterId": "aokiji"
+      },
+      "sfx.shanks.footstep": {
+        "files": [
+          "assets/audio/sfx/luffy-step-0-0914.wav",
+          "assets/audio/sfx/luffy-step-1-0914.wav",
+          "assets/audio/sfx/luffy-step-2-0914.wav"
+        ],
+        "group": "sfx",
+        "gain": 0.55,
+        "priority": 12,
+        "cooldownMs": 110,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "characterId": "shanks",
+        "note": "Existing public CC0 footstep/movement material reused transparently; new character timing/mix still pending. No old character voice reused."
+      },
+      "sfx.shanks.movement": {
+        "files": [
+          "assets/audio/sfx/whoosh-1-0912.wav"
+        ],
+        "group": "sfx",
+        "gain": 0.25,
+        "priority": 12,
+        "cooldownMs": 180,
+        "maxInstances": 1,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Existing public CC0 footstep/movement material reused transparently; new character timing/mix still pending. No old character voice reused.",
+        "characterId": "shanks"
+      }
+    },
+    "lines": [
+      {
+        "file": "assets/audio/voice/aokiji/preview-attack-kokoro-original1003.wav",
+        "sha256": "135d8a7d5af6de7222ab42c428821d447c1e15e9087f46402c9c4105bba8be08",
+        "label": "青雉 · 原创语音候选（待听觉核验）",
+        "original": "嘿！",
+        "translation": "嘿！",
+        "transcriptVerified": false,
+        "textSource": "generation-input-not-certified-audio-transcript",
+        "nativeAudioReviewed": false,
+        "humanListened": false
+      },
+      {
+        "file": "assets/audio/voice/aokiji/preview-effort-kokoro-original1003.wav",
+        "sha256": "114ff1dc7f87901f2460d50f3d1efd6a6431adec09099e41490e7d2d52cabc31",
+        "label": "青雉 · 原创语音候选（待听觉核验）",
+        "original": "哈！",
+        "translation": "哈！",
+        "transcriptVerified": false,
+        "textSource": "generation-input-not-certified-audio-transcript",
+        "nativeAudioReviewed": false,
+        "humanListened": false
+      },
+      {
+        "file": "assets/audio/voice/aokiji/preview-hurt-kokoro-original1003.wav",
+        "sha256": "89e57117583da106bc2e8686bbc08afb052ecb4a1222c6d97b91112e5ffbf4bf",
+        "label": "青雉 · 原创语音候选（待听觉核验）",
+        "original": "呃！",
+        "translation": "呃！",
+        "transcriptVerified": false,
+        "textSource": "generation-input-not-certified-audio-transcript",
+        "nativeAudioReviewed": false,
+        "humanListened": false
+      },
+      {
+        "file": "assets/audio/voice/aokiji/preview-idle-kokoro-original1003.wav",
+        "sha256": "5b8d34cf636c7a06fa8f00f56dc4f57e6673e75a8dd3733821e7af0a26f82423",
+        "label": "青雉 · 原创语音候选（待听觉核验）",
+        "original": "别太着急。",
+        "translation": "别太着急。",
+        "transcriptVerified": false,
+        "textSource": "generation-input-not-certified-audio-transcript",
+        "nativeAudioReviewed": false,
+        "humanListened": false
+      },
+      {
+        "file": "assets/audio/voice/aokiji/preview-ko-kokoro-original1003.wav",
+        "sha256": "16a3c726c83828365f1758976b59d560c59fbd273604f746bbcb1b2ec0a0f14f",
+        "label": "青雉 · 原创语音候选（待听觉核验）",
+        "original": "到此为止了。",
+        "translation": "到此为止了。",
+        "transcriptVerified": false,
+        "textSource": "generation-input-not-certified-audio-transcript",
+        "nativeAudioReviewed": false,
+        "humanListened": false
+      },
+      {
+        "file": "assets/audio/voice/aokiji/preview-move-kokoro-original1003.wav",
+        "sha256": "d4a17ea00f55e8c9a7a68150d68b46aef723db824473a0c14742f54a607c30f8",
+        "label": "青雉 · 原创语音候选（待听觉核验）",
+        "original": "走吧。",
+        "translation": "走吧。",
+        "transcriptVerified": false,
+        "textSource": "generation-input-not-certified-audio-transcript",
+        "nativeAudioReviewed": false,
+        "humanListened": false
+      },
+      {
+        "file": "assets/audio/voice/aokiji/preview-select-kokoro-original1003.wav",
+        "sha256": "2b499ece5db8c28a385f51912cedf9263cd5fd2ce445179b07ac12c579765cca",
+        "label": "青雉 · 原创语音候选（待听觉核验）",
+        "original": "那就开始吧。",
+        "translation": "那就开始吧。",
+        "transcriptVerified": false,
+        "textSource": "generation-input-not-certified-audio-transcript",
+        "nativeAudioReviewed": false,
+        "humanListened": false
+      },
+      {
+        "file": "assets/audio/voice/aokiji/preview-win-kokoro-original1003.wav",
+        "sha256": "d8e543333434d2a9f51b24cd5e7bc71a61ab5c649429a20fae2047a1e94696fa",
+        "label": "青雉 · 原创语音候选（待听觉核验）",
+        "original": "冷静一点。",
+        "translation": "冷静一点。",
+        "transcriptVerified": false,
+        "textSource": "generation-input-not-certified-audio-transcript",
+        "nativeAudioReviewed": false,
+        "humanListened": false
+      },
+      {
+        "file": "assets/audio/voice/shanks/preview-attack-kokoro-original1003.wav",
+        "sha256": "06a5a760cc37190652b69bf9663c66f92e3cbae891fde2ed5e4979a64411ba90",
+        "label": "香克斯 · 原创语音候选（待听觉核验）",
+        "original": "哈！",
+        "translation": "哈！",
+        "transcriptVerified": false,
+        "textSource": "generation-input-not-certified-audio-transcript",
+        "nativeAudioReviewed": false,
+        "humanListened": false
+      },
+      {
+        "file": "assets/audio/voice/shanks/preview-effort-kokoro-original1003.wav",
+        "sha256": "7e8ffc2038cf8b381233d31f62162e333eac5075a503c6710ae62a4612187035",
+        "label": "香克斯 · 原创语音候选（待听觉核验）",
+        "original": "喝！",
+        "translation": "喝！",
+        "transcriptVerified": false,
+        "textSource": "generation-input-not-certified-audio-transcript",
+        "nativeAudioReviewed": false,
+        "humanListened": false
+      },
+      {
+        "file": "assets/audio/voice/shanks/preview-hurt-kokoro-original1003.wav",
+        "sha256": "eff6cfd35f62cf4a351a00d6b0a98cb0b2d8dc37bcc2f37d77346e13c7f73970",
+        "label": "香克斯 · 原创语音候选（待听觉核验）",
+        "original": "呃！",
+        "translation": "呃！",
+        "transcriptVerified": false,
+        "textSource": "generation-input-not-certified-audio-transcript",
+        "nativeAudioReviewed": false,
+        "humanListened": false
+      },
+      {
+        "file": "assets/audio/voice/shanks/preview-idle-kokoro-original1003.wav",
+        "sha256": "c12965b11a0b0c3602050db20db65f7d5ecfdad7757db85c5a31e65009cabcf2",
+        "label": "香克斯 · 原创语音候选（待听觉核验）",
+        "original": "尽管放马过来。",
+        "translation": "尽管放马过来。",
+        "transcriptVerified": false,
+        "textSource": "generation-input-not-certified-audio-transcript",
+        "nativeAudioReviewed": false,
+        "humanListened": false
+      },
+      {
+        "file": "assets/audio/voice/shanks/preview-ko-kokoro-original1003.wav",
+        "sha256": "55e3bc0adbf0ae547bf87220ea91a0b34de5c65493b4f1959c41c15e1b2678af",
+        "label": "香克斯 · 原创语音候选（待听觉核验）",
+        "original": "这次，是你赢了。",
+        "translation": "这次，是你赢了。",
+        "transcriptVerified": false,
+        "textSource": "generation-input-not-certified-audio-transcript",
+        "nativeAudioReviewed": false,
+        "humanListened": false
+      },
+      {
+        "file": "assets/audio/voice/shanks/preview-move-kokoro-original1003.wav",
+        "sha256": "95c7ba1420f9f827ecf69111e96dbf5256cc6840110f9b4b28127863fb5f3e84",
+        "label": "香克斯 · 原创语音候选（待听觉核验）",
+        "original": "走！",
+        "translation": "走！",
+        "transcriptVerified": false,
+        "textSource": "generation-input-not-certified-audio-transcript",
+        "nativeAudioReviewed": false,
+        "humanListened": false
+      },
+      {
+        "file": "assets/audio/voice/shanks/preview-select-kokoro-original1003.wav",
+        "sha256": "f733045732aedbe6543ac4645f59d083f7ad7c52646ae9d6f74cebd55a0533f9",
+        "label": "香克斯 · 原创语音候选（待听觉核验）",
+        "original": "来，过两招。",
+        "translation": "来，过两招。",
+        "transcriptVerified": false,
+        "textSource": "generation-input-not-certified-audio-transcript",
+        "nativeAudioReviewed": false,
+        "humanListened": false
+      },
+      {
+        "file": "assets/audio/voice/shanks/preview-win-kokoro-original1003.wav",
+        "sha256": "93c76307ffe0a2639105c68cfc3b3ab62691909208f05032cbb5cc0e61f5d976",
+        "label": "香克斯 · 原创语音候选（待听觉核验）",
+        "original": "下一次再见。",
+        "translation": "下一次再见。",
+        "transcriptVerified": false,
+        "textSource": "generation-input-not-certified-audio-transcript",
+        "nativeAudioReviewed": false,
+        "humanListened": false
+      }
+    ],
+    "fileChecks": {
+      "assets/audio/voice/aokiji/preview-attack-kokoro-original1003.wav": {
+        "sha256": "135d8a7d5af6de7222ab42c428821d447c1e15e9087f46402c9c4105bba8be08",
+        "bytes": 26684
+      },
+      "assets/audio/voice/aokiji/preview-effort-kokoro-original1003.wav": {
+        "sha256": "114ff1dc7f87901f2460d50f3d1efd6a6431adec09099e41490e7d2d52cabc31",
+        "bytes": 27164
+      },
+      "assets/audio/voice/aokiji/preview-hurt-kokoro-original1003.wav": {
+        "sha256": "89e57117583da106bc2e8686bbc08afb052ecb4a1222c6d97b91112e5ffbf4bf",
+        "bytes": 22844
+      },
+      "assets/audio/voice/aokiji/preview-idle-kokoro-original1003.wav": {
+        "sha256": "5b8d34cf636c7a06fa8f00f56dc4f57e6673e75a8dd3733821e7af0a26f82423",
+        "bytes": 49724
+      },
+      "assets/audio/voice/aokiji/preview-ko-kokoro-original1003.wav": {
+        "sha256": "16a3c726c83828365f1758976b59d560c59fbd273604f746bbcb1b2ec0a0f14f",
+        "bytes": 50204
+      },
+      "assets/audio/voice/aokiji/preview-move-kokoro-original1003.wav": {
+        "sha256": "d4a17ea00f55e8c9a7a68150d68b46aef723db824473a0c14742f54a607c30f8",
+        "bytes": 28604
+      },
+      "assets/audio/voice/aokiji/preview-select-kokoro-original1003.wav": {
+        "sha256": "2b499ece5db8c28a385f51912cedf9263cd5fd2ce445179b07ac12c579765cca",
+        "bytes": 51164
+      },
+      "assets/audio/voice/aokiji/preview-win-kokoro-original1003.wav": {
+        "sha256": "d8e543333434d2a9f51b24cd5e7bc71a61ab5c649429a20fae2047a1e94696fa",
+        "bytes": 44444
+      },
+      "assets/audio/voice/shanks/preview-attack-kokoro-original1003.wav": {
+        "sha256": "06a5a760cc37190652b69bf9663c66f92e3cbae891fde2ed5e4979a64411ba90",
+        "bytes": 24764
+      },
+      "assets/audio/voice/shanks/preview-effort-kokoro-original1003.wav": {
+        "sha256": "7e8ffc2038cf8b381233d31f62162e333eac5075a503c6710ae62a4612187035",
+        "bytes": 24764
+      },
+      "assets/audio/voice/shanks/preview-hurt-kokoro-original1003.wav": {
+        "sha256": "eff6cfd35f62cf4a351a00d6b0a98cb0b2d8dc37bcc2f37d77346e13c7f73970",
+        "bytes": 19964
+      },
+      "assets/audio/voice/shanks/preview-idle-kokoro-original1003.wav": {
+        "sha256": "c12965b11a0b0c3602050db20db65f7d5ecfdad7757db85c5a31e65009cabcf2",
+        "bytes": 69404
+      },
+      "assets/audio/voice/shanks/preview-ko-kokoro-original1003.wav": {
+        "sha256": "55e3bc0adbf0ae547bf87220ea91a0b34de5c65493b4f1959c41c15e1b2678af",
+        "bytes": 62684
+      },
+      "assets/audio/voice/shanks/preview-move-kokoro-original1003.wav": {
+        "sha256": "95c7ba1420f9f827ecf69111e96dbf5256cc6840110f9b4b28127863fb5f3e84",
+        "bytes": 22364
+      },
+      "assets/audio/voice/shanks/preview-select-kokoro-original1003.wav": {
+        "sha256": "f733045732aedbe6543ac4645f59d083f7ad7c52646ae9d6f74cebd55a0533f9",
+        "bytes": 53084
+      },
+      "assets/audio/voice/shanks/preview-win-kokoro-original1003.wav": {
+        "sha256": "93c76307ffe0a2639105c68cfc3b3ab62691909208f05032cbb5cc0e61f5d976",
+        "bytes": 65084
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_lance-start.wav": {
+        "sha256": "6f1d7237d830ad10d92b395fd70b0627b994e835358f0c60fa01bd0c235cc128",
+        "bytes": 21212
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_lance-release.wav": {
+        "sha256": "309a8d0f06b740647f49ba9be1aba6c4337cbb19b264dc012fd66df1f7cf18d5",
+        "bytes": 29150
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_lance-end.wav": {
+        "sha256": "572b21e8b4633ac1488711f6cc27e35b563259c5e599f93194580f601a8711bd",
+        "bytes": 17684
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_blade-start.wav": {
+        "sha256": "185cf3462a785d2573fdf223264aa6c0564f699c4058f3dce2b5499d30038373",
+        "bytes": 17684
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_blade-release.wav": {
+        "sha256": "8161803fd325ae2bbc0f0063efe16e2dccaa48821ad98b96b189e74f4e63c7a6",
+        "bytes": 26504
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_blade-end.wav": {
+        "sha256": "c5cd4090b74ffbce2496cf45348c10ba6b0dd1d1d6220ff3a0efa3aba8033da0",
+        "bytes": 9842
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_uplift-start.wav": {
+        "sha256": "013125b02d19aea7368e14b1302e76656834b12152aa5bc64de439445f0edc1c",
+        "bytes": 19448
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_uplift-release.wav": {
+        "sha256": "7d66d53caaae6380ea2099f2581db65147805b8d992971f315c983efae046832",
+        "bytes": 26504
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_uplift-end.wav": {
+        "sha256": "5188b825a32acc409262a18701b3995d0693e85216ca89a540fc484cc6565121",
+        "bytes": 20330
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_spike-start.wav": {
+        "sha256": "c4cebb9f0197c65b209f0280dc60c9f934eacf22a87c99e9460265d548bd18d7",
+        "bytes": 29150
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_spike-release.wav": {
+        "sha256": "df24ca581a462b40107165fc831c3929fa0a4de99b8e1b8f50978ef0eae4d6e3",
+        "bytes": 52964
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_spike-end.wav": {
+        "sha256": "a2b275ad345c4e4227cd639ab740120c4c370fbdc368227cced7bbeaaf3163f8",
+        "bytes": 26504
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_mirror-start.wav": {
+        "sha256": "5bbe859a2b4ac98dd9c05550fa5a364ec11ea3771bc26317fa7d166a7127fe06",
+        "bytes": 7884
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_mirror-release.wav": {
+        "sha256": "d961a799c0ae2b00d2f128451c034de002ba13c12ed5faec942451c949402d30",
+        "bytes": 15920
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_mirror-end.wav": {
+        "sha256": "b915b1c3fe84bee25518e523913a6f7918592240188e5a56ffa7ef4c3ff9dd98",
+        "bytes": 17684
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_body-start.wav": {
+        "sha256": "adf032899e2a39e19be9c450b54e528470ef511774ee5c3037b375f2cbfa1ea3",
+        "bytes": 15920
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_body-release.wav": {
+        "sha256": "448e8e681861115c7fe927a8866c4ac4e814331c6da727bd3b0f65de4040a329",
+        "bytes": 19448
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_body-end.wav": {
+        "sha256": "c531b4337c5011960f8dfc30c2f475ffaa6a37e30abd4d42704e64186524ae4d",
+        "bytes": 19448
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_pheasant-start.wav": {
+        "sha256": "1c77528474952553a77cd957be0a9a9cfc52b8a5fb02e2899a5ffdf2205e924d",
+        "bytes": 30914
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_pheasant-release.wav": {
+        "sha256": "c84d330f55cc066f51bc9cae142690bfd0eb6b99133525443eda4b596ecc779a",
+        "bytes": 45908
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_pheasant-end.wav": {
+        "sha256": "4581e8183c2551aeb57df5835752fe079e6e5fe55f9f14140467e3db691ab0b3",
+        "bytes": 29150
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/glacier_line-start.wav": {
+        "sha256": "25996f8a88f97b1527c14d87ae7dbe9dbf6244d830599c2b1e770bc3c1ee9b74",
+        "bytes": 35324
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/glacier_line-end.wav": {
+        "sha256": "5e16e03d6730e119fd1a3c76204484748a8297770850974f8090f8cd422c2bd2",
+        "bytes": 36362
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_age-start.wav": {
+        "sha256": "a9bb5a989c562596722840012df85df5a01383cb9d1d42f66870ab48183c4455",
+        "bytes": 52964
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_age-release.wav": {
+        "sha256": "2f1af5b354a37ff896ccdb676731cb11296fc6d1fc36189e8b48c16905a186e9",
+        "bytes": 66194
+      },
+      "assets/audio/sfx/roster-preview1003/aokiji/ice_age-end.wav": {
+        "sha256": "dc945c7e0b5d59fe567ca387993e4a1ad877ba0231af7be6c1a48d8f75ba2e7f",
+        "bytes": 52964
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/haki_slash-start.wav": {
+        "sha256": "f98c8ed6e9f244818df8fa71abbe80f2297d74e8beee852506efdb89b962ad74",
+        "bytes": 32538
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/haki_slash-release.wav": {
+        "sha256": "2cd9cc609015cab47da698a7cb8665ff8e4958d294fbf3722cee891901b65cc4",
+        "bytes": 36362
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/haki_slash-end.wav": {
+        "sha256": "65d4b61f062f9c735e3ca9b589f5d63c962ce03b7005985da660c55a0219d615",
+        "bytes": 17684
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/single_arm_cut-start.wav": {
+        "sha256": "ffa3a5a498f264b1b74fb68970a96ec3fa946211b0dd00e618137cfb3a9668e8",
+        "bytes": 14744
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/single_arm_cut-release.wav": {
+        "sha256": "581bf704e331f93ef517bfe4b09e0e1006b4442d02721f0d7338460a8cb8499b",
+        "bytes": 32248
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/single_arm_cut-end.wav": {
+        "sha256": "9208909864032fccb554b58129007f718b516155bb4948af6710614a591ba23a",
+        "bytes": 13614
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/rising_guard-start.wav": {
+        "sha256": "ddc8e457da77922c3fb874cf3346ed8a53ede758d826d96ffee4c4e10d602b93",
+        "bytes": 32400
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/rising_guard-release.wav": {
+        "sha256": "c87e27da0a3832f89edf8661f93b3dbcad3f73a9843912dd6eb8ecfa8f4c74dc",
+        "bytes": 25366
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/rising_guard-end.wav": {
+        "sha256": "186f4ead56df096b11728cee642070c0bdd4170d2d1cc9a1ccf39217ad9be11f",
+        "bytes": 11474
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/step_thrust-start.wav": {
+        "sha256": "711db555b4fed989d01ee37ecebe8fe6bf194fd9002164cd53a240d256952a7d",
+        "bytes": 17876
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/step_thrust-release.wav": {
+        "sha256": "548e7cf89dd31e966f7f4c3543c98298d489400c1317a51e5f74915551cfd791",
+        "bytes": 12342
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/step_thrust-end.wav": {
+        "sha256": "e4bfc81d47bb53b619f07d0ceb6c393bf816dbba977dd3cb41e1b172fb855549",
+        "bytes": 7292
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/low_cut-start.wav": {
+        "sha256": "8a5549e471d100bf0d51fc4d8458b652b5975d0aed4c33d8a7fd31f35fe09fb0",
+        "bytes": 21212
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/low_cut-release.wav": {
+        "sha256": "a925876da565f1f2b82d40c8cacb7a313f799418dc26b99596e7c4de083f1236",
+        "bytes": 26888
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/low_cut-end.wav": {
+        "sha256": "e2cc88f909578a88ce9b93447a706f1e430ea22500d87c6338d82c3be05efdd3",
+        "bytes": 13760
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/sidestep-start.wav": {
+        "sha256": "ab17ef6b53a8ff1525e0c34919197fae1c95553ce2c97435544dab17f6ad473f",
+        "bytes": 13274
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/sidestep-release.wav": {
+        "sha256": "5f71783c612ef5f763b391c615413e49bffb9ad75763bd5e2777dfbb6e2c152d",
+        "bytes": 10852
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/sidestep-end.wav": {
+        "sha256": "e870679a172a8df807e90b986d7f3cb0cbd560970437d3893664d69e71469900",
+        "bytes": 12072
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/divine_departure-start.wav": {
+        "sha256": "83ffaa446d3c31e0ef58afaf4864c5401fc58a30b0fbee9c74af7318ae324648",
+        "bytes": 44144
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/divine_departure-release.wav": {
+        "sha256": "e8e62fa6a99cdf26a26139a734690921fbe64b1228e2c7010d912ea97324bb9d",
+        "bytes": 41204
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/divine_departure-end.wav": {
+        "sha256": "ab6a6d063d03465e620b462060452234ad69afe23bba5d0baba0df453167ef94",
+        "bytes": 29098
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/emperor_cuts-start.wav": {
+        "sha256": "7fa6d7714faab5c00c3a6b288aae45d777893696dceb4a2cd32366937a83f3f6",
+        "bytes": 22580
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/emperor_cuts-release.wav": {
+        "sha256": "4f20d4d29f0a035c4915dcbfadd6806703b354e8b201f1bb5243619b21bd6001",
+        "bytes": 39304
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/emperor_cuts-end.wav": {
+        "sha256": "f84b63b749df21099ce6dbdf274270f0cac4800db1e3a6757d3581181752daf1",
+        "bytes": 20330
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/red_hair_finale-start.wav": {
+        "sha256": "ecbea50a225d91339efb3375566eb8e5787e8e4f3352e1d24b703e96fe82fd56",
+        "bytes": 52964
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/red_hair_finale-release.wav": {
+        "sha256": "fd14958a9557600bf5594e5adf1bdf6b370958883dd23955e59d0950db3b912d",
+        "bytes": 47028
+      },
+      "assets/audio/sfx/roster-preview1003/shanks/red_hair_finale-end.wav": {
+        "sha256": "ebb05f1acf0b702c2251bb9ed3d0eb837123f6be9c85fc201128cb4c6e5c4cbf",
+        "bytes": 37088
+      },
+      "assets/audio/sfx/akainu-step-0-0914.wav": {
+        "sha256": "3b8839b54199c12f36b681c10bd619a3ade3d39e4ba4e9fb263cc13570f8da1e",
+        "bytes": 11954
+      },
+      "assets/audio/sfx/akainu-step-1-0914.wav": {
+        "sha256": "6c3199c14645feeb4d5513032d896b187b2d3c5e8a69858bacb8cf047309d95e",
+        "bytes": 11698
+      },
+      "assets/audio/sfx/akainu-step-2-0914.wav": {
+        "sha256": "0391ea5cd0d5ca529850d67b631534ffd7d11112bef321862891950c857ab96f",
+        "bytes": 11698
+      },
+      "assets/audio/sfx/luffy-step-0-0914.wav": {
+        "sha256": "fe9b9a6eeec5cd1831a32c66f903b18bb294b414b759aa06c2f8b53ecf527a3a",
+        "bytes": 11698
+      },
+      "assets/audio/sfx/luffy-step-1-0914.wav": {
+        "sha256": "46269d5118ddf38d4c67553ff4334c45b56478e67ca43b113326051abadbdb20",
+        "bytes": 11698
+      },
+      "assets/audio/sfx/luffy-step-2-0914.wav": {
+        "sha256": "5d8a1e6d24374c04eb49a5696774544fd3c701d066a4e64b5f7c62c1d985132a",
+        "bytes": 11698
+      },
+      "assets/audio/sfx/whoosh-1-0912.wav": {
+        "sha256": "cefa052ee5fd1e0802cb1851b8a6fa4a5a67d1f9fa5260118bbab5d24a2a24d0",
+        "bytes": 16556
+      },
+      "assets/audio/voice/shanks/select-1003.wav": {
+        "sha256": "87801104e09e3f598e17df5c8f70e2dd379c7328782f700061cc5f0e217d220c",
+        "bytes": 271700
+      }
+    },
+    "moves": {
+      "aokiji": {
+        "sp_ice_lance": {
+          "family": "ice_lance",
+          "genericEffortCue": "voice.aokiji.effort",
+          "dedicatedMoveVoice": false,
+          "stages": {
+            "start": "sfx.aokiji.ice_lance.start",
+            "release": "sfx.aokiji.ice_lance.release",
+            "end": "sfx.aokiji.ice_lance.end"
+          },
+          "projectile": true
+        },
+        "sp_ice_blade": {
+          "family": "ice_blade",
+          "genericEffortCue": "voice.aokiji.effort",
+          "dedicatedMoveVoice": false,
+          "stages": {
+            "start": "sfx.aokiji.ice_blade.start",
+            "release": "sfx.aokiji.ice_blade.release",
+            "end": "sfx.aokiji.ice_blade.end"
+          },
+          "projectile": false
+        },
+        "sp_ice_uplift": {
+          "family": "ice_uplift",
+          "genericEffortCue": "voice.aokiji.effort",
+          "dedicatedMoveVoice": false,
+          "stages": {
+            "start": "sfx.aokiji.ice_uplift.start",
+            "release": "sfx.aokiji.ice_uplift.release",
+            "end": "sfx.aokiji.ice_uplift.end"
+          },
+          "projectile": false
+        },
+        "sp_ice_spike": {
+          "family": "ice_spike",
+          "genericEffortCue": "voice.aokiji.effort",
+          "dedicatedMoveVoice": false,
+          "stages": {
+            "start": "sfx.aokiji.ice_spike.start",
+            "release": "sfx.aokiji.ice_spike.release",
+            "end": "sfx.aokiji.ice_spike.end"
+          },
+          "projectile": true
+        },
+        "sp_ice_mirror": {
+          "family": "ice_mirror",
+          "genericEffortCue": "voice.aokiji.effort",
+          "dedicatedMoveVoice": false,
+          "stages": {
+            "start": "sfx.aokiji.ice_mirror.start",
+            "release": "sfx.aokiji.ice_mirror.release",
+            "end": "sfx.aokiji.ice_mirror.end"
+          },
+          "projectile": false
+        },
+        "sp_ice_body": {
+          "family": "ice_body",
+          "genericEffortCue": "voice.aokiji.effort",
+          "dedicatedMoveVoice": false,
+          "stages": {
+            "start": "sfx.aokiji.ice_body.start",
+            "release": "sfx.aokiji.ice_body.release",
+            "end": "sfx.aokiji.ice_body.end"
+          },
+          "projectile": false
+        },
+        "sp_ice_pheasant": {
+          "family": "ice_pheasant",
+          "genericEffortCue": "voice.aokiji.effort",
+          "dedicatedMoveVoice": false,
+          "stages": {
+            "start": "sfx.aokiji.ice_pheasant.start",
+            "release": "sfx.aokiji.ice_pheasant.release",
+            "end": "sfx.aokiji.ice_pheasant.end"
+          },
+          "projectile": true
+        },
+        "sp_glacier_line": {
+          "family": "glacier_line",
+          "genericEffortCue": "voice.aokiji.effort",
+          "dedicatedMoveVoice": false,
+          "stages": {
+            "start": "sfx.aokiji.glacier_line.start",
+            "release": "sfx.aokiji.glacier_line.release",
+            "end": "sfx.aokiji.glacier_line.end"
+          },
+          "projectile": true
+        },
+        "ult_ice_age": {
+          "family": "ice_age",
+          "genericEffortCue": "voice.aokiji.effort",
+          "dedicatedMoveVoice": false,
+          "stages": {
+            "start": "sfx.aokiji.ice_age.start",
+            "release": "sfx.aokiji.ice_age.release",
+            "end": "sfx.aokiji.ice_age.end"
+          },
+          "projectile": false
+        }
+      },
+      "shanks": {
+        "sp_haki_slash": {
+          "family": "haki_slash",
+          "genericEffortCue": "voice.shanks.effort",
+          "dedicatedMoveVoice": false,
+          "stages": {
+            "start": "sfx.shanks.haki_slash.start",
+            "release": "sfx.shanks.haki_slash.release",
+            "end": "sfx.shanks.haki_slash.end"
+          },
+          "projectile": true
+        },
+        "sp_single_arm_cut": {
+          "family": "single_arm_cut",
+          "genericEffortCue": "voice.shanks.effort",
+          "dedicatedMoveVoice": false,
+          "stages": {
+            "start": "sfx.shanks.single_arm_cut.start",
+            "release": "sfx.shanks.single_arm_cut.release",
+            "end": "sfx.shanks.single_arm_cut.end"
+          },
+          "projectile": false
+        },
+        "sp_rising_guard": {
+          "family": "rising_guard",
+          "genericEffortCue": "voice.shanks.effort",
+          "dedicatedMoveVoice": false,
+          "stages": {
+            "start": "sfx.shanks.rising_guard.start",
+            "release": "sfx.shanks.rising_guard.release",
+            "end": "sfx.shanks.rising_guard.end"
+          },
+          "projectile": false
+        },
+        "sp_step_thrust": {
+          "family": "step_thrust",
+          "genericEffortCue": "voice.shanks.effort",
+          "dedicatedMoveVoice": false,
+          "stages": {
+            "start": "sfx.shanks.step_thrust.start",
+            "release": "sfx.shanks.step_thrust.release",
+            "end": "sfx.shanks.step_thrust.end"
+          },
+          "projectile": false
+        },
+        "sp_low_cut": {
+          "family": "low_cut",
+          "genericEffortCue": "voice.shanks.effort",
+          "dedicatedMoveVoice": false,
+          "stages": {
+            "start": "sfx.shanks.low_cut.start",
+            "release": "sfx.shanks.low_cut.release",
+            "end": "sfx.shanks.low_cut.end"
+          },
+          "projectile": false
+        },
+        "sp_sidestep": {
+          "family": "sidestep",
+          "genericEffortCue": "voice.shanks.effort",
+          "dedicatedMoveVoice": false,
+          "stages": {
+            "start": "sfx.shanks.sidestep.start",
+            "release": "sfx.shanks.sidestep.release",
+            "end": "sfx.shanks.sidestep.end"
+          },
+          "projectile": false
+        },
+        "sp_divine_departure": {
+          "family": "divine_departure",
+          "genericEffortCue": "voice.shanks.effort",
+          "dedicatedMoveVoice": false,
+          "stages": {
+            "start": "sfx.shanks.divine_departure.start",
+            "release": "sfx.shanks.divine_departure.release",
+            "end": "sfx.shanks.divine_departure.end"
+          },
+          "projectile": false
+        },
+        "sp_emperor_cuts": {
+          "family": "emperor_cuts",
+          "genericEffortCue": "voice.shanks.effort",
+          "dedicatedMoveVoice": false,
+          "stages": {
+            "start": "sfx.shanks.emperor_cuts.start",
+            "release": "sfx.shanks.emperor_cuts.release",
+            "end": "sfx.shanks.emperor_cuts.end"
+          },
+          "projectile": false
+        },
+        "ult_red_hair_finale": {
+          "family": "red_hair_finale",
+          "genericEffortCue": "voice.shanks.effort",
+          "dedicatedMoveVoice": false,
+          "stages": {
+            "start": "sfx.shanks.red_hair_finale.start",
+            "release": "sfx.shanks.red_hair_finale.release",
+            "end": "sfx.shanks.red_hair_finale.end"
+          },
+          "projectile": false
+        }
+      }
+    },
+    "sourceManifests": [
+      {
+        "file": "scripts/roster_voice_adoption1003.voices.json",
+        "sha256": "246ecfae36e9feec81e53615b1ea8a633aa5d8e5db01d04d4467333e04fd5c06"
+      },
+      {
+        "file": "scripts/roster_voice_adoption1003.foley.json",
+        "sha256": "d34d8bc59c5dcf9ac81d167d591b2b34d339a8a70397513930628ecc44bf8702"
+      },
+      {
+        "file": "scripts/roster_voice_adoption1003.integration.json",
+        "sha256": "0a8d6a42a82555599e95ed06484e33d7a10ac547033a8602a14278b9592dc3c6"
+      }
+    ],
+    "voiceCopyProvenance": {
+      "assets/audio/voice/aokiji/preview-attack-kokoro-original1003.wav": {
+        "sourceSha256": "02757139b4d1b668597b0de38208eada7212987ab1895fa8355ad751cdd4af0a",
+        "candidateSha256": "135d8a7d5af6de7222ab42c428821d447c1e15e9087f46402c9c4105bba8be08",
+        "sourceFirstFrame": 9240,
+        "sourceLastFrameExclusive": 22560,
+        "sourceRateHz": 24000,
+        "voicePreset": "zm_yunxi"
+      },
+      "assets/audio/voice/aokiji/preview-effort-kokoro-original1003.wav": {
+        "sourceSha256": "717204b851d94985176c0466a3b5c28e93dd4a0eef73d8db48083e6b545be266",
+        "candidateSha256": "114ff1dc7f87901f2460d50f3d1efd6a6431adec09099e41490e7d2d52cabc31",
+        "sourceFirstFrame": 9480,
+        "sourceLastFrameExclusive": 23040,
+        "sourceRateHz": 24000,
+        "voicePreset": "zm_yunxi"
+      },
+      "assets/audio/voice/aokiji/preview-hurt-kokoro-original1003.wav": {
+        "sourceSha256": "13f22e4a06fbf7648f7a47d85324e1ab7f42c30964707499509ad20e07fd131e",
+        "candidateSha256": "89e57117583da106bc2e8686bbc08afb052ecb4a1222c6d97b91112e5ffbf4bf",
+        "sourceFirstFrame": 9720,
+        "sourceLastFrameExclusive": 21120,
+        "sourceRateHz": 24000,
+        "voicePreset": "zm_yunxi"
+      },
+      "assets/audio/voice/aokiji/preview-idle-kokoro-original1003.wav": {
+        "sourceSha256": "19c4788a0c0eb3ff550489d7c6703a7198a913162295b11c5d37e15136ccf867",
+        "candidateSha256": "5b8d34cf636c7a06fa8f00f56dc4f57e6673e75a8dd3733821e7af0a26f82423",
+        "sourceFirstFrame": 10200,
+        "sourceLastFrameExclusive": 35040,
+        "sourceRateHz": 24000,
+        "voicePreset": "zm_yunxi"
+      },
+      "assets/audio/voice/aokiji/preview-ko-kokoro-original1003.wav": {
+        "sourceSha256": "eaffd77d5a8263b3a64c063d5f5dd1a2ddaebaa4b5d7eef73b0e5c96088ed264",
+        "candidateSha256": "16a3c726c83828365f1758976b59d560c59fbd273604f746bbcb1b2ec0a0f14f",
+        "sourceFirstFrame": 10680,
+        "sourceLastFrameExclusive": 35760,
+        "sourceRateHz": 24000,
+        "voicePreset": "zm_yunxi"
+      },
+      "assets/audio/voice/aokiji/preview-move-kokoro-original1003.wav": {
+        "sourceSha256": "f29a3b712f437a8bebed15c4de8ba40aa8e9edec1d7552ac08186cca50c404a3",
+        "candidateSha256": "d4a17ea00f55e8c9a7a68150d68b46aef723db824473a0c14742f54a607c30f8",
+        "sourceFirstFrame": 9000,
+        "sourceLastFrameExclusive": 23280,
+        "sourceRateHz": 24000,
+        "voicePreset": "zm_yunxi"
+      },
+      "assets/audio/voice/aokiji/preview-select-kokoro-original1003.wav": {
+        "sourceSha256": "4d67897c9ec0c773a510bbec5258e53a3242acf9a47fa51b5184b519f8f30f77",
+        "candidateSha256": "2b499ece5db8c28a385f51912cedf9263cd5fd2ce445179b07ac12c579765cca",
+        "sourceFirstFrame": 9720,
+        "sourceLastFrameExclusive": 35280,
+        "sourceRateHz": 24000,
+        "voicePreset": "zm_yunxi"
+      },
+      "assets/audio/voice/aokiji/preview-win-kokoro-original1003.wav": {
+        "sourceSha256": "53522793046c22424f594ac5d7c27fb307b17f94fb2b7b90294757d72742f189",
+        "candidateSha256": "d8e543333434d2a9f51b24cd5e7bc71a61ab5c649429a20fae2047a1e94696fa",
+        "sourceFirstFrame": 10200,
+        "sourceLastFrameExclusive": 32400,
+        "sourceRateHz": 24000,
+        "voicePreset": "zm_yunxi"
+      },
+      "assets/audio/voice/shanks/preview-attack-kokoro-original1003.wav": {
+        "sourceSha256": "eea52b7590388041d9b779e183871f0a9754cff460df0d938e4a94bad2aeabf1",
+        "candidateSha256": "06a5a760cc37190652b69bf9663c66f92e3cbae891fde2ed5e4979a64411ba90",
+        "sourceFirstFrame": 8040,
+        "sourceLastFrameExclusive": 20400,
+        "sourceRateHz": 24000,
+        "voicePreset": "zm_yunjian"
+      },
+      "assets/audio/voice/shanks/preview-effort-kokoro-original1003.wav": {
+        "sourceSha256": "e97a786c20d2c79763d7a6744b58aa38a97581189273d65ac13b306fe58d5c31",
+        "candidateSha256": "7e8ffc2038cf8b381233d31f62162e333eac5075a503c6710ae62a4612187035",
+        "sourceFirstFrame": 7320,
+        "sourceLastFrameExclusive": 19680,
+        "sourceRateHz": 24000,
+        "voicePreset": "zm_yunjian"
+      },
+      "assets/audio/voice/shanks/preview-hurt-kokoro-original1003.wav": {
+        "sourceSha256": "20b0d834977cd2986dbe47c351d3491b7e70b0756255e081a3f574d7592b3692",
+        "candidateSha256": "eff6cfd35f62cf4a351a00d6b0a98cb0b2d8dc37bcc2f37d77346e13c7f73970",
+        "sourceFirstFrame": 8040,
+        "sourceLastFrameExclusive": 18000,
+        "sourceRateHz": 24000,
+        "voicePreset": "zm_yunjian"
+      },
+      "assets/audio/voice/shanks/preview-idle-kokoro-original1003.wav": {
+        "sourceSha256": "1c6a61d4162f53867d1c04cd6429add462f8109c7b5af9cce2a62f75fb4ba53c",
+        "candidateSha256": "c12965b11a0b0c3602050db20db65f7d5ecfdad7757db85c5a31e65009cabcf2",
+        "sourceFirstFrame": 7800,
+        "sourceLastFrameExclusive": 42480,
+        "sourceRateHz": 24000,
+        "voicePreset": "zm_yunjian"
+      },
+      "assets/audio/voice/shanks/preview-ko-kokoro-original1003.wav": {
+        "sourceSha256": "d036e00c42f34a2efe5138f22c7b205973ffd9c505f5fc2e4a37a76f274ae81e",
+        "candidateSha256": "55e3bc0adbf0ae547bf87220ea91a0b34de5c65493b4f1959c41c15e1b2678af",
+        "sourceFirstFrame": 8280,
+        "sourceLastFrameExclusive": 39600,
+        "sourceRateHz": 24000,
+        "voicePreset": "zm_yunjian"
+      },
+      "assets/audio/voice/shanks/preview-move-kokoro-original1003.wav": {
+        "sourceSha256": "aaae13945b387570bf3ac8b61ee00c4eee5569f835caabbab488d85c47371f3c",
+        "candidateSha256": "95c7ba1420f9f827ecf69111e96dbf5256cc6840110f9b4b28127863fb5f3e84",
+        "sourceFirstFrame": 7320,
+        "sourceLastFrameExclusive": 18480,
+        "sourceRateHz": 24000,
+        "voicePreset": "zm_yunjian"
+      },
+      "assets/audio/voice/shanks/preview-select-kokoro-original1003.wav": {
+        "sourceSha256": "218d63933584598e2d61c80478fa8f00c0ba83298783760ede945e2567a761dc",
+        "candidateSha256": "f733045732aedbe6543ac4645f59d083f7ad7c52646ae9d6f74cebd55a0533f9",
+        "sourceFirstFrame": 8040,
+        "sourceLastFrameExclusive": 34560,
+        "sourceRateHz": 24000,
+        "voicePreset": "zm_yunjian"
+      },
+      "assets/audio/voice/shanks/preview-win-kokoro-original1003.wav": {
+        "sourceSha256": "1742a7730bab34e7b198fef03adaf665454e3ab12fbb40c7962529106696a849",
+        "candidateSha256": "93c76307ffe0a2639105c68cfc3b3ab62691909208f05032cbb5cc0e61f5d976",
+        "sourceFirstFrame": 8040,
+        "sourceLastFrameExclusive": 40560,
+        "sourceRateHz": 24000,
+        "voicePreset": "zm_yunjian"
+      }
+    },
+    "stageReuse": {
+      "sfx.aokiji.glacier_line.release": {
+        "runtimeFile": "assets/audio/sfx/aokiji-ice_spike-release-cc0-1003.wav",
+        "explicitReuse": true,
+        "why": "Three logical spawns at16/23/30 each need one fracture release; initial triple-layer glacier candidate retained but do not triple it at all three spawns"
+      }
+    },
+    "sharedOrdinarySounds": {
+      "sfx.aokiji.footstep": {
+        "files": [
+          "assets/audio/sfx/akainu-step-0-0914.wav",
+          "assets/audio/sfx/akainu-step-1-0914.wav",
+          "assets/audio/sfx/akainu-step-2-0914.wav"
+        ],
+        "group": "sfx",
+        "gain": 0.68,
+        "priority": 12,
+        "cooldownMs": 110,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "characterId": "aokiji",
+        "note": "Existing public CC0 footstep/movement material reused transparently; new character timing/mix still pending. No old character voice reused."
+      },
+      "sfx.aokiji.movement": {
+        "files": [
+          "assets/audio/sfx/whoosh-1-0912.wav"
+        ],
+        "group": "sfx",
+        "gain": 0.25,
+        "priority": 12,
+        "cooldownMs": 180,
+        "maxInstances": 1,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Existing public CC0 footstep/movement material reused transparently; new character timing/mix still pending. No old character voice reused.",
+        "characterId": "aokiji"
+      },
+      "sfx.shanks.footstep": {
+        "files": [
+          "assets/audio/sfx/luffy-step-0-0914.wav",
+          "assets/audio/sfx/luffy-step-1-0914.wav",
+          "assets/audio/sfx/luffy-step-2-0914.wav"
+        ],
+        "group": "sfx",
+        "gain": 0.55,
+        "priority": 12,
+        "cooldownMs": 110,
+        "maxInstances": 2,
+        "source": "docs/assets/声音接续1003.md",
+        "characterId": "shanks",
+        "note": "Existing public CC0 footstep/movement material reused transparently; new character timing/mix still pending. No old character voice reused."
+      },
+      "sfx.shanks.movement": {
+        "files": [
+          "assets/audio/sfx/whoosh-1-0912.wav"
+        ],
+        "group": "sfx",
+        "gain": 0.25,
+        "priority": 12,
+        "cooldownMs": 180,
+        "maxInstances": 1,
+        "source": "docs/assets/声音接续1003.md",
+        "note": "Existing public CC0 footstep/movement material reused transparently; new character timing/mix still pending. No old character voice reused.",
+        "characterId": "shanks"
+      }
+    },
+    "rules": {
+      "start": "real move-instance start",
+      "release": "real active segment / utility start; detached projectile only its actual spawn",
+      "end": "melee real recovery; projectile ground/timeout/out_of_bounds, never administrative cleanup or duplicate hit sound",
+      "voice": "ordinary effort and generic special attack; no named original-actor call claim",
+      "select": "Shanks keeps the earlier reviewed original clip; synthetic select is a manual preview alternative"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "workflowDecision": "pc-roster-0929",
+  "sources": {
+    "shanks_external_hold_1004": {
+      "file": "public/assets/generated/source/roster-shanks-external-hold-1004.png",
+      "sha256": "084a89f92fc333da4b39e79337e644a6fab88b1a8d95daef8c0b166da21ecd1d",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方页面未公开具体图像型号，保留unverified，不推断后台型号。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ac0f91e-dfc4-83ec-9089-110fa53eaf16",
+      "observedCompletedAt": "2026-10-04T08:19:31.908385+08:00",
+      "uiObservation": "实际内置官方会话，最新radio/极高第4项已核实并留截图。1003单次提交新外侧关节参考与完整提示词；1004刷新已提交会话后恢复已生成图像3，未重发请求。原画与两个早期失败稿保留。 查看器真实文件标题红发独臂剑士三姿态图集。完成观察时间取实际截图mtime，不称服务器生成时间。原生下载只点一次；不依赖download事件回执，实际落盘原PNG签名/IEND/完整解码、alpha和复制SHA已核。此记录只归档来源，不表示造型或抓投采用。",
+      "prompt": {
+        "file": "docs/assets/shanks-external-low-hold-prompt1003.txt",
+        "sha256": "24c974670a7d861c3af66ae193e2cd41a926f2de483d6cf2cec0d9ba62f61466"
+      },
+      "referenceSources": {},
+      "unitScale": 1,
+      "recordedAt": "2026-10-04T00:20:40.342369+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-root-external-hold-third-web-result1004.jpg",
+        "sha256": "fd5e6552cef53bd22c6e1fb29c89a7e36dc97041593fe51a548a95b50d1097f9"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/shanks_external_hold_1004来源凭据0929.txt",
+        "sha256": "c2c237d1410204bad6c46696efc14a23dc00b9aba3b892d3daea758452863ae5"
+      }
+    }
+  }
+}

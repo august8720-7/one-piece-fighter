@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_stc1017",
+  "file": "public/assets/generated/source/luffy-gear5-stc1017.png",
+  "sha256": "455c09bd886b59b2e8d5b87f998cd47e4308868c55fa79ca681f2a4d8e3a684b",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官网图像入口未公开具体图像型号；实际GPT-6为文字模型标签，图像型号仍未核实。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+  "observedCompletedAt": "2026-10-17T04:12:58.647Z",
+  "uiObservation": "根代理提供实际观察并已view_image核对文件真实性：同会话实际GPT-6/极高后完成2×2原图，四格为neutral/start/长拳active/recover；连续皮肤胳膊完整，不用FX替代。观察时刻是根下载后对已完成结果的复核，不是服务器生成时间；截图为该同会话紧前实际模型设置，之后未改，不冒称完成时截图。根粗看active拳偏低、伸长距离可能不足旧st_c判定[14,-80,140,20]；须交render按真实source尺度/root测拳心及逻辑框，再决定需修稿或既有合法bounded rubber后处理。不改旧数值，不把长臂存在记成接触通过。原件保留，同字节复制，无改画。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-stc-prompt1017.txt",
+    "sha256": "25dbb1354e098cbf4a3ba692ab6e9c83d70f166952445e5040cc4aff4ab50ed5"
+  },
+  "referenceSources": {
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T04:17:26.388516+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/walk-near-model1017.png",
+    "sha256": "f2a72294b047d1d8690e36d4a419ac655e62ecc51a72c2fa49fb6a74d398c71f"
+  },
+  "referenceFiles": {
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    }
+  },
+  "originalPngSize": [
+    1536,
+    1024
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

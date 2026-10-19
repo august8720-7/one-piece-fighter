@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "shanks_jump_mobility_1003",
+  "file": "public/assets/generated/source/roster-shanks-jump-mobility-1003.png",
+  "sha256": "a0e9b2f42d7eced6bac6cc3156910d89799302518f9f9a17680744bb325302ae",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+  "observedCompletedAt": "2026-10-03T15:10:30.1716842+08:00",
+  "uiObservation": "1003恢复同一香克斯官方会话。提交前DOM模型菜单明确最新radio选中和极高第4项；完整跳跃落地提示经textbox.fill后单次发送，页面显示今天15:08。实际回复回答已完成，官方查看器标题香克斯六连跳跃动作精灵图，显示已生成图像6。记录时间来自该完整结果截图的实际保存时刻，是完成观察而非服务器时间。点击下载仅一次，download事件回执超时20秒，但Downloads取得正式PNG文件：完整签名/IEND、Pillow解码1536x1024RGBA、真实alpha0-254和SHA256均通过；原下载保留，复制前清单与复制后哈希一致。未声称download事件回执成功。既有images为工作流入口，本次直接续c会话。",
+  "prompt": {
+    "file": "docs/assets/shanks-jump-mobility-prompt1003.txt",
+    "sha256": "171297c44a3f8b6191dffcb9594ea9d891f896afe2cc9cea758aecb40c512190"
+  },
+  "referenceSources": {
+    "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+    "shanks_reactions_0929": "e05c579c6fb6c41fd40c40e46c47913de34d83cd1044a5653972d88cff41acaf"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T07:15:38.527505+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-jump-result-viewer.jpg",
+    "sha256": "d3f51b5bde61a840bea3fc45dfa5460a388f06189106bf654a5f36de3376d21e"
+  },
+  "referenceFiles": {
+    "shanks_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-shanks-locomotion-0929.png",
+      "sha256": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+    },
+    "shanks_reactions_0929": {
+      "file": "public/assets/generated/source/roster-shanks-reactions-0929.png",
+      "sha256": "e05c579c6fb6c41fd40c40e46c47913de34d83cd1044a5653972d88cff41acaf"
+    }
+  },
+  "originalPngSize": [
+    1536,
+    1024
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

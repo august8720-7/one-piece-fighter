@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_throw_forward_1003",
+  "sourceSha256": "6580a29628778ed0b7d95ae34a992b04222fb23841135099e57ab63ba5852428",
+  "status": "forward-hook-throw-body-before-pair-contact-review",
+  "neutralVisibleAlpha8Bounds": [12, 19, 454, 509],
+  "neutralVisibleHeight": 490,
+  "referenceNeutralHeight": 380,
+  "unitScale": 0.7755102040816326,
+  "scaleBasis": "One actual neutral height490px; every drawing uniformly380/490 against initial380px. No individual pose fitting. Roots use grounded support soles, never a throw alignment displacement.",
+  "frames": {
+    "throw_fwd_start_1003": {"source": "shanks_throw_forward_1003", "crop": [503, 88, 455, 426], "root": [306, 417], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "throw_fwd_connect_1003": {"source": "shanks_throw_forward_1003", "crop": [1057, 76, 462, 429], "root": [263, 419], "sockets": {"grip": [419, 392]}, "transparency": {"mode": "source-alpha"}},
+    "throw_fwd_load_1003": {"source": "shanks_throw_forward_1003", "crop": [3, 540, 534, 444], "root": [241, 432], "sockets": {"grip": [475, 376]}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[497, 153, 37, 115]]},
+    "throw_fwd_release_1003": {"source": "shanks_throw_forward_1003", "crop": [494, 544, 595, 440], "root": [323, 432], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[0, 358, 37, 42]]},
+    "throw_fwd_recover_1003": {"source": "shanks_throw_forward_1003", "crop": [1085, 514, 438, 484], "root": [253, 476], "sockets": {}, "transparency": {"mode": "source-alpha"}}
+  },
+  "anims": {
+    "throw_fwd": {"frames": ["throw_fwd_start_1003", "throw_fwd_connect_1003", "throw_fwd_load_1003", "throw_fwd_release_1003", "throw_fwd_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 4}, {"frame": 1, "ticks": 7}, {"frame": 2, "ticks": 10}, {"frame": 3, "ticks": 7}, {"frame": 4, "ticks": 14}], "throwExposures": [{"frame": 1, "ticks": 8}, {"frame": 2, "ticks": 13}, {"frame": 3, "ticks": 7}, {"frame": 4, "ticks": 14}]},
+    "throw": {"frames": ["throw_fwd_start_1003", "throw_fwd_connect_1003", "throw_fwd_load_1003", "throw_fwd_release_1003", "throw_fwd_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 4}, {"frame": 1, "ticks": 7}, {"frame": 2, "ticks": 10}, {"frame": 3, "ticks": 7}, {"frame": 4, "ticks": 14}], "throwExposures": [{"frame": 1, "ticks": 8}, {"frame": 2, "ticks": 13}, {"frame": 3, "ticks": 7}, {"frame": 4, "ticks": 14}]}
+  },
+  "observations": ["Five actual independent body phases, one right arm and complete saber. Generic throw deliberately maps these same real forward-throw frames and adds no unique drawing count.", "Connected sequence starts on the real connection pose; release at21 ticks and total42 match existing data. Real footwear/grip alignment with small/normal/large defenders remains for parent integration; no acceptance implied."]
+}

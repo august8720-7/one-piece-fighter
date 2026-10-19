@@ -5,7 +5,7 @@ import { UI } from './ui/MenuList';
 
 type Proj = (v: number) => number;
 
-/** F1 判定框 · F2 帧数据面板 · F3 输入显示 */
+/** F1 判定框 · Shift+F2 帧数据面板 · F3 输入显示。普通F2留给三招目录。 */
 export class DebugOverlay {
   private showBoxes: boolean;
   private showFrames: boolean;
@@ -26,7 +26,9 @@ export class DebugOverlay {
 
     const kb = scene.input.keyboard;
     kb?.on('keydown-F1', () => (this.showBoxes = !this.showBoxes));
-    kb?.on('keydown-F2', () => (this.showFrames = !this.showFrames));
+    kb?.on('keydown-F2', (event: KeyboardEvent) => {
+      if (event.shiftKey && !event.ctrlKey && !event.altKey && !event.metaKey) this.showFrames = !this.showFrames;
+    });
     kb?.on('keydown-F3', () => (this.showInputs = !this.showInputs));
   }
 

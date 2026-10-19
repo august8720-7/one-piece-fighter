@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_normal_stdfc_1003",
+  "sourceSha256": "9482b3986a31a98c2e6e7195de8b6e044c13cbceb2b34daa63a3a31ce026c751",
+  "status": "hilt-and-forward-cut-bodies-before-contact-review",
+  "neutralVisibleAlpha8Bounds": [37, 16, 456, 391],
+  "neutralVisibleHeight": 375,
+  "referenceNeutralHeight": 380,
+  "unitScale": 1.0133333333333334,
+  "scaleBasis": "Whole-page neutral visible alpha>=8 height375px; all six new normals uniformly use380/375 versus the original380px. No per-pose fitting.",
+  "frames": {
+    "st_d_start_1003": {"source": "shanks_normal_stdfc_1003", "crop": [591, 36, 403, 351], "root": [222, 339], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "st_d_active_1003": {"source": "shanks_normal_stdfc_1003", "crop": [45, 407, 478, 338], "root": [296, 327], "sockets": {"hilt_contact": [458, 72]}, "transparency": {"mode": "source-alpha"}},
+    "st_d_recover_1003": {"source": "shanks_normal_stdfc_1003", "crop": [593, 405, 399, 339], "root": [202, 328], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "f_c_start_1003": {"source": "shanks_normal_stdfc_1003", "crop": [42, 752, 406, 372], "root": [229, 360], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "f_c_active_1003": {"source": "shanks_normal_stdfc_1003", "crop": [556, 796, 498, 317], "root": [239, 306], "sockets": {"weapon_grip": [299, 159], "weapon_tip": [488, 272]}, "transparency": {"mode": "source-alpha"}},
+    "f_c_recover_1003": {"source": "shanks_normal_stdfc_1003", "crop": [74, 1118, 383, 329], "root": [203, 319], "sockets": {}, "transparency": {"mode": "source-alpha"}}
+  },
+  "anims": {
+    "st_d": {"frames": ["st_d_start_1003", "st_d_active_1003", "st_d_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 12}, {"frame": 1, "ticks": 4}, {"frame": 2, "ticks": 21}]},
+    "f_c": {"frames": ["f_c_start_1003", "f_c_active_1003", "f_c_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 17}, {"frame": 1, "ticks": 4}, {"frame": 2, "ticks": 23}]}
+  },
+  "parentContactReview": {
+    "st_d": {"approxWorldHiltContact": [40.61, -63.92], "currentHitbox": [12, -70, 47, 46], "note": "Actual hilt/guard thrust matches the current box. Full saber trails backwards rather than a second hand/punch."},
+    "f_c": {"approxWorldGrip": [15.04, -36.85], "approxWorldTip": [62.42, -8.52], "currentHitbox": [9, -87, 61, 60], "suggestedFinalBladeBox": [9, -43, 57, 38], "note": "The slash starts above the head then ends low in the active drawing. Parent should show the real sweep path/FX or contact-calibrate while preserving84 damage,17/4/23 and explicit high-guard semantics; static endpoint is not a whole swing-path acceptance."}
+  },
+  "observations": ["Six genuine independent body poses provide a hilt thrust and high-to-low forward cut. The hilt strike does not become a sword-tip jab.", "One right arm, complete shoes and closed saber tips remain intact. This is body-source coverage, not a match or voice acceptance."]
+}

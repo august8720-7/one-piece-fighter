@@ -64,6 +64,11 @@ const MOVE_AUDIO: Readonly<Record<string, Readonly<Record<string, MoveAudioProfi
     sp_inugami: AKAINU_AUDIO.inugami, sp_magma_body: AKAINU_AUDIO.magma_body,
   },
   luffy: {
+    // Reuse reviewed rubber material, not invented Gear5 recordings or named shouts.
+    g5_awakening: LUFFY_AUDIO.stretch,
+    g5_elastic_rush: LUFFY_AUDIO.gatling,
+    g5_bounce_slam: LUFFY_AUDIO.gigant,
+    g5_rising_whip: LUFFY_AUDIO.stretch,
     st_c: LUFFY_AUDIO.stretch,
     sp_gatling: LUFFY_AUDIO.gatling, sp_storm: LUFFY_AUDIO.gatling,
     sp_gigant_pistol: LUFFY_AUDIO.gigant, ult_red_hawk: LUFFY_AUDIO.red_hawk,
@@ -121,6 +126,13 @@ export function createCueCatalog(samples: CueCatalog): CueCatalog {
         ? { files: [], group: 'ambient', gain: 0.35, priority: 5, loop: true, maxInstances: 1 }
         : catalog[id] ?? { files: [], group: 'sfx', gain: 0.7, priority: 40, cooldownMs: 40, maxInstances: 3 };
     catalog[id] = { ...defaults, ...sample };
+    // Runtime speech policy; source files/verification ledgers stay byte-for-byte intact.
+    if (sample.group === 'voice' && id.startsWith('voice.')) {
+      catalog[id]!.priority = id.endsWith('.ko') || id.endsWith('.win') ? 100
+        : id.endsWith('.hurt') ? 85 : id.endsWith('.idle') ? 10 : id.endsWith('.move') ? 9
+          : id.endsWith('.effort') ? 50 : sample.preserveSentence
+            ? /\.(ult_|g5_awakening$|g5_exit$)/.test(id) ? 80 : 75 : 70;
+    }
   }
   return catalog;
 }
@@ -142,6 +154,12 @@ export function eventCues(event: FightAudioEvent, hasCue: (id: string) => boolea
     case 'start':
       // A normal with a material profile (stretch heavy) still has a real startup cue.
       if (moveAudio) add(stageCue(event.characterId, moveAudio, 'start'));
+      // Meaningful exact dialogue must win even for normal/g5 IDs lacking sp_/ult_.
+      if (hasCue(`voice.${event.characterId}.${move}`)) {
+        if (!moveAudio && (move.startsWith('sp_') || move.startsWith('ult_'))) add(event.characterId === 'akainu' ? 'magma' : 'special');
+        voice(move); break;
+      }
+      if (event.characterId === 'luffy' && move.startsWith('g5_') && moveAudio) { voice('effort'); break; }
       if (!move.startsWith('sp_') && !move.startsWith('ult_')) { voice('effort'); break; }
       if (!moveAudio) add(event.characterId === 'akainu' ? 'magma' : 'special');
       if (hasCue(`voice.${event.characterId}.${move}`)) voice(move);
@@ -164,11 +182,22 @@ export function eventCues(event: FightAudioEvent, hasCue: (id: string) => boolea
       // The reflector owns this contact; moveId still names the incoming projectile.
       add(event.characterId === 'luffy' ? 'sfx.luffy.stretch.release' : event.characterId === 'twinkle' ? 'sfx.twinkle.reflect.release' : 'block');
       break;
-    case 'throw': add('throw'); break;
+    case 'throw':
+      add('throw');
+      // "Caught you" is true only on the actual connection, never a whiffed startup.
+      voice(`${move}_connected`);
+      break;
     case 'landing': add('body_land'); break;
     case 'ko': add('ko'); voice('ko'); break;
     case 'win': voice('win'); break;
     case 'round_start': add('round_start'); break;
+    case 'intro': voice('intro'); break;
+    case 'form_exit':
+      // Caller emits only a real safe exit, never expiry-pending or round cleanup.
+      // A tired exhale/worded hurt line would imply unreviewed meaning; use rubber only.
+      if (event.characterId === 'luffy' && move === 'g5_exit') add('sfx.luffy.stretch.end');
+      if (event.characterId === 'luffy' && move === 'g5_exit') voice('g5_exit');
+      break;
     case 'projectile_spawn':
       add(projectileAudio?.projectile ? stageCue(materialCharacter, projectileAudio, 'release') : event.projectileKind === 'meteor' ? 'meteor_fall' : 'whoosh');
       break;

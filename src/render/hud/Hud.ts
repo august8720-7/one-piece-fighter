@@ -160,7 +160,7 @@ export class Hud {
     for (const s of this.comboShow) if (s.ttl > 0) s.ttl -= steps;
   }
 
-  draw(w: WorldState, extras?: { armor?: [boolean, boolean]; source?: string }): void {
+  draw(w: WorldState, extras?: { armor?: [boolean, boolean]; source?: string; opening?: boolean }): void {
     const g = this.gfx;
     const anime = this.theme === 'anime';
     g.clear();
@@ -256,7 +256,7 @@ export class Hud {
 
     switch (w.phase) {
       case 'intro':
-        this.showBanner(w.phaseFrame < 40 ? `ROUND ${w.round}` : 'READY', '');
+        this.showBanner(extras?.opening ? '对战准备' : w.phaseFrame < 40 ? `ROUND ${w.round}` : 'READY', extras?.opening ? '角色开场对白 · Enter / Start 跳过' : '');
         break;
       case 'fight':
         if (w.phaseFrame < 40) this.showBanner('FIGHT!', '');

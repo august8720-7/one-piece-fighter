@@ -7,16 +7,17 @@ import { openLocalUrl } from './openLocalUrl.mjs';
 
 const releaseIndex = process.argv.indexOf('--release');
 const release = releaseIndex < 0 ? 'candidate-0912' : process.argv[releaseIndex + 1];
-if (!['candidate-0912', 'candidate-0913', 'candidate-0914', 'candidate-0915', 'candidate-0922', 'candidate-crossover-0922', 'classic-1', 'classic-2'].includes(release)) throw new Error('Unknown local candidate release.');
+if (!['candidate-0912', 'candidate-0913', 'candidate-0914', 'candidate-0915', 'candidate-0922', 'candidate-crossover-0922', 'candidate-roster-1003', 'classic-1', 'classic-2'].includes(release)) throw new Error('Unknown local candidate release.');
 const full = process.argv.includes('--full');
 if (full && release === 'candidate-0912') throw new Error('--full requires a complete candidate release.');
 const releasePaths = { 'candidate-0922': '操作演出-0922/playable', 'classic-1': '操作演出-0922/baseline/v1', 'candidate-0915': '加载提速-0915/playable', 'candidate-0914': '声音修复-0914/candidate' };
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const crossoverRoot = resolve(process.env.OPF_CROSSOVER_ROOT ?? 'D:/one-piece-fighter-crossover-0922');
-const externalPaths = { 'candidate-crossover-0922': resolve(crossoverRoot, 'playable'), 'classic-2': resolve(crossoverRoot, 'baseline/v2') };
+const externalPaths = { 'candidate-crossover-0922': resolve(crossoverRoot, 'playable'),
+  'candidate-roster-1003': resolve(crossoverRoot, 'roster-0929/playable'), 'classic-2': resolve(crossoverRoot, 'baseline/v2') };
 const root = externalPaths[release] ?? resolve(projectRoot, '.local-releases', releasePaths[release] ?? release);
 const portIndex = process.argv.indexOf('--port');
-const defaultPorts = { 'candidate-crossover-0922': 4182, 'classic-2': 4183, 'candidate-0922': 4180, 'classic-1': 4181, 'candidate-0915': 4179, 'candidate-0914': 4178, 'candidate-0913': 4177 };
+const defaultPorts = { 'candidate-roster-1003': 4184, 'candidate-crossover-0922': 4182, 'classic-2': 4183, 'candidate-0922': 4180, 'classic-1': 4181, 'candidate-0915': 4179, 'candidate-0914': 4178, 'candidate-0913': 4177 };
 const port = portIndex < 0 ? defaultPorts[release] ?? 4176 : Number(process.argv[portIndex + 1]);
 if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('Invalid local port.');
 const origin = `http://127.0.0.1:${port}`;

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "characterId": "kizaru",
+  "date": "2026-10-13",
+  "sourceFile": "public/assets/generated/source/roster-kizaru-opposite-guide-1013.png",
+  "sha256": "198ec3375e8842e39f4196cadf87751113c8d68e896894c3de431e50ad5cfd14",
+  "rootReportedProvenance": {
+    "browser": "Codex in-app browser",
+    "sessionUrl": "https://chatgpt.com/c/6abbd7c3-ab58-83e8-bc9d-5433cd330260",
+    "observedTextModelLabel": "GPT-6",
+    "observedReasoningEffort": "极高4/5",
+    "imageModel": "unverified",
+    "attachments": [
+      "previous real two-cell kizaru original PNG",
+      "existing abstract red-near blue-far gait guide"
+    ]
+  },
+  "verifiedFile": {
+    "mode": "RGBA",
+    "size": [1774, 887],
+    "completePngDecode": true,
+    "alphaExtrema": [0, 255],
+    "neutralAlpha16Bounds": [115, 30, 789, 860],
+    "contactAlpha16Bounds": [967, 31, 1661, 860],
+    "neutralHeight": 830,
+    "contactHeight": 829,
+    "bodyAndWeaponsClipped": false
+  },
+  "poseAssessment": {
+    "status": "not-confirmed-for-opposite-leg-cycle-do-not-adopt",
+    "visibleChanges": "Near arm is forward. Rear knee and rear shoe angle differ slightly from the preceding attempt.",
+    "substantiveConcern": "At a common source-wide standing scale, the continuous foreground thigh still emerges from the same hip branch, overlaps the other thigh root, bends through the forward knee and reaches the right-front shoe, as in old A. The left-rear shin remains the branch emerging from behind. This is a joint/occlusion concern, not a pants-color rule.",
+    "limits": "No root-agent IAB normal-speed gameplay review has been observed by this worker. Do not claim actual sliding or full gait failure was already measured in game.",
+    "normalSpeedDiagnostic": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/kizaru/kizaru-guided-c-vs-original-10fps-diagnostic1013.gif",
+    "staticComparison": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/kizaru/kizaru-guided-contact-A-C-1013.png",
+    "diagnosticReceipt": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/kizaru/kizaru-guided-diagnostic1013.json"
+  },
+  "candidateGeometryOnly": {
+    "crop": [887, 0, 887, 887],
+    "absoluteRoot": [1365, 860],
+    "localRoot": [478, 860],
+    "worldUnitsPerSourcePixel": 0.12289156626506025,
+    "basis": "Standing height830 maps to existing world102; root is measured mean sole centers and visible sole ground boundary. No individual pose scaling or shift to improve the loop.",
+    "accepted": false
+  },
+  "decision": {
+    "newFramesAdopted": 0,
+    "centralManifestPatch": "none",
+    "runtimeModified": false,
+    "generateAgainInThisRoute": false,
+    "next": "Root may inspect the prepared normal-speed diagnostic in IAB; retain all sources. No further same-route generation this round. Continue independent Zoro work."
+  }
+}

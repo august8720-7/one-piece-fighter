@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "status": "true-foot-fixed-held-contract-static-pair-review-before-game",
+  "rootRegistrationContract": "Held root is a virtual floor axis registered once from observed ankle/sole and existing fixed world hold contract. Source-tile idle coordinates do not define every airborne pose axis. No image translation/rotation, pose-specific scaling, or runtime root adjustment.",
+  "referenceEvidence": {
+    "file": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\reference\\shanks-held-1003\\held-reference-metadata1003.json",
+    "sha256": "a1ec918f32a22967a4f8da2ae3ee84a27cc21383122f5c592ff4d50223f9c51c",
+    "kind": "existing-game-pose-reference-only-not-shanks-art"
+  },
+  "sources": {
+    "shanks_held_twinkle_face_clear_1003": {
+      "unitScale": 0.5093833780160858,
+      "scaleBasis": "One actual neutral alpha>=8 height746px. Uniform380/746 for every adopted drawing from this page; no per-pose fitting.",
+      "neutralVisibleAlpha8Bounds": [
+        15,
+        160,
+        644,
+        906
+      ],
+      "sourceSha256": "ea2fed126f1428309117d4033cb0f2c2143fbe6fe03ae50c28712b95307b8440"
+    }
+  },
+  "frames": {
+    "held_twinkle_throw_1003": {
+      "source": "shanks_held_twinkle_face_clear_1003",
+      "crop": [
+        729,
+        222,
+        779,
+        587
+      ],
+      "root": [
+        540.4521276595744,
+        706.813829787234
+      ],
+      "sockets": {
+        "grip": [
+          721,
+          435
+        ]
+      },
+      "transparency": {
+        "mode": "source-alpha"
+      }
+    }
+  },
+  "anims": {
+    "held_twinkle_throw": {
+      "frames": [
+        "held_twinkle_throw_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 12
+        }
+      ]
+    }
+  },
+  "registrations": [
+    {
+      "anim": "held_twinkle_throw",
+      "source": "shanks_held_twinkle_face_clear_1003",
+      "sourceFoot": [
+        1450,
+        657
+      ],
+      "footKind": "actual visible underside sole edge at midfoot, alpha251; lower-knee new drawing",
+      "worldUnitPerSourcePixel": 0.1260053619302949,
+      "targetWorldGripFacingRight": [
+        22.75,
+        -34.25
+      ],
+      "sourceVirtualRootAbsolute": [
+        1269.4521276595744,
+        928.813829787234
+      ],
+      "cropLocalRoot": [
+        540.4521276595744,
+        706.813829787234
+      ],
+      "formula": "sourceVirtualRoot = measuredFoot - targetWorldGrip/worldUnitPerSourcePixel",
+      "worldVisibleAlpha8Bounds": [
+        -67.34383378016085,
+        -88.3063002680965,
+        29.30227882037534,
+        -15.853217158176939
+      ],
+      "lowestVisiblePixelAboveFloor": 15.853217158176939,
+      "runtimePoseTranslation": false,
+      "individualPoseScaling": false
+    }
+  ],
+  "observations": [
+    "One independently drawn official-web lower-knee posture fixes the previously observed eye occlusion; full sole right arm and saber preserved.",
+    "Front knee is near hips, lower leg reaches forward almost horizontally; both shoes and whole body remain above the virtual floor.",
+    "Actual source sole edge1450,657 has alpha251. Uniform94/746 world scale and fixed22.75,-34.25 hold contract define one static author registration. No dynamic position/rotation, pose-specific scale or pixel deletion. Real game acceptance remains separate."
+  ]
+}

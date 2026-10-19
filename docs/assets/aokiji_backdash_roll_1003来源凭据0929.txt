@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_backdash_roll_1003",
+  "file": "public/assets/generated/source/roster-aokiji-backdash-roll-1003.png",
+  "sha256": "4f202b46f5c7358898fd089469ba43fc2defedb2f08f0e9491c2a6dad2642fcb",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "主代理在本轮官方ChatGPT图像入口核实最新与极高，但具体图像模型未公开，继续记为unverified，不推断后台图像型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+  "observedCompletedAt": "2026-10-03T16:30:19.649872+08:00",
+  "uiObservation": "本页由主代理在已核实的官方青雉同会话fill完整aokiji-backdash-roll-prompt1003.txt并单次发送，主代理实际最新菜单已核选中且极高可见。取回助手shanks_complete_art在其Codex内置IAB browser2/tab4仅查看最新已完成九格与完整提示一致，并单次点击官方查看器下载；16:30:19.649872是其完成复核截图时间，不是服务器生成时间。静态接入助手自身IAB不可用，仅本地核实原PNG与截图SHA256、PNG签名/IEND与完整RGBA解码，未冒称亲自在浏览器观察。下载原件保留Downloads，复制前后清单和哈希保留在aokiji-backdash-roll1003验收目录。",
+  "prompt": {
+    "file": "docs/assets/aokiji-backdash-roll-prompt1003.txt",
+    "sha256": "476f3ffb47aa61ba784c186f4df096c9e6baeba0774942bfede0ecf1d93c4442"
+  },
+  "referenceSources": {
+    "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T08:43:05.804915+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/assist-second-completion-viewer-1003.jpg",
+    "sha256": "7d01d9c33937eca549136ed179f3b07037acf35aaa3f8d2425befd5a4261de44"
+  },
+  "referenceFiles": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

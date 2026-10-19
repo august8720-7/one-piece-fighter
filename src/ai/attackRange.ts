@@ -7,20 +7,20 @@ import type { AiAction, Btn4 } from './types';
 const BUTTONS: Record<Btn4, number> = { A: Btn.A, B: Btn.B, C: Btn.C, D: Btn.D };
 
 /** 粗筛明显打不到的近身攻击和投技；可及不等于必定命中，不预测玩家下一帧输入。 */
-export function actionCanReach(action: AiAction, me: FighterState, opp: FighterState): boolean {
+export function actionCanReach(action: AiAction, me: FighterState, opp: FighterState, moves: readonly MoveData[] = selectableMoves(me)): boolean {
   let candidates: readonly MoveData[];
   if (action.kind === 'normal') {
-    candidates = me.def.moves.filter((m) =>
+    candidates = moves.filter((m) =>
       !m.input.motion && !m.input.plus && m.type !== 'throw' &&
       m.input.stance === action.stance && m.input.button === BUTTONS[action.button] &&
       (action.forward ? m.input.direction === 6 : m.input.direction === undefined),
     );
   } else if (action.kind === 'throw') {
-    return !opp.airborne && me.def.moves.some((m) =>
+    return !opp.airborne && moves.some((m) =>
       m.type === 'throw' && m.throwData && Math.abs(me.x - opp.x) <= m.throwData.range * SUBPIXEL,
     );
   } else if (action.kind === 'special') {
-    candidates = me.def.moves.filter((m) => m.input.motion === action.motion &&
+    candidates = moves.filter((m) => m.input.motion === action.motion &&
       (m.input.button & (action.button === 'P' ? P : K)) !== 0 &&
       (m.meterCost ?? 0) <= me.meter);
   } else return true;
@@ -55,7 +55,7 @@ export function actionCanReach(action: AiAction, me: FighterState, opp: FighterS
 
 /** 当前攻击姿态与当前帧伸出的肢体都属于可打部位，不能一律按站立躯干判断。 */
 function currentHurtboxes(f: FighterState): readonly BoxPx[] {
-  const move = f.state === 'attack' ? f.def.moves.find((m) => m.id === f.moveId) : undefined;
+  const move = f.state === 'attack' ? [...f.def.moves, ...(f.def.gear5?.moves ?? []), ...(f.def.gear5 ? [f.def.gear5.awakening] : [])].find(m => m.id === f.moveId) : undefined;
   const frame = move ? frameAt(move, f.stateFrame) : null;
   if (frame?.hurtboxes) return frame.hurtboxes;
   if (f.airborne) return f.def.hurtboxAir;
@@ -98,4 +98,11 @@ function targetEnvelope(f: FighterState, boxes: readonly BoxPx[], horizon: numbe
   });
   if (landed) areas.push(...f.def.hurtboxStand.map((b) => toWorldBox(b, x, GROUND_Y, f.facing)));
   return areas;
+}
+
+/** Optional table argument lets CPU use FightSim.effectiveMoves directly. */
+function selectableMoves(f: FighterState): readonly MoveData[] {
+  if (f.form !== 'gear5' || !f.def.gear5) return f.def.moves;
+  const form = f.def.gear5;
+  return f.def.moves.map(move => form.moves.find(item => item.id === form.replacements[move.id]) ?? move);
 }

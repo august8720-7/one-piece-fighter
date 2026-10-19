@@ -1,0 +1,26 @@
+{
+  "characterId": "shanks",
+  "status": "candidate-needs-normal-speed-movement-review",
+  "runtimeAnimation": "dash",
+  "sourceFrames": [
+    "walk_repair_0",
+    "walk_repair_1",
+    "walk_repair_2",
+    "walk_repair_3"
+  ],
+  "ticksPerDrawing": 4,
+  "newIndependentDrawings": 0,
+  "walkCycleAdvanceWorldPixels": 78.4,
+  "runCycleAdvanceWorldPixels": 80,
+  "reason": "Reuse four already adopted real Shanks gait drawings with double cadence after three official run-page attempts failed near/far-leg alternation; no static duplicates, transforms or synthesized body pixels.",
+  "rejectedSourceKeys": [
+    "shanks_dash_backdash_1003",
+    "shanks_dash_repair_1003",
+    "shanks_dash_guide_1003"
+  ],
+  "poseGuide": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/reference/shanks-running-1003/near-far-run-guide1003.png",
+    "sha256": "2c986d101e79f265f4d0ab9f1f2a7aa5caf637cede01deb8bd6c3fa09be7c623",
+    "kind": "abstract-reference-only-not-runtime"
+  }
+}

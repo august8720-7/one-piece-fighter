@@ -1,9 +1,11 @@
 import {
-  Btn, K, P, horizontalRelative, isDoubleTap, toNumpad,
+  Btn, K, P, SUBPIXEL, horizontalRelative, isDoubleTap, overlaps, toNumpad, toWorldBox,
   type FighterDef, type FighterState, type FightSim, type InputFrame, type MotionId, type MoveData, type PlayerIndex, type WorldState,
 } from '@core/index';
 import { actionCanReach } from '../../ai/attackRange';
+import { characters } from '@characters/index';
 import { DEFAULT_ANIMS, heldReactionForMove, heldReactionFrameIssues, validateAnimeRuntimeManifest, type AnimeRuntimeManifest } from '../animations';
+import { rosterMoveFxIssues, type FxFrameAvailable } from '../fx/rosterFxCandidates1003';
 
 export const SAMPLE_DUMMY_MODES = ['stand', 'block', 'counter', 'ability', 'human'] as const;
 export type SampleDummyMode = typeof SAMPLE_DUMMY_MODES[number];
@@ -41,9 +43,10 @@ function launches(move: MoveData): boolean {
 }
 
 /** Missing *undeclared* dependencies disable one optional move; declared corrupt resources are rejected by the entry gate. */
-export function sampleMoveIssues(move: MoveData, runtime: AnimeRuntimeManifest, opponent?: AnimeRuntimeManifest): string[] {
+export function sampleMoveIssues(move: MoveData, runtime: AnimeRuntimeManifest, opponent?: AnimeRuntimeManifest, hasFxFrame?: FxFrameAvailable): string[] {
   const issues: string[] = [];
   if (!runtime.anims[move.id]) return [`缺少出招动作 ${move.id}`];
+  issues.push(...rosterMoveFxIssues(runtime.characterId, move, hasFxFrame));
   const own = (names: readonly string[]) => { const missing = names.filter(name => !runtime.anims[name]); if (missing.length) issues.push(`自身缺少 ${missing.join('/')}`); };
   const target = (names: readonly string[]) => { const missing = names.filter(name => !opponent?.anims[name]); if (missing.length) issues.push(`对手缺少 ${missing.join('/')}`); };
   if (move.input.stance === 'air') own([...JUMP_STATES, ...AIR_REACTIONS]);
@@ -74,8 +77,9 @@ interface SampleAbility {
 }
 
 /** Use only an authored move still present in the restricted sample fighter. */
-function sampleAbility(fighter: FighterState): SampleAbility | null {
-  for (const moveId of fighter.def.skillSlots ?? []) {
+function sampleAbility(fighter: FighterState, selectedId: string | null = null): SampleAbility | null {
+  for (const moveId of selectedId ? [selectedId] : fighter.def.skillSlots ?? []) {
+    if (!fighter.def.skillSlots?.includes(moveId)) continue;
     const move = fighter.def.moves.find(candidate => candidate.id === moveId);
     const motion = move?.input.motion;
     if (!move || move.input.stance !== 'stand' || !motion || !SUPPORTED_MOTIONS.has(motion)) continue;
@@ -91,7 +95,9 @@ function classicMotionInput(motion: MotionId, press: number, facing: 1 | -1): nu
   switch (motion) {
     case '236': return [Btn.Down, Btn.Down | forward, forward | press];
     case '214': return [Btn.Down, Btn.Down | back, back | press];
-    case '623': return [forward, 0, Btn.Down, Btn.Down | forward, Btn.Down | forward | press];
+    // Approach may already hold forward. Release beyond core's ten-frame
+    // double-tap window so 6 is fresh and cannot accidentally start a dash.
+    case '623': return [...Array<number>(11).fill(0), forward, 0, Btn.Down, Btn.Down | forward, Btn.Down | forward | press];
     case '22': return [Btn.Down, 0, Btn.Down | press];
     case '236236': return [Btn.Down, Btn.Down | forward, forward, 0, Btn.Down, Btn.Down | forward, forward | press];
     case '214214': return [Btn.Down, Btn.Down | back, back, 0, Btn.Down, Btn.Down | back, back | press];
@@ -118,11 +124,11 @@ export function resetSampleRound(sim: FightSim, controller: AnimeSampleControlle
 }
 
 /** Only the candidate's move list changes. Every retained MoveData is the original object. */
-export function createSampleFighter(def: FighterDef, runtime: AnimeRuntimeManifest, options: { opponentRuntime?: AnimeRuntimeManifest } = {}): FighterDef {
+export function createSampleFighter(def: FighterDef, runtime: AnimeRuntimeManifest, options: { opponentRuntime?: AnimeRuntimeManifest; hasFxFrame?: FxFrameAvailable } = {}): FighterDef {
   if (def.id !== runtime.characterId) throw new Error('Candidate character does not match the fighter');
   return {
     ...def,
-    moves: def.moves.filter(move => sampleMoveIssues(move, runtime, options.opponentRuntime).length === 0),
+    moves: def.moves.filter(move => sampleMoveIssues(move, runtime, options.opponentRuntime, options.hasFxFrame).length === 0),
   };
 }
 
@@ -172,7 +178,7 @@ export function validateSampleCoverage(
   const missingStates = [...required].filter(name => !runtime.anims[name]);
   const errors = validateAnimeRuntimeManifest(runtime, def.moves);
   if (def.id !== runtime.characterId) errors.push('candidate character mismatch');
-  if (!['luffy', 'akainu', 'labubu', 'twinkle'].includes(def.id)) errors.push('unsupported sample character');
+  if (!characters[def.id]) errors.push('unsupported sample character');
   return { ok: errors.length === 0 && missingStates.length === 0 && missingMoves.length === 0, requiredStates: [...required], missingStates, missingMoves, errors };
 }
 
@@ -224,12 +230,30 @@ export class AnimeSampleController {
   private counterHeld = false;
   private abilityQueue: number[] = [];
   private abilityWait = 30;
+  selectedAbilityId: string | null = null;
 
   constructor(readonly dummyPlayer: PlayerIndex = 1, readonly capabilities: readonly [Readonly<SampleCapabilities>, Readonly<SampleCapabilities>] = [CLOSED_SAMPLE_CAPABILITIES, CLOSED_SAMPLE_CAPABILITIES]) {}
 
+  availableAbilities(sim: FightSim): readonly { id: string; name: string }[] {
+    const fighter = sim.state.fighters[this.dummyPlayer];
+    return (fighter.def.skillSlots ?? []).flatMap(id => {
+      const ability = sampleAbility(fighter, id);
+      return ability ? [{ id, name: ability.move.name }] : [];
+    });
+  }
+
+  /** Select only a move retained by the real artwork/FX gate; core still receives classic input. */
+  selectAbility(sim: FightSim, id: string): boolean {
+    if (!sampleAbility(sim.state.fighters[this.dummyPlayer], id)) return false;
+    this.selectedAbilityId = id;
+    this.abilityQueue = [];
+    this.abilityWait = 30;
+    return true;
+  }
+
   availableModes(sim?: FightSim): readonly SampleDummyMode[] {
     const fighter = sim?.state.fighters[this.dummyPlayer];
-    const enabled = fighter ? sampleAbility(fighter) !== null : false;
+    const enabled = fighter ? sampleAbility(fighter, this.selectedAbilityId) !== null : false;
     return enabled ? SAMPLE_DUMMY_MODES : SAMPLE_DUMMY_MODES.filter(mode => mode !== 'ability');
   }
 
@@ -284,7 +308,7 @@ export class AnimeSampleController {
   }
 
   private abilityInput(sim: FightSim, me: FighterState, opponent: FighterState): number {
-    const ability = sampleAbility(me);
+    const ability = sampleAbility(me, this.selectedAbilityId);
     if (!ability || sim.state.phase !== 'fight' || !safeNeutral(me)) {
       this.abilityQueue = [];
       return 0;
@@ -297,6 +321,21 @@ export class AnimeSampleController {
     if (!safeNeutral(opponent)) return 0;
     if (this.abilityWait > 0) { this.abilityWait--; return 0; }
     const forward = me.facing === 1 ? Btn.Right : Btn.Left;
+    // Fixed ground effects need their real spawn footprint to meet the target.
+    // The shared CPU range filter intentionally exempts projectiles; a selected
+    // authoring loop can use the supplied stationary spawn without editing state.
+    const spawns = ability.move.projectiles;
+    if (spawns?.length && spawns.every(spawn => spawn.vx === 0 && spawn.vy === 0)) {
+      const boxes = spawns.map(spawn => toWorldBox(spawn.box,
+        me.x + spawn.x * me.facing * SUBPIXEL, me.y + spawn.y * SUBPIXEL, me.facing));
+      const hurt = (opponent.state === 'crouch' ? opponent.def.hurtboxCrouch : opponent.def.hurtboxStand)
+        .map(box => toWorldBox(box, opponent.x, opponent.y, opponent.facing));
+      if (!boxes.some(box => hurt.some(target => overlaps(box, target)))) {
+        const nearest = boxes.reduce((a, b) => Math.abs(a.x + a.w / 2 - opponent.x) <= Math.abs(b.x + b.w / 2 - opponent.x) ? a : b);
+        const remaining = (opponent.x - (nearest.x + nearest.w / 2)) * me.facing;
+        return remaining > 0 ? forward : me.facing === 1 ? Btn.Left : Btn.Right;
+      }
+    }
     if (!actionCanReach({ kind: 'special', motion: ability.motion, button: ability.button }, me, opponent)) return forward;
     this.abilityQueue = classicMotionInput(ability.motion, ability.press, me.facing);
     const bits = this.abilityQueue.shift() ?? 0;

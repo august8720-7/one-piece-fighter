@@ -2,8 +2,15 @@ import { VoiceSubtitles } from '../ui/VoiceSubtitles';
 import type { ControlModes } from '@core/index';
 import { matchControls } from '../ui/matchControls';
 import { SkillBar } from '../hud/SkillBar';
+import { Gear5Hud } from '../hud/Gear5Hud';
+import { FightOpeningSpeech } from '../ui/fightOpeningSpeech1017';
+import { Gear5PracticeCoach } from '../ui/gear5PracticeCoach';
+import { victoryVoiceFrame } from '../../audio/voiceTiming';
+import { moveListDefinition } from '../ui/moveListData';
 import Phaser from 'phaser';
 import { DailyAudio } from '../../audio/DailyAudio';
+import { loadedPresentationReferences } from '../fx/fxRuntime';
+import { rosterFxPreviewEnabled } from '../fx/rosterFxCandidates1003';
 import {
   FightSim,
   GROUND_Y,
@@ -11,6 +18,7 @@ import {
   totalFrames,
   type FighterDef,
   type FighterState,
+  type HitEvent,
   type ProjectileState,
   type WorldState,
 } from '@core/index';
@@ -39,13 +47,16 @@ import { p1MoveHint, sampleControlHint } from '../ui/controlHint';
 import { MoveListPanel } from '../ui/MoveListPanel';
 import { TutorialCoach, tutorialDismissed } from '../ui/TutorialCoach';
 import { cpuChallengeData, pauseEntries, type PauseAction } from '../ui/fightNavigation';
-import { ANIME_CHARACTERS, ANIME_ERRORS, SPRITE_KEYS, SPRITE_SOURCES, type AnimeCharacterAsset, type AnimeCharacterAssets, type SpriteKeys } from '../assets';
+import { ANIME_CHARACTERS, ANIME_ERRORS, SPRITE_KEYS, SPRITE_SOURCES, hasPresentationFrame, gear5AssetIssues, animeCharacterPresentation, type AnimeCharacterAsset, type AnimeCharacterAssets, type SpriteKeys } from '../assets';
 import { AnimeSampleController, SAMPLE_DUMMY_LABELS, createSampleFighter, resetSampleRound, sampleCapabilities, sampleHoldPose, sampleMoveIssues, sampleResetReason, validateSampleCoverage } from '../anime/sampleMode';
 import type { ResultData } from './ResultScene';
 import { adoptPresentation, presentationLabel, type PresentationData } from '../presentation';
 import { evaluateAnimeEntry } from '../anime/entryGate';
 import { DiagnosticsPanel } from '../ui/DiagnosticsPanel';
 import { fitFightFraming, unionFightBounds, type FightBounds, type FightFraming } from '../fightFraming';
+import { RolePracticeCoach, type RolePracticeAction } from '../ui/RolePracticeCoach';
+import { RolePracticeSession, practiceById, practicesFor } from '../ui/rolePractice';
+import { ROLE_PLAYSTYLES } from '../ui/rolePlaystyles';
 
 export type GameMode = 'versus' | 'cpu' | 'training';
 
@@ -57,6 +68,8 @@ export interface FightSceneData extends PresentationData {
   difficulty?: Difficulty;
   /** 强制显示新手引导 */
   tutorial?: boolean;
+  /** A stable tactical exercise id, or directory. Separate from the basic tutorial. */
+  rolePractice?: string;
   controlModes?: ControlModes;
 }
 
@@ -68,6 +81,11 @@ interface SampleSelection {
   art: [AnimeCharacterAsset | null, AnimeCharacterAsset | null];
   issues: string[];
   abilityIssues: string[];
+}
+
+interface AuthoringHitRecord extends Pick<HitEvent, 'frame' | 'moveId' | 'attacker' | 'defender' | 'damage' | 'kind' | 'projectile' | 'comboHits' | 'comboDamage'> {
+  /** Actual HP after this sim.step, before the sample's neutral reset. */
+  hpAfterStep: [number, number];
 }
 
 /** Invalid requested artwork is a blocking result; old artwork requires an explicit separate action. */
@@ -111,21 +129,24 @@ export function resolveAnimeSample(
     return faults;
   };
   const fighters: [FighterDef, FighterDef] = [
-    createSampleFighter(originals[0], art[0]!.runtime, { opponentRuntime: art[1]!.runtime }),
-    createSampleFighter(originals[1], art[1]!.runtime, { opponentRuntime: art[0]!.runtime }),
+    createSampleFighter(originals[0], art[0]!.runtime, { opponentRuntime: art[1]!.runtime, hasFxFrame: hasFrame }),
+    createSampleFighter(originals[1], art[1]!.runtime, { opponentRuntime: art[0]!.runtime, hasFxFrame: hasFrame }),
   ];
   issues.push(...inspect(fighters));
   if (issues.length) return { fighters: null, art: [null, null], issues, abilityIssues: [] };
   const abilityIssues = originals.flatMap((def, side) => def.moves.flatMap(move => {
     const runtime = art[side]!.runtime;
     if (!runtime.anims[move.id]) return [];
-    const missing = sampleMoveIssues(move, runtime, art[side === 0 ? 1 : 0]!.runtime);
+    const missing = sampleMoveIssues(move, runtime, art[side === 0 ? 1 : 0]!.runtime, hasFrame);
     return missing.length ? [`${def.name}·${move.name}：${missing.join('；')}`] : [];
   }));
   return { fighters, art, issues: [], abilityIssues };
 }
 
 export class FightScene extends Phaser.Scene {
+  private collectAuthoringHits = false;
+  private executionTrace = { updateCount: 0, totalSimSteps: 0, deltaMs: 0 as number | null, sceneTimeMs: 0, fixedSteps: 0, simSteps: 0, gate: 'not-started' };
+  private authoringHits: AuthoringHitRecord[] = [];
   private ready = false;
   private diagnostics!: DiagnosticsPanel;
   private sim!: FightSim;
@@ -144,6 +165,10 @@ export class FightScene extends Phaser.Scene {
   private debug!: DebugOverlay;
   private hud!: Hud;
   private skillBar!: SkillBar;
+  private gear5Hud!: Gear5Hud;
+  private openingSpeech: FightOpeningSpeech | null = null;
+  private openingSkip = false;
+  private gear5Coach: Gear5PracticeCoach | null = null;
   private subtitles!: VoiceSubtitles;
   private views: [FighterView | null, FighterView | null] = [null, null];
   private viewAnims: [AnimTable, AnimTable] = [{}, {}];
@@ -164,9 +189,12 @@ export class FightScene extends Phaser.Scene {
   private paused = false;
   private settingsOverlay = false;
   private pauseUi: { bg: Phaser.GameObjects.Rectangle; title: Phaser.GameObjects.Text; menu: MenuList } | null = null;
-  private pauseActions: PauseAction[] = [];
+  private pauseActions: (PauseAction | 'practice' | 'gear5')[] = [];
   private moveList: MoveListPanel | null = null;
   private tutorial: TutorialCoach | null = null;
+  private roleCoach: RolePracticeCoach | null = null;
+  private roleSession: RolePracticeSession | null = null;
+  private practiceMarker: Phaser.GameObjects.Graphics | null = null;
   private trainScale = 1;
   private trainFreeze = false;
   private trainStep = false;
@@ -202,6 +230,67 @@ export class FightScene extends Phaser.Scene {
 
   private static readonly SLOWMO_FRAMES = 40;
 
+  /** Detached read-only evidence snapshot; never advances or edits the simulation. */
+  public authoringSnapshot() {
+    if (!this.collectAuthoringHits || !this.sim) return null;
+    const fighters = this.sim.state.fighters.map(fighter => ({
+      characterId: fighter.def.id, state: fighter.state, moveId: fighter.moveId,
+      stateFrame: fighter.stateFrame, facing: fighter.facing,
+      position: { x: fighter.x / SUBPIXEL, y: fighter.y / SUBPIXEL },
+      hp: fighter.hp, meter: fighter.meter, availableMoves: this.sim.effectiveMoves(fighter).map(move => move.id),
+      form: fighter.form, formFrames: fighter.formFrames, formExitPending: fighter.formExitPending,
+      awakeningStarted: fighter.awakeningStarted, fatigueSource: fighter.fatigueSource, fatigueFrames: fighter.fatigueFrames,
+      awakeningAvailability: this.sim.awakeningAvailability(fighter.player),
+    }));
+    const selectedKeys = new Set(['fx-common', ...fighters.map(fighter => `fx-${fighter.characterId}`)]);
+    const issues: unknown = this.registry.get('sampleAbilityIssues');
+    return {
+      frame: this.sim.state.frame,
+      execution: {
+        ...this.executionTrace, ready: this.ready, paused: this.paused, diagnosticsVisible: !!this.diagnostics?.visible,
+        settingsOverlay: this.settingsOverlay, moveListVisible: !!this.moveList?.visible, openingSpeechActive: !!this.openingSpeech?.active,
+        roleMenuBlocks: !!this.roleCoach?.blocksSimulation, trainFreeze: this.trainFreeze, trainScale: this.trainScale,
+        fixedStepAlpha: this.step.alpha, fixedStepAlphaFinite: Number.isFinite(this.step.alpha),
+        loop: this.game?.loop ? { actualFps: this.game.loop.actualFps, targetFps: this.game.loop.targetFps, time: this.game.loop.time,
+          now: this.game.loop.now, delta: this.game.loop.delta, rawDelta: this.game.loop.rawDelta, frame: this.game.loop.frame,
+          inFocus: this.game.loop.inFocus, running: this.game.loop.running } : null,
+        document: typeof document === 'undefined' ? null : { visibilityState: document.visibilityState, hasFocus: document.hasFocus() },
+      },
+      mode: this.mode, phase: this.sim.state.phase, phaseFrame: this.sim.state.phaseFrame,
+      round: this.sim.state.round, wins: [...this.sim.state.wins],
+      roundOver: this.sim.state.roundOver, roundWinner: this.sim.state.roundWinner,
+      fighters,
+      dummy: this.sample ? { mode: this.sample.mode, selectedAbilityId: this.sample.selectedAbilityId, abilities: this.sample.availableAbilities(this.sim) } : null,
+      projectileCount: this.sim.state.projectiles.length,
+      projectiles: this.sim.state.projectiles.map(projectile => ({
+        id: projectile.id, owner: projectile.owner, kind: projectile.kind, moveId: projectile.moveId,
+        facing: projectile.facing, reflected: projectile.reflected, ttl: projectile.ttl,
+        position: { x: projectile.x / SUBPIXEL, y: projectile.y / SUBPIXEL },
+      })),
+      audio: this.audio.diagnostics(),
+      loadedFxFrames: Object.fromEntries([...selectedKeys]
+        .map(key => [key, loadedPresentationReferences(this, key)] as const)
+        .filter(([, references]) => references.length > 0)),
+      sampleAbilityIssues: Array.isArray(issues) ? issues.filter((issue): issue is string => typeof issue === 'string') : [],
+      hits: this.authoringHits.map(hit => ({ ...hit, hpAfterStep: [...hit.hpAfterStep] })),
+      hpMeaning: 'hpAfterStep is captured after the real sim.step and before the sample neutral reset; same-step hits share that post-step HP.',
+    };
+  }
+
+  public startAuthoringAbility(id: string): boolean {
+    if (!this.collectAuthoringHits || !this.ready || !this.sample || !this.sample.selectAbility(this.sim, id)) return false;
+    this.audio.setDiagnosticsEnabled(true);
+    this.sample.mode = 'ability';
+    return true;
+  }
+
+  public stopAuthoringAbility(): void {
+    if (!this.collectAuthoringHits || !this.sample) return;
+    this.sample.mode = 'stand';
+    this.sample.reset();
+    this.audio.setDiagnosticsEnabled(false);
+  }
+
   create(data: FightSceneData): void {
     this.ready = false;
     let p1 = characters[data.p1];
@@ -212,6 +301,10 @@ export class FightScene extends Phaser.Scene {
     const sampleRequested = animeRequested && profile.scope === 'sample';
     this.data_ = { ...data, ...profile, ...(sampleRequested ? { tutorial: false } : {}) };
     this.mode = this.data_.mode ?? 'versus';
+    this.collectAuthoringHits = import.meta.env.DEV && rosterFxPreviewEnabled()
+      && typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('rosterPreview') === '0929';
+    this.authoringHits = [];
+    this.executionTrace = { updateCount: 0, totalSimSteps: 0, deltaMs: 0, sceneTimeMs: 0, fixedSteps: 0, simSteps: 0, gate: 'created' };
     this.sample = sampleRequested ? new AnimeSampleController() : null;
     this.sampleResetWorld = null;
     this.registry.set('sampleAbilityIssues', []);
@@ -239,7 +332,7 @@ export class FightScene extends Phaser.Scene {
       }
       if (sampleRequested) {
       const selected = resolveAnimeSample([p1, p2], (this.registry.get(ANIME_CHARACTERS) as AnimeCharacterAssets | undefined) ?? {},
-        (key, name) => this.textures.exists(key) && this.textures.get(key).has(name),
+        (key, name) => hasPresentationFrame(this, key, name),
         (this.registry.get(ANIME_ERRORS) as Record<string, string> | undefined) ?? {});
       if (!selected.fighters) {
         this.audio.stopAll(); this.scene.start('Preload', { ...this.data_, failure: selected.issues }); return;
@@ -252,7 +345,20 @@ export class FightScene extends Phaser.Scene {
       } else candidateArt = [assets[p1.id]!, assets[p2.id]!];
       for (const side of [0, 1] as const) {
         const art = candidateArt[side];
-        if (art) { this.viewAnims[side] = art.runtime.anims; this.presentations[side] = { ...art.runtime, ...(art.frameTextures ? { frameTextures: art.frameTextures } : {}) }; }
+        if (art) { this.viewAnims[side] = art.runtime.anims; this.presentations[side] = animeCharacterPresentation(art); }
+      }
+    }
+    const gear5Enabled: [boolean, boolean] = [false, false];
+    if (animeRequested && !sampleRequested) {
+      for (const side of [0, 1] as const) {
+        if ([p1, p2][side]!.id !== 'luffy') continue;
+        const formIssues = gear5AssetIssues(this, candidateArt[side] ?? undefined);
+        if (formIssues.length) {
+          this.audio.stopAll();
+          this.scene.start('Preload', { ...this.data_, failure: formIssues });
+          return;
+        }
+        gear5Enabled[side] = true;
       }
     }
     // A training photography URL may remain in the address bar after menus or a CPU challenge.
@@ -262,7 +368,7 @@ export class FightScene extends Phaser.Scene {
       const selected = sampleHoldPose(hold, candidateArt[0]!.runtime);
       if (selected.issue) { this.audio.stopAll(); this.scene.start('Preload', { ...this.data_, failure: [selected.issue] }); return; }
       this.holdPose = selected.pose ?? undefined;
-    } else this.holdPose = hold ?? undefined;
+    } else this.holdPose = data.rolePractice ? undefined : hold ?? undefined;
     this.paused = false;
     this.settingsOverlay = false;
     this.pauseUi = null;
@@ -277,6 +383,11 @@ export class FightScene extends Phaser.Scene {
     this.step = new FixedStep();
     this.useSprites = true;
     this.tutorial = null;
+    this.roleCoach = null;
+    this.gear5Coach = null;
+    this.openingSpeech?.dispose(); this.openingSpeech = null; this.openingSkip = false;
+    this.roleSession = null;
+    this.practiceMarker = null;
     this.tutorialDroveDummy = false;
     this.tutorialBlockWait = 0;
     this.tutorialCompletePending = false;
@@ -299,7 +410,7 @@ export class FightScene extends Phaser.Scene {
     this.data_.controlModes = controls;
     getInputHub().useMatchControls(controls);
     this.sim = new FightSim(
-      this.mode === 'training' ? { p1, p2, seed: 1, introFrames: 0, roundTime: -1, controlModes: controls } : { p1, p2, seed: 1, controlModes: controls },
+      this.mode === 'training' ? { p1, p2, seed: 1, introFrames: 0, roundTime: -1, controlModes: controls, gear5Enabled } : { p1, p2, seed: 1, controlModes: controls, gear5Enabled },
     );
     if (this.mode === 'training') this.sim.training = { infiniteHp: true, infiniteMeter: true };
     getInputHub().flush();
@@ -307,6 +418,8 @@ export class FightScene extends Phaser.Scene {
     // A single transform keeps sprites, sockets, hitboxes and all combat effects together.
     // The complete scenic backdrop and HUD stay full viewport; the foot line is invariant.
     this.worldLayer = this.add.container(0, 0).setDepth(0);
+    this.practiceMarker = this.add.graphics().setDepth(8);
+    this.worldLayer.add(this.practiceMarker);
     this.worldFraming = undefined;
     this.framingFrame = this.sim.state.frame;
     this.effectsCameraX = this.sim.state.cameraX;
@@ -344,8 +457,9 @@ export class FightScene extends Phaser.Scene {
     this.prevMoveIds = [null, null];
     this.hud = new Hud(this, [p1.name, p2.name], [[], []], animeRequested ? 'anime' : 'classic', [p1.id, p2.id], controls);
     this.subtitles = new VoiceSubtitles(this, 90);
-    if (this.mode !== 'training') this.audio.playPresentation({ phase: 'round', key: `round-${this.sim.state.round}`, round: this.sim.state.round, finalRound: this.sim.state.wins.every(win => win === 1) });
+
     this.skillBar = new SkillBar(this, controls);
+    this.gear5Hud = new Gear5Hud(this);
     this.debug = new DebugOverlay(this, false, this.worldLayer);
 
     // 精灵视图：Preload 决定了每个角色可用的图集 key
@@ -380,9 +494,22 @@ export class FightScene extends Phaser.Scene {
       .setDepth(52)
       .setVisible(this.mode === 'training');
 
-    this.moveList = new MoveListPanel(this, [p1, p2], controls);
-    if (!sampleRequested && this.mode === 'training' && (data.tutorial || !tutorialDismissed(controls[0]))) {
+    this.moveList = new MoveListPanel(this, [p1, p2], controls, () => this.sim.state.fighters.map(fighter => moveListDefinition(fighter, this.sim.effectiveMoves(fighter))) as [FighterDef, FighterDef]);
+    if (!sampleRequested && this.mode === 'training' && !data.rolePractice && (data.tutorial || !tutorialDismissed(controls[0]))) {
       this.tutorial = new TutorialCoach(this, data.p1, () => { this.tutorialCompletePending = true; }, controls[0]);
+    }
+    if (!sampleRequested && this.mode === 'training' && ROLE_PLAYSTYLES[p1.id]) {
+      this.roleCoach = new RolePracticeCoach(this, p1, controls[0], action => this.handleRolePractice(action));
+      const requested = practiceById(data.rolePractice);
+      if (requested?.character === p1.id && requested.opponent === p2.id) {
+        this.roleSession = new RolePracticeSession(requested);
+        this.roleSession.reset(this.sim);
+        this.roleCoach.showSession(this.roleSession);
+      } else if (data.rolePractice) this.roleCoach.showDirectory();
+      this.syncAudioPause();
+    }
+    if (this.mode === 'training' && gear5Enabled[0]) {
+      this.gear5Coach = new Gear5PracticeCoach(this, () => this.toggleGear5Practice());
     }
     this.game.events.on('opf-settings-closed', this.onSettingsClosed, this);
     this.game.events.on(Phaser.Core.Events.BLUR, this.pauseOnFocusLoss, this);
@@ -393,11 +520,16 @@ export class FightScene extends Phaser.Scene {
       this.game.events.off(Phaser.Core.Events.HIDDEN, this.pauseOnFocusLoss, this);
       getInputHub().useMatchControls(null);
       this.moveList?.hide();
+      this.roleCoach?.destroy();
+      this.gear5Coach?.destroy();
+      this.openingSpeech?.dispose(); this.openingSpeech = null;
       this.audio.clearFightSounds();
       this.skillFx.clear();
     });
 
     const kb = this.input.keyboard;
+    kb?.on('keydown-ENTER', () => { if (this.openingSpeech?.active) this.openingSkip = true; });
+    kb?.on('keydown-NUMPAD_ENTER', () => { if (this.openingSpeech?.active) this.openingSkip = true; });
     kb?.on('keydown-F4', () => (this.useSprites = !this.useSprites));
     kb?.on('keydown-ESC', () => {
       if (this.settingsOverlay) return;
@@ -408,12 +540,22 @@ export class FightScene extends Phaser.Scene {
       this.togglePause();
     });
     kb?.on('keydown-F11', () => this.toggleMoveList());
-    kb?.on('keydown-F12', () => this.tutorial?.skip());
+    kb?.on('keydown-F2', (event: KeyboardEvent) => {
+      if (event.shiftKey || event.ctrlKey || event.altKey || event.metaKey) return;
+      if (!this.paused && !this.settingsOverlay && !this.moveList?.visible && this.roleCoach) this.handleRolePractice({ kind: 'directory' });
+    });
+    kb?.on('keydown-F12', () => {
+      if (this.roleSession && !this.paused && !this.settingsOverlay) this.handleRolePractice({ kind: 'next' });
+      else this.tutorial?.skip();
+    });
     if (this.mode === 'training') {
-      kb?.on('keydown-F5', () => this.sample ? this.sample.next(this.sim) : this.dummy.next());
+      kb?.on('keydown-F5', () => {
+        if (this.roleSession || this.roleCoach?.blocksSimulation || this.gear5Coach?.session) this.handleRolePractice({ kind: 'free' });
+        if (this.sample) this.sample.next(this.sim); else this.dummy.next();
+      });
       kb?.on('keydown-F6', () => this.resetTraining());
-      kb?.on('keydown-F7', () => (this.sim.training.infiniteMeter = !this.sim.training.infiniteMeter));
-      kb?.on('keydown-F8', () => (this.sim.training.infiniteHp = this.sample ? true : !this.sim.training.infiniteHp));
+      kb?.on('keydown-F7', () => { if (!this.roleSession && !this.gear5Coach?.session) this.sim.training.infiniteMeter = !this.sim.training.infiniteMeter; });
+      kb?.on('keydown-F8', () => { if (!this.roleSession && !this.gear5Coach?.session) this.sim.training.infiniteHp = this.sample ? true : !this.sim.training.infiniteHp; });
       kb?.on('keydown-F9', () => {
         if (this.settingsOverlay || this.paused || this.moveList?.visible) return;
         if (this.trainFreeze) {
@@ -430,7 +572,28 @@ export class FightScene extends Phaser.Scene {
         this.syncAudioPause();
       });
     }
+    if (animeRequested && !sampleRequested && this.mode !== 'training') {
+      this.openingSpeech = new FightOpeningSpeech(this.sim.state.fighters.map(fighter => ({ characterId: fighter.def.id, player: fighter.player })), {
+        audible: () => !this.audio.muted && this.audio.volume > 0 && this.audio.groupVolume('voice') > 0,
+        onVoice: listener => this.audio.onVoice(listener),
+        playIntro: speaker => this.audio.playEvent({ phase: 'intro', ...speaker }),
+      });
+      this.openingSpeech.tick(0);
+      if (!this.openingSpeech.active) this.finishOpeningSpeech();
+    } else if (this.mode !== 'training') this.playRoundAnnouncement();
     this.ready = true;
+  }
+
+  private playRoundAnnouncement(): void {
+    this.audio.playPresentation({ phase: 'round', key: `round-${this.sim.state.round}`, round: this.sim.state.round,
+      finalRound: this.sim.state.wins.every(win => win === 1) });
+  }
+
+  private finishOpeningSpeech(): void {
+    this.openingSpeech?.dispose(); this.openingSpeech = null; this.openingSkip = false;
+    // No combat has stepped yet: clean only this prelude before the ordinary round system starts.
+    this.audio.clearFightSounds(); this.audio.playCue('marineford_ambient');
+    this.discardPendingInput(); this.playRoundAnnouncement();
   }
 
   /** 防御步先留出后退窗口，再让木桩走近出拳。 */
@@ -480,8 +643,11 @@ export class FightScene extends Phaser.Scene {
         .setDepth(201)
         .setStroke('#2a1c12', ui(6));
       const items = pauseEntries(this.data_, tutorialComplete);
-      this.pauseActions = items.map((item) => item.action);
-      const menu = new MenuList(this, SCREEN_W / 2 - ui(140), ui(200), items, 36, '20px', 202);
+      const entries: { label: string; action: PauseAction | 'practice' | 'gear5' }[] = [...items];
+      if (this.roleCoach) entries.splice(tutorialComplete ? 0 : 3, 0, { label: '学会这三招  ROLE PRACTICE', action: 'practice' });
+      if (this.gear5Coach) entries.splice(3, 0, { label: '五档完整流程练习（可跳过）', action: 'gear5' });
+      this.pauseActions = entries.map((item) => item.action);
+      const menu = new MenuList(this, SCREEN_W / 2 - ui(180), ui(180), entries, this.roleCoach ? 32 : 36, '20px', 202);
       this.pauseUi = { bg, title, menu };
     } else {
       this.pauseUi?.bg.destroy();
@@ -490,11 +656,13 @@ export class FightScene extends Phaser.Scene {
       this.pauseUi = null;
       this.pauseActions = [];
     }
+    this.roleCoach?.setVisible(!this.paused && !this.moveList?.visible);
+    this.gear5Coach?.setVisible(!this.paused && !this.moveList?.visible && !this.roleCoach?.active);
     getInputHub().flush();
   }
 
   private syncAudioPause(): void {
-    if (this.paused || this.moveList?.visible || this.trainFreeze || this.settingsOverlay) { this.audio.pause(); this.dailyAudio.interrupt(); this.subtitles.clear(); }
+    if (this.paused || this.moveList?.visible || this.trainFreeze || this.settingsOverlay || this.roleCoach?.blocksSimulation) { this.audio.pause(); this.dailyAudio.interrupt(); this.subtitles.clear(); }
     else this.audio.resume();
   }
 
@@ -519,7 +687,15 @@ export class FightScene extends Phaser.Scene {
         break;
       case 'cpu':
         this.togglePause();
-        this.scene.start('Preload', cpuChallengeData({ ...this.data_, controlModes: getInputHub().controlModes }));
+        this.launchCpuChallenge();
+        break;
+      case 'gear5':
+        this.togglePause();
+        this.toggleGear5Practice();
+        break;
+      case 'practice':
+        this.togglePause();
+        this.handleRolePractice({ kind: 'directory' });
         break;
       case 'characters':
         this.togglePause();
@@ -552,11 +728,82 @@ export class FightScene extends Phaser.Scene {
     getInputHub().flush();
     this.setPauseUiVisible(true);
     this.refreshControlHint();
+    this.roleCoach?.setVisible(!this.paused && !this.moveList?.visible);
+    this.gear5Coach?.setVisible(!this.paused && !this.moveList?.visible && !this.roleCoach?.active);
+  }
+
+  private launchCpuChallenge(): void {
+    const next = cpuChallengeData({ ...this.data_, controlModes: getInputHub().controlModes });
+    delete next.rolePractice;
+    this.scene.start('Preload', next);
+  }
+
+  private handleRolePractice(action: RolePracticeAction): void {
+    if (!this.roleCoach || this.mode !== 'training' || this.sample) return;
+    if (action.kind !== 'close') this.gear5Coach?.stop();
+    if (action.kind === 'choose') {
+      const practice = practiceById(action.id);
+      if (!practice || practice.character !== this.data_.p1) return;
+      if (practice.opponent !== this.data_.p2) {
+        this.scene.start('Preload', { ...this.data_, p2: practice.opponent, tutorial: false, rolePractice: practice.id });
+        return;
+      }
+      this.tutorial?.suspend(); this.tutorial = null; this.holdPose = undefined;
+      this.roleSession = new RolePracticeSession(practice); this.data_.rolePractice = practice.id;
+      this.resetTraining();
+    } else if (action.kind === 'start') {
+      this.discardPendingInput(); this.roleSession?.start(); this.roleCoach.refresh(this.roleSession);
+    } else if (action.kind === 'retry') this.resetTraining();
+    else if (action.kind === 'next') {
+      const practices = practicesFor(this.data_.p1), index = practices.findIndex(practice => practice.id === this.roleSession?.practice.id);
+      const next = practices[index + 1];
+      if (next) this.handleRolePractice({ kind: 'choose', id: next.id }); else this.roleCoach.showDirectory();
+    } else if (action.kind === 'directory') {
+      this.discardPendingInput(); this.tutorial?.suspend(); this.tutorial = null;
+      this.roleCoach.showDirectory();
+    } else if (action.kind === 'free') {
+      this.roleSession = null; delete this.data_.rolePractice; this.roleCoach.free(); this.dummy.mode = 'stand';
+      this.sim.training = { infiniteHp: true, infiniteMeter: true }; this.resetTraining();
+    } else if (action.kind === 'cpu') {
+      const next = cpuChallengeData({ ...this.data_, difficulty: 'easy', controlModes: getInputHub().controlModes });
+      delete next.rolePractice; this.scene.start('Preload', next);
+    } else if (action.kind === 'characters') {
+      const next = { ...this.data_ }; delete next.rolePractice; this.scene.start('CharacterSelect', next);
+    } else if (action.kind === 'close') this.roleCoach.closeMenu();
+    this.discardPendingInput(); this.syncAudioPause();
+  }
+
+  private toggleGear5Practice(): void {
+    if (!this.gear5Coach || this.paused || this.settingsOverlay || this.moveList?.visible) return;
+    if (this.gear5Coach.session) {
+      this.gear5Coach.stop(); this.sim.training = { infiniteHp: true, infiniteMeter: true };
+      this.resetTraining(); return;
+    }
+    this.roleSession = null; delete this.data_.rolePractice; this.roleCoach?.free();
+    this.tutorial?.suspend(); this.tutorial = null; this.holdPose = undefined; this.dummy.mode = 'stand';
+    this.gear5Coach.start(this.sim); this.resetTraining();
+  }
+
+  private presentationFor(fighter: FighterState): CharacterPresentation | null {
+    const base = this.presentations[fighter.player];
+    return fighter.form ? base?.forms?.[fighter.form] ?? null : base;
+  }
+
+  private animationsFor(fighter: FighterState): AnimTable {
+    const base = this.presentations[fighter.player];
+    return fighter.form ? base?.forms?.[fighter.form]?.anims ?? {} : this.viewAnims[fighter.player];
   }
 
   /** Candidate practice also restores HP/burn; the regular training reset retains its existing rules. */
   private resetTraining(): void {
-    if (this.sample) this.sampleResetWorld = resetSampleRound(this.sim, this.sample);
+    if (this.gear5Coach?.session) {
+      this.gear5Coach.session.reset(this.sim); this.gear5Coach.refresh(this.sim);
+    } else if (this.roleSession) {
+      const restart = this.roleSession.status !== 'ready';
+      this.roleSession.reset(this.sim);
+      if (restart) this.roleSession.start();
+      this.roleCoach?.showSession(this.roleSession);
+    } else if (this.sample) this.sampleResetWorld = resetSampleRound(this.sim, this.sample);
     else this.sim.resetPositions();
     this.pendingTraining = { p1: 0, p2: 0 };
     this.previousTraining = { p1: 0, p2: 0 };
@@ -582,14 +829,25 @@ export class FightScene extends Phaser.Scene {
   }
 
   private drawWorld(w: WorldState): void {
-    this.subtitles.setY(this.tutorial?.active ? 193 : 90);
+    this.subtitles.setY(this.roleCoach?.active ? ui(235) : this.gear5Coach?.session ? ui(215) : this.tutorial?.active ? 193 : 90);
     this.skillBar.draw(this.sim, getInputHub().keyConfig);
+    this.gear5Hud.draw(this.sim, getInputHub().awakeningBindings);
+    this.gear5Coach?.setVisible(!this.paused && !this.moveList?.visible && !this.roleCoach?.active);
+    this.gear5Coach?.refresh(this.sim);
     this.draw(w);
+    this.practiceMarker?.clear();
+    const marker = this.roleSession?.markerX;
+    if (marker !== null && marker !== undefined && this.roleSession?.status === 'running') {
+      const x = this.worldToScreenX(marker, w.cameraX);
+      this.practiceMarker?.lineStyle(ui(2), 0xffd60a, 0.8).lineBetween(x - ui(20), GROUND_SCREEN_Y + ui(5), x + ui(20), GROUND_SCREEN_Y + ui(5));
+      this.practiceMarker?.lineBetween(x, GROUND_SCREEN_Y - ui(8), x, GROUND_SCREEN_Y + ui(9));
+    }
     this.after.draw();
     this.fx.draw();
     const sources = (this.registry.get(SPRITE_SOURCES) as Record<string, string | null> | undefined) ?? {};
     this.hud.draw(w, {
       armor: [this.sim.hasArmor(w.fighters[0]!), this.sim.hasArmor(w.fighters[1]!)],
+      opening: !!this.openingSpeech?.active,
       source: this.mode === 'training' ? `${this.data_.p1}:${this.presentations[0] ? '新人物样板' : sources[this.data_.p1] ?? 'block'}  ${this.data_.p2}:${this.presentations[1] ? '新人物样板' : sources[this.data_.p2] ?? 'block'}` : '',
     });
   }
@@ -611,6 +869,8 @@ export class FightScene extends Phaser.Scene {
     if (!this.moveList.visible) this.discardPendingInput();
     const w = this.sim.state;
     this.moveList.toggle(getInputHub().keyConfig, [w.fighters[0]!.facing === 1, w.fighters[1]!.facing === 1]);
+    this.roleCoach?.setVisible(!this.paused && !this.moveList.visible);
+    this.gear5Coach?.setVisible(!this.paused && !this.moveList.visible);
     this.setPauseUiVisible(this.paused && !this.moveList.visible);
     this.syncAudioPause();
     getInputHub().flush();
@@ -618,6 +878,7 @@ export class FightScene extends Phaser.Scene {
 
   private closeMoveList(): void {
     this.moveList?.hide();
+    this.roleCoach?.setVisible(!this.paused);
     this.syncAudioPause();
     this.setPauseUiVisible(this.paused);
     getInputHub().flush();
@@ -636,10 +897,18 @@ export class FightScene extends Phaser.Scene {
   }
 
   override update(_time: number, deltaMs: number): void {
-    if (!this.ready || this.diagnostics?.visible) return;
+    this.executionTrace.updateCount++;
+    this.executionTrace.deltaMs = Number.isFinite(deltaMs) ? deltaMs : null;
+    this.executionTrace.sceneTimeMs = _time;
+    this.executionTrace.fixedSteps = this.executionTrace.simSteps = 0;
+    if (!this.ready) { this.executionTrace.gate = 'not-ready'; return; }
+    if (this.diagnostics?.visible) { this.executionTrace.gate = 'diagnostics'; return; }
     const steps = this.step.advance(deltaMs);
-    if (this.settingsOverlay) return;
+    this.executionTrace.fixedSteps = steps;
+    this.executionTrace.gate = steps ? 'simulation' : 'no-fixed-step';
+    if (this.settingsOverlay) { this.executionTrace.gate = 'settings'; return; }
     if (this.moveList?.visible) {
+      this.executionTrace.gate = 'move-list';
       for (let i = 0; i < steps; i++) {
         const ev = getInputHub().edges();
         if (this.moveList.update(ev)) {
@@ -650,12 +919,28 @@ export class FightScene extends Phaser.Scene {
       return;
     }
     if (this.paused) {
+      this.executionTrace.gate = 'paused';
       for (let i = 0; i < steps; i++) this.updatePaused();
       return;
     }
     this.checkGamepadDisconnect();
-    if (this.paused) return;
+    if (this.paused) { this.executionTrace.gate = 'gamepad-pause'; return; }
     const hub = getInputHub();
+    if (this.openingSpeech?.active) {
+      this.executionTrace.gate = 'opening-speech';
+      const raw = hub.snapshot();
+      const start = !!((raw.p1 | raw.p2) & Btn.Start);
+      this.openingSpeech.tick(deltaMs, this.openingSkip || start);
+      if (!this.openingSpeech.active) this.finishOpeningSpeech();
+      this.drawWorld(this.sim.state);
+      return;
+    }
+    if (this.roleCoach?.blocksSimulation) {
+      this.executionTrace.gate = 'role-menu';
+      for (let i = 0; i < steps; i++) this.roleCoach.updateMenu(hub.edges());
+      this.drawWorld(this.sim.state);
+      return;
+    }
     for (let i = 0; i < steps; i++) {
       const raw = hub.snapshot();
       const pressedStart = (raw.p1 | raw.p2) & Btn.Start & ~(this.lastInput.p1 | this.lastInput.p2);
@@ -678,15 +963,17 @@ export class FightScene extends Phaser.Scene {
         this.pendingTraining = captureTrainingInput(this.pendingTraining, this.previousTraining, this.lastInput);
         this.previousTraining = this.lastInput;
         const forcedStep = this.trainStep;
-        if (this.trainFreeze && !forcedStep) continue;
+        if (this.trainFreeze && !forcedStep) { this.executionTrace.gate = 'training-freeze'; continue; }
         this.trainStep = false;
         this.trainTick++;
-        if (!forcedStep && this.trainScale > 1 && this.trainTick % this.trainScale !== 0) continue;
+        if (!forcedStep && this.trainScale > 1 && this.trainTick % this.trainScale !== 0) { this.executionTrace.gate = 'training-slow'; continue; }
         this.lastInput = this.pendingTraining;
         this.pendingTraining = { p1: 0, p2: 0 };
       }
       if (this.cpu) {
         this.lastInput = { p1: this.lastInput.p1, p2: this.cpu.input(this.sim) };
+      } else if (this.roleSession?.status === 'running') {
+        this.lastInput = { p1: this.lastInput.p1, p2: this.roleSession.dummyInput(this.sim) };
       } else if (this.mode === 'training' && !this.sample) {
         this.syncTutorialDummy();
         const d = this.dummy.input(this.sim, 1);
@@ -700,7 +987,29 @@ export class FightScene extends Phaser.Scene {
       // The gate reads the same current history as core and runs once per real step,
       // after slow-motion/step buffering, never on skipped rendering ticks.
       if (this.sample) this.lastInput = this.sample.input(this.sim, this.lastInput);
+      const previousForms = this.sim.state.fighters.map(fighter => fighter.form);
       this.sim.step(this.lastInput);
+      this.executionTrace.simSteps++; this.executionTrace.totalSimSteps++;
+      if (this.sim.state.phase === 'fight') for (const side of [0, 1] as const) {
+        const fighter = this.sim.state.fighters[side];
+        if (previousForms[side] === 'gear5' && fighter.form === null) this.audio.playEvent({ phase: 'form_exit', characterId: fighter.def.id, player: side, moveId: 'g5_exit' });
+      }
+      this.gear5Coach?.session?.observe(this.sim);
+      if (this.roleSession) {
+        this.roleSession.observe(this.sim);
+        this.roleCoach?.refresh(this.roleSession, this.sim.state.fighters[0].facing);
+      }
+      if (this.collectAuthoringHits) {
+        for (const hit of this.sim.hits) {
+          this.authoringHits.push({
+            frame: hit.frame, moveId: hit.moveId, attacker: hit.attacker, defender: hit.defender,
+            damage: hit.damage, kind: hit.kind, projectile: hit.projectile,
+            comboHits: hit.comboHits, comboDamage: hit.comboDamage,
+            hpAfterStep: [this.sim.state.fighters[0].hp, this.sim.state.fighters[1].hp],
+          });
+        }
+        if (this.authoringHits.length > 32) this.authoringHits.splice(0, this.authoringHits.length - 32);
+      }
       this.sampleResetWorld = null;
       // Check before any hit/KO audio, effects or drawing can consume an uncovered ending pose.
       // Ordinary recovery waits until both fighters have finished attacks and reactions.
@@ -714,6 +1023,7 @@ export class FightScene extends Phaser.Scene {
       if (this.superDimFrames > 0) this.superDimFrames--;
       this.after.tick();
       this.afterStep();
+      if (this.roleSession && this.roleSession.status !== 'running') { this.syncAudioPause(); break; }
       if (this.tutorialCompletePending) {
         this.tutorialCompletePending = false;
         this.togglePause(true);
@@ -744,9 +1054,10 @@ export class FightScene extends Phaser.Scene {
     if (this.mode === 'training') {
       if (this.sample) this.refreshControlHint();
       const t = this.sim.training;
-      this.trainingText.setY(ui(this.tutorial?.active ? 170 : 96));
+      this.trainingText.setY(ui(this.roleCoach?.active ? 211 : this.tutorial?.active ? 170 : 96));
       this.trainingText.setText(
-        `${this.sample ? '样板' : '训练'}  F5木桩:${this.sample ? SAMPLE_DUMMY_LABELS[this.sample.mode] : this.dummy.mode}  F6重置  F7气:${t.infiniteMeter ? '无限' : '普通'}  F8血:${this.sample ? '自动恢复' : t.infiniteHp ? '无限' : '普通'}  ${this.trainFreeze ? 'F9恢复实时  F10下一帧' : `F9慢放:${this.trainScale === 1 ? '1x' : `1/${this.trainScale}`}  F10逐帧`}  F11出招表`,
+        this.roleSession ? `战术练习  F2目录  F6重试  F12下一条  F5退出到自由木桩  F11出招表`
+          : `${this.sample ? '样板' : '训练'}  F5木桩:${this.sample ? SAMPLE_DUMMY_LABELS[this.sample.mode] : this.dummy.mode}  F6重置  F7气:${t.infiniteMeter ? '无限' : '普通'}  F8血:${this.sample ? '自动恢复' : t.infiniteHp ? '无限' : '普通'}  ${this.trainFreeze ? 'F9恢复实时  F10下一帧' : `F9慢放:${this.trainScale === 1 ? '1x' : `1/${this.trainScale}`}  F10逐帧`}  F11出招表`,
       );
     }
     if (this.shake > 0) this.shake = Math.max(0, this.shake - 0.4);
@@ -811,13 +1122,13 @@ export class FightScene extends Phaser.Scene {
     this.hud.onEvents(this.sim.hits, 1);
 
     const dailyFighters = w.fighters.map(f => {
-      const table = this.viewAnims[f.player];
+      const table = this.animationsFor(f);
       const pose = currentAnimation(this.sim, f, table);
       if (f.state !== 'idle' && !['walk_fwd', 'walk_back', 'dash', 'backdash'].includes(f.state) && !f.state.startsWith('jump_')) this.audio.interruptDailyVoice(f.player);
       return { player: f.player, characterId: f.def.id, state: f.state, x: f.x, airborne: f.airborne,
         animationFrame: pose.index, animationFrames: table[pose.anim]?.frames ?? 1, hitstop: f.hitstop };
     });
-    for (const cue of this.dailyAudio.step(dailyFighters, w.phase === 'fight', this.sim.hits.length > 0, this.audio.voiceBusy())) {
+    for (const cue of this.dailyAudio.step(dailyFighters, w.phase === 'fight', this.sim.hits.length > 0, this.audio.voiceBusy(), this.audio.characterChatter)) {
       const played = this.audio.playCue(cue.id, cue.player === undefined ? {} : { player: cue.player });
       if (played && cue.id.startsWith('voice.') && cue.player !== undefined) this.dailyAudio.notePlayed(cue.player);
     }
@@ -859,6 +1170,7 @@ export class FightScene extends Phaser.Scene {
       const recoveryStart = move && f.state === 'attack' ? totalFrames(move) - move.frames.at(-1)!.duration
         : f.state === 'throw' && move?.throwData ? move.throwData.releaseFrame : null;
       if (move && recoveryStart !== null && f.stateFrame >= recoveryStart) {
+        this.skillFx.recover(this.sim, i);
         this.audio.playEvent({ phase: 'recover', characterId: f.def.id, player: i, moveId: move.id, moveInstance: f.moveInstance });
       }
       if ((mv === 'sp_meteor' || mv === 'sp_meteor_rain') && w.frame % 3 === 0) {
@@ -899,7 +1211,7 @@ export class FightScene extends Phaser.Scene {
       }
       this.prevPhase = w.phase;
     }
-    if ((w.phase === 'round_end' || w.phase === 'match_end') && w.phaseFrame >= 40 && w.roundWinner !== null && this.winVoiceRound !== w.round) {
+    if ((w.phase === 'round_end' || w.phase === 'match_end') && w.roundWinner !== null && w.phaseFrame >= victoryVoiceFrame(w.fighters[w.roundWinner]!.def.id) && this.winVoiceRound !== w.round) {
       this.winVoiceRound = w.round;
       const winner = w.fighters[w.roundWinner]!;
       this.audio.playEvent({ phase: 'win', characterId: winner.def.id, player: winner.player });
@@ -923,13 +1235,13 @@ export class FightScene extends Phaser.Scene {
   private spawnAfterimage(f: FighterState, cameraX: number): void {
     const view = this.views[f.player];
     if (this.useSprites && view) {
-      const table = this.viewAnims[f.player];
+      const table = this.animationsFor(f);
       const { anim, index } = currentAnimation(this.sim, f, table);
       const name = frameName(f.def.id, anim, index);
       let x = this.worldToScreenX(f.x, cameraX), y = this.worldToScreenY(f.y);
-      const presentation = this.presentations[f.player];
+      const presentation = this.presentationFor(f);
       const geometry = presentation?.attachments[name];
-      const key = presentation?.frameTextures?.[name] ?? view.key;
+      const key = presentation?.frameTextures?.[name] ?? (f.form ? this.presentations[f.player]?.forms?.[f.form]?.key : undefined) ?? view.key;
       const scale = UI_SCALE / (presentation?.textureDensity ?? 1);
       if (geometry && this.textures.exists(key) && this.textures.get(key).has(name)) {
         // Afterimages use atlas pivots; compensate when the candidate's explicit root lies elsewhere.
@@ -1005,7 +1317,9 @@ export class FightScene extends Phaser.Scene {
     this.skillFx.begin();
     const sx = (x: number) => this.worldToScreenX(x, w.cameraX);
     const sy = (y: number) => this.worldToScreenY(y);
-    this.skillFx.fighters(this.sim, sx, sy, player => this.useSprites && this.presentations[player]?.style === 'anime');
+    this.skillFx.fighters(this.sim, sx, sy,
+      player => this.useSprites && this.presentations[player]?.style === 'anime',
+      (player, name) => this.views[player]?.socket(name) ?? null);
     for (const p of w.projectiles) if (!this.skillFx.projectile(p, this.sim, sx, sy)) this.drawProjectile(p, w.cameraX);
     this.skillFx.finish(sx, sy);
 
@@ -1040,13 +1354,13 @@ export class FightScene extends Phaser.Scene {
     const w = this.sim.state;
     // 演出：入场从两侧滑入；回合结束胜者摆胜利姿势
     let offsetX = 0;
-    if (w.phase === 'intro') {
+    if (w.phase === 'intro' && !this.openingSpeech?.active) {
       const t = Math.min(1, w.phaseFrame / 30);
       offsetX = (1 - t) * (1 - t) * 160 * RENDER_SCALE * (f.player === 0 ? -1 : 1);
     }
     const isWinner = (w.phase === 'round_end' || w.phase === 'match_end') && w.roundWinner === f.player && w.phaseFrame > 30 && !f.airborne;
     const fd = this.sim.currentFrame(f);
-    const anims = this.viewAnims[f.player];
+    const anims = this.animationsFor(f);
     const anime = this.presentations[f.player]?.style === 'anime';
     let scale = anime || f.state === 'attack' || f.state === 'throw' ? 1 : animDrawScale(anims, f.state);
     // 连续精灵本身已经包含橡胶膨胀/巨拳，保持身体与脚底尺寸稳定。

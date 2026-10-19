@@ -1,0 +1,54 @@
+{
+  "characterId": "shanks",
+  "image": "assets/characters/shanks/anime/ui-roster-0929.png",
+  "sha256": "021cf353c989b42c08136ad2c72a606025d8ba69b1e7a404a8b7a053b71ffe41",
+  "width": 570,
+  "height": 490,
+  "frames": {
+    "body": {
+      "x": 0,
+      "y": 0,
+      "w": 570,
+      "h": 490
+    },
+    "portrait": {
+      "x": 260,
+      "y": 0,
+      "w": 170,
+      "h": 170
+    }
+  },
+  "source": {
+    "key": "pirate_mother_0929",
+    "file": "public/assets/generated/source/roster-pirate-mother-0929.png",
+    "sha256": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b",
+    "crop": [
+      40,
+      0,
+      570,
+      490
+    ]
+  },
+  "processing": {
+    "scale": 1,
+    "method": "Original-density RGBA crop with one explicit neighboring Whitebeard blade-tip exclusion; no body repaint or resampling.",
+    "transparency": "source-alpha",
+    "excludeRects": [
+      [
+        532,
+        462,
+        38,
+        28
+      ]
+    ],
+    "excludedNeighborAlphaPixels": 200,
+    "protectedPixelsEqual": true,
+    "protectedRgbaSha256": "aee5622ea09fc966a94f1a187b642329590a2824d879fe1f21cdc862c804bdf2"
+  },
+  "reviewStatus": "candidate-ui-not-public-acceptance",
+  "notes": [
+    "Full Shanks body and entire saber retained. Crop ends before Zoro artwork begins.",
+    "The bottom-right exclusion removes a detached neighboring Whitebeard blade tip below y462 of the UI crop; Shanks saber ends near source y422 and no Shanks body pixels occupy this rectangle.",
+    "Portrait is an overlapping original-density frame of this same PNG, not a enlarged battle sprite."
+  ]
+}

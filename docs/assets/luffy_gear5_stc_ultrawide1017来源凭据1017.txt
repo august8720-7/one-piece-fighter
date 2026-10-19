@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_stc_ultrawide1017",
+  "file": "public/assets/generated/source/luffy-gear5-stc-ultrawide1017.png",
+  "sha256": "858290e4faa99c34b2c8ca1d56ab211e565fda6fe160a4b405a29e6648cb24de",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官网图像界面没有公开具体图像型号；GPT-6为本会话此前实际文字标签，不能推定后台图像型号。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+  "observedCompletedAt": "2026-10-17T05:35:52.391Z",
+  "uiObservation": "根代理真实下载并view_image：本主会话本轮无新上传附件，明确编辑上一张实际来源luffy_gear5_stc_wide1017，并沿初始五档母版身份；该直接母图已用同catalog来源key绑定，不能只记master而漏直接编辑来源。超长真实皮肤手臂已可辨，根粗看长度超过3H；拳高度可能仍接近旧st_c框下沿，交render按统一真实尺度/root做合法橡胶段压缩候选及实际接触量测。沿此前已核GPT-6/极高，完成截图绑定本次图，不冒称新型号菜单。观测为根下载后完成复核，不是服务器生成时间。原始超长图不改、不自动采用；后处理另行留保护区和像素证据，不修改旧数值或假造root。C/D原件都保留同字节。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-stc-ultrawide-prompt1017.txt",
+    "sha256": "d2a4e81d15621e0ef8580a81df8f33bb531f4dc8f0a44421c4bad2a62f8cda8d"
+  },
+  "referenceSources": {
+    "luffy_gear5_stc_wide1017": "40c5cfc77544b9d6791694b36fffb9be2d9b5fd5912736c6978fb19c1ddc4239",
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T05:41:46.190253+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/stc-ultrawide-web1017.png",
+    "sha256": "60cd32a067d303815c7a84d566074dae9d44d5bef3e576581b091f300c67ebe5"
+  },
+  "referenceFiles": {
+    "luffy_gear5_stc_wide1017": {
+      "file": "public/assets/generated/source/luffy-gear5-stc-wide1017.png",
+      "sha256": "40c5cfc77544b9d6791694b36fffb9be2d9b5fd5912736c6978fb19c1ddc4239"
+    },
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    }
+  },
+  "originalPngSize": [
+    2172,
+    724
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

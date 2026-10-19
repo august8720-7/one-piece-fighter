@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "kizaru_walk_contact_edit_1003",
+  "file": "public/assets/generated/source/roster-kizaru-walk-contact-edit-1003.png",
+  "sha256": "8781a476a151b74fc8bdbb45cf72a7d5831bbdb7e9a59dca5f2af7423dce2d5f",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "在原会话已实际核验最新选中与极高第四项后继续官方图片编辑；图像后台型号仍未公开。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Microsoft Edge",
+  "sessionUrl": "https://chatgpt.com/c/6abbd7c3-ab58-83e8-bc9d-5433cd330260",
+  "observedCompletedAt": "2026-10-03T22:15:03.4290150+08:00",
+  "uiObservation": "本助手在Edge当前第4图查看器内fill完整局部修第3接触相提示，单次ControlEnter，真实页面出现已编辑图像附件、完整新消息、正在回应及停止按钮。之后Edge被另一扩展UI挡住，暂停控制，不修改扩展权限。海贼执行者用现可用IAB正常读取同URL已有完成的第5图，无重发，标题黄猿四帧行走精灵图，natural1312x1199，原生下载得到PNG；其实际完成复核截图及下载JSON已留上级。本助手已view原PNG并重复实核完整签名/IEND/Pillowverify/全RGBAdecode及稳定字节，先清单复制SHA相等。时间是IAB完成复核截图时，不是服务器首次生成。原图尺寸与布局实际改变，不能声称其他像素不变；比例/四相尚未采用。",
+  "prompt": {
+    "file": "docs/assets/kizaru-walk-contact-fix-prompt1003.txt",
+    "sha256": "91702a60b48a6a9abf840298d9d35fcddfdd037477734387bb28c85b7577b95d"
+  },
+  "referenceSources": {
+    "kizaru_walk_guided_1003": "43efb45d73e00e479ad4b5996a20496ac984ecfe46cfca88882d5a58edea7117",
+    "kizaru_locomotion_0929": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T14:38:51.584086+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/kizaru-walk1003/contact-edit-iab-viewer1003.jpg",
+    "sha256": "28aa480e27f9a93b3fb55295531830ff872d73f9f98b0bffdc9119e013b66975"
+  },
+  "referenceFiles": {
+    "kizaru_walk_guided_1003": {
+      "file": "public/assets/generated/source/roster-kizaru-walk-guided-1003.png",
+      "sha256": "43efb45d73e00e479ad4b5996a20496ac984ecfe46cfca88882d5a58edea7117"
+    },
+    "kizaru_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-kizaru-locomotion-0929.png",
+      "sha256": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+    }
+  },
+  "originalPngSize": [
+    1312,
+    1199
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

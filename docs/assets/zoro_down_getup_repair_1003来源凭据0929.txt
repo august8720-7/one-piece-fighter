@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "zoro_down_getup_repair_1003",
+  "file": "public/assets/generated/source/roster-zoro-down-getup-repair-1003.png",
+  "sha256": "5c704a879238d0873c77b76f25acffeaed0dc4aaf6102bfd20eee57d610ee581",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方页面未公开具体图像型号，不推断后台模型。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbe218-2044-83e8-b500-931a2779e800",
+  "observedCompletedAt": "2026-10-03T01:05:00+08:00",
+  "uiObservation": "1003同一索隆分支定向修复倒地缺第三刀及起身边界。提交前菜单最新radio选中、极高第4项，完整textbox.fill后读回全文，单次点击发送。网页今天0:46有完整新提示词，末尾实际生成新图并显示回答已完成；01:05为本次完成结果复核时刻，不是服务器生成时间。downloadMedia等待回执超时，但Downloads新增1550675bytes完整1536x1024RGBA PNG，解码、实图与hash核对并清单复制。新图倒地两手刀与口衔刀各自可辨；起身三刀完整且离边。只证明源图及静态审查，不证明原速或实机验收。",
+  "prompt": {
+    "file": "docs/assets/zoro-down-getup-repair-prompt1003.txt",
+    "sha256": "53ed4b8c157b0f608f58c3dcaf00b17cb662c5e96d4e69ecb13a662208e43290"
+  },
+  "referenceSources": {
+    "zoro_reactions_1003": "1190ff3a5461e3bec7034af84508067d10a56b8d7dc9738465db2d55a52a6e87",
+    "zoro_sword_repair_0929": "09fb1df4358b3f0046ca20c18eef1b0acf31fa7a6c650dce1b834907fb7d74c9"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-02T17:08:29.656204+00:00",
+  "referenceFiles": {
+    "zoro_reactions_1003": {
+      "file": "public/assets/generated/source/roster-zoro-reactions-1003.png",
+      "sha256": "1190ff3a5461e3bec7034af84508067d10a56b8d7dc9738465db2d55a52a6e87"
+    },
+    "zoro_sword_repair_0929": {
+      "file": "public/assets/generated/source/roster-zoro-sword-repair-0929.png",
+      "sha256": "09fb1df4358b3f0046ca20c18eef1b0acf31fa7a6c650dce1b834907fb7d74c9"
+    }
+  },
+  "originalPngSize": [
+    1536,
+    1024
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

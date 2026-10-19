@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_qe_body_1003",
+  "status": "E-cropped-candidate-Q-blocked-by-clipped-tip",
+  "sourceSha256": "802066e6355c3eeb896ed0006bcccd64f9e267ce040fc0f127f0c23f1d7a9869",
+  "imageSize": [
+    1254,
+    1254
+  ],
+  "independentNewAdoptedCandidatePoses": 5,
+  "calibration": {
+    "neutralAlpha8Bounds": [
+      10,
+      35,
+      419,
+      452
+    ],
+    "neutralHeight": 417,
+    "referenceHeight": 380,
+    "unitScale": 0.9112709832134293,
+    "perPoseScale": false
+  },
+  "E": {
+    "moveId": "sp_single_arm_cut",
+    "ticks": [
+      8,
+      3,
+      4,
+      4,
+      23
+    ],
+    "twoDistinctAttacks": true,
+    "frames": [
+      "e_start",
+      "e_hit1",
+      "e_turn",
+      "e_hit2",
+      "e_recover"
+    ],
+    "remainingValidation": "normal-speed facing and actual hitbox contact review"
+  },
+  "Q": {
+    "moveId": "sp_haki_slash",
+    "adopted": false,
+    "reason": "Original image right edge x1253 has nonzero alpha at y254..258 on saber tip; do not claim complete weapon. Preserve source and regenerate Q-only sheet.",
+    "timing": [
+      12,
+      5,
+      23
+    ]
+  },
+  "processing": "Only original RGBA rectangular crops and explicit unrelated-neighbor exclusions. No chroma key, no repaint, no pose-specific resize.",
+  "browserRecovery": "IAB browser2 tab2 confirmed full Q/E prompt and completed image5; original generation time unknown;1003 is completion recheck/download date."
+}

@@ -5,7 +5,7 @@ import { DEFAULT_ANIMS, type AnimeRuntimeManifest } from '../../src/render/anima
 import type { AnimeLoadResult, AssetFailure, PresentationAssetLoadResult } from '../../src/render/assets';
 
 const mocks = vi.hoisted(() => ({
-  loadAnime: vi.fn(), loadInterfaces: vi.fn(async () => ({ ok: true, failures: [] as AssetFailure[] })),
+  loadAnime: vi.fn(), loadForms: vi.fn(), loadInterfaces: vi.fn(async () => ({ ok: true, failures: [] as AssetFailure[] })),
   loadLegacy: vi.fn(async () => ({})), loadStage: vi.fn(), releaseUnused: vi.fn(),
   preloadAudio: vi.fn(async () => ({ fetched: 0, decoded: 0, failed: [] as string[] })),
   preloadMenu: vi.fn(async () => ({ fetched: 0, decoded: 0, failed: [] as string[] })),
@@ -15,7 +15,7 @@ const mocks = vi.hoisted(() => ({
 vi.mock('phaser', () => ({ default: { Scene: class {}, Scenes: { Events: { SHUTDOWN: 'shutdown' } } } }));
 vi.mock('../../src/render/assets', () => ({
   ANIME_LOAD_RESULT: 'animeLoadResult', SPRITE_KEYS: 'spriteKeys',
-  loadAnimeCharacters: mocks.loadAnime, loadAnimeInterfaces: mocks.loadInterfaces, loadCharacterAtlases: mocks.loadLegacy, loadPresentationAssets: mocks.loadStage,
+  loadAnimeCharacters: mocks.loadAnime, loadAnimeCharacterForms: mocks.loadForms, loadAnimeInterfaces: mocks.loadInterfaces, loadCharacterAtlases: mocks.loadLegacy, loadPresentationAssets: mocks.loadStage,
   releaseUnusedFightAssets: mocks.releaseUnused,
 }));
 vi.mock('../../src/audio/Sfx', () => ({ sfx: () => ({ preload: mocks.preloadAudio, preloadMenu: mocks.preloadMenu, useDownloads: vi.fn(), retryFailed: mocks.retryAudio, playMusic: mocks.playMusic, stopMusic: mocks.stopMusic, muted: false }) }));
@@ -47,6 +47,7 @@ const entry: PreloadData = { p1: 'luffy', p2: 'akainu', mode: 'training', art: '
 function fixture(data: PreloadData = entry) {
   const values = new Map<string, unknown>();
   const controls = new Map<string, () => void>();
+  const shutdown: (() => void)[] = [];
   const text = (label = '') => {
     const object = {
       visible: true, destroy: vi.fn(),
@@ -64,14 +65,15 @@ function fixture(data: PreloadData = entry) {
     scene: navigation,
     registry: { get: (key: string) => values.get(key), set: (key: string, value: unknown) => values.set(key, value) },
     add: { rectangle: () => text(), text: (_x: number, _y: number, label: string) => text(label) },
-    events: { once: vi.fn() },
+    events: { once: vi.fn((event: string, callback: () => void) => { if (event === 'shutdown') shutdown.push(callback); }) },
   });
   scene.init(data);
-  return { scene, navigation, values, controls };
+  return { scene, navigation, values, controls, shutdown: () => shutdown.forEach(callback => callback()) };
 }
 const flush = async () => { for (let tick = 0; tick < 10; tick++) await Promise.resolve(); };
 beforeEach(() => {
   vi.clearAllMocks(); mocks.loadStage.mockResolvedValue(stageReady());
+  mocks.loadForms.mockResolvedValue({ ok: true, requested: ['luffy'], assets: {}, errors: {}, failures: [] } satisfies AnimeLoadResult);
   mocks.loadInterfaces.mockResolvedValue({ ok: true, failures: [] });
   mocks.preloadAudio.mockResolvedValue({ fetched: 0, decoded: 0, failed: [] });
 });
@@ -236,5 +238,81 @@ describe('preload prevents invalid battles', () => {
     current.scene.create(); await flush();
     expect(current.navigation.start).not.toHaveBeenCalled();
     expect(current.values.get('presentationLoadResult')).toMatchObject({ ok: false, issues: ['舞台与技能贴图加载未完成'] });
+  });
+});
+
+describe('Gear5 preload scene integration1017', () => {
+  it('loads true form only after base succeeds, and waits for it before entering Fight', async () => {
+    const current = fixture({ ...entry, scope: 'full' });
+    let baseDone!: (result: AnimeLoadResult) => void, formDone!: (result: AnimeLoadResult) => void;
+    mocks.loadAnime.mockImplementationOnce(() => new Promise<AnimeLoadResult>(resolve => { baseDone = resolve; }));
+    mocks.loadForms.mockImplementationOnce(() => new Promise<AnimeLoadResult>(resolve => { formDone = resolve; }));
+    current.scene.create(); await flush();
+    expect(mocks.loadForms).not.toHaveBeenCalled(); expect(current.navigation.start).not.toHaveBeenCalled();
+    baseDone(valid(true)); await flush();
+    expect(mocks.loadForms).toHaveBeenCalledWith(current.scene, ['luffy', 'akainu'], expect.anything());
+    expect(current.navigation.start).not.toHaveBeenCalled();
+    formDone({ ok: true, requested: ['luffy'], assets: {}, errors: {}, failures: [] }); await flush();
+    expect(current.navigation.start).toHaveBeenCalledWith('Fight', expect.objectContaining({ scope: 'full' }));
+  });
+  it.each(['sample', 'legacy', 'menu', 'non-luffy'] as const)('%s never fetches the form bundle', async kind => {
+    const data: PreloadData = kind === 'legacy' ? { ...entry, art: 'legacy' }
+      : kind === 'menu' ? { ...entry, scope: 'full', destination: 'CharacterSelect' }
+      : kind === 'non-luffy' ? { ...entry, scope: 'full', p1: 'akainu', p2: 'akainu' } : entry;
+    mocks.loadAnime.mockResolvedValueOnce(valid(true));
+    const current = fixture(data); current.scene.create(); await flush();
+    expect(mocks.loadForms).not.toHaveBeenCalled();
+    expect(current.navigation.start).toHaveBeenCalled();
+  });
+  it('propagates actual form failure; retry preserves profile and shares the same download pool', async () => {
+    const current = fixture({ ...entry, scope: 'full', mode: 'cpu', difficulty: 'hard', controlModes: ['classic', 'simple'] });
+    mocks.loadAnime.mockResolvedValue(valid(true));
+    mocks.loadForms.mockResolvedValueOnce({ ok: false, requested: ['luffy'], assets: valid(true).assets,
+      errors: { luffy: 'actual form SHA mismatch' }, failures: [{ characterId: 'luffy:gear5', code: 'integrity', message: 'actual form SHA mismatch' }] } satisfies AnimeLoadResult);
+    current.scene.create(); await flush();
+    expect(current.navigation.start).not.toHaveBeenCalled();
+    expect(current.values.get('presentationLoadResult')).toMatchObject({ ok: false, issues: ['luffy:gear5：actual form SHA mismatch'] });
+    const pool = mocks.loadForms.mock.calls[0]![2];
+    current.controls.get('重新载入')!();
+    const retry = current.navigation.restart.mock.calls[0]![0] as PreloadData;
+    expect(retry).toMatchObject({ art: 'anime', scope: 'full', mode: 'cpu', difficulty: 'hard', controlModes: ['classic', 'simple'], retryAudio: true });
+    current.scene.init(retry); current.scene.create(); await flush();
+    expect(mocks.loadForms.mock.calls[1]![2]).toBe(pool);
+    expect(current.navigation.start).toHaveBeenCalledWith('Fight', expect.objectContaining({ scope: 'full' }));
+  });
+  it('return to selection removes failure/attempt flags and never retries combat/form dependencies', async () => {
+    const current = fixture({ ...entry, scope: 'full', mode: 'cpu', failure: ['五档缺图'], rolePractice: 'luffy.long_punch', retryAudio: true });
+    current.scene.create();
+    expect(mocks.loadForms).not.toHaveBeenCalled();
+    current.controls.get('返回选人')!();
+    const selection = current.navigation.restart.mock.calls[0]![0] as PreloadData;
+    expect(selection).toMatchObject({ destination: 'CharacterSelect', mode: 'cpu', art: 'anime', scope: 'full' });
+    expect(selection.failure).toBeUndefined(); expect(selection.retryAudio).toBeUndefined(); expect(selection.rolePractice).toBeUndefined();
+    current.scene.init(selection); current.scene.create(); await flush();
+    expect(mocks.loadAnime).not.toHaveBeenCalled(); expect(mocks.loadForms).not.toHaveBeenCalled();
+    expect(current.navigation.start).toHaveBeenCalledWith('CharacterSelect', expect.not.objectContaining({ failure: expect.anything() }));
+  });
+  it('does not start form work after shutdown while awaiting base, or navigate after stale form completion', async () => {
+    for (const pendingForm of [false, true]) {
+      const current = fixture({ ...entry, scope: 'full' });
+      let done!: (result: AnimeLoadResult) => void;
+      if (pendingForm) {
+        mocks.loadAnime.mockResolvedValueOnce(valid(true));
+        mocks.loadForms.mockImplementationOnce(() => new Promise<AnimeLoadResult>(resolve => { done = resolve; }));
+      } else mocks.loadAnime.mockImplementationOnce(() => new Promise<AnimeLoadResult>(resolve => { done = resolve; }));
+      const callsBefore = mocks.loadForms.mock.calls.length;
+      current.scene.create(); await flush(); current.shutdown();
+      done(pendingForm ? { ok: true, requested: ['luffy'], assets: {}, errors: {}, failures: [] } : valid(true)); await flush();
+      expect(current.navigation.start).not.toHaveBeenCalled();
+      expect(mocks.loadForms).toHaveBeenCalledTimes(callsBefore + (pendingForm ? 1 : 0));
+    }
+  });
+  it('base failure prevents a dependent form request', async () => {
+    const current = fixture({ ...entry, scope: 'full' });
+    mocks.loadAnime.mockResolvedValueOnce({ ok: false, requested: ['luffy'], assets: {}, errors: { luffy: 'base missing' },
+      failures: [{ characterId: 'luffy', code: 'invalid', message: 'base missing' }] } satisfies AnimeLoadResult);
+    current.scene.create(); await flush();
+    expect(mocks.loadForms).not.toHaveBeenCalled();
+    expect(current.navigation.start).not.toHaveBeenCalled();
   });
 });

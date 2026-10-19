@@ -1,0 +1,345 @@
+{
+  "sourceKey": "aokiji_crouch_attacks_1003",
+  "sourceHash": "b329fdc4d0d255bb59662d32192809ce2b531d7e718adf47c0a5f3a02fcd9aa1",
+  "evidenceDir": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-crouch1003",
+  "measurementFile": "docs/assets/aokiji-crouch-measurements1003.json",
+  "scaleReference": {
+    "crop": [
+      39,
+      2,
+      355,
+      388
+    ],
+    "excludeRects": [],
+    "expectedHeight64": 371,
+    "basis": "Cell1 separate normal standing neutral alpha64height371px vs existing407px; all ten adopted crouch poses use407/371, no per-pose scale."
+  },
+  "frames": {
+    "cr_a_active_1003": {
+      "crop": [
+        440,
+        107,
+        380,
+        284
+      ],
+      "root": [
+        166,
+        276
+      ],
+      "sockets": {
+        "fist": [
+          355,
+          91
+        ]
+      },
+      "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation."
+    },
+    "cr_a_recover_1003": {
+      "crop": [
+        863,
+        102,
+        343,
+        289
+      ],
+      "root": [
+        168,
+        281
+      ],
+      "sockets": {},
+      "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation."
+    },
+    "cr_b_active_1003": {
+      "crop": [
+        426,
+        403,
+        431,
+        271
+      ],
+      "root": [
+        164,
+        263
+      ],
+      "sockets": {
+        "shoe_front": [
+          415,
+          228
+        ]
+      },
+      "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation.",
+      "excludeRects": [
+        [
+          392,
+          254,
+          39,
+          17
+        ]
+      ]
+    },
+    "cr_b_recover_1003": {
+      "crop": [
+        880,
+        397,
+        333,
+        281
+      ],
+      "root": [
+        177,
+        273
+      ],
+      "sockets": {},
+      "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation."
+    },
+    "cr_c_start_1003": {
+      "crop": [
+        42,
+        681,
+        347,
+        290
+      ],
+      "root": [
+        248,
+        276
+      ],
+      "sockets": {},
+      "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation.",
+      "excludeRects": [
+        [
+          240,
+          0,
+          7,
+          2
+        ]
+      ]
+    },
+    "cr_c_active_1003": {
+      "crop": [
+        441,
+        646,
+        445,
+        327
+      ],
+      "root": [
+        176,
+        308
+      ],
+      "sockets": {
+        "weapon_grip": [
+          298,
+          93
+        ],
+        "weapon_tip": [
+          433,
+          15
+        ]
+      },
+      "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation.",
+      "excludeRects": [
+        [
+          121,
+          0,
+          47,
+          21
+        ],
+        [
+          13,
+          0,
+          79,
+          21
+        ],
+        [
+          334,
+          0,
+          62,
+          7
+        ],
+        [
+          273,
+          0,
+          30,
+          13
+        ]
+      ]
+    },
+    "cr_c_recover_1003": {
+      "crop": [
+        878,
+        689,
+        337,
+        284
+      ],
+      "root": [
+        195,
+        276
+      ],
+      "sockets": {},
+      "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation."
+    },
+    "cr_d_start_1003": {
+      "crop": [
+        39,
+        972,
+        339,
+        274
+      ],
+      "root": [
+        170,
+        266
+      ],
+      "sockets": {},
+      "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation."
+    },
+    "cr_d_active_1003": {
+      "crop": [
+        417,
+        1010,
+        458,
+        232
+      ],
+      "root": [
+        168,
+        220
+      ],
+      "sockets": {
+        "shoe_front": [
+          442,
+          194
+        ]
+      },
+      "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation."
+    },
+    "cr_d_recover_1003": {
+      "crop": [
+        889,
+        973,
+        332,
+        268
+      ],
+      "root": [
+        187,
+        260
+      ],
+      "sockets": {},
+      "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation."
+    }
+  },
+  "anims": {
+    "cr_a": {
+      "frames": [
+        "reaction_crouch",
+        "cr_a_active_1003",
+        "cr_a_recover_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 5
+        },
+        {
+          "frame": 1,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 9
+        }
+      ]
+    },
+    "cr_b": {
+      "frames": [
+        "reaction_crouch",
+        "cr_b_active_1003",
+        "cr_b_recover_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 1,
+          "ticks": 3
+        },
+        {
+          "frame": 2,
+          "ticks": 11
+        }
+      ]
+    },
+    "cr_c": {
+      "frames": [
+        "cr_c_start_1003",
+        "cr_c_active_1003",
+        "cr_c_recover_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 10
+        },
+        {
+          "frame": 1,
+          "ticks": 5
+        },
+        {
+          "frame": 2,
+          "ticks": 22
+        }
+      ]
+    },
+    "cr_d": {
+      "frames": [
+        "cr_d_start_1003",
+        "cr_d_active_1003",
+        "cr_d_recover_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 12
+        },
+        {
+          "frame": 1,
+          "ticks": 4
+        },
+        {
+          "frame": 2,
+          "ticks": 24
+        }
+      ]
+    }
+  },
+  "unusedReviewCrops": {
+    "aokiji_crouch_cell4_wrong_weapon_1003": {
+      "source": "aokiji_crouch_attacks_1003",
+      "regions": [
+        [
+          37,
+          397,
+          363,
+          293
+        ]
+      ],
+      "reason": "Requested unarmed light-kick startup but source introduced ice sword; not adopted. Actual existing reaction_crouch explicitly reused for cr_b startup, not a new picture."
+    },
+    "aokiji_crouch_neutral_reference_1003": {
+      "source": "aokiji_crouch_attacks_1003",
+      "regions": [
+        [
+          39,
+          2,
+          355,
+          388
+        ]
+      ],
+      "reason": "Scale reference only; not a new runtime idle pose."
+    }
+  },
+  "knownDifferences": [
+    "cr_a and cr_b startup explicitly share already adopted real reaction_crouch; one requested new cr_b start failed extra-weapon rule and stays unused. New source count10, not11 or12.",
+    "Actual fist/shoe/knife endpoints are measurements only. Parent owns new-role hitbox/contact calibration."
+  ]
+}

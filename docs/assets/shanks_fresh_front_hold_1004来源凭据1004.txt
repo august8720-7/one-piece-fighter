@@ -1,0 +1,57 @@
+{
+  "file": "public/assets/generated/source/roster-shanks-fresh-front-hold-1004.png",
+  "sha256": "1458dfaacce84b6d2f88904984fa5090cb0ada786528477ae03fc641e31c0d59",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方网页未公开具体图像型号，记unverified，不推断后台型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ac1cc86-9358-83ee-8a0c-ecf6a8e5e050",
+  "observedCompletedAt": "2026-10-04T11:53:20.360420+08:00",
+  "uiObservation": "主执行者在独立官方会话上传已验neutral和compact30关节参考，实际最新/极高及完整draft/单次发送均由主执行者截图留证。本素材执行者只保全其真实pageAssets PNG、独立全解码/看图/alpha/几何检查，不冒称自己的网页提交或型号实查。完成时间为截图mtime。C孔在自身两鞋之间且被披风填满，未映射运行帧，等真实局部重画。",
+  "prompt": {
+    "file": "docs/assets/shanks-compact-vertical-front-root1004.txt",
+    "sha256": "5e7055f64537640436fbe35216f4efbc7c001ae9cc593e15b7236ad9cbe6f232"
+  },
+  "referenceSources": {
+    "adopted_neutral_crop1004": "4a48acf477b1841542dab7a2a49822783f405dfadaf632d8e3e3143f7b0c205f",
+    "compact_held_leg_pair_guide1004": "fd5a225bb19992f6c148c6b718685bd134f0e1e2ac8f55ea27f807b549200d75"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-04T12:34:33.456014+08:00",
+  "screenshot": {
+    "file": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\shanks-fresh-front1004\\completed1004.png",
+    "sha256": "9047b66728ce5a9a891c0abb7d558046691593cab40b4676c04dc3f37008b377"
+  },
+  "pageAssetsManifest": {
+    "file": "C:\\Users\\august\\AppData\\Local\\Temp\\browser-use\\assets\\198ce9b5-30f6-4f65-9cd4-cd90cabcfd68\\manifest.json",
+    "sha256": "50c985bf6436d15c5ed2e4694a2679d4b5c71d9a941edfaa2a4691361aa53fb1"
+  },
+  "reviewStatus": "contact-repair-needed-not-adopted",
+  "runtimeAdopted": false,
+  "schemaVersion": 1,
+  "sourceKey": "shanks_fresh_front_hold_1004",
+  "referenceFiles": {
+    "adopted_neutral_crop1004": {
+      "file": "D:/one-piece-fighter-crossover-0922/roster-0929/reference/shanks-low-hold-1003/shanks-adopted-neutral1004.png",
+      "kind": "reference-guide-not-runtime",
+      "subtype": "unmodified-adopted-source-crop-not-new-art",
+      "sha256": "4a48acf477b1841542dab7a2a49822783f405dfadaf632d8e3e3143f7b0c205f"
+    },
+    "compact_held_leg_pair_guide1004": {
+      "file": "D:/one-piece-fighter-crossover-0922/roster-0929/reference/shanks-low-hold-1003/compact-held-leg-pair-guide1004.png",
+      "kind": "reference-guide-not-runtime",
+      "sha256": "fd5a225bb19992f6c148c6b718685bd134f0e1e2ac8f55ea27f807b549200d75"
+    }
+  },
+  "timeMeaning": "actual observed completed result as already recorded; not server generation time",
+  "acceptanceMeaning": "source observation receipt; no image-model identification or complete-role acceptance",
+  "canonicalizedAt": "2026-10-04T13:49:25.680056+08:00",
+  "priorProsePreservedIn": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\first-pair-independent-shanks-1004-081851\\source-receipts-canonical1004-134925"
+}

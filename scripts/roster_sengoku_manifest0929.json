@@ -1,0 +1,943 @@
+{
+  "schemaVersion": 1,
+  "status": "partial-candidate-pending-normal-speed-and-contact-review",
+  "notes": [
+    "Original RGBA source retained; no keyed color, body redraw or local limb transforms.",
+    "Neutral crop alpha>=16 bbox[61,6,372,426], height420 including hat/bird ornament; character-wide scale208/420 is an initial visual candidate requiring body/head contact review.",
+    "Root coordinates are authored from visible sole contact points; dynamic alignment and physical hand/weapon contact remain unverified.",
+    "Only real neutral, three attack phases and standing hurt are mapped. Four proposed walking drawings still repeat or ambiguously alternate leading legs and remain unadopted.",
+    "Other basic reactions, complete normal/special/throw coverage and audio are not claimed complete."
+  ],
+  "characters": {
+    "sengoku": {
+      "scale": 0.49523809523809526,
+      "textureDensity": 2,
+      "maxTextureSize": 4096,
+      "sources": {
+        "sengoku_locomotion_0929": {
+          "file": "public/assets/generated/source/roster-sengoku-locomotion-0929.png",
+          "sha256": "3829d8946b189a7530ef8225f5d97f0086977cb1c8f578e58e87b2bd8348e930",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面未披露图像型号，仅实际核实文字最新与极高。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6abbe4e2-3cb4-83e8-b530-23166e716bdb",
+          "observedCompletedAt": "2026-09-30T00:32:45.5694341+08:00",
+          "uiObservation": "由保留真实海军母版的官方新聊天分支生成战国，发送前实际菜单最新选中、极高第四项，完整提示一次发送并落稳到此UUID。页面标为预览且回答已完成，点击后图片预览对话框显示完整战国九格；对该实际img只读观察natural尺寸1254x1254。通过该媒体控件下载一次，PNG签名/IEND、Pillow.verify和load通过，图像与网页可见九格一致；原crdownload后缀保留，复制前后hash核对。按最小验证只登记候选，不重复下载、不声称UI资源所有状态正常或动作已验收。此时刻为保全后再次观察原图的本机时刻，不是服务器生成时间。",
+          "prompt": {
+            "file": "docs/assets/sengoku-locomotion-prompt0929.txt",
+            "sha256": "b02324258a74e2be16c9a1097cc6bd530d12e6d540743115c33ced4581a1a1e7"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+            "kizaru_locomotion_0929": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+          },
+          "unitScale": 1,
+          "recordedAt": "2026-09-29T16:32:45.864964+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/sengoku_locomotion_0929来源凭据0929.txt",
+            "sha256": "0c02259d7a152fcda11fa64a3d1eafab9c2a7c00294e09499020259a9e87c7e1"
+          }
+        },
+        "sengoku_reactions_recovered_1003": {
+          "file": "public/assets/generated/source/roster-sengoku-reaction-recovered-1003.png",
+          "sha256": "b8e32bc4d99da87ee70ea2ee005761c7c609edc3a6a5d2fb96dc45cce9081cd9",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "本次恢复该官方会话现场菜单最新选中与极高第四项；具体图像后台型号未公开，不冒写2.5。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6abbe4e2-3cb4-83e8-b530-23166e716bdb",
+          "observedCompletedAt": "2026-10-03T21:50:28.9312871+08:00",
+          "uiObservation": "本助手恢复战国已生成反应图的原会话，没有重发。初次新标签绑定中断后，同一Edge实际标签已打开，按现有元数据安全绑定恢复。实际旧网页请求677字符，后来docs准备稿828字符并不一致，故从该实际消息innerText保全完整原请求单独记录，不把未发送的裁切追加语冒称生成依据。最新查看器标题战国海军大将九姿态精灵图，img已生成图像3，九格人形与帽饰可见，截图保存是旧结果本次完成复核而非服务器首次生成时间。只点击一次下载，crdownload保留；PNG签名/IEND/Pillowverify/完整RGBAdecode/稳定重复字节通过，先清单复制再SHA一致。实际身体、帽饰、裁切与比例另查，不将取得旧图写为角色完整完成。",
+          "prompt": {
+            "file": "docs/assets/sengoku-reaction-recovered-prompt1003.txt",
+            "sha256": "63c3f1ffd91f16e52240af51b27aeb0b2657465f6fe63044bf4948e58dc07fd6"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+            "sengoku_locomotion_0929": "3829d8946b189a7530ef8225f5d97f0086977cb1c8f578e58e87b2bd8348e930"
+          },
+          "unitScale": 1.0023866348448687,
+          "recordedAt": "2026-10-03T13:52:55.019847+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/sengoku-reactions1003/completion-viewer1003.png",
+            "sha256": "e1228635b668c35abdf8f138eea05e3d12ee488b2b3a18eb505e91ff55ea728e"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/sengoku_reactions_recovered_1003来源凭据0929.txt",
+            "sha256": "41b66a07ef52b2e5a09669e39f284fea7d3fcffb5a7e527d04d76ce2162bcc87"
+          },
+          "scaleBasis": "Cell1 full neutral including actual hat/bird alpha64height419 vs original neutral420. All8 adopted reactions share420/419; the raised airborne beard does not define head scale. Old neutral and attack retained, no per-pose fit."
+        }
+      },
+      "frames": {
+        "idle": {
+          "source": "sengoku_locomotion_0929",
+          "crop": [
+            35,
+            0,
+            355,
+            426
+          ],
+          "root": [
+            199,
+            420
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_a_start": {
+          "source": "sengoku_locomotion_0929",
+          "crop": [
+            863,
+            422,
+            386,
+            418
+          ],
+          "root": [
+            215,
+            413
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_a_active": {
+          "source": "sengoku_locomotion_0929",
+          "crop": [
+            18,
+            836,
+            420,
+            418
+          ],
+          "root": [
+            216,
+            402
+          ],
+          "sockets": {
+            "hand_front": [
+              397,
+              90
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_a_recover": {
+          "source": "sengoku_locomotion_0929",
+          "crop": [
+            467,
+            836,
+            357,
+            418
+          ],
+          "root": [
+            186,
+            402
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "hit_stand": {
+          "source": "sengoku_locomotion_0929",
+          "crop": [
+            847,
+            838,
+            407,
+            416
+          ],
+          "root": [
+            251,
+            400
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "crouch_1003": {
+          "crop": [
+            449,
+            130,
+            369,
+            315
+          ],
+          "root": [
+            201,
+            307
+          ],
+          "sockets": {},
+          "note": "Independent original human-uniform reaction. Floor/sole root and pelvic projection observed on actual art; one source-wide scale. Hat, bird, glasses and braid retained, no local transforms.",
+          "source": "sengoku_reactions_recovered_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "block_stand_1003": {
+          "crop": [
+            863,
+            0,
+            381,
+            434
+          ],
+          "root": [
+            213,
+            426
+          ],
+          "sockets": {},
+          "note": "Independent original human-uniform reaction. Floor/sole root and pelvic projection observed on actual art; one source-wide scale. Hat, bird, glasses and braid retained, no local transforms.",
+          "source": "sengoku_reactions_recovered_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "block_crouch_1003": {
+          "crop": [
+            41,
+            521,
+            371,
+            323
+          ],
+          "root": [
+            185,
+            315
+          ],
+          "sockets": {},
+          "note": "Independent original human-uniform reaction. Floor/sole root and pelvic projection observed on actual art; one source-wide scale. Hat, bird, glasses and braid retained, no local transforms.",
+          "source": "sengoku_reactions_recovered_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "hit_crouch_1003": {
+          "crop": [
+            430,
+            533,
+            397,
+            306
+          ],
+          "root": [
+            199,
+            298
+          ],
+          "sockets": {},
+          "note": "Independent original human-uniform reaction. Floor/sole root and pelvic projection observed on actual art; one source-wide scale. Hat, bird, glasses and braid retained, no local transforms.",
+          "source": "sengoku_reactions_recovered_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "jump_guard_1003": {
+          "crop": [
+            858,
+            430,
+            389,
+            379
+          ],
+          "root": [
+            255,
+            427
+          ],
+          "sockets": {},
+          "note": "Independent actual airborne human-uniform pose. Virtual root from the neutral hat/head plane and pelvic projection; airborne braid lift is not used to move the body root. No rotated standing frame. Normal-speed rise/fall and hit contact remain pending.",
+          "source": "sengoku_reactions_recovered_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "hit_air_1003": {
+          "crop": [
+            14,
+            850,
+            445,
+            363
+          ],
+          "root": [
+            211,
+            437
+          ],
+          "sockets": {},
+          "note": "Independent actual airborne human-uniform pose. Virtual root from the neutral hat/head plane and pelvic projection; airborne braid lift is not used to move the body root. No rotated standing frame. Normal-speed rise/fall and hit contact remain pending.",
+          "excludeRects": [
+            [
+              442,
+              247,
+              3,
+              1
+            ],
+            [
+              439,
+              248,
+              6,
+              1
+            ],
+            [
+              436,
+              249,
+              9,
+              1
+            ],
+            [
+              435,
+              250,
+              10,
+              1
+            ],
+            [
+              434,
+              251,
+              11,
+              1
+            ],
+            [
+              433,
+              252,
+              12,
+              1
+            ],
+            [
+              432,
+              253,
+              13,
+              1
+            ],
+            [
+              431,
+              254,
+              14,
+              2
+            ],
+            [
+              430,
+              256,
+              15,
+              2
+            ],
+            [
+              429,
+              258,
+              16,
+              12
+            ],
+            [
+              430,
+              270,
+              15,
+              1
+            ],
+            [
+              431,
+              271,
+              14,
+              2
+            ],
+            [
+              432,
+              273,
+              13,
+              2
+            ],
+            [
+              431,
+              275,
+              14,
+              7
+            ],
+            [
+              430,
+              282,
+              15,
+              1
+            ],
+            [
+              429,
+              283,
+              16,
+              1
+            ],
+            [
+              426,
+              284,
+              19,
+              1
+            ],
+            [
+              422,
+              285,
+              23,
+              1
+            ],
+            [
+              420,
+              286,
+              25,
+              1
+            ],
+            [
+              418,
+              287,
+              27,
+              1
+            ],
+            [
+              416,
+              288,
+              29,
+              1
+            ],
+            [
+              414,
+              289,
+              31,
+              1
+            ],
+            [
+              412,
+              290,
+              33,
+              1
+            ],
+            [
+              411,
+              291,
+              34,
+              1
+            ],
+            [
+              410,
+              292,
+              35,
+              2
+            ],
+            [
+              409,
+              294,
+              36,
+              1
+            ],
+            [
+              408,
+              295,
+              37,
+              6
+            ],
+            [
+              407,
+              301,
+              38,
+              6
+            ],
+            [
+              408,
+              307,
+              31,
+              1
+            ],
+            [
+              440,
+              307,
+              3,
+              1
+            ],
+            [
+              408,
+              308,
+              28,
+              1
+            ],
+            [
+              408,
+              309,
+              27,
+              1
+            ],
+            [
+              408,
+              310,
+              26,
+              1
+            ],
+            [
+              409,
+              311,
+              24,
+              1
+            ],
+            [
+              409,
+              312,
+              22,
+              3
+            ],
+            [
+              410,
+              315,
+              21,
+              3
+            ],
+            [
+              410,
+              318,
+              22,
+              1
+            ],
+            [
+              411,
+              319,
+              21,
+              3
+            ],
+            [
+              412,
+              322,
+              20,
+              1
+            ],
+            [
+              412,
+              323,
+              19,
+              1
+            ],
+            [
+              413,
+              324,
+              18,
+              1
+            ],
+            [
+              414,
+              325,
+              15,
+              2
+            ],
+            [
+              415,
+              327,
+              14,
+              1
+            ],
+            [
+              416,
+              328,
+              13,
+              2
+            ],
+            [
+              417,
+              330,
+              13,
+              1
+            ],
+            [
+              418,
+              331,
+              12,
+              1
+            ],
+            [
+              419,
+              332,
+              11,
+              2
+            ],
+            [
+              420,
+              334,
+              11,
+              1
+            ],
+            [
+              421,
+              335,
+              10,
+              1
+            ],
+            [
+              422,
+              336,
+              10,
+              1
+            ],
+            [
+              423,
+              337,
+              9,
+              1
+            ],
+            [
+              424,
+              338,
+              8,
+              1
+            ],
+            [
+              426,
+              339,
+              6,
+              1
+            ],
+            [
+              428,
+              340,
+              4,
+              1
+            ]
+          ],
+          "source": "sengoku_reactions_recovered_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "knockdown_1003": {
+          "crop": [
+            414,
+            1090,
+            473,
+            155
+          ],
+          "root": [
+            207,
+            147
+          ],
+          "sockets": {},
+          "note": "Independent original human-uniform reaction. Floor/sole root and pelvic projection observed on actual art; one source-wide scale. Hat, bird, glasses and braid retained, no local transforms.",
+          "excludeRects": [
+            [
+              0,
+              0,
+              15,
+              2
+            ],
+            [
+              0,
+              2,
+              13,
+              1
+            ],
+            [
+              0,
+              3,
+              10,
+              1
+            ],
+            [
+              0,
+              4,
+              8,
+              1
+            ],
+            [
+              0,
+              5,
+              5,
+              1
+            ],
+            [
+              0,
+              6,
+              2,
+              1
+            ],
+            [
+              471,
+              94,
+              2,
+              1
+            ],
+            [
+              470,
+              95,
+              3,
+              1
+            ],
+            [
+              469,
+              96,
+              4,
+              2
+            ],
+            [
+              468,
+              98,
+              5,
+              4
+            ],
+            [
+              469,
+              102,
+              4,
+              2
+            ],
+            [
+              470,
+              104,
+              3,
+              2
+            ],
+            [
+              471,
+              106,
+              2,
+              1
+            ]
+          ],
+          "source": "sengoku_reactions_recovered_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "getup_kneel_1003": {
+          "crop": [
+            875,
+            929,
+            376,
+            306
+          ],
+          "root": [
+            230,
+            298
+          ],
+          "sockets": {
+            "ground_palm": [
+              168,
+              283
+            ]
+          },
+          "note": "Independent original human-uniform reaction. Floor/sole root and pelvic projection observed on actual art; one source-wide scale. Hat, bird, glasses and braid retained, no local transforms.",
+          "excludeRects": [
+            [
+              0,
+              215,
+              2,
+              1
+            ],
+            [
+              0,
+              216,
+              3,
+              2
+            ],
+            [
+              0,
+              218,
+              4,
+              4
+            ],
+            [
+              0,
+              222,
+              5,
+              8
+            ],
+            [
+              0,
+              230,
+              4,
+              7
+            ],
+            [
+              0,
+              237,
+              3,
+              4
+            ],
+            [
+              0,
+              241,
+              2,
+              3
+            ]
+          ],
+          "source": "sengoku_reactions_recovered_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        }
+      },
+      "anims": {
+        "idle": {
+          "frames": [
+            "idle"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "st_a": {
+          "frames": [
+            "st_a_start",
+            "st_a_active",
+            "st_a_recover"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 6
+            },
+            {
+              "frame": 1,
+              "ticks": 3
+            },
+            {
+              "frame": 2,
+              "ticks": 11
+            }
+          ]
+        },
+        "hit_stand": {
+          "frames": [
+            "hit_stand"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "crouch": {
+          "frames": [
+            "crouch_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 60
+            }
+          ]
+        },
+        "block_stand": {
+          "frames": [
+            "block_stand_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "block_crouch": {
+          "frames": [
+            "block_crouch_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "hit_crouch": {
+          "frames": [
+            "hit_crouch_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "jump_neutral": {
+          "frames": [
+            "jump_guard_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 30
+            }
+          ]
+        },
+        "hit_air": {
+          "frames": [
+            "hit_air_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "knockdown": {
+          "frames": [
+            "knockdown_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 36
+            }
+          ]
+        },
+        "getup": {
+          "frames": [
+            "getup_kneel_1003",
+            "idle"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            },
+            {
+              "frame": 1,
+              "ticks": 2
+            }
+          ]
+        }
+      }
+    }
+  },
+  "unusedReviewCrops": {
+    "sengoku_reaction_neutral_reference_1003": {
+      "source": "sengoku_reactions_recovered_1003",
+      "regions": [
+        [
+          49,
+          0,
+          334,
+          434
+        ]
+      ],
+      "reason": "Sheet-wide full-standing scale reference only; existing neutral remains, not new adopted art."
+    }
+  }
+}

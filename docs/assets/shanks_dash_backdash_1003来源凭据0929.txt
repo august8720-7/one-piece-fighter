@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "shanks_dash_backdash_1003",
+  "file": "public/assets/generated/source/roster-shanks-dash-backdash-1003.png",
+  "sha256": "fe3d84aa5e656fc6436a131c811e87ddb257f5a563bf189182a90c54f3be9aaa",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+  "observedCompletedAt": "2026-10-03T15:22:46.5141910+08:00",
+  "uiObservation": "1003同一会话继续dash/backdash页。提交前DOM菜单实见最新radio已选中、极高第4项；完整提示经fill读回全文匹配后单次发送。页面回答已完成，实际官方查看器标题红发剑士动态姿态图鉴、已生成图像7。记录时间是完成结果截图的保存时刻，不是服务器生成时间。只点查看器下载一次，没有等待download事件；Downloads正式PNG落盘，签名/IEND/1254x1254RGBA解码/真实alpha0-255/hash与复制前后清单均通过。只记录入盘完成，不伪造下载事件回执。",
+  "prompt": {
+    "file": "docs/assets/shanks-dash-backdash-prompt1003.txt",
+    "sha256": "d15f23990494de56b6f3730a662a0f11bfa133d1399ac9e7655c5d69a502bb8b"
+  },
+  "referenceSources": {
+    "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+    "shanks_jump_mobility_1003": "a0e9b2f42d7eced6bac6cc3156910d89799302518f9f9a17680744bb325302ae"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T07:26:32.252295+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-dash-result-viewer.jpg",
+    "sha256": "6d74d8277c580d5ae73f8df88b963280aa194dc92521dafac52781136db587ea"
+  },
+  "referenceFiles": {
+    "shanks_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-shanks-locomotion-0929.png",
+      "sha256": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+    },
+    "shanks_jump_mobility_1003": {
+      "file": "public/assets/generated/source/roster-shanks-jump-mobility-1003.png",
+      "sha256": "a0e9b2f42d7eced6bac6cc3156910d89799302518f9f9a17680744bb325302ae"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

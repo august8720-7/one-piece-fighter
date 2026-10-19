@@ -1,0 +1,528 @@
+{
+  "schemaVersion": 1,
+  "status": "partial-candidate-awaits-walk-repair-and-normal-speed-contact-review",
+  "notes": [
+    "True source alpha retained; diagnostic light/dark composites are clean. No chroma key or alpha rewriting.",
+    "First-sheet idle dominant alpha>=16 component bbox is [44,6,379,408], height402. Character-wide scale204/402 follows world102 under existing half-scale renderer convention.",
+    "Roots measured from visible sole midpoint and sole line. No per-pose scale, rotation or artificial limb manipulation.",
+    "st_a active original fist is around source[417,897], foot root[230,1224]; scaled physical contact needs parent review against current draft hitbox before normal-speed acceptance.",
+    "Initial four walk drawings remain unused candidates because near/far leg alternation is not yet credible. A dedicated correction is in production; do not register these as a verified cycle.",
+    "Eight reaction drawings added as static authoring candidates with one source-wide scale calibration. Jump/air hit use the visible feet reference; prone/knockdown uses the ground-contact body center. These authored roots require normal-speed visual checking; no full jump/throw coverage claimed.",
+    "First walk correction source kizaru_walk_repair_0929 retained in source catalog but not mapped: repeated leading-leg silhouettes and excessive knee lift remain. No third repetition submitted."
+  ],
+  "characters": {
+    "kizaru": {
+      "scale": 0.5074626865671642,
+      "textureDensity": 2,
+      "maxTextureSize": 4096,
+      "sources": {
+        "kizaru_locomotion_0929": {
+          "file": "public/assets/generated/source/roster-kizaru-locomotion-0929.png",
+          "sha256": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "本次官方图像入口只显示ChatGPT，未公开具体图像型号；不推断为GPT Image 2.5。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd7c3-ab58-83e8-bc9d-5433cd330260",
+          "observedCompletedAt": "2026-09-29T23:32:25.2748896+08:00",
+          "uiObservation": "首张由主代理在Codex内置浏览器上传本游戏海军母版并单次发送本提示词，实际最新和极高第四项；本人随后在Microsoft Edge接续同会话核对完整提示词、用户附件和九格黄猿生成结果，再次核实菜单最新选中与极高第四项。此时间是当前再次观察已完成回复的时刻，不是服务器首次生成时间。Edge两个下载均保留crdownload后缀，均有完整PNG签名/IEND且Pillow验证和完整解码通过，尺寸1254x1254与网页一致、SHA256相同；按复制前清单保全为原PNG，未声称浏览器下载已完成。",
+          "prompt": {
+            "file": "docs/assets/kizaru-locomotion-prompt0929.txt",
+            "sha256": "ab1ba1a1848ae10d5aeef9f5fa55d4f1437ce4e82765161c4bb0e4caaecc2a28"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+          },
+          "unitScale": 1,
+          "recordedAt": "2026-09-29T15:32:25.538236+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/kizaru_locomotion_0929来源凭据0929.txt",
+            "sha256": "a7cbb52621bf7e636e84402d7479cef63c41b68c6af9f4e5e88f3ac67663e00d"
+          }
+        },
+        "kizaru_reaction_0929": {
+          "file": "public/assets/generated/source/roster-kizaru-reaction-0929.png",
+          "sha256": "b9db3e8aee51c7b6e5e2b8ce18da9e542859b28eebc11966fc9052145f8b8d38",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "本次官方图像入口仅显示ChatGPT，没有公开具体图像模型，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6abbd7c3-ab58-83e8-bc9d-5433cd330260",
+          "observedCompletedAt": "2026-09-29T23:38:03.2937434+08:00",
+          "uiObservation": "本子任务在Microsoft Edge接续已含真实海军母版和黄猿首张的官方会话；发送前DOM实际显示最新menuitemradio选中、极高第四项。完整反应提示词通过textbox.fill并单次点击发送，页面显示回答已完成和第二张生成图，查看器naturalWidth/naturalHeight为1254x1254。此时间为再次确认已完成结果的本机时刻，不是服务器首次生成时间。两份下载保留crdownload后缀，但完整PNG签名/IEND、Pillow.verify及load解码通过，与网页尺寸一致且SHA256相同；先清单后保全原PNG，未宣称浏览器下载已终结。",
+          "prompt": {
+            "file": "docs/assets/kizaru-reaction-prompt0929.txt",
+            "sha256": "e80e3fc7b09d1b87896cadd2ef8776f89cde199ef9f3373fa6f7b26d4cd87cc1"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+            "kizaru_locomotion_0929": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+          },
+          "unitScale": 0.9348837209302325,
+          "recordedAt": "2026-09-29T15:38:03.560701+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/kizaru_reaction_0929来源凭据0929.txt",
+            "sha256": "13a37b3d7b55f96629d7acee5fa854fde9b61c446af0443a4a96af16410afa05"
+          },
+          "scaleBasis": "Reaction-sheet neutral dominant alpha>=16 component bbox[37,10,415,440], height430. Source-wide unitScale402/430 against locomotion neutral height402, applied equally to crouch/air/ground poses. No per-pose scale."
+        }
+      },
+      "frames": {
+        "idle": {
+          "source": "kizaru_locomotion_0929",
+          "crop": [
+            32,
+            0,
+            359,
+            415
+          ],
+          "root": [
+            193,
+            407
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_a_start": {
+          "source": "kizaru_locomotion_0929",
+          "crop": [
+            870,
+            414,
+            336,
+            412
+          ],
+          "root": [
+            173,
+            403
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_a_active": {
+          "source": "kizaru_locomotion_0929",
+          "crop": [
+            24,
+            823,
+            421,
+            414
+          ],
+          "root": [
+            206,
+            401
+          ],
+          "sockets": {
+            "hand_front": [
+              393,
+              74
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_a_recover": {
+          "source": "kizaru_locomotion_0929",
+          "crop": [
+            443,
+            822,
+            345,
+            415
+          ],
+          "root": [
+            183,
+            402
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "hit_stand": {
+          "source": "kizaru_locomotion_0929",
+          "crop": [
+            842,
+            836,
+            395,
+            405
+          ],
+          "root": [
+            227,
+            390
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "crouch": {
+          "source": "kizaru_reaction_0929",
+          "crop": [
+            447,
+            116,
+            384,
+            334
+          ],
+          "root": [
+            227,
+            319
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "block_stand": {
+          "source": "kizaru_reaction_0929",
+          "crop": [
+            845,
+            0,
+            409,
+            450
+          ],
+          "root": [
+            229,
+            438
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "block_crouch": {
+          "source": "kizaru_reaction_0929",
+          "crop": [
+            18,
+            560,
+            396,
+            306
+          ],
+          "root": [
+            201,
+            298
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "hit_crouch": {
+          "source": "kizaru_reaction_0929",
+          "crop": [
+            430,
+            571,
+            412,
+            295
+          ],
+          "root": [
+            241,
+            285
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "jump_neutral": {
+          "source": "kizaru_reaction_0929",
+          "crop": [
+            840,
+            438,
+            398,
+            358
+          ],
+          "root": [
+            222,
+            325
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "hit_air": {
+          "source": "kizaru_reaction_0929",
+          "crop": [
+            24,
+            866,
+            424,
+            388
+          ],
+          "root": [
+            356,
+            274
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "knockdown": {
+          "source": "kizaru_reaction_0929",
+          "crop": [
+            437,
+            1049,
+            441,
+            205
+          ],
+          "root": [
+            214,
+            181
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "getup": {
+          "source": "kizaru_reaction_0929",
+          "crop": [
+            875,
+            966,
+            379,
+            288
+          ],
+          "root": [
+            262,
+            263
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        }
+      },
+      "anims": {
+        "idle": {
+          "frames": [
+            "idle"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "st_a": {
+          "frames": [
+            "st_a_start",
+            "st_a_active",
+            "st_a_recover"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 5
+            },
+            {
+              "frame": 1,
+              "ticks": 3
+            },
+            {
+              "frame": 2,
+              "ticks": 9
+            }
+          ]
+        },
+        "hit_stand": {
+          "frames": [
+            "hit_stand"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "crouch": {
+          "frames": [
+            "crouch"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "block_stand": {
+          "frames": [
+            "block_stand"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "block_crouch": {
+          "frames": [
+            "block_crouch"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "hit_crouch": {
+          "frames": [
+            "hit_crouch"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "jump_neutral": {
+          "frames": [
+            "jump_neutral"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "hit_air": {
+          "frames": [
+            "hit_air"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "knockdown": {
+          "frames": [
+            "knockdown"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "getup": {
+          "frames": [
+            "getup"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        }
+      }
+    }
+  },
+  "unusedReviewCrops": {
+    "walk_0": {
+      "source": "kizaru_locomotion_0929",
+      "crop": [
+        435,
+        0,
+        355,
+        415
+      ],
+      "root": [
+        210,
+        405
+      ],
+      "sockets": {},
+      "transparency": {
+        "mode": "source-alpha"
+      }
+    },
+    "walk_1": {
+      "source": "kizaru_locomotion_0929",
+      "crop": [
+        865,
+        0,
+        345,
+        415
+      ],
+      "root": [
+        195,
+        406
+      ],
+      "sockets": {},
+      "transparency": {
+        "mode": "source-alpha"
+      }
+    },
+    "walk_2": {
+      "source": "kizaru_locomotion_0929",
+      "crop": [
+        35,
+        414,
+        365,
+        411
+      ],
+      "root": [
+        216,
+        400
+      ],
+      "sockets": {},
+      "transparency": {
+        "mode": "source-alpha"
+      }
+    },
+    "walk_3": {
+      "source": "kizaru_locomotion_0929",
+      "crop": [
+        455,
+        414,
+        340,
+        411
+      ],
+      "root": [
+        185,
+        398
+      ],
+      "sockets": {},
+      "transparency": {
+        "mode": "source-alpha"
+      }
+    }
+  }
+}

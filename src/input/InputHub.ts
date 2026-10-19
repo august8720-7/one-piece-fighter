@@ -1,6 +1,7 @@
 import type { ControlModes, InputFrame } from '@core/index';
 import { sfx } from '../audio/Sfx';
 import { GamepadInput } from './gamepad';
+import { availableAwakeningBindings, loadAwakeningBindings, saveAwakeningBindings, type AwakeningBindings } from './awakening';
 import { KeyboardInput } from './keyboard';
 import { loadControlModes, loadKeyConfig, muteShortcutAvailable, saveControlModes, saveKeyConfig, type KeyConfig } from './keymap';
 
@@ -12,6 +13,7 @@ export class InputHub {
   readonly keyboard: KeyboardInput;
   readonly gamepad = new GamepadInput();
   private config: KeyConfig;
+  private awakening: AwakeningBindings;
   private modes: ControlModes;
   private matchModes: ControlModes | null = null;
   private profiles: Record<'classic' | 'simple', KeyConfig>;
@@ -21,13 +23,15 @@ export class InputHub {
     this.modes = loadControlModes();
     this.profiles = { classic: loadKeyConfig(), simple: loadKeyConfig(['simple', 'simple']) };
     this.config = this.keyConfigFor(this.modes);
+    this.awakening = loadAwakeningBindings(this.config);
     this.keyboard = new KeyboardInput(this.config);
     // 第一次用户手势解锁音频；M 键静音
     const unlock = () => sfx().unlock();
     window.addEventListener('keydown', unlock);
     window.addEventListener('pointerdown', unlock);
     window.addEventListener('keydown', (e) => {
-      if (e.code === 'KeyM' && !e.repeat && muteShortcutAvailable(this.config)) sfx().toggleMute();
+      if (e.code === 'KeyM' && !e.repeat && muteShortcutAvailable(this.config)
+        && !Object.values(this.awakeningBindings).includes('KeyM')) sfx().toggleMute();
     });
   }
 
@@ -36,6 +40,18 @@ export class InputHub {
   }
 
   get controlModes(): ControlModes { return this.modes; }
+
+  get awakeningBindings(): AwakeningBindings { return availableAwakeningBindings(this.awakening, this.config); }
+  get awakeningPreferences(): AwakeningBindings { return { ...this.awakening }; }
+
+  setAwakeningBindings(bindings: AwakeningBindings, modes: ControlModes = this.modes): { saved: boolean; conflicts: string[] } {
+    const result = saveAwakeningBindings(bindings, this.keyConfigFor(modes));
+    if (result.conflicts.length === 0) {
+      this.awakening = { ...bindings };
+      this.keyboard.setAwakeningBindings(bindings, this.config);
+    }
+    return result;
+  }
 
   keyConfigFor(modes: ControlModes): KeyConfig {
     return { p1: { ...this.profiles[modes[0]].p1 }, p2: { ...this.profiles[modes[1]].p2 } };
@@ -62,6 +78,7 @@ export class InputHub {
   private refreshConfig(): void {
     this.config = this.keyConfigFor(this.matchModes ?? this.modes);
     this.keyboard.setConfig(this.config);
+    this.keyboard.setAwakeningBindings(this.awakening, this.config);
   }
 
   snapshot(): InputFrame {

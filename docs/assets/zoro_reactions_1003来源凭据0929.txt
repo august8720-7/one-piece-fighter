@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "zoro_reactions_1003",
+  "file": "public/assets/generated/source/roster-zoro-reactions-1003.png",
+  "sha256": "1190ff3a5461e3bec7034af84508067d10a56b8d7dc9738465db2d55a52a6e87",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方页面未公开具体图像型号，不推断后台模型。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbe218-2044-83e8-b500-931a2779e800",
+  "observedCompletedAt": "2026-10-03T00:38:00+08:00",
+  "uiObservation": "1003恢复索隆正式分支后发现第二张反应提示词和结果已经存在，不重复发送。此时间为既有完成结果复核，不是历史提交或服务器生成时间。当前菜单实见最新radio选中、极高第4项，仅证明复核时状态。downloadMedia针对末尾实际可见结果，工具等待回执超时但新PNG落盘Downloads；1254x1254RGBA完整PNG解码及hash核实，保留原件后清单复制。实际倒地图只可辨认口衔刀和近手刀，第三刀不清楚；起身右刀尖临近原图边界，这两姿保留候选但暂不采用。",
+  "prompt": {
+    "file": "docs/assets/zoro-reactions-prompt0929.txt",
+    "sha256": "83bef6c4621ab20b91e93b518ea9ceea40e4147515c6829e0fc3fdeda509a737"
+  },
+  "referenceSources": {
+    "zoro_sword_repair_0929": "09fb1df4358b3f0046ca20c18eef1b0acf31fa7a6c650dce1b834907fb7d74c9"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-02T16:41:58.849710+00:00",
+  "referenceFiles": {
+    "zoro_sword_repair_0929": {
+      "file": "public/assets/generated/source/roster-zoro-sword-repair-0929.png",
+      "sha256": "09fb1df4358b3f0046ca20c18eef1b0acf31fa7a6c650dce1b834907fb7d74c9"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

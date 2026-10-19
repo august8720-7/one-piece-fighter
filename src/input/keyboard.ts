@@ -1,5 +1,6 @@
 import { Btn } from '@core/index';
 import { loadKeyConfig, toKeyMap, type KeyConfig } from './keymap';
+import { availableAwakeningBindings, loadAwakeningBindings, type AwakeningBindings } from './awakening';
 
 /**
  * 监听 window 键盘事件，维护两名玩家当前按下的位图。
@@ -12,6 +13,7 @@ export class KeyboardInput {
   private held: [number, number] = [0, 0];
   private latched: [number, number] = [0, 0];
   private maps: [Record<string, number>, Record<string, number>];
+  private awakening: AwakeningBindings;
   /** 最近一次按下的键（键位设置界面用） */
   private lastCode: string | null = null;
   private readonly onDown: (e: KeyboardEvent) => void;
@@ -20,6 +22,7 @@ export class KeyboardInput {
 
   constructor(cfg: KeyConfig = loadKeyConfig()) {
     this.maps = [toKeyMap(cfg.p1), toKeyMap(cfg.p2)];
+    this.awakening = loadAwakeningBindings(cfg);
     this.onDown = this.onKey(true);
     this.onUp = this.onKey(false);
     this.onBlur = () => this.clear();
@@ -30,6 +33,12 @@ export class KeyboardInput {
 
   setConfig(cfg: KeyConfig): void {
     this.maps = [toKeyMap(cfg.p1), toKeyMap(cfg.p2)];
+    this.awakening = availableAwakeningBindings(this.awakening, cfg);
+    this.clear();
+  }
+
+  setAwakeningBindings(bindings: AwakeningBindings, cfg: KeyConfig): void {
+    this.awakening = availableAwakeningBindings(bindings, cfg);
     this.clear();
   }
 
@@ -55,8 +64,8 @@ export class KeyboardInput {
       // Start：Enter → P1，NumpadEnter → P2
       const s1 = e.code === 'Enter' ? Btn.Start : 0;
       const s2 = e.code === 'NumpadEnter' ? Btn.Start : 0;
-      const bits1 = (b1 ?? 0) | s1;
-      const bits2 = (b2 ?? 0) | s2;
+      const bits1 = (b1 ?? 0) | s1 | (e.code === this.awakening.p1 ? Btn.Awakening : 0);
+      const bits2 = (b2 ?? 0) | s2 | (e.code === this.awakening.p2 ? Btn.Awakening : 0);
       if (bits1) this.apply(0, bits1, down);
       if (bits2) this.apply(1, bits2, down);
       if (bits1 || bits2 || e.code.startsWith('F')) {

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_throw_back_1003",
+  "sourceSha256": "add3dd1738cd1f9b81f143569b7cb3c912f8b15747dc2496d08f734d13415ab2",
+  "status": "back-hook-throw-body-before-pair-contact-review",
+  "neutralVisibleAlpha8Bounds": [15, 22, 458, 511],
+  "neutralVisibleHeight": 489,
+  "referenceNeutralHeight": 380,
+  "unitScale": 0.7770961145194274,
+  "scaleBasis": "Actual neutral height489px; all five new phases uniformly380/489, without per-pose fitting. During leg-hook support sole defines floor root, independent of defender alignment.",
+  "frames": {
+    "throw_back_start_1003": {"source": "shanks_throw_back_1003", "crop": [508, 135, 441, 380], "root": [272, 371], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "throw_back_connect_1003": {"source": "shanks_throw_back_1003", "crop": [997, 124, 517, 380], "root": [283, 373], "sockets": {"grip": [473, 316]}, "transparency": {"mode": "source-alpha"}},
+    "throw_back_load_1003": {"source": "shanks_throw_back_1003", "crop": [19, 533, 573, 447], "root": [311, 437], "sockets": {"grip": [521, 406]}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[528, 189, 45, 124]]},
+    "throw_back_release_1003": {"source": "shanks_throw_back_1003", "crop": [541, 565, 458, 414], "root": [261, 405], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[0, 349, 45, 59]]},
+    "throw_back_recover_1003": {"source": "shanks_throw_back_1003", "crop": [1063, 523, 413, 489], "root": [264, 480], "sockets": {}, "transparency": {"mode": "source-alpha"}}
+  },
+  "anims": {
+    "throw_back": {"frames": ["throw_back_start_1003", "throw_back_connect_1003", "throw_back_load_1003", "throw_back_release_1003", "throw_back_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 4}, {"frame": 1, "ticks": 7}, {"frame": 2, "ticks": 10}, {"frame": 3, "ticks": 7}, {"frame": 4, "ticks": 14}], "throwExposures": [{"frame": 1, "ticks": 8}, {"frame": 2, "ticks": 13}, {"frame": 3, "ticks": 7}, {"frame": 4, "ticks": 14}]}
+  },
+  "observations": ["Five independently drawn backward throw poses: actual shoulder/hip turn and released leg differ from forward throw; not mirrored forward PNG. One right arm and complete saber in all phases.", "Connection sequence starts atreal connection, releases21 ticks and total42. Grab pairing and side-switch acceptance require actual game review by parent."]
+}

@@ -34,7 +34,10 @@ export interface CharacterPresentation {
   frameTextures?: Record<string, string>;
   /** Optional same-canvas pixel layer. Auxiliary frames never count as animation poses. */
   foregroundFrames?: Record<string, string>;
+  /** Independent installed form bundles; never aliases of the base texture. */
+  forms?: Partial<Record<'gear5', CharacterFormPresentation>>;
 }
+export interface CharacterFormPresentation extends CharacterPresentation { key: string; anims: AnimTable }
 export interface AnimeAtlasPage {
   id: string;
   image: string;
@@ -53,6 +56,14 @@ export interface AnimeRuntimeManifest extends CharacterPresentation {
   pages?: readonly AnimeAtlasPage[];
   framePages?: Record<string, string>;
   anims: AnimTable;
+  formId?: 'gear5';
+  formEvidence?: {
+    review: 'full-coverage-accepted';
+    authorManifestSha256: string;
+    sourceHashes: Record<string, string>;
+    frameSources: Record<string, string>;
+    atlasHashes: Record<string, string>;
+  };
 }
 
 /** Only call on a validated manifest; schema 1 remains a single-density single page. */
@@ -99,6 +110,8 @@ export const isHeldReactionAnim = (name: string): name is HeldReactionId => HELD
 export function heldReactionForMove(attackerId: string, move: Pick<MoveData, 'id' | 'throwData'> | null): HeldReactionId | null {
   if (!move?.throwData) return null;
   if (attackerId === 'labubu' && move.id === 'sp_leg_flip') return HELD_LEG_FLIP;
+  if ((attackerId === 'shanks' || attackerId === 'aokiji') && move.id === 'throw_fwd') return HELD_LEG_FLIP;
+  if ((attackerId === 'aokiji' || attackerId === 'shanks') && move.id === 'throw_back') return HELD_LEG_FLIP;
   if (move.id !== 'throw_fwd' && move.id !== 'throw_back') return null;
   return attackerId === 'labubu' ? HELD_LABUBU_THROW : attackerId === 'twinkle' ? HELD_TWINKLE_THROW : null;
 }

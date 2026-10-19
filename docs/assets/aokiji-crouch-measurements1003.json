@@ -1,0 +1,314 @@
+{
+  "status": "static-candidate-not-game-contact-or-sound-acceptance",
+  "sourceKey": "aokiji_crouch_attacks_1003",
+  "sourceHash": "b329fdc4d0d255bb59662d32192809ce2b531d7e718adf47c0a5f3a02fcd9aa1",
+  "sourceReferenceHeight64": 371,
+  "sourceUnitScale": 1.0970350404312668,
+  "worldPixelsPerSourcePixel": 0.2695417789757412,
+  "frames": [
+    {
+      "frame": "cr_a_active_1003",
+      "crop": [
+        440,
+        107,
+        380,
+        284
+      ],
+      "root": [
+        166,
+        276
+      ],
+      "socketsWorldRelativeToRoot": {
+        "fist": [
+          50.9434,
+          -49.8652
+        ]
+      },
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        372,
+        276
+      ]
+    },
+    {
+      "frame": "cr_a_recover_1003",
+      "crop": [
+        863,
+        102,
+        343,
+        289
+      ],
+      "root": [
+        168,
+        281
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        335,
+        281
+      ]
+    },
+    {
+      "frame": "cr_b_active_1003",
+      "crop": [
+        426,
+        403,
+        431,
+        271
+      ],
+      "root": [
+        164,
+        263
+      ],
+      "socketsWorldRelativeToRoot": {
+        "shoe_front": [
+          67.655,
+          -9.434
+        ]
+      },
+      "excludeRects": [
+        [
+          392,
+          254,
+          39,
+          17
+        ]
+      ],
+      "alpha16Bbox": [
+        8,
+        8,
+        423,
+        263
+      ]
+    },
+    {
+      "frame": "cr_b_recover_1003",
+      "crop": [
+        880,
+        397,
+        333,
+        281
+      ],
+      "root": [
+        177,
+        273
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        325,
+        273
+      ]
+    },
+    {
+      "frame": "cr_c_start_1003",
+      "crop": [
+        42,
+        681,
+        347,
+        290
+      ],
+      "root": [
+        248,
+        276
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [
+        [
+          240,
+          0,
+          7,
+          2
+        ]
+      ],
+      "alpha16Bbox": [
+        8,
+        8,
+        339,
+        282
+      ]
+    },
+    {
+      "frame": "cr_c_active_1003",
+      "crop": [
+        441,
+        646,
+        445,
+        327
+      ],
+      "root": [
+        176,
+        308
+      ],
+      "socketsWorldRelativeToRoot": {
+        "weapon_grip": [
+          32.8841,
+          -57.9515
+        ],
+        "weapon_tip": [
+          69.2722,
+          -78.9757
+        ]
+      },
+      "excludeRects": [
+        [
+          121,
+          0,
+          47,
+          21
+        ],
+        [
+          13,
+          0,
+          79,
+          21
+        ],
+        [
+          334,
+          0,
+          62,
+          7
+        ],
+        [
+          273,
+          0,
+          30,
+          13
+        ]
+      ],
+      "alpha16Bbox": [
+        8,
+        8,
+        437,
+        319
+      ]
+    },
+    {
+      "frame": "cr_c_recover_1003",
+      "crop": [
+        878,
+        689,
+        337,
+        284
+      ],
+      "root": [
+        195,
+        276
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        329,
+        276
+      ]
+    },
+    {
+      "frame": "cr_d_start_1003",
+      "crop": [
+        39,
+        972,
+        339,
+        274
+      ],
+      "root": [
+        170,
+        266
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        331,
+        266
+      ]
+    },
+    {
+      "frame": "cr_d_active_1003",
+      "crop": [
+        417,
+        1010,
+        458,
+        232
+      ],
+      "root": [
+        168,
+        220
+      ],
+      "socketsWorldRelativeToRoot": {
+        "shoe_front": [
+          73.8544,
+          -7.0081
+        ]
+      },
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        450,
+        224
+      ]
+    },
+    {
+      "frame": "cr_d_recover_1003",
+      "crop": [
+        889,
+        973,
+        332,
+        268
+      ],
+      "root": [
+        187,
+        260
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        324,
+        260
+      ]
+    }
+  ],
+  "timing": {
+    "cr_a": [
+      5,
+      3,
+      9
+    ],
+    "cr_b": [
+      6,
+      3,
+      11
+    ],
+    "cr_c": [
+      10,
+      5,
+      22
+    ],
+    "cr_d": [
+      12,
+      4,
+      24
+    ]
+  },
+  "knownDifferences": [
+    "cr_a and cr_b startup explicitly share already adopted real reaction_crouch; one requested new cr_b start failed extra-weapon rule and stays unused. New source count10, not11 or12.",
+    "Actual fist/shoe/knife endpoints are measurements only. Parent owns new-role hitbox/contact calibration."
+  ],
+  "newCrops": 10,
+  "totalCrops": 79,
+  "totalAnims": 37,
+  "recordedAtUtc": "2026-10-03T11:41:53.014022+00:00",
+  "manifestAfterHash": "d59cb2ae4f319d0bf8747d4aae947a0bf0dc63ff85301ba6810c21ee9b44110a"
+}

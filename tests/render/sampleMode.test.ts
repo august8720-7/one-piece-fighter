@@ -1,8 +1,10 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { Btn, FightSim, px, totalFrames, type FighterDef, type InputFrame, type StateId } from '../../src/core';
 import { akainuDef, labubuDef, luffyDef, twinkleDef } from '../../src/characters';
 import { AnimeSampleController, createSampleFighter, resetSampleRound, sampleCapabilities, sampleHoldPose, sampleResetReason, validateSampleCoverage } from '../../src/render/anime/sampleMode';
 import type { AnimeRuntimeManifest } from '../../src/render/animations';
+import { aokijiDef } from '../../src/characters/aokiji/def';
+import { shanksDef } from '../../src/characters/shanks/def';
 
 const BASE = ['idle', 'walk_fwd', 'walk_back', 'crouch', 'block_stand', 'block_crouch', 'hit_stand', 'hit_crouch'];
 function runtime(
@@ -20,6 +22,76 @@ function runtime(
   return value;
 }
 const sample = (def: FighterDef, ability = false) => createSampleFighter(def, runtime(def), { opponentRuntime: runtime(luffyDef, ability ? [...BASE, 'hit_air', 'knockdown', 'getup'] : BASE) });
+
+describe('selected stationary ground-effect authoring loop', () => {
+  beforeEach(() => {
+    vi.stubEnv('DEV', true);
+    vi.stubGlobal('window', { location: { search: '?rosterPreview=0929' } });
+  });
+  afterEach(() => { vi.unstubAllGlobals(); vi.unstubAllEnvs(); });
+  // Animation records here are gate fixtures, never a claim about actual art.
+  it.each([[1, 180], [-1, 180], [1, 45], [-1, 45]] as const)('walks through actual input from distance%s/%s until a fixed spike connects', (facing, distance) => {
+    const reactions = [...BASE, 'hit_air', 'knockdown', 'getup'];
+    const own = runtime(aokijiDef, reactions, ['sp_ice_spike']);
+    const other = runtime(shanksDef, reactions, []);
+    const attacker = createSampleFighter(aokijiDef, own, { opponentRuntime: other, hasFxFrame: () => true });
+    const target = createSampleFighter(shanksDef, other, { opponentRuntime: own, hasFxFrame: () => true });
+    const sim = new FightSim({ p1: attacker, p2: target, introFrames: 0, roundTime: -1 });
+    sim.state.fighters[0].x = 0;
+    sim.state.fighters[1].x = px(distance * facing);
+    sim.state.fighters[0].facing = facing;
+    sim.state.fighters[1].facing = facing === 1 ? -1 : 1;
+    const controller = new AnimeSampleController(0);
+    expect(controller.selectAbility(sim, 'sp_ice_spike')).toBe(true);
+    controller.mode = 'ability';
+    let walking = false, connected = false;
+    for (let tick = 0; tick < 400 && !connected; tick++) {
+      const beforeInput = JSON.stringify(sim.state);
+      const input = controller.input(sim, { p1: 0, p2: 0 });
+      expect(JSON.stringify(sim.state)).toBe(beforeInput);
+      walking ||= !!(input.p1 & (Btn.Left | Btn.Right));
+      sim.step(input);
+      connected = sim.hits.some(hit => hit.moveId === 'sp_ice_spike' && hit.kind === 'hit');
+    }
+    expect(walking).toBe(true);
+    expect(connected).toBe(true);
+    expect(sim.state.fighters[1].hp).toBe(shanksDef.maxHp - 99);
+  });
+
+  it.each([[0, 1], [0, -1], [1, 1], [1, -1]] as const)('finishes a fresh 623 after approaching on player%s/facing%s without a jab or dash', (player, facing) => {
+    const states = [...BASE, 'hit_air', 'knockdown', 'getup', 'dash'];
+    const own = runtime(aokijiDef, states, ['sp_ice_uplift', 'cr_a']);
+    const other = runtime(shanksDef, states, []);
+    const attacker = createSampleFighter(aokijiDef, own, { opponentRuntime: other, hasFxFrame: () => true });
+    const target = createSampleFighter(shanksDef, other, { opponentRuntime: own, hasFxFrame: () => true });
+    const sim = new FightSim({ p1: player === 0 ? attacker : target, p2: player === 1 ? attacker : target,
+      introFrames: 0, roundTime: -1 });
+    sim.state.fighters[player].x = 0;
+    sim.state.fighters[player === 0 ? 1 : 0].x = px(240 * facing);
+    sim.state.fighters[player].facing = facing;
+    sim.state.fighters[player === 0 ? 1 : 0].facing = facing === 1 ? -1 : 1;
+    const controller = new AnimeSampleController(player, player === 0
+      ? [sampleCapabilities(own), sampleCapabilities(other)] : [sampleCapabilities(other), sampleCapabilities(own)]);
+    expect(controller.capabilities[player].dash).toBe(true);
+    expect(controller.selectAbility(sim, 'sp_ice_uplift')).toBe(true);
+    controller.mode = 'ability';
+    let walked = false, connected = false;
+    const started = new Set<string>();
+    for (let tick = 0; tick < 400 && !connected; tick++) {
+      const before = JSON.stringify(sim.state), input = controller.input(sim, { p1: 0, p2: 0 });
+      expect(JSON.stringify(sim.state)).toBe(before);
+      walked ||= sim.state.fighters[player].state === 'walk_fwd';
+      sim.step(input);
+      const me = sim.state.fighters[player];
+      expect(me.state).not.toBe('dash');
+      if (me.moveId) started.add(me.moveId);
+      connected = sim.hits.some(hit => hit.kind === 'hit' && hit.moveId === 'sp_ice_uplift');
+    }
+    expect(walked).toBe(true);
+    expect(started).toEqual(new Set(['sp_ice_uplift']));
+    expect(connected).toBe(true);
+  });
+});
 const make = () => new FightSim({ p1: sample(luffyDef), p2: sample(akainuDef), introFrames: 0, roundTime: -1 });
 const advance = (sim: FightSim, controller: AnimeSampleController, raw: InputFrame) => sim.step(controller.input(sim, raw));
 const AIR = ['hit_air', 'knockdown', 'getup'];
@@ -237,6 +309,33 @@ function restrictedAbilityPair(def: FighterDef, opponent: FighterDef, moveId: st
 }
 
 describe('sample ability dummy and practice recovery', () => {
+  it('selects a second authored ability through classic input and rejects an unbuilt move', () => {
+    const art = runtime(luffyDef, [...BASE, ...AIR], ['sp_gatling', 'sp_bazooka']);
+    const targetArt = runtime(akainuDef, [...BASE, ...AIR], []);
+    const sim = new FightSim({
+      p1: createSampleFighter(akainuDef, targetArt, { opponentRuntime: art }),
+      p2: createSampleFighter(luffyDef, art, { opponentRuntime: targetArt }),
+      introFrames: 0, roundTime: -1,
+    });
+    const controller = new AnimeSampleController();
+    expect(controller.availableAbilities(sim).map(ability => ability.id)).toEqual(['sp_gatling', 'sp_bazooka']);
+    const before = JSON.stringify(sim.state);
+    expect(controller.selectAbility(sim, 'sp_bazooka')).toBe(true);
+    expect(controller.selectAbility(sim, 'ult_red_hawk')).toBe(false);
+    expect(JSON.stringify(sim.state)).toBe(before);
+    controller.mode = 'ability';
+    const trace: number[] = [];
+    for (let tick = 0; tick < 500 && sim.state.fighters[1].moveId !== 'sp_bazooka'; tick++) {
+      const input = controller.input(sim, { p1: 0, p2: 0 });
+      trace.push(input.p2);
+      sim.step(input);
+    }
+    expect(sim.state.fighters[1].moveId).toBe('sp_bazooka');
+    expect(trace.slice(-3)).toEqual([Btn.Down, Btn.Down | Btn.Right, Btn.Right | Btn.A]);
+    controller.reset();
+    expect(controller.selectedAbilityId).toBe('sp_bazooka');
+  });
+
   it('offers the ability loop only for the actual enabled dummy move list', () => {
     const controller = new AnimeSampleController(), base = make(), { sim } = abilityPractice();
     expect(controller.availableModes(base)).toEqual(['stand', 'block', 'counter', 'human']);

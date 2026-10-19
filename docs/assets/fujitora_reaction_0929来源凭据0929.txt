@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "fujitora_reaction_0929",
+  "file": "public/assets/generated/source/roster-fujitora-reaction-0929.png",
+  "sha256": "6971fa5685477c4980ca22c66db39c1c9fa12e14a88659fc2cb55cde0d07d7a8",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "本次官方图像页未标示具体图像型号，按实际来源记unverified。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Microsoft Edge",
+  "sessionUrl": "https://chatgpt.com/c/6abbdda3-ba58-83ee-8d68-a51bc4c4d77e",
+  "observedCompletedAt": "2026-09-30T00:05:13.4727321+08:00",
+  "uiObservation": "本子任务在已稳定藤虎分支使用当前最新+极高设置，完整反应提示词通过textbox.fill单次发送。页面回答已完成，查看器第三张显示藤虎待机/蹲防/受击/跳/倒地起身九格，natural尺寸1254x1254。本时间是下载保全后再次查看已完成原图的本机观察时刻，不是服务器生成时间。两份Edge crdownload签名/IEND、Pillow.verify和load全部通过，尺寸与页面一致、hash相同；先清单后复制原文件，不声称浏览器已结束下载或动态样板通过。",
+  "prompt": {
+    "file": "docs/assets/fujitora-reaction-prompt0929.txt",
+    "sha256": "dbafe6584b690d6fd66d798b086f5abfe93a3138b2c71cba22b7d2ffe5225db8"
+  },
+  "referenceSources": {
+    "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+    "fujitora_locomotion_0929": "a38f130276e431ca96988080c490d81675e3256c5632e0b305f73ed430f3c2ad"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-09-29T16:05:13.761209+00:00",
+  "referenceFiles": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+    },
+    "fujitora_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-fujitora-locomotion-0929.png",
+      "sha256": "a38f130276e431ca96988080c490d81675e3256c5632e0b305f73ed430f3c2ad"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

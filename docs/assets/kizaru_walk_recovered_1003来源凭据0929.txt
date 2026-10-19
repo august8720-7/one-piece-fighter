@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "kizaru_walk_recovered_1003",
+  "file": "public/assets/generated/source/roster-kizaru-walk-recovered-1003.png",
+  "sha256": "b9c40e81cf9ea2ffb95cd396499a73b7f7d38b8f869265e9e3c876718ea4b920",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "本助手在该官方会话实际菜单核验最新选中与极高第四项；图像后台具体型号未公开，不冒写2.5。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Microsoft Edge",
+  "sessionUrl": "https://chatgpt.com/c/6abbd7c3-ab58-83e8-bc9d-5433cd330260",
+  "observedCompletedAt": "2026-10-03T21:00:17.4984968+08:00",
+  "uiObservation": "本助手恢复黄猿官方旧会话后先发现第三条六格近远腿纠正请求和已有生成结果，marine来源表未登记；未发送新提示、未重生图。现场打开最新图查看器，标题黄猿六帧行走姿态精灵图，img已生成图像3，六个黄猿完整姿势可见。保存当前实际完成复核截图和DOM，并从实际用户消息innerText保存完整原提示；时间是本次恢复复核不是服务器首次生成。下载只点一次，Downloads原件保留crdownload，PNG签名、IEND、Pillowverify、完整RGBAdecode和重复字节稳定通过，先清单复制再SHA核对一致。步态是否真实换腿另查，来源登记不等于美术或完整比赛通过。",
+  "prompt": {
+    "file": "docs/assets/kizaru-walk-recovered-prompt1003.txt",
+    "sha256": "bb4fb22d11b0194a307a804d78190eef0c1c4547514bc99a623f99bc8e6e0c56"
+  },
+  "referenceSources": {
+    "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+    "kizaru_locomotion_0929": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T13:04:52.329014+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/kizaru-walk1003/completion-viewer1003.png",
+    "sha256": "afc0bb56ca8924b8783125ecc466bba673b6db8c970550134ad30dd53db31923"
+  },
+  "referenceFiles": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+    },
+    "kizaru_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-kizaru-locomotion-0929.png",
+      "sha256": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

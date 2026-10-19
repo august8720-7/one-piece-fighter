@@ -1,10 +1,14 @@
 import { MOVE_PRESENTATIONS } from './fx/movePresentation';
+import { ROSTER_FX_CANDIDATES } from './fx/rosterFxCandidates1003';
+import { releasedPcRosterIds } from '../characters/rosterAvailability1004';
 
 export interface PresentationResource {
   key: string;
   image: string;
   atlas: string | null;
   frames: readonly string[];
+  /** Explicit multi-page/tick contract. Absent keeps the existing single-atlas path. */
+  runtime?: string;
 }
 
 interface CharacterResourcePlan {
@@ -39,6 +43,16 @@ export const COMMON_PRESENTATION_RESOURCES: readonly PresentationResource[] = [
 export const MENU_PRESENTATION_RESOURCES: readonly PresentationResource[] = [stageResources[0]!];
 
 export const CHARACTER_RESOURCE_PLANS: Readonly<Record<string, CharacterResourcePlan>> = {
+  ...Object.fromEntries(releasedPcRosterIds().flatMap(id => {
+    const entry = ROSTER_FX_CANDIDATES[id];
+    return entry ? [[id, {
+      presentation: [{ key: `fx-${id}`, image: entry.image, atlas: entry.atlas, frames: entry.frames,
+        ...(entry.runtime ? { runtime: entry.runtime } : {}) }],
+      downloadPrefixes: [`assets/characters/${id}/anime/`, `assets/audio/voice/${id}/`, `assets/fx/${id}/`,
+        `assets/audio/sfx/roster-adopted1004/${id}/`],
+      downloadFiles: [],
+    }]] : [];
+  })),
   luffy: {
     presentation: [{
       key: 'fx-luffy', image: 'assets/fx/luffy.png', atlas: 'assets/fx/luffy.json',
@@ -81,23 +95,30 @@ function uniqueResources(resources: readonly PresentationResource[]): Presentati
   return [...new Map(resources.map(resource => [resource.key, resource])).values()];
 }
 
-export function presentationResources(scope: 'menu' | 'fight', characterIds: readonly string[]): {
+export function presentationResources(scope: 'menu' | 'fight', characterIds: readonly string[], candidateSample = false): {
   resources: PresentationResource[];
   unknownCharacterIds: string[];
 } {
   if (scope === 'menu') return { resources: [...MENU_PRESENTATION_RESOURCES], unknownCharacterIds: [] };
   const ids = [...new Set(characterIds)];
-  const unknownCharacterIds = ids.filter(id => !CHARACTER_RESOURCE_PLANS[id]);
+  const unknownCharacterIds = ids.filter(id => !CHARACTER_RESOURCE_PLANS[id] && !(candidateSample && ROSTER_FX_CANDIDATES[id]));
   return {
     resources: uniqueResources([
       ...COMMON_PRESENTATION_RESOURCES,
       ...ids.flatMap(id => CHARACTER_RESOURCE_PLANS[id]?.presentation ?? []),
+      ...(candidateSample ? ids.filter(id => !CHARACTER_RESOURCE_PLANS[id]).flatMap(id => {
+        const entry = ROSTER_FX_CANDIDATES[id];
+        return entry ? [{ key: `fx-${id}`, image: entry.image, atlas: entry.atlas, frames: entry.frames,
+          ...(entry.runtime ? { runtime: entry.runtime } : {}) }] : [];
+      }) : []),
     ]),
     unknownCharacterIds,
   };
 }
 
-const COMMON_DOWNLOAD_FILES = new Set(COMMON_PRESENTATION_RESOURCES.flatMap(resource => [resource.image, ...(resource.atlas ? [resource.atlas] : [])]));
+const resourceFiles = (resource: PresentationResource): string[] => resource.runtime
+  ? [resource.runtime] : [resource.image, ...(resource.atlas ? [resource.atlas] : [])];
+const COMMON_DOWNLOAD_FILES = new Set(COMMON_PRESENTATION_RESOURCES.flatMap(resourceFiles));
 
 /** Select only URLs explicitly assigned to common or selected-character resource namespaces. */
 export function fightDownloadUrls(records: Readonly<Record<string, unknown>>, characterIds: readonly string[] = []): string[] {
@@ -106,8 +127,13 @@ export function fightDownloadUrls(records: Readonly<Record<string, unknown>>, ch
     if (COMMON_DOWNLOAD_FILES.has(url)) return true;
     return ids.some(id => {
       const plan = CHARACTER_RESOURCE_PLANS[id];
-      return !!plan && (plan.downloadFiles.includes(url) || plan.downloadPrefixes.some(prefix => url.startsWith(prefix))
+      return !!plan && (plan.downloadFiles.includes(url) || plan.presentation.some(resource => resourceFiles(resource).includes(url)) || plan.downloadPrefixes.some(prefix => url.startsWith(prefix))
         || url.startsWith(`assets/audio/sfx/${id}-`));
     });
   });
+}
+
+/** Explicit six-person full-mode opt-in. Ordinary/sample/legacy warmups stay unchanged. */
+export function gear5DownloadUrls(records: Readonly<Record<string, unknown>>, characterIds: readonly string[]): string[] {
+  return characterIds.includes('luffy') ? Object.keys(records).filter(url => url.startsWith('assets/characters/luffy/forms/gear5/')) : [];
 }

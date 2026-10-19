@@ -1,0 +1,1270 @@
+{
+  "schemaVersion": 1,
+  "cues": {
+    "voice.luffy.intro": {
+      "files": [
+        "assets/audio/voice/luffy/daily-idle-1-0914.wav"
+      ],
+      "group": "voice",
+      "characterId": "luffy",
+      "gain": 0.7,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.luffy.select; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "cooldownMs": 0,
+      "maxInstances": 1,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.akainu.select": {
+      "files": [
+        "assets/audio/voice/akainu/daily-idle-2-0914.wav"
+      ],
+      "group": "voice",
+      "characterId": "akainu",
+      "gain": 0.7,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.akainu.idle; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "cooldownMs": 0,
+      "maxInstances": 1,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.akainu.intro": {
+      "files": [
+        "assets/audio/voice/akainu/daily-idle-2-0914.wav"
+      ],
+      "group": "voice",
+      "characterId": "akainu",
+      "gain": 0.7,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.akainu.idle; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "cooldownMs": 0,
+      "maxInstances": 1,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.labubu.intro": {
+      "files": [
+        "assets/audio/voice/labubu/idle-0927.mp3"
+      ],
+      "group": "voice",
+      "characterId": "labubu",
+      "gain": 0.65,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.labubu.idle; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "cooldownMs": 0,
+      "maxInstances": 1,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.twinkle.intro": {
+      "files": [
+        "assets/audio/voice/twinkle/idle-0927.mp3"
+      ],
+      "group": "voice",
+      "characterId": "twinkle",
+      "gain": 0.65,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.twinkle.idle; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "cooldownMs": 0,
+      "maxInstances": 1,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.twinkle.sp_tiny_star": {
+      "files": [
+        "assets/audio/voice/twinkle/attack-0927.mp3"
+      ],
+      "group": "voice",
+      "characterId": "twinkle",
+      "gain": 0.65,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.twinkle.attack; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "cooldownMs": 4000,
+      "preserveSentence": true,
+      "priority": 75,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.aokiji.intro": {
+      "files": [
+        "assets/audio/voice/aokiji/select-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.aokiji.select; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "maxInstances": 1,
+      "cooldownMs": 0,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.shanks.intro": {
+      "files": [
+        "assets/audio/voice/shanks/idle-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "shanks",
+      "gain": 0.62,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.shanks.idle; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "maxInstances": 1,
+      "cooldownMs": 0,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.shanks.sp_divine_departure": {
+      "files": [
+        "assets/audio/voice/shanks/divine-departure-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "shanks",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "New meaningful short Japanese named move. Exact native content and independent quality verified; existing1013 Uncle Fu synthetic profile, not original actor or a new human audition.",
+      "meaningfulReuse": false,
+      "dedicatedRecording": true
+    },
+    "voice.akainu.sp_daifunka": {
+      "files": [
+        "assets/audio/voice/akainu/daifunka-original-reviewed1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "akainu",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Existing0922 original-actor candidate newly heard and quality-reviewed by exact WAV SHA. Real daifunka call explicitly reused for normal and chained daifunka; not two independent utterances.",
+      "meaningfulReuse": true
+    },
+    "voice.akainu.sp_daifunka_ren": {
+      "files": [
+        "assets/audio/voice/akainu/daifunka-original-reviewed1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "akainu",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Existing0922 original-actor candidate newly heard and quality-reviewed by exact WAV SHA. Real daifunka call explicitly reused for normal and chained daifunka; not two independent utterances.",
+      "meaningfulReuse": true
+    },
+    "voice.shanks.ult_red_hair_finale": {
+      "files": [
+        "assets/audio/voice/shanks/finale-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "shanks",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact new meaningful final-move line in the established Uncle Fu synthetic profile, not original actor.",
+      "meaningfulReuse": false,
+      "dedicatedRecording": true
+    },
+    "voice.labubu.sp_leg_flip_connected": {
+      "files": [
+        "assets/audio/voice/labubu/grab-connected-reviewed1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "labubu",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Existing0925 Vox candidate using accepted LABUBU reference; newly exact native-reviewed full PCM16 decoding of original MP3, no trim/resample/pitch/gain. Meaningful caught phrase only on actual grab connection, never startup or whiff. One shared generic line, not3 independently recorded named skills.",
+      "meaningfulReuse": true
+    },
+    "voice.labubu.throw_fwd_connected": {
+      "files": [
+        "assets/audio/voice/labubu/grab-connected-reviewed1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "labubu",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Existing0925 Vox candidate using accepted LABUBU reference; newly exact native-reviewed full PCM16 decoding of original MP3, no trim/resample/pitch/gain. Meaningful caught phrase only on actual grab connection, never startup or whiff. One shared generic line, not3 independently recorded named skills.",
+      "meaningfulReuse": true
+    },
+    "voice.labubu.throw_back_connected": {
+      "files": [
+        "assets/audio/voice/labubu/grab-connected-reviewed1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "labubu",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Existing0925 Vox candidate using accepted LABUBU reference; newly exact native-reviewed full PCM16 decoding of original MP3, no trim/resample/pitch/gain. Meaningful caught phrase only on actual grab connection, never startup or whiff. One shared generic line, not3 independently recorded named skills.",
+      "meaningfulReuse": true
+    },
+    "voice.labubu.sp_pounce_rush": {
+      "files": [
+        "assets/audio/voice/labubu/select-0926.wav"
+      ],
+      "group": "voice",
+      "characterId": "labubu",
+      "gain": 0.7,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.labubu.select; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.labubu.attack": {
+      "files": [
+        "assets/audio/voice/labubu/attack-0927.mp3"
+      ],
+      "group": "voice",
+      "characterId": "labubu",
+      "gain": 0.65,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.labubu.attack; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "cooldownMs": 4000,
+      "preserveSentence": true,
+      "priority": 75,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.labubu.sp_prank_flurry": {
+      "files": [
+        "assets/audio/voice/labubu/attack-0927.mp3"
+      ],
+      "group": "voice",
+      "characterId": "labubu",
+      "gain": 0.65,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.labubu.attack; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "cooldownMs": 4000,
+      "preserveSentence": true,
+      "priority": 75,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.labubu.ult_monster_mayhem": {
+      "files": [
+        "assets/audio/voice/labubu/idle-0927.mp3"
+      ],
+      "group": "voice",
+      "characterId": "labubu",
+      "gain": 0.65,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.labubu.idle; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.twinkle.attack": {
+      "files": [
+        "assets/audio/voice/twinkle/attack-0927.mp3"
+      ],
+      "group": "voice",
+      "characterId": "twinkle",
+      "gain": 0.65,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.twinkle.attack; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "cooldownMs": 4000,
+      "preserveSentence": true,
+      "priority": 75,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.twinkle.sp_falling_star": {
+      "files": [
+        "assets/audio/voice/twinkle/attack-0927.mp3"
+      ],
+      "group": "voice",
+      "characterId": "twinkle",
+      "gain": 0.65,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.twinkle.attack; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "cooldownMs": 4000,
+      "preserveSentence": true,
+      "priority": 75,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.twinkle.sp_starlight_push": {
+      "files": [
+        "assets/audio/voice/twinkle/attack-0927.mp3"
+      ],
+      "group": "voice",
+      "characterId": "twinkle",
+      "gain": 0.65,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.twinkle.attack; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "cooldownMs": 4000,
+      "preserveSentence": true,
+      "priority": 75,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.twinkle.ult_star_symphony": {
+      "files": [
+        "assets/audio/voice/twinkle/select-0926.mp3"
+      ],
+      "group": "voice",
+      "characterId": "twinkle",
+      "gain": 0.7,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.twinkle.select; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.aokiji.attack": {
+      "files": [
+        "assets/audio/voice/aokiji/attack-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "aokiji",
+      "gain": 0.85,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.aokiji.attack; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "maxInstances": 1,
+      "cooldownMs": 4000,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.aokiji.sp_ice_lance": {
+      "files": [
+        "assets/audio/voice/aokiji/attack-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "aokiji",
+      "gain": 0.85,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.aokiji.attack; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "maxInstances": 1,
+      "cooldownMs": 4000,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.aokiji.sp_ice_spike": {
+      "files": [
+        "assets/audio/voice/aokiji/attack-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "aokiji",
+      "gain": 0.85,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.aokiji.attack; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "maxInstances": 1,
+      "cooldownMs": 4000,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.aokiji.sp_ice_uplift": {
+      "files": [
+        "assets/audio/voice/aokiji/attack-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "aokiji",
+      "gain": 0.85,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.aokiji.attack; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "maxInstances": 1,
+      "cooldownMs": 4000,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.shanks.attack": {
+      "files": [
+        "assets/audio/voice/shanks/move-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "shanks",
+      "gain": 0.62,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.shanks.move; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "maxInstances": 1,
+      "cooldownMs": 4000,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.shanks.st_c": {
+      "files": [
+        "assets/audio/voice/shanks/move-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "shanks",
+      "gain": 0.62,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.shanks.move; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "maxInstances": 1,
+      "cooldownMs": 4000,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.shanks.sp_step_thrust": {
+      "files": [
+        "assets/audio/voice/shanks/move-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "shanks",
+      "gain": 0.62,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.shanks.move; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "maxInstances": 1,
+      "cooldownMs": 4000,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.shanks.sp_rising_guard": {
+      "files": [
+        "assets/audio/voice/shanks/idle-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "shanks",
+      "gain": 0.62,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.shanks.idle; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "maxInstances": 1,
+      "cooldownMs": 4000,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.luffy.attack": {
+      "files": [
+        "assets/audio/voice/luffy/daily-idle-1-0914.wav"
+      ],
+      "group": "voice",
+      "characterId": "luffy",
+      "gain": 0.7,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.luffy.select; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.akainu.attack": {
+      "files": [
+        "assets/audio/voice/akainu/daily-idle-2-0914.wav"
+      ],
+      "group": "voice",
+      "characterId": "akainu",
+      "gain": 0.7,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact meaningful reuse of voice.akainu.idle; full accepted audio preserved. New1017 event placement, not a newly generated line or original-actor claim.",
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "preserveSentence": true,
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.luffy.st_c": {
+      "files": [
+        "assets/audio/voice/luffy/luffy-stretch-call-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "luffy",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact actual words and independent quality verified. Preset synthetic supplement is explicitly NOT the original actor; old accepted effort/select/win clips remain preserved. Shared events reuse one file, not independently recorded named shouts.",
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.luffy.g5_bounce_slam": {
+      "files": [
+        "assets/audio/voice/luffy/luffy-gear5-bounce-slam-call-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "luffy",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Single new game-specific Gear5 bounce-slam invocation. Same already adopted Ono Anna Japanese young/high synthetic supplement profile and direction; not original actor, clone, new voiceprint certification or human timbre acceptance. Exact content and independent dry quality reviewed; old ノビロ remains for st_c/rising_whip. No core timing/scale edit; this new clip is not live-mix accepted.",
+      "meaningfulReuse": false,
+      "dedicatedRecording": true
+    },
+    "voice.luffy.g5_rising_whip": {
+      "files": [
+        "assets/audio/voice/luffy/luffy-stretch-call-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "luffy",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact actual words and independent quality verified. Preset synthetic supplement is explicitly NOT the original actor; old accepted effort/select/win clips remain preserved. Shared events reuse one file, not independently recorded named shouts.",
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.luffy.sp_rocket": {
+      "files": [
+        "assets/audio/voice/luffy/luffy-rocket-call-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "luffy",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact actual words and independent quality verified. Preset synthetic supplement is explicitly NOT the original actor; old accepted effort/select/win clips remain preserved. Shared events reuse one file, not independently recorded named shouts.",
+      "meaningfulReuse": false,
+      "dedicatedRecording": true
+    },
+    "voice.luffy.sp_balloon": {
+      "files": [
+        "assets/audio/voice/luffy/luffy-balloon-call-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "luffy",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact actual words and independent quality verified. Preset synthetic supplement is explicitly NOT the original actor; old accepted effort/select/win clips remain preserved. Shared events reuse one file, not independently recorded named shouts.",
+      "meaningfulReuse": false,
+      "dedicatedRecording": true
+    },
+    "voice.luffy.sp_gatling": {
+      "files": [
+        "assets/audio/voice/luffy/luffy-gatling-call-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "luffy",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact actual words and independent quality verified. Preset synthetic supplement is explicitly NOT the original actor; old accepted effort/select/win clips remain preserved. Shared events reuse one file, not independently recorded named shouts.",
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.luffy.sp_storm": {
+      "files": [
+        "assets/audio/voice/luffy/luffy-gatling-call-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "luffy",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact actual words and independent quality verified. Preset synthetic supplement is explicitly NOT the original actor; old accepted effort/select/win clips remain preserved. Shared events reuse one file, not independently recorded named shouts.",
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.luffy.g5_elastic_rush": {
+      "files": [
+        "assets/audio/voice/luffy/luffy-gatling-call-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "luffy",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact actual words and independent quality verified. Preset synthetic supplement is explicitly NOT the original actor; old accepted effort/select/win clips remain preserved. Shared events reuse one file, not independently recorded named shouts.",
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.luffy.ult_red_hawk": {
+      "files": [
+        "assets/audio/voice/luffy/luffy-red-hawk-call-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "luffy",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact actual words and independent quality verified. Preset synthetic supplement is explicitly NOT the original actor; old accepted effort/select/win clips remain preserved. Shared events reuse one file, not independently recorded named shouts.",
+      "meaningfulReuse": false,
+      "dedicatedRecording": true
+    },
+    "voice.luffy.g5_exit": {
+      "files": [
+        "assets/audio/voice/luffy/luffy-gear5-exit-call-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "luffy",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact actual words and independent quality verified. Preset synthetic supplement is explicitly NOT the original actor; old accepted effort/select/win clips remain preserved. Shared events reuse one file, not independently recorded named shouts.",
+      "meaningfulReuse": false,
+      "dedicatedRecording": true
+    },
+    "voice.akainu.sp_inugami": {
+      "files": [
+        "assets/audio/voice/akainu/akainu-lava-fang-call-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "akainu",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact actual words and independent quality verified. Preset synthetic supplement is explicitly NOT the original actor; old accepted effort/select/win clips remain preserved. Shared events reuse one file, not independently recorded named shouts.",
+      "meaningfulReuse": false,
+      "dedicatedRecording": true
+    },
+    "voice.akainu.sp_meigou_connected": {
+      "files": [
+        "assets/audio/voice/akainu/akainu-grab-call-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "akainu",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact actual words and independent quality verified. Preset synthetic supplement is explicitly NOT the original actor; old accepted effort/select/win clips remain preserved. Shared events reuse one file, not independently recorded named shouts.",
+      "meaningfulReuse": false,
+      "dedicatedRecording": true
+    },
+    "voice.akainu.ult_meigou_end": {
+      "files": [
+        "assets/audio/voice/akainu/akainu-burn-finale-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "akainu",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact actual words and independent quality verified. Preset synthetic supplement is explicitly NOT the original actor; old accepted effort/select/win clips remain preserved. Shared events reuse one file, not independently recorded named shouts.",
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.akainu.sp_meteor_rain": {
+      "files": [
+        "assets/audio/voice/akainu/akainu-burn-finale-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "akainu",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact actual words and independent quality verified. Preset synthetic supplement is explicitly NOT the original actor; old accepted effort/select/win clips remain preserved. Shared events reuse one file, not independently recorded named shouts.",
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.aokiji.ult_ice_age": {
+      "files": [
+        "assets/audio/voice/aokiji/aokiji-ice-power-call-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "aokiji",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact actual words and independent quality verified. Preset synthetic supplement is explicitly NOT the original actor; old accepted effort/select/win clips remain preserved. Shared events reuse one file, not independently recorded named shouts.",
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.aokiji.sp_glacier_line": {
+      "files": [
+        "assets/audio/voice/aokiji/aokiji-ice-power-call-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "aokiji",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact actual words and independent quality verified. Preset synthetic supplement is explicitly NOT the original actor; old accepted effort/select/win clips remain preserved. Shared events reuse one file, not independently recorded named shouts.",
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.aokiji.sp_ice_pheasant": {
+      "files": [
+        "assets/audio/voice/aokiji/aokiji-ice-power-call-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "aokiji",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Exact actual words and independent quality verified. Preset synthetic supplement is explicitly NOT the original actor; old accepted effort/select/win clips remain preserved. Shared events reuse one file, not independently recorded named shouts.",
+      "meaningfulReuse": true,
+      "dedicatedRecording": false
+    },
+    "voice.luffy.g5_awakening": {
+      "files": [
+        "assets/audio/voice/luffy/luffy-gear5-awakening-declaration-qwen-japanese1017.wav"
+      ],
+      "group": "voice",
+      "characterId": "luffy",
+      "gain": 0.75,
+      "preserveSentence": true,
+      "priority": 75,
+      "cooldownMs": 4000,
+      "maxInstances": 1,
+      "source": "docs/design/六人台词补齐1017.md",
+      "note": "Explicit one-time transformation resource declaration: actual full single Japanese自由だ3.36s, not a normal short-call clip. Independently heard complete/no repeat/noise. Runs after original36tick visual if needed, no core timing edit, never reused for normal hits. Ono Anna synthetic supplement, not original actor; native profile comparison found no obvious switch, not human preference/voiceprint certification. All failed short candidates preserved.",
+      "meaningfulReuse": false,
+      "dedicatedRecording": true
+    }
+  },
+  "lines": [
+    {
+      "file": "assets/audio/voice/luffy/daily-idle-1-0914.wav",
+      "label": "1017原声台词盲核",
+      "original": "よしやるか",
+      "translation": "好，开打吧！",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false
+    },
+    {
+      "file": "assets/audio/voice/luffy/candidate-review-win-0912.wav",
+      "label": "1017原声台词盲核",
+      "original": "ぶっ飛ばしてやった",
+      "translation": "把你打飞了！",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false
+    },
+    {
+      "file": "assets/audio/voice/akainu/daily-idle-2-0914.wav",
+      "label": "1017原声台词盲核",
+      "original": "次はお前じゃ",
+      "translation": "下一个就是你。",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false
+    },
+    {
+      "file": "assets/audio/voice/akainu/candidate-review-win-0912.wav",
+      "label": "1017原声台词盲核",
+      "original": "敗北者が",
+      "translation": "败者……",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false
+    },
+    {
+      "file": "assets/audio/voice/labubu/idle-0927.mp3",
+      "label": "LABUBU · 待机",
+      "original": "快来陪我玩呀",
+      "translation": "快来陪我玩呀！",
+      "transcriptVerified": true,
+      "sha256": "47b45f15ba9ad3308de8eb4676f4eea077f6907be2ec15b09a2767e75e4a0fa8"
+    },
+    {
+      "file": "assets/audio/voice/twinkle/idle-0927.mp3",
+      "label": "星星人 · 待机",
+      "original": "让星光陪你玩。",
+      "translation": "让星光陪你玩。",
+      "transcriptVerified": true,
+      "sha256": "132e7dbe542ffad1e64f3b05ac22b7d00af750b2e9014d78f1db96b12728cf02"
+    },
+    {
+      "file": "assets/audio/voice/twinkle/attack-0927.mp3",
+      "label": "星星人 · 通用出招",
+      "original": "星星，出击。",
+      "translation": "星星，出击。",
+      "transcriptVerified": true,
+      "sha256": "925f8dbd5a1fc8edde12df132511612e081ac8afe742b4bd141e91405be52fd6"
+    },
+    {
+      "file": "assets/audio/voice/aokiji/select-qwen-japanese1013.wav",
+      "label": "青雉 · 本作合成日语",
+      "original": "さあ始めようか",
+      "translation": "那么，开始吧。",
+      "transcriptVerified": true,
+      "sourceKind": "original-synthetic-Japanese",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sha256": "2bef4f31237993d710a7c2d5c16116b53776b4ac4a0bb07e21f7b85964a1396e"
+    },
+    {
+      "file": "assets/audio/voice/shanks/idle-qwen-japanese1013.wav",
+      "label": "香克斯 · 日语idle",
+      "original": "焦るなよ",
+      "translation": "别着急。",
+      "transcriptVerified": true,
+      "sourceKind": "original-synthetic-Japanese",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sha256": "ebeead556cd83fb2d2da7ef1c23ffaf775175c3c003a7e7d75d78ee844412f23"
+    },
+    {
+      "file": "assets/audio/voice/shanks/divine-departure-qwen-japanese1017.wav",
+      "label": "香克斯·合成日语神避",
+      "original": "カムサリ",
+      "translation": "神避！",
+      "transcriptVerified": true,
+      "sourceKind": "original-synthetic-supplement",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "originalActorClaim": false,
+      "continuityStatus": "established-synthetic-profile",
+      "sha256": "a19147b1ddc150c10f0e1da04bb5633e9e48c672bc75e892c72dcc258afa4084"
+    },
+    {
+      "file": "assets/audio/voice/akainu/daifunka-original-reviewed1017.wav",
+      "label": "赤犬·大喷火原声",
+      "original": "大噴火",
+      "translation": "大喷火！",
+      "transcriptVerified": true,
+      "sourceKind": "existing-original-recording",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "originalActorClaim": null,
+      "continuityStatus": "unchanged-original-actor-source",
+      "sha256": "191565a3b92a8cf0c423a1672c902aaa7f04fed46758d769824458fd531d2ee4"
+    },
+    {
+      "file": "assets/audio/voice/shanks/finale-qwen-japanese1017.wav",
+      "label": "香克斯·合成日语终结",
+      "original": "これで終わりだ",
+      "translation": "到此为止！",
+      "transcriptVerified": true,
+      "sourceKind": "original-synthetic-supplement",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "originalActorClaim": false,
+      "continuityStatus": "established-synthetic-profile",
+      "sha256": "4b5f1781b0e655886a56a51a267a55687876aacfa7224495a32aa9a1f8a0f7d8"
+    },
+    {
+      "file": "assets/audio/voice/labubu/grab-connected-reviewed1017.wav",
+      "label": "LABUBU·抓住回应",
+      "original": "抓到你啦",
+      "translation": "抓到你啦！",
+      "transcriptVerified": true,
+      "sourceKind": "existing-synthetic-reference-derived-recording",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "originalActorClaim": null,
+      "continuityStatus": "same-accepted-synthetic-reference-source",
+      "sha256": "0e29d0457a4b5c8b6f25bb744f24f41976c94109d205d2bd6964157f9fa35668"
+    },
+    {
+      "file": "assets/audio/voice/labubu/attack-0927.mp3",
+      "label": "LABUBU · 通用出招",
+      "original": "看招！",
+      "translation": "看招！",
+      "transcriptVerified": true,
+      "sha256": "26143ea93f0cc0b6f7acb29ce51331e94b5a807113103bc835f2021da2a4e4fc"
+    },
+    {
+      "file": "assets/audio/voice/twinkle/select-0926.mp3",
+      "label": "星星人 · 选人",
+      "original": "一起闪闪发光吧。",
+      "translation": "一起闪闪发光吧。",
+      "transcriptVerified": true,
+      "sha256": "0fbd93c3df6ce1cab2d95ce3b6ecaacd0b6060bfdef6ecbc1c152c3d3ca1a4d7"
+    },
+    {
+      "file": "assets/audio/voice/aokiji/attack-qwen-japanese1013.wav",
+      "label": "青雉 · 本作合成日语",
+      "original": "そこだ",
+      "translation": "就是那里！",
+      "transcriptVerified": true,
+      "sourceKind": "original-synthetic-Japanese",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sha256": "eeaac0874f3396c61e64c7d20b917bce784bdd8b65fe380799474990d49697a7"
+    },
+    {
+      "file": "assets/audio/voice/shanks/move-qwen-japanese1013.wav",
+      "label": "香克斯 · 日语move",
+      "original": "行くぞ",
+      "translation": "上了。",
+      "transcriptVerified": true,
+      "sourceKind": "original-synthetic-Japanese",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sha256": "2a3937681404fabc1007a43bd3438f724b1f797b239bb3602a3a8fe2529b3c6b"
+    },
+    {
+      "file": "assets/audio/voice/labubu/select-0926.wav",
+      "label": "LABUBU · 选人",
+      "original": "嘿嘿，来追我呀！",
+      "translation": "嘿嘿，来追我呀！",
+      "transcriptVerified": true,
+      "sha256": "9fdf81cb72a77ccf2ee718a16955693a62fe43015aca2ba8e5d82036cab7d746"
+    },
+    {
+      "file": "assets/audio/voice/luffy/luffy-stretch-call-qwen-japanese1017.wav",
+      "label": "路飞·伸长短句",
+      "original": "ノビロ",
+      "translation": "伸长！",
+      "transcriptVerified": true,
+      "sourceKind": "original-synthetic-supplement",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "originalActorClaim": false,
+      "continuityStatus": "native-compared-supplement-not-original-actor",
+      "sha256": "3fc49a589f7da6bb841aef1686fb9f7c663daecb5fd22baeee5a6d1eb59cbbdb"
+    },
+    {
+      "file": "assets/audio/voice/luffy/luffy-rocket-call-qwen-japanese1017.wav",
+      "label": "路飞·突进短句",
+      "original": "飛ぶぞ",
+      "translation": "飞过去！",
+      "transcriptVerified": true,
+      "sourceKind": "original-synthetic-supplement",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "originalActorClaim": false,
+      "continuityStatus": "native-compared-supplement-not-original-actor",
+      "sha256": "e91c94cf804a6e572bb985092d2710a16ec642fca2bfbe9c2511ed14d5b86df2"
+    },
+    {
+      "file": "assets/audio/voice/luffy/luffy-balloon-call-qwen-japanese1017.wav",
+      "label": "路飞·橡胶气球",
+      "original": "ゴム風船",
+      "translation": "橡胶气球！",
+      "transcriptVerified": true,
+      "sourceKind": "original-synthetic-supplement",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "originalActorClaim": false,
+      "continuityStatus": "native-compared-supplement-not-original-actor",
+      "sha256": "62ce858ecddfdbbd68c3fc1b4bb5ee106a8fb43eb67b9bacdd6bfc4b6ea3bf5d"
+    },
+    {
+      "file": "assets/audio/voice/luffy/luffy-gatling-call-qwen-japanese1017.wav",
+      "label": "路飞·连打短句",
+      "original": "ゴムの連打",
+      "translation": "橡胶连打！",
+      "transcriptVerified": true,
+      "sourceKind": "original-synthetic-supplement",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "originalActorClaim": false,
+      "continuityStatus": "native-compared-supplement-not-original-actor",
+      "sha256": "a7bbe424884fad6af80a44a1a2778e16e2e394ea3df0ed43b29afa2f8328bd8f"
+    },
+    {
+      "file": "assets/audio/voice/luffy/luffy-red-hawk-call-qwen-japanese1017.wav",
+      "label": "路飞·火拳终结",
+      "original": "ああ燃える拳",
+      "translation": "啊，燃烧的拳头！",
+      "transcriptVerified": true,
+      "sourceKind": "original-synthetic-supplement",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "originalActorClaim": false,
+      "continuityStatus": "native-compared-supplement-not-original-actor",
+      "sha256": "55557284e8e679c958c6e3b43748ca74ece25bddd54d196ed5b59eaa7fbc3f56"
+    },
+    {
+      "file": "assets/audio/voice/luffy/luffy-gear5-exit-call-qwen-japanese1017.wav",
+      "label": "路飞·五档退场",
+      "original": "少し休むぞ",
+      "translation": "先歇一下。",
+      "transcriptVerified": true,
+      "sourceKind": "original-synthetic-supplement",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "originalActorClaim": false,
+      "continuityStatus": "native-compared-supplement-not-original-actor",
+      "sha256": "fc2327e82921af780997482ad066742c0333600d40185c08d1cf1aa48285bd1e"
+    },
+    {
+      "file": "assets/audio/voice/akainu/akainu-lava-fang-call-qwen-japanese1017.wav",
+      "label": "赤犬·熔岩之牙",
+      "original": "溶岩のキバ",
+      "translation": "熔岩之牙！",
+      "transcriptVerified": true,
+      "sourceKind": "original-synthetic-supplement",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "originalActorClaim": false,
+      "continuityStatus": "native-compared-supplement-not-original-actor",
+      "sha256": "7ea5e69ce7d9e389232e771dc4947b9df80a00b6acab75bb7d7006ed94f69767"
+    },
+    {
+      "file": "assets/audio/voice/akainu/akainu-grab-call-qwen-japanese1017.wav",
+      "label": "赤犬·真实抓住回应",
+      "original": "捕まえたぞ",
+      "translation": "抓住你了！",
+      "transcriptVerified": true,
+      "sourceKind": "original-synthetic-supplement",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "originalActorClaim": false,
+      "continuityStatus": "native-compared-supplement-not-original-actor",
+      "sha256": "34f4f506243f0ce502290292b27f1e1a4b2b91d56ea53f1a5ad7ec5fc24539e5"
+    },
+    {
+      "file": "assets/audio/voice/akainu/akainu-burn-finale-qwen-japanese1017.wav",
+      "label": "赤犬·焚烧终结",
+      "original": "やきつくす",
+      "translation": "烧个精光！",
+      "transcriptVerified": true,
+      "sourceKind": "original-synthetic-supplement",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "originalActorClaim": false,
+      "continuityStatus": "native-compared-supplement-not-original-actor",
+      "sha256": "dc278d267b2aa18f76919acf7c8ded0c16607053e2977bb4303186387105516c"
+    },
+    {
+      "file": "assets/audio/voice/aokiji/aokiji-ice-power-call-qwen-japanese1017.wav",
+      "label": "青雉·冰能力宣言",
+      "original": "氷の力だ",
+      "translation": "冰的力量！",
+      "transcriptVerified": true,
+      "sourceKind": "original-synthetic-supplement",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "originalActorClaim": false,
+      "continuityStatus": "established-synthetic-profile",
+      "sha256": "da9a0a1b6bad9eac3ec8e9e7feb74d3edd8fab7e63298ae6ccf492a6d8eaaba8"
+    },
+    {
+      "file": "assets/audio/voice/luffy/luffy-gear5-awakening-declaration-qwen-japanese1017.wav",
+      "label": "路飞·五档自由宣言",
+      "original": "自由だ",
+      "translation": "自由啦！",
+      "transcriptVerified": true,
+      "sourceKind": "original-synthetic-supplement",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "originalActorClaim": false,
+      "continuityStatus": "native-compared-supplement-not-original-actor",
+      "sha256": "af3007932c4c035c0cb0573eac1ee49d6736d9b52fc299624a2919c1b46e051c"
+    },
+    {
+      "file": "assets/audio/voice/luffy/luffy-gear5-bounce-slam-call-qwen-japanese1017.wav",
+      "label": "路飞五档·橡胶重砸",
+      "original": "ゴムの叩きつけ",
+      "translation": "橡胶重砸！",
+      "transcriptVerified": true,
+      "sourceKind": "original-synthetic-supplement",
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "originalActorClaim": false,
+      "continuityStatus": "established-synthetic-profile",
+      "sha256": "c7327599e6e2dba21f0f901c1db0f208d2ef2ab58a9712d2142b981cdb7899f4"
+    }
+  ],
+  "fileChecks": {
+    "assets/audio/voice/luffy/daily-idle-1-0914.wav": {
+      "sha256": "93b01fc68d39aa16c06ca52ae3346be9173461988f5240cf3fa6549a4510f1ec",
+      "bytes": 136788
+    },
+    "assets/audio/voice/luffy/candidate-review-win-0912.wav": {
+      "sha256": "26ede43ff609c38d77f6fcdc16d488acf14dc81b249df66289143aead5c36f16",
+      "bytes": 131460
+    },
+    "assets/audio/voice/akainu/daily-idle-2-0914.wav": {
+      "sha256": "bd05e975e1fd474a22163ba8dfcf0891a58ca94b297a92f9af42fcda2fe22809",
+      "bytes": 150018
+    },
+    "assets/audio/voice/akainu/candidate-review-win-0912.wav": {
+      "sha256": "4675390ab6bc3e2daf4b112f27e85b0521634c720a6efdc3b0d9bc1aba06b1cd",
+      "bytes": 97064
+    },
+    "assets/audio/voice/labubu/idle-0927.mp3": {
+      "sha256": "47b45f15ba9ad3308de8eb4676f4eea077f6907be2ec15b09a2767e75e4a0fa8",
+      "bytes": 35136
+    },
+    "assets/audio/voice/twinkle/idle-0927.mp3": {
+      "sha256": "132e7dbe542ffad1e64f3b05ac22b7d00af750b2e9014d78f1db96b12728cf02",
+      "bytes": 35136
+    },
+    "assets/audio/voice/twinkle/attack-0927.mp3": {
+      "sha256": "925f8dbd5a1fc8edde12df132511612e081ac8afe742b4bd141e91405be52fd6",
+      "bytes": 39168
+    },
+    "assets/audio/voice/aokiji/select-qwen-japanese1013.wav": {
+      "sha256": "2bef4f31237993d710a7c2d5c16116b53776b4ac4a0bb07e21f7b85964a1396e",
+      "bytes": 69164
+    },
+    "assets/audio/voice/shanks/idle-qwen-japanese1013.wav": {
+      "sha256": "ebeead556cd83fb2d2da7ef1c23ffaf775175c3c003a7e7d75d78ee844412f23",
+      "bytes": 53804
+    },
+    "assets/audio/voice/shanks/divine-departure-qwen-japanese1017.wav": {
+      "sha256": "a19147b1ddc150c10f0e1da04bb5633e9e48c672bc75e892c72dcc258afa4084",
+      "bytes": 42284
+    },
+    "assets/audio/voice/akainu/daifunka-original-reviewed1017.wav": {
+      "sha256": "191565a3b92a8cf0c423a1672c902aaa7f04fed46758d769824458fd531d2ee4",
+      "bytes": 135906
+    },
+    "assets/audio/voice/shanks/finale-qwen-japanese1017.wav": {
+      "sha256": "4b5f1781b0e655886a56a51a267a55687876aacfa7224495a32aa9a1f8a0f7d8",
+      "bytes": 61484
+    },
+    "assets/audio/voice/labubu/grab-connected-reviewed1017.wav": {
+      "sha256": "0e29d0457a4b5c8b6f25bb744f24f41976c94109d205d2bd6964157f9fa35668",
+      "bytes": 232748
+    },
+    "assets/audio/voice/labubu/attack-0927.mp3": {
+      "sha256": "26143ea93f0cc0b6f7acb29ce51331e94b5a807113103bc835f2021da2a4e4fc",
+      "bytes": 16128
+    },
+    "assets/audio/voice/twinkle/select-0926.mp3": {
+      "sha256": "0fbd93c3df6ce1cab2d95ce3b6ecaacd0b6060bfdef6ecbc1c152c3d3ca1a4d7",
+      "bytes": 39168
+    },
+    "assets/audio/voice/aokiji/attack-qwen-japanese1013.wav": {
+      "sha256": "eeaac0874f3396c61e64c7d20b917bce784bdd8b65fe380799474990d49697a7",
+      "bytes": 49964
+    },
+    "assets/audio/voice/shanks/move-qwen-japanese1013.wav": {
+      "sha256": "2a3937681404fabc1007a43bd3438f724b1f797b239bb3602a3a8fe2529b3c6b",
+      "bytes": 46124
+    },
+    "assets/audio/voice/labubu/select-0926.wav": {
+      "sha256": "9fdf81cb72a77ccf2ee718a16955693a62fe43015aca2ba8e5d82036cab7d746",
+      "bytes": 86444
+    },
+    "assets/audio/voice/luffy/luffy-stretch-call-qwen-japanese1017.wav": {
+      "sha256": "3fc49a589f7da6bb841aef1686fb9f7c663daecb5fd22baeee5a6d1eb59cbbdb",
+      "bytes": 38444
+    },
+    "assets/audio/voice/luffy/luffy-rocket-call-qwen-japanese1017.wav": {
+      "sha256": "e91c94cf804a6e572bb985092d2710a16ec642fca2bfbe9c2511ed14d5b86df2",
+      "bytes": 42284
+    },
+    "assets/audio/voice/luffy/luffy-balloon-call-qwen-japanese1017.wav": {
+      "sha256": "62ce858ecddfdbbd68c3fc1b4bb5ee106a8fb43eb67b9bacdd6bfc4b6ea3bf5d",
+      "bytes": 46124
+    },
+    "assets/audio/voice/luffy/luffy-gatling-call-qwen-japanese1017.wav": {
+      "sha256": "a7bbe424884fad6af80a44a1a2778e16e2e394ea3df0ed43b29afa2f8328bd8f",
+      "bytes": 61484
+    },
+    "assets/audio/voice/luffy/luffy-red-hawk-call-qwen-japanese1017.wav": {
+      "sha256": "55557284e8e679c958c6e3b43748ca74ece25bddd54d196ed5b59eaa7fbc3f56",
+      "bytes": 76844
+    },
+    "assets/audio/voice/luffy/luffy-gear5-exit-call-qwen-japanese1017.wav": {
+      "sha256": "fc2327e82921af780997482ad066742c0333600d40185c08d1cf1aa48285bd1e",
+      "bytes": 69164
+    },
+    "assets/audio/voice/akainu/akainu-lava-fang-call-qwen-japanese1017.wav": {
+      "sha256": "7ea5e69ce7d9e389232e771dc4947b9df80a00b6acab75bb7d7006ed94f69767",
+      "bytes": 57644
+    },
+    "assets/audio/voice/akainu/akainu-grab-call-qwen-japanese1017.wav": {
+      "sha256": "34f4f506243f0ce502290292b27f1e1a4b2b91d56ea53f1a5ad7ec5fc24539e5",
+      "bytes": 46124
+    },
+    "assets/audio/voice/akainu/akainu-burn-finale-qwen-japanese1017.wav": {
+      "sha256": "dc278d267b2aa18f76919acf7c8ded0c16607053e2977bb4303186387105516c",
+      "bytes": 53804
+    },
+    "assets/audio/voice/aokiji/aokiji-ice-power-call-qwen-japanese1017.wav": {
+      "sha256": "da9a0a1b6bad9eac3ec8e9e7feb74d3edd8fab7e63298ae6ccf492a6d8eaaba8",
+      "bytes": 57644
+    },
+    "assets/audio/voice/luffy/luffy-gear5-awakening-declaration-qwen-japanese1017.wav": {
+      "sha256": "af3007932c4c035c0cb0573eac1ee49d6736d9b52fc299624a2919c1b46e051c",
+      "bytes": 161324
+    },
+    "assets/audio/voice/luffy/luffy-gear5-bounce-slam-call-qwen-japanese1017.wav": {
+      "sha256": "c7327599e6e2dba21f0f901c1db0f208d2ef2ab58a9712d2142b981cdb7899f4",
+      "bytes": 88364
+    }
+  }
+}

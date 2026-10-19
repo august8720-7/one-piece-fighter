@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_reaction_finish_1003",
+  "sourceSha256": "f7f2db204672048a111fc6fb6397c89d3e6d723a9e0a3106b9dbc63e3c3e9ecc",
+  "status": "reaction-finish-body-before-game-review",
+  "neutralVisibleAlpha8Bounds": [138, 17, 591, 511],
+  "neutralVisibleHeight": 494,
+  "referenceNeutralHeight": 380,
+  "unitScale": 0.7692307692307693,
+  "scaleBasis": "Actual idle alpha>=8 height494; every adopted new reaction uniformly380/494. Roots use actual grounded soles; no individual pose fitting or pairing displacement.",
+  "frames": {
+    "thrown_1003": {"source": "shanks_reaction_finish_1003", "crop": [790, 70, 607, 438], "root": [400, 430], "sockets": {"grip": [383, 132]}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[489, 421, 118, 17]]},
+    "throw_tech_1003": {"source": "shanks_reaction_finish_1003", "crop": [93, 608, 601, 398], "root": [357, 389], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "win_1003": {"source": "shanks_reaction_finish_1003", "crop": [876, 453, 597, 570], "root": [368, 561], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[114, 0, 64, 49], [405, 0, 110, 26]]}
+  },
+  "anims": {
+    "thrown": {"frames": ["thrown_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 12}]},
+    "throw_tech": {"frames": ["throw_tech_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 12}]},
+    "win": {"frames": ["win_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 12}]},
+    "ko": {"frames": ["knockdown"], "loop": false, "exposures": [{"frame": 0, "ticks": 12}]}
+  },
+  "observations": ["Three real new poses preserve sole right arm and complete saber. Thrown body leans back in pain; throw tech actively leans forward; victory raises the sole sword.", "KO deliberately holds the already acquired true knockdown end pose. It adds neither a new source nor a unique crop; actual KO/result progression still needs game verification.", "Generic thrown chest grip is an observed approximate source point, not acceptance of every attacker pairing."]
+}

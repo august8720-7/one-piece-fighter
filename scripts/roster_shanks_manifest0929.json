@@ -1,0 +1,5392 @@
+{
+  "schemaVersion": 1,
+  "status": "partial-candidate-full-coverage-still-incomplete",
+  "notes": [
+    "True source alpha retained; no chroma key, no body redraw, no per-pose scale.",
+    "First-sheet idle visible alpha>=8 height380px; character-wide scale=188/380 gives world94 with existing renderer convention.",
+    "All roots measured from visible sole/contact midpoint in source pixels.",
+    "st_a original request was hilt jab; observed result is a light sword thrust. Parent approved naming direction light sword thrust; gameplay hitbox and normal-speed acceptance still pending.",
+    "The four initial walk drawings are retained only as unused review candidates: they do not provide a verified alternating walk cycle. No walk animation has been fabricated.",
+    "Reaction sheet adds eight real poses. Single pose per reaction is stated honestly; airborne virtual roots and getup floor/weapon placement still need runtime review.",
+    "Replacement four-pose walk is available only as an internally reviewed candidate. Earlier four source poses remain unused and are not counted in output. No full roster capability gate is relaxed.",
+    "1003 recovered prior Q/E source, added five real E drawings with8/3/4/4/23 timing. Q is intentionally unmapped: source Q release saber touches right image boundary and needs repair. No old combat values modified.",
+    "1003 Q-only replacement provides three complete independent body poses, now mapped at12/5/23. Previous clipped Q remains preserved and unused. Projectile FX and normal-speed/contact validation are separate.",
+    "1004 source5736 front true holding/near-arm foreground static3representatives2facings reviewed by root; connected21/release7/recover14 preserve42. Runtime art intake only; holding distance/reaction selector unchanged until both front/back and gameplay review."
+  ],
+  "characters": {
+    "shanks": {
+      "scale": 0.49473684210526314,
+      "textureDensity": 2,
+      "maxTextureSize": 4096,
+      "sources": {
+        "shanks_locomotion_0929": {
+          "file": "public/assets/generated/source/roster-shanks-locomotion-0929.png",
+          "sha256": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "本次官方网页可见ChatGPT，具体图像模型没有公开标识，未核实且不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-09-29T23:18:22+08:00",
+          "uiObservation": "本子任务在Microsoft Edge打开既有官方图像会话继续；发送前DOM明确最新menuitemradio已选中、强度极高。多行完整提示词通过textbox.fill后单次发送；回复完成，官方查看器可见香克斯3x3九格新图，img实际1254x1254。23:18:22为已完成图的本机观察时刻，不是服务器生成时间。单次点击下载后Edge暂存后缀未结束，但原始PNG签名、EOF的IEND、Pillow完整解码和网页尺寸均核对通过；保留原.crdownload，先清单后逐字节复制，前后SHA256一致，未声称下载UI完成。images为本会话图像工作流入口，本次续作直接打开上述c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-locomotion-prompt0929.txt",
+            "sha256": "a2ee7335aebd28923f7325fe37a5fe85eacaae2d6c0f6778c2302c0bb3ea3631"
+          },
+          "referenceSources": {
+            "pirate_mother_0929": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b"
+          },
+          "unitScale": 1,
+          "recordedAt": "2026-09-29T15:25:41.937216+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_locomotion_0929来源凭据0929.txt",
+            "sha256": "a7913da19fa6ba5cbd10b614912c20c744a9561a1e3536a7a726f5acebfc5620"
+          }
+        },
+        "shanks_reactions_0929": {
+          "file": "public/assets/generated/source/roster-shanks-reactions-0929.png",
+          "sha256": "e05c579c6fb6c41fd40c40e46c47913de34d83cd1044a5653972d88cff41acaf",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方网页仅显示ChatGPT，具体图像模型未公开，仍记unverified。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-09-29T23:32:42+08:00",
+          "uiObservation": "续用同一Microsoft Edge海贼会话；发送前本次重新打开选择ChatGPT模型菜单，DOM明确最新radio已选中、极高第4项。完整第二基础反应提示词经textbox.fill后单次发送，实际完成一张九格香克斯防御/反应图；官方查看器显示生成的图像3。23:32:42为完成结果再次观察时刻，不是服务器生成时间。下载按钮只点一次，浏览器暂存后缀仍未结束；文件具有完整PNG签名、IEND，Pillow完整解码为1254x1254 RGBA，保留临时原文件，先清单后按相同SHA256复制。未声称浏览器下载UI完成。",
+          "prompt": {
+            "file": "docs/assets/shanks-reactions-prompt0929.txt",
+            "sha256": "adcb3ee76f02c1e771cb4d2d40de73b1b764add9acdbd2946d2107af1f63cd2b"
+          },
+          "referenceSources": {
+            "pirate_mother_0929": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b",
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+          },
+          "unitScale": 0.9090909090909091,
+          "recordedAt": "2026-09-29T15:34:52.968309+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_reactions_0929来源凭据0929.txt",
+            "sha256": "858f78878730c26ebbce704a50d29d82426b91df3a302562c09cbb0bdd180e74"
+          },
+          "scaleBasis": "One neutral reference on this sheet has visible alpha>=8 height418px; the first-sheet neutral reference is380px. Apply380/418 uniformly to every reaction. No per-pose size fitting."
+        },
+        "shanks_walk_repair_0929": {
+          "file": "public/assets/generated/source/roster-shanks-walk-repair-0929.png",
+          "sha256": "9ddbfc788216c4c1e4ad4a925d147520bcd1f3081cc244583737adaed386a621",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "本次页面仅公开ChatGPT与文字最新极高，具体图像模型未公开且未核实。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-09-29T23:42:18+08:00",
+          "uiObservation": "Microsoft Edge同一官方图像会话。发送此定向行走修正前再次核对菜单：最新radio选中、极高第4项。textbox.fill写入完整提示词后单次发送；最终回复一张2x3五姿图，第六格空白，查看器标生成的图像4，实际img1536x1024。23:42:18为完成结果的复核观察时刻，不是服务器生成时间。下载按钮单次点击，Edge暂存后缀未结束；PNG完整签名/IEND/解码均核实，原临时文件保留，按复制前后清单核对SHA256存候选，未声称下载UI完成。",
+          "prompt": {
+            "file": "docs/assets/shanks-walk-repair-prompt0929.txt",
+            "sha256": "372e6d6ba37a34745440ae48d3c8aa401b61230ff9d154549b3ca5a5ebdeee40"
+          },
+          "referenceSources": {
+            "pirate_mother_0929": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b",
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+          },
+          "unitScale": 0.7949790794979079,
+          "recordedAt": "2026-09-29T15:44:56.460626+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_walk_repair_0929来源凭据0929.txt",
+            "sha256": "9549a0019d5a2ba68901ceacc34080e6f3b874bcdcaba2ac9b75227b2b5a05e2"
+          },
+          "scaleBasis": "Whole-sheet neutral visible alpha>=8 bbox[32,16,494,494], height478px, calibrated uniformly to first-sheet neutral380px. All walking poses retain380/478, no per-frame fit."
+        },
+        "shanks_qe_body_1003": {
+          "file": "public/assets/generated/source/roster-shanks-qe-body-1003.png",
+          "sha256": "802066e6355c3eeb896ed0006bcccd64f9e267ce040fc0f127f0c23f1d7a9869",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面未公开具体图像型号，不推断后台模型。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T00:16:00+08:00",
+          "uiObservation": "1003恢复既有官方会话后的完成复核，不是本轮新生成或服务器生成时间。会话最后完整Q/E提示词与本地提示词一致，查看器显示已生成图像5，标题红发浪人九式剑影Spritesheet；当前菜单实见最新radio选中、极高第4项。当前档位只证明本次完成复核时状态，不反推历史提交瞬间。downloadMedia调用超时但Downloads出现完整1254x1254RGBA PNG，签名/IEND/解码/hash及九格实际内容匹配；保留原下载后先清单再复制。不声称下载回执成功。images为原工作流入口，本次直接恢复c会话，页签标题生成六位海贼角色原画，站点ChatGPT。",
+          "prompt": {
+            "file": "docs/assets/shanks-qe-body-prompt0929.txt",
+            "sha256": "f7f7f06f3cdc87140fedeb9c643a7acc60c4ea2bf317d37c9e6795a1d2476904"
+          },
+          "referenceSources": {
+            "pirate_mother_0929": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b",
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+          },
+          "unitScale": 0.9112709832134293,
+          "recordedAt": "2026-10-02T16:17:17.710557+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_qe_body_1003来源凭据0929.txt",
+            "sha256": "dcec3554e97ec235e854df95fb860da021c4560d53446b444fa5404ad3ec4151"
+          },
+          "scaleBasis": "Neutral visible alpha>=8 height417px (35..452); uniform380/417 versus first-sheet380px. All five E poses share this whole-sheet ratio. Q cast drawing is not adopted because saber tip touches source right edge."
+        },
+        "shanks_q_repair_1003": {
+          "file": "public/assets/generated/source/roster-shanks-q-repair-1003.png",
+          "sha256": "cae50e9d2b8c90c2b60245980fd83356dd00702e648dc21b9665dee90cb1a0d5",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面未公开具体图像型号，不推断后台模型。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T00:30:00+08:00",
+          "uiObservation": "1003同一官方会话继续定向修复Q刀尖。提交前实际菜单最新radio选中、极高第4项，退出查看器后输入区仍明确极高。首版长草稿未发出，换成已保存的精简完整提示词，textbox.fill后读回全文确认，再单次点击发送。页面今天0:27显示完整新提示词；完成复核有已生成图像和回答已完成，00:30为完成复核时间而非服务器生成时间。downloadMedia返回超时但新PNG已落盘，1536x1024RGBA完整解码、PNG及IEND通过，源RGB含隐藏背景而alpha真实透明。原下载保留，复制前后hash一致，未声称工具下载回执成功。",
+          "prompt": {
+            "file": "docs/assets/shanks-q-repair-prompt1003.txt",
+            "sha256": "cd965673316c6644adc70ae3c895424b3ee93db54ae10f7e600d28e2cf8bb553"
+          },
+          "referenceSources": {
+            "shanks_qe_body_1003": "802066e6355c3eeb896ed0006bcccd64f9e267ce040fc0f127f0c23f1d7a9869",
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+          },
+          "unitScale": 0.7900207900207901,
+          "recordedAt": "2026-10-02T16:32:36.651708+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_q_repair_1003来源凭据0929.txt",
+            "sha256": "c921a40d0bb3ba86ab405c464f7e6908ef35b9969527d3860ea610a0361dd231"
+          },
+          "scaleBasis": "Neutral visible alpha>=8 bounds[171,30,697,511], height481px; uniform380/481 for all three Q poses. No per-pose fitting."
+        },
+        "shanks_jump_mobility_1003": {
+          "file": "public/assets/generated/source/roster-shanks-jump-mobility-1003.png",
+          "sha256": "a0e9b2f42d7eced6bac6cc3156910d89799302518f9f9a17680744bb325302ae",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T15:10:30.1716842+08:00",
+          "uiObservation": "1003恢复同一香克斯官方会话。提交前DOM模型菜单明确最新radio选中和极高第4项；完整跳跃落地提示经textbox.fill后单次发送，页面显示今天15:08。实际回复回答已完成，官方查看器标题香克斯六连跳跃动作精灵图，显示已生成图像6。记录时间来自该完整结果截图的实际保存时刻，是完成观察而非服务器时间。点击下载仅一次，download事件回执超时20秒，但Downloads取得正式PNG文件：完整签名/IEND、Pillow解码1536x1024RGBA、真实alpha0-254和SHA256均通过；原下载保留，复制前清单与复制后哈希一致。未声称download事件回执成功。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-jump-mobility-prompt1003.txt",
+            "sha256": "171297c44a3f8b6191dffcb9594ea9d891f896afe2cc9cea758aecb40c512190"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_reactions_0929": "e05c579c6fb6c41fd40c40e46c47913de34d83cd1044a5653972d88cff41acaf"
+          },
+          "unitScale": 0.811965811965812,
+          "recordedAt": "2026-10-03T07:15:38.527505+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-jump-result-viewer.jpg",
+            "sha256": "d3f51b5bde61a840bea3fc45dfa5460a388f06189106bf654a5f36de3376d21e"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_jump_mobility_1003来源凭据0929.txt",
+            "sha256": "b488d7bca8f93e9fc0eb9dd0ba1021a0412ff972e1d796c5043c95c71269fdc4"
+          },
+          "scaleBasis": "One neutral reference visible alpha>=8 height468px; all five poses use uniform380/468 versus the first-sheet380px. No per-pose size fitting."
+        },
+        "shanks_dash_backdash_1003": {
+          "file": "public/assets/generated/source/roster-shanks-dash-backdash-1003.png",
+          "sha256": "fe3d84aa5e656fc6436a131c811e87ddb257f5a563bf189182a90c54f3be9aaa",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T15:22:46.5141910+08:00",
+          "uiObservation": "1003同一会话继续dash/backdash页。提交前DOM菜单实见最新radio已选中、极高第4项；完整提示经fill读回全文匹配后单次发送。页面回答已完成，实际官方查看器标题红发剑士动态姿态图鉴、已生成图像7。记录时间是完成结果截图的保存时刻，不是服务器生成时间。只点查看器下载一次，没有等待download事件；Downloads正式PNG落盘，签名/IEND/1254x1254RGBA解码/真实alpha0-255/hash与复制前后清单均通过。只记录入盘完成，不伪造下载事件回执。",
+          "prompt": {
+            "file": "docs/assets/shanks-dash-backdash-prompt1003.txt",
+            "sha256": "d15f23990494de56b6f3730a662a0f11bfa133d1399ac9e7655c5d69a502bb8b"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_jump_mobility_1003": "a0e9b2f42d7eced6bac6cc3156910d89799302518f9f9a17680744bb325302ae"
+          },
+          "unitScale": 0.9595959595959596,
+          "recordedAt": "2026-10-03T07:26:32.252295+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-dash-result-viewer.jpg",
+            "sha256": "6d74d8277c580d5ae73f8df88b963280aa194dc92521dafac52781136db587ea"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_dash_backdash_1003来源凭据0929.txt",
+            "sha256": "725fe9c0e112f25bd6ee2c555cbc84dc7840d888e8a0abfa9ee2d119d51a1da9"
+          },
+          "scaleBasis": "Whole-page neutral visible alpha>=8 height396px; all adopted backdash poses uniformly use380/396 versus first-sheet380px. No per-pose fitting."
+        },
+        "shanks_r_rising_guard_1003": {
+          "file": "public/assets/generated/source/roster-shanks-r-rising-guard-1003.png",
+          "sha256": "1566ec8b8065747311a13e320347b0deee303f26f0beff4804488822db32212d",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T15:34:58.816020+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回全文匹配后单次发送。页面回答已完成，官方查看器标题红发独臂剑士四式动作精灵图。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。查看器下载只点一次，Downloads正式PNG已落盘；完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。没有以download事件回执作为成功证据。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-r-rising-guard-prompt1003.txt",
+            "sha256": "a250001d9eb7b7ef8d89ad6d8bad93268ffe220c02f9d78e818ab74add16d140"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_jump_mobility_1003": "a0e9b2f42d7eced6bac6cc3156910d89799302518f9f9a17680744bb325302ae"
+          },
+          "unitScale": 0.77079107505071,
+          "recordedAt": "2026-10-03T07:37:03.519007+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-r-result-viewer.jpg",
+            "sha256": "4eda861fce6ab1fbe972fd52da1fc1897dc0e5f61669c083b3cfa290b92ba8bf"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_r_rising_guard_1003来源凭据0929.txt",
+            "sha256": "644a76e973e7e2984068db779758bb74eee3bd6c9a49e786b89eaa58d71075fa"
+          },
+          "scaleBasis": "Single fixed neutral visible height493px; all R poses use uniform380/493 versus the original380px reference. No per-pose fitting."
+        },
+        "shanks_f_step_thrust_1003": {
+          "file": "public/assets/generated/source/roster-shanks-f-step-thrust-1003.png",
+          "sha256": "c45b31059e150214f1e98a20925cde48cd1525c3195e2e7140c0618c5b0381f6",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T15:42:09.432713+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回全文匹配后单次发送。页面回答已完成，官方查看器标题独臂剑士四式战斗姿态灵图。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。查看器下载只点一次，Downloads正式PNG已落盘；完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。没有以download事件回执作为成功证据。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-f-step-thrust-prompt1003.txt",
+            "sha256": "7657d4bf7a8506f70f3a77ab594b73d9b65d459646edf59dc81484846cce3dd3"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_r_rising_guard_1003": "1566ec8b8065747311a13e320347b0deee303f26f0beff4804488822db32212d"
+          },
+          "unitScale": 0.7630522088353414,
+          "recordedAt": "2026-10-03T07:43:08.570881+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-f-result-viewer.jpg",
+            "sha256": "411903158a3e0afe01ac3b06d7549132908a8913c6f6b39a19034cbc9c35350d"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_f_step_thrust_1003来源凭据0929.txt",
+            "sha256": "1c009b2dc36f517a72cb19dbfb05b45838b6a25e37cdabf67d668c932b9de3bc"
+          },
+          "scaleBasis": "Single fixed neutral visible height498px; all F poses use uniform380/498 versus the original380px reference. No per-pose fitting."
+        },
+        "shanks_g_low_cut_1003": {
+          "file": "public/assets/generated/source/roster-shanks-g-low-cut-1003.png",
+          "sha256": "989fb32921aff93e425e5507c8afe2a4d80c9fe380d2d555bbc2378b6e6d9043",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T15:48:48.803478+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回全文匹配后单次发送。页面回答已完成，官方查看器标题红发剑士四姿态透明精灵图。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。查看器下载只点一次，Downloads正式PNG已落盘；完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。没有以download事件回执作为成功证据。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-g-low-cut-prompt1003.txt",
+            "sha256": "0e249a5a04d3bf5e9916717f16f07fb597b32266310f6ebda340cbef701bf655"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_f_step_thrust_1003": "c45b31059e150214f1e98a20925cde48cd1525c3195e2e7140c0618c5b0381f6"
+          },
+          "unitScale": 0.6859205776173285,
+          "recordedAt": "2026-10-03T07:49:41.458506+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-g-result-viewer.jpg",
+            "sha256": "d91d486a96f24f9ef3bffb3fa309f880662e41c3fc9d2872573710a051acbb54"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_g_low_cut_1003来源凭据0929.txt",
+            "sha256": "729cd39718031c3a5d9af7c4685a493b6bc4d2ccf7e9edac83e4227ee362520a"
+          },
+          "scaleBasis": "Whole-source neutral visible alpha>=8 height554px; all three G poses share380/554 relative to the original380px idle. No per-pose fitting."
+        },
+        "shanks_z_sidestep_1003": {
+          "file": "public/assets/generated/source/roster-shanks-z-sidestep-1003.png",
+          "sha256": "d266d7870a1dc853b5060dfe3c2c32592a47d5f5f32a101288aea0840e7bc4e0",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T16:01:14.430845+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回全文匹配后单次发送。页面回答已完成，官方查看器标题红发独臂剑士四姿态图集。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。查看器下载只点一次，Downloads正式PNG已落盘；完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。没有以download事件回执作为成功证据。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-z-sidestep-prompt1003.txt",
+            "sha256": "b7a9d05eebc623349c72beb12baac289d6afa7c2905b2b988847d1cc17c607a8"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_g_low_cut_1003": "989fb32921aff93e425e5507c8afe2a4d80c9fe380d2d555bbc2378b6e6d9043"
+          },
+          "unitScale": 0.7554671968190855,
+          "recordedAt": "2026-10-03T08:02:51.368873+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-z-result-viewer.jpg",
+            "sha256": "9d26056b65bc2ab52e15fa00563dfbdd025e9a2bbff9e84e848fdcbc4d12afc4"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_z_sidestep_1003来源凭据0929.txt",
+            "sha256": "6d73ac1952d50234470f640491e18531fab161ca0deb605926d85f903841bec3"
+          },
+          "scaleBasis": "Whole-source neutral visible alpha>=8 height503px; all three Z poses share380/503 against the original380px idle. No per-pose fitting."
+        },
+        "shanks_x_divine_departure_1003": {
+          "file": "public/assets/generated/source/roster-shanks-x-divine-departure-1003.png",
+          "sha256": "4d1ded4449ced17298d69e0cc6e1c5a61f38a52e505daf329922b97beb262d19",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T16:08:09.344561+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回全文匹配后单次发送。页面回答已完成，官方查看器标题红发独臂剑士四连战斗姿态 Sprite图。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。查看器下载只点一次，Downloads正式PNG已落盘；完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。没有以download事件回执作为成功证据。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-x-divine-departure-prompt1003.txt",
+            "sha256": "e91212bbd5ed0d2d8826033fa06fb190538322dc312e64dde3e51eecefc2e519"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_z_sidestep_1003": "d266d7870a1dc853b5060dfe3c2c32592a47d5f5f32a101288aea0840e7bc4e0"
+          },
+          "unitScale": 0.7630522088353414,
+          "recordedAt": "2026-10-03T08:10:37.688094+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-x-result-viewer.jpg",
+            "sha256": "b105dcf56f44ac99ecaae8f5edf78fcc4626f06099dc8e21e1fbfe4d0932cd85"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_x_divine_departure_1003来源凭据0929.txt",
+            "sha256": "135efa03e6dd22ff4cbe5417802ab6af494e17a87c25c9ffbba904c32de6cbea"
+          },
+          "scaleBasis": "One neutral visible alpha>=8 height498px; all three X poses share380/498 versus the original380px idle. No per-pose fitting."
+        },
+        "shanks_c_emperor_cuts_1003": {
+          "file": "public/assets/generated/source/roster-shanks-c-emperor-cuts-1003.png",
+          "sha256": "a2bd3c51c316eceac12174a287274f2853c7aad17bfe175c3e4e1e8231fb88f6",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T16:17:58.726160+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回全文匹配后单次发送。页面回答已完成，官方查看器标题赤发独臂剑士连招精灵图。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。查看器下载只点一次，Downloads正式PNG已落盘；完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。没有以download事件回执作为成功证据。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-c-emperor-cuts-prompt1003.txt",
+            "sha256": "327b0599c6823eabdb3a8f8ac3cb3ad5a15036a6a5acd076a50c3d75da8de088"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_x_divine_departure_1003": "4d1ded4449ced17298d69e0cc6e1c5a61f38a52e505daf329922b97beb262d19"
+          },
+          "unitScale": 1.0354223433242506,
+          "recordedAt": "2026-10-03T08:19:31.856847+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-c-result-viewer.jpg",
+            "sha256": "c19a1a347cfad785daecea697303ca343e26b9b79444be3e585261e3ede879be"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_c_emperor_cuts_1003来源凭据0929.txt",
+            "sha256": "599db1f6e25340578db2b9cf0e58fef6c9875e1163bdcb94f40cb989daa12724"
+          },
+          "scaleBasis": "One neutral visible alpha>=8 height367px; all seven C poses uniformly use380/367 versus the original380px reference. No per-pose fitting."
+        },
+        "shanks_v_red_hair_finale_1003": {
+          "file": "public/assets/generated/source/roster-shanks-v-red-hair-finale-1003.png",
+          "sha256": "912714a762800ee7c60c2f360631776aa7d9ff87478fd1535e9330fde84d6f79",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T16:40:42.546818+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回全文匹配后单次发送。页面回答已完成，官方查看器标题红发独臂剑士四式动作图。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。查看器下载只点一次，Downloads正式PNG已落盘；完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。没有以download事件回执作为成功证据。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-v-red-hair-finale-prompt1003.txt",
+            "sha256": "915eaf38f32d043d5cf27717e05e316dd6f59886d089cc4a879e88567837d848"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_c_emperor_cuts_1003": "a2bd3c51c316eceac12174a287274f2853c7aad17bfe175c3e4e1e8231fb88f6"
+          },
+          "unitScale": 0.8,
+          "recordedAt": "2026-10-03T08:41:58.441963+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-v-result-viewer.jpg",
+            "sha256": "03a03402b675c786287347ca7d0045b56868e0fa344888ef0a20936833f3008e"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_v_red_hair_finale_1003来源凭据0929.txt",
+            "sha256": "2866ec7ea3cec330e5bf7e8c9b8dee84a0eabb48d97a054832aae420c31dd6af"
+          },
+          "scaleBasis": "Whole-source neutral visible alpha>=8 height475px; all three V poses use380/475 versus the original380px reference. No per-pose fitting."
+        },
+        "shanks_roll_1003": {
+          "file": "public/assets/generated/source/roster-shanks-roll-1003.png",
+          "sha256": "b910e561023df17071e9f9573d35ea076479c797adbb1eb9666278b57d556b6c",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T17:07:09.466230+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回全文匹配后单次发送。页面回答已完成，官方查看器标题红发独臂剑士动态姿态图鉴。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。查看器下载只点一次，Downloads正式PNG已落盘；完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。没有以download事件回执作为成功证据。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-roll-prompt1003.txt",
+            "sha256": "1b6d78ab8fe02d6631142bf7c406fb6f7a26acc9760e7a983f5efd31dd70e25d"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_dash_repair_1003": "ed87b16a2d7a21943980aea0d60efc759c71664fb87615e6a8141840d527a460"
+          },
+          "unitScale": 0.9026128266033254,
+          "recordedAt": "2026-10-03T09:09:38.584557+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-roll-cropped-proof.jpg",
+            "sha256": "7a92c4265345f2a1a541a3ed07db9683f970dae30ce1ccb76989342585001476"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_roll_1003来源凭据0929.txt",
+            "sha256": "8ab49f6af6b29dc29603d50f4bdaf4832b0b70c89a32489c4ffe7a25956b5044"
+          },
+          "scaleBasis": "One neutral visible alpha>=8 height421px; all six roll poses use380/421 versus original380px. No individual pose scaling or rotated-stand substitution."
+        },
+        "shanks_normal_stbc_1003": {
+          "file": "public/assets/generated/source/roster-shanks-normal-stbc-1003.png",
+          "sha256": "9cc7ab4bdb9292c09f30d8bb249171a3aa7931d0e103f829e9086f19b951c4b5",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T18:17:09.466468+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回全文匹配后单次发送。页面回答已完成，官方查看器标题红发独臂剑士动作精灵表。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。查看器下载只点一次，Downloads正式PNG已落盘；完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。没有以download事件回执作为成功证据。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-normal-standing-kick-cut-prompt1003.txt",
+            "sha256": "fb7f1a86e0b62249275889624655a5052e7f74af18d0c9d12c40571f3ad3d185"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_v_red_hair_finale_1003": "912714a762800ee7c60c2f360631776aa7d9ff87478fd1535e9330fde84d6f79"
+          },
+          "unitScale": 1.021505376344086,
+          "recordedAt": "2026-10-03T10:18:12.439378+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-normal-standing-kick-cut-result-viewer.jpg",
+            "sha256": "b4c3c0c5f8b22cbb6b9ea6f1aa13b252e536136bff61a50e3c5da8b737e47355"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_normal_stbc_1003来源凭据0929.txt",
+            "sha256": "502c1f94eeb018a8f25cfed1e88191782ea46a1409726a31c26cacf3a607cac7"
+          },
+          "scaleBasis": "Single page neutral visible alpha>=8 height372px; all six normal poses share380/372 versus the original380px. No per-pose fitting."
+        },
+        "shanks_normal_stdfc_1003": {
+          "file": "public/assets/generated/source/roster-shanks-normal-stdfc-1003.png",
+          "sha256": "9482b3986a31a98c2e6e7195de8b6e044c13cbceb2b34daa63a3a31ce026c751",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T18:43:49.948948+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回全文匹配后单次发送。页面回答已完成，官方查看器标题红发独臂剑士战斗姿态精灵图集。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。查看器下载只点一次，Downloads正式PNG已落盘；完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。没有以download事件回执作为成功证据。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-normal-standing-hilt-forward-cut-prompt1003.txt",
+            "sha256": "cfb9969bc6c5e3c976ef13ed161e83cfefb9016f60d0eb5906bd7e49273d4658"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_normal_stbc_1003": "9cc7ab4bdb9292c09f30d8bb249171a3aa7931d0e103f829e9086f19b951c4b5"
+          },
+          "unitScale": 1.0133333333333334,
+          "recordedAt": "2026-10-03T10:45:43.936463+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-normal-standing-hilt-forward-cut-result-viewer.jpg",
+            "sha256": "da87d1f4917ce9b8cbf144079e95b71a3e0e8bc28c7af6f03a4e5b5e03462dad"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_normal_stdfc_1003来源凭据0929.txt",
+            "sha256": "14baafde0f6ebdefc6d3e2740b04ee121268e20f6f555070edf4010c88c293f5"
+          },
+          "scaleBasis": "Whole-page neutral visible alpha>=8 height375px; all six new normals uniformly use380/375 versus the original380px. No per-pose fitting."
+        },
+        "shanks_normal_crlight_1003": {
+          "file": "public/assets/generated/source/roster-shanks-normal-crlight-1003.png",
+          "sha256": "a4f80fac2a292448b467631ed51f199b4cd5a9ebe16a99ddf1c859b1267dde23",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T18:58:10.969059+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回匹配原文（仅界面空白归一化）后单次发送。页面回答已完成，实际查看器标识图片预览：已生成图像1（无独立文件标题）。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。本张回复是内联图像预览，轻量图片预览仅有关闭/缩放控件，没有文件查看器下载按钮。实际img naturalWidth1086/naturalHeight1448；对该唯一可见img单次调用documented downloadMedia，回执20秒超时但Downloads出现GUID命名的完整PNG，尺寸/内容和实际预览匹配。不冒称点击文件查看器下载或回执成功。 完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-normal-crouching-light-prompt1003.txt",
+            "sha256": "c80229c00231d3714a596be18e4d3355186682e885456be3ef5fe86f78bde9e5"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_normal_stdfc_1003": "9482b3986a31a98c2e6e7195de8b6e044c13cbceb2b34daa63a3a31ce026c751"
+          },
+          "unitScale": 0.9571788413098237,
+          "recordedAt": "2026-10-03T10:59:09.625555+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-normal-crouching-light-result-preview.jpg",
+            "sha256": "75a9457cb732a3ac2de64495559d57f8e676a1efa55b7fa4dd90fe20627adccd"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_normal_crlight_1003来源凭据0929.txt",
+            "sha256": "e55b301889169795fe45d4f6a929d33c4e325eb2057e7550a49ce75e8aa5f67b"
+          },
+          "scaleBasis": "One fixed neutral visible alpha>=8 height397px; every crouch-light pose uniformly uses380/397 against the original380px, no per-pose fitting."
+        },
+        "shanks_normal_crheavy_1003": {
+          "file": "public/assets/generated/source/roster-shanks-normal-crheavy-1003.png",
+          "sha256": "8209508865836bee3814ca3d8035e89970f17b6e74c424c14a4891e4dba95e76",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T19:09:40.984557+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回匹配原文（仅界面空白归一化）后单次发送。页面回答已完成，实际查看器标识红发剑士七姿态精灵图。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。官方文件查看器下载只点一次；Downloads正式PNG已落盘，没有以download事件回执作为成功证据。 完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-normal-crouching-heavy-prompt1003.txt",
+            "sha256": "2f9614407875255953d5d896f23dbcbe729ebddca86fcd62f794e5422dc181f9"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_normal_crlight_1003": "a4f80fac2a292448b467631ed51f199b4cd5a9ebe16a99ddf1c859b1267dde23"
+          },
+          "unitScale": 0.9819121447028424,
+          "recordedAt": "2026-10-03T11:11:14.627937+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-normal-crouching-heavy-result-viewer.jpg",
+            "sha256": "64764cd96cf9b9edba7901123ca3e3b06f0d59f17ed7681749dbd78220e9593a"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_normal_crheavy_1003来源凭据0929.txt",
+            "sha256": "d8506312440e5ae507a69147d699f38721da2bafa08493c6502c18d7fa83b535"
+          },
+          "scaleBasis": "One page neutral visible alpha>=8 height387px; all six crouch-heavy poses uniformly use380/387 against original380px. No per-pose fitting."
+        },
+        "shanks_normal_airlight_1003": {
+          "file": "public/assets/generated/source/roster-shanks-normal-airlight-1003.png",
+          "sha256": "d9db444628aa66bafc51ac3f7d4549871b0959564a42cd83462f353840811fd3",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T19:19:20.927731+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回匹配原文（仅界面空白归一化）后单次发送。页面回答已完成，实际查看器标识红发独臂剑士动作精灵图集。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。官方文件查看器下载只点一次；Downloads正式PNG已落盘，没有以download事件回执作为成功证据。 完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-normal-air-light-prompt1003.txt",
+            "sha256": "2f745aa12b71862e9a1eafbaf047fa3703a03fa2d31d63d6272019f6aef59467"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_normal_crheavy_1003": "8209508865836bee3814ca3d8035e89970f17b6e74c424c14a4891e4dba95e76"
+          },
+          "unitScale": 0.9547738693467337,
+          "recordedAt": "2026-10-03T11:20:38.805897+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-normal-air-light-result-viewer.jpg",
+            "sha256": "9401e5c3bae6b7e480a236a4be4d1b53452a4243a1e91d663be9c7b640dd38ee"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_normal_airlight_1003来源凭据0929.txt",
+            "sha256": "50597c77bd523fdd5b1626ec319645975965f530d7b0e130a533379e7c1a6994"
+          },
+          "scaleBasis": "Neutral visible alpha>=8 height398px; all adopted j_b poses share380/398 versus original380px. No per-pose fitting."
+        },
+        "shanks_normal_airheavy_1003": {
+          "file": "public/assets/generated/source/roster-shanks-normal-airheavy-1003.png",
+          "sha256": "e8626138ae37a44806af972802aa1ed16ebe945fc615d9fbe7f935a13c00e41a",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T19:26:11.348743+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回匹配原文（仅界面空白归一化）后单次发送。页面回答已完成，实际查看器标识赤发独臂剑士动作精灵图。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。官方文件查看器下载只点一次；Downloads正式PNG已落盘，没有以download事件回执作为成功证据。 完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-normal-air-heavy-prompt1003.txt",
+            "sha256": "50d77be9d7c06f9800fab7a1d7e7f84bfe9e6e82c189cb65a4f3d7c9d06f8309"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_normal_airlight_1003": "d9db444628aa66bafc51ac3f7d4549871b0959564a42cd83462f353840811fd3"
+          },
+          "unitScale": 0.9620253164556962,
+          "recordedAt": "2026-10-03T11:27:11.777382+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-normal-air-heavy-result-viewer.jpg",
+            "sha256": "67dfccd6b94443bca76d8a4145af8aa725e951aaf9615ebfa45a808e9a134609"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_normal_airheavy_1003来源凭据0929.txt",
+            "sha256": "beb276d274efd548cb956aa7b6fa7dd1ed81c40f79b62534680a073f412d0e5c"
+          },
+          "scaleBasis": "Page neutral visible alpha>=8 height395px; all six air-heavy poses share380/395 versus original380px. Airborne roots use the neutral virtual fully extended foot baseline, not per-pose size fitting."
+        },
+        "shanks_air_hilt_repair_1003": {
+          "file": "public/assets/generated/source/roster-shanks-air-hilt-repair-1003.png",
+          "sha256": "0be0d641e28a4fdf326582fe2dabb5846d10fded7ecd4084797332c51ad4c803",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T19:32:21.318681+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回匹配原文（仅界面空白归一化）后单次发送。页面回答已完成，实际查看器标识独臂赤发剑士四式跃击图鉴。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。官方文件查看器下载只点一次；Downloads正式PNG已落盘，没有以download事件回执作为成功证据。 完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-air-hilt-repair-prompt1003.txt",
+            "sha256": "e24a571383f44d1e5fd033d9fbc2ab4a5ff34c19685bb2af8be788477aa323ac"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_normal_airheavy_1003": "e8626138ae37a44806af972802aa1ed16ebe945fc615d9fbe7f935a13c00e41a"
+          },
+          "unitScale": 0.6972477064220184,
+          "recordedAt": "2026-10-03T11:33:31.172657+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-air-hilt-repair-result-viewer.jpg",
+            "sha256": "8b5f8379f3d8daa76a52947516fde3e3441b3d4e62def045b64f8c20b08d9a1b"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_air_hilt_repair_1003来源凭据0929.txt",
+            "sha256": "e2dd39aab386a393f994cde2cd860fb82b2e14a38158c7ef7d82c8febcacb588"
+          },
+          "scaleBasis": "Repair-source neutral visible alpha>=8 height545px; all three genuine j_a poses use380/545 against original380px. Same full-height virtual airborne foot baseline, no per-pose scaling."
+        },
+        "shanks_normal_blowback_1003": {
+          "file": "public/assets/generated/source/roster-shanks-normal-blowback-1003.png",
+          "sha256": "da82c6a8d6232e0206578b9da93da38fac541583b62dc666729135dcf5d44339",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T19:37:02.172336+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回匹配原文（仅界面空白归一化）后单次发送。页面回答已完成，实际查看器标识图片预览：已生成图像1（无独立文件标题）。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。本张回复是内联图像预览，轻量预览仅有关闭/缩放，无文件查看器下载按钮。实际img natural1086x1448；单次调用documented downloadMedia，回执5秒超时但Downloads出现GUID完整PNG。按真实文件签名/IEND/解码/尺寸与图内容判定，不冒称文件查看器点击或下载回执成功。 完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-normal-blowback-prompt1003.txt",
+            "sha256": "1232acb02ce0709943d4a4fda79347bf31444665c500848d4a5c4621ace96162"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_air_hilt_repair_1003": "0be0d641e28a4fdf326582fe2dabb5846d10fded7ecd4084797332c51ad4c803"
+          },
+          "unitScale": 0.9669211195928753,
+          "recordedAt": "2026-10-03T11:39:14.413995+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-normal-blowback-result-preview.jpg",
+            "sha256": "dcc374eac2afd25d41a3b178a7da5e6fce87019ca7d8374a585fd120ef9a992a"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_normal_blowback_1003来源凭据0929.txt",
+            "sha256": "5082aee376e9f7ee721af9e0f7cf1d263e86094579dfca2fa81f3a936b3fffeb"
+          },
+          "scaleBasis": "One neutral visible alpha>=8 height393px; every adopted drawing uses380/393 against original380px, no per-pose fitting. Air roots retain the neutral fully extended virtual foot baseline."
+        },
+        "shanks_throw_forward_1003": {
+          "file": "public/assets/generated/source/roster-shanks-throw-forward-1003.png",
+          "sha256": "6580a29628778ed0b7d95ae34a992b04222fb23841135099e57ab63ba5852428",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T19:52:48.697113+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回匹配原文（仅界面空白归一化）后单次发送。页面回答已完成，实际查看器标识红发独臂剑士六连动作图。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。官方文件查看器下载只点一次；Downloads正式PNG已落盘，没有以download事件回执作为成功证据。 完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-throw-forward-prompt1003.txt",
+            "sha256": "0645e364698ae57ab9dcde475889d7b5ac63b629f7ac8b4ad41b0527d7a1e2cb"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+          },
+          "unitScale": 0.7755102040816326,
+          "recordedAt": "2026-10-03T11:53:36.087007+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-throw-forward-viewer1003.jpg",
+            "sha256": "b783fcc44dac65c9a76ca1cb9b51993f07c3114966daab51d4e2cd17d98aee11"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_throw_forward_1003来源凭据0929.txt",
+            "sha256": "19b2fe4e0bf5aa1b84214b30e8a815f4a087d2944f71fc83fd467fd721ecdc96"
+          },
+          "scaleBasis": "One actual neutral height490px; every drawing uniformly380/490 against initial380px. No individual pose fitting. Roots use grounded support soles, never a throw alignment displacement."
+        },
+        "shanks_throw_back_1003": {
+          "file": "public/assets/generated/source/roster-shanks-throw-back-1003.png",
+          "sha256": "add3dd1738cd1f9b81f143569b7cb3c912f8b15747dc2496d08f734d13415ab2",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T19:57:22.868367+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回匹配原文（仅界面空白归一化）后单次发送。页面回答已完成，实际查看器标识红发独臂剑士动作集。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。官方文件查看器下载只点一次；Downloads正式PNG已落盘，没有以download事件回执作为成功证据。 完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-throw-back-prompt1003.txt",
+            "sha256": "2cfb553088b96d433c19fdae0b0d5ea2426ad2a97492162b271247aaee72126d"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+          },
+          "unitScale": 0.7770961145194274,
+          "recordedAt": "2026-10-03T11:58:31.792778+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-throw-back-viewer1003.jpg",
+            "sha256": "76aa7ae720527fafc2ec4e7587b91e93c185ec30a970fc02131b4eba722b2fe4"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_throw_back_1003来源凭据0929.txt",
+            "sha256": "a7c8ce6fff06e2c15f497cc5e9b3b432015095ed2c9c7047eeda567f4c8a8ca5"
+          },
+          "scaleBasis": "Actual neutral height489px; all five new phases uniformly380/489, without per-pose fitting. During leg-hook support sole defines floor root, independent of defender alignment."
+        },
+        "shanks_reaction_finish_1003": {
+          "file": "public/assets/generated/source/roster-shanks-reaction-finish-1003.png",
+          "sha256": "f7f2db204672048a111fc6fb6397c89d3e6d723a9e0a3106b9dbc63e3c3e9ecc",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T20:01:56.974742+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回匹配原文（仅界面空白归一化）后单次发送。页面回答已完成，实际查看器标识红发独臂剑士四姿态合集。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。官方文件查看器下载只点一次；Downloads正式PNG已落盘，没有以download事件回执作为成功证据。 完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-reaction-finish-prompt1003.txt",
+            "sha256": "859322f05ffd2387588bbd297af0120ea5d616f899d95f3c54a3644781d42ce8"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+          },
+          "unitScale": 0.7692307692307693,
+          "recordedAt": "2026-10-03T12:02:54.998773+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-reaction-finish-viewer1003.jpg",
+            "sha256": "fb7ceb708d38293f7e53bc2d4b6ca2dd4a21d900055ab6d70cebff6a417b6e03"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_reaction_finish_1003来源凭据0929.txt",
+            "sha256": "6bc9676e936dbdefb70218d3f98b019e6d3251879f90c5f8b43afa5ed04691d8"
+          },
+          "scaleBasis": "Actual idle alpha>=8 height494; every adopted new reaction uniformly380/494. Roots use actual grounded soles; no individual pose fitting or pairing displacement."
+        },
+        "shanks_held_joint_repair_1003": {
+          "file": "public/assets/generated/source/roster-shanks-held-joint-repair-1003.png",
+          "sha256": "b9f33721ef228bc81ae0da52a4bb2c0cab7cee67cbbcfac7768f47ab7fb82d83",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T20:22:55.948843+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回匹配原文（仅界面空白归一化）后单次发送。页面回答已完成，实际查看器标识红发剑士四式动作图。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。官方查看器下载单次点击，真实原PNG已到盘。提交前通过原生文件选择器上传held-joint-geometry-guide1003.png，其SHA256为4fe6dff45065d0181c90c8cfa953f6ec50700c93192fea4293b8d22911bf251a；上传完成后再提交，抽象关节参考不进入运行素材。 完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-held-joint-repair-prompt1003.txt",
+            "sha256": "b74d3ab2c0ac9e5dd26d9049e842a3e4edba35ebe6e8a44ebd32648060c70e6e"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_held_reactions_1003": "674a222618235be5664a0e593a2e723b377dc053ad161979cca5dac371af6b78"
+          },
+          "unitScale": 0.7584830339321357,
+          "recordedAt": "2026-10-03T12:23:19.046807+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-held-joint-repair-viewer1003.jpg",
+            "sha256": "ba64a9986641df1d6ade9b37002f6b1c3e108107dbc4e27a701335beccad6e59"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_held_joint_repair_1003来源凭据0929.txt",
+            "sha256": "d65a7c27400541d3a2e6b966ea53680cb4b786f74818549d6b0b2c5c57b625e7"
+          },
+          "scaleBasis": "One actual neutral alpha>=8 height501px. Uniform380/501 for every adopted drawing from this page; no per-pose fitting."
+        },
+        "shanks_held_twinkle_cape_repair_1003": {
+          "file": "public/assets/generated/source/roster-shanks-held-twinkle-cape-repair-1003.png",
+          "sha256": "150e2031d86be7dbbf1d0b75f0de2078f91a55167252d15d1f562c7ed5e6c0e6",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+          "observedCompletedAt": "2026-10-03T21:40:50.074600+08:00",
+          "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回匹配原文（仅界面空白归一化）后单次发送。页面回答已完成，实际查看器标识红发独臂剑士双姿态精灵图。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。官方文件查看器单次下载，原PNG已到盘；提交前上传源画圈定披风与真实静态原眼/遮眼参考held-twinkle-cape-repair-reference1003.png，SHA256 39bf9c14fd01594e877c0d294859d1d22f3156b36d19dff37b02919c7b5c2955。只作诊断参考，未进入运行图集或代替角色像素。 完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。既有images为工作流入口，本次直接续c会话。",
+          "prompt": {
+            "file": "docs/assets/shanks-held-twinkle-cape-repair-prompt1003.txt",
+            "sha256": "a3f1c22478695768a896b920f0c056fc574b3577f617d351bf525178898704af"
+          },
+          "referenceSources": {
+            "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+            "shanks_held_twinkle_face_clear_1003": "ea2fed126f1428309117d4033cb0f2c2143fbe6fe03ae50c28712b95307b8440"
+          },
+          "unitScale": 0.5053191489361702,
+          "recordedAt": "2026-10-03T13:41:17.532991+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-held-twinkle-cape-repair-viewer1003.jpg",
+            "sha256": "e331c7e3a9cdd21469853fc4d1c7430487196ed22dc506b405cdf8f9fc6f7c18"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_held_twinkle_cape_repair_1003来源凭据0929.txt",
+            "sha256": "af705c2b38f04a8caa160ed562102bf103e1411d775d168a284bac3747dc0994"
+          },
+          "scaleBasis": "One actual neutral alpha>=8 height752px. Uniform380/752 for every adopted drawing from this page; no per-pose fitting."
+        },
+        "shanks_fresh_front_green_repair_1004": {
+          "file": "public/assets/generated/source/roster-shanks-fresh-front-green-repair-1004.png",
+          "sha256": "5736bf68bc96ed65519e3f871d143e82982b4ae551a2b34c77eed10fb8df3272",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面未公开具体图像型号，记unverified。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6ac1cc86-9358-83ee-8a0c-ecf6a8e5e050",
+          "observedCompletedAt": "2026-10-04T12:47:10.946788+08:00",
+          "uiObservation": "root单次提交green局部提示，档位和完整draft证据由root保存。本素材执行者接手后IAB实见第2图及图片预览标题，菜单在空间中打开；pageAssets只导实际原图file libfile_33554d1a9d508191813827923c27eb4b。PNG签名/IEND/尺寸/全解码/alpha/复制SHA核对。来源时刻为真实原图context截图mtime，不称服务器生成时间。空间侧栏默认中未使用，不把它作为生成档位。掌指C中披风通过已有原像素前景分层处理；source/prepared回合RGBA相等。held_leg_flip六静态配对通过，generic诊断另列失败；未提前登记运行/selector。",
+          "prompt": {
+            "file": "docs/assets/shanks-fresh-front-green-contact-repair-prompt1004.txt",
+            "sha256": "c80bc69b28518350c9a0403f9063fd14d8541b592c7ea88db630ddaec493b20b"
+          },
+          "referenceSources": {
+            "fresh_front_hold_1004": "1458dfaacce84b6d2f88904984fa5090cb0ada786528477ae03fc641e31c0d59",
+            "green_full_guide1004": "509dc3e243cb2fd76928fa871dcc77afa0312953b340ac16ed7fec1d4b3cd8a0"
+          },
+          "unitScale": 0.3881511746680286,
+          "recordedAt": "2026-10-04T13:16:43.739481+08:00",
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_fresh_front_green_repair_1004来源凭据1004.txt",
+            "sha256": "225e39be5b893c2a00298d7b9393130153e531d6414c4a02d04008fe3b8c89ac"
+          },
+          "staticForegroundEvidence": {
+            "file": "docs/assets/shanks-green-foreground-static1004.json",
+            "sha256": "a8c56a6464444855a15db3d5b6ce7003be86ce2b2bf579735a0a0510a64e634a"
+          },
+          "reviewStatus": "foreground-static-held-contract-reviewed-not-runtime-adopted",
+          "runtimeAdopted": false,
+          "screenshot": {
+            "file": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\first-pair-independent-shanks-1004-081851\\shanks-green-repair-space-context1004.jpg",
+            "sha256": "ba654d2aec0fbfdb9ae8966af651dead3f3be95df7ca36c4baec118d6dba8896"
+          },
+          "scaleBasis": "One actual neutral alpha>=8 height979px; uniform380/979 for the page. No pose-specific fitting."
+        },
+        "shanks_back_contact_marked_1013": {
+          "file": "public/assets/generated/source/roster-shanks-back-contact-marked-1013.png",
+          "sha256": "b41b9f6b572e423f31d232ed340e52afc71fe98a9eba150562c75eca773b2d5d",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页面未公开具体图像型号，继续记unverified；不由文字GPT-6推断图像模型。",
+          "observedTextModelLabel": "GPT-6",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6ac1cc86-9358-83ee-8a0c-ecf6a8e5e050",
+          "observedCompletedAt": "2026-10-13T14:28:46.057761+08:00",
+          "uiObservation": "根执行者在既有官方IAB会话实际选择GPT-6及极高第4/5项，上传be146原PNG和红绿空孔定位参考后单次提交。完整输入由实际已发送消息读回保存。locator.downloadMedia实际成功导出原PNG，复制前后清单记录原字节；本单写者只核本地源PNG、三体型静态包握和标准分层准备。observedCompletedAt取完成截图本地mtime，是完成复核时刻，不是服务端首次生成时间。迁移前下载/复制票据中的C路径保留为历史事实；本次只在D盘使用同SHA副本。",
+          "prompt": {
+            "file": "docs/assets/shanks-back-contact-marked-prompt1013.txt",
+            "sha256": "85edeb32a08113d8769dfc1f736cae9567c6fc9a86818fd814dc5948eefeb3e2"
+          },
+          "referenceSources": {
+            "shanks_back_contact_repair_1013": "be146d2ccac2dd2591078d45a1078ed6e722244aac742ba6a9e19a63d3810f6a",
+            "shanks_back_hole_guide_1013": "30ecda3e95f23e94b28e7d205bd202f5955976ab105be12f9353d8d39b87938d"
+          },
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/image-requests/shanks-gpt6-xhigh-iab1013.jpg",
+            "sha256": "6e63d2555a57d8568e073aaa38a6db1ccd08d62049c40abee05e9486be0d7d30"
+          },
+          "completionScreenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/image-requests/shanks-marked-completed1013.jpg",
+            "sha256": "fd975ee31892b679521e0f9413a7af9c54acec582541b4ab9866199d539ef5a8"
+          },
+          "unitScale": 0.3850050658561297,
+          "scaleBasis": "The actual standing reference alpha>4 connected silhouette spans y13..1000, height987; use uniform380/987 for this entire source. Existing character scale188/380 and textureDensity2 unchanged. Never fit root or scale to the grip.",
+          "recordedAt": "2026-10-13T06:59:14.453298+00:00",
+          "reviewStatus": "three-body-static-contact-accepted-gameplay-pending",
+          "sourceEvidence": {
+            "file": "docs/assets/shanks_back_contact_marked_1013来源凭据1013.txt",
+            "sha256": "644a128519a43e4bc02d084a7fda436b5dc9380dc913a746d880a76509a67ec1"
+          }
+        }
+      },
+      "frames": {
+        "idle": {
+          "source": "shanks_locomotion_0929",
+          "crop": [
+            20,
+            8,
+            406,
+            404
+          ],
+          "root": [
+            230,
+            391
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_a_start": {
+          "source": "shanks_locomotion_0929",
+          "crop": [
+            832,
+            436,
+            410,
+            391
+          ],
+          "root": [
+            219,
+            372
+          ],
+          "sockets": {
+            "weapon_grip": [
+              171,
+              142
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_a_active": {
+          "source": "shanks_locomotion_0929",
+          "crop": [
+            17,
+            845,
+            508,
+            387
+          ],
+          "root": [
+            205,
+            370
+          ],
+          "sockets": {
+            "weapon_grip": [
+              326,
+              113
+            ],
+            "weapon_tip": [
+              495,
+              150
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              415,
+              159,
+              93,
+              228
+            ]
+          ]
+        },
+        "st_a_recover": {
+          "source": "shanks_locomotion_0929",
+          "crop": [
+            431,
+            841,
+            406,
+            397
+          ],
+          "root": [
+            229,
+            375
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              100,
+              92,
+              64
+            ]
+          ]
+        },
+        "hit_stand": {
+          "source": "shanks_locomotion_0929",
+          "crop": [
+            845,
+            844,
+            399,
+            388
+          ],
+          "root": [
+            239,
+            367
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "crouch": {
+          "source": "shanks_reactions_0929",
+          "crop": [
+            425,
+            160,
+            421,
+            305
+          ],
+          "root": [
+            206,
+            288
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              242,
+              18,
+              17
+            ]
+          ]
+        },
+        "block_stand": {
+          "source": "shanks_reactions_0929",
+          "crop": [
+            876,
+            18,
+            365,
+            446
+          ],
+          "root": [
+            184,
+            431
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "block_crouch": {
+          "source": "shanks_reactions_0929",
+          "crop": [
+            8,
+            546,
+            419,
+            308
+          ],
+          "root": [
+            172,
+            304
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "hit_crouch": {
+          "source": "shanks_reactions_0929",
+          "crop": [
+            437,
+            550,
+            478,
+            314
+          ],
+          "root": [
+            180,
+            301
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              394,
+              0,
+              84,
+              187
+            ]
+          ]
+        },
+        "jump_neutral": {
+          "source": "shanks_reactions_0929",
+          "crop": [
+            837,
+            478,
+            397,
+            361
+          ],
+          "root": [
+            198,
+            374
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              257,
+              91,
+              104
+            ]
+          ],
+          "rootReview": "Authored virtual root for airborne pose; normal-speed and actual hurt/contact review still required."
+        },
+        "hit_air": {
+          "source": "shanks_reactions_0929",
+          "crop": [
+            30,
+            855,
+            395,
+            343
+          ],
+          "root": [
+            249,
+            330
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "rootReview": "Authored virtual root for airborne pose; normal-speed and actual hurt/contact review still required."
+        },
+        "knockdown": {
+          "source": "shanks_reactions_0929",
+          "crop": [
+            465,
+            1040,
+            454,
+            175
+          ],
+          "root": [
+            254,
+            161
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "getup": {
+          "source": "shanks_reactions_0929",
+          "crop": [
+            921,
+            912,
+            313,
+            322
+          ],
+          "root": [
+            162,
+            288
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "walk_repair_0": {
+          "source": "shanks_walk_repair_0929",
+          "crop": [
+            531,
+            8,
+            503,
+            501
+          ],
+          "root": [
+            278,
+            486
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "walk_repair_1": {
+          "source": "shanks_walk_repair_0929",
+          "crop": [
+            1045,
+            5,
+            491,
+            506
+          ],
+          "root": [
+            255,
+            489
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "walk_repair_2": {
+          "source": "shanks_walk_repair_0929",
+          "crop": [
+            17,
+            516,
+            513,
+            508
+          ],
+          "root": [
+            277,
+            475
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "walk_repair_3": {
+          "source": "shanks_walk_repair_0929",
+          "crop": [
+            529,
+            507,
+            507,
+            517
+          ],
+          "root": [
+            281,
+            484
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "e_start": {
+          "source": "shanks_qe_body_1003",
+          "crop": [
+            419,
+            472,
+            406,
+            374
+          ],
+          "root": [
+            202,
+            359
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              356,
+              183,
+              50,
+              99
+            ]
+          ]
+        },
+        "e_hit1": {
+          "source": "shanks_qe_body_1003",
+          "crop": [
+            779,
+            491,
+            475,
+            354
+          ],
+          "root": [
+            226,
+            339
+          ],
+          "sockets": {
+            "weapon_grip": [
+              294,
+              123
+            ],
+            "weapon_tip": [
+              470,
+              122
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              78,
+              46,
+              17
+            ],
+            [
+              0,
+              275,
+              11,
+              47
+            ]
+          ]
+        },
+        "e_turn": {
+          "source": "shanks_qe_body_1003",
+          "crop": [
+            25,
+            844,
+            368,
+            393
+          ],
+          "root": [
+            192,
+            376
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              357,
+              141,
+              11,
+              11
+            ]
+          ]
+        },
+        "e_hit2": {
+          "source": "shanks_qe_body_1003",
+          "crop": [
+            387,
+            940,
+            488,
+            290
+          ],
+          "root": [
+            221,
+            275
+          ],
+          "sockets": {
+            "weapon_grip": [
+              286,
+              143
+            ],
+            "weapon_tip": [
+              481,
+              236
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              460,
+              113,
+              28,
+              107
+            ]
+          ]
+        },
+        "e_recover": {
+          "source": "shanks_qe_body_1003",
+          "crop": [
+            840,
+            845,
+            405,
+            392
+          ],
+          "root": [
+            205,
+            374
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              315,
+              31,
+              20
+            ]
+          ]
+        },
+        "q_start": {
+          "source": "shanks_q_repair_1003",
+          "crop": [
+            788,
+            0,
+            462,
+            520
+          ],
+          "root": [
+            272,
+            506
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "q_cast": {
+          "source": "shanks_q_repair_1003",
+          "crop": [
+            115,
+            532,
+            725,
+            462
+          ],
+          "root": [
+            285,
+            445
+          ],
+          "sockets": {
+            "weapon_grip": [
+              415,
+              169
+            ],
+            "weapon_tip": [
+              711,
+              267
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "q_recover": {
+          "source": "shanks_q_repair_1003",
+          "crop": [
+            831,
+            518,
+            579,
+            479
+          ],
+          "root": [
+            268,
+            460
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "prejump_1003": {
+          "source": "shanks_jump_mobility_1003",
+          "crop": [
+            528,
+            166,
+            462,
+            359
+          ],
+          "root": [
+            255,
+            349
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "jump_fwd_1003": {
+          "source": "shanks_jump_mobility_1003",
+          "crop": [
+            1003,
+            54,
+            518,
+            420
+          ],
+          "root": [
+            310,
+            471
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "jump_back_1003": {
+          "source": "shanks_jump_mobility_1003",
+          "crop": [
+            18,
+            569,
+            519,
+            347
+          ],
+          "root": [
+            295,
+            468
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "landing_1003": {
+          "source": "shanks_jump_mobility_1003",
+          "crop": [
+            545,
+            668,
+            513,
+            327
+          ],
+          "root": [
+            273,
+            317
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              479,
+              0,
+              34,
+              217
+            ]
+          ]
+        },
+        "jump_neutral_fall_1003": {
+          "source": "shanks_jump_mobility_1003",
+          "crop": [
+            1019,
+            510,
+            486,
+            462
+          ],
+          "root": [
+            300,
+            527
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              370,
+              44,
+              92
+            ]
+          ]
+        },
+        "backdash_start_1003": {
+          "source": "shanks_dash_backdash_1003",
+          "crop": [
+            499,
+            506,
+            338,
+            322
+          ],
+          "root": [
+            203,
+            315
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "backdash_air_1003": {
+          "source": "shanks_dash_backdash_1003",
+          "crop": [
+            852,
+            463,
+            364,
+            317
+          ],
+          "root": [
+            208,
+            394
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "backdash_land_1003": {
+          "source": "shanks_dash_backdash_1003",
+          "crop": [
+            47,
+            862,
+            395,
+            350
+          ],
+          "root": [
+            203,
+            340
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "r_start_1003": {
+          "source": "shanks_r_rising_guard_1003",
+          "crop": [
+            852,
+            125,
+            647,
+            385
+          ],
+          "root": [
+            276,
+            372
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "r_active_1003": {
+          "source": "shanks_r_rising_guard_1003",
+          "crop": [
+            101,
+            427,
+            682,
+            587
+          ],
+          "root": [
+            329,
+            574
+          ],
+          "sockets": {
+            "weapon_grip": [
+              487,
+              153
+            ],
+            "weapon_tip": [
+              671,
+              10
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              0,
+              520,
+              93
+            ],
+            [
+              520,
+              0,
+              78,
+              44
+            ]
+          ]
+        },
+        "r_recover_1003": {
+          "source": "shanks_r_rising_guard_1003",
+          "crop": [
+            831,
+            601,
+            600,
+            413
+          ],
+          "root": [
+            269,
+            399
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "f_start_1003": {
+          "source": "shanks_f_step_thrust_1003",
+          "crop": [
+            845,
+            62,
+            670,
+            456
+          ],
+          "root": [
+            285,
+            444
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "f_active_1003": {
+          "source": "shanks_f_step_thrust_1003",
+          "crop": [
+            20,
+            562,
+            945,
+            422
+          ],
+          "root": [
+            386,
+            409
+          ],
+          "sockets": {
+            "weapon_grip": [
+              610,
+              91
+            ],
+            "weapon_tip": [
+              938,
+              88
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              855,
+              138,
+              90,
+              284
+            ]
+          ]
+        },
+        "f_recover_1003": {
+          "source": "shanks_f_step_thrust_1003",
+          "crop": [
+            878,
+            540,
+            641,
+            451
+          ],
+          "root": [
+            257,
+            441
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              92,
+              87,
+              33
+            ]
+          ]
+        },
+        "g_start_1003": {
+          "source": "shanks_g_low_cut_1003",
+          "crop": [
+            822,
+            191,
+            679,
+            389
+          ],
+          "root": [
+            257,
+            377
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "g_active_1003": {
+          "source": "shanks_g_low_cut_1003",
+          "crop": [
+            94,
+            658,
+            887,
+            336
+          ],
+          "root": [
+            257,
+            327
+          ],
+          "sockets": {
+            "weapon_grip": [
+              557,
+              221
+            ],
+            "weapon_tip": [
+              876,
+              274
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              854,
+              0,
+              33,
+              254
+            ]
+          ]
+        },
+        "g_recover_1003": {
+          "source": "shanks_g_low_cut_1003",
+          "crop": [
+            947,
+            609,
+            558,
+            387
+          ],
+          "root": [
+            252,
+            375
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              306,
+              35,
+              38
+            ]
+          ]
+        },
+        "z_start_1003": {
+          "source": "shanks_z_sidestep_1003",
+          "crop": [
+            807,
+            73,
+            707,
+            446
+          ],
+          "root": [
+            398,
+            436
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "z_evade_1003": {
+          "source": "shanks_z_sidestep_1003",
+          "crop": [
+            153,
+            554,
+            563,
+            443
+          ],
+          "root": [
+            303,
+            432
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "z_recover_1003": {
+          "source": "shanks_z_sidestep_1003",
+          "crop": [
+            891,
+            521,
+            550,
+            469
+          ],
+          "root": [
+            314,
+            457
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "x_start_1003": {
+          "source": "shanks_x_divine_departure_1003",
+          "crop": [
+            787,
+            17,
+            550,
+            510
+          ],
+          "root": [
+            329,
+            498
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "x_active_1003": {
+          "source": "shanks_x_divine_departure_1003",
+          "crop": [
+            41,
+            571,
+            897,
+            410
+          ],
+          "root": [
+            386,
+            398
+          ],
+          "sockets": {
+            "weapon_grip": [
+              581,
+              194
+            ],
+            "weapon_tip": [
+              889,
+              368
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              850,
+              0,
+              47,
+              334
+            ]
+          ]
+        },
+        "x_recover_1003": {
+          "source": "shanks_x_divine_departure_1003",
+          "crop": [
+            885,
+            565,
+            624,
+            427
+          ],
+          "root": [
+            285,
+            416
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              350,
+              53,
+              41
+            ]
+          ]
+        },
+        "c_start_1003": {
+          "source": "shanks_c_emperor_cuts_1003",
+          "crop": [
+            559,
+            38,
+            471,
+            347
+          ],
+          "root": [
+            241,
+            334
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "c_hit1_1003": {
+          "source": "shanks_c_emperor_cuts_1003",
+          "crop": [
+            34,
+            384,
+            651,
+            349
+          ],
+          "root": [
+            254,
+            338
+          ],
+          "sockets": {
+            "weapon_grip": [
+              398,
+              115
+            ],
+            "weapon_tip": [
+              642,
+              120
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              571,
+              138,
+              80,
+              211
+            ]
+          ]
+        },
+        "c_turn2_1003": {
+          "source": "shanks_c_emperor_cuts_1003",
+          "crop": [
+            605,
+            417,
+            446,
+            313
+          ],
+          "root": [
+            237,
+            301
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              68,
+              82,
+              34
+            ],
+            [
+              140,
+              299,
+              46,
+              14
+            ]
+          ]
+        },
+        "c_hit2_1003": {
+          "source": "shanks_c_emperor_cuts_1003",
+          "crop": [
+            61,
+            777,
+            623,
+            299
+          ],
+          "root": [
+            257,
+            289
+          ],
+          "sockets": {
+            "weapon_grip": [
+              394,
+              145
+            ],
+            "weapon_tip": [
+              615,
+              276
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              581,
+              0,
+              42,
+              250
+            ]
+          ]
+        },
+        "c_turn3_1003": {
+          "source": "shanks_c_emperor_cuts_1003",
+          "crop": [
+            638,
+            712,
+            410,
+            380
+          ],
+          "root": [
+            221,
+            368
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              0,
+              94,
+              17
+            ],
+            [
+              260,
+              0,
+              130,
+              22
+            ],
+            [
+              0,
+              310,
+              48,
+              56
+            ],
+            [
+              149,
+              364,
+              64,
+              16
+            ]
+          ]
+        },
+        "c_hit3_1003": {
+          "source": "shanks_c_emperor_cuts_1003",
+          "crop": [
+            26,
+            1081,
+            599,
+            333
+          ],
+          "root": [
+            251,
+            325
+          ],
+          "sockets": {
+            "weapon_grip": [
+              375,
+              174
+            ],
+            "weapon_tip": [
+              589,
+              324
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              576,
+              0,
+              23,
+              290
+            ]
+          ]
+        },
+        "c_recover_1003": {
+          "source": "shanks_c_emperor_cuts_1003",
+          "crop": [
+            596,
+            1072,
+            459,
+            363
+          ],
+          "root": [
+            255,
+            352
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              310,
+              36,
+              36
+            ],
+            [
+              101,
+              0,
+              70,
+              16
+            ],
+            [
+              361,
+              0,
+              81,
+              16
+            ]
+          ]
+        },
+        "v_start_1003": {
+          "source": "shanks_v_red_hair_finale_1003",
+          "crop": [
+            761,
+            10,
+            698,
+            501
+          ],
+          "root": [
+            359,
+            488
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "v_active_1003": {
+          "source": "shanks_v_red_hair_finale_1003",
+          "crop": [
+            17,
+            547,
+            891,
+            437
+          ],
+          "root": [
+            383,
+            425
+          ],
+          "sockets": {
+            "weapon_grip": [
+              576,
+              201
+            ],
+            "weapon_tip": [
+              879,
+              382
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              832,
+              0,
+              59,
+              349
+            ]
+          ]
+        },
+        "v_recover_1003": {
+          "source": "shanks_v_red_hair_finale_1003",
+          "crop": [
+            843,
+            547,
+            669,
+            440
+          ],
+          "root": [
+            351,
+            429
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              354,
+              59,
+              33
+            ]
+          ]
+        },
+        "roll_fwd_start_1003": {
+          "source": "shanks_roll_1003",
+          "crop": [
+            441,
+            122,
+            358,
+            310
+          ],
+          "root": [
+            190,
+            298
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "roll_fwd_tuck_1003": {
+          "source": "shanks_roll_1003",
+          "crop": [
+            913,
+            139,
+            324,
+            276
+          ],
+          "root": [
+            157,
+            270
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "roll_fwd_rise_1003": {
+          "source": "shanks_roll_1003",
+          "crop": [
+            26,
+            505,
+            344,
+            325
+          ],
+          "root": [
+            218,
+            314
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "roll_back_start_1003": {
+          "source": "shanks_roll_1003",
+          "crop": [
+            462,
+            522,
+            384,
+            301
+          ],
+          "root": [
+            218,
+            289
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "roll_back_tuck_1003": {
+          "source": "shanks_roll_1003",
+          "crop": [
+            885,
+            500,
+            347,
+            324
+          ],
+          "root": [
+            170,
+            318
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "roll_back_rise_1003": {
+          "source": "shanks_roll_1003",
+          "crop": [
+            10,
+            862,
+            384,
+            361
+          ],
+          "root": [
+            241,
+            348
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_b_start_1003": {
+          "source": "shanks_normal_stbc_1003",
+          "crop": [
+            583,
+            11,
+            344,
+            382
+          ],
+          "root": [
+            207,
+            370
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_b_active_1003": {
+          "source": "shanks_normal_stbc_1003",
+          "crop": [
+            42,
+            389,
+            449,
+            371
+          ],
+          "root": [
+            199,
+            361
+          ],
+          "sockets": {
+            "striking_foot": [
+              433,
+              126
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              0,
+              449,
+              5
+            ],
+            [
+              225,
+              367,
+              30,
+              4
+            ]
+          ]
+        },
+        "st_b_recover_1003": {
+          "source": "shanks_normal_stbc_1003",
+          "crop": [
+            601,
+            402,
+            331,
+            357
+          ],
+          "root": [
+            190,
+            346
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_c_start_1003": {
+          "source": "shanks_normal_stbc_1003",
+          "crop": [
+            41,
+            752,
+            425,
+            333
+          ],
+          "root": [
+            192,
+            321
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              0,
+              425,
+              6
+            ],
+            [
+              200,
+              329,
+              110,
+              4
+            ]
+          ]
+        },
+        "st_c_active_1003": {
+          "source": "shanks_normal_stbc_1003",
+          "crop": [
+            554,
+            753,
+            525,
+            332
+          ],
+          "root": [
+            232,
+            321
+          ],
+          "sockets": {
+            "weapon_grip": [
+              346,
+              98
+            ],
+            "weapon_tip": [
+              516,
+              97
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_c_recover_1003": {
+          "source": "shanks_normal_stbc_1003",
+          "crop": [
+            55,
+            1075,
+            423,
+            365
+          ],
+          "root": [
+            213,
+            353
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              0,
+              423,
+              5
+            ]
+          ]
+        },
+        "st_d_start_1003": {
+          "source": "shanks_normal_stdfc_1003",
+          "crop": [
+            591,
+            36,
+            403,
+            351
+          ],
+          "root": [
+            222,
+            339
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_d_active_1003": {
+          "source": "shanks_normal_stdfc_1003",
+          "crop": [
+            45,
+            407,
+            478,
+            338
+          ],
+          "root": [
+            296,
+            327
+          ],
+          "sockets": {
+            "hilt_contact": [
+              458,
+              72
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_d_recover_1003": {
+          "source": "shanks_normal_stdfc_1003",
+          "crop": [
+            593,
+            405,
+            399,
+            339
+          ],
+          "root": [
+            202,
+            328
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "f_c_start_1003": {
+          "source": "shanks_normal_stdfc_1003",
+          "crop": [
+            42,
+            752,
+            406,
+            372
+          ],
+          "root": [
+            229,
+            360
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "f_c_active_1003": {
+          "source": "shanks_normal_stdfc_1003",
+          "crop": [
+            556,
+            796,
+            498,
+            317
+          ],
+          "root": [
+            239,
+            306
+          ],
+          "sockets": {
+            "weapon_grip": [
+              299,
+              159
+            ],
+            "weapon_tip": [
+              488,
+              272
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "f_c_recover_1003": {
+          "source": "shanks_normal_stdfc_1003",
+          "crop": [
+            74,
+            1118,
+            383,
+            329
+          ],
+          "root": [
+            203,
+            319
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_a_start_1003": {
+          "source": "shanks_normal_crlight_1003",
+          "crop": [
+            564,
+            156,
+            430,
+            261
+          ],
+          "root": [
+            268,
+            249
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_a_active_1003": {
+          "source": "shanks_normal_crlight_1003",
+          "crop": [
+            25,
+            469,
+            515,
+            286
+          ],
+          "root": [
+            313,
+            272
+          ],
+          "sockets": {
+            "hilt_contact": [
+              493,
+              80
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_a_recover_1003": {
+          "source": "shanks_normal_crlight_1003",
+          "crop": [
+            599,
+            479,
+            410,
+            274
+          ],
+          "root": [
+            247,
+            262
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_b_start_1003": {
+          "source": "shanks_normal_crlight_1003",
+          "crop": [
+            41,
+            779,
+            417,
+            303
+          ],
+          "root": [
+            268,
+            291
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_b_active_1003": {
+          "source": "shanks_normal_crlight_1003",
+          "crop": [
+            560,
+            792,
+            498,
+            286
+          ],
+          "root": [
+            221,
+            274
+          ],
+          "sockets": {
+            "striking_foot": [
+              464,
+              143
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_b_recover_1003": {
+          "source": "shanks_normal_crlight_1003",
+          "crop": [
+            20,
+            1157,
+            438,
+            271
+          ],
+          "root": [
+            298,
+            260
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_c_start_1003": {
+          "source": "shanks_normal_crheavy_1003",
+          "crop": [
+            557,
+            145,
+            416,
+            251
+          ],
+          "root": [
+            295,
+            239
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              24,
+              234,
+              16,
+              17
+            ]
+          ]
+        },
+        "cr_c_active_1003": {
+          "source": "shanks_normal_crheavy_1003",
+          "crop": [
+            53,
+            375,
+            548,
+            437
+          ],
+          "root": [
+            201,
+            427
+          ],
+          "sockets": {
+            "weapon_grip": [
+              379,
+              130
+            ],
+            "weapon_tip": [
+              541,
+              9
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              0,
+              350,
+              20
+            ],
+            [
+              525,
+              195,
+              23,
+              230
+            ]
+          ]
+        },
+        "cr_c_recover_1003": {
+          "source": "shanks_normal_crheavy_1003",
+          "crop": [
+            578,
+            570,
+            415,
+            245
+          ],
+          "root": [
+            303,
+            232
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_d_start_1003": {
+          "source": "shanks_normal_crheavy_1003",
+          "crop": [
+            24,
+            918,
+            405,
+            225
+          ],
+          "root": [
+            317,
+            213
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_d_active_1003": {
+          "source": "shanks_normal_crheavy_1003",
+          "crop": [
+            545,
+            914,
+            482,
+            229
+          ],
+          "root": [
+            200,
+            218
+          ],
+          "sockets": {
+            "striking_foot": [
+              465,
+              108
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_d_recover_1003": {
+          "source": "shanks_normal_crheavy_1003",
+          "crop": [
+            39,
+            1175,
+            397,
+            259
+          ],
+          "root": [
+            289,
+            249
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_b_start_1003": {
+          "source": "shanks_normal_airlight_1003",
+          "crop": [
+            49,
+            749,
+            368,
+            326
+          ],
+          "root": [
+            257,
+            378
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              144,
+              0,
+              24,
+              10
+            ]
+          ]
+        },
+        "j_b_active_1003": {
+          "source": "shanks_normal_airlight_1003",
+          "crop": [
+            541,
+            773,
+            498,
+            325
+          ],
+          "root": [
+            283,
+            357
+          ],
+          "sockets": {
+            "striking_foot": [
+              484,
+              128
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_b_recover_1003": {
+          "source": "shanks_normal_airlight_1003",
+          "crop": [
+            54,
+            1102,
+            359,
+            342
+          ],
+          "root": [
+            251,
+            385
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_c_start_1003": {
+          "source": "shanks_normal_airheavy_1003",
+          "crop": [
+            550,
+            59,
+            352,
+            305
+          ],
+          "root": [
+            249,
+            341
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_c_active_1003": {
+          "source": "shanks_normal_airheavy_1003",
+          "crop": [
+            47,
+            428,
+            568,
+            303
+          ],
+          "root": [
+            262,
+            334
+          ],
+          "sockets": {
+            "weapon_grip": [
+              390,
+              114
+            ],
+            "weapon_tip": [
+              560,
+              164
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              492,
+              181,
+              76,
+              122
+            ],
+            [
+              551,
+              96,
+              17,
+              47
+            ]
+          ]
+        },
+        "j_c_recover_1003": {
+          "source": "shanks_normal_airheavy_1003",
+          "crop": [
+            539,
+            449,
+            382,
+            277
+          ],
+          "root": [
+            242,
+            313
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              121,
+              73,
+              28
+            ]
+          ]
+        },
+        "j_d_start_1003": {
+          "source": "shanks_normal_airheavy_1003",
+          "crop": [
+            46,
+            732,
+            357,
+            338
+          ],
+          "root": [
+            236,
+            392
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_d_active_1003": {
+          "source": "shanks_normal_airheavy_1003",
+          "crop": [
+            519,
+            768,
+            541,
+            301
+          ],
+          "root": [
+            290,
+            356
+          ],
+          "sockets": {
+            "striking_foot": [
+              523,
+              108
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_d_recover_1003": {
+          "source": "shanks_normal_airheavy_1003",
+          "crop": [
+            41,
+            1082,
+            403,
+            352
+          ],
+          "root": [
+            235,
+            404
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_a_start_1003": {
+          "source": "shanks_air_hilt_repair_1003",
+          "crop": [
+            821,
+            69,
+            512,
+            419
+          ],
+          "root": [
+            312,
+            484
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_a_active_1003": {
+          "source": "shanks_air_hilt_repair_1003",
+          "crop": [
+            63,
+            572,
+            654,
+            415
+          ],
+          "root": [
+            413,
+            493
+          ],
+          "sockets": {
+            "hilt_contact": [
+              624,
+              129
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_a_recover_1003": {
+          "source": "shanks_air_hilt_repair_1003",
+          "crop": [
+            854,
+            563,
+            553,
+            423
+          ],
+          "root": [
+            357,
+            502
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cd_start_1003": {
+          "source": "shanks_normal_blowback_1003",
+          "crop": [
+            579,
+            41,
+            449,
+            371
+          ],
+          "root": [
+            245,
+            359
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cd_active_1003": {
+          "source": "shanks_normal_blowback_1003",
+          "crop": [
+            36,
+            419,
+            664,
+            348
+          ],
+          "root": [
+            250,
+            337
+          ],
+          "sockets": {
+            "weapon_grip": [
+              462,
+              81
+            ],
+            "weapon_tip": [
+              654,
+              71
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              577,
+              95,
+              87,
+              253
+            ],
+            [
+              250,
+              337,
+              100,
+              11
+            ]
+          ]
+        },
+        "cd_recover_1003": {
+          "source": "shanks_normal_blowback_1003",
+          "crop": [
+            613,
+            412,
+            414,
+            355
+          ],
+          "root": [
+            221,
+            342
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              71,
+              84,
+              21
+            ]
+          ]
+        },
+        "j_cd_start_1003": {
+          "source": "shanks_normal_blowback_1003",
+          "crop": [
+            51,
+            753,
+            372,
+            315
+          ],
+          "root": [
+            240,
+            375
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              62,
+              0,
+              108,
+              10
+            ]
+          ]
+        },
+        "j_cd_active_1003": {
+          "source": "shanks_normal_blowback_1003",
+          "crop": [
+            549,
+            778,
+            524,
+            299
+          ],
+          "root": [
+            262,
+            353
+          ],
+          "sockets": {
+            "weapon_grip": [
+              338,
+              92
+            ],
+            "weapon_tip": [
+              516,
+              97
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_cd_recover_1003": {
+          "source": "shanks_normal_blowback_1003",
+          "crop": [
+            74,
+            1069,
+            365,
+            367
+          ],
+          "root": [
+            203,
+            424
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "throw_fwd_start_1003": {
+          "source": "shanks_throw_forward_1003",
+          "crop": [
+            503,
+            88,
+            455,
+            426
+          ],
+          "root": [
+            306,
+            417
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "throw_fwd_release_1003": {
+          "source": "shanks_throw_forward_1003",
+          "crop": [
+            494,
+            544,
+            595,
+            440
+          ],
+          "root": [
+            323,
+            432
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              358,
+              37,
+              42
+            ]
+          ]
+        },
+        "throw_fwd_recover_1003": {
+          "source": "shanks_throw_forward_1003",
+          "crop": [
+            1085,
+            514,
+            438,
+            484
+          ],
+          "root": [
+            253,
+            476
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "throw_back_start_1003": {
+          "source": "shanks_throw_back_1003",
+          "crop": [
+            508,
+            135,
+            441,
+            380
+          ],
+          "root": [
+            272,
+            371
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "throw_back_release_1003": {
+          "source": "shanks_throw_back_1003",
+          "crop": [
+            541,
+            565,
+            458,
+            414
+          ],
+          "root": [
+            261,
+            405
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              349,
+              45,
+              59
+            ]
+          ]
+        },
+        "throw_back_recover_1003": {
+          "source": "shanks_throw_back_1003",
+          "crop": [
+            1063,
+            523,
+            413,
+            489
+          ],
+          "root": [
+            264,
+            480
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "thrown_1003": {
+          "source": "shanks_reaction_finish_1003",
+          "crop": [
+            790,
+            70,
+            607,
+            438
+          ],
+          "root": [
+            400,
+            430
+          ],
+          "sockets": {
+            "grip": [
+              383,
+              132
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              489,
+              421,
+              118,
+              17
+            ]
+          ]
+        },
+        "throw_tech_1003": {
+          "source": "shanks_reaction_finish_1003",
+          "crop": [
+            93,
+            608,
+            601,
+            398
+          ],
+          "root": [
+            357,
+            389
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "win_1003": {
+          "source": "shanks_reaction_finish_1003",
+          "crop": [
+            876,
+            453,
+            597,
+            570
+          ],
+          "root": [
+            368,
+            561
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              114,
+              0,
+              64,
+              49
+            ],
+            [
+              405,
+              0,
+              110,
+              26
+            ]
+          ]
+        },
+        "held_leg_flip_1003": {
+          "source": "shanks_held_joint_repair_1003",
+          "crop": [
+            776,
+            33,
+            681,
+            457
+          ],
+          "root": [
+            519.557725845832,
+            480.24834321590515
+          ],
+          "sockets": {
+            "grip": [
+              594,
+              410
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "held_labubu_throw_1003": {
+          "source": "shanks_held_joint_repair_1003",
+          "crop": [
+            67,
+            556,
+            769,
+            407
+          ],
+          "root": [
+            580.6021276595744,
+            469.77234042553187
+          ],
+          "sockets": {
+            "grip": [
+              684,
+              328
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "held_twinkle_throw_1003": {
+          "source": "shanks_held_twinkle_cape_repair_1003",
+          "crop": [
+            700,
+            226,
+            825,
+            596
+          ],
+          "root": [
+            578.0,
+            714.0
+          ],
+          "sockets": {
+            "grip": [
+              760,
+              440
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "throw_fwd_hold_green_1004": {
+          "source": "shanks_fresh_front_green_repair_1004",
+          "crop": [
+            777,
+            301,
+            751,
+            674
+          ],
+          "root": [
+            428,
+            664
+          ],
+          "sockets": {
+            "grip": [
+              603,
+              544
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "foregroundPolygon": [
+            [
+              469,
+              399
+            ],
+            [
+              481,
+              392
+            ],
+            [
+              495,
+              390
+            ],
+            [
+              507,
+              397
+            ],
+            [
+              514,
+              413
+            ],
+            [
+              533,
+              448
+            ],
+            [
+              553,
+              483
+            ],
+            [
+              567,
+              499
+            ],
+            [
+              577,
+              505
+            ],
+            [
+              601,
+              507
+            ],
+            [
+              617,
+              513
+            ],
+            [
+              630,
+              519
+            ],
+            [
+              637,
+              525
+            ],
+            [
+              632,
+              532
+            ],
+            [
+              625,
+              533
+            ],
+            [
+              617,
+              529
+            ],
+            [
+              606,
+              526
+            ],
+            [
+              595,
+              526
+            ],
+            [
+              587,
+              531
+            ],
+            [
+              582,
+              539
+            ],
+            [
+              581,
+              550
+            ],
+            [
+              587,
+              563
+            ],
+            [
+              598,
+              571
+            ],
+            [
+              607,
+              574
+            ],
+            [
+              614,
+              570
+            ],
+            [
+              622,
+              571
+            ],
+            [
+              630,
+              576
+            ],
+            [
+              630,
+              582
+            ],
+            [
+              620,
+              591
+            ],
+            [
+              608,
+              596
+            ],
+            [
+              595,
+              596
+            ],
+            [
+              581,
+              589
+            ],
+            [
+              567,
+              582
+            ],
+            [
+              560,
+              570
+            ],
+            [
+              551,
+              554
+            ],
+            [
+              545,
+              533
+            ],
+            [
+              536,
+              512
+            ],
+            [
+              521,
+              492
+            ],
+            [
+              507,
+              464
+            ],
+            [
+              491,
+              435
+            ],
+            [
+              474,
+              411
+            ]
+          ],
+          "foregroundNote": "Manual inspected true near right palm/fingers and near forearm source pixels only. Concave C inner contour excludes opaque cape; all excluded pixels remain body. No painting, relocation or geometric transform."
+        },
+        "throw_back_hold_1013": {
+          "source": "shanks_back_contact_marked_1013",
+          "crop": [
+            800,
+            291,
+            694,
+            689
+          ],
+          "root": [
+            455,
+            681
+          ],
+          "sockets": {
+            "grip": [
+              653,
+              539
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "foregroundPolygon": [
+            [
+              533,
+              406
+            ],
+            [
+              549,
+              394
+            ],
+            [
+              566,
+              388
+            ],
+            [
+              580,
+              394
+            ],
+            [
+              590,
+              413
+            ],
+            [
+              597,
+              439
+            ],
+            [
+              605,
+              463
+            ],
+            [
+              617,
+              486
+            ],
+            [
+              629,
+              491
+            ],
+            [
+              652,
+              495
+            ],
+            [
+              668,
+              502
+            ],
+            [
+              683,
+              517
+            ],
+            [
+              680,
+              525
+            ],
+            [
+              673,
+              524
+            ],
+            [
+              666,
+              519
+            ],
+            [
+              657,
+              511
+            ],
+            [
+              648,
+              512
+            ],
+            [
+              639,
+              525
+            ],
+            [
+              636,
+              542
+            ],
+            [
+              641,
+              557
+            ],
+            [
+              652,
+              564
+            ],
+            [
+              664,
+              558
+            ],
+            [
+              670,
+              559
+            ],
+            [
+              674,
+              567
+            ],
+            [
+              663,
+              578
+            ],
+            [
+              651,
+              584
+            ],
+            [
+              639,
+              584
+            ],
+            [
+              623,
+              576
+            ],
+            [
+              609,
+              562
+            ],
+            [
+              598,
+              551
+            ],
+            [
+              596,
+              524
+            ],
+            [
+              589,
+              499
+            ],
+            [
+              580,
+              475
+            ],
+            [
+              564,
+              447
+            ],
+            [
+              547,
+              423
+            ]
+          ],
+          "foregroundNote": "Inspected real near right forearm, palm, thumb and curled fingers. Concave inner C edge preserves its original opening. Exact original/source-prepared RGBA reconstruction verified; no painting, relocation or per-body-part transforms."
+        }
+      },
+      "anims": {
+        "idle": {
+          "frames": [
+            "idle"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "st_a": {
+          "frames": [
+            "st_a_start",
+            "st_a_active",
+            "st_a_recover"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 5
+            },
+            {
+              "frame": 1,
+              "ticks": 3
+            },
+            {
+              "frame": 2,
+              "ticks": 10
+            }
+          ]
+        },
+        "hit_stand": {
+          "frames": [
+            "hit_stand"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "crouch": {
+          "frames": [
+            "crouch"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "block_stand": {
+          "frames": [
+            "block_stand"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "block_crouch": {
+          "frames": [
+            "block_crouch"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "hit_crouch": {
+          "frames": [
+            "hit_crouch"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "jump_neutral": {
+          "frames": [
+            "jump_neutral",
+            "jump_neutral_fall_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            },
+            {
+              "frame": 1,
+              "ticks": 12
+            }
+          ],
+          "airbornePhases": {
+            "rising": 0,
+            "falling": 1
+          }
+        },
+        "hit_air": {
+          "frames": [
+            "hit_air"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "knockdown": {
+          "frames": [
+            "knockdown"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "getup": {
+          "frames": [
+            "getup"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "walk_fwd": {
+          "frames": [
+            "walk_repair_0",
+            "walk_repair_1",
+            "walk_repair_2",
+            "walk_repair_3"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 8
+            },
+            {
+              "frame": 1,
+              "ticks": 8
+            },
+            {
+              "frame": 2,
+              "ticks": 8
+            },
+            {
+              "frame": 3,
+              "ticks": 8
+            }
+          ]
+        },
+        "walk_back": {
+          "frames": [
+            "walk_repair_3",
+            "walk_repair_2",
+            "walk_repair_1",
+            "walk_repair_0"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 8
+            },
+            {
+              "frame": 1,
+              "ticks": 8
+            },
+            {
+              "frame": 2,
+              "ticks": 8
+            },
+            {
+              "frame": 3,
+              "ticks": 8
+            }
+          ]
+        },
+        "sp_single_arm_cut": {
+          "frames": [
+            "e_start",
+            "e_hit1",
+            "e_turn",
+            "e_hit2",
+            "e_recover"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 8
+            },
+            {
+              "frame": 1,
+              "ticks": 3
+            },
+            {
+              "frame": 2,
+              "ticks": 4
+            },
+            {
+              "frame": 3,
+              "ticks": 4
+            },
+            {
+              "frame": 4,
+              "ticks": 23
+            }
+          ]
+        },
+        "sp_haki_slash": {
+          "frames": [
+            "q_start",
+            "q_cast",
+            "q_recover"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            },
+            {
+              "frame": 1,
+              "ticks": 5
+            },
+            {
+              "frame": 2,
+              "ticks": 23
+            }
+          ]
+        },
+        "prejump": {
+          "frames": [
+            "prejump_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 4
+            }
+          ]
+        },
+        "jump_fwd": {
+          "frames": [
+            "jump_fwd_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "jump_back": {
+          "frames": [
+            "jump_back_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "landing": {
+          "frames": [
+            "landing_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 4
+            }
+          ]
+        },
+        "backdash": {
+          "frames": [
+            "backdash_start_1003",
+            "backdash_air_1003",
+            "backdash_land_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 4
+            },
+            {
+              "frame": 1,
+              "ticks": 8
+            },
+            {
+              "frame": 2,
+              "ticks": 6
+            }
+          ]
+        },
+        "sp_rising_guard": {
+          "frames": [
+            "r_start_1003",
+            "r_active_1003",
+            "r_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 8
+            },
+            {
+              "frame": 1,
+              "ticks": 6
+            },
+            {
+              "frame": 2,
+              "ticks": 31
+            }
+          ]
+        },
+        "sp_step_thrust": {
+          "frames": [
+            "f_start_1003",
+            "f_active_1003",
+            "f_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 10
+            },
+            {
+              "frame": 1,
+              "ticks": 4
+            },
+            {
+              "frame": 2,
+              "ticks": 29
+            }
+          ]
+        },
+        "sp_low_cut": {
+          "frames": [
+            "g_start_1003",
+            "g_active_1003",
+            "g_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 14
+            },
+            {
+              "frame": 1,
+              "ticks": 5
+            },
+            {
+              "frame": 2,
+              "ticks": 30
+            }
+          ]
+        },
+        "sp_sidestep": {
+          "frames": [
+            "z_start_1003",
+            "z_evade_1003",
+            "z_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 6
+            },
+            {
+              "frame": 1,
+              "ticks": 8
+            },
+            {
+              "frame": 2,
+              "ticks": 15
+            }
+          ]
+        },
+        "sp_divine_departure": {
+          "frames": [
+            "x_start_1003",
+            "x_active_1003",
+            "x_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 15
+            },
+            {
+              "frame": 1,
+              "ticks": 5
+            },
+            {
+              "frame": 2,
+              "ticks": 38
+            }
+          ]
+        },
+        "sp_emperor_cuts": {
+          "frames": [
+            "c_start_1003",
+            "c_hit1_1003",
+            "c_turn2_1003",
+            "c_hit2_1003",
+            "c_turn3_1003",
+            "c_hit3_1003",
+            "c_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 11
+            },
+            {
+              "frame": 1,
+              "ticks": 3
+            },
+            {
+              "frame": 2,
+              "ticks": 4
+            },
+            {
+              "frame": 3,
+              "ticks": 3
+            },
+            {
+              "frame": 4,
+              "ticks": 5
+            },
+            {
+              "frame": 5,
+              "ticks": 5
+            },
+            {
+              "frame": 6,
+              "ticks": 31
+            }
+          ]
+        },
+        "ult_red_hair_finale": {
+          "frames": [
+            "v_start_1003",
+            "v_active_1003",
+            "v_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 20
+            },
+            {
+              "frame": 1,
+              "ticks": 7
+            },
+            {
+              "frame": 2,
+              "ticks": 46
+            }
+          ]
+        },
+        "roll_fwd": {
+          "frames": [
+            "roll_fwd_start_1003",
+            "roll_fwd_tuck_1003",
+            "roll_fwd_rise_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 5
+            },
+            {
+              "frame": 1,
+              "ticks": 11
+            },
+            {
+              "frame": 2,
+              "ticks": 11
+            }
+          ]
+        },
+        "roll_back": {
+          "frames": [
+            "roll_back_start_1003",
+            "roll_back_tuck_1003",
+            "roll_back_rise_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 5
+            },
+            {
+              "frame": 1,
+              "ticks": 11
+            },
+            {
+              "frame": 2,
+              "ticks": 11
+            }
+          ]
+        },
+        "dash": {
+          "frames": [
+            "walk_repair_0",
+            "walk_repair_1",
+            "walk_repair_2",
+            "walk_repair_3"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 4
+            },
+            {
+              "frame": 1,
+              "ticks": 4
+            },
+            {
+              "frame": 2,
+              "ticks": 4
+            },
+            {
+              "frame": 3,
+              "ticks": 4
+            }
+          ]
+        },
+        "st_b": {
+          "frames": [
+            "st_b_start_1003",
+            "st_b_active_1003",
+            "st_b_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 6
+            },
+            {
+              "frame": 1,
+              "ticks": 3
+            },
+            {
+              "frame": 2,
+              "ticks": 12
+            }
+          ]
+        },
+        "st_c": {
+          "frames": [
+            "st_c_start_1003",
+            "st_c_active_1003",
+            "st_c_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 10
+            },
+            {
+              "frame": 1,
+              "ticks": 4
+            },
+            {
+              "frame": 2,
+              "ticks": 23
+            }
+          ]
+        },
+        "st_d": {
+          "frames": [
+            "st_d_start_1003",
+            "st_d_active_1003",
+            "st_d_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            },
+            {
+              "frame": 1,
+              "ticks": 4
+            },
+            {
+              "frame": 2,
+              "ticks": 21
+            }
+          ]
+        },
+        "f_c": {
+          "frames": [
+            "f_c_start_1003",
+            "f_c_active_1003",
+            "f_c_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 17
+            },
+            {
+              "frame": 1,
+              "ticks": 4
+            },
+            {
+              "frame": 2,
+              "ticks": 23
+            }
+          ]
+        },
+        "cr_a": {
+          "frames": [
+            "cr_a_start_1003",
+            "cr_a_active_1003",
+            "cr_a_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 5
+            },
+            {
+              "frame": 1,
+              "ticks": 3
+            },
+            {
+              "frame": 2,
+              "ticks": 9
+            }
+          ]
+        },
+        "cr_b": {
+          "frames": [
+            "cr_b_start_1003",
+            "cr_b_active_1003",
+            "cr_b_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 5
+            },
+            {
+              "frame": 1,
+              "ticks": 3
+            },
+            {
+              "frame": 2,
+              "ticks": 11
+            }
+          ]
+        },
+        "cr_c": {
+          "frames": [
+            "cr_c_start_1003",
+            "cr_c_active_1003",
+            "cr_c_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 9
+            },
+            {
+              "frame": 1,
+              "ticks": 5
+            },
+            {
+              "frame": 2,
+              "ticks": 22
+            }
+          ]
+        },
+        "cr_d": {
+          "frames": [
+            "cr_d_start_1003",
+            "cr_d_active_1003",
+            "cr_d_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 10
+            },
+            {
+              "frame": 1,
+              "ticks": 4
+            },
+            {
+              "frame": 2,
+              "ticks": 25
+            }
+          ]
+        },
+        "j_b": {
+          "frames": [
+            "j_b_start_1003",
+            "j_b_active_1003",
+            "j_b_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 6
+            },
+            {
+              "frame": 1,
+              "ticks": 6
+            },
+            {
+              "frame": 2,
+              "ticks": 9
+            }
+          ]
+        },
+        "j_c": {
+          "frames": [
+            "j_c_start_1003",
+            "j_c_active_1003",
+            "j_c_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 9
+            },
+            {
+              "frame": 1,
+              "ticks": 5
+            },
+            {
+              "frame": 2,
+              "ticks": 12
+            }
+          ]
+        },
+        "j_d": {
+          "frames": [
+            "j_d_start_1003",
+            "j_d_active_1003",
+            "j_d_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 10
+            },
+            {
+              "frame": 1,
+              "ticks": 6
+            },
+            {
+              "frame": 2,
+              "ticks": 13
+            }
+          ]
+        },
+        "j_a": {
+          "frames": [
+            "j_a_start_1003",
+            "j_a_active_1003",
+            "j_a_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 5
+            },
+            {
+              "frame": 1,
+              "ticks": 6
+            },
+            {
+              "frame": 2,
+              "ticks": 8
+            }
+          ]
+        },
+        "cd": {
+          "frames": [
+            "cd_start_1003",
+            "cd_active_1003",
+            "cd_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 16
+            },
+            {
+              "frame": 1,
+              "ticks": 5
+            },
+            {
+              "frame": 2,
+              "ticks": 27
+            }
+          ]
+        },
+        "j_cd": {
+          "frames": [
+            "j_cd_start_1003",
+            "j_cd_active_1003",
+            "j_cd_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 11
+            },
+            {
+              "frame": 1,
+              "ticks": 6
+            },
+            {
+              "frame": 2,
+              "ticks": 15
+            }
+          ]
+        },
+        "throw_fwd": {
+          "frames": [
+            "throw_fwd_start_1003",
+            "throw_fwd_hold_green_1004",
+            "throw_fwd_release_1003",
+            "throw_fwd_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 4
+            },
+            {
+              "frame": 1,
+              "ticks": 17
+            },
+            {
+              "frame": 2,
+              "ticks": 7
+            },
+            {
+              "frame": 3,
+              "ticks": 14
+            }
+          ],
+          "throwExposures": [
+            {
+              "frame": 1,
+              "ticks": 21
+            },
+            {
+              "frame": 2,
+              "ticks": 7
+            },
+            {
+              "frame": 3,
+              "ticks": 14
+            }
+          ]
+        },
+        "throw": {
+          "frames": [
+            "throw_fwd_start_1003",
+            "throw_fwd_hold_green_1004",
+            "throw_fwd_release_1003",
+            "throw_fwd_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 4
+            },
+            {
+              "frame": 1,
+              "ticks": 17
+            },
+            {
+              "frame": 2,
+              "ticks": 7
+            },
+            {
+              "frame": 3,
+              "ticks": 14
+            }
+          ],
+          "throwExposures": [
+            {
+              "frame": 1,
+              "ticks": 21
+            },
+            {
+              "frame": 2,
+              "ticks": 7
+            },
+            {
+              "frame": 3,
+              "ticks": 14
+            }
+          ]
+        },
+        "throw_back": {
+          "frames": [
+            "throw_back_start_1003",
+            "throw_back_hold_1013",
+            "throw_back_release_1003",
+            "throw_back_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 4
+            },
+            {
+              "frame": 1,
+              "ticks": 17
+            },
+            {
+              "frame": 2,
+              "ticks": 7
+            },
+            {
+              "frame": 3,
+              "ticks": 14
+            }
+          ],
+          "throwExposures": [
+            {
+              "frame": 1,
+              "ticks": 21
+            },
+            {
+              "frame": 2,
+              "ticks": 7
+            },
+            {
+              "frame": 3,
+              "ticks": 14
+            }
+          ]
+        },
+        "thrown": {
+          "frames": [
+            "thrown_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "throw_tech": {
+          "frames": [
+            "throw_tech_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "win": {
+          "frames": [
+            "win_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "ko": {
+          "frames": [
+            "knockdown"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "held_leg_flip": {
+          "frames": [
+            "held_leg_flip_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "held_labubu_throw": {
+          "frames": [
+            "held_labubu_throw_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "held_twinkle_throw": {
+          "frames": [
+            "held_twinkle_throw_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        }
+      }
+    }
+  },
+  "unusedReviewCrops": {
+    "walk_0": {
+      "source": "shanks_locomotion_0929",
+      "crop": [
+        434,
+        12,
+        397,
+        400
+      ],
+      "root": [
+        217,
+        386
+      ]
+    },
+    "walk_1": {
+      "source": "shanks_locomotion_0929",
+      "crop": [
+        855,
+        10,
+        387,
+        402
+      ],
+      "root": [
+        235,
+        388
+      ]
+    },
+    "walk_2": {
+      "source": "shanks_locomotion_0929",
+      "crop": [
+        20,
+        439,
+        400,
+        384
+      ],
+      "root": [
+        204,
+        372
+      ]
+    },
+    "walk_3": {
+      "source": "shanks_locomotion_0929",
+      "crop": [
+        433,
+        437,
+        399,
+        387
+      ],
+      "root": [
+        216,
+        374
+      ]
+    },
+    "throw_fwd_connect_1003": {
+      "source": "shanks_throw_forward_1003",
+      "crop": [
+        1057,
+        76,
+        462,
+        429
+      ],
+      "root": [
+        263,
+        419
+      ],
+      "sockets": {
+        "grip": [
+          419,
+          392
+        ]
+      },
+      "transparency": {
+        "mode": "source-alpha"
+      },
+      "reviewStatus": "preserved-old-front-connected-hand-not-used1004",
+      "note": "Original source and registration retained in backup; true connected holding now uses the reviewed new drawing."
+    },
+    "throw_fwd_load_1003": {
+      "source": "shanks_throw_forward_1003",
+      "crop": [
+        3,
+        540,
+        534,
+        444
+      ],
+      "root": [
+        241,
+        432
+      ],
+      "sockets": {
+        "grip": [
+          475,
+          376
+        ]
+      },
+      "transparency": {
+        "mode": "source-alpha"
+      },
+      "excludeRects": [
+        [
+          497,
+          153,
+          37,
+          115
+        ]
+      ],
+      "reviewStatus": "preserved-old-front-connected-hand-not-used1004",
+      "note": "Original source and registration retained in backup; true connected holding now uses the reviewed new drawing."
+    },
+    "throw_back_connect_1003": {
+      "source": "shanks_throw_back_1003",
+      "crop": [
+        997,
+        124,
+        517,
+        380
+      ],
+      "root": [
+        283,
+        373
+      ],
+      "sockets": {
+        "grip": [
+          473,
+          316
+        ]
+      },
+      "transparency": {
+        "mode": "source-alpha"
+      }
+    },
+    "throw_back_load_1003": {
+      "source": "shanks_throw_back_1003",
+      "crop": [
+        19,
+        533,
+        573,
+        447
+      ],
+      "root": [
+        311,
+        437
+      ],
+      "sockets": {
+        "grip": [
+          521,
+          406
+        ]
+      },
+      "transparency": {
+        "mode": "source-alpha"
+      },
+      "excludeRects": [
+        [
+          528,
+          189,
+          45,
+          124
+        ]
+      ]
+    }
+  },
+  "walkReview": {
+    "source": "shanks_walk_repair_0929",
+    "status": "normal-speed-review-required",
+    "realDrawings": 4,
+    "ticksPerFrame": 8,
+    "concern": "Two contact and two raised-leg poses are real distinct drawings; near/far leg alternation remains visually subtle and must be inspected for a one-leg skipping impression at normal speed."
+  }
+}

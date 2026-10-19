@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "shanks_normal_airheavy_1003",
+  "file": "public/assets/generated/source/roster-shanks-normal-airheavy-1003.png",
+  "sha256": "e8626138ae37a44806af972802aa1ed16ebe945fc615d9fbe7f935a13c00e41a",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+  "observedCompletedAt": "2026-10-03T19:26:11.348743+08:00",
+  "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回匹配原文（仅界面空白归一化）后单次发送。页面回答已完成，实际查看器标识赤发独臂剑士动作精灵图。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。官方文件查看器下载只点一次；Downloads正式PNG已落盘，没有以download事件回执作为成功证据。 完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。既有images为工作流入口，本次直接续c会话。",
+  "prompt": {
+    "file": "docs/assets/shanks-normal-air-heavy-prompt1003.txt",
+    "sha256": "50d77be9d7c06f9800fab7a1d7e7f84bfe9e6e82c189cb65a4f3d7c9d06f8309"
+  },
+  "referenceSources": {
+    "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+    "shanks_normal_airlight_1003": "d9db444628aa66bafc51ac3f7d4549871b0959564a42cd83462f353840811fd3"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T11:27:11.777382+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-normal-air-heavy-result-viewer.jpg",
+    "sha256": "67dfccd6b94443bca76d8a4145af8aa725e951aaf9615ebfa45a808e9a134609"
+  },
+  "referenceFiles": {
+    "shanks_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-shanks-locomotion-0929.png",
+      "sha256": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+    },
+    "shanks_normal_airlight_1003": {
+      "file": "public/assets/generated/source/roster-shanks-normal-airlight-1003.png",
+      "sha256": "d9db444628aa66bafc51ac3f7d4549871b0959564a42cd83462f353840811fd3"
+    }
+  },
+  "originalPngSize": [
+    1086,
+    1448
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

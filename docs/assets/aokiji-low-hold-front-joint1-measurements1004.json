@@ -1,0 +1,39 @@
+{
+  "sourceKey": "aokiji_low_hold_front_joint1_1004",
+  "sourceHash": "68821242fd8639281926f6924b1035f2d9d4c063408e6d457e3e0cade189af4d",
+  "reviewDir": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/fresh-front-joint1-review1004",
+  "holdOffset": 30,
+  "scaleReference": {
+    "crop": [0,0,887,887],
+    "excludeRects": [],
+    "expectedHeight64": 793,
+    "referenceOnly": true,
+    "headAndBothSolesComplete": true
+  },
+  "holding": {
+    "throw_fwd": {
+      "crop": [887,0,887,887],
+      "excludeRects": [],
+      "root": [473,824],
+      "sockets": {
+        "grip": [655,741],
+        "near_grip": [653,740],
+        "far_grip": [659,741],
+        "near_palm": [608,736],
+        "far_palm": [674,714],
+        "sole_back": [413,818],
+        "sole_front": [532,815],
+        "near_elbow": [536,638],
+        "near_wrist": [583,707]
+      },
+      "rootBasis": "Actual whole rear/front shoe support centres413/532, rounded midpoint473; actual rear shoe alpha16 floor824, not cape floor826. Grip marks observed common enclosed dark-blue patch655/741, not adjusted to victim. Hands closer than fresh original, but opening is occupied by source sleeve/cape, not clear transparent ankle space. Manual landmarks approximately+/-3px. No target-derived root or per-pose scaling."
+    }
+  },
+  "manualLandmarkTolerancePx": 3,
+  "observedGripRGBA": [17,18,34,253],
+  "observedInnerGripAlphaBox": {"crop": [645,731,20,15], "alphaMinMax": [253,254], "zeroPixels": 0, "below64Pixels": 0, "totalPixels": 300},
+  "openingIsTransparent": false,
+  "actualImprovement": "Two C-hand regions moved together; near forearm and common grip still right of green target",
+  "status": "not-adopted-grip-still-right-and-blue-filled",
+  "runtimeOrAuthoringOrDataChanged": false
+}

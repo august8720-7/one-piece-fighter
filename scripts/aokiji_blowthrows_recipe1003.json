@@ -1,0 +1,459 @@
+{
+  "sourceKey": "aokiji_blow_throws_1003",
+  "sourceHash": "a3ebd0fbd0f7ca0541dd92932a899c13d39cfbb508fcc31f4a866edaf7f5fca3",
+  "evidenceDir": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-blowthrows1003",
+  "measurementFile": "docs/assets/aokiji-blowthrows-measurements1003.json",
+  "scaleReference": {
+    "crop": [
+      66,
+      0,
+      334,
+      332
+    ],
+    "excludeRects": [
+      [
+        182,
+        327,
+        28,
+        5
+      ]
+    ],
+    "expectedHeight64": 314,
+    "basis": "Cell1 full-standing shoulder preparation alpha64height314 against established407; all12 body cells share407/314. Ground roots from visible shoe support, air roots from neutral height, no hitbox-fitting transforms."
+  },
+  "frames": {
+    "cd_start_1003": {
+      "crop": [
+        66,
+        0,
+        334,
+        332
+      ],
+      "root": [
+        182,
+        323
+      ],
+      "sockets": {},
+      "note": "Independent generated pose. Ground root from actual shoe support; one source-wide scale; no per-pose scale or contact-fitting transform.",
+      "excludeRects": [
+        [
+          182,
+          327,
+          28,
+          5
+        ]
+      ]
+    },
+    "cd_active_1003": {
+      "crop": [
+        458,
+        22,
+        349,
+        308
+      ],
+      "root": [
+        178,
+        300
+      ],
+      "sockets": {
+        "shoulder": [
+          246,
+          63
+        ],
+        "ice_edge": [
+          277,
+          67
+        ]
+      },
+      "note": "Independent generated pose. Ground root from actual shoe support; one source-wide scale; no per-pose scale or contact-fitting transform."
+    },
+    "cd_recover_1003": {
+      "crop": [
+        871,
+        6,
+        323,
+        326
+      ],
+      "root": [
+        172,
+        318
+      ],
+      "sockets": {},
+      "note": "Independent generated pose. Ground root from actual shoe support; one source-wide scale; no per-pose scale or contact-fitting transform."
+    },
+    "j_cd_start_1003": {
+      "crop": [
+        39,
+        320,
+        342,
+        268
+      ],
+      "root": [
+        193,
+        323
+      ],
+      "sockets": {},
+      "note": "Independent generated airborne shoulder pose. Virtual root one standing height below observed crown, x at pelvic projection; not a rotated/translated standing frame.",
+      "excludeRects": [
+        [
+          86,
+          0,
+          39,
+          5
+        ]
+      ]
+    },
+    "j_cd_active_1003": {
+      "crop": [
+        472,
+        328,
+        312,
+        293
+      ],
+      "root": [
+        233,
+        323
+      ],
+      "sockets": {
+        "shoulder": [
+          244,
+          58
+        ],
+        "ice_edge": [
+          265,
+          62
+        ]
+      },
+      "note": "Independent generated airborne shoulder pose. Virtual root one standing height below observed crown, x at pelvic projection; not a rotated/translated standing frame."
+    },
+    "j_cd_recover_1003": {
+      "crop": [
+        866,
+        325,
+        338,
+        318
+      ],
+      "root": [
+        204,
+        323
+      ],
+      "sockets": {},
+      "note": "Independent generated airborne shoulder pose. Virtual root one standing height below observed crown, x at pelvic projection; not a rotated/translated standing frame.",
+      "excludeRects": [
+        [
+          179,
+          303,
+          65,
+          15
+        ]
+      ]
+    },
+    "throw_fwd_hold_1003": {
+      "crop": [
+        39,
+        623,
+        355,
+        310
+      ],
+      "root": [
+        175,
+        302
+      ],
+      "sockets": {
+        "grip": [
+          314,
+          106
+        ],
+        "grip_far": [
+          331,
+          76
+        ]
+      },
+      "note": "Independent generated pose. Ground root from actual shoe support; one source-wide scale; no per-pose scale or contact-fitting transform.",
+      "excludeRects": [
+        [
+          187,
+          306,
+          26,
+          4
+        ]
+      ]
+    },
+    "throw_fwd_release_1003": {
+      "crop": [
+        457,
+        629,
+        383,
+        300
+      ],
+      "root": [
+        207,
+        292
+      ],
+      "sockets": {
+        "released_palm": [
+          322,
+          95
+        ],
+        "released_palm_far": [
+          333,
+          50
+        ]
+      },
+      "note": "Independent generated pose. Ground root from actual shoe support; one source-wide scale; no per-pose scale or contact-fitting transform.",
+      "excludeRects": [
+        [
+          200,
+          294,
+          32,
+          6
+        ]
+      ]
+    },
+    "throw_fwd_recover_1003": {
+      "crop": [
+        894,
+        621,
+        319,
+        315
+      ],
+      "root": [
+        176,
+        307
+      ],
+      "sockets": {},
+      "note": "Independent generated pose. Ground root from actual shoe support; one source-wide scale; no per-pose scale or contact-fitting transform.",
+      "excludeRects": [
+        [
+          233,
+          0,
+          70,
+          15
+        ],
+        [
+          170,
+          310,
+          29,
+          5
+        ]
+      ]
+    },
+    "throw_back_hold_1003": {
+      "crop": [
+        40,
+        922,
+        351,
+        322
+      ],
+      "root": [
+        188,
+        314
+      ],
+      "sockets": {
+        "grip": [
+          294,
+          109
+        ],
+        "grip_far": [
+          308,
+          83
+        ]
+      },
+      "note": "Independent generated pose. Ground root from actual shoe support; one source-wide scale; no per-pose scale or contact-fitting transform.",
+      "excludeRects": [
+        [
+          41,
+          0,
+          38,
+          4
+        ]
+      ]
+    },
+    "throw_back_release_1003": {
+      "crop": [
+        455,
+        916,
+        400,
+        318
+      ],
+      "root": [
+        233,
+        310
+      ],
+      "sockets": {
+        "released_palm": [
+          51,
+          57
+        ]
+      },
+      "note": "Independent generated pose. Ground root from actual shoe support; one source-wide scale; no per-pose scale or contact-fitting transform. Back-release far arm is hidden behind the actual cape; only one hand is visible. Normal-speed readability remains unverified.",
+      "excludeRects": [
+        [
+          35,
+          0,
+          39,
+          6
+        ]
+      ]
+    },
+    "throw_back_recover_1003": {
+      "crop": [
+        896,
+        924,
+        337,
+        325
+      ],
+      "root": [
+        183,
+        317
+      ],
+      "sockets": {},
+      "note": "Independent generated pose. Ground root from actual shoe support; one source-wide scale; no per-pose scale or contact-fitting transform.",
+      "excludeRects": [
+        [
+          42,
+          0,
+          39,
+          5
+        ]
+      ]
+    }
+  },
+  "anims": {
+    "cd": {
+      "frames": [
+        "cd_start_1003",
+        "cd_active_1003",
+        "cd_recover_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 18
+        },
+        {
+          "frame": 1,
+          "ticks": 5
+        },
+        {
+          "frame": 2,
+          "ticks": 27
+        }
+      ]
+    },
+    "j_cd": {
+      "frames": [
+        "j_cd_start_1003",
+        "j_cd_active_1003",
+        "j_cd_recover_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 12
+        },
+        {
+          "frame": 1,
+          "ticks": 6
+        },
+        {
+          "frame": 2,
+          "ticks": 16
+        }
+      ]
+    },
+    "throw_fwd": {
+      "frames": [
+        "throw_fwd_hold_1003",
+        "throw_fwd_release_1003",
+        "throw_fwd_recover_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 22
+        },
+        {
+          "frame": 1,
+          "ticks": 8
+        },
+        {
+          "frame": 2,
+          "ticks": 15
+        }
+      ],
+      "throwExposures": [
+        {
+          "frame": 0,
+          "ticks": 22
+        },
+        {
+          "frame": 1,
+          "ticks": 8
+        },
+        {
+          "frame": 2,
+          "ticks": 15
+        }
+      ]
+    },
+    "throw_back": {
+      "frames": [
+        "throw_back_hold_1003",
+        "throw_back_release_1003",
+        "throw_back_recover_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 22
+        },
+        {
+          "frame": 1,
+          "ticks": 8
+        },
+        {
+          "frame": 2,
+          "ticks": 15
+        }
+      ],
+      "throwExposures": [
+        {
+          "frame": 0,
+          "ticks": 22
+        },
+        {
+          "frame": 1,
+          "ticks": 8
+        },
+        {
+          "frame": 2,
+          "ticks": 15
+        }
+      ]
+    },
+    "throw": {
+      "frames": [
+        "throw_fwd_hold_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 45
+        }
+      ]
+    }
+  },
+  "knownDifferences": [
+    "Ordinary throws enter connected throw at stateFrame0. Real hold pose remains22ticks, release8ticks and restore15ticks; total45 and release22 match existing core.",
+    "Generic throw explicitly reuses forward connected-hold body; it is not counted as a new crop or a unique alternate throw.",
+    "Forward and backward hand grips differ in source art. These measured real hands require actual opponent pair/contact checks before adoption.",
+    "Backward release hides far arm behind cape; no program edit reconstructs it. Actual readability and release are pending.",
+    "Static extraction/timing does not certify game contact, sound, full match, or public completion."
+  ]
+}

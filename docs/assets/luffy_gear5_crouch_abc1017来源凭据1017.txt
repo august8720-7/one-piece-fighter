@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_crouch_abc1017",
+  "file": "public/assets/generated/source/luffy-gear5-crouch-abc1017.png",
+  "sha256": "5c9639c8cd006ee8f53a157b33416e60e3fa82c0057d2a28b251d0e12dd41c4a",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官网图像入口未公开具体图像型号；实际GPT-6是文字模型标签，图像型号未核实。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad2efa5-3138-83e8-8d2e-f5cf53fa3a56",
+  "observedCompletedAt": "2026-10-17T04:21:51.015Z",
+  "uiObservation": "根代理实际view_image后提供观察：正确GPT-6/极高和完整prompt后生成9格，3行为cr_a、cr_b、cr_c的起手、有效、回收，身体完整、蹲低、脚底低踢和上挑可辨。观察时刻为下载后对真实已完成PNG的复核，不是服务器生成时间。截图为同组请求前实际模型与极高设置，之后未改，不冒称完成时截图。当前未做逻辑接触；cr_c上挑点仍需render按真实源尺度/root映射到逻辑框，邻格碎片只允许后续显式保护处理。原图仅同字节复制并保留C下载，未裁切清理、改画或自动采用。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-crouch-abc-prompt1017.txt",
+    "sha256": "9fabbc0fd273572cd3663f8c14fdae33f854559697678cc51481c62df670e382"
+  },
+  "referenceSources": {
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T04:23:03.511937+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/reaction-model1017.png",
+    "sha256": "34deacc74d0676df30282375cba2e2f11978e7d576210ac902afbb1fdaa15826"
+  },
+  "referenceFiles": {
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

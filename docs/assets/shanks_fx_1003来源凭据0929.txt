@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "shanks_fx_1003",
+  "file": "public/assets/generated/source/roster-shanks-fx-1003.png",
+  "sha256": "ff13c2c7ddd7cd75fda81454357bbf233479a8e9d0332f03dd6022c6a9768dc1",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "本轮官方图像入口未公开可核实的具体图像模型名称，保留unverified，不推断型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+  "observedCompletedAt": "2026-10-03T01:29:36+08:00",
+  "uiObservation": "主代理在同一香克斯会话单次fill完整提示并发送；极高可见，最新沿本轮已核设置。01:29:36观察已完成的上下两块独立特效，内置浏览器tab5下载工具超时但原PNG实际完整落盘且SHA256核实；这是实际完成观察时刻，不是服务器生成时间。",
+  "prompt": {
+    "file": "docs/assets/shanks-fx-prompt1003.txt",
+    "sha256": "0ac0a121fb8a1dfd2a99c9d17bcf470db8b92669f5b3f7cc6e28e91f8dbe6ed0"
+  },
+  "referenceSources": {
+    "pirate_mother_0929": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-02T17:32:29.448310+00:00",
+  "referenceFiles": {
+    "pirate_mother_0929": {
+      "file": "public/assets/generated/source/roster-pirate-mother-0929.png",
+      "sha256": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

@@ -1,0 +1,860 @@
+{
+  "version": 1,
+  "status": "accepted-explicit-cue-overrides",
+  "baseLedger": "scripts/first_pair_voice_selection1004.json",
+  "baseLedgerSha256": "b45bccccc97ca3e737e55ee3ab97e7d1c3143dce662e81669b77409455978053",
+  "declaredCueOverrides": [
+    "voice.aokiji.attack",
+    "voice.aokiji.effort",
+    "voice.aokiji.hurt",
+    "voice.aokiji.idle",
+    "voice.aokiji.ko",
+    "voice.aokiji.move",
+    "voice.aokiji.select",
+    "voice.aokiji.win",
+    "voice.shanks.attack",
+    "voice.shanks.effort",
+    "voice.shanks.idle",
+    "voice.shanks.ko",
+    "voice.shanks.move",
+    "voice.shanks.win"
+  ],
+  "humanAuditioned": false,
+  "formalCharacterAcceptanceUnchanged": true,
+  "cues": [
+    {
+      "character": "shanks",
+      "event": "effort",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1013.json",
+      "note": "Same exact reviewed Japanese generic effort WAV; requested 来い！, observed こおい. Explicit attack/effort reuse, no original-actor or per-move shout claim.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "bae4b92a168b55dc84e317d27c2b09f7c9b9d08584834d061a919e1c56320e31",
+          "transcript": "こおい",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "meaning": "Observed こおい is compatible with an elongated 来い generic challenge shout. Actual heard wording retained; no claim of exact requested orthography, named move, original actor, human timbre approval or completed game mix.",
+          "evidence": [
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T045504347029Z/result-04.json",
+              "sha256": "7e81a10990331f572c7319c0a88c7a0767a20e6ff1a749590a83c5872fd9b86e",
+              "role": "response"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T045504347029Z/copy-after.json",
+              "sha256": "f7e09b3bc3cfe8bf31d8f70a96d796a00046f1567ce84df686c950c7f104e8dd",
+              "role": "audio-attachment"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T045504347029Z/model-identity.json",
+              "sha256": "7bbad68ae4a291c04f70e4a09bcda69a93b303060311484091ec8a48668b062c",
+              "role": "native-model"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/shanks/effort-qwen-japanese1013.wav",
+          "sha256": "bae4b92a168b55dc84e317d27c2b09f7c9b9d08584834d061a919e1c56320e31",
+          "transcript": "こおい",
+          "translation": "来吧！",
+          "source_start_seconds": 0,
+          "source_end_seconds": 0.72
+        }
+      ],
+      "playback": {
+        "gain": 0.62,
+        "cooldownMs": 721
+      }
+    },
+    {
+      "character": "shanks",
+      "event": "attack",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1013.json",
+      "note": "Same exact reviewed Japanese generic effort WAV; requested 来い！, observed こおい. Explicit attack/effort reuse, no original-actor or per-move shout claim.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "bae4b92a168b55dc84e317d27c2b09f7c9b9d08584834d061a919e1c56320e31",
+          "transcript": "こおい",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "meaning": "Observed こおい is compatible with an elongated 来い generic challenge shout. Actual heard wording retained; no claim of exact requested orthography, named move, original actor, human timbre approval or completed game mix.",
+          "evidence": [
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T045504347029Z/result-04.json",
+              "sha256": "7e81a10990331f572c7319c0a88c7a0767a20e6ff1a749590a83c5872fd9b86e",
+              "role": "response"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T045504347029Z/copy-after.json",
+              "sha256": "f7e09b3bc3cfe8bf31d8f70a96d796a00046f1567ce84df686c950c7f104e8dd",
+              "role": "audio-attachment"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T045504347029Z/model-identity.json",
+              "sha256": "7bbad68ae4a291c04f70e4a09bcda69a93b303060311484091ec8a48668b062c",
+              "role": "native-model"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/shanks/effort-qwen-japanese1013.wav",
+          "sha256": "bae4b92a168b55dc84e317d27c2b09f7c9b9d08584834d061a919e1c56320e31",
+          "transcript": "こおい",
+          "translation": "来吧！",
+          "source_start_seconds": 0,
+          "source_end_seconds": 0.72
+        }
+      ],
+      "playback": {
+        "gain": 0.85,
+        "cooldownMs": 721
+      }
+    },
+    {
+      "character": "shanks",
+      "event": "ko",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1013.json",
+      "note": "Reviewed original synthetic Japanese generic event. Actual content and separate quality responses bind to these unchanged WAV bytes. Not original actor or dedicated move voice.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "5084ce44de4c673b58c2d2a4849e4e2ce2fe509a6380043d0448cdb351882490",
+          "transcript": "俺の負けだ",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "evidence": [
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T075921968846Z/result-06.json",
+              "sha256": "77a4adc76121ae53822388610dfa0e976f6f23ea5e2b91e23986509e0af07bcd",
+              "role": "response"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T080407100050Z/result-03.json",
+              "sha256": "f27630f6a93384eff598b2dac02538141d8f4d5f4cdd31db89778190ff00e3f2",
+              "role": "quality-supplement"
+            }
+          ],
+          "meaning": "Exact Japanese transcript is supported by the blind content response. Independent same-SHA quality-only response explicitly confirms complete ends/no repeat/no tail/no noise/distortion. Not human timbre or game playback acceptance."
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/shanks/ko-qwen-japanese1013.wav",
+          "sha256": "5084ce44de4c673b58c2d2a4849e4e2ce2fe509a6380043d0448cdb351882490",
+          "transcript": "俺の負けだ",
+          "translation": "是我输了。",
+          "source_start_seconds": 0,
+          "source_end_seconds": 1.2
+        }
+      ],
+      "nonlexical": false,
+      "playback": {
+        "gain": 0.85,
+        "cooldownMs": 0
+      }
+    },
+    {
+      "character": "shanks",
+      "event": "win",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1013.json",
+      "note": "Reviewed original synthetic Japanese generic event. Actual content and separate quality responses bind to these unchanged WAV bytes. Not original actor or dedicated move voice.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "1d0d7d3c5594839e74abaef25368c50d33cd93514e2b544fa5296acaaa414eff",
+          "transcript": "また来いよ",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "evidence": [
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T075921968846Z/result-07.json",
+              "sha256": "d6bf5dd2767ef5e91920639c6e5b360f529e2bff3a58041270e0f1beca6ccd7c",
+              "role": "response"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T080407100050Z/result-04.json",
+              "sha256": "3d75d393559f60d6718d9341bf35dbaf49bbafeacc005f829220269b434cf120",
+              "role": "quality-supplement"
+            }
+          ],
+          "meaning": "Exact Japanese transcript is supported by the blind content response. Independent same-SHA quality-only response explicitly confirms complete ends/no repeat/no tail/no noise/distortion. Not human timbre or game playback acceptance."
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/shanks/win-qwen-japanese1013.wav",
+          "sha256": "1d0d7d3c5594839e74abaef25368c50d33cd93514e2b544fa5296acaaa414eff",
+          "transcript": "また来いよ",
+          "translation": "下次再来吧。",
+          "source_start_seconds": 0,
+          "source_end_seconds": 1.2
+        }
+      ],
+      "nonlexical": false,
+      "playback": {
+        "gain": 0.85,
+        "cooldownMs": 0
+      }
+    },
+    {
+      "character": "shanks",
+      "event": "idle",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1013.json",
+      "note": "Reviewed original synthetic Japanese generic event. Actual content and separate quality responses bind to these unchanged WAV bytes. Not original actor or dedicated move voice.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "ebeead556cd83fb2d2da7ef1c23ffaf775175c3c003a7e7d75d78ee844412f23",
+          "transcript": "焦るなよ",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "evidence": [
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T075921968846Z/result-08.json",
+              "sha256": "7ae88e5ac8e01ed93ebc8356fbab3b3ac096f9a47f35b1ad6468da528fbe39f1",
+              "role": "response"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T080407100050Z/result-05.json",
+              "sha256": "c730d5da5348bb9cba3bb32feb5db14c16aa3bd665bd5100121aa6e2fae5d6af",
+              "role": "quality-supplement"
+            }
+          ],
+          "meaning": "Exact Japanese transcript is supported by the blind content response. Independent same-SHA quality-only response explicitly confirms complete ends/no repeat/no tail/no noise/distortion. Not human timbre or game playback acceptance."
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/shanks/idle-qwen-japanese1013.wav",
+          "sha256": "ebeead556cd83fb2d2da7ef1c23ffaf775175c3c003a7e7d75d78ee844412f23",
+          "transcript": "焦るなよ",
+          "translation": "别着急。",
+          "source_start_seconds": 0,
+          "source_end_seconds": 1.12
+        }
+      ],
+      "nonlexical": false,
+      "playback": {
+        "gain": 0.62,
+        "cooldownMs": 0
+      }
+    },
+    {
+      "character": "shanks",
+      "event": "move",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1013.json",
+      "note": "Reviewed original synthetic Japanese generic event. Actual content and separate quality responses bind to these unchanged WAV bytes. Not original actor or dedicated move voice.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "2a3937681404fabc1007a43bd3438f724b1f797b239bb3602a3a8fe2529b3c6b",
+          "transcript": "行くぞ",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "evidence": [
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T075921968846Z/result-09.json",
+              "sha256": "7d9079d4c7990e1f5a0bdfecaae88db0ff5b26ec09f3cfbd0f811ccb4197dd01",
+              "role": "response"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T080407100050Z/result-06.json",
+              "sha256": "18ec3592719da9f137e0d1bd3276772ce8cbff117122b9d379edae3d9e80e11f",
+              "role": "quality-supplement"
+            }
+          ],
+          "meaning": "Exact Japanese transcript is supported by the blind content response. Independent same-SHA quality-only response explicitly confirms complete ends/no repeat/no tail/no noise/distortion. Not human timbre or game playback acceptance."
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/shanks/move-qwen-japanese1013.wav",
+          "sha256": "2a3937681404fabc1007a43bd3438f724b1f797b239bb3602a3a8fe2529b3c6b",
+          "transcript": "行くぞ",
+          "translation": "上了。",
+          "source_start_seconds": 0,
+          "source_end_seconds": 0.96
+        }
+      ],
+      "nonlexical": false,
+      "playback": {
+        "gain": 0.62,
+        "cooldownMs": 0
+      }
+    },
+    {
+      "character": "aokiji",
+      "event": "select",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1013.json",
+      "note": "Original synthetic Japanese; exact whole WAV. Requested and heard wording remain separate.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "2bef4f31237993d710a7c2d5c16116b53776b4ac4a0bb07e21f7b85964a1396e",
+          "transcript": "さあ始めようか",
+          "provider": "local unchanged Qwen2.5-Omni-3B native audio encoder/generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "evidence": [
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T065422613783Z/result-01.json",
+              "sha256": "0bc1a938892e5f527ed1f61eccf0c03742ffccb38455ca881fd3cfba285bd07c",
+              "role": "response"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T065422613783Z/copy-after.json",
+              "sha256": "20b5b91c698b709abf9efbbb542421dd0ed7259137be391b4be66fe7ac7f808d",
+              "role": "audio-attachment"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T065422613783Z/model-identity.json",
+              "sha256": "7bbad68ae4a291c04f70e4a09bcda69a93b303060311484091ec8a48668b062c",
+              "role": "native-model"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T045504347029Z/result-01.json",
+              "sha256": "6d173011a0bbbf94b674636a5f3065bdf10185b1966be4a6c58b42f8d6e5f61b",
+              "role": "same-audio-completeness"
+            }
+          ],
+          "meaning": "Exact native-heard text, not a certification of original actor voice or game mix. Missing head/tail evidence never becomes true from generation text."
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/aokiji/select-qwen-japanese1013.wav",
+          "sha256": "2bef4f31237993d710a7c2d5c16116b53776b4ac4a0bb07e21f7b85964a1396e",
+          "transcript": "さあ始めようか",
+          "translation": "那么，开始吧。",
+          "source_start_seconds": 0,
+          "source_end_seconds": 1.44
+        }
+      ],
+      "playback": {
+        "gain": 0.7,
+        "cooldownMs": 0
+      }
+    },
+    {
+      "character": "aokiji",
+      "event": "attack",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1013.json",
+      "note": "Original synthetic Japanese; exact whole WAV. Requested and heard wording remain separate.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "eeaac0874f3396c61e64c7d20b917bce784bdd8b65fe380799474990d49697a7",
+          "transcript": "そこだ",
+          "provider": "local unchanged Qwen2.5-Omni-3B native audio encoder/generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "evidence": [
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T065422613783Z/result-05.json",
+              "sha256": "79e86cce57b83bb8702e5d95c11f2c531daae6778a3e3af781b79fe2ba9a94eb",
+              "role": "response"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T065422613783Z/copy-after.json",
+              "sha256": "20b5b91c698b709abf9efbbb542421dd0ed7259137be391b4be66fe7ac7f808d",
+              "role": "audio-attachment"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T065422613783Z/model-identity.json",
+              "sha256": "7bbad68ae4a291c04f70e4a09bcda69a93b303060311484091ec8a48668b062c",
+              "role": "native-model"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T081109207797Z/result-01.json",
+              "sha256": "1d04e995442779f0aaf07717dd9367324467144c915ddc52b05f292600d89809",
+              "role": "exact-audio-quality"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/aokiji/aokiji-quality-approved1013.json",
+              "sha256": "7fe1b4b8811186d11e4559f6d166afcc06b70f7c9ec1b7ed1c9287b3cf3f7cbf",
+              "role": "root-quality-decision"
+            }
+          ],
+          "meaning": "Exact native-heard text, not a certification of original actor voice or game mix. Missing head/tail evidence never becomes true from generation text."
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/aokiji/attack-qwen-japanese1013.wav",
+          "sha256": "eeaac0874f3396c61e64c7d20b917bce784bdd8b65fe380799474990d49697a7",
+          "transcript": "そこだ",
+          "translation": "就是那里！",
+          "source_start_seconds": 0,
+          "source_end_seconds": 1.04
+        }
+      ],
+      "playback": {
+        "gain": 0.85,
+        "cooldownMs": 1041
+      }
+    },
+    {
+      "character": "aokiji",
+      "event": "ko",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1013.json",
+      "note": "Original synthetic Japanese; exact whole WAV. Requested and heard wording remain separate.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "ea7755f1cb4407a926dbc28f829d473857c98c083e6aa573c8fdf8ecae37f98a",
+          "transcript": "ここまでか",
+          "provider": "local unchanged Qwen2.5-Omni-3B native audio encoder/generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "evidence": [
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T075921968846Z/result-03.json",
+              "sha256": "191714822fb9aee3ca7abd4da8758c600ef2dce8c6bbe2c3e623031b36748327",
+              "role": "response"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T075921968846Z/copy-after.json",
+              "sha256": "464064cbf0a0476dcc60fb0a632de2ae00a5929d0e9f47271a1123a4a3753103",
+              "role": "audio-attachment"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T075921968846Z/model-identity.json",
+              "sha256": "6e6666ca9b3731cc324465ae54b71415a863a780143b8ab671d54e5dab41f216",
+              "role": "native-model"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T080407100050Z/result-01.json",
+              "sha256": "77445864a03c9cd26746bedacbde0c625f405507fd978df44e92a7d888da80c5",
+              "role": "exact-audio-quality"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/aokiji/aokiji-quality-approved1013.json",
+              "sha256": "7fe1b4b8811186d11e4559f6d166afcc06b70f7c9ec1b7ed1c9287b3cf3f7cbf",
+              "role": "root-quality-decision"
+            }
+          ],
+          "meaning": "Exact native-heard text, not a certification of original actor voice or game mix. Missing head/tail evidence never becomes true from generation text."
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/aokiji/ko-qwen-japanese1013.wav",
+          "sha256": "ea7755f1cb4407a926dbc28f829d473857c98c083e6aa573c8fdf8ecae37f98a",
+          "transcript": "ここまでか",
+          "translation": "到此为止了吗……",
+          "source_start_seconds": 0,
+          "source_end_seconds": 1.12
+        }
+      ],
+      "playback": {
+        "gain": 0.85,
+        "cooldownMs": 0
+      }
+    },
+    {
+      "character": "aokiji",
+      "event": "win",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1013.json",
+      "note": "Full original Japanese calm line processed once with pitch-preserving ffmpeg atempo1.4, no syllable trimming; new1.720791667s bytes independently native-reviewed. Original2.40s remains idle only.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "87e3f51fb2b6e154dba02ee3187b7b47b75041ec39ae2746c5bad6f695d792e2",
+          "transcript": "少し冷静になれ",
+          "provider": "local unchanged Qwen2.5-Omni-3B native audio encoder/generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "evidence": [
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T085300541678Z/result-01.json",
+              "sha256": "f83f27d91b9409920b11ece22dfcc7510bfd4020e15de033ecd0ba28ef89c462",
+              "role": "response"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T085300541678Z/result-02.json",
+              "sha256": "2d83bfd52b27cc7c67378cd044438a80ad18e0a5eb4457f68ccfc2b048c2f785",
+              "role": "quality-supplement"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/aokiji/win-retime1013/processing-after1013.json",
+              "sha256": "49458d987e1a021b70ac9d3ea871434d46870de89375e548f4763010dbde811b",
+              "role": "exact-audio-processing"
+            }
+          ],
+          "meaning": "Fresh content and quality responses reviewed the exact full atempo1.4 output. No inheritance from the2.40s source native review; not human preference or actual victory-window playback certification."
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/aokiji/win-qwen-atempo1p4-japanese1013.wav",
+          "sha256": "87e3f51fb2b6e154dba02ee3187b7b47b75041ec39ae2746c5bad6f695d792e2",
+          "transcript": "少し冷静になれ",
+          "translation": "稍微冷静一点吧。",
+          "source_start_seconds": 0,
+          "source_end_seconds": 1.7207916666666667
+        }
+      ],
+      "playback": {
+        "gain": 0.85,
+        "cooldownMs": 0
+      }
+    },
+    {
+      "character": "aokiji",
+      "event": "hurt",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1004.json",
+      "note": "Original Chinese synthetic generic event phrase, never a dedicated original-actor move call.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "89e57117583da106bc2e8686bbc08afb052ecb4a1222c6d97b91112e5ffbf4bf",
+          "transcript": "呃",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+          "evidence": [
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-03\\response.txt",
+              "sha256": "6b9fcd7f70c8dbf42c2002928e44dba79260509c607a323792740a94be901386",
+              "role": "response"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-03\\native-result.json",
+              "sha256": "f1246a99fc5f0e35d3a6e3c7d5263c49b5ff658baa33edcfc7dfbb269fac498f",
+              "role": "native-result"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-03\\request.json",
+              "sha256": "bb123d9689dc6f0969fe83938ee65814c5d7d9752a7b1e1cd95a0e95b7475ed1",
+              "role": "request"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-03\\native-input-before-generation.json",
+              "sha256": "75d52adc4917705d8d3886788883b5e1acbd7bf3ee012631e4a497af3ecbce7e",
+              "role": "audio-features"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/aokiji/hurt-kokoro-original1004.wav",
+          "sha256": "89e57117583da106bc2e8686bbc08afb052ecb4a1222c6d97b91112e5ffbf4bf",
+          "transcript": "呃",
+          "translation": "呃！",
+          "source_start_seconds": 0,
+          "source_end_seconds": 0.475
+        }
+      ],
+      "playback": {
+        "gain": 0.65,
+        "cooldownMs": 476
+      }
+    },
+    {
+      "character": "aokiji",
+      "event": "idle",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1013.json",
+      "note": "Explicit generic idle reuse of reviewed win WAV, not a new line or distinct named skill call.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "8addf39bfc2499745111531372da4a1098020eb031593f2fd1b3b243c9e6cde1",
+          "transcript": "少し冷静になれ",
+          "provider": "local unchanged Qwen2.5-Omni-3B native audio encoder/generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "evidence": [
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T075921968846Z/result-04.json",
+              "sha256": "9d7f3bf56346419421573966912b63506761dd628a82f66a0d5f53afd279c3ef",
+              "role": "response"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T075921968846Z/copy-after.json",
+              "sha256": "464064cbf0a0476dcc60fb0a632de2ae00a5929d0e9f47271a1123a4a3753103",
+              "role": "audio-attachment"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T075921968846Z/model-identity.json",
+              "sha256": "6e6666ca9b3731cc324465ae54b71415a863a780143b8ab671d54e5dab41f216",
+              "role": "native-model"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T080407100050Z/result-02.json",
+              "sha256": "0102b17a99b40158f7b13e1e17f0da5a493a2f56c77b64e0393a4ac77be70c3f",
+              "role": "exact-audio-quality"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/aokiji/aokiji-quality-approved1013.json",
+              "sha256": "7fe1b4b8811186d11e4559f6d166afcc06b70f7c9ec1b7ed1c9287b3cf3f7cbf",
+              "role": "root-quality-decision"
+            }
+          ],
+          "meaning": "Exact native-heard text, not a certification of original actor voice or game mix. Missing head/tail evidence never becomes true from generation text."
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/aokiji/win-qwen-japanese1013.wav",
+          "sha256": "8addf39bfc2499745111531372da4a1098020eb031593f2fd1b3b243c9e6cde1",
+          "transcript": "少し冷静になれ",
+          "translation": "稍微冷静一点吧。",
+          "source_start_seconds": 0,
+          "source_end_seconds": 2.4
+        }
+      ],
+      "playback": {
+        "gain": 0.62,
+        "cooldownMs": 0
+      }
+    },
+    {
+      "character": "aokiji",
+      "event": "move",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1013.json",
+      "note": "Explicit generic move reuse of reviewed attack WAV, not a new line or distinct named skill call.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "eeaac0874f3396c61e64c7d20b917bce784bdd8b65fe380799474990d49697a7",
+          "transcript": "そこだ",
+          "provider": "local unchanged Qwen2.5-Omni-3B native audio encoder/generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "evidence": [
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T065422613783Z/result-05.json",
+              "sha256": "79e86cce57b83bb8702e5d95c11f2c531daae6778a3e3af781b79fe2ba9a94eb",
+              "role": "response"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T065422613783Z/copy-after.json",
+              "sha256": "20b5b91c698b709abf9efbbb542421dd0ed7259137be391b4be66fe7ac7f808d",
+              "role": "audio-attachment"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T065422613783Z/model-identity.json",
+              "sha256": "7bbad68ae4a291c04f70e4a09bcda69a93b303060311484091ec8a48668b062c",
+              "role": "native-model"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T081109207797Z/result-01.json",
+              "sha256": "1d04e995442779f0aaf07717dd9367324467144c915ddc52b05f292600d89809",
+              "role": "exact-audio-quality"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/aokiji/aokiji-quality-approved1013.json",
+              "sha256": "7fe1b4b8811186d11e4559f6d166afcc06b70f7c9ec1b7ed1c9287b3cf3f7cbf",
+              "role": "root-quality-decision"
+            }
+          ],
+          "meaning": "Exact native-heard text, not a certification of original actor voice or game mix. Missing head/tail evidence never becomes true from generation text."
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/aokiji/attack-qwen-japanese1013.wav",
+          "sha256": "eeaac0874f3396c61e64c7d20b917bce784bdd8b65fe380799474990d49697a7",
+          "transcript": "そこだ",
+          "translation": "就是那里！",
+          "source_start_seconds": 0,
+          "source_end_seconds": 1.04
+        }
+      ],
+      "playback": {
+        "gain": 0.62,
+        "cooldownMs": 0
+      }
+    },
+    {
+      "character": "aokiji",
+      "event": "effort",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1013.json",
+      "note": "Explicit generic effort reuse of reviewed attack WAV, not a new line or distinct named skill call.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "eeaac0874f3396c61e64c7d20b917bce784bdd8b65fe380799474990d49697a7",
+          "transcript": "そこだ",
+          "provider": "local unchanged Qwen2.5-Omni-3B native audio encoder/generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "evidence": [
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T065422613783Z/result-05.json",
+              "sha256": "79e86cce57b83bb8702e5d95c11f2c531daae6778a3e3af781b79fe2ba9a94eb",
+              "role": "response"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T065422613783Z/copy-after.json",
+              "sha256": "20b5b91c698b709abf9efbbb542421dd0ed7259137be391b4be66fe7ac7f808d",
+              "role": "audio-attachment"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T065422613783Z/model-identity.json",
+              "sha256": "7bbad68ae4a291c04f70e4a09bcda69a93b303060311484091ec8a48668b062c",
+              "role": "native-model"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa-cpuvisual1013/20261013T081109207797Z/result-01.json",
+              "sha256": "1d04e995442779f0aaf07717dd9367324467144c915ddc52b05f292600d89809",
+              "role": "exact-audio-quality"
+            },
+            {
+              "path": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/aokiji/aokiji-quality-approved1013.json",
+              "sha256": "7fe1b4b8811186d11e4559f6d166afcc06b70f7c9ec1b7ed1c9287b3cf3f7cbf",
+              "role": "root-quality-decision"
+            }
+          ],
+          "meaning": "Exact native-heard text, not a certification of original actor voice or game mix. Missing head/tail evidence never becomes true from generation text."
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/aokiji/attack-qwen-japanese1013.wav",
+          "sha256": "eeaac0874f3396c61e64c7d20b917bce784bdd8b65fe380799474990d49697a7",
+          "transcript": "そこだ",
+          "translation": "就是那里！",
+          "source_start_seconds": 0,
+          "source_end_seconds": 1.04
+        }
+      ],
+      "playback": {
+        "gain": 0.62,
+        "cooldownMs": 1041
+      }
+    }
+  ],
+  "languageScope": "Japanese primary: retain the already reviewed0.675s Chinese 大意了 hurt as an explicit transition, and the existing Japanese original select. Not fully Japanese or one uniform actor.",
+  "aokiji1013": {
+    "eightCueProfile": true,
+    "actualChangedCueIds": [
+      "voice.aokiji.attack",
+      "voice.aokiji.effort",
+      "voice.aokiji.idle",
+      "voice.aokiji.ko",
+      "voice.aokiji.move",
+      "voice.aokiji.select",
+      "voice.aokiji.win"
+    ],
+    "uniqueRuntimeFiles": 6,
+    "newExactWavs": 4,
+    "retainedHurtUnchanged": true,
+    "adoptionEvidence": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/aokiji/voice-adoption-20261013T082343674704Z",
+    "IABPlaybackVerified": false,
+    "temporaryWinPreserved1004": false,
+    "winPolicy": "Use independently native-reviewed1.720791667s complete atempo1.4 derived Japanese output; original2.40s file stays idle. Actual victory playback pending."
+  }
+}

@@ -1,3 +1,5 @@
+import uiArtManifest from './anime/uiArtManifest.json';
+
 export type ArtStyle = 'legacy' | 'anime';
 export type RenderQuality = 'high' | 'performance';
 export type PresentationScope = 'full' | 'sample';
@@ -12,7 +14,13 @@ export interface PresentationProfile {
 export type PresentationData = Partial<PresentationProfile>;
 export const PRESENTATION = 'presentationProfile';
 export const PRESENTATION_LOAD = 'presentationLoadResult';
-export const PRESENTATION_VERSION = '四角色联动 · 0927';
+export const PRESENTATION_VERSION = import.meta.env.DEV && typeof window !== 'undefined'
+  && new URLSearchParams(window.location.search).get('rosterPreview') === '0929'
+  ? '角色扩充候选 · 1013' : '四角色联动 · 0927';
+const releaseRoster: Record<string, { image: string; enabled?: boolean; pcRosterAccepted?: boolean }> = uiArtManifest.characters;
+const sixRoleBuild = Object.keys(releaseRoster).length === 6
+  && ['luffy', 'akainu', 'labubu', 'twinkle', 'aokiji', 'shanks'].every(id => releaseRoster[id] && releaseRoster[id]!.enabled !== false)
+  && ['aokiji', 'shanks'].every(id => releaseRoster[id]!.pcRosterAccepted === true);
 const LEGACY: PresentationProfile = { art: 'legacy', quality: 'performance', scope: 'full' };
 
 interface Registry {
@@ -55,5 +63,6 @@ export function legacyPresentation(profile: PresentationProfile): PresentationPr
 }
 
 export function presentationLabel(profile: PresentationProfile): string {
-  return `${PRESENTATION_VERSION} · ${profile.art === 'anime' ? profile.scope === 'sample' ? '动漫动作内部样板' : '动漫版' : '旧版'}`;
+  const version = profile.art === 'anime' && profile.scope === 'full' && sixRoleBuild ? '六人联动 · 1017' : PRESENTATION_VERSION;
+  return `${version} · ${profile.art === 'anime' ? profile.scope === 'sample' ? '动漫动作内部样板' : '动漫版' : '旧版'}`;
 }

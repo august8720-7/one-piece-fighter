@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_balloon_large1017",
+  "file": "public/assets/generated/source/luffy-gear5-balloon-large1017.png",
+  "sha256": "aa0935d4c3946f0d99ef5b6b73387cc988cd72a51c2461915b30395fe3447536",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官网未披露具体图像型号；实际文字模型GPT-6与具体图像型号分开记录，图像型号仍未核实。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad30b00-1890-83e8-af5d-982a71002c85",
+  "observedCompletedAt": "2026-10-17T06:30:16.081Z",
+  "uiObservation": "根代理实际直接img download并view_image；官网本次明确要求仅直接生图、禁止代码后处理，下载为图像入口不是Python输出文件。无新附件，沿本会话最初master及同一人物身份。根实际view见真实巨大腹部；为此前balloon源同一会话重绘身份关联，交audio独占量测侧表，再交render合并；不先判原反射范围完全贴合。该special会话实际英文Extra High为脚本极高的规范值，原标签/调整时序留在docs/assets/luffy-gear5-balloon-ui-observation1017.json；文字GPT-6与图像型号分开，本完成截图不冒称另有型号菜单。观测为根下载后完成结果复核，不是服务器生成时间；C原件保留、D同字节PNG不处理。来源登记不等于完整接触或运行采用验收。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-balloon-large-direct-prompt1017.txt",
+    "sha256": "5350445f97352ae14b647bf60b6b85432ff7bdf058b158e52b1d08207a49cb3c"
+  },
+  "referenceSources": {
+    "luffy_gear5_balloon1017": "48ae07e62db2c2c36594fb330b01e4a90996468839534f113166c7f7f8ea6fc2",
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T06:33:27.806613+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/balloon-large-web1017.png",
+    "sha256": "eeec36da8ab1bc80bb543cc3dd516352c7c55070230b458a5c90bba7f875883a"
+  },
+  "referenceFiles": {
+    "luffy_gear5_balloon1017": {
+      "file": "public/assets/generated/source/luffy-gear5-balloon1017.png",
+      "sha256": "48ae07e62db2c2c36594fb330b01e4a90996468839534f113166c7f7f8ea6fc2"
+    },
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    }
+  },
+  "originalPngSize": [
+    1448,
+    1086
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

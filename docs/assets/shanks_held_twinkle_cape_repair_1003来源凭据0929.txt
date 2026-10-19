@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "shanks_held_twinkle_cape_repair_1003",
+  "file": "public/assets/generated/source/roster-shanks-held-twinkle-cape-repair-1003.png",
+  "sha256": "150e2031d86be7dbbf1d0b75f0de2078f91a55167252d15d1f562c7ed5e6c0e6",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+  "observedCompletedAt": "2026-10-03T21:40:50.074600+08:00",
+  "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回匹配原文（仅界面空白归一化）后单次发送。页面回答已完成，实际查看器标识红发独臂剑士双姿态精灵图。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。官方文件查看器单次下载，原PNG已到盘；提交前上传源画圈定披风与真实静态原眼/遮眼参考held-twinkle-cape-repair-reference1003.png，SHA256 39bf9c14fd01594e877c0d294859d1d22f3156b36d19dff37b02919c7b5c2955。只作诊断参考，未进入运行图集或代替角色像素。 完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。既有images为工作流入口，本次直接续c会话。",
+  "prompt": {
+    "file": "docs/assets/shanks-held-twinkle-cape-repair-prompt1003.txt",
+    "sha256": "a3f1c22478695768a896b920f0c056fc574b3577f617d351bf525178898704af"
+  },
+  "referenceSources": {
+    "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+    "shanks_held_twinkle_face_clear_1003": "ea2fed126f1428309117d4033cb0f2c2143fbe6fe03ae50c28712b95307b8440"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T13:41:17.532991+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-held-twinkle-cape-repair-viewer1003.jpg",
+    "sha256": "e331c7e3a9cdd21469853fc4d1c7430487196ed22dc506b405cdf8f9fc6f7c18"
+  },
+  "referenceFiles": {
+    "shanks_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-shanks-locomotion-0929.png",
+      "sha256": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+    },
+    "shanks_held_twinkle_face_clear_1003": {
+      "file": "public/assets/generated/source/roster-shanks-held-twinkle-face-clear-1003.png",
+      "sha256": "ea2fed126f1428309117d4033cb0f2c2143fbe6fe03ae50c28712b95307b8440"
+    }
+  },
+  "originalPngSize": [
+    1536,
+    1024
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

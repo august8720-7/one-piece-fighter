@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_balloon1017",
+  "file": "public/assets/generated/source/luffy-gear5-balloon1017.png",
+  "sha256": "48ae07e62db2c2c36594fb330b01e4a90996468839534f113166c7f7f8ea6fc2",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方网页未披露具体图像型号；GPT-6为实际文字模型标签，不能据此推断图像型号。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad30b00-1890-83e8-af5d-982a71002c85",
+  "observedCompletedAt": "2026-10-17T05:48:09.016Z",
+  "uiObservation": "实际截图顺序为GPT-6菜单时仍显示Medium，随后明确调整至英文Extra High、五档第4项；脚本极高为其规范化值，不冒称看见中文极高。三张截图及SHA、完整观测记录见docs/assets/luffy-gear5-balloon-ui-observation1017.json（SHA256 221322ccbe359bcf2840bf4069f4d799dbde5ab2a4e5ed5469bfa45d6197a281）。原始上传为master，网页自动名luffy-gear5-master1014(2).png不是新原件。根代理下载并实际查看完成图：四个真实站立/吸气膨胀/保持/回缩姿势，身体完整，腹部膨胀而非外部气泡代替躯干；仍是待量测候选，来源登记不代表动作/接触/运行采用验收。完成时刻为根代理复核结果时间，不是服务器生成时间；C下载保留，D为未处理同字节PNG。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-remaining-balloon-prompt1017.txt",
+    "sha256": "fa779bfbcdc576eb91abc416c3ea7fa9419ee44f32415eaf729a39712afada3e"
+  },
+  "referenceSources": {
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T05:51:15.453656+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/special-studio-extra-high1017.png",
+    "sha256": "ed93da8d957deddf012ac8f457add2227942e86eccee1ae971e56816535338c9"
+  },
+  "referenceFiles": {
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

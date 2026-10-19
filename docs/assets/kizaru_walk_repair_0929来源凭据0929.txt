@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "kizaru_walk_repair_0929",
+  "file": "public/assets/generated/source/roster-kizaru-walk-repair-0929.png",
+  "sha256": "b9c40e81cf9ea2ffb95cd396499a73b7f7d38b8f869265e9e3c876718ea4b920",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方页面未披露具体图像型号，按本轮规则记unverified。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Microsoft Edge",
+  "sessionUrl": "https://chatgpt.com/c/6abbd7c3-ab58-83e8-bc9d-5433cd330260",
+  "observedCompletedAt": "2026-09-29T23:50:43.8688656+08:00",
+  "uiObservation": "在原稳定黄猿会话提交一次只修步态的完整提示词，沿用本次实际核对的最新和极高档；页面Worked for 1m23s后显示回答已完成，查看器第三张为6格黄猿图，实际natural尺寸1254x1254。观察发现两次迈腿相似且抬膝过高，判定为未采用候选。本时间为后续登记时再次确认已完成原图的时刻，不代表服务器首次生成时间。两份Edge crdownload均通过PNG签名/IEND和Pillow完整解码，尺寸与网页一致、hash相同；先清单后复制保全，未伪称浏览器下载终结或步态验收通过。",
+  "prompt": {
+    "file": "docs/assets/kizaru-walk-repair-prompt0929.txt",
+    "sha256": "bb4fb22d11b0194a307a804d78190eef0c1c4547514bc99a623f99bc8e6e0c56"
+  },
+  "referenceSources": {
+    "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+    "kizaru_locomotion_0929": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1",
+    "kizaru_reaction_0929": "b9db3e8aee51c7b6e5e2b8ce18da9e542859b28eebc11966fc9052145f8b8d38"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-09-29T15:50:44.150901+00:00",
+  "referenceFiles": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+    },
+    "kizaru_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-kizaru-locomotion-0929.png",
+      "sha256": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+    },
+    "kizaru_reaction_0929": {
+      "file": "public/assets/generated/source/roster-kizaru-reaction-0929.png",
+      "sha256": "b9db3e8aee51c7b6e5e2b8ce18da9e542859b28eebc11966fc9052145f8b8d38"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

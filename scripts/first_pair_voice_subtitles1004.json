@@ -1,0 +1,1197 @@
+{
+  "lines": [
+    {
+      "file": "assets/audio/voice/luffy/candidate-review-attack-0912.wav",
+      "label": "路飞 · 角色回应",
+      "translation": "",
+      "original": null,
+      "transcriptVerified": false,
+      "sha256": "3660479bd25473ea8079bec87972fdcc9b0260eb0b52be10d28f2ee1563e192b",
+      "sourceUrl": "https://www.youtube.com/watch?v=QwK-FAA-VRU",
+      "startSeconds": 3.115,
+      "endSeconds": 3.665,
+      "evidence": "Existing user voice identity acceptance only; exact words unknown."
+    },
+    {
+      "file": "assets/audio/voice/luffy/candidate-review-attack-2-0912.wav",
+      "label": "路飞 · 角色回应",
+      "translation": "",
+      "original": null,
+      "transcriptVerified": false,
+      "sha256": "3954ed4d9a63b8ed145642e71e7727d692a7b9e704bc230098b96b1885a4e06b",
+      "sourceUrl": "https://www.youtube.com/watch?v=QwK-FAA-VRU",
+      "startSeconds": 3.915,
+      "endSeconds": 4.675,
+      "evidence": "Existing user voice identity acceptance only; exact words unknown."
+    },
+    {
+      "file": "assets/audio/voice/luffy/candidate-review-hurt-0912.wav",
+      "label": "路飞 · 受击声",
+      "translation": "",
+      "original": null,
+      "transcriptVerified": false,
+      "sha256": "c2ea2886f89f7754a80e40112a2e7ecc6322e3673d80ee766aedcc6af35c4e69",
+      "sourceUrl": "https://www.youtube.com/watch?v=QwK-FAA-VRU",
+      "startSeconds": 40.375,
+      "endSeconds": 40.705,
+      "evidence": "Existing user voice identity acceptance only; exact words unknown."
+    },
+    {
+      "file": "assets/audio/voice/luffy/candidate-review-ko-0912.wav",
+      "label": "路飞 · 倒地声",
+      "translation": "",
+      "original": null,
+      "transcriptVerified": false,
+      "sha256": "750a50ba372ad0845aa142886cfd16201d958d556ee10fe4ddfc9508c81ac5eb",
+      "sourceUrl": "https://www.youtube.com/watch?v=QwK-FAA-VRU",
+      "startSeconds": 44.405,
+      "endSeconds": 45.465,
+      "evidence": "Existing user voice identity acceptance only; exact words unknown."
+    },
+    {
+      "file": "assets/audio/voice/luffy/candidate-review-win-0912.wav",
+      "label": "路飞 · 胜利回应",
+      "translation": "",
+      "original": null,
+      "transcriptVerified": false,
+      "sha256": "26ede43ff609c38d77f6fcdc16d488acf14dc81b249df66289143aead5c36f16",
+      "sourceUrl": "https://www.youtube.com/watch?v=QwK-FAA-VRU",
+      "startSeconds": 86.755,
+      "endSeconds": 88.245,
+      "evidence": "Existing user voice identity acceptance only; exact words unknown."
+    },
+    {
+      "file": "assets/audio/voice/akainu/candidate-review-attack-0912.wav",
+      "label": "赤犬 · 角色回应",
+      "translation": "",
+      "original": null,
+      "transcriptVerified": false,
+      "sha256": "411b11be44481c8e53f075ea7324cab4091a5fe4526929d9575174608380d0f7",
+      "sourceUrl": "https://www.youtube.com/watch?v=LelknEdihUw",
+      "startSeconds": 3.175,
+      "endSeconds": 3.505,
+      "evidence": "Existing user voice identity acceptance only; exact words unknown."
+    },
+    {
+      "file": "assets/audio/voice/akainu/candidate-review-hurt-0912.wav",
+      "label": "赤犬 · 受击声",
+      "translation": "",
+      "original": null,
+      "transcriptVerified": false,
+      "sha256": "dfa91126958004ae02fe37bd41b63b56f2719b31f0fa7d553416088d098f135f",
+      "sourceUrl": "https://www.youtube.com/watch?v=LelknEdihUw",
+      "startSeconds": 70.685,
+      "endSeconds": 71.065,
+      "evidence": "Existing user voice identity acceptance only; exact words unknown."
+    },
+    {
+      "file": "assets/audio/voice/akainu/candidate-review-ko-0912.wav",
+      "label": "赤犬 · 倒地声",
+      "translation": "",
+      "original": null,
+      "transcriptVerified": false,
+      "sha256": "86d390b62286bf60a9744f2ed7120ffbeca61c2bf26024696afcc508d06bf8d0",
+      "sourceUrl": "https://www.youtube.com/watch?v=LelknEdihUw",
+      "startSeconds": 78.175,
+      "endSeconds": 79.425,
+      "evidence": "Existing user voice identity acceptance only; exact words unknown."
+    },
+    {
+      "file": "assets/audio/voice/akainu/candidate-review-win-0912.wav",
+      "label": "赤犬 · 胜利回应",
+      "translation": "",
+      "original": null,
+      "transcriptVerified": false,
+      "sha256": "4675390ab6bc3e2daf4b112f27e85b0521634c720a6efdc3b0d9bc1aba06b1cd",
+      "sourceUrl": "https://www.youtube.com/watch?v=LelknEdihUw",
+      "startSeconds": 106.875,
+      "endSeconds": 107.975,
+      "evidence": "Existing user voice identity acceptance only; exact words unknown."
+    },
+    {
+      "file": "assets/audio/voice/luffy/daily-idle-1-0914.wav",
+      "label": "路飞 · 角色回应",
+      "translation": "",
+      "original": null,
+      "transcriptVerified": false,
+      "sha256": "93b01fc68d39aa16c06ca52ae3346be9173461988f5240cf3fa6549a4510f1ec",
+      "sourceUrl": "https://www.youtube.com/watch?v=QwK-FAA-VRU",
+      "startSeconds": 70.5,
+      "endSeconds": 72.05,
+      "evidence": "Existing user voice identity acceptance only; exact words unknown."
+    },
+    {
+      "file": "assets/audio/voice/luffy/daily-idle-2-0914.wav",
+      "label": "路飞 · 角色回应",
+      "translation": "",
+      "original": null,
+      "transcriptVerified": false,
+      "sha256": "381c160fccc582d07d46a24d8e51efe63b922cfbb41ffee6ee3bac5ef58730dd",
+      "sourceUrl": "https://www.youtube.com/watch?v=QwK-FAA-VRU",
+      "startSeconds": 75.3,
+      "endSeconds": 77.2,
+      "evidence": "Existing user voice identity acceptance only; exact words unknown."
+    },
+    {
+      "file": "assets/audio/voice/akainu/daily-idle-1-0914.wav",
+      "label": "赤犬 · 角色回应",
+      "translation": "",
+      "original": null,
+      "transcriptVerified": false,
+      "sha256": "2a00c556d8ed531b37b1f87a082724a652344d025ee683e7ea6a8b6fade031bb",
+      "sourceUrl": "https://www.youtube.com/watch?v=LelknEdihUw",
+      "startSeconds": 24.15,
+      "endSeconds": 25.75,
+      "evidence": "Existing user voice identity acceptance only; exact words unknown."
+    },
+    {
+      "file": "assets/audio/voice/akainu/daily-idle-2-0914.wav",
+      "label": "赤犬 · 角色回应",
+      "translation": "",
+      "original": null,
+      "transcriptVerified": false,
+      "sha256": "bd05e975e1fd474a22163ba8dfcf0891a58ca94b297a92f9af42fcda2fe22809",
+      "sourceUrl": "https://www.youtube.com/watch?v=LelknEdihUw",
+      "startSeconds": 25.95,
+      "endSeconds": 27.65,
+      "evidence": "Existing user voice identity acceptance only; exact words unknown."
+    },
+    {
+      "sha256": "afce9f41f01dda2546e62b194eb498e3b71acc2644d5af84c95c95b936f8b2f2",
+      "file": "assets/audio/announcer/round1-0922.wav",
+      "source": "Windows System.Speech Microsoft Zira Desktop; rate=1; exact synthesis text, not a human/character recording",
+      "transcriptVerified": true,
+      "label": "第一回合",
+      "sourceSha256": "ba9cbe24e7bbee449818b09acffefb6255cfa8c02c70e3557dd9184149d4a07a",
+      "listeningStatus": "Not human auditioned; synthesized script is known, final listening acceptance pending",
+      "translation": "第一回合",
+      "id": "round1",
+      "original": "Round One"
+    },
+    {
+      "sha256": "8723330edd830ff128c38d2e2f1bd40eeaaf798f7622a2fe274980a4a7e37ccb",
+      "file": "assets/audio/announcer/round2-0922.wav",
+      "source": "Windows System.Speech Microsoft Zira Desktop; rate=1; exact synthesis text, not a human/character recording",
+      "transcriptVerified": true,
+      "label": "第二回合",
+      "sourceSha256": "0e230b45e59ba67a6fe45f862ee971f0722606ac6107e2beb1ce428594a6d14a",
+      "listeningStatus": "Not human auditioned; synthesized script is known, final listening acceptance pending",
+      "translation": "第二回合",
+      "id": "round2",
+      "original": "Round Two"
+    },
+    {
+      "sha256": "f93ce191a278ed10ac4fc2a1a8a52cef74e199689d4afa904690c49641d52610",
+      "file": "assets/audio/announcer/round3-0922.wav",
+      "source": "Windows System.Speech Microsoft Zira Desktop; rate=1; exact synthesis text, not a human/character recording",
+      "transcriptVerified": true,
+      "label": "决胜回合",
+      "sourceSha256": "8803eb6081ebb982841fd4b4f1b68b065dc09784f50773fc8545b6d28571ba6e",
+      "listeningStatus": "Not human auditioned; synthesized script is known, final listening acceptance pending",
+      "translation": "决胜回合",
+      "id": "round3",
+      "original": "Final Round"
+    },
+    {
+      "sha256": "86af38fd1684735c55a7c6ca8dea87dd340de17bd7152a9b1df42660e1a50d8d",
+      "file": "assets/audio/announcer/fight-0922.wav",
+      "source": "Windows System.Speech Microsoft Zira Desktop; rate=1; exact synthesis text, not a human/character recording",
+      "transcriptVerified": true,
+      "label": "开战！",
+      "sourceSha256": "22a1dae91914b22b1e94eab05dc3d6f45a51d93187197c0173f71aab03f6ccd5",
+      "listeningStatus": "Not human auditioned; synthesized script is known, final listening acceptance pending",
+      "translation": "开战！",
+      "id": "fight",
+      "original": "Fight!"
+    },
+    {
+      "sha256": "8875b565ea1808c1896cc933ac972bce858b8d130729503495e2f803a9283ec7",
+      "file": "assets/audio/announcer/ko-0922.wav",
+      "source": "Windows System.Speech Microsoft Zira Desktop; rate=1; exact synthesis text, not a human/character recording",
+      "transcriptVerified": true,
+      "label": "击倒！",
+      "sourceSha256": "724e3f1424bfcfc29d616403d8811fe6f53a2f2bd912d3e78f6d1b59c1170696",
+      "listeningStatus": "Not human auditioned; synthesized script is known, final listening acceptance pending",
+      "translation": "击倒！",
+      "id": "ko",
+      "original": "K. O."
+    },
+    {
+      "listeningStatus": "Not human auditioned; synthesized script is known, final listening acceptance pending",
+      "file": "assets/audio/announcer/nextRound-0922.wav",
+      "label": "下一回合",
+      "sourceSha256": "99e77f85a7982aaf3e3c820ec8b099c9c56271799017cfe0aa75c0f329c7932b",
+      "original": "Next Round",
+      "sha256": "b1e1a4c0f68df6f4bdc07f586068aca5141cdf01ee0bb996c2930619d614810c",
+      "id": "nextRound",
+      "source": "Windows System.Speech Microsoft Zira Desktop; rate=1; exact synthesis text, not a human/character recording",
+      "translation": "下一回合",
+      "transcriptVerified": true
+    },
+    {
+      "file": "assets/audio/voice/labubu/select-0926.wav",
+      "label": "LABUBU · 选人",
+      "translation": "嘿嘿，来追我呀！",
+      "original": "嘿嘿，来追我呀！",
+      "transcriptVerified": true,
+      "sha256": "9fdf81cb72a77ccf2ee718a16955693a62fe43015aca2ba8e5d82036cab7d746",
+      "sourceId": "labubu_qwen_short_sample",
+      "sourceUrl": "https://huggingface.co/spaces/Qwen/Qwen3-TTS",
+      "sourceSha256": "7679b3f415b51abec4aec5614f14643f1381616173b78a7a925714f388d01fb8",
+      "startSeconds": 0,
+      "endSeconds": 1.8,
+      "evidence": "docs/assets/联动语音接入0926.md",
+      "listeningStatus": "User auditioned this exact clip and retained both character voices on 2026-09-26. Does not certify other candidates."
+    },
+    {
+      "file": "assets/audio/voice/twinkle/select-0926.mp3",
+      "label": "星星人 · 选人",
+      "translation": "一起闪闪发光吧。",
+      "original": "一起闪闪发光吧。",
+      "transcriptVerified": true,
+      "sha256": "0fbd93c3df6ce1cab2d95ce3b6ecaacd0b6060bfdef6ecbc1c152c3d3ca1a4d7",
+      "sourceId": "twinkle_vox_select",
+      "sourceUrl": "https://huggingface.co/spaces/OpenBMB/VoxCPM-Demo",
+      "sourceSha256": "0fbd93c3df6ce1cab2d95ce3b6ecaacd0b6060bfdef6ecbc1c152c3d3ca1a4d7",
+      "startSeconds": 0,
+      "endSeconds": 1.632,
+      "evidence": "docs/assets/联动语音接入0926.md",
+      "listeningStatus": "User auditioned this exact clip and retained both character voices on 2026-09-26. Does not certify other candidates."
+    },
+    {
+      "file": "assets/audio/voice/labubu/attack-0927.mp3",
+      "label": "LABUBU · 通用出招",
+      "translation": "看招！",
+      "original": "看招！",
+      "transcriptVerified": true,
+      "sha256": "26143ea93f0cc0b6f7acb29ce51331e94b5a807113103bc835f2021da2a4e4fc",
+      "sourceId": "labubu_vox_ultimate_attack_0927",
+      "sourceUrl": "https://huggingface.co/spaces/OpenBMB/VoxCPM-Demo",
+      "sourceSha256": "26143ea93f0cc0b6f7acb29ce51331e94b5a807113103bc835f2021da2a4e4fc",
+      "startSeconds": 0,
+      "endSeconds": 0.672,
+      "evidence": "docs/assets/联动语音接入0926.md",
+      "voiceIdentityUserApproved": true,
+      "contentReviewKind": "agent_audio_model",
+      "userAuditioned": false,
+      "listeningStatus": "Actual anonymous audio reviewed by Qwen3-Omni with a blind prompt; accepted by the agent. Not separately auditioned by the user.",
+      "asrConflictPreserved": false
+    },
+    {
+      "file": "assets/audio/voice/twinkle/win-0927.mp3",
+      "label": "星星人 · 胜利",
+      "translation": "星星赢啦",
+      "original": "星星赢啦",
+      "transcriptVerified": true,
+      "sha256": "0a6f99341b6af3e0eedb41434da2507aac6a9d8aae771a2008aa511acafa1823",
+      "sourceId": "twinkle_vox_win_followup",
+      "sourceUrl": "https://huggingface.co/spaces/OpenBMB/VoxCPM-Demo",
+      "sourceSha256": "0a6f99341b6af3e0eedb41434da2507aac6a9d8aae771a2008aa511acafa1823",
+      "startSeconds": 0,
+      "endSeconds": 1.944,
+      "evidence": "docs/assets/联动语音接入0926.md",
+      "voiceIdentityUserApproved": true,
+      "contentReviewKind": "agent_audio_model",
+      "userAuditioned": false,
+      "listeningStatus": "Actual anonymous audio reviewed by Qwen3-Omni with a blind prompt; accepted by the agent. Not separately auditioned by the user.",
+      "asrConflictPreserved": true
+    },
+    {
+      "file": "assets/audio/voice/twinkle/hurt-0927.wav",
+      "label": "星星人 · 受击",
+      "translation": "哎呀",
+      "original": "哎呀",
+      "transcriptVerified": true,
+      "sha256": "97a3eb86ea8bfec5e50480336c430660b1e5b21aa7edc7c8c7704585d9c73b9a",
+      "sourceId": "twinkle_vox_hurt_followup",
+      "sourceUrl": "https://huggingface.co/spaces/OpenBMB/VoxCPM-Demo",
+      "sourceSha256": "11adb1da68d9f5f5699fc2afa14f81f13be49f019b3068b43dee123e1f876e77",
+      "startSeconds": 0,
+      "endSeconds": 0.5,
+      "evidence": "docs/assets/联动语音接入0926.md",
+      "voiceIdentityUserApproved": true,
+      "contentReviewKind": "agent_audio_model",
+      "userAuditioned": false,
+      "listeningStatus": "Actual shortened clip-M.wav independently reviewed by Qwen3-Omni with a blind prompt; agent-internal acceptance, not a separate user audition."
+    },
+    {
+      "file": "assets/audio/voice/labubu/ko-0927.mp3",
+      "label": "LABUBU · 落败",
+      "translation": "我还会回来的。",
+      "original": "我还会回来的。",
+      "transcriptVerified": true,
+      "sha256": "422b46f2f3cebead385cdb2027425946452adda413260247f8eccb807748008b",
+      "sourceId": "labubu_vox_ko",
+      "sourceUrl": "https://huggingface.co/spaces/OpenBMB/VoxCPM-Demo",
+      "sourceSha256": "422b46f2f3cebead385cdb2027425946452adda413260247f8eccb807748008b",
+      "startSeconds": 0,
+      "endSeconds": 1.152,
+      "evidence": "docs/assets/联动语音接入0926.md",
+      "voiceIdentityUserApproved": true,
+      "contentReviewKind": "agent_audio_model",
+      "userAuditioned": false,
+      "listeningStatus": "Actual attached anonymous audio independently reviewed by Qwen3-Omni; agent-internal acceptance, not a new user audition."
+    },
+    {
+      "file": "assets/audio/voice/twinkle/ko-0927.mp3",
+      "label": "星星人 · 落败",
+      "translation": "星星先休息一下。",
+      "original": "星星先休息一下。",
+      "transcriptVerified": true,
+      "sha256": "d70284168e45967e41df4451d4793d5a6bac618c9822e42df5f323c572c2ca62",
+      "sourceId": "twinkle_vox_ko",
+      "sourceUrl": "https://huggingface.co/spaces/OpenBMB/VoxCPM-Demo",
+      "sourceSha256": "d70284168e45967e41df4451d4793d5a6bac618c9822e42df5f323c572c2ca62",
+      "startSeconds": 0,
+      "endSeconds": 1.632,
+      "evidence": "docs/assets/联动语音接入0926.md",
+      "voiceIdentityUserApproved": true,
+      "contentReviewKind": "agent_audio_model",
+      "userAuditioned": false,
+      "listeningStatus": "Actual attached anonymous audio independently reviewed by Qwen3-Omni; agent-internal acceptance, not a new user audition."
+    },
+    {
+      "file": "assets/audio/voice/twinkle/attack-0927.mp3",
+      "label": "星星人 · 通用出招",
+      "translation": "星星，出击。",
+      "original": "星星，出击。",
+      "transcriptVerified": true,
+      "sha256": "925f8dbd5a1fc8edde12df132511612e081ac8afe742b4bd141e91405be52fd6",
+      "sourceId": "twinkle_vox_attack",
+      "sourceUrl": "https://huggingface.co/spaces/OpenBMB/VoxCPM-Demo",
+      "sourceSha256": "925f8dbd5a1fc8edde12df132511612e081ac8afe742b4bd141e91405be52fd6",
+      "startSeconds": 0,
+      "endSeconds": 1.632,
+      "evidence": "docs/assets/联动语音接入0926.md",
+      "voiceIdentityUserApproved": true,
+      "contentReviewKind": "agent_audio_model",
+      "userAuditioned": false,
+      "listeningStatus": "Actual clip-F reviewed by Qwen3-Omni with a blind prompt; agent-internal acceptance, not individual user audition."
+    },
+    {
+      "file": "assets/audio/voice/twinkle/idle-0927.mp3",
+      "label": "星星人 · 待机",
+      "translation": "让星光陪你玩。",
+      "original": "让星光陪你玩。",
+      "transcriptVerified": true,
+      "sha256": "132e7dbe542ffad1e64f3b05ac22b7d00af750b2e9014d78f1db96b12728cf02",
+      "sourceId": "twinkle_vox_idle",
+      "sourceUrl": "https://huggingface.co/spaces/OpenBMB/VoxCPM-Demo",
+      "sourceSha256": "132e7dbe542ffad1e64f3b05ac22b7d00af750b2e9014d78f1db96b12728cf02",
+      "startSeconds": 0,
+      "endSeconds": 1.464,
+      "evidence": "docs/assets/联动语音接入0926.md",
+      "voiceIdentityUserApproved": true,
+      "contentReviewKind": "agent_audio_model",
+      "userAuditioned": false,
+      "listeningStatus": "Actual clip-G reviewed by Qwen3-Omni with a blind prompt; agent-internal acceptance, not individual user audition."
+    },
+    {
+      "file": "assets/audio/voice/labubu/idle-0927.mp3",
+      "label": "LABUBU · 待机",
+      "translation": "快来陪我玩呀！",
+      "original": "快来陪我玩呀",
+      "transcriptVerified": true,
+      "sha256": "47b45f15ba9ad3308de8eb4676f4eea077f6907be2ec15b09a2767e75e4a0fa8",
+      "sourceId": "labubu_vox_idle",
+      "sourceUrl": "https://huggingface.co/spaces/OpenBMB/VoxCPM-Demo",
+      "sourceSha256": "47b45f15ba9ad3308de8eb4676f4eea077f6907be2ec15b09a2767e75e4a0fa8",
+      "startSeconds": 0,
+      "endSeconds": 1.464,
+      "evidence": "docs/assets/联动语音接入0926.md",
+      "voiceIdentityUserApproved": true,
+      "contentReviewKind": "agent_audio_model",
+      "userAuditioned": false,
+      "asrConflictPreserved": true,
+      "listeningStatus": "Actual clip-H reviewed by Qwen3-Omni with a blind prompt; agent-internal acceptance. Original Whisper 啊 and native review 呀 differ; not individually user-auditioned."
+    },
+    {
+      "file": "assets/audio/voice/labubu/win-0927.mp3",
+      "label": "LABUBU · 胜利",
+      "translation": "我赢啦。",
+      "original": "我赢啦。",
+      "transcriptVerified": true,
+      "sha256": "d6a8cd773155fc8b4fd589e3b43b7114f77b84567dd9de31de91202d7391db8c",
+      "sourceId": "labubu_vox_ultimate_win_0927",
+      "sourceUrl": "https://huggingface.co/spaces/OpenBMB/VoxCPM-Demo",
+      "sourceSha256": "d6a8cd773155fc8b4fd589e3b43b7114f77b84567dd9de31de91202d7391db8c",
+      "startSeconds": 0,
+      "endSeconds": 0.84,
+      "evidence": "docs/assets/联动语音接入0926.md",
+      "voiceIdentityUserApproved": true,
+      "contentReviewKind": "agent_audio_model",
+      "userAuditioned": false,
+      "listeningStatus": "Actual clip-O reviewed by Qwen3-Omni with a blind prompt; agent-internal acceptance, not individual user audition."
+    },
+    {
+      "file": "assets/audio/voice/labubu/hurt-0927.wav",
+      "label": "LABUBU · 受击",
+      "translation": "哎呀",
+      "original": "哎呀",
+      "transcriptVerified": true,
+      "sha256": "e86c441364e20425c19106389f6427f9d37240bb856ae858c771325224144cce",
+      "sourceId": "labubu_vox_hurt_followup",
+      "sourceUrl": "https://huggingface.co/spaces/OpenBMB/VoxCPM-Demo",
+      "sourceSha256": "6e5ad373821e02e2708a56855d5aca07b2a0618966cd679f52ae9aab1ead271c",
+      "startSeconds": 0.0,
+      "endSeconds": 0.8750208333333334,
+      "evidence": "docs/assets/联动语音接入0926.md",
+      "voiceIdentityUserApproved": true,
+      "contentReviewKind": "agent_audio_model",
+      "userAuditioned": false,
+      "requestedTextDiffersFromObserved": false,
+      "listeningStatus": "Actual final short clip independently reviewed by Qwen3-Omni with a blind prompt; internal content acceptance, not user audition."
+    },
+    {
+      "file": "assets/audio/voice/labubu/effort-0927.wav",
+      "label": "LABUBU · 普通出力",
+      "translation": "哼！",
+      "original": "哼",
+      "transcriptVerified": true,
+      "sha256": "1f6dd075ed03281cb48b3b1a3b3745c7512420a801a716d9b569ab7fa87de658",
+      "sourceId": "labubu_vox_ultimate_effort_0927",
+      "sourceUrl": "https://huggingface.co/spaces/OpenBMB/VoxCPM-Demo",
+      "sourceSha256": "478b056eb239302f611c54d3940e7c039358bf56f88dc15fbc47e8159032ac43",
+      "startSeconds": 0.3699791666666667,
+      "endSeconds": 0.8,
+      "evidence": "docs/assets/联动语音接入0926.md",
+      "voiceIdentityUserApproved": true,
+      "contentReviewKind": "agent_audio_model",
+      "userAuditioned": false,
+      "requestedTextDiffersFromObserved": true,
+      "listeningStatus": "Actual final short clip independently reviewed by Qwen3-Omni with a blind prompt; internal content acceptance, not user audition."
+    },
+    {
+      "file": "assets/audio/voice/twinkle/effort-0927.wav",
+      "label": "星星人 · 普通出力",
+      "translation": "呀",
+      "original": "呀",
+      "transcriptVerified": true,
+      "sha256": "09d418d12c105f72e01118f7485c55e958d1d48e77c757c4a21517ec1ac3f0a0",
+      "sourceId": "twinkle_qwen_short_sample",
+      "sourceUrl": "https://huggingface.co/spaces/Qwen/Qwen3-TTS",
+      "sourceSha256": "63610775005461892066b483f025a5d7a0221fc69a29f1621a7979a4066cb811",
+      "startSeconds": 2.0905416666666667,
+      "endSeconds": 2.78,
+      "evidence": "docs/assets/联动语音接入0926.md",
+      "voiceIdentityUserApproved": true,
+      "contentReviewKind": "agent_audio_model",
+      "userAuditioned": false,
+      "requestedTextDiffersFromObserved": false,
+      "listeningStatus": "Actual final short clip independently reviewed by Qwen3-Omni with a blind prompt; internal content acceptance, not user audition."
+    },
+    {
+      "file": "assets/audio/voice/aokiji/attack-kokoro-original1004.wav",
+      "sha256": "135d8a7d5af6de7222ab42c428821d447c1e15e9087f46402c9c4105bba8be08",
+      "label": "青雉 · 本作原创配音",
+      "original": "嘿",
+      "translation": "嘿！",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sourceKind": "original-synthetic",
+      "nativeReview": {
+        "kind": "agent_audio_model",
+        "status": "accepted",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "headTailComplete": true,
+        "noUnexpectedNoiseOrDistortion": true,
+        "humanListened": false,
+        "audioSha256": "135d8a7d5af6de7222ab42c428821d447c1e15e9087f46402c9c4105bba8be08",
+        "transcript": "嘿",
+        "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "expectedTextProvided": false,
+        "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+        "evidence": [
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-01\\response.txt",
+            "sha256": "366202e6f781f5974bc6732bf02acddfe4e239b996b58e867709e27fcb86ed00",
+            "role": "response"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-01\\native-result.json",
+            "sha256": "5193baa88cb75d4aa6da04ebfdf0000adae11d1bb50dd042c9b2cf2396d19b6d",
+            "role": "native-result"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-01\\request.json",
+            "sha256": "f91d3706012d4b1c6926871dad72c200a7b84512f1da836ba2ca2b8bfc436a1b",
+            "role": "request"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-01\\native-input-before-generation.json",
+            "sha256": "80c5a7ea9ecacab654b279e5df72a401574d06cfbe1c4901de80c9e029a88589",
+            "role": "audio-features"
+          }
+        ]
+      }
+    },
+    {
+      "file": "assets/audio/voice/aokiji/hurt-kokoro-original1004.wav",
+      "sha256": "89e57117583da106bc2e8686bbc08afb052ecb4a1222c6d97b91112e5ffbf4bf",
+      "label": "青雉 · 本作原创配音",
+      "original": "呃",
+      "translation": "呃！",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sourceKind": "original-synthetic",
+      "nativeReview": {
+        "kind": "agent_audio_model",
+        "status": "accepted",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "headTailComplete": true,
+        "noUnexpectedNoiseOrDistortion": true,
+        "humanListened": false,
+        "audioSha256": "89e57117583da106bc2e8686bbc08afb052ecb4a1222c6d97b91112e5ffbf4bf",
+        "transcript": "呃",
+        "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "expectedTextProvided": false,
+        "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+        "evidence": [
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-03\\response.txt",
+            "sha256": "6b9fcd7f70c8dbf42c2002928e44dba79260509c607a323792740a94be901386",
+            "role": "response"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-03\\native-result.json",
+            "sha256": "f1246a99fc5f0e35d3a6e3c7d5263c49b5ff658baa33edcfc7dfbb269fac498f",
+            "role": "native-result"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-03\\request.json",
+            "sha256": "bb123d9689dc6f0969fe83938ee65814c5d7d9752a7b1e1cd95a0e95b7475ed1",
+            "role": "request"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-03\\native-input-before-generation.json",
+            "sha256": "75d52adc4917705d8d3886788883b5e1acbd7bf3ee012631e4a497af3ecbce7e",
+            "role": "audio-features"
+          }
+        ]
+      }
+    },
+    {
+      "file": "assets/audio/voice/aokiji/idle-kokoro-original1004.wav",
+      "sha256": "5b8d34cf636c7a06fa8f00f56dc4f57e6673e75a8dd3733821e7af0a26f82423",
+      "label": "青雉 · 本作原创配音",
+      "original": "别太着急",
+      "translation": "别太着急。",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sourceKind": "original-synthetic",
+      "nativeReview": {
+        "kind": "agent_audio_model",
+        "status": "accepted",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "headTailComplete": true,
+        "noUnexpectedNoiseOrDistortion": true,
+        "humanListened": false,
+        "audioSha256": "5b8d34cf636c7a06fa8f00f56dc4f57e6673e75a8dd3733821e7af0a26f82423",
+        "transcript": "别太着急",
+        "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "expectedTextProvided": false,
+        "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+        "evidence": [
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-04\\response.txt",
+            "sha256": "2260164c41570c78092721ec5222c4ab2d72b3ad09b91082bcc4c80a4204e298",
+            "role": "response"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-04\\native-result.json",
+            "sha256": "61b7caa60ea07993c239e67994c63d7a234160f5e9aa04064917066f0efdbeb9",
+            "role": "native-result"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-04\\request.json",
+            "sha256": "0a551ea79639e27409cefcc3e8421e1f01393bb4e42d9e41085c598131c0de1e",
+            "role": "request"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-04\\native-input-before-generation.json",
+            "sha256": "ac6e8df0d747343db5797e07b508a95d97c9f071f4d5caa70bc64ee8d58e8733",
+            "role": "audio-features"
+          }
+        ]
+      }
+    },
+    {
+      "file": "assets/audio/voice/aokiji/ko-kokoro-original1004.wav",
+      "sha256": "16a3c726c83828365f1758976b59d560c59fbd273604f746bbcb1b2ec0a0f14f",
+      "label": "青雉 · 本作原创配音",
+      "original": "到此为止了",
+      "translation": "到此为止了。",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sourceKind": "original-synthetic",
+      "nativeReview": {
+        "kind": "agent_audio_model",
+        "status": "accepted",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "headTailComplete": true,
+        "noUnexpectedNoiseOrDistortion": true,
+        "humanListened": false,
+        "audioSha256": "16a3c726c83828365f1758976b59d560c59fbd273604f746bbcb1b2ec0a0f14f",
+        "transcript": "到此为止了",
+        "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "expectedTextProvided": false,
+        "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+        "evidence": [
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-05\\response.txt",
+            "sha256": "61593deb4a89d2c6598406c102f6d1544c54abe1d9e26cc42df44e9222aa2bd9",
+            "role": "response"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-05\\native-result.json",
+            "sha256": "04ba37e9e2f685c5a5a0b771c39deb8d70018bd8040d82fa998d019445683734",
+            "role": "native-result"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-05\\request.json",
+            "sha256": "57d9d1485d1409c22a93bc065c50c829e2980740608dd7fb8664b59d5404f92b",
+            "role": "request"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-05\\native-input-before-generation.json",
+            "sha256": "0a6bc245e93d3e136edd3624c347341f9b8e9d34e32dc80605147fff262cf1b2",
+            "role": "audio-features"
+          }
+        ]
+      }
+    },
+    {
+      "file": "assets/audio/voice/aokiji/move-kokoro-original1004.wav",
+      "sha256": "d4a17ea00f55e8c9a7a68150d68b46aef723db824473a0c14742f54a607c30f8",
+      "label": "青雉 · 本作原创配音",
+      "original": "走吧",
+      "translation": "走吧！",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sourceKind": "original-synthetic",
+      "nativeReview": {
+        "kind": "agent_audio_model",
+        "status": "accepted",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "headTailComplete": true,
+        "noUnexpectedNoiseOrDistortion": true,
+        "humanListened": false,
+        "audioSha256": "d4a17ea00f55e8c9a7a68150d68b46aef723db824473a0c14742f54a607c30f8",
+        "transcript": "走吧",
+        "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "expectedTextProvided": false,
+        "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+        "evidence": [
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-06\\response.txt",
+            "sha256": "5a4bf99c21e10dfee8931eb3753c0c62d4c85b61dc1134e2bc0645ea9deac9f5",
+            "role": "response"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-06\\native-result.json",
+            "sha256": "0ff07f5dc8dbdc70b201b873866379423a96715c8e50c1f3b27701cd0747becc",
+            "role": "native-result"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-06\\request.json",
+            "sha256": "055ef9c61a76bafcb24d51128d1463d43322ba20023a1b6ab058ea3f4df51adc",
+            "role": "request"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-06\\native-input-before-generation.json",
+            "sha256": "69cf0a2602a39001886ed2e039210793168a37dbfdaa32caccb58fb6b34bf561",
+            "role": "audio-features"
+          }
+        ]
+      }
+    },
+    {
+      "file": "assets/audio/voice/aokiji/select-kokoro-original1004.wav",
+      "sha256": "2b499ece5db8c28a385f51912cedf9263cd5fd2ce445179b07ac12c579765cca",
+      "label": "青雉 · 本作原创配音",
+      "original": "那就开始吧",
+      "translation": "那就开始吧。",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sourceKind": "original-synthetic",
+      "nativeReview": {
+        "kind": "agent_audio_model",
+        "status": "accepted",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "headTailComplete": true,
+        "noUnexpectedNoiseOrDistortion": true,
+        "humanListened": false,
+        "audioSha256": "2b499ece5db8c28a385f51912cedf9263cd5fd2ce445179b07ac12c579765cca",
+        "transcript": "那就开始吧",
+        "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "expectedTextProvided": false,
+        "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+        "evidence": [
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-07\\response.txt",
+            "sha256": "8b45ca70c84082480299a3a4e8b1d9032a8f853252da59234c04be2e014f45f0",
+            "role": "response"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-07\\native-result.json",
+            "sha256": "53b46f6deee87e9b58370362e896069b0ea58c2d7c6e28670813a475549700c6",
+            "role": "native-result"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-07\\request.json",
+            "sha256": "76e65a0e8056f2ceb34cf70a46199419da79d70406c4e46d98a86b14a1791ab1",
+            "role": "request"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-07\\native-input-before-generation.json",
+            "sha256": "dd71edc9f2881720d0fd4278d7c8ff4eb1fd80d72d037473097adf40155b957f",
+            "role": "audio-features"
+          }
+        ]
+      }
+    },
+    {
+      "file": "assets/audio/voice/aokiji/win-kokoro-original1004.wav",
+      "sha256": "d8e543333434d2a9f51b24cd5e7bc71a61ab5c649429a20fae2047a1e94696fa",
+      "label": "青雉 · 本作原创配音",
+      "original": "冷静一点",
+      "translation": "冷静一点。",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sourceKind": "original-synthetic",
+      "nativeReview": {
+        "kind": "agent_audio_model",
+        "status": "accepted",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "headTailComplete": true,
+        "noUnexpectedNoiseOrDistortion": true,
+        "humanListened": false,
+        "audioSha256": "d8e543333434d2a9f51b24cd5e7bc71a61ab5c649429a20fae2047a1e94696fa",
+        "transcript": "冷静一点",
+        "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "expectedTextProvided": false,
+        "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+        "evidence": [
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-08\\response.txt",
+            "sha256": "60186ebc6b211f6b754f0c2e330f9e021db939598120746a8b5b578f29da7268",
+            "role": "response"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-08\\native-result.json",
+            "sha256": "2da128bbed47a7ad27df9d1c240bcdc9b606b46c110c6485f396467a4f3e0b49",
+            "role": "native-result"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-08\\request.json",
+            "sha256": "7c912909cd0f78b314a7cbfaf8c94a397344e42294438ecb98846b00bde79559",
+            "role": "request"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-08\\native-input-before-generation.json",
+            "sha256": "42dc8f16df285b301863f658d57cd94373581ee0f27d79702407beed04c6da47",
+            "role": "audio-features"
+          }
+        ]
+      }
+    },
+    {
+      "file": "assets/audio/voice/shanks/idle-kokoro-original1004.wav",
+      "sha256": "c12965b11a0b0c3602050db20db65f7d5ecfdad7757db85c5a31e65009cabcf2",
+      "label": "香克斯 · 本作原创配音",
+      "original": "尽管放马过来",
+      "translation": "尽管放马过来。",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sourceKind": "original-synthetic",
+      "nativeReview": {
+        "kind": "agent_audio_model",
+        "status": "accepted",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "headTailComplete": true,
+        "noUnexpectedNoiseOrDistortion": true,
+        "humanListened": false,
+        "audioSha256": "c12965b11a0b0c3602050db20db65f7d5ecfdad7757db85c5a31e65009cabcf2",
+        "transcript": "尽管放马过来",
+        "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "expectedTextProvided": false,
+        "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+        "evidence": [
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-12\\response.txt",
+            "sha256": "49dc3f84b81cbff6f191ea0524fb41a1c78387bc4cc8cd8d0afcd296443101a0",
+            "role": "response"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-12\\native-result.json",
+            "sha256": "94b40eb10a5315221aafa138e54189aa89f104ab5bee7076bd3ded24009e7f9c",
+            "role": "native-result"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-12\\request.json",
+            "sha256": "e6a2e44037e4434843083b3bf13c8868c5a66b751b7d1c8685ea7ccdf63a1be6",
+            "role": "request"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-12\\native-input-before-generation.json",
+            "sha256": "69518fd19f8a3db87be68282ea1ede083191e9252f97fd04cf95523f8b87d87e",
+            "role": "audio-features"
+          }
+        ]
+      }
+    },
+    {
+      "file": "assets/audio/voice/shanks/ko-kokoro-original1004.wav",
+      "sha256": "55e3bc0adbf0ae547bf87220ea91a0b34de5c65493b4f1959c41c15e1b2678af",
+      "label": "香克斯 · 本作原创配音",
+      "original": "这次是你赢了",
+      "translation": "这次是你赢了。",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sourceKind": "original-synthetic",
+      "nativeReview": {
+        "kind": "agent_audio_model",
+        "status": "accepted",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "headTailComplete": true,
+        "noUnexpectedNoiseOrDistortion": true,
+        "humanListened": false,
+        "audioSha256": "55e3bc0adbf0ae547bf87220ea91a0b34de5c65493b4f1959c41c15e1b2678af",
+        "transcript": "这次是你赢了",
+        "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "expectedTextProvided": false,
+        "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+        "evidence": [
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-13\\response.txt",
+            "sha256": "61d4df43455a5d5f01d3b3ddca7b2fc39dd76d99a04a7f44afb7cb0633df3c08",
+            "role": "response"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-13\\native-result.json",
+            "sha256": "ef967ae4dadf3d3040baa1c1b8740416fdcabed59d53d883779797183d8b9434",
+            "role": "native-result"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-13\\request.json",
+            "sha256": "b725653cd66c28e04d0bbbf3ba8d56c004f6c439e9bd110431536709259370bb",
+            "role": "request"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-13\\native-input-before-generation.json",
+            "sha256": "970003c95c5803b666fee7b9423b505df55bf94f02bc7c66ccc0d411b562bde9",
+            "role": "audio-features"
+          }
+        ]
+      }
+    },
+    {
+      "file": "assets/audio/voice/shanks/move-kokoro-original1004.wav",
+      "sha256": "95c7ba1420f9f827ecf69111e96dbf5256cc6840110f9b4b28127863fb5f3e84",
+      "label": "香克斯 · 本作原创配音",
+      "original": "走",
+      "translation": "走！",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sourceKind": "original-synthetic",
+      "nativeReview": {
+        "kind": "agent_audio_model",
+        "status": "accepted",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "headTailComplete": true,
+        "noUnexpectedNoiseOrDistortion": true,
+        "humanListened": false,
+        "audioSha256": "95c7ba1420f9f827ecf69111e96dbf5256cc6840110f9b4b28127863fb5f3e84",
+        "transcript": "走",
+        "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "expectedTextProvided": false,
+        "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+        "evidence": [
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-14\\response.txt",
+            "sha256": "8f0eb2abd4dd8f6bb9446e8e15b384b5aaeaa39e373bb667de8d5ad2351807e1",
+            "role": "response"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-14\\native-result.json",
+            "sha256": "907dea1e2a7aca94629876079113a87b88c8fe324e802fd19ce0721c03456dc0",
+            "role": "native-result"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-14\\request.json",
+            "sha256": "cc9eb08ed85c514c908cf21cb485c5caa8ecb8587e6cc1706942ea3d929b09ab",
+            "role": "request"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-14\\native-input-before-generation.json",
+            "sha256": "861bb9b0b3c2e8c3f32af9ef51710db986ef9f8b3b14d86d5d04c144604d0ae3",
+            "role": "audio-features"
+          }
+        ]
+      }
+    },
+    {
+      "file": "assets/audio/voice/shanks/win-kokoro-original1004.wav",
+      "sha256": "93c76307ffe0a2639105c68cfc3b3ab62691909208f05032cbb5cc0e61f5d976",
+      "label": "香克斯 · 本作原创配音",
+      "original": "下一次再见",
+      "translation": "下一次再见。",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sourceKind": "original-synthetic",
+      "nativeReview": {
+        "kind": "agent_audio_model",
+        "status": "accepted",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "headTailComplete": true,
+        "noUnexpectedNoiseOrDistortion": true,
+        "humanListened": false,
+        "audioSha256": "93c76307ffe0a2639105c68cfc3b3ab62691909208f05032cbb5cc0e61f5d976",
+        "transcript": "下一次再见",
+        "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "expectedTextProvided": false,
+        "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+        "evidence": [
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-16\\response.txt",
+            "sha256": "abe8236df71b98fdf9e792a1eee2046b61e6f113b24ab06ad827350c6127cb55",
+            "role": "response"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-16\\native-result.json",
+            "sha256": "fe49b6d2bff2eef7f8a8f86329ac97a028c93bac597c05becf9c21221a109dd4",
+            "role": "native-result"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-16\\request.json",
+            "sha256": "966a551345e6e2ce646fa479f7caa9e244e67ef9d6bdcaadc23eb9c5d8e3d7dc",
+            "role": "request"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-16\\native-input-before-generation.json",
+            "sha256": "5a6890bf6dc8fdcc5d33698a547996e83a8e9da8c0a49f929476b14060fc87a2",
+            "role": "audio-features"
+          }
+        ]
+      }
+    },
+    {
+      "file": "assets/audio/voice/shanks/attack-kokoro-original1004.wav",
+      "sha256": "2b552c1c06b197d15dd799671a63f5ad90d0fe67f2c26b58f85c6ac7ab1d76b0",
+      "label": "香克斯 · 本作原创配音",
+      "original": "看招",
+      "translation": "看招！",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sourceKind": "original-synthetic",
+      "nativeReview": {
+        "kind": "agent_audio_model",
+        "status": "accepted",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "headTailComplete": true,
+        "noUnexpectedNoiseOrDistortion": true,
+        "humanListened": false,
+        "audioSha256": "2b552c1c06b197d15dd799671a63f5ad90d0fe67f2c26b58f85c6ac7ab1d76b0",
+        "transcript": "看招",
+        "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "expectedTextProvided": false,
+        "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+        "evidence": [
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-01\\response.txt",
+            "sha256": "ce1234871e5f1560dbb3eaa5ccf8eaebef6291a09ce5f5fe8b536e8ae6e9b0b5",
+            "role": "response"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-01\\native-result.json",
+            "sha256": "4b16cfc820b1b9fca307c42a196532f694bef2f9a603a415ec00d0ad51c06511",
+            "role": "native-result"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-01\\request.json",
+            "sha256": "21d11d2a85e22b68d58b0b3ae8e7abc851c3c5e2df21a8653f0d1f221f675829",
+            "role": "request"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-01\\native-input-before-generation.json",
+            "sha256": "c041f3c6669093b8a2cb24f3e3416af41b3ae9d87d98d0d4118bbed1747c8d1d",
+            "role": "audio-features"
+          }
+        ]
+      }
+    },
+    {
+      "file": "assets/audio/voice/shanks/effort-kokoro-original1004.wav",
+      "sha256": "4b0ce0d4ea9a8d8738069e8ee67eb8a1359a8563a52891abfd8a76e688e981a9",
+      "label": "香克斯 · 本作原创配音",
+      "original": "接住",
+      "translation": "接住！",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sourceKind": "original-synthetic",
+      "nativeReview": {
+        "kind": "agent_audio_model",
+        "status": "accepted",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "headTailComplete": true,
+        "noUnexpectedNoiseOrDistortion": true,
+        "humanListened": false,
+        "audioSha256": "4b0ce0d4ea9a8d8738069e8ee67eb8a1359a8563a52891abfd8a76e688e981a9",
+        "transcript": "接住",
+        "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "expectedTextProvided": false,
+        "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+        "evidence": [
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-02\\response.txt",
+            "sha256": "3660aa58d2565ff1ffa047c65145d0e1272cfd06c33c0d13f2da2e34933a31ec",
+            "role": "response"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-02\\native-result.json",
+            "sha256": "eed0665a9a4796888515e3af9ed9ee17cb7ae142b08a6c946084519f4f6d87f0",
+            "role": "native-result"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-02\\request.json",
+            "sha256": "25627cfc39a7fde47d759bcdaf9de990ef55a9618f58228495e50e91cea4eded",
+            "role": "request"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-02\\native-input-before-generation.json",
+            "sha256": "3df28c3b3774af0904b26a626ad3f3c7ced2512330c5bcd8225af45c4d936916",
+            "role": "audio-features"
+          }
+        ]
+      }
+    },
+    {
+      "file": "assets/audio/voice/shanks/hurt-kokoro-original1004.wav",
+      "sha256": "6460845d22bd08838ada6ecface6d64c61c95c016130c42742232bd38b9524ca",
+      "label": "香克斯 · 本作原创配音",
+      "original": "大意了",
+      "translation": "大意了！",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sourceKind": "original-synthetic",
+      "nativeReview": {
+        "kind": "agent_audio_model",
+        "status": "accepted",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "headTailComplete": true,
+        "noUnexpectedNoiseOrDistortion": true,
+        "humanListened": false,
+        "audioSha256": "6460845d22bd08838ada6ecface6d64c61c95c016130c42742232bd38b9524ca",
+        "transcript": "大意了",
+        "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "expectedTextProvided": false,
+        "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+        "evidence": [
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-03\\response.txt",
+            "sha256": "a085a34b61d14390668f69c0f1fb96582f445fe72797cb669ce63989e409cedb",
+            "role": "response"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-03\\native-result.json",
+            "sha256": "dfa3f9ee46790f28919f7a0576442f99854f00194edcb0aa5d0728657d474d64",
+            "role": "native-result"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-03\\request.json",
+            "sha256": "4cebf7351efaf346eef0a87828eccd4ddda056da325004b0e6389a0ec451922d",
+            "role": "request"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-03\\native-input-before-generation.json",
+            "sha256": "28dc91046e44f433325e4b28bbcf998a13b0fa8086fae564dfb0a2d5cf54970d",
+            "role": "audio-features"
+          }
+        ]
+      }
+    },
+    {
+      "file": "assets/audio/voice/shanks/select-1003.wav",
+      "sha256": "87801104e09e3f598e17df5c8f70e2dd379c7328782f700061cc5f0e217d220c",
+      "label": "香克斯 · 原声短句",
+      "original": "上がってこい",
+      "translation": "上来吧。",
+      "transcriptVerified": true,
+      "nativeAudioReviewed": true,
+      "humanListened": false,
+      "sourceKind": "original-actor-excerpt",
+      "nativeReview": {
+        "kind": "agent_audio_model",
+        "status": "accepted",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "headTailComplete": true,
+        "noUnexpectedNoiseOrDistortion": true,
+        "humanListened": false,
+        "audioSha256": "87801104e09e3f598e17df5c8f70e2dd379c7328782f700061cc5f0e217d220c",
+        "transcript": "上がってこい",
+        "expectedTextProvided": false,
+        "provider": "Previously authorized official Qwen3-Omni Demo original-C review; no new upload",
+        "evidence": [
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\review-1002\\clip-C-native-review1003.json",
+            "sha256": "03b544134310d2f03f05959c3d7268c7dbe0bcb6830ac364dc44dd76a964df06",
+            "role": "response"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\review-1002\\clip-C-response.sse",
+            "sha256": "d2c7727e373d0b061d6aae84928d83b6e459e7e4f72404d93697d03530e12a9d",
+            "role": "native-stream"
+          },
+          {
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\review-1002\\clip-C-request.json",
+            "sha256": "86aed5ce44b81032d948c64e063f3a2ccc61fb0da8db5eba44979d3d7cdae885",
+            "role": "request"
+          }
+        ]
+      }
+    }
+  ]
+}

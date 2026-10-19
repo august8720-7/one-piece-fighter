@@ -34,11 +34,14 @@ export enum Btn {
   Skill7 = 1 << 15,
   Skill8 = 1 << 16,
   Skill9 = 1 << 17,
+  Awakening = 1 << 18,
 }
 
 export const SKILL_BUTTONS = [Btn.Skill1, Btn.Skill2, Btn.Skill3, Btn.Skill4, Btn.Skill5, Btn.Skill6, Btn.Skill7, Btn.Skill8, Btn.Skill9] as const;
 export const ANY_SKILL = SKILL_BUTTONS.reduce((mask, bit) => mask | bit, 0);
-export type SkillReason = 'ready' | 'meter' | 'air' | 'recovery' | 'cancel' | 'phase' | 'missing';
+export type SkillReason = 'ready' | 'meter' | 'air' | 'recovery' | 'cancel' | 'phase' | 'missing' | 'form' | 'fatigue';
+export type AwakeningReason = 'ready' | 'disabled' | 'character' | 'phase' | 'air' | 'recovery' | 'form' | 'fatigue' | 'meter';
+export interface AwakeningFeedback { frame: number; reason: AwakeningReason }
 export interface SkillAvailability { moveId: string; available: boolean; reason: SkillReason }
 export interface SkillFeedback { slot: number; frame: number; reason: SkillReason }
 
@@ -310,6 +313,12 @@ export interface FighterDef {
   moves: readonly MoveData[];
   /** 一键技能槽位，顺序固定，不依赖招式表排序。 */
   skillSlots?: readonly string[];
+  /** Explicitly gated Gear5 candidate; base moves and old skill slots remain immutable. */
+  gear5?: {
+    awakening: MoveData;
+    moves: readonly MoveData[];
+    replacements: Readonly<Record<string, string>>;
+  };
   /** 占位渲染颜色 */
   color: number;
   /** 胜利台词（演出用，随机取一句） */
@@ -424,6 +433,13 @@ export interface FighterState {
   installFrames: number;
   /** 强化结束后的疲劳剩余帧 */
   fatigueFrames: number;
+  /** Gear5 is deliberately separate from the historical immediate Gear2 install. */
+  form: 'gear5' | null;
+  formFrames: number;
+  formExitPending: boolean;
+  awakeningStarted: number | null;
+  fatigueSource: 'gear5' | 'gear2' | null;
+  fatigueStarted: number;
   /** 灼烧剩余帧 / 每秒伤害 / 结算计数 */
   burnFrames: number;
   burnDps: number;
@@ -455,6 +471,8 @@ export type HitKind = 'hit' | 'block' | 'throw' | 'tech' | 'armor' | 'reflect' |
 /** 一次命中 / 防御 / 投技等事件，供渲染层做特效 / 音效。 */
 export interface HitEvent {
   frame: number;
+  /** Real defender state immediately before contact settlement, never inferred after launch. */
+  defenderBefore?: Pick<FighterState, 'state' | 'moveId' | 'stateFrame' | 'airborne'>;
   kind: HitKind;
   attacker: PlayerIndex;
   defender: PlayerIndex;

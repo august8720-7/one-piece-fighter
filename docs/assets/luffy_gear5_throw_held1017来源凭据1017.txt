@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_throw_held1017",
+  "file": "public/assets/generated/source/luffy-gear5-throw-held1017.png",
+  "sha256": "57c57711b393cbb515259da2f3ad97bec23532a8ebbe2479e990b883778ab912",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官网图像界面未公开具体图像型号；GPT-6沿本主会话此前实际核对的文字模型标签，不能确认图像型号。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+  "observedCompletedAt": "2026-10-17T05:05+00:00",
+  "uiObservation": "根代理提供主会话真实已完成6格下载并已view_image；观察时间约2026-10-17T05:05Z，仅分钟级近似，不伪造精确秒或服务器生成时间。此前主会话实际GPT-6/极高设置沿用，本次完成截图也实际可见极高，但不另冒称截图含文字型号菜单。6姿完整；抓保持双手偏前高，条件受投躯干偏立直，必须render实测握点/root与接触。5个明确附件是旧常态原画真实矩形裁切而非新生成、非原完整图，绑定五档握姿参考附件1017.json；master为同会话初始造型依据，不虚称本次另上传。原PNG同字节复制，灰渐变RGB先核alpha：原有透明像素及白底诊断显示白底可辨，不能单看RGB认定不透明背景。白底图仅诊断不改原图；本来源不代表姿势/接触采用。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-throw-held-prompt1017.txt",
+    "sha256": "e5d5646395ab27de67a8d2f52a81dfe8a4860d03e418d63815a945109cc4961a"
+  },
+  "referenceSources": {
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+    "gear5_grip_reach_reference1017": "cc28d77c1766c30f723835f22eee8a3f61b44153f371d9bfded36ccdfcf41db8",
+    "gear5_grip_hold_reference1017": "29ea0d6da55bc5b010c22302cecfaff180132d5742af1d64e27ab1278e7ffa9e",
+    "gear5_grip_release_reference1017": "46598cf29afb7798f87555a0fc16a0762c6fa0dd47345efe0f803ac663f9a725",
+    "gear5_grip_thrown_resist_reference1017": "e83aef40947ceef1e66a9dc959ad5413823ef0149ce454d4dc9385916b389e11",
+    "gear5_grip_held_shared_reference1017": "b5063f0d6b0d14ae3e6b3bee0f56c4abf6f1c216ff58d6aaca0711dc9f6efbe4"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T05:07:39.899874+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/throw-held-web1017.png",
+    "sha256": "167396cc6b44887b659ad5a410cc6a2e6bff3887593e4added7c6690e792fb83"
+  },
+  "referenceFiles": {
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    },
+    "gear5_grip_reach_reference1017": {
+      "file": "public/assets/generated/source/gear5-grip-reference-reach1017.png",
+      "sha256": "cc28d77c1766c30f723835f22eee8a3f61b44153f371d9bfded36ccdfcf41db8"
+    },
+    "gear5_grip_hold_reference1017": {
+      "file": "public/assets/generated/source/gear5-grip-reference-hold1017.png",
+      "sha256": "29ea0d6da55bc5b010c22302cecfaff180132d5742af1d64e27ab1278e7ffa9e"
+    },
+    "gear5_grip_release_reference1017": {
+      "file": "public/assets/generated/source/gear5-grip-reference-release1017.png",
+      "sha256": "46598cf29afb7798f87555a0fc16a0762c6fa0dd47345efe0f803ac663f9a725"
+    },
+    "gear5_grip_thrown_resist_reference1017": {
+      "file": "public/assets/generated/source/gear5-grip-reference-thrown_resist1017.png",
+      "sha256": "e83aef40947ceef1e66a9dc959ad5413823ef0149ce454d4dc9385916b389e11"
+    },
+    "gear5_grip_held_shared_reference1017": {
+      "file": "public/assets/generated/source/gear5-grip-reference-held-shared1017.png",
+      "sha256": "b5063f0d6b0d14ae3e6b3bee0f56c4abf6f1c216ff58d6aaca0711dc9f6efbe4"
+    }
+  },
+  "originalPngSize": [
+    1536,
+    1024
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

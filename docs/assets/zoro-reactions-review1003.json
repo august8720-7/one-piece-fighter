@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "characterId": "zoro",
+  "sourceKey": "zoro_reactions_1003",
+  "sourceSha256": "1190ff3a5461e3bec7034af84508067d10a56b8d7dc9738465db2d55a52a6e87",
+  "status": "six-reaction-candidates-two-repairs-needed",
+  "realNewPoses": [
+    "crouch",
+    "block_stand",
+    "block_crouch",
+    "hit_crouch",
+    "jump_neutral",
+    "hit_air"
+  ],
+  "notAdopted": [
+    "knockdown",
+    "getup"
+  ],
+  "unitScale": 0.959493670886076,
+  "notes": [
+    "Six reactions have a mouth-held blade and one in each hand, two complete legs and correct green-robed identity.",
+    "One real drawing per reaction, not multi-frame animation.",
+    "Knockdown closeup only clearly shows mouth-held and near-hand blades; third sword not verified.",
+    "Getup right edge has alpha10 and16 at y1020..1021; complete tip margin not verified.",
+    "Airborne roots are candidate anchors requiring actual FightScene inspection.",
+    "No character data/core/registration edited."
+  ]
+}

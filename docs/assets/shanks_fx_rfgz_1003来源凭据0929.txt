@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "shanks_fx_rfgz_1003",
+  "file": "public/assets/generated/source/roster-shanks-fx-rfgz-1003.png",
+  "sha256": "842f2f3fbfdc0d9020a4a2856c70a564dabd4b40e3a8ccef664b5f4f47bd26d6",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方图像入口未公开具体图像型号，来源保留unverified。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ac0d49e-d13c-83ec-9069-0e06a78319ac",
+  "observedCompletedAt": "2026-10-03T18:25:40.878+08:00",
+  "uiObservation": "独立香克斯FX会话，实际菜单最新已选、极高第4项共5项，fill完整RFGZ十二格提示单次发送。查看器标题红白能量斩击特效图集，四类特效三个阶段各不同，没有人物。实际点击原下载，623817bytes完整1086x1448RGBA PNG落盘。18:25:40为下载/截图复查时刻，不是服务器生成时间。",
+  "prompt": {
+    "file": "docs/assets/shanks-fx-rfgz-prompt1003.txt",
+    "sha256": "aa8bb0b9c7b866e4b02b40a9223e95620280e5ecddfe8696691906047a8256dd"
+  },
+  "referenceSources": {},
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T10:47:50.896438+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/first-pair-1733-1003/shanks-fx-rfgz-web-preview.jpg",
+    "sha256": "0ce06e941c61edd53d41beacd68c807658fa12bd29a1d0ddb62e84fc6281de7c"
+  },
+  "referenceFiles": {},
+  "originalPngSize": [
+    1086,
+    1448
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

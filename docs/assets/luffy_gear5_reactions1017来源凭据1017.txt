@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_reactions1017",
+  "file": "public/assets/generated/source/luffy-gear5-reactions1017.png",
+  "sha256": "2589434624e40b4e939951a656f04e06befb9d78c0b095873d0be7265098fc2c",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方未公开具体图像型号。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad2efa5-3138-83e8-8d2e-f5cf53fa3a56",
+  "observedCompletedAt": "2026-10-17T11:56:51.4812596+08:00",
+  "uiObservation": "独立会话实际上传原母版。首次仅附件意外触发中档生成的单母版未采用；随后在截图可见GPT-6极高第4/5项下提交完整9格反应提示词并取得此原PNG。1254方形RGBA，边界alpha最大4；静态姿势完整候选，尚未实际对局验收。当前时间为下载后观察，非首次服务器生成时刻。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-reactions-prompt1017.txt",
+    "sha256": "1fd5194423d50f67c30a4dd22e4be26e13c8e7eeee8cee8dde312a5c396115ff"
+  },
+  "referenceSources": {
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T03:56:52.124512+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/reaction-model1017.png",
+    "sha256": "34deacc74d0676df30282375cba2e2f11978e7d576210ac902afbb1fdaa15826"
+  },
+  "referenceFiles": {
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

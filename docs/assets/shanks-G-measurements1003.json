@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_g_low_cut_1003",
+  "sourceSha256": "989fb32921aff93e425e5507c8afe2a4d80c9fe380d2d555bbc2378b6e6d9043",
+  "status": "static-low-saber-candidate-before-contact-review",
+  "neutralVisibleAlpha8Bounds": [106, 25, 703, 579],
+  "neutralVisibleHeight": 554,
+  "referenceNeutralHeight": 380,
+  "unitScale": 0.6859205776173285,
+  "scaleBasis": "Whole-source neutral visible alpha>=8 height554px; all three G poses share380/554 relative to the original380px idle. No per-pose fitting.",
+  "frames": {
+    "g_start_1003": {"source": "shanks_g_low_cut_1003", "crop": [822, 191, 679, 389], "root": [257, 377], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "g_active_1003": {"source": "shanks_g_low_cut_1003", "crop": [94, 658, 887, 336], "root": [257, 327], "sockets": {"weapon_grip": [557, 221], "weapon_tip": [876, 274]}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[854, 0, 33, 254]]},
+    "g_recover_1003": {"source": "shanks_g_low_cut_1003", "crop": [947, 609, 558, 387], "root": [252, 375], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[0, 306, 35, 38]]}
+  },
+  "anims": {
+    "sp_low_cut": {"frames": ["g_start_1003", "g_active_1003", "g_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 14}, {"frame": 1, "ticks": 5}, {"frame": 2, "ticks": 30}]}
+  },
+  "parentContactReview": {
+    "worldGrip": [50.90, -17.99],
+    "worldTip": [105.02, -8.99],
+    "currentHitbox": [9, -23, 73, 22],
+    "suggestedMeasuredHitbox": [43, -22, 65, 22],
+    "note": "Static proposal only. The real saber is at ankle level and extends further than the current box. Keep damage92 and14/5/30. The torso leans far forward; parent should compare the current crouched hurtboxes against actual head/torso in real contact review."
+  },
+  "observations": ["All three new body poses preserve one arm, complete feet and closed saber tip.", "Two explicit exclusion rectangles remove disconnected neighbor fragments only; no pose transformation or extra drawn pixels.", "FX, voices and actual hits remain separate required work."]
+}

@@ -1,0 +1,43 @@
+{
+  "characterId": "zoro",
+  "image": "assets/characters/zoro/anime/ui-roster-1003.png",
+  "sha256": "d8a7ca7198195e36b9c41299abe3199df99708ef302667ef21ab4443fa963a18",
+  "width": 370,
+  "height": 493,
+  "frames": {
+    "body": {
+      "x": 0,
+      "y": 0,
+      "w": 370,
+      "h": 493
+    },
+    "portrait": {
+      "x": 120,
+      "y": 0,
+      "w": 135,
+      "h": 135
+    }
+  },
+  "source": {
+    "key": "pirate_mother_0929",
+    "file": "public/assets/generated/source/roster-pirate-mother-0929.png",
+    "sha256": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b",
+    "crop": [
+      640,
+      0,
+      370,
+      493
+    ]
+  },
+  "processing": {
+    "scale": 1,
+    "method": "Original-density RGBA rectangular crop; no body repaint, chroma key or resampling.",
+    "transparency": "source-alpha",
+    "protectedPixelsEqual": true
+  },
+  "reviewStatus": "candidate-ui-not-public-acceptance",
+  "notes": [
+    "Only existing mother-source art. Does not count as new combat frames.",
+    "Alpha is preserved, including fractional transparent edge pixels; hidden RGB background is not used as a chroma key."
+  ]
+}

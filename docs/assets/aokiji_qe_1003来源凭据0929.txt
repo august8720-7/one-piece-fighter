@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_qe_1003",
+  "file": "public/assets/generated/source/roster-aokiji-qe-1003.png",
+  "sha256": "179770da1175ba66bfeab89c885dea82f1d1865d06db8fa7293f595cf2294973",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方图像页未公开具体图像型号，不从文字最新选项推断图像模型。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+  "observedCompletedAt": "2026-10-03T01:20:10+08:00",
+  "uiObservation": "主代理在同一官方青雉会话最初发送前实际核实最新和极高；1003首次生成报错，第二次完整同提示成功，为同会话图5。主代理恢复新tab5后实际点击下载，工具回执超时但PNG文件真实落至Downloads，主代理01:20:10再次观察已完成结果。此时刻不是服务器首次生成时间。本子代理接手只做静态加工，未亲自操作该网页；按主代理本轮现场观察登记。原件1254x1254、PNG完整解码及SHA256核实，原件未重编码；白底合成显示人物和独立冰FX可见alpha完整，不把来源登记当实机或美术放行。",
+  "prompt": {
+    "file": "docs/assets/青雉冰矛冰刀样板提示词0929.txt",
+    "sha256": "06bf4065d37332e89bd16b12c43bce9e7e622e2a17e6ea615909cd6e3804f8d1"
+  },
+  "referenceSources": {
+    "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-02T17:23:51.962412+00:00",
+  "referenceFiles": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

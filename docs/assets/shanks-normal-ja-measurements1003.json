@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_air_hilt_repair_1003",
+  "sourceSha256": "0be0d641e28a4fdf326582fe2dabb5846d10fded7ecd4084797332c51ad4c803",
+  "status": "repaired-one-arm-air-hilt-body-before-contact-review",
+  "neutralVisibleAlpha8Bounds": [65, 8, 576, 553],
+  "neutralVisibleHeight": 545,
+  "referenceNeutralHeight": 380,
+  "unitScale": 0.6972477064220184,
+  "scaleBasis": "Repair-source neutral visible alpha>=8 height545px; all three genuine j_a poses use380/545 against original380px. Same full-height virtual airborne foot baseline, no per-pose scaling.",
+  "frames": {
+    "j_a_start_1003": {"source": "shanks_air_hilt_repair_1003", "crop": [821, 69, 512, 419], "root": [312, 484], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "j_a_active_1003": {"source": "shanks_air_hilt_repair_1003", "crop": [63, 572, 654, 415], "root": [413, 493], "sockets": {"hilt_contact": [624, 129]}, "transparency": {"mode": "source-alpha"}},
+    "j_a_recover_1003": {"source": "shanks_air_hilt_repair_1003", "crop": [854, 563, 553, 423], "root": [357, 502], "sockets": {}, "transparency": {"mode": "source-alpha"}}
+  },
+  "anims": {
+    "j_a": {"frames": ["j_a_start_1003", "j_a_active_1003", "j_a_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 5}, {"frame": 1, "ticks": 6}, {"frame": 2, "ticks": 8}]}
+  },
+  "parentContactReview": {"approxWorldHiltContact": [36.39, -62.78], "currentHitbox": [7, -57, 32, 22], "suggestedMeasuredHitbox": [24, -68, 19, 20], "preserve": "33 damage and5/6/8", "note": "Static hilt point only; parent checks real airborne root and contact."},
+  "observations": ["The corrected active drawing has exactly one right arm and one right hand; the same full saber points behind, no lower second hand holding another weapon.", "Original extra-arm active fromshanks_normal_airlight_1003 remains rejected and is never mapped. This repair uses three fresh poses rather than erasing an arm with code."]
+}

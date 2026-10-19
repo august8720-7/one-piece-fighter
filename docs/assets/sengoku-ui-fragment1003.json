@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "characters": {
+    "sengoku": {
+      "image": "public\\assets\\characters\\sengoku\\anime\\ui-roster-1003.png",
+      "sha256": "14f29f8457ec4a648d6f24d81b0173529a3c34bce59c28da3313f18e39c5d3fd",
+      "width": 355,
+      "height": 426,
+      "frames": {
+        "body": {
+          "x": 0,
+          "y": 0,
+          "w": 355,
+          "h": 426
+        },
+        "portrait": {
+          "x": 130,
+          "y": 0,
+          "w": 165,
+          "h": 190
+        }
+      },
+      "source": {
+        "sourceKey": "sengoku_locomotion_0929",
+        "file": "public/assets/generated/source/roster-sengoku-locomotion-0929.png",
+        "sha256": "3829d8946b189a7530ef8225f5d97f0086977cb1c8f578e58e87b2bd8348e930",
+        "crop": [
+          35,
+          0,
+          355,
+          426
+        ]
+      },
+      "reviewStatus": "static-candidate-for-roster-preview-not-gameplay-acceptance",
+      "processing": {
+        "scale": 1,
+        "method": "explicit idle crop; original RGBA preserved",
+        "pixelsEqual": true
+      }
+    }
+  }
+}

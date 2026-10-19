@@ -1,0 +1,31 @@
+import { Btn, K, P, attack, balance, normal, throwMove, utility, type MoveData } from '@core/index';
+
+/** 本游戏1003数值/招名演绎候选；未以原作战力或已取得原画作承诺。 */
+export const blackbeardMoves: readonly MoveData[] = [
+  utility({"id": "sp_dark_wave", "name": "暗潮推进", "startup": 22, "recovery": 26, "damage": 77, "projectiles": [{"frame": 16, "kind": "blackbeard_dark_wave", "x": 30, "y": -33, "vx": 3.2, "vy": 0, "ttl": 100, "box": [-19, -28, 38, 40], "durability": 1}], "stance": "stand", "button": P, "motion": "236"}),
+  attack({"id": "sp_quake_fist", "name": "震拳", "segments": [{"startup": 15, "active": 5, "hitbox": [17, -84, 64, 60]}], "recovery": 29, "damage": 108, "knockback": {"x": 8}, "stance": "stand", "button": P, "motion": "214"}),
+  attack({"id": "sp_dark_upper", "name": "暗影上击", "segments": [{"startup": 11, "active": 6, "hitbox": [11, -139, 43, 112]}], "recovery": 32, "damage": 96, "knockback": {"x": 4, "y": -9}, "stance": "stand", "button": P, "motion": "623"}),
+  attack({"id": "sp_ground_quake", "name": "近域震地", "segments": [{"startup": 23, "active": 7, "hitbox": [10, -42, 103, 40]}], "recovery": 34, "damage": 113, "guard": "low", "knockdown": true, "stance": "stand", "button": P, "motion": "22"}),
+  attack({"id": "sp_dark_grasp", "name": "暗影擒摔", "segments": [{"startup": 10, "active": 3, "hitbox": [14, -88, 42, 84]}], "recovery": 35, "damage": 140, "guard": "unblockable", "throwData": {"techWindow": 0, "releaseFrame": 23, "duration": 49, "holdOffset": 43}, "knockback": {"x": 7, "y": -8}, "stance": "stand", "button": K, "motion": "214"}),
+  attack({"id": "sp_brutal_lunge", "name": "蛮力进击", "segments": [{"startup": 22, "active": 6, "hitbox": [15, -86, 58, 58]}], "recovery": 37, "damage": 120, "armor": true, "armorFrames": 6, "armorBreak": true, "stepX": 0.6, "activeStepX": 2.3, "stance": "stand", "button": K, "motion": "22"}),
+  utility({"id": "sp_quake_front", "name": "震波压阵", "startup": 27, "recovery": 40, "damage": 206, "hitstun": 32, "knockback": {"x": 9}, "projectiles": [{"frame": 21, "kind": "blackbeard_quake_front", "x": 30, "y": -46, "vx": 4.4, "vy": 0, "ttl": 100, "box": [-18, -35, 36, 64], "durability": 1}], "stance": "stand", "button": P, "motion": "236236", "type": "super", "meterCost": balance.SUPER_COST}),
+  attack({"id": "sp_dark_impact", "name": "暗震连击", "segments": [{"startup": 17, "active": 4, "hitbox": [14, -88, 61, 62]}, {"startup": 6, "active": 6, "hitbox": [12, -104, 92, 85]}], "recovery": 40, "damage": 111, "hitstun": 33, "knockback": {"x": 2}, "activeStepX": 1.4, "stance": "stand", "button": P, "motion": "214214", "type": "super", "meterCost": balance.SUPER_COST}),
+  attack({"id": "ult_dark_quake", "name": "暗震终幕", "segments": [{"startup": 28, "active": 9, "hitbox": [10, -136, 141, 132]}], "recovery": 52, "damage": 324, "invuln": 10, "armorBreak": true, "knockdown": true, "knockback": {"x": 14, "y": -9}, "stance": "stand", "button": K, "motion": "236236", "type": "ultimate", "meterCost": balance.ULTIMATE_COST}),
+  normal({"id": "cd", "name": "拳吹飞", "stance": "stand", "button": Btn.C, "plus": Btn.D, "startup": 18, "active": 5, "recovery": 29, "hitbox": [12, -88, 58, 70], "damage": 107, "knockback": {"x": 12, "y": -6}, "wallBounce": true}),
+  normal({"id": "j_cd", "name": "空中拳吹飞", "stance": "air", "button": Btn.C, "plus": Btn.D, "startup": 12, "active": 6, "recovery": 17, "hitbox": [11, -81, 54, 63], "damage": 99, "knockback": {"x": 9, "y": -5}}),
+  throwMove({"id": "throw_fwd", "name": "拳牵制前摔", "direction": 6, "button": Btn.C, "damage": 124, "total": 44, "throwData": {"range": 56, "techWindow": 8, "releaseFrame": 21, "holdOffset": 45}}),
+  throwMove({"id": "throw_back", "name": "拳牵制后摔", "direction": 4, "button": Btn.C, "damage": 124, "total": 44, "throwData": {"range": 56, "techWindow": 8, "releaseFrame": 21, "holdOffset": 45}}),
+  normal({"id": "f_c", "name": "踏步拳下击", "stance": "stand", "button": Btn.C, "direction": 6, "startup": 19, "active": 4, "recovery": 26, "hitbox": [12, -101, 44, 92], "damage": 92, "guard": "high", "stepX": 0.8}),
+  normal({"id": "st_a", "name": "轻拳突", "stance": "stand", "button": Btn.A, "startup": 7, "active": 3, "recovery": 10, "hitbox": [12, -61, 39, 30], "damage": 43, "chain": ["st_c", "cr_d", "f_c"]}),
+  normal({"id": "st_b", "name": "前踢", "stance": "stand", "button": Btn.B, "startup": 7, "active": 3, "recovery": 10, "hitbox": [12, -61, 37, 30], "damage": 43}),
+  normal({"id": "st_c", "name": "重拳横击", "stance": "stand", "button": Btn.C, "startup": 12, "active": 5, "recovery": 23, "hitbox": [11, -87, 51, 58], "damage": 85}),
+  normal({"id": "st_d", "name": "侧踢", "stance": "stand", "button": Btn.D, "startup": 12, "active": 5, "recovery": 23, "hitbox": [12, -51, 49, 37], "damage": 85}),
+  normal({"id": "cr_a", "name": "蹲轻拳", "stance": "crouch", "button": Btn.A, "startup": 7, "active": 3, "recovery": 10, "hitbox": [12, -37, 39, 30], "damage": 43, "chain": ["st_c", "cr_d", "f_c"]}),
+  normal({"id": "cr_b", "name": "低踢", "stance": "crouch", "button": Btn.B, "startup": 7, "active": 3, "recovery": 10, "hitbox": [11, -22, 37, 21], "damage": 43, "guard": "low"}),
+  normal({"id": "cr_c", "name": "蹲扬拳", "stance": "crouch", "button": Btn.C, "startup": 12, "active": 5, "recovery": 23, "hitbox": [10, -117, 32, 95], "damage": 85, "knockback": {"x": 3, "y": -7}}),
+  normal({"id": "cr_d", "name": "低身扫踢", "stance": "crouch", "button": Btn.D, "startup": 12, "active": 5, "recovery": 23, "hitbox": [11, -22, 45, 21], "damage": 85, "guard": "low", "knockdown": true}),
+  normal({"id": "j_a", "name": "空轻拳", "stance": "air", "button": Btn.A, "startup": 8, "active": 6, "recovery": 10, "hitbox": [12, -58, 39, 30], "damage": 43}),
+  normal({"id": "j_b", "name": "空踢", "stance": "air", "button": Btn.B, "startup": 8, "active": 6, "recovery": 10, "hitbox": [12, -58, 37, 30], "damage": 43}),
+  normal({"id": "j_c", "name": "空重拳", "stance": "air", "button": Btn.C, "startup": 13, "active": 6, "recovery": 23, "hitbox": [11, -87, 51, 58], "damage": 85}),
+  normal({"id": "j_d", "name": "空重踢", "stance": "air", "button": Btn.D, "startup": 13, "active": 6, "recovery": 23, "hitbox": [12, -51, 49, 37], "damage": 85}),
+];

@@ -1,0 +1,310 @@
+{
+  "status": "static-candidate-not-game-contact-or-sound-acceptance",
+  "sourceKey": "aokiji_air_attacks_1003",
+  "sourceHash": "5a7fc11a48945a6d7154d9d23daf296420ce24bd654045346335349f2a56d91e",
+  "sourceReferenceHeight64": 314,
+  "sourceUnitScale": 1.2961783439490446,
+  "worldPixelsPerSourcePixel": 0.3184713375796179,
+  "frames": [
+    {
+      "frame": "j_a_active_1003",
+      "crop": [
+        448,
+        11,
+        377,
+        312
+      ],
+      "root": [
+        170,
+        322
+      ],
+      "socketsWorldRelativeToRoot": {
+        "fist": [
+          58.2803,
+          -81.8471
+        ]
+      },
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        369,
+        304
+      ]
+    },
+    {
+      "frame": "j_a_recover_1003",
+      "crop": [
+        873,
+        12,
+        317,
+        296
+      ],
+      "root": [
+        170,
+        322
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        309,
+        288
+      ]
+    },
+    {
+      "frame": "j_b_start_1003",
+      "crop": [
+        61,
+        324,
+        316,
+        317
+      ],
+      "root": [
+        185,
+        322
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [
+        [
+          90,
+          0,
+          36,
+          10
+        ],
+        [
+          254,
+          0,
+          36,
+          4
+        ]
+      ],
+      "alpha16Bbox": [
+        8,
+        8,
+        308,
+        309
+      ]
+    },
+    {
+      "frame": "j_b_active_1003",
+      "crop": [
+        438,
+        321,
+        422,
+        276
+      ],
+      "root": [
+        192,
+        322
+      ],
+      "socketsWorldRelativeToRoot": {
+        "shoe_front": [
+          66.242,
+          -71.6561
+        ]
+      },
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        414,
+        268
+      ]
+    },
+    {
+      "frame": "j_b_recover_1003",
+      "crop": [
+        882,
+        323,
+        298,
+        309
+      ],
+      "root": [
+        178,
+        322
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        290,
+        301
+      ]
+    },
+    {
+      "frame": "j_c_start_1003",
+      "crop": [
+        40,
+        634,
+        343,
+        289
+      ],
+      "root": [
+        184,
+        322
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        335,
+        281
+      ]
+    },
+    {
+      "frame": "j_c_active_1003",
+      "crop": [
+        427,
+        634,
+        454,
+        264
+      ],
+      "root": [
+        188,
+        322
+      ],
+      "socketsWorldRelativeToRoot": {
+        "weapon_grip": [
+          34.7134,
+          -78.9809
+        ],
+        "weapon_tip": [
+          81.2102,
+          -79.6178
+        ]
+      },
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        446,
+        256
+      ]
+    },
+    {
+      "frame": "j_c_recover_1003",
+      "crop": [
+        882,
+        637,
+        333,
+        288
+      ],
+      "root": [
+        190,
+        322
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        325,
+        280
+      ]
+    },
+    {
+      "frame": "j_d_start_1003",
+      "crop": [
+        47,
+        922,
+        336,
+        321
+      ],
+      "root": [
+        182,
+        322
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        328,
+        313
+      ]
+    },
+    {
+      "frame": "j_d_active_1003",
+      "crop": [
+        423,
+        928,
+        434,
+        306
+      ],
+      "root": [
+        144,
+        322
+      ],
+      "socketsWorldRelativeToRoot": {
+        "shoe_front": [
+          87.8981,
+          -74.8408
+        ]
+      },
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        426,
+        298
+      ]
+    },
+    {
+      "frame": "j_d_recover_1003",
+      "crop": [
+        886,
+        927,
+        329,
+        316
+      ],
+      "root": [
+        184,
+        322
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        321,
+        308
+      ]
+    }
+  ],
+  "timing": {
+    "j_a": [
+      5,
+      6,
+      9
+    ],
+    "j_b": [
+      6,
+      6,
+      10
+    ],
+    "j_c": [
+      10,
+      5,
+      13
+    ],
+    "j_d": [
+      11,
+      6,
+      14
+    ]
+  },
+  "knownDifferences": [
+    "ja startup explicitly reuses existing real vertical jump guard, not new art.",
+    "Some virtual roots lie below crop because folded feet are raised; literal sole roots would sink the head relative to logical y. Actual normal-speed rise/fall/air-hit contact remain parent checks.",
+    "Generated extended kicks/blade are higher/farther than draft boxes; measured endpoints supplied for parent new-role box calibration."
+  ],
+  "newCrops": 11,
+  "totalCrops": 90,
+  "totalAnims": 41,
+  "recordedAtUtc": "2026-10-03T11:59:16.241344+00:00",
+  "manifestAfterHash": "337a2a369033a266575226f4d8e80f020bde7c4ad512879aad8f2ddb328c35e8"
+}

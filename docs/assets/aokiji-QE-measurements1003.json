@@ -1,0 +1,50 @@
+{
+  "status": "static-authored-points-not-gameplay-acceptance",
+  "sourceKey": "aokiji_qe_1003",
+  "sourceNeutralAlpha64Height": 423,
+  "baselineHeight": 407,
+  "sourceUnitScale": 0.9621749408983451,
+  "worldPixelsPerSourcePixel": 0.2364066193853428,
+  "pointPrecision": "visually authored to approximately 3 source pixels; not automatic semantic detection",
+  "points": [
+    {
+      "frame": "aokiji/sp_ice_lance/1",
+      "socket": "palm_release",
+      "worldRelativeToRoot": [
+        49.645,
+        -70.213
+      ]
+    },
+    {
+      "frame": "aokiji/sp_ice_blade/1",
+      "socket": "weapon_grip",
+      "worldRelativeToRoot": [
+        19.149,
+        -65.012
+      ]
+    },
+    {
+      "frame": "aokiji/sp_ice_blade/1",
+      "socket": "weapon_tip",
+      "worldRelativeToRoot": [
+        55.083,
+        -58.392
+      ]
+    }
+  ],
+  "qOriginalSpawn": [
+    34,
+    -48
+  ],
+  "eOriginalHitbox": [
+    16,
+    -78,
+    70,
+    45
+  ],
+  "sourceVisibleRightMargins": {
+    "lanceReleaseAlpha16": 15,
+    "bladeActiveAlpha16": 7
+  },
+  "fxManifest": "scripts/roster_aokiji_fx_manifest1003.json"
+}

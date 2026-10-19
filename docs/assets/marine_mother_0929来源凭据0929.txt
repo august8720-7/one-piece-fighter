@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "marine_mother_0929",
+  "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+  "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "本次官方登录图像页标题和说明均未披露具体图像型号，不能核实为GPT Image 2.5。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+  "observedCompletedAt": "2026-09-29T23:14:28+08:00",
+  "uiObservation": "官方images入口模型菜单最新选中，强度实际为极高第四项；同会话完整母版提示词后的回复显示已生成图像，查看器实际显示海军六人。23:14:28为登记阶段再次确认已完成的观察时刻，首次完成精确时间未另行记录，不是服务器生成时间。此前输入被换行拆开的短句已停止，未作为此母版的完整提示词。",
+  "prompt": {
+    "file": "docs/assets/海军人物母版提示词0929.txt",
+    "sha256": "ed6f2992014d4bf7dcc3c7656d45de6ca054f2dac3712461152012a4fe4e18d3"
+  },
+  "referenceSources": {},
+  "unitScale": 1,
+  "recordedAt": "2026-09-29T15:16:29.216310+00:00",
+  "referenceFiles": {},
+  "originalPngSize": [
+    1536,
+    1024
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

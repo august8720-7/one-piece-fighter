@@ -25,6 +25,8 @@ import {
   MAX_METER,
   MOVE_RANK,
   type AttackIntent,
+  type AwakeningReason,
+  type AwakeningFeedback,
   type AttackButton,
   type Box,
   type BoxPx,
@@ -72,6 +74,8 @@ export interface FightSimOptions {
   roundsToWin?: number;
   /** 旧输入与旧回放省略时仍按经典指令解释。 */
   controlModes?: ControlModes;
+  /** Default off. Only validated full-form assets or an explicitly labelled logic candidate may enable. */
+  gear5Enabled?: readonly [boolean, boolean];
 }
 
 export const PREJUMP_FRAMES = 3;
@@ -149,6 +153,7 @@ export class FightSim {
   readonly rng: Rng;
   readonly controlModes: ControlModes;
   readonly skillFeedback: [SkillFeedback | null, SkillFeedback | null] = [null, null];
+  readonly awakeningFeedback: [AwakeningFeedback | null, AwakeningFeedback | null] = [null, null];
   private frame = 0;
   private readonly fighters: [FighterState, FighterState];
   private projectiles: ProjectileState[] = [];
@@ -221,6 +226,7 @@ export class FightSim {
 
   /** 重开一局：位置与血量复位，气槽保留（KOF 口径）。 */
   resetRound(): void {
+    this.awakeningFeedback[0] = this.awakeningFeedback[1] = null;
     this.skillFeedback[0] = this.skillFeedback[1] = null;
     this.clearStepEvents();
     this.clearProjectiles('round_reset');
@@ -317,6 +323,13 @@ export class FightSim {
   }
 
   private stepFight(f1: FighterState, f2: FighterState, input: InputFrame): void {
+    // Gear5 expires before accepting this tick's inputs; its clock includes hitstop.
+    for (const f of this.fighters) {
+      if (f.form === 'gear5' && !f.formExitPending && --f.formFrames <= 0) {
+        f.formFrames = 0;
+        f.formExitPending = true;
+      }
+    }
     // 1. 输入 → 状态（hitstop 中冻结）；持续效果计时
     this.updateFighter(f1, f2, input.p1);
     this.updateFighter(f2, f1, input.p2);
@@ -369,6 +382,9 @@ export class FightSim {
       this.setPhase('round_end');
       return;
     }
+
+    // Last startup collision can still interrupt. No Gear5 timer is spent on commit.
+    for (const f of this.fighters) this.finishGear5Tick(f);
 
     // 6. 计时
     if (this.timer > 0) {
@@ -500,7 +516,57 @@ export class FightSim {
 
   move(f: FighterState): MoveData | null {
     if (!f.moveId) return null;
-    return f.def.moves.find((m) => m.id === f.moveId) ?? null;
+    // Resolve locked IDs, never remap an already-started move on expiry.
+    return f.def.moves.find((m) => m.id === f.moveId)
+      ?? f.def.gear5?.moves.find(m => m.id === f.moveId)
+      ?? (f.def.gear5?.awakening.id === f.moveId ? f.def.gear5.awakening : null);
+  }
+
+  /** Current selectable table shared by input, CPU and UI; does not mutate base data. */
+  effectiveMoves(f: FighterState): readonly MoveData[] {
+    if (f.form !== 'gear5' || !f.def.gear5) return f.def.moves;
+    const { moves, replacements } = f.def.gear5;
+    return f.def.moves.map(m => moves.find(candidate => candidate.id === replacements[m.id]) ?? m);
+  }
+
+  awakeningAvailability(player: PlayerIndex): AwakeningReason {
+    const f = this.fighters[player];
+    if (f.def.id !== 'luffy' || !f.def.gear5) return 'character';
+    if (!this.opts.gear5Enabled?.[player]) return 'disabled';
+    if (this.phase !== 'fight') return 'phase';
+    if (f.form || f.install) return 'form';
+    if (f.fatigueFrames > 0) return 'fatigue';
+    if (f.airborne) return 'air';
+    if (!this.gear5Safe(f) || f.hitstop > 0 || f.awakeningStarted !== null) return 'recovery';
+    return f.meter >= 300 ? 'ready' : 'meter';
+  }
+
+  private gear5Safe(f: FighterState): boolean {
+    return !f.airborne && ['idle', 'walk_fwd', 'walk_back', 'crouch'].includes(f.state);
+  }
+
+  private exitGear5(f: FighterState): void {
+    f.form = null; f.formFrames = 0; f.formExitPending = false;
+    f.fatigueSource = 'gear5'; f.fatigueFrames = 180; f.fatigueStarted = this.frame;
+    f.buffered = null; f.bufferTtl = 0;
+  }
+
+  private finishGear5Tick(f: FighterState): void {
+    if (f.awakeningStarted !== null) {
+      if (f.state !== 'attack' || f.moveId !== f.def.gear5?.awakening.id) f.awakeningStarted = null;
+      else if (f.stateFrame >= 24) {
+        f.awakeningStarted = null; f.form = 'gear5'; f.formFrames = 720;
+      }
+    }
+    if (f.formExitPending && this.gear5Safe(f) && f.hitstop === 0) this.exitGear5(f);
+  }
+
+  private canCancel(f: FighterState, from: MoveData, to: MoveData): boolean {
+    if (f.formExitPending) return false;
+    if (from.id.startsWith('g5_')) return from.id === 'g5_elastic_rush' && to.id === 'g5_bounce_slam'
+      && f.hasHit && f.stateFrame <= f.cancelUntil;
+    if (to.id.startsWith('g5_')) return false;
+    return MOVE_RANK[to.type] > MOVE_RANK[from.type] || (from.chain?.includes(to.id) ?? false);
   }
 
   currentFrame(f: FighterState): FrameData | null {
@@ -537,18 +603,24 @@ export class FightSim {
 
   private skillMove(f: FighterState, slot: number): MoveData | null {
     const id = Number.isInteger(slot) && slot >= 0 && slot < SKILL_BUTTONS.length ? f.def.skillSlots?.[slot] : undefined;
-    return f.def.moves.find(m => m.id === id && !!m.input.motion) ?? null;
+    const replaced = f.form === 'gear5' ? f.def.gear5?.replacements[id ?? ''] ?? id : id;
+    return this.effectiveMoves(f).find(m => m.id === replaced && !!m.input.motion) ?? null;
   }
 
   private skillMoveReason(f: FighterState, m: MoveData, from: MoveData | null): SkillReason {
+    if (f.formExitPending) return 'form';
+    if (m.install && f.form === 'gear5') return 'form';
+    if (m.install && f.fatigueFrames > 0 && f.fatigueSource === 'gear5') return 'fatigue';
     if ((m.input.stance === 'air') !== f.airborne) return 'air';
-    if (from && MOVE_RANK[m.type] <= MOVE_RANK[from.type] && !from.chain?.includes(m.id)) return 'cancel';
+    if (from && !this.canCancel(f, from, m)) return 'cancel';
     if ((m.meterCost ?? 0) > f.meter) return 'meter';
     return 'ready';
   }
 
   /** 应用强化 / 疲劳的移速倍率 */
   private speed(f: FighterState, v: number): number {
+    if (f.form === 'gear5') return Math.floor(v * 6 / 5);
+    if (f.fatigueFrames > 0 && f.fatigueSource === 'gear5') return Math.floor(v * 3 / 4);
     const inst = this.installDef(f);
     if (inst) return Math.floor((v * inst.speedNum) / inst.speedDen);
     if (f.fatigueFrames > 0) {
@@ -572,8 +644,10 @@ export class FightSim {
       f.install = null;
       f.installFrames = 0;
       f.fatigueFrames = d?.fatigueFrames ?? 0;
-    } else if (f.fatigueFrames > 0) {
+      f.fatigueSource = 'gear2';
+    } else if (f.fatigueFrames > 0 && !(f.fatigueSource === 'gear5' && f.fatigueStarted === this.frame)) {
       f.fatigueFrames--;
+      if (f.fatigueFrames === 0) f.fatigueSource = null;
     }
     if (f.burnFrames > 0 && f.state !== 'ko') {
       f.burnFrames--;
@@ -592,10 +666,22 @@ export class FightSim {
     f.bits = bits;
     this.pushHistory(f, bits);
 
+    if (f.formExitPending && f.state === 'dash') { f.vx = 0; setState(f, 'idle'); }
+    if (f.formExitPending && this.gear5Safe(f) && f.hitstop === 0) this.exitGear5(f);
+
     const simple = this.controlModes[f.player] === 'simple';
     const newAttack = pressed & (ANY_ATTACK | (simple ? ANY_SKILL : 0));
+    if ((pressed & Btn.Awakening) && !(pressed & (ANY_ATTACK | ANY_SKILL))) {
+      const reason = this.awakeningAvailability(f.player);
+      this.awakeningFeedback[f.player] = { frame: this.frame, reason };
+      if (reason === 'ready') {
+        this.startMove(f, f.def.gear5!.awakening);
+        f.awakeningStarted = this.frame;
+        return;
+      }
+    }
     const slot = simple ? SKILL_BUTTONS.findIndex(bit => (pressed & bit) !== 0) : -1;
-    if (newAttack) {
+    if (newAttack && !f.formExitPending) {
       f.buffered = {
         bits,
         pressed: slot >= 0 ? SKILL_BUTTONS[slot]! : pressed & ANY_ATTACK,
@@ -618,6 +704,7 @@ export class FightSim {
       return;
     }
     if (!newAttack && f.bufferTtl > 0 && --f.bufferTtl === 0) f.buffered = null;
+    if (f.formExitPending) { f.buffered = null; f.bufferTtl = 0; }
 
     const mv = f.def.movement;
 
@@ -719,6 +806,8 @@ export class FightSim {
 
     // ---- 可操作状态（idle / walk / crouch / dash / 空中）----
 
+    if (f.formExitPending) { if (!f.airborne) f.vx = 0; f.stateFrame++; return; }
+
     if (!f.airborne && f.buffered && pressedTogether(f.buffered.bits, f.buffered.pressed, Btn.A, Btn.B)) {
       const h = horizontalRelative(f.buffered.bits, f.buffered.facing);
       f.buffered = null;
@@ -785,7 +874,7 @@ export class FightSim {
    * from 非空表示取消：只允许更高等级或 chain 列表内的目标，且不允许普通投。
    */
   private tryAttack(f: FighterState, opp: FighterState, intent: AttackIntent | null, from: MoveData | null): boolean {
-    if (!intent) return false;
+    if (!intent || f.formExitPending) return false;
     if (intent.skillSlot !== undefined) {
       if (this.controlModes[f.player] !== 'simple') return false;
       const m = this.skillMove(f, intent.skillSlot);
@@ -802,15 +891,15 @@ export class FightSim {
     const stance: Stance = f.airborne ? 'air' : has(bits, Btn.Down) ? 'crouch' : 'stand';
     const h = horizontalRelative(bits, intent.facing);
     const dist = Math.abs(f.x - opp.x);
-    const allowed = (m: MoveData) =>
-      !from || MOVE_RANK[m.type] > MOVE_RANK[from.type] || (from.chain?.includes(m.id) ?? false);
+    const allowed = (m: MoveData) => (!from || this.canCancel(f, from, m))
+      && !(m.install && (f.form === 'gear5' || (f.fatigueSource === 'gear5' && f.fatigueFrames > 0)));
 
     const motionStanceOk = (m: MoveData) =>
       m.input.stance === stance || (m.input.stance === 'stand' && stance === 'crouch');
     for (const motion of MOTION_PRIORITY) {
       if (!intent.motions.includes(motion)) continue;
       // 同一指令下终极 > 超 > 特殊
-      const cands = f.def.moves
+      const cands = this.effectiveMoves(f)
         .filter((m) => m.input.motion === motion && motionStanceOk(m) && (pressed & m.input.button) !== 0)
         .sort((a, b) => MOVE_RANK[b.type] - MOVE_RANK[a.type]);
       for (const m of cands) {
@@ -887,6 +976,7 @@ export class FightSim {
       f.install = m.install.id;
       f.installFrames = m.install.duration;
       f.fatigueFrames = 0;
+      f.fatigueSource = null;
     }
     // 强化状态：特殊技启动加速（跳过前几帧，但不跳过 active）
     const inst = this.installDef(f);
@@ -902,6 +992,7 @@ export class FightSim {
   // ---------- 投技 ----------
 
   private startThrow(att: FighterState, def: FighterState, m: MoveData): void {
+    const defenderBefore = this.defenderBefore(def);
     att.moveId = m.id;
     att.moveInstance++;
     att.hitMask = 0;
@@ -917,7 +1008,7 @@ export class FightSim {
     def.airborne = false;
     setState(def, 'thrown');
     this.holdThrown(att, def);
-    this.pushEvent('throw', att, def, m.id, 0, false, false, def.x, def.y - px(60));
+    this.pushEvent('throw', att, def, m.id, 0, false, false, def.x, def.y - px(60), defenderBefore);
   }
 
   private holdThrown(att: FighterState, def: FighterState): void {
@@ -966,6 +1057,7 @@ export class FightSim {
     att.stateFrame++;
 
     if (att.stateFrame === td.releaseFrame) {
+      const defenderBefore = this.defenderBefore(def);
       if (td.switchSides) {
         def.x = att.x - att.facing * px(td.holdOffset);
         att.facing = att.facing === 1 ? -1 : 1;
@@ -988,7 +1080,7 @@ export class FightSim {
       att.hasHit = true;
       this.gainMeter(att, (damage * 3) >> 3);
       this.gainMeter(def, damage >> 3);
-      this.pushEvent('hit', att, def, m.id, damage, false, false, def.x, def.y - px(60));
+      this.pushEvent('hit', att, def, m.id, damage, false, false, def.x, def.y - px(60), defenderBefore);
     }
 
     if (att.stateFrame >= td.duration) {
@@ -1072,6 +1164,7 @@ export class FightSim {
 
   /** 统一命中结算：招式或飞行道具 → 防御 / 霸体 / 命中。 */
   private applyHit(att: FighterState, def: FighterState, spec: HitSpec, contact?: StrikeContact): void {
+    const defenderBefore = this.defenderBefore(def);
     const proj = spec.projectile;
     let ex: number;
     let ey: number;
@@ -1088,6 +1181,7 @@ export class FightSim {
       att.hasHit = true;
       const m = this.move(att);
       att.cancelUntil = att.stateFrame + (m?.cancelWindow ?? DEFAULT_CANCEL_WINDOW);
+      if (m?.id.startsWith('g5_')) { att.hasHit = false; att.cancelUntil = -1; }
     }
     const dir: 1 | -1 = proj ? (proj.vx >= 0 ? 1 : -1) : att.facing;
 
@@ -1101,7 +1195,7 @@ export class FightSim {
       setState(def, has(def.bits, Btn.Down) ? 'block_crouch' : 'block_stand');
       this.gainMeter(att, spec.damage >> 4);
       this.gainMeter(def, 4);
-      this.pushEvent('block', att, def, spec.moveId, 0, false, !!proj, ex, ey);
+      this.pushEvent('block', att, def, spec.moveId, 0, false, !!proj, ex, ey, defenderBefore);
       return;
     }
 
@@ -1116,12 +1210,16 @@ export class FightSim {
       if (spec.burn) this.applyBurn(def, spec.burn);
       this.gainMeter(att, (damage * 3) >> 3);
       this.gainMeter(def, damage >> 3);
-      this.pushEvent('armor', att, def, spec.moveId, damage, false, !!proj, ex, ey);
+      this.pushEvent('armor', att, def, spec.moveId, damage, false, !!proj, ex, ey, defenderBefore);
       return;
     }
 
     const defMove = this.move(def);
     const counter = def.state === 'attack' && !!defMove && inStartupOrActive(defMove, def.stateFrame);
+    if (!proj && spec.moveId === 'g5_elastic_rush' && this.currentFrame(att)?.hitId === 3) {
+      att.hasHit = true;
+      att.cancelUntil = att.stateFrame + 8;
+    }
 
     def.comboHits = IN_COMBO.has(def.state) ? def.comboHits + 1 : 1;
     let damage = scaledDamage(this.attackDamage(att, spec.damage), def.comboHits);
@@ -1156,7 +1254,7 @@ export class FightSim {
       def.stun = hitstun;
       setState(def, this.stance(def) === 'crouch' ? 'hit_crouch' : 'hit_stand');
     }
-    this.pushEvent('hit', att, def, spec.moveId, damage, counter, !!proj, ex, ey);
+    this.pushEvent('hit', att, def, spec.moveId, damage, counter, !!proj, ex, ey, defenderBefore);
   }
 
   // ---------- 飞行道具 ----------
@@ -1317,6 +1415,10 @@ export class FightSim {
     f.meter = Math.min(MAX_METER, f.meter + amount);
   }
 
+  private defenderBefore(f: FighterState): NonNullable<HitEvent['defenderBefore']> {
+    return { state: f.state, moveId: f.moveId, stateFrame: f.stateFrame, airborne: f.airborne };
+  }
+
   private pushEvent(
     kind: HitKind,
     att: FighterState,
@@ -1327,9 +1429,11 @@ export class FightSim {
     projectile: boolean,
     x: number,
     y: number,
+    defenderBefore?: HitEvent['defenderBefore'],
   ): void {
     this.hits.push({
       frame: this.frame,
+      ...(defenderBefore ? { defenderBefore } : {}),
       kind,
       attacker: att.player,
       defender: def.player,
@@ -1533,6 +1637,12 @@ function createFighter(def: FighterDef, player: PlayerIndex, x: number, facing: 
     install: null,
     installFrames: 0,
     fatigueFrames: 0,
+    form: null,
+    formFrames: 0,
+    formExitPending: false,
+    awakeningStarted: null,
+    fatigueSource: null,
+    fatigueStarted: -1,
     burnFrames: 0,
     burnDps: 0,
     burnTick: 0,

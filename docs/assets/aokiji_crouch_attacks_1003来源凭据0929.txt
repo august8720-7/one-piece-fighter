@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_crouch_attacks_1003",
+  "file": "public/assets/generated/source/roster-aokiji-crouch-attacks-1003.png",
+  "sha256": "b329fdc4d0d255bb59662d32192809ce2b531d7e718adf47c0a5f3a02fcd9aa1",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "实际官方图像入口标题ChatGPT，仅能核文字最新/极高，不披露具体图像模型，不推断后台型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Microsoft Edge",
+  "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+  "observedCompletedAt": "2026-10-03T19:27:29.5514867+08:00",
+  "uiObservation": "本助手沿自己的青雉Edge标签，在已实际核最新选中/极高第四项的同一会话fill完整蹲攻提示后Control+Enter单次提交；随后输入清空且ChatGPT正在回应。页面最终回答已完成，打开最新查看器标题冰系海军大将格斗动作精灵表，站姿标尺与三行蹲攻可见。时间取本次真实完成复核截图保存，不是服务器首次生成。查看器下载只点一次，原件留crdownload但完整PNG签名/IEND/Pillowverify与全RGBAdecode通过，白底检视人物/手脚/刀完整；第4格误带冰刀保留失败不用，实际接入范围另列，不能把提示请求当已全通过。先清单复制和SHA一致，保留Downloads，不声称UI下载终结。",
+  "prompt": {
+    "file": "docs/assets/aokiji-crouch-attacks-prompt1003.txt",
+    "sha256": "e552245961e7d7bed04b01012238b4a63358d36aa5f0dc2b8ede72f96bc58226"
+  },
+  "referenceSources": {
+    "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T11:34:03.655779+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-crouch1003/completion-viewer1003.png",
+    "sha256": "a7144fe6b7c2813320ba72699bf32fa27edfff1e89d273673852fb3abd2b03ec"
+  },
+  "referenceFiles": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_hold_fix1017",
+  "file": "public/assets/generated/source/luffy-gear5-hold-fix1017.png",
+  "sha256": "62a7ef5f548c79a944cf98eb4208e7de69239c351e6059036430918acb0a7bd1",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官网图像入口未披露具体图像型号；GPT-6沿本主会话此前实际文字模型标签，不能推定后台图像型号。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+  "observedCompletedAt": "2026-10-17T05:46:04.356Z",
+  "uiObservation": "根代理实际下载并view_image提供：本轮主会话无新上传，明确参考本会话luffy_gear5_throw_held1017上排右hold进行单pose修正；完整直接来源key已绑定，不能只记master忽略母图。根看全身单姿、双手更向前伸、头更靠后，但是否改善两脸遮挡需render按真实握点/根点静态配对量测，不自动采用。沿此前实际GPT-6/极高设定，完成截图绑定本张结果，不冒称另含型号菜单。观测时刻为根下载后对完成结果的复核，不是服务器生成时间。C原下载和旧稿保留，D原PNG同字节复制，未裁切/处理/改数值。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-hold-fix-prompt1017.txt",
+    "sha256": "2398475f8fd976daecd2ccd5c4e66bc86c64fbfa1b553c89ca6841650219a718"
+  },
+  "referenceSources": {
+    "luffy_gear5_throw_held1017": "57c57711b393cbb515259da2f3ad97bec23532a8ebbe2479e990b883778ab912",
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T05:47:25.265719+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/hold-fix-web1017.png",
+    "sha256": "25954b770c53cc68209908b6f635c958e13744091f28941710776b75ba2f5e37"
+  },
+  "referenceFiles": {
+    "luffy_gear5_throw_held1017": {
+      "file": "public/assets/generated/source/luffy-gear5-throw-held1017.png",
+      "sha256": "57c57711b393cbb515259da2f3ad97bec23532a8ebbe2479e990b883778ab912"
+    },
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    }
+  },
+  "originalPngSize": [
+    1086,
+    1448
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

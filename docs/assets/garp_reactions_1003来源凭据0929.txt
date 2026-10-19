@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "garp_reactions_1003",
+  "file": "public/assets/generated/source/roster-garp-reaction-1003.png",
+  "sha256": "e5fe4892a2aed7a3042122dbc55190240197e8509360f3785e6e285dc7b4d0ee",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "本次恢复该官方会话现场菜单最新选中与极高第四项；具体图像后台型号未公开，不冒写2.5。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Microsoft Edge",
+  "sessionUrl": "https://chatgpt.com/c/6abbe3fd-5db4-83ee-b1c2-58268d1a0616",
+  "observedCompletedAt": "2026-10-03T21:17:21.7205674+08:00",
+  "uiObservation": "本助手优先恢复卡普已有反应图会话，没有重发提示。新建标签初次绑定中断，但实际标签已经打开，通过已列出的同一Edge标签重新绑定安全恢复。现场核对卡普完整反应原文与docs1003提示规范化换行后一致，打开最新查看器标题白发海军元帅战斗姿态精灵图，img已生成图像3，九格卡普反应可见。当前时间是已有结果本次完成复核截图保存，不是服务器首次生成。只点下载一次，原件保留crdownload；PNG签名/IEND/Pillowverify/完整RGBAdecode/重复稳定原字节通过，先清单复制再SHA一致。边缘/人体比例与实际接触另查，不把旧成功稿回收当成完整人物完成。",
+  "prompt": {
+    "file": "docs/assets/garp-reaction-prompt1003.txt",
+    "sha256": "e5225b598bc3e7e0a439425f468cfa434a124fd94649fded6b9fe7b0ff127951"
+  },
+  "referenceSources": {
+    "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+    "garp_locomotion_0929": "ec9dd557b078da06545d63f84846b97d83dcc89f739aa23c19cae538e048d4de"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T13:18:54.883433+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/garp-reactions1003/completion-viewer1003.png",
+    "sha256": "35d634040ca7c154b36bb9f73d7797c3e81b1b8f5e9ca12bb23951124c48d729"
+  },
+  "referenceFiles": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+    },
+    "garp_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-garp-locomotion-0929.png",
+      "sha256": "ec9dd557b078da06545d63f84846b97d83dcc89f739aa23c19cae538e048d4de"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

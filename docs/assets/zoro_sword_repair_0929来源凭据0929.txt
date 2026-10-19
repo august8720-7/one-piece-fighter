@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "zoro_sword_repair_0929",
+  "file": "public/assets/generated/source/roster-zoro-sword-repair-0929.png",
+  "sha256": "09fb1df4358b3f0046ca20c18eef1b0acf31fa7a6c650dce1b834907fb7d74c9",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "本次官方页未公开具体图像模型，仍记录未核实；最新及极高只描述文字选项。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Microsoft Edge",
+  "sessionUrl": "https://chatgpt.com/c/6abbe218-2044-83e8-b500-931a2779e800",
+  "observedCompletedAt": "2026-09-30T00:16:43+08:00",
+  "uiObservation": "在同一索隆分支续作，发送修正前菜单实际最新radio选中、极高第4项。完整修正提示词经textbox.fill后单次发送；官方查看器出现生成的图像3，img1254x1254。00:16:43为完成结果再次观察时间，不是服务器生成时间。Edge单次下载临时PNG签名/IEND/完整解码及hash核实，保留临时原文件后复制候选。图中腰间多余剑柄已去除，但实际重绘了部分身体/动作/刀朝向，不能声称原坐标和其余像素都保持，也不把它当仅腰部贴补；它是独立新候选，须重新裁切和统一标尺。",
+  "prompt": {
+    "file": "docs/assets/zoro-sword-repair-prompt0929.txt",
+    "sha256": "4abbe27989daad5e008c32eca9472a1bc7cdd1ebec65152da6f97b5db395b766"
+  },
+  "referenceSources": {
+    "pirate_mother_0929": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b",
+    "zoro_locomotion_0929": "1466a5c9f7387af06dcde8d73ccd49378a58399c3d364eb511bdb525c4aa8a37"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-09-29T16:19:24.945118+00:00",
+  "referenceFiles": {
+    "pirate_mother_0929": {
+      "file": "public/assets/generated/source/roster-pirate-mother-0929.png",
+      "sha256": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b"
+    },
+    "zoro_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-zoro-locomotion-0929.png",
+      "sha256": "1466a5c9f7387af06dcde8d73ccd49378a58399c3d364eb511bdb525c4aa8a37"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

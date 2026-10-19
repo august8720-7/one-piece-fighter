@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_walk_fix_0929",
+  "file": "public/assets/generated/source/roster-aokiji-walk-fix-0929.png",
+  "sha256": "cc0dda1fe3d16ef61bfcec3cdfd1ca32af6e21dc638c904c490c0eb6cb60ffc5",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "本次官方网页未公开具体图像型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+  "observedCompletedAt": "2026-09-29T23:34:40+08:00",
+  "uiObservation": "同会话最新和极高保持；完整步态纠正提示词后得到图像3，实际观察2乘2姿态，两个经过相鞋间距离较前稿缩小；已点原始下载。23:34:40为再次观察下载文件已完成的时刻。是否正常循环仍待播放，不记为动作验收通过。",
+  "prompt": {
+    "file": "docs/assets/青雉步态纠正提示词0929.txt",
+    "sha256": "795c40c86be8be6ad9917926aaee9452ee333c9602bde65466e14f6ec012d6c3"
+  },
+  "referenceSources": {
+    "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+    "aokiji_basics_0929": "b1af2667cd650e36311eed1822b3c572b1f18c55c5acdf50d02c40e291b8bc5c"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-09-29T15:35:29.651618+00:00",
+  "referenceFiles": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+    },
+    "aokiji_basics_0929": {
+      "file": "public/assets/generated/source/roster-aokiji-basics-0929.png",
+      "sha256": "b1af2667cd650e36311eed1822b3c572b1f18c55c5acdf50d02c40e291b8bc5c"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

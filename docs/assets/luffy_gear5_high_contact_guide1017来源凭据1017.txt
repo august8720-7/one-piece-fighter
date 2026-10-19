@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_high_contact_guide1017",
+  "file": "public/assets/generated/source/luffy-gear5-high-contact-guide1017.png",
+  "sha256": "e969ec7440db75f3a1add35c9ce7795cc843a9f4fc32d39611025f111e305712",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官网图像界面没有公开具体图像型号；GPT-6为本会话此前实际文字标签，不能推定后台图像型号。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad2efa5-3138-83e8-8d2e-f5cf53fa3a56",
+  "observedCompletedAt": "2026-10-17T05:35:51.870Z",
+  "uiObservation": "根代理真实下载并view_image：反应会话本轮实际新上传head-target.png与uppercut-target.png两张抽象程序指南，沿初始五档母版身份，生成完整3姿；头高与上挑近身明显修正。两指南原在six-game1014/reference/gear5-contact-guide1017，仅为匹配recorder的reference-guide根同字节复制到roster-0929/reference/gear5-contact-guide1017，原件和复制前后SHA映射都保留；指南不是人物原画、不进runtime、不计动作。沿此前实际GPT-6/极高设定；完成截图绑定本次结果，不另冒称含新菜单。观测时刻为根下载后已完成结果复核，不是服务器生成时间。还需render真实源尺度/root/接触量测，不因静态修正就采用或改旧框。C原件保留，D同字节复制，未改画。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-high-contact-guide-prompt1017.txt",
+    "sha256": "0625fa40ab7c331ce33ed12f4a484fbf6b6dd212173f704cd1a0f7f7e90e366b"
+  },
+  "referenceSources": {
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+    "head_target": "e7780b72e53a592a67df010747db4f965e288afb1ca5a735a5b3b9326cc79e8e",
+    "uppercut_target": "2bc13e5835b1a60da0077e44e0512862976f91a4337b448ae304d098d9ff70c5"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T05:41:44.473253+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/high-contact-guide-web1017.png",
+    "sha256": "9a67dd82a1330d71205ae810bdc311dccbe4ca49a660e41c6c53e5f2d4e628e0"
+  },
+  "referenceFiles": {
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    },
+    "head_target": {
+      "file": "D:/one-piece-fighter-crossover-0922/roster-0929/reference/gear5-contact-guide1017/head-target-samebytes1017.png",
+      "sha256": "e7780b72e53a592a67df010747db4f965e288afb1ca5a735a5b3b9326cc79e8e",
+      "kind": "reference-guide-not-runtime"
+    },
+    "uppercut_target": {
+      "file": "D:/one-piece-fighter-crossover-0922/roster-0929/reference/gear5-contact-guide1017/uppercut-target-samebytes1017.png",
+      "sha256": "2bc13e5835b1a60da0077e44e0512862976f91a4337b448ae304d098d9ff70c5",
+      "kind": "reference-guide-not-runtime"
+    }
+  },
+  "originalPngSize": [
+    2172,
+    724
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

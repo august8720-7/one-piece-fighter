@@ -1,0 +1,454 @@
+{
+  "sourceKey": "aokiji_standing_attacks_1003",
+  "sourceHash": "3ce46ab1696c8cbb0e15e0f6156ffee6a240855250e82f5a4549c18f6126f6d9",
+  "evidenceDir": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-standing1003",
+  "measurementFile": "docs/assets/aokiji-standing-measurements1003.json",
+  "scaleReference": {
+    "crop": [
+      106,
+      0,
+      284,
+      326
+    ],
+    "excludeRects": [
+      [
+        116,
+        321,
+        28,
+        5
+      ]
+    ],
+    "expectedHeight64": 311,
+    "basis": "One upright single-support kick preparation at source cell1, alpha64height311px against established neutral407px; all12standing poses share407/311 including high legs and lean; no per-pose fitting."
+  },
+  "frames": {
+    "st_b_start_1003": {
+      "crop": [
+        106,
+        0,
+        284,
+        326
+      ],
+      "root": [
+        161,
+        318
+      ],
+      "sockets": {},
+      "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+      "excludeRects": [
+        [
+          116,
+          321,
+          28,
+          5
+        ]
+      ]
+    },
+    "st_b_active_1003": {
+      "crop": [
+        467,
+        0,
+        361,
+        326
+      ],
+      "root": [
+        184,
+        318
+      ],
+      "sockets": {
+        "shoe_front": [
+          350,
+          71
+        ],
+        "ankle": [
+          326,
+          113
+        ]
+      },
+      "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration."
+    },
+    "st_b_recover_1003": {
+      "crop": [
+        877,
+        0,
+        298,
+        326
+      ],
+      "root": [
+        170,
+        318
+      ],
+      "sockets": {},
+      "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+      "excludeRects": [
+        [
+          177,
+          322,
+          26,
+          4
+        ]
+      ]
+    },
+    "st_c_start_1003": {
+      "crop": [
+        48,
+        314,
+        327,
+        321
+      ],
+      "root": [
+        172,
+        313
+      ],
+      "sockets": {},
+      "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+      "excludeRects": [
+        [
+          185,
+          0,
+          25,
+          4
+        ],
+        [
+          210,
+          0,
+          43,
+          5
+        ],
+        [
+          161,
+          314,
+          33,
+          7
+        ]
+      ]
+    },
+    "st_c_active_1003": {
+      "crop": [
+        444,
+        319,
+        454,
+        316
+      ],
+      "root": [
+        204,
+        308
+      ],
+      "sockets": {
+        "weapon_grip": [
+          291,
+          94
+        ],
+        "weapon_tip": [
+          444,
+          94
+        ]
+      },
+      "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+      "excludeRects": [
+        [
+          443,
+          223,
+          11,
+          33
+        ],
+        [
+          452,
+          182,
+          2,
+          8
+        ]
+      ]
+    },
+    "st_c_recover_1003": {
+      "crop": [
+        880,
+        315,
+        319,
+        320
+      ],
+      "root": [
+        177,
+        312
+      ],
+      "sockets": {},
+      "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+      "excludeRects": [
+        [
+          134,
+          0,
+          23,
+          3
+        ],
+        [
+          158,
+          0,
+          41,
+          4
+        ],
+        [
+          0,
+          94,
+          11,
+          10
+        ],
+        [
+          144,
+          311,
+          38,
+          9
+        ]
+      ]
+    },
+    "st_d_start_1003": {
+      "crop": [
+        72,
+        621,
+        315,
+        326
+      ],
+      "root": [
+        107,
+        318
+      ],
+      "sockets": {},
+      "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+      "excludeRects": [
+        [
+          21,
+          0,
+          39,
+          7
+        ],
+        [
+          254,
+          0,
+          30,
+          3
+        ],
+        [
+          115,
+          317,
+          58,
+          9
+        ],
+        [
+          173,
+          323,
+          8,
+          3
+        ]
+      ]
+    },
+    "st_d_active_1003": {
+      "crop": [
+        450,
+        629,
+        379,
+        319
+      ],
+      "root": [
+        121,
+        311
+      ],
+      "sockets": {
+        "shoe_front": [
+          369,
+          54
+        ],
+        "ankle": [
+          339,
+          72
+        ]
+      },
+      "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration."
+    },
+    "st_d_recover_1003": {
+      "crop": [
+        886,
+        619,
+        279,
+        329
+      ],
+      "root": [
+        112,
+        321
+      ],
+      "sockets": {},
+      "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+      "excludeRects": [
+        [
+          237,
+          0,
+          17,
+          2
+        ],
+        [
+          53,
+          0,
+          39,
+          9
+        ],
+        [
+          265,
+          0,
+          14,
+          3
+        ]
+      ]
+    },
+    "f_c_start_1003": {
+      "crop": [
+        84,
+        931,
+        311,
+        323
+      ],
+      "root": [
+        168,
+        319
+      ],
+      "sockets": {},
+      "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+      "excludeRects": [
+        [
+          75,
+          0,
+          38,
+          9
+        ]
+      ]
+    },
+    "f_c_active_1003": {
+      "crop": [
+        457,
+        958,
+        373,
+        296
+      ],
+      "root": [
+        181,
+        292
+      ],
+      "sockets": {
+        "weapon_grip": [
+          238,
+          153
+        ],
+        "weapon_tip": [
+          366,
+          229
+        ]
+      },
+      "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration."
+    },
+    "f_c_recover_1003": {
+      "crop": [
+        878,
+        945,
+        308,
+        309
+      ],
+      "root": [
+        164,
+        305
+      ],
+      "sockets": {},
+      "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration."
+    }
+  },
+  "anims": {
+    "st_b": {
+      "frames": [
+        "st_b_start_1003",
+        "st_b_active_1003",
+        "st_b_recover_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 7
+        },
+        {
+          "frame": 1,
+          "ticks": 4
+        },
+        {
+          "frame": 2,
+          "ticks": 12
+        }
+      ]
+    },
+    "st_c": {
+      "frames": [
+        "st_c_start_1003",
+        "st_c_active_1003",
+        "st_c_recover_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 11
+        },
+        {
+          "frame": 1,
+          "ticks": 4
+        },
+        {
+          "frame": 2,
+          "ticks": 19
+        }
+      ]
+    },
+    "st_d": {
+      "frames": [
+        "st_d_start_1003",
+        "st_d_active_1003",
+        "st_d_recover_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 13
+        },
+        {
+          "frame": 1,
+          "ticks": 5
+        },
+        {
+          "frame": 2,
+          "ticks": 22
+        }
+      ]
+    },
+    "f_c": {
+      "frames": [
+        "f_c_start_1003",
+        "f_c_active_1003",
+        "f_c_recover_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 17
+        },
+        {
+          "frame": 1,
+          "ticks": 4
+        },
+        {
+          "frame": 2,
+          "ticks": 23
+        }
+      ]
+    }
+  },
+  "knownDifferences": [
+    "Both generated B and D kicks are high; original low B box and lower D box do not follow visible shoes. Main agent owns new-role hitbox calibration; body registration does not claim contact acceptance.",
+    "C sword points horizontally at about77world from root; F_C downward tip about60,-20. Main agent should check edge/arc representation."
+  ]
+}

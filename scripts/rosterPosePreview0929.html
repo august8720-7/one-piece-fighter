@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>内部动作预览 · One Piece Fighter</title>
+  <style>
+    :root { color-scheme: dark; --ink:#f4efe4; --dim:#9faeb7; --edge:#334755; --gold:#f4c860; --blue:#73cbd6; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#0a131b; color:var(--ink); font:14px/1.5 Georgia,"Microsoft YaHei",sans-serif; border-top:4px solid var(--gold); }
+    button,select,input { font:inherit; }
+    button { color:var(--ink); background:#182936; border:1px solid var(--edge); border-radius:4px; padding:8px 12px; cursor:pointer; }
+    button:hover:not(:disabled),button:focus-visible { border-color:var(--gold); background:#263846; outline:none; }
+    button:disabled { opacity:.35; cursor:not-allowed; }
+    button[aria-pressed="true"] { color:var(--gold); border-color:var(--gold); background:#2d2b20; }
+    button.primary { background:var(--gold); color:#15202a; border-color:var(--gold); font-weight:700; }
+    .shell { max-width:min(1280px,calc((100vh - 310px) * 16 / 9 + 294px)); min-width:760px; margin:auto; padding:20px 24px 16px; }
+    header { display:flex; justify-content:space-between; gap:24px; align-items:center; margin-bottom:16px; }
+    .eyebrow { color:var(--gold); font:11px/1.2 Consolas,monospace; letter-spacing:.14em; }
+    h1 { font-size:25px; font-weight:500; margin:5px 0 0; letter-spacing:.02em; }
+    #character { color:var(--gold); }
+    .boundary { margin:0; border-left:3px solid var(--gold); padding:6px 12px; background:#23271f; font-size:13px; }
+    .boundary strong { display:block; color:#ffe09a; font-weight:500; }
+    .boundary span { color:#bfc5bb; font-size:11px; }
+    main { display:grid; grid-template-columns:minmax(0,1fr) 230px; gap:16px; align-items:stretch; }
+    .viewer { min-width:0; }
+    .stage { position:relative; border:1px solid var(--edge); background:#101d28; }
+    canvas { width:100%; aspect-ratio:16/9; display:block; outline:none; }
+    .stage-heading { position:absolute; top:12px; left:14px; right:14px; display:flex; justify-content:space-between; pointer-events:none; font:11px Consolas,"Microsoft YaHei",monospace; color:#bacad3; }
+    .stage-heading b { color:var(--blue); font-weight:normal; }
+    .transport { display:flex; flex-wrap:wrap; gap:7px; align-items:center; margin:10px 0 8px; }
+    .transport button { padding:6px 10px; font-size:12px; }
+    .transport .split { margin-left:auto; }
+    label { color:var(--dim); font-size:12px; cursor:pointer; }
+    #seek { display:block; width:100%; margin:4px 0 0; accent-color:var(--gold); }
+    .readout { display:flex; justify-content:space-between; gap:12px; margin-top:5px; color:var(--dim); font:11px Consolas,"Microsoft YaHei",monospace; }
+    aside { display:flex; flex-direction:column; border:1px solid var(--edge); min-height:0; max-height:590px; background:#101c26; }
+    aside h2 { font-size:13px; margin:0; font-weight:500; padding:13px 14px 9px; border-bottom:1px solid var(--edge); }
+    #animation-count { float:right; color:var(--gold); font-family:Consolas,monospace; }
+    #animations { flex:1; min-height:100px; overflow:auto; padding:7px; scrollbar-color:#4b6573 transparent; }
+    #animations button { display:block; text-align:left; width:100%; margin-bottom:5px; padding:8px 9px; }
+    #animations button small { display:block; color:var(--dim); margin-top:2px; font:10px Consolas,"Microsoft YaHei",monospace; }
+    .aside-note { margin:0; padding:10px 13px; border-top:1px solid var(--edge); color:var(--dim); font-size:11px; }
+    footer { display:flex; justify-content:space-between; gap:18px; color:var(--dim); margin-top:14px; font-size:11px; }
+    footer p { margin:0; }
+    kbd { color:var(--ink); padding:1px 4px; border:1px solid var(--edge); border-radius:2px; font:11px Consolas,monospace; }
+    #notice { min-height:21px; margin:9px 0 0; color:var(--blue); font-size:12px; }
+    #error { color:#ffb2a7; background:#351e22; border:1px solid #8c4649; padding:14px; white-space:pre-wrap; margin:0 0 16px; }
+    [hidden] { display:none!important; }
+    @media(max-width:850px) { .shell{padding:14px;} header{align-items:flex-start;gap:12px;} h1{font-size:21px;} main{grid-template-columns:minmax(0,1fr) 190px;gap:10px;} .boundary{max-width:280px;} aside{max-height:520px;} footer{display:block;} }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div><div class="eyebrow">ONE PIECE FIGHTER / ART REVIEW</div><h1><span id="character">加载中</span> · 动作检查</h1></div>
+      <p class="boundary"><strong>内部动作预览 · 不含战斗判定 / 声音</strong><span>用于正常速度看动作；完整游戏仍须在真实对局中验收。</span></p>
+    </header>
+    <p id="error" role="alert" hidden></p>
+    <main>
+      <section class="viewer" aria-label="真实图集动画预览">
+        <div class="stage">
+          <canvas id="stage" width="1280" height="720" tabindex="0" aria-label="动作预览画布；左右移动，A出拳，H受击，F镜像"></canvas>
+          <div class="stage-heading"><span><b>1× 正常速度</b> · 60 Hz</span><span>480 × 270 · 固定角色标尺</span></div>
+        </div>
+        <div class="transport" id="transport">
+          <button id="pause" class="primary" disabled>暂停 · 空格</button>
+          <button id="step" disabled>单步 · .</button>
+          <button id="replay" disabled>重播</button>
+          <button id="face" disabled>朝右 → · F</button>
+          <label class="split"><input id="root-marker" type="checkbox" checked> 根点标尺</label>
+        </div>
+        <div class="transport">
+          <button id="left" disabled>← 移动</button><button id="right" disabled>移动 →</button>
+          <button id="punch" disabled>出拳 · A</button><button id="hit" disabled>受击 · H</button>
+          <button id="center" class="split" disabled>回到中央</button>
+        </div>
+        <input id="seek" type="range" min="0" max="1" value="0" aria-label="当前动作逻辑帧" disabled>
+        <div class="readout"><span id="frame-info">等待真实图集</span><span id="root-info">根点 —</span></div>
+        <p id="notice" role="status">正在校验并读取本角色实际图集。</p>
+      </section>
+      <aside>
+        <h2>已构建动作 <span id="animation-count">—</span></h2>
+        <div id="animations" aria-label="实际动画列表"></div>
+        <p class="aside-note">只列 runtime 中的真实动画。非循环动作停在末帧；缺少的快捷动作不可用。</p>
+      </aside>
+    </main>
+    <footer>
+      <p><kbd>←</kbd> <kbd>→</kbd> 按朝向播放前进 / 后退；<kbd>F</kbd> 镜像。预览位移只方便看动作，不代表游戏移动数值。</p>
+      <p id="build-info">当前图集 —</p>
+    </footer>
+  </div>
+  <script type="module">
+    const config = __ROSTER_PREVIEW_CONFIG__;
+    const $ = id => document.getElementById(id);
+    const canvas = $('stage'), ctx = canvas.getContext('2d');
+    const characterNames = { luffy:'路飞',akainu:'赤犬',labubu:'LABUBU',twinkle:'星星人',aokiji:'青雉',kizaru:'黄猿',fujitora:'藤虎',ryokugyu:'绿牛',garp:'卡普',sengoku:'战国',shanks:'香克斯',zoro:'索隆',sanji:'山治',whitebeard:'白胡子',bigmom:'大妈',kaido:'凯多' };
+    const labels = { idle:'待机',walk_fwd:'前进',walk_back:'后退',st_a:'轻拳',st_b:'轻脚',st_c:'重拳',st_d:'重脚',hit_stand:'站立受击',hit_stand_high:'站立受击',hit_stand_low:'下段受击',crouch:'下蹲',jump_neutral:'垂直跳跃',jump_fwd:'前跳',jump_back:'后跳',knockdown:'倒地',getup:'起身',win:'胜利',ko:'败北' };
+    const held = { left:false,right:false };
+    const state = { anim:'',tick:0,x:240,facing:1,paused:false,role:'manual',ready:false };
+    let runtime, pages, density, hitAnimation='', previous=0, accumulator=0;
+    const totals = new Map(), buttons = new Map();
+    const tickMs = 1000 / 60;
+    const assetUrl = name => `/assets/${encodeURIComponent(name)}`;
+    const duration = () => totals.get(state.anim);
+    const exists = name => Object.hasOwn(runtime.anims,name);
+    const say = text => { if ($('notice').textContent !== text) $('notice').textContent=text; };
+    $('character').textContent = `${characterNames[config.character] ?? config.character} / ${config.character}`;
+    document.title = `${characterNames[config.character] ?? config.character} · 内部动作预览`;
+    async function json(url) { const response=await fetch(url,{cache:'no-store'}); if(!response.ok)throw new Error(await response.text()); return response.json(); }
+    function fail(error) { state.ready=false;state.paused=true;held.left=held.right=false;$('error').hidden=false;$('error').textContent=`预览停止：${error.message}\n请完成或重新核对当前角色的真实图集，再重启此服务。`;
+      for(const button of document.querySelectorAll('button'))button.disabled=true;$('seek').disabled=true;say('未使用缺失帧替代图。'); }
+    function choose(name,role='manual') {
+      if(!exists(name)){say(`${name} 未构建，不能播放。`);return false;}
+      state.anim=name;state.tick=0;state.role=role;
+      for(const [id,button] of buttons)button.setAttribute('aria-pressed',String(id===name));
+      $('seek').max=duration()-1;return true;
+    }
+    function paused(value) { state.paused=value;accumulator=0;previous=performance.now();$('pause').textContent=value?'播放 · 空格':'暂停 · 空格';$('pause').setAttribute('aria-pressed',String(value)); }
+    function movement() { return Number(held.right)-Number(held.left); }
+    function rest() {
+      if(exists('idle'))choose('idle','rest');
+      else { state.role='manual';state.tick=duration()-1;say('待机未构建，保留当前真实末帧。'); }
+    }
+    function advance() {
+      const direction=movement();
+      let started=false;
+      if(state.role!=='action') {
+        if(direction) {
+          const name=direction===state.facing?'walk_fwd':'walk_back';
+          if(exists(name)) {
+            if(state.role!=='move'||state.anim!==name)started=choose(name,'move');
+            state.x=Math.max(32,Math.min(448,state.x+direction*1.2));
+          } else { say(`${name} 未构建；该方向预览移动已禁用。`);return; }
+        } else if(state.role==='move'){rest();started=true;}
+      }
+      if(started)return;
+      const anim=runtime.anims[state.anim];
+      if(state.tick+1<duration())state.tick++;
+      else if(state.role==='action')rest();
+      else if(anim.loop)state.tick=0;
+    }
+    function action(name) { if(!state.ready||!exists(name))return;choose(name,'action');accumulator=0;previous=performance.now();say(`播放真实 ${name}；这里只检查画面。`);draw(); }
+    function walkButtons() { $('left').disabled=!exists(state.facing===-1?'walk_fwd':'walk_back');$('right').disabled=!exists(state.facing===1?'walk_fwd':'walk_back'); }
+    function mirror() { state.facing*=-1;$('face').textContent=state.facing===1?'朝右 → · F':'← 朝左 · F';walkButtons(); }
+    function frameIndex(animation,tick) { for(const exposure of animation.exposures){if(tick<exposure.ticks)return exposure.frame;tick-=exposure.ticks;}return animation.exposures.at(-1).frame; }
+    function drawPart(name) {
+      const page=pages.get(runtime.schemaVersion===2?runtime.framePages[name]:'p0');
+      const box=page.atlas.frames[name].frame, geometry=runtime.attachments[name], unit=1/(2*density);
+      ctx.save();ctx.translate(state.x,230);ctx.scale(state.facing,1);
+      ctx.drawImage(page.image,box.x,box.y,box.w,box.h,-geometry.root.x*unit,-geometry.root.y*unit,box.w*unit,box.h*unit);ctx.restore();
+    }
+    function draw() {
+      const width=canvas.clientWidth,height=width*9/16,dpr=Math.min(window.devicePixelRatio||1,2);
+      if(canvas.width!==Math.round(width*dpr)||canvas.height!==Math.round(height*dpr)){canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);}
+      ctx.setTransform(canvas.width/480,0,0,canvas.height/270,0,0);ctx.imageSmoothingEnabled=true;
+      const sky=ctx.createLinearGradient(0,0,0,270);sky.addColorStop(0,'#101c27');sky.addColorStop(1,'#203341');ctx.fillStyle=sky;ctx.fillRect(0,0,480,270);
+      ctx.fillStyle='#14232d';ctx.fillRect(0,230,480,40);ctx.strokeStyle='#486573';ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(0,230);ctx.lineTo(480,230);ctx.stroke();
+      if($('root-marker').checked){ctx.font='5px Consolas,monospace';ctx.fillStyle='#7d929e';for(let x=40;x<480;x+=40){ctx.beginPath();ctx.moveTo(x,230);ctx.lineTo(x,234);ctx.stroke();ctx.fillText(String(x),x-4,242);}}
+      if(!state.ready)return;
+      const anim=runtime.anims[state.anim],index=frameIndex(anim,state.tick),name=`${config.character}/${state.anim}/${index}`;
+      drawPart(name);const foreground=runtime.foregroundFrames?.[name];if(foreground)drawPart(foreground);
+      if($('root-marker').checked){ctx.strokeStyle='#f4c860';ctx.lineWidth=.65;ctx.beginPath();ctx.moveTo(state.x-4,230);ctx.lineTo(state.x+4,230);ctx.moveTo(state.x,226);ctx.lineTo(state.x,234);ctx.stroke();}
+      $('seek').value=state.tick;$('frame-info').textContent=`${state.anim} · 原画索引 ${index}/${anim.frames-1} · 逻辑帧 ${state.tick+1}/${duration()}`;
+      $('root-info').textContent=`根点 ${state.x.toFixed(1)},230 · ${state.facing===1?'朝右':'朝左'}${state.paused?' · 已暂停':''}`;
+    }
+    function loop(now) {
+      if(!previous)previous=now;
+      if(state.ready&&!state.paused){accumulator+=Math.min(100,now-previous);while(accumulator>=tickMs){advance();accumulator-=tickMs;}}
+      previous=now;try{draw();}catch(error){fail(error);}requestAnimationFrame(loop);
+    }
+    function bindHold(id,side) { const button=$(id);button.addEventListener('pointerdown',event=>{if(button.disabled)return;event.preventDefault();held[side]=true;button.setPointerCapture(event.pointerId);});for(const event of ['pointerup','pointercancel','lostpointercapture'])button.addEventListener(event,()=>held[side]=false); }
+    bindHold('left','left');bindHold('right','right');
+    $('pause').onclick=()=>paused(!state.paused);$('step').onclick=()=>{paused(true);advance();draw();};
+    $('replay').onclick=()=>{state.tick=0;accumulator=0;previous=performance.now();draw();};$('face').onclick=()=>{mirror();draw();};
+    $('punch').onclick=()=>action('st_a');$('hit').onclick=()=>action(hitAnimation);
+    $('center').onclick=()=>{state.x=240;draw();};$('seek').oninput=()=>{paused(true);state.tick=Number($('seek').value);draw();};
+    document.addEventListener('keydown',event=>{
+      if(!state.ready||event.target.matches('input,select,textarea'))return;
+      const used=['ArrowLeft','ArrowRight','KeyA','KeyH','KeyF','Space','Period'];if(!used.includes(event.code))return;event.preventDefault();
+      if(event.code==='ArrowLeft')held.left=true;else if(event.code==='ArrowRight')held.right=true;
+      else if(!event.repeat){if(event.code==='KeyA')action('st_a');if(event.code==='KeyH')action(hitAnimation);if(event.code==='KeyF')mirror();if(event.code==='Space')paused(!state.paused);if(event.code==='Period'){paused(true);advance();draw();}}
+    });
+    document.addEventListener('keyup',event=>{if(event.code==='ArrowLeft')held.left=false;if(event.code==='ArrowRight')held.right=false;});
+    window.addEventListener('blur',()=>{held.left=held.right=false;if(state.ready){paused(true);say('窗口失焦，预览已暂停。');}});
+    document.addEventListener('visibilitychange',()=>{if(document.hidden){held.left=held.right=false;if(state.ready)paused(true);}});
+    async function boot() {
+      runtime=await json(config.runtimeUrl);density=runtime.textureDensity??1;
+      const entries=runtime.schemaVersion===2?runtime.pages:[{id:'p0',...runtime.atlas}];
+      pages=new Map(await Promise.all(entries.map(async page=>{
+        const atlas=await json(assetUrl(page.data)),image=new Image();image.src=assetUrl(page.image);await image.decode();
+        if(image.naturalWidth!==atlas.meta.size.w||image.naturalHeight!==atlas.meta.size.h)throw new Error(`${page.image} 实际解码尺寸不匹配`);
+        return [page.id,{atlas,image}];
+      })));
+      for(const [name,animation] of Object.entries(runtime.anims)){
+        const total=animation.exposures.reduce((sum,item)=>sum+item.ticks,0);totals.set(name,total);
+        const button=document.createElement('button');button.type='button';button.textContent=labels[name]??name;button.setAttribute('aria-pressed','false');
+        const detail=document.createElement('small');detail.textContent=`${name} · ${animation.frames}帧 / ${total}逻辑帧${animation.loop?' · 循环':''}`;button.append(detail);
+        button.onclick=()=>{held.left=held.right=false;choose(name);say(`读取 ${name} 的原始曝光时序，正常速度 1×。`);canvas.focus();draw();};$('animations').append(button);buttons.set(name,button);
+      }
+      $('animation-count').textContent=buttons.size;$('build-info').textContent=`${config.pageCount} 页 · 密度 ${density}× · ${config.reportHash.slice(0,12)}`;
+      for(const id of ['pause','step','replay','face','center','seek'])$(id).disabled=false;
+      hitAnimation=exists('hit_stand')?'hit_stand':exists('hit_stand_high')?'hit_stand_high':'';
+      $('punch').disabled=!exists('st_a');$('hit').disabled=!hitAnimation;walkButtons();
+      if(!exists('st_a'))$('punch').textContent='出拳未构建';if(!hitAnimation)$('hit').textContent='站立受击未构建';
+      choose(exists('idle')?'idle':Object.keys(runtime.anims)[0],exists('idle')?'rest':'manual');
+      state.ready=true;previous=performance.now();say('实际图集已就绪。请选择动作或按快捷键检查；没有战斗判定与声音。');canvas.focus();draw();
+    }
+    requestAnimationFrame(loop);boot().catch(fail);
+  </script>
+</body>
+</html>

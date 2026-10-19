@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_blow_throws_1003",
+  "file": "public/assets/generated/source/roster-aokiji-blow-throws-1003.png",
+  "sha256": "a3ebd0fbd0f7ca0541dd92932a899c13d39cfbb508fcc31f4a866edaf7f5fca3",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "实际Edge官方图像入口标题ChatGPT，文字最新选中/极高实核，具体图像型号仍未披露，不冒写2.5。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Microsoft Edge",
+  "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+  "observedCompletedAt": "2026-10-03T20:11:03.5422342+08:00",
+  "uiObservation": "本助手独占青雉Edge会话，已实核最新选中与极高第四项后fill完整吹飞抓投十二格提示，单次Control+Enter提交，输入清空且ChatGPT正在回应；随后页面出现思考中暂态未当成完成，最终真实有新生成图和回答已完成，打开最新查看器标题库赞冰系招式动作精灵图集，站肩/空肩/前后投四行可见。完成观察取截图保存时，不是服务器首次生成。只点下载一次，crdownload原件PNG签名/IEND/Pillowverify与全RGBAdecode完整、1254x1254，白底人物手脚轮廓完整；后投释放远臂被披风遮挡实际表现留为待实机项，未虚构接触。先清单复制并SHA一致，原件保留，不称浏览器UI下载终结。",
+  "prompt": {
+    "file": "docs/assets/aokiji-blow-throws-prompt1003.txt",
+    "sha256": "dc5b0b89c0114685ae017dd7f095c7d0842b659bb206feda5b321502929f3a56"
+  },
+  "referenceSources": {
+    "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T12:19:21.132841+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-blowthrows1003/completion-viewer1003.png",
+    "sha256": "0b1228e14fb5b828adcb48931572d42a706938aeb259600fa4aa91dc67f77e2e"
+  },
+  "referenceFiles": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

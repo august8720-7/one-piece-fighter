@@ -73,7 +73,7 @@ export class TitleScene extends Phaser.Scene {
       .setDepth(3)
       .setStroke('#2a1c12', ui(8));
     this.add
-      .text(SCREEN_W / 2, ui(250), `四人联动 · ${Object.values(characters).reduce((sum, def) => sum + (def.skillSlots?.length ?? 0), 0)}项一键技能`, { fontFamily: UI.font, fontSize: font(18), color: UI.text })
+      .text(SCREEN_W / 2, ui(250), `${rosterIds.length}人联动 · ${Object.values(characters).reduce((sum, def) => sum + (def.skillSlots?.length ?? 0), 0)}项一键技能`, { fontFamily: UI.font, fontSize: font(18), color: UI.text })
       .setOrigin(0.5)
       .setDepth(3);
     this.prompt = this.add
@@ -81,7 +81,7 @@ export class TitleScene extends Phaser.Scene {
       .setOrigin(0.5)
       .setDepth(3);
     this.add
-      .text(SCREEN_W / 2, SCREEN_H - ui(28), '四角色联动 · 桌面版', {
+      .text(SCREEN_W / 2, SCREEN_H - ui(28), `${rosterIds.length}角色联动 · 桌面版`, {
         fontFamily: UI.font,
         fontSize: font(13),
         color: UI.dim,

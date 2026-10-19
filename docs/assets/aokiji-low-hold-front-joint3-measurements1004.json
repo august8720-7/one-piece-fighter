@@ -1,0 +1,25 @@
+{
+  "sourceKey": "aokiji_low_hold_front_joint3_1004",
+  "sourceHash": "5cc59be048e6d2cb4a5341f7c348638b848b06fd74f33fa722708495bfe48462",
+  "reviewDir": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/fresh-front-joint3-review1004",
+  "holdOffset": 30,
+  "scaleReference": {"crop": [0,0,887,887], "excludeRects": [], "expectedHeight64": 822, "referenceOnly": true, "headAndBothSolesComplete": true},
+  "holding": {
+    "throw_fwd": {
+      "crop": [887,0,887,887],
+      "excludeRects": [],
+      "root": [466,815],
+      "sockets": {"grip": [644,701], "near_palm": [594,714], "far_palm": [666,677], "sole_back": [399,809], "sole_front": [532,805]},
+      "rootBasis": "Actual whole rear/front shoe support centres399/532, rounded midpoint466; rear alpha16 shoe floor815, front811. Whole-page standing822 sets100world. grip marks opaque grey-blue enclosed area644/701, near_palm separately marks actual skin contact point594/714. Manual points+/-3px. C-space centre is diagnostic only and not an automatic physical-contact threshold. No root pulled to target, no source-pose scale/translation/rotation."
+    }
+  },
+  "manualLandmarkTolerancePx": 3,
+  "observedGripRGBA": [74,76,93,254],
+  "observedInnerGripAlphaBox": {"crop": [633,694,18,18], "alphaMinMax": [253,254], "zeroPixels": 0, "below64Pixels": 0, "totalPixels": 324},
+  "openingIsTransparent": false,
+  "greyRegionSemantic": "unknown; visually similar to cape lining, requires an occlusion/layering check rather than asserting source background",
+  "localGenerativeAttemptsUsed": 3,
+  "furtherSameRouteGenerationStopped": true,
+  "status": "not-adopted-opaque-grip-region; awaiting-independent-art-or-read-only-layer-contact-assessment",
+  "runtimeOrAuthoringOrDataChanged": false
+}

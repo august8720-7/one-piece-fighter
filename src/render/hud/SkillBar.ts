@@ -7,6 +7,7 @@ import { UI } from '../ui/MenuList';
 export const SKILL_REASON: Record<string, string> = {
   ready: '可用', meter: '气不足', air: '空地条件不符', recovery: '硬直中',
   cancel: '尚不可取消', phase: '等待开战', missing: '技能未配置',
+  form: '当前形态不可用', fatigue: '五档疲劳中',
 };
 
 function setTextIfChanged(target: Phaser.GameObjects.Text | null, value: string): void {
@@ -47,10 +48,10 @@ export class SkillBar {
   draw(sim: FightSim, keys: KeyConfig): void {
     for (const player of [0, 1] as const) {
       if (this.modes[player] !== 'simple') continue;
-      const def = sim.state.fighters[player].def;
+      const moves = sim.effectiveMoves(sim.state.fighters[player]);
       this.cells[player].forEach((cell, slot) => {
         const state = sim.skillAvailability(player, slot);
-        const move = def.moves.find(item => item.id === state.moveId);
+        const move = moves.find(item => item.id === state.moveId);
         const key = keys[player === 0 ? 'p1' : 'p2'][`Skill${slot + 1}` as Action];
         const cost = (move?.meterCost ?? 0) / METER_STOCK;
         const text = `${keyLabel(key ?? '')} ${move?.name ?? '未配置'}`;

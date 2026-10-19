@@ -20,6 +20,8 @@ export class Cpu {
   private hold: { bits: number; frames: number; block?: boolean } | null = null;
   /** 下一次中立决策的逻辑帧；动作和硬直期间经过的时间同样计入反应间隔。 */
   private nextDecisionAt = 0;
+  /** A safe awakening opportunity must remain observed for the same reaction delay. */
+  private awakeningOpportunityAt: number | null = null;
   /** 同一招连续再出也要作为新动作观察。 */
   private lastOppInstance: number | null = null;
   private observedAttackAt = 0;
@@ -54,11 +56,15 @@ export class Cpu {
       this.pendingBlock = null;
       this.lastOppInstance = null;
       this.nextDecisionAt = 0;
+      this.awakeningOpportunityAt = null;
       return 0;
     }
     const me = w.fighters[this.player];
     const opp = w.fighters[this.player === 0 ? 1 : 0];
     if (me.state !== 'attack') this.comboConsideredInstance = -1;
+    const safeAwakening = this.canAwakenSafely(sim, me, opp);
+    if (!safeAwakening) this.awakeningOpportunityAt = null;
+    else if (this.awakeningOpportunityAt === null) this.awakeningOpportunityAt = this.frame;
 
     if (me.state === 'thrown') {
       if (!this.techArmed) {
@@ -127,6 +133,10 @@ export class Cpu {
     if (this.frame < this.nextDecisionAt) return 0;
     this.nextDecisionAt = this.frame + this.params.reaction;
 
+    if (safeAwakening && this.awakeningOpportunityAt !== null && this.frame - this.awakeningOpportunityAt >= this.params.reaction) {
+      this.awakeningOpportunityAt = null;
+      return Btn.Awakening;
+    }
     const action = this.decide(sim, me, opp);
     if (action) this.enqueue(action, me, opp);
     return this.dequeue();
@@ -146,11 +156,12 @@ export class Cpu {
     this.followupChecks++;
     if (!this.roll(this.params.comboWill)) return null;
     const myMove = sim.move(me);
+    if (myMove?.id === 'g5_elastic_rush' && !me.formExitPending) return { kind: 'special', motion: '214', button: 'P' };
     if (this.profile.confirmCombo && myMove?.id === this.profile.confirmCombo.from) {
       return this.profile.confirmCombo.action;
     }
     const group = this.profile.followups.find((f) => f.from.includes('*') || (myMove && f.from.includes(myMove.id)));
-    return group ? this.pick(group.options, me) : null;
+    return group ? this.pick(group.options, me, undefined, sim) : null;
   }
 
   private decide(sim: FightSim, me: FighterState, opp: FighterState): AiAction | null {
@@ -159,10 +170,10 @@ export class Cpu {
     if (opp.state === 'attack' && oppMove && !inStartupOrActive(oppMove, opp.stateFrame)
       && this.frame - this.observedAttackAt >= this.params.reaction && this.roll(this.params.comboWill)) {
       // 确反按实际招式可达性筛选，不用近身分区截断长手的合法反击距离。
-      const a = this.pick(this.profile.punish ?? this.profile.close, me, opp);
+      const a = this.pick(this.profile.punish ?? this.profile.close, me, opp, sim);
       if (a) return a;
     }
-    if (opp.state === 'attack' && oppMove && this.profile.armorBreak && sim.hasArmor(opp) && dist < this.profile.midRange && actionCanReach(this.profile.armorBreak, me, opp) && this.roll(this.params.motionSuccess)) {
+    if (opp.state === 'attack' && oppMove && this.profile.armorBreak && sim.hasArmor(opp) && dist < this.profile.midRange && actionCanReach(this.profile.armorBreak, me, opp, sim.effectiveMoves(me)) && this.roll(this.params.motionSuccess)) {
       return this.profile.armorBreak;
     }
     if (opp.state === 'attack' && this.frame - this.observedAttackAt >= this.params.reaction && this.isThreat(sim, opp) && this.pendingBlock === null && this.roll(this.params.blockChance)) {
@@ -172,17 +183,17 @@ export class Cpu {
 
     const incoming = sim.state.projectiles.find((p) => p.owner !== this.player && Math.sign(p.vx) === Math.sign(me.x - p.x) && Math.abs(p.x - me.x) / SUBPIXEL < 220);
     if (incoming) {
-      const a = this.pick(this.profile.projectileAnswer, me, opp);
+      const a = this.pick(this.profile.projectileAnswer, me, opp, sim);
       if (a) return a;
     }
 
     if (opp.airborne && dist < 120 && opp.y < -20 * SUBPIXEL) {
-      const a = this.pick(this.profile.antiAir, me, opp);
+      const a = this.pick(this.profile.antiAir, me, opp, sim);
       if (a) return a;
     }
 
     if (opp.state === 'knockdown' || opp.state === 'getup') {
-      const a = this.pick(this.profile.okizeme, me, opp);
+      const a = this.pick(this.profile.okizeme, me, opp, sim);
       if (a) return a;
     }
 
@@ -190,7 +201,23 @@ export class Cpu {
       return this.roll(50) ? { kind: 'wait', frames: 6 } : { kind: 'walk', dir: dist < this.profile.closeRange ? -1 : 1, frames: 8 };
     }
     const zone = dist < this.profile.closeRange ? this.profile.close : dist < this.profile.midRange ? this.profile.mid : this.profile.far;
-    return this.pick(zone, me, opp) ?? { kind: 'walk', dir: 1, frames: 8 };
+    return this.pick(zone, me, opp, sim) ?? { kind: 'walk', dir: 1, frames: 8 };
+  }
+
+  private canAwakenSafely(sim: FightSim, me: FighterState, opp: FighterState): boolean {
+    if (sim.awakeningAvailability(this.player) !== 'ready') return false;
+    const dist = Math.abs(me.x - opp.x) / SUBPIXEL;
+    // React to visible current danger only; never inspect the player's next input.
+    if (sim.state.projectiles.some(projectile => projectile.owner !== this.player
+      && Math.sign(projectile.vx) === Math.sign(me.x - projectile.x)
+      && Math.abs(projectile.x - me.x) < 320 * SUBPIXEL)) return false;
+    if (opp.airborne) return false;
+    const move = sim.move(opp);
+    if (opp.state === 'attack') {
+      const remaining = move ? move.frames.reduce((total, frame) => total + frame.duration, 0) - opp.stateFrame : 0;
+      return !!move && !inStartupOrActive(move, opp.stateFrame) && remaining >= 36 && dist >= 120;
+    }
+    return dist >= 220 && !['throw', 'thrown'].includes(opp.state);
   }
 
   private isThreat(sim: FightSim, opp: FightSim['state']['fighters'][number]): boolean {
@@ -305,11 +332,14 @@ export class Cpu {
     return this.rng.nextInt(100) < percent;
   }
 
-  private pick(options: AiOption[], me: FighterState, opp?: FighterState): AiAction | null {
+  private pick(options: AiOption[], me: FighterState, opp?: FighterState, sim?: FightSim): AiAction | null {
     const ok = options.filter((o) => {
-      if (opp && !actionCanReach(o.action, me, opp)) return false;
+      if (opp && !actionCanReach(o.action, me, opp, sim?.effectiveMoves(me))) return false;
       if (o.action.kind !== 'special') return true;
       if ((o.action.minMeter ?? 0) > me.meter) return false;
+      const action = o.action;
+      const candidates = (sim?.effectiveMoves(me) ?? me.def.moves).filter(move => move.input.motion === action.motion && (move.input.button & (action.button === 'P' ? P : K)) !== 0);
+      if (sim && (me.form === 'gear5' || me.fatigueSource === 'gear5' && me.fatigueFrames > 0) && !candidates.some(move => (move.meterCost ?? 0) <= me.meter && !(move.install && (me.form === 'gear5' || me.fatigueSource === 'gear5' && me.fatigueFrames > 0)))) return false;
       const last = this.lastUsed.get(`${o.action.motion}${o.action.button}`);
       return last === undefined || this.frame - last >= (o.action.cooldown ?? 0);
     });

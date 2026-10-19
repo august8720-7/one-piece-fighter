@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-13",
+  "characterId": "kizaru",
+  "sourceSha256": "bd586e5774462eca5476d6a9f2422e21d0c04a6ddf15900e94545f690502ba0a",
+  "supersedesAssessmentOnly": "docs/assets/kizaru-opposite-contact-review1013.json",
+  "reason": "Root requested that leg identity be judged by hip-knee-ankle occlusion and actual support/swing timing, not pants brightness alone. Prior static wording was too conclusive without motion review.",
+  "currentStatus": "opposite-leg-identity-not-confirmed-static-suspect-not-adopted",
+  "retainedFacts": [
+    "1774x887 true RGBA original decodes; both full bodies and scale are suitable.",
+    "Near arm visibly swings forward.",
+    "No new frame has been adopted and no runtime/root mapping has been changed."
+  ],
+  "uncertainty": "Static thigh overlap raises doubt that the lead-leg identity changed, but color alone is insufficient. Actual sliding or an inability to alternate two feet has not been demonstrated in a normal-speed game.",
+  "diagnostic": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/kizaru/kizaru-walk-diagnostic1013.json",
+  "diagnosticReplay": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/kizaru/kizaru-original-walk-10fps-diagnostic1013.gif",
+  "rules": [
+    "Four existing real original crops, original authored roots, current 10 fps and 2.2 world pixels per tick only.",
+    "No invented in-betweens, mirroring, rotation or root changes.",
+    "New candidate shown as separate static reference because no accepted root exists; do not invent a compensating root to make the loop look continuous.",
+    "The replay is offline preparation, not a claim of browser or artwork acceptance."
+  ],
+  "next": "One bounded correction with explicit existing pose guide, followed by joint tracing and normal-speed support-foot review. No repeated color-only rejection rule."
+}

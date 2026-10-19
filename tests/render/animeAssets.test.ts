@@ -12,7 +12,7 @@ vi.mock('../../src/render/anime/uiArtManifest.json', () => ({ default: { schemaV
   image: `assets/characters/${id}/anime/ui-0913.png`, sha256: '91086ccb573b998c1b20821323e09709e71cfd78b5166b33453be5ffb73e678e', width: 512, height: 512,
   frames: { body: { x: 0, y: 0, w: 512, h: 512 }, portrait: { x: 100, y: 0, w: 120, h: 120 } },
 }])) } }));
-import { ANIME_CHARACTERS, ANIME_ERRORS, ANIME_INTERFACES, areAnimeInterfacesReady, interfaceFrame, loadAnimeCharacters, loadAnimeInterfaces, type AnimeCharacterAssets } from '../../src/render/assets';
+import { ANIME_CHARACTERS, ANIME_ERRORS, ANIME_INTERFACES, animeBundleReadUrl, areAnimeInterfacesReady, interfaceFrame, loadAnimeCharacters, loadAnimeInterfaces, type AnimeCharacterAssets } from '../../src/render/assets';
 import { ASSET_DOWNLOAD_TIMEOUT, ASSET_DOWNLOAD_ATTEMPTS } from '../../src/render/assetDownloads';
 import { adoptPresentation } from '../../src/render/presentation';
 
@@ -81,6 +81,26 @@ beforeEach(() => {
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
 describe('candidate asset reloads', () => {
+  it('uses one canonical namespace for an explicit DEV full preview instead of stale delivery base metadata', async () => {
+    const state = fakeScene();
+    vi.stubGlobal('window', { location: { search: '?rosterPreview=0929' } });
+    const baseFetch = vi.mocked(fetch).getMockImplementation()!;
+    const requested: string[] = [];
+    delivery.records['assets/characters/luffy/anime/runtime.json'] = {}; // Old delivery fast path must not win.
+    vi.mocked(fetch).mockImplementation(async (url, init) => {
+      requested.push(String(url));
+      return baseFetch(String(url).split('?')[0]!, init);
+    });
+    expect((await loadAnimeCharacters(state.scene, ['luffy'], undefined, true)).ok).toBe(true);
+    expect(requested).toContain('assets/characters/luffy/anime/runtime.json?opfCanonical=1017');
+    expect(requested).toContain('assets/characters/luffy/anime/atlas.json?opfCanonical=1017');
+    expect(requested).toContain('assets/characters/luffy/anime/atlas.png?opfCanonical=1017');
+    expect(requested).toContain('assets/characters/luffy/anime/ui-0913.png?opfCanonical=1017');
+    expect(requested.some(url => url.startsWith('assets/delivery/'))).toBe(false);
+    vi.stubEnv('DEV', false);
+    try { expect(animeBundleReadUrl('assets/characters/luffy/anime/runtime.json', true)).toBe('assets/characters/luffy/anime/runtime.json'); }
+    finally { vi.unstubAllEnvs(); }
+  });
   it('only declares a menu ready for its validated source version and both UI frames', async () => {
     const state = fakeScene();
     expect(areAnimeInterfacesReady(state.scene, ['luffy'])).toBe(false);

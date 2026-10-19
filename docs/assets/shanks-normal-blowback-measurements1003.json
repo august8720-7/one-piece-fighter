@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_normal_blowback_1003",
+  "sourceSha256": "da82c6a8d6232e0206578b9da93da38fac541583b62dc666729135dcf5d44339",
+  "status": "ground-air-blowback-bodies-before-contact-review",
+  "neutralVisibleAlpha8Bounds": [50, 14, 418, 407],
+  "neutralVisibleHeight": 393,
+  "referenceNeutralHeight": 380,
+  "unitScale": 0.9669211195928753,
+  "scaleBasis": "One neutral visible alpha>=8 height393px; every adopted drawing uses380/393 against original380px, no per-pose fitting. Air roots retain the neutral fully extended virtual foot baseline.",
+  "frames": {
+    "cd_start_1003": {"source": "shanks_normal_blowback_1003", "crop": [579, 41, 449, 371], "root": [245, 359], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "cd_active_1003": {"source": "shanks_normal_blowback_1003", "crop": [36, 419, 664, 348], "root": [250, 337], "sockets": {"weapon_grip": [462, 81], "weapon_tip": [654, 71]}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[577, 95, 87, 253], [250, 337, 100, 11]]},
+    "cd_recover_1003": {"source": "shanks_normal_blowback_1003", "crop": [613, 412, 414, 355], "root": [221, 342], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[0, 71, 84, 21]]},
+    "j_cd_start_1003": {"source": "shanks_normal_blowback_1003", "crop": [51, 753, 372, 315], "root": [240, 375], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[62, 0, 108, 10]]},
+    "j_cd_active_1003": {"source": "shanks_normal_blowback_1003", "crop": [549, 778, 524, 299], "root": [262, 353], "sockets": {"weapon_grip": [338, 92], "weapon_tip": [516, 97]}, "transparency": {"mode": "source-alpha"}},
+    "j_cd_recover_1003": {"source": "shanks_normal_blowback_1003", "crop": [74, 1069, 365, 367], "root": [203, 424], "sockets": {}, "transparency": {"mode": "source-alpha"}}
+  },
+  "anims": {
+    "cd": {"frames": ["cd_start_1003", "cd_active_1003", "cd_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 16}, {"frame": 1, "ticks": 5}, {"frame": 2, "ticks": 27}]},
+    "j_cd": {"frames": ["j_cd_start_1003", "j_cd_active_1003", "j_cd_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 11}, {"frame": 1, "ticks": 6}, {"frame": 2, "ticks": 15}]}
+  },
+  "parentContactReview": {
+    "cd": {"approxWorldGrip": [50.71, -61.23], "approxWorldTip": [96.63, -63.62], "currentHitbox": [8, -71, 67, 55], "suggestedMeasuredHitbox": [43, -70, 57, 24], "preserve": "96 damage and16/5/27, wall bounce"},
+    "j_cd": {"approxWorldGrip": [18.18, -62.42], "approxWorldTip": [60.75, -61.23], "currentHitbox": [10, -68, 68, 54], "note": "Current air horizontal slash box covers actual blade; real airborne roots/contact remain pending."},
+    "note": "Static endpoint suggestions, never a hit or knockback acceptance."
+  },
+  "observations": ["Six actual independent body poses preserve one arm, complete saber and both shoes. Recovery includes true raised-saber follow-through, not a copied stand.", "Inline preview downloadMedia returned a5-second receipt timeout but the fullGUID PNG1086x1448 was present; original/hash/preview matched and were preserved."]
+}

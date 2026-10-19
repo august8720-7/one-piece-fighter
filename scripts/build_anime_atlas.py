@@ -1,4 +1,4 @@
-"""Deterministic post-processing of explicitly recorded Image 2.5 character art.
+"""Deterministic post-processing of explicitly recorded official-web character art.
 
 No image generation, downloads, source discovery, or inferred animation frames.
 Source/evidence hashes are verified before any candidate output is written.
@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import argparse
 from collections import deque
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 import hashlib
 import io
 import json
@@ -58,21 +58,129 @@ def verified_file(record: dict, directory: Path, label: str) -> Path:
     return path
 
 
+ROSTER_OBSERVATION_FIELDS = (
+    "provider", "model", "workflowDecision", "observedImageModel", "imageModelDisclosure",
+    "modelUnavailableStatement", "observedTextModelLabel", "observedReasoningEffort",
+    "entryUrl", "entryTitle", "browserLabel", "sessionUrl", "observedCompletedAt", "uiObservation",
+)
+ROSTER_BROWSER_LABELS = ("Codex内置浏览器", "Microsoft Edge")
+ROSTER_REFERENCE_GUIDE_ROOT = Path("D:/one-piece-fighter-crossover-0922/roster-0929/reference")
+
+
+def validate_roster_observation(key: str, source: dict) -> None:
+    """The 0929 decision records an undisclosed model; it never identifies one by inference."""
+    require(source.get("workflowDecision") == "pc-roster-0929", f"{key}: explicit pc-roster-0929 workflow required")
+    require(source.get("provider") == "chatgpt-web" and source.get("model") == "unverified", f"{key}: roster source must record the official web model as unverified")
+    require("observedImageModel" in source and source["observedImageModel"] is None, f"{key}: observedImageModel must explicitly be null")
+    require(source.get("imageModelDisclosure") == "exact-model-unavailable", f"{key}: exact model unavailable disclosure required")
+    for field in ("modelUnavailableStatement", "uiObservation"):
+        require(isinstance(source.get(field), str) and bool(source[field].strip()), f"{key}: nonempty {field} required from actual UI observation")
+    require(source.get("observedTextModelLabel") in {"最新", "GPT-6"}, f"{key}: observed text selector must be 最新 or the actually displayed GPT-6")
+    require(source.get("observedReasoningEffort") == "极高", f"{key}: observed reasoning effort must be 极高")
+    require(source.get("entryUrl") == "https://chatgpt.com/images/" and source.get("entryTitle") == "ChatGPT", f"{key}: observed official images entry and current title required")
+    require(source.get("browserLabel") in ROSTER_BROWSER_LABELS, f"{key}: actual 0929 browser label required")
+    session = source.get("sessionUrl")
+    require(isinstance(session, str) and bool(re.fullmatch(r"https://chatgpt\.com/c/[A-Za-z0-9_-]+/?", session)), f"{key}: missing official generation session")
+    observed = source.get("observedCompletedAt")
+    require(isinstance(observed, str) and bool(re.match(r"^\d{4}-\d{2}-\d{2}T", observed)), f"{key}: observedCompletedAt must record the observed completion time with timezone")
+    try:
+        observed_time = datetime.fromisoformat(observed.replace("Z", "+00:00"))
+    except ValueError as error:
+        raise ValueError(f"{key}: invalid observedCompletedAt") from error
+    require(observed_time.tzinfo is not None and observed_time.utcoffset() is not None, f"{key}: observedCompletedAt timezone required")
+    require(observed_time.date() >= datetime(2026, 9, 29).date(), f"{key}: old sources must not be relabeled as the 0929 workflow")
+    if source.get("observedTextModelLabel") == "GPT-6":
+        require(observed_time.date() >= datetime(2026, 10, 8).date() and isinstance(source.get("screenshot"), dict),
+                f"{key}: named GPT-6 requires the 1008 or later actual UI screenshot")
+    require("generatedAt" not in source and "modelEvidence" not in source, f"{key}: keep old provenance unchanged; use observedCompletedAt and new sourceEvidence")
+
+
+def verified_roster_screenshot(record: dict, label: str) -> Path:
+    """Optional actual screenshots stay local, within the declared evidence directories."""
+    require(isinstance(record, dict), f"{label}: missing screenshot file/hash record")
+    name, expected = record.get("file"), record.get("sha256")
+    require(isinstance(name, str) and bool(name.strip()), f"{label}: screenshot file required")
+    path = (ROOT / name).resolve()
+    allowed = [ROOT / "docs/assets", Path("D:/one-piece-fighter-crossover-0922/roster-0929")]
+    require(any(path.is_relative_to(directory.resolve()) for directory in allowed) and path.is_file(), f"{label}: screenshot missing or outside declared evidence directories")
+    require(isinstance(expected, str) and bool(HASH.fullmatch(expected)), f"{label}: invalid screenshot SHA256")
+    require(digest(path.read_bytes()) == expected.lower(), f"{label}: screenshot SHA256 mismatch")
+    with Image.open(path) as screenshot:
+        require(screenshot.format in {"PNG", "JPEG", "WEBP"}, f"{label}: screenshot must be a real PNG/JPEG/WebP image")
+        screenshot.verify()
+    return path
+
+
+def verified_roster_guide(record: dict, label: str) -> Path:
+    """Only the explicitly marked local reference guide may use this D-drive root."""
+    name, expected = record.get("file"), record.get("sha256")
+    require(isinstance(name, str) and Path(name).is_absolute(), f"{label}: absolute guide path required")
+    path = Path(name).resolve()
+    require(path.is_relative_to(ROSTER_REFERENCE_GUIDE_ROOT.resolve()) and path.is_file(), f"{label}: guide missing or outside the declared reference directory")
+    require(isinstance(expected, str) and bool(HASH.fullmatch(expected)), f"{label}: invalid guide SHA256")
+    require(digest(path.read_bytes()) == expected.lower(), f"{label}: guide SHA256 mismatch")
+    with Image.open(path) as guide:
+        require(guide.format == "PNG", f"{label}: pose reference guide must be its verified PNG")
+        guide.verify()
+    return path
+
+
+def verify_roster_source_evidence(key: str, source: dict) -> None:
+    evidence = source.get("sourceEvidence")
+    observed = datetime.fromisoformat(source["observedCompletedAt"].replace("Z", "+00:00"))
+    # Keep historical receipts untouched while allowing the actual observation
+    # date used by this project's Shanghai client, including UTC midnight edges.
+    dates = {"0929", observed.strftime("%m%d"), observed.astimezone(timezone(timedelta(hours=8))).strftime("%m%d")}
+    expected_files = {f"docs/assets/{key}来源凭据{date}.txt" for date in dates}
+    require(isinstance(evidence, dict) and evidence.get("file") in expected_files,
+            f"{key}: separate sourceEvidence receipt must match its source key and observed date")
+    path = verified_file(evidence, ROOT / "docs/assets", f"{key} source evidence")
+    try:
+        receipt = json.loads(path.read_text(encoding="utf-8"))
+    except (ValueError, UnicodeError) as error:
+        raise ValueError(f"{key}: source evidence must contain the recorded observation JSON") from error
+    require(isinstance(receipt, dict) and receipt.get("schemaVersion") == 1 and receipt.get("sourceKey") == key, f"{key}: source evidence identity mismatch")
+    for field in (*ROSTER_OBSERVATION_FIELDS, "file", "sha256", "prompt", "referenceSources", "screenshot"):
+        require(receipt.get(field) == source.get(field), f"{key}: source evidence {field} mismatch")
+    references = source.get("referenceSources")
+    files = receipt.get("referenceFiles")
+    require(isinstance(references, dict) and isinstance(files, dict) and set(references) == set(files), f"{key}: reference source files and hashes must match")
+    for reference, expected in references.items():
+        require(isinstance(reference, str) and bool(NAME.fullmatch(reference)) and isinstance(expected, str) and bool(HASH.fullmatch(expected)), f"{key}: invalid reference source hash")
+        record = files[reference]
+        require(isinstance(record, dict) and record.get("sha256") == expected, f"{key}: reference source record mismatch")
+        if record.get("kind") == "reference-guide-not-runtime":
+            verified_roster_guide(record, f"{key} guide {reference}")
+        else:
+            verified_file(record, ROOT / "public/assets/generated/source", f"{key} reference {reference}")
+    if "screenshot" in source:
+        verified_roster_screenshot(source["screenshot"], f"{key} UI observation")
+
+
 def load_sources(sources: dict) -> dict[str, Image.Image]:
     require(isinstance(sources, dict) and bool(sources), "sources must contain recorded Image 2.5 originals")
     images = {}
     for key, source in sources.items():
         require(bool(NAME.fullmatch(key)) and isinstance(source, dict), f"invalid source {key}")
-        require(source.get("model") == "GPT Image 2.5" and source.get("provider") == "chatgpt-web", f"{key}: only recorded GPT Image 2.5 official web originals are permitted")
+        roster_source = source.get("workflowDecision") == "pc-roster-0929"
+        if roster_source:
+            validate_roster_observation(key, source)
+        else:
+            require(source.get("model") == "GPT Image 2.5" and source.get("provider") == "chatgpt-web", f"{key}: only recorded GPT Image 2.5 official web originals are permitted")
         unit_scale = source.get("unitScale", 1)
         require(number(unit_scale) and 0 < unit_scale <= 8, f"{key}: unitScale must be in (0,8]")
         require(unit_scale == 1 or (isinstance(source.get("scaleBasis"), str) and bool(source["scaleBasis"].strip())), f"{key}: non-unit source calibration requires scaleBasis from a fixed reference pose")
         session = urlparse(source.get("sessionUrl", ""))
         require(session.scheme == "https" and session.hostname == "chatgpt.com" and session.path.startswith("/c/") and len(session.path) > 3, f"{key}: missing official generation session")
-        require(isinstance(source.get("generatedAt"), str), f"{key}: generatedAt required")
-        datetime.fromisoformat(source["generatedAt"].replace("Z", "+00:00"))
-        verified_file(source.get("modelEvidence"), ROOT / "docs/assets", f"{key} model evidence")
-        verified_file(source.get("prompt"), ROOT / "docs/assets", f"{key} complete prompt")
+        if roster_source:
+            verify_roster_source_evidence(key, source)
+        else:
+            require(isinstance(source.get("generatedAt"), str), f"{key}: generatedAt required")
+            datetime.fromisoformat(source["generatedAt"].replace("Z", "+00:00"))
+            verified_file(source.get("modelEvidence"), ROOT / "docs/assets", f"{key} model evidence")
+        prompt = verified_file(source.get("prompt"), ROOT / "docs/assets", f"{key} complete prompt")
+        if roster_source:
+            require(bool(prompt.read_text(encoding="utf-8").strip()), f"{key}: complete prompt must not be empty")
         path = verified_file(source, ROOT / "public/assets/generated/source", key)
         with Image.open(path) as original:
             require(original.format == "PNG", f"{key}: original must be PNG")
@@ -451,17 +559,34 @@ def prepare_frame(source: Image.Image, config: dict, scale: float, sources: dict
     return image, geometry, stats
 
 
-def split_foreground(image: Image.Image, config: dict) -> tuple[Image.Image, Image.Image, dict]:
+def split_foreground(image: Image.Image, config: dict, source_sha256: str | None = None) -> tuple[Image.Image, Image.Image, dict]:
     """Partition already-resampled pixels with an explicit nearest-neighbor source mask."""
     require("transform" not in config, "foreground polygon cannot be combined with a geometric frame transform")
+    require(not ("foregroundPolygon" in config and "foregroundMask" in config), "foregroundMask and foregroundPolygon are mutually exclusive")
     polygon, note = config.get("foregroundPolygon"), config.get("foregroundNote")
     require(isinstance(note, str) and bool(note.strip()), "foregroundNote must document the inspected source-pixel selection")
-    require(isinstance(polygon, list) and 3 <= len(polygon) <= 64, "foregroundPolygon must contain 3..64 crop-local vertices")
     width, height = config["crop"][2:]
-    vertices = [point(vertex, "foreground vertex") for vertex in polygon]
-    require(all(0 <= x <= width and 0 <= y <= height for x, y in vertices), "foreground polygon lies outside source crop")
-    mask = Image.new("L", (width, height))
-    ImageDraw.Draw(mask).polygon(vertices, fill=255)
+    selection_report = {"polygon": polygon}
+    if "foregroundMask" in config:
+        record = config["foregroundMask"]
+        require(isinstance(record, dict) and set(record) == {"file", "sha256", "sourceSha256"}, "foregroundMask must contain exactly file, sha256 and sourceSha256")
+        require(isinstance(source_sha256, str) and bool(HASH.fullmatch(source_sha256)), "foregroundMask requires the corresponding original source SHA256")
+        bound = record.get("sourceSha256")
+        require(isinstance(bound, str) and bool(HASH.fullmatch(bound)) and bound.lower() == source_sha256.lower(), "foregroundMask original source SHA256 mismatch")
+        path = verified_file(record, ROOT / "public/assets/generated/source", "foregroundMask")
+        with Image.open(path) as stored:
+            require(stored.mode == "L", "foregroundMask must be a grayscale L selection, not artwork or converted color")
+            require(stored.size == (width, height), "foregroundMask dimensions must equal the original crop")
+            mask = stored.copy()
+        require(sum(mask.histogram()[1:255]) == 0, "foregroundMask must contain only binary 0/255 selections")
+        selection_report = {"foregroundMask": {**record, "cropSize": [width, height], "mode": "L", "binary": True,
+                             "sourceMaskPixelSha256": digest(mask.tobytes())}}
+    else:
+        require(isinstance(polygon, list) and 3 <= len(polygon) <= 64, "foregroundPolygon must contain 3..64 crop-local vertices")
+        vertices = [point(vertex, "foreground vertex") for vertex in polygon]
+        require(all(0 <= x <= width and 0 <= y <= height for x, y in vertices), "foreground polygon lies outside source crop")
+        mask = Image.new("L", (width, height))
+        ImageDraw.Draw(mask).polygon(vertices, fill=255)
     if mask.size != image.size:
         mask = mask.resize(image.size, Image.Resampling.NEAREST)
     alpha = image.getchannel("A")
@@ -472,7 +597,7 @@ def split_foreground(image: Image.Image, config: dict) -> tuple[Image.Image, Ima
     combined = Image.alpha_composite(body, foreground)
     require(combined.tobytes() == image.tobytes(), "foreground partition changed original prepared pixels")
     visible = lambda layer: sum(layer.getchannel("A").histogram()[1:])
-    return body, foreground, {"method": "whole-frame-resample-then-nearest-source-mask", "polygon": polygon, "note": note, "bodyVisiblePixels": visible(body), "foregroundVisiblePixels": visible(foreground), "preparedRgbaSha256": digest(image.tobytes()), "recombinedRgbaSha256": digest(combined.tobytes())}
+    return body, foreground, {"method": "whole-frame-resample-then-nearest-source-mask", **selection_report, "note": note, "bodyVisiblePixels": visible(body), "foregroundVisiblePixels": visible(foreground), "preparedRgbaSha256": digest(image.tobytes()), "recombinedRgbaSha256": digest(combined.tobytes())}
 
 
 def pack_frames(images: dict[str, Image.Image], maximum: int) -> tuple[Image.Image, dict[str, tuple[int, int]]]:
@@ -570,8 +695,12 @@ def airborne_phases(value: object, count: int, label: str) -> dict:
     return result
 
 
-def build_character(character: str, config: dict, manifest_hash: str) -> tuple[dict[str, bytes], dict]:
+def build_character(character: str, config: dict, manifest_hash: str, form: str | None = None) -> tuple[dict[str, bytes], dict]:
     require(bool(NAME.fullmatch(character)) and isinstance(config, dict), "invalid character config")
+    require(config.get("formId") == form, "formId must match explicit --form; refusing base/form replacement")
+    if form:
+        require(character == "luffy" and form == "gear5", "unsupported character form")
+        require(all(source.get("formId") == form for source in config.get("sources", {}).values()), "form sources require explicit independent formId")
     scale = config.get("scale")
     require(number(scale) and 0 < scale <= 4, "scale must be one character-wide value in (0,4]")
     density = config.get("textureDensity", 1)
@@ -594,9 +723,9 @@ def build_character(character: str, config: dict, manifest_hash: str) -> tuple[d
             patch_report["originalSourceSha256"] = config["sources"][frame["source"]]["sha256"]
             for patch in patch_report["patches"]:
                 patch["sourceSha256"] = config["sources"][patch["source"]]["sha256"]
-        if "foregroundPolygon" in frame:
+        if "foregroundPolygon" in frame or "foregroundMask" in frame:
             layer = name + "/foreground"
-            images[name], images[layer], stats[name]["foreground"] = split_foreground(images[name], frame)
+            images[name], images[layer], stats[name]["foreground"] = split_foreground(images[name], frame, config["sources"][frame["source"]]["sha256"])
             geometry[layer] = geometry[name]
             foregrounds[name] = layer
     anims = config.get("anims")
@@ -645,54 +774,123 @@ def build_character(character: str, config: dict, manifest_hash: str) -> tuple[d
         outputs[page["image"]] = png.getvalue()
         outputs[page["data"]] = encode({"frames": atlas_frames[index], "meta": metadata})
         page_reports.append({**page, "uncompressedRgbaBytes": atlas.width * atlas.height * 4, "mappedFrames": len(atlas_frames[index])})
+    if form:
+        runtime["formId"] = form
+        frame_sources = {}
+        for name, anim in anims.items():
+            for index, crop in enumerate(anim["frames"]):
+                key = f"{character}/{name}/{index}"
+                frame_sources[key] = frames[crop]["source"]
+                if key in runtime.get("foregroundFrames", {}):
+                    frame_sources[runtime["foregroundFrames"][key]] = frames[crop]["source"]
+        runtime["formEvidence"] = {"review": config.get("formReview", "candidate-not-accepted"),
+                                   "authorManifestSha256": manifest_hash,
+                                   "sourceHashes": {key: source["sha256"] for key, source in config["sources"].items()},
+                                   "frameSources": frame_sources,
+                                   "atlasHashes": {name: digest(content) for name, content in outputs.items()}}
     outputs["runtime.json"] = encode(runtime)
     report = {"character": character, "status": "validated-candidate-not-art-acceptance", "uniformScale": scale, "textureDensity": density, "sourceUnitScales": {key: source.get("unitScale", 1) for key, source in config["sources"].items()}, "textureSize": list(pages[0][0].size) if len(pages) == 1 else None, "pages": page_reports, "uncompressedRgbaBytes": sum(page["uncompressedRgbaBytes"] for page in page_reports), "uniqueCrops": len(frames), "foregroundCrops": len(foregrounds), "mappedFrames": sum(len(anim["frames"]) for anim in anims.values()), "mappedForegroundFrames": len(runtime.get("foregroundFrames", {})), "animations": list(anims), "transparency": stats, "sourceHashes": {key: source["sha256"] for key, source in config["sources"].items()}, "outputHashes": {name: digest(content) for name, content in outputs.items()}}
     outputs["build-report.json"] = encode(report)
     return outputs, report
 
 
+def backup_candidate(destination: Path, character: str, backup_root: Path | None = None) -> Path | None:
+    """Copy the whole prior candidate before replacement, including its UI files.
+
+    A supplied root changes only the backup location. The historical default and
+    timestamped child layout remain valid; no prior backup or candidate is removed.
+    """
+    destination = destination.resolve()
+    existing = sorted(path for path in destination.iterdir() if path.is_file()) if destination.exists() else []
+    if not existing:
+        return None
+    root = Path(backup_root).resolve() if backup_root is not None else ROOT / ".local-releases"
+    runtime_root = (ROOT / "public/assets").resolve()
+    require(not root.is_relative_to(runtime_root), "backup-dir must be outside runtime assets")
+    require(bool(NAME.fullmatch(character)), "invalid backup character")
+    root.mkdir(parents=True, exist_ok=True)
+    if backup_root is not None and not (root / "README.md").exists():
+        (root / "README.md").write_text(
+            "# Anime candidate backups\nEach unique anime-backup-<character>-<time>/ child preserves all prior candidate files. "
+            "Read the copy-before inventory and verified copy-after hashes; retain all children for rollback.\n", encoding="utf-8")
+    backup = root / ("anime-backup-" + character + "-" + datetime.now().strftime("%m%d-%H%M%S-%f"))
+    backup.mkdir(exist_ok=False)
+    (backup / "README.md").write_text(
+        "# Prior anime candidate\nThe inventory is saved before copying. No runtime replacement is permitted until all copies "
+        "and unchanged original SHA256 values verify. This is a rollback copy, not new artwork.\n", encoding="utf-8")
+    inventory = [{"file": path.name, "bytes": path.stat().st_size, "sha256": digest(path.read_bytes())} for path in existing]
+    (backup / "backup-inventory.json").write_text(json.dumps(inventory, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    verified = []
+    for path, row in zip(existing, inventory):
+        shutil.copy2(path, backup / path.name)
+        copied = backup / path.name
+        require(digest(path.read_bytes()) == row["sha256"] == digest(copied.read_bytes()) and copied.stat().st_size == row["bytes"],
+                f"backup verification failed: {path.name}")
+        verified.append({**row, "verified": True})
+    (backup / "backup-copy-after.json").write_text(json.dumps(verified, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return backup
+
+
+def candidate_destination(character: str, form: str | None = None, out_dir: Path | None = None) -> Path:
+    require(form in (None, "gear5") and (form is None or character == "luffy"), "unsupported form output")
+    standard = ROOT / "public/assets/characters" / character / ("forms/gear5" if form else "anime")
+    destination = (out_dir or standard).resolve()
+    if out_dir:
+        require(form == "gear5", "--out-dir requires explicit --form gear5")
+        require(destination.drive.lower() == "d:", "form output must stay on D drive")
+        character_root = (ROOT / "public/assets/characters").resolve()
+        require(not destination.is_relative_to(character_root) or destination == standard.resolve(), "form output cannot overwrite base or other character assets")
+        require(not destination.is_relative_to(ROOT.resolve()) or destination == standard.resolve(), "form candidate output must be outside source workspace or its exact form namespace")
+        require(not ROOT.resolve().is_relative_to(destination), "form output cannot be a workspace ancestor")
+    return destination
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("characters", nargs="*")
     parser.add_argument("--manifest", type=Path, default=MANIFEST)
+    parser.add_argument("--form", choices=["gear5"], help="Independent form namespace; never replaces anime base")
+    parser.add_argument("--out-dir", type=Path, help="Single-form D-drive candidate output or exact canonical form directory")
     parser.add_argument("--check", action="store_true", help="Validate and assemble in memory; do not write assets")
     parser.add_argument("--replace", action="store_true", help="Back up existing candidate files before replacement; never touches legacy assets")
+    parser.add_argument("--backup-dir", type=Path, help="Explicit backup root (for example the D:/ roster baseline); a new timestamped child is used per character. Default: .local-releases")
     args = parser.parse_args()
     raw = args.manifest.read_bytes()
     manifest = json.loads(raw)
     require(manifest.get("schemaVersion") == 1 and isinstance(manifest.get("characters"), dict), "unsupported manifest schema")
     configured = manifest["characters"]
     selected = args.characters or list(configured)
+    require(not args.out_dir or len(selected) == 1, "--out-dir requires exactly one character")
+    destinations = {character: candidate_destination(character, args.form, args.out_dir) for character in selected}
     if not selected:
         print(json.dumps({"status": "no-assets", "message": "No recorded Image 2.5 character candidates configured; nothing was built."}))
         return
     assembled = []
     for character in selected:
         require(character in configured, f"{character}: no explicit candidate; refusing source discovery")
-        assembled.append((character, *build_character(character, configured[character], digest(raw))))
+        assembled.append((character, *build_character(character, configured[character], digest(raw), args.form)))
     # All selected characters must validate before any output can change.
     for character, outputs, report in assembled:
-        destination = ROOT / "public/assets/characters" / character / "anime"
-        require(destination.resolve().is_relative_to((ROOT / "public/assets/characters").resolve()), "unsafe candidate destination")
+        destination = destinations[character]
         existing = [destination / name for name in outputs if (destination / name).exists()]
         if existing and not args.check:
             require(args.replace, f"{character}: candidate files exist; use --replace to preserve a backup before replacement")
+    if not args.check:
+        # Verify every selected character's rollback copy before writing any runtime output.
+        for character, outputs, report in assembled:
+            backup = backup_candidate(destinations[character], character, args.backup_dir)
+            if backup is not None:
+                report["backup"] = str(backup)
+                report["backupVerified"] = True
     for character, outputs, report in assembled:
         if not args.check:
-            destination = ROOT / "public/assets/characters" / character / "anime"
-            existing = sorted(path for path in destination.iterdir() if path.is_file()) if destination.exists() else []
-            if existing:
-                backup = ROOT / ".local-releases" / ("anime-backup-" + character + "-" + datetime.now().strftime("%m%d-%H%M%S-%f"))
-                backup.mkdir(parents=True, exist_ok=False)
-                inventory = [{"file": path.name, "bytes": path.stat().st_size, "sha256": digest(path.read_bytes())} for path in existing]
-                (backup / "backup-inventory.json").write_text(json.dumps(inventory, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-                for path in existing:
-                    shutil.copy2(path, backup / path.name)
-                    require(digest(path.read_bytes()) == digest((backup / path.name).read_bytes()), "backup verification failed")
-                report["backup"] = str(backup)
+            destination = destinations[character]
             destination.mkdir(parents=True, exist_ok=True)
+            if args.form and not (destination / "README.md").exists():
+                (destination / "README.md").write_text("# Independent Gear5 runtime\nOnly explicitly sourced form pixels and build receipts. Base anime assets remain separate. Candidate build is not visual acceptance.\n", encoding="utf-8")
             for name, content in outputs.items():
                 (destination / name).write_bytes(content)
+                require(digest((destination / name).read_bytes()) == digest(content), f"written candidate hash mismatch: {name}")
         print(json.dumps({**report, "checkOnly": args.check}, ensure_ascii=False))
 
 

@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "adoptedStages": [
+    "release"
+  ],
+  "startEndUseExistingSharedAudio": true,
+  "moves": {
+    "aokiji": {
+      "sp_ice_lance": {
+        "cueId": "sfx.aokiji.ice_lance.release",
+        "projectile": true
+      },
+      "sp_ice_blade": {
+        "cueId": "sfx.aokiji.ice_blade.release",
+        "projectile": false
+      },
+      "sp_ice_uplift": {
+        "cueId": "sfx.aokiji.ice_uplift.release",
+        "projectile": false
+      },
+      "sp_ice_spike": {
+        "cueId": "sfx.aokiji.ice_spike.release",
+        "projectile": true
+      },
+      "sp_glacier_line": {
+        "cueId": "sfx.aokiji.glacier_line.release",
+        "projectile": true
+      },
+      "sp_ice_mirror": {
+        "cueId": "sfx.aokiji.ice_mirror.release",
+        "projectile": false
+      },
+      "sp_ice_body": {
+        "cueId": "sfx.aokiji.ice_body.release",
+        "projectile": false,
+        "releaseOnStart": true
+      },
+      "sp_ice_pheasant": {
+        "cueId": "sfx.aokiji.ice_pheasant.release",
+        "projectile": true
+      },
+      "ult_ice_age": {
+        "cueId": "sfx.aokiji.ice_age.release",
+        "projectile": false
+      }
+    },
+    "shanks": {
+      "sp_haki_slash": {
+        "cueId": "sfx.shanks.haki_slash.release",
+        "projectile": true
+      },
+      "sp_single_arm_cut": {
+        "cueId": "sfx.shanks.single_arm_cut.release",
+        "projectile": false
+      },
+      "sp_rising_guard": {
+        "cueId": "sfx.shanks.rising_guard.release",
+        "projectile": false
+      },
+      "sp_step_thrust": {
+        "cueId": "sfx.shanks.step_thrust.release",
+        "projectile": false
+      },
+      "sp_low_cut": {
+        "cueId": "sfx.shanks.low_cut.release",
+        "projectile": false
+      },
+      "sp_sidestep": {
+        "cueId": "sfx.shanks.sidestep.release",
+        "projectile": false,
+        "releaseOnStart": true
+      },
+      "sp_divine_departure": {
+        "cueId": "sfx.shanks.divine_departure.release",
+        "projectile": false
+      },
+      "sp_emperor_cuts": {
+        "cueId": "sfx.shanks.emperor_cuts.release",
+        "projectile": false
+      },
+      "ult_red_hair_finale": {
+        "cueId": "sfx.shanks.red_hair_finale.release",
+        "projectile": false
+      }
+    }
+  },
+  "fileChecks": {
+    "assets/audio/sfx/roster-adopted1004/aokiji/ice_lance-release.wav": {
+      "sha256": "309a8d0f06b740647f49ba9be1aba6c4337cbb19b264dc012fd66df1f7cf18d5",
+      "bytes": 29150
+    },
+    "assets/audio/sfx/roster-adopted1004/aokiji/ice_blade-release.wav": {
+      "sha256": "8161803fd325ae2bbc0f0063efe16e2dccaa48821ad98b96b189e74f4e63c7a6",
+      "bytes": 26504
+    },
+    "assets/audio/sfx/roster-adopted1004/aokiji/ice_spike-release.wav": {
+      "sha256": "df24ca581a462b40107165fc831c3929fa0a4de99b8e1b8f50978ef0eae4d6e3",
+      "bytes": 52964
+    },
+    "assets/audio/sfx/roster-adopted1004/aokiji/ice_body-release.wav": {
+      "sha256": "448e8e681861115c7fe927a8866c4ac4e814331c6da727bd3b0f65de4040a329",
+      "bytes": 19448
+    },
+    "assets/audio/sfx/roster-adopted1004/aokiji/ice_pheasant-release.wav": {
+      "sha256": "c84d330f55cc066f51bc9cae142690bfd0eb6b99133525443eda4b596ecc779a",
+      "bytes": 45908
+    },
+    "assets/audio/sfx/roster-adopted1004/aokiji/ice_age-release.wav": {
+      "sha256": "2f1af5b354a37ff896ccdb676731cb11296fc6d1fc36189e8b48c16905a186e9",
+      "bytes": 66194
+    },
+    "assets/audio/sfx/roster-adopted1004/shanks/haki_slash-release.wav": {
+      "sha256": "2cd9cc609015cab47da698a7cb8665ff8e4958d294fbf3722cee891901b65cc4",
+      "bytes": 36362
+    },
+    "assets/audio/sfx/roster-adopted1004/shanks/single_arm_cut-release.wav": {
+      "sha256": "581bf704e331f93ef517bfe4b09e0e1006b4442d02721f0d7338460a8cb8499b",
+      "bytes": 32248
+    },
+    "assets/audio/sfx/roster-adopted1004/shanks/rising_guard-release.wav": {
+      "sha256": "c87e27da0a3832f89edf8661f93b3dbcad3f73a9843912dd6eb8ecfa8f4c74dc",
+      "bytes": 25366
+    },
+    "assets/audio/sfx/roster-adopted1004/shanks/low_cut-release.wav": {
+      "sha256": "a925876da565f1f2b82d40c8cacb7a313f799418dc26b99596e7c4de083f1236",
+      "bytes": 26888
+    },
+    "assets/audio/sfx/roster-adopted1004/shanks/divine_departure-release.wav": {
+      "sha256": "e8e62fa6a99cdf26a26139a734690921fbe64b1228e2c7010d912ea97324bb9d",
+      "bytes": 41204
+    },
+    "assets/audio/sfx/roster-adopted1004/shanks/emperor_cuts-release.wav": {
+      "sha256": "4f20d4d29f0a035c4915dcbfadd6806703b354e8b201f1bb5243619b21bd6001",
+      "bytes": 39304
+    },
+    "assets/audio/sfx/roster-adopted1004/shanks/red_hair_finale-release.wav": {
+      "sha256": "fd14958a9557600bf5594e5adf1bdf6b370958883dd23955e59d0950db3b912d",
+      "bytes": 47028
+    }
+  }
+}

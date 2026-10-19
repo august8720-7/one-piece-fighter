@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "shanks_throw_forward_1003",
+  "file": "public/assets/generated/source/roster-shanks-throw-forward-1003.png",
+  "sha256": "6580a29628778ed0b7d95ae34a992b04222fb23841135099e57ab63ba5852428",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+  "observedCompletedAt": "2026-10-03T19:52:48.697113+08:00",
+  "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回匹配原文（仅界面空白归一化）后单次发送。页面回答已完成，实际查看器标识红发独臂剑士六连动作图。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。官方文件查看器下载只点一次；Downloads正式PNG已落盘，没有以download事件回执作为成功证据。 完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。既有images为工作流入口，本次直接续c会话。",
+  "prompt": {
+    "file": "docs/assets/shanks-throw-forward-prompt1003.txt",
+    "sha256": "0645e364698ae57ab9dcde475889d7b5ac63b629f7ac8b4ad41b0527d7a1e2cb"
+  },
+  "referenceSources": {
+    "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T11:53:36.087007+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-throw-forward-viewer1003.jpg",
+    "sha256": "b783fcc44dac65c9a76ca1cb9b51993f07c3114966daab51d4e2cd17d98aee11"
+  },
+  "referenceFiles": {
+    "shanks_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-shanks-locomotion-0929.png",
+      "sha256": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+    }
+  },
+  "originalPngSize": [
+    1536,
+    1024
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

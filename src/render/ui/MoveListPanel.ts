@@ -18,7 +18,10 @@ export class MoveListPanel {
     private readonly scene: Phaser.Scene,
     private readonly defs: [FighterDef, FighterDef],
     private readonly modes: ControlModes = ['classic', 'classic'],
+    private readonly resolveDefs?: () => [FighterDef, FighterDef],
   ) {}
+
+  private get currentDefs(): [FighterDef, FighterDef] { return this.resolveDefs?.() ?? this.defs; }
 
   toggle(cfg: KeyConfig, facing: [boolean, boolean]): void {
     if (this.visible) this.hide();
@@ -60,7 +63,7 @@ export class MoveListPanel {
 
   private pageCount(): number {
     const group = MOVE_GROUPS[this.groupIndex]!.id;
-    return Math.max(1, ...this.defs.map((def) => Math.ceil(movesInGroup(def, group).length / MOVES_PER_PAGE)));
+    return Math.max(1, ...this.currentDefs.map((def) => Math.ceil(movesInGroup(def, group).length / MOVES_PER_PAGE)));
   }
 
   private draw(): void {
@@ -91,8 +94,8 @@ export class MoveListPanel {
       this.nodes.push(tab);
     });
     const cols: [FighterDef, KeyBinding, boolean, number][] = [
-      [this.defs[0], cfg.p1, this.facing[0], 28],
-      [this.defs[1], cfg.p2, this.facing[1], SCREEN_W / 2 + 16],
+      [this.currentDefs[0], cfg.p1, this.facing[0], 28],
+      [this.currentDefs[1], cfg.p2, this.facing[1], SCREEN_W / 2 + 16],
     ];
     for (const [player, [def, bind, face, x]] of cols.entries()) {
       const rows = movesInGroup(def, MOVE_GROUPS[this.groupIndex]!.id);
@@ -135,7 +138,7 @@ export class MoveListPanel {
     const properties = this.scene.add.text(x + 416, y + 1, moveProperties(move), {
       fontFamily: UI.font, fontSize: '12px', color: UI.dim,
     }).setOrigin(1, 0).setDepth(211);
-    const command = this.scene.add.text(x, y + 17, moveCommand(move, bind, face, this.modes[player], this.defs[player].skillSlots), {
+    const command = this.scene.add.text(x, y + 17, moveCommand(move, bind, face, this.modes[player], this.currentDefs[player].skillSlots), {
       fontFamily: UI.font, fontSize: '13px', color: UI.title,
     }).setDepth(211);
     this.nodes.push(name, properties, command);

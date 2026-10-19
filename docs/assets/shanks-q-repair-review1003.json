@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_q_repair_1003",
+  "sourceSha256": "cae50e9d2b8c90c2b60245980fd83356dd00702e648dc21b9665dee90cb1a0d5",
+  "status": "body-candidate-awaiting-runtime-and-separate-FX",
+  "sourceSize": [
+    1536,
+    1024
+  ],
+  "newIndependentPoses": 3,
+  "calibrationPoseNotCounted": true,
+  "unitScale": 0.7900207900207901,
+  "neutralAlpha8Bounds": [
+    171,
+    30,
+    697,
+    511
+  ],
+  "bodyOnly": true,
+  "moveId": "sp_haki_slash",
+  "ticks": [
+    12,
+    5,
+    23
+  ],
+  "observations": [
+    "Three white-composited crops retain a single arm, full body, complete saber and no neighboring figure fragments.",
+    "Blade is visually closed at its tip and fully separated from canvas edges. Edge alpha maxima top3/bottom0/left1/right0 are below visible threshold8, unlike prior clipped cast edge255.",
+    "Uniform whole-sheet scaling retained. No weapon shortening, redraw, chroma key, per-frame resize or mirrored new art.",
+    "Frame12 cast visual matches actual frame12 projectile spawn; body art alone does not prove projectile FX or combat acceptance."
+  ],
+  "priorRejectedQSource": "shanks_qe_body_1003"
+}

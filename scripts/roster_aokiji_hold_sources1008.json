@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "workflowDecision": "pc-roster-0929",
+  "sources": {
+    "aokiji_low_hold_front_joint3_1004": {
+      "file": "public/assets/generated/source/roster-aokiji-low-hold-front-joint3-1004.png",
+      "sha256": "5cc59be048e6d2cb4a5341f7c348638b848b06fd74f33fa722708495bfe48462",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "本助手同一官方会话在第三次局部修前实际核验最新aria-checked=true/极高第4共5并截图；具体图像后台型号未公开。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6ac1c91d-9a4c-83ee-90f8-5e05fd1c1774",
+      "observedCompletedAt": "2026-10-04T12:44:02.984001+08:00",
+      "uiObservation": "本助手Edge单控制者在同一fresh会话，实际最新radio true/极高第4共5，点击最新图编辑，侧栏img3、青雉库赞双姿态透明立绘。348字最后一次joint3短提示fill后innerText完全匹配，仅点发送一次，无新上传，实际第四条用户消息包含已编辑的图像和完整要求，随后ChatGPT正在回应/停止/正在生成图像，model/draft/sent及send-observation留存。独立工作后读取实际回答已完成，侧栏青雉双姿势角色立绘、img4；全屏截图保全。通过该实际文件菜单在空间中打开，真实fileURL，pageAssets只bundle已显示对应PNG1项、成功1/失败0，原manifest和完整bundle JSON保留。不换站不重放登录，没有第4次局部请求。手区仍有灰蓝色待审，来源保全不表示透明或抓持放行，按第三次上限停止这一机械续修路线。官方原文件https://chatgpt.com/space/file/libfile_46ec381a62c481918fa516e3223c62a2。PNG签名/IEND/Pillowverify/全RGBAdecode/1774x887真实alpha0..255/重复稳定原字节均通过，先清单复制原件、manifest和旧来源表再SHA一致。完成时间取本次完成复核截图，不是服务器首次生成。来源保全不代表握位/美术或实机验收通过，尚未改runtime或作者映射。",
+      "prompt": {
+        "file": "docs/assets/aokiji-low-hold-front-joint3-prompt1004.txt",
+        "sha256": "9c4980f7fe245c6082f20db54ced9c0e4cd507d96fc65d18f26dd3b37d432ded"
+      },
+      "referenceSources": {
+        "aokiji_low_hold_front_joint2_1004": "346d1f0cf2ecf9d40b26a092222afa649076f318f83b83fef4a785deb6c4d786"
+      },
+      "unitScale": 0.4951338199513382,
+      "recordedAt": "2026-10-04T04:48:09.437003+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/aokiji-front-joint3-completed1004.jpg",
+        "sha256": "c3946918ad5426e05dafdbde823d3874399ea97d9c375d83c676beb8f741c315"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/aokiji_low_hold_front_joint3_1004来源凭据0929.txt",
+        "sha256": "a7afd6d1a4c39e7c84b7ce04f970c1addcc3f40c4627bae65fedbcdf855b590d"
+      },
+      "scaleBasis": "Actual sheet standing alpha64H822 compared with established407; one source-wide scale, no per-pose fitting"
+    },
+    "aokiji_low_hold_back_retrieved_1008": {
+      "file": "public/assets/generated/source/roster-aokiji-independent-back-holding-1008.png",
+      "sha256": "45b28d32caa687992f9affefa52e0b52e6d2d15e9dfd3a5334242a5fca0e42b3",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "1004实际创建字段来自Edge单次发送JSON：最新、极高，prompt读回一致；具体图像后台型号未公开。1008只在Codex内置浏览器取回旧完成图，不用Space的Pro或新GPT-6菜单追改旧创建字段。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6ac1c91d-9a4c-83ee-90f8-5e05fd1c1774",
+      "observedCompletedAt": "2026-10-08T12:24:13.145Z",
+      "uiObservation": "原海军代理1004在同fresh官方会话的实际img4编辑侧栏，434字独立backholding完整提示fill读回匹配后单次发送；本人1008读取aokiji-backholding-send-observation1004.json，确认Edge/latest/极高/readbackMatch/singleSend与实际prompt路径，model/draft/sent1004原截图及JSON均保留。root1008重新核对同会话已完成的第5图，通过官方文件菜单→Space libfile_8d1067dee0c4819183288832b87e556c→pageAssets.bundle导出对应原PNG，1项image/png、failures为空，没有重发或新生成。observedCompletedAt为1008实际完成复查截图采集时刻，不是服务器生成时刻；创建浏览器为Edge，本次取回者为Codex内置浏览器，Space模型不作创建依据。本助手已完整PNG签名/IEND/verify/RGBA解码、1039875字节、1774x887、真实alpha0..255，并先清单复制到source及D原件备份，SHA一致。独立后握已按真实站高824、鞋轴576/816，原像素近掌/前臂分层与LABUBU/路飞/赤犬双朝向静配，body+foreground逐字节重构。该登记只是来源与静态候选，不代表实机抓住/释放/墙角完成。",
+      "prompt": {
+        "file": "docs/assets/aokiji-low-hold-backholding-prompt1004.txt",
+        "sha256": "17a730c3097c9c84e1a6638ccd2bdf09ccc0b409e98c2cfdac9e575e6927e826"
+      },
+      "referenceSources": {
+        "aokiji_low_hold_front_joint3_1004": "5cc59be048e6d2cb4a5341f7c348638b848b06fd74f33fa722708495bfe48462"
+      },
+      "unitScale": 0.49393203883495146,
+      "recordedAt": "2026-10-09T01:50:36.738878+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/backholding-browser1008/aokiji-back-original-space1008.png",
+        "sha256": "880d92a1d65cf3ade19e2c7c859af0dc51a73d6e181a33f7694838af9bf4e08a"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/aokiji_low_hold_back_retrieved_1008来源凭据0929.txt",
+        "sha256": "5a5e0cff98387d38d4635154d7261e2434cb21cb63d3607c5c13a49e8c5d91fb"
+      },
+      "scaleBasis": "Measured complete left standing alpha64H824 versus established407; source-wide uniform scale only. Canonical character scale unchanged.",
+      "creationObservationFile": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/aokiji-backholding-send-observation1004.json",
+        "sha256": "b51ed4e30787a36570e6549fae4fae2c6abd870e84c855acd080858f159172d4"
+      },
+      "creationObservedSentAt": "2026-10-04T05:31:32.946Z",
+      "completionRecheckBrowserLabel": "Codex内置浏览器"
+    }
+  }
+}

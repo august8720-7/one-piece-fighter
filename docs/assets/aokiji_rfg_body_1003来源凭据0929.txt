@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_rfg_body_1003",
+  "file": "public/assets/generated/source/roster-aokiji-rfg-body-1003.png",
+  "sha256": "cd3b53d8fcda548ee3799469e46963934c585ab129f9c3583951d3e582c482d2",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "主代理在本轮官方图像入口核实最新与极高，具体图像模型没有公开；不把文字选项推断为后台图像型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+  "observedCompletedAt": "2026-10-03T17:24:44.903118+08:00",
+  "uiObservation": "root在原青雉官方会话实际核最新选中、极高可见后fill完整aokiji-rfg-body-prompt1003.txt并单次提交。shanks_complete_art随后仅在其IAB browser2/tab5查看最新已完成九格，上排上勾拳、中排压地掌、下排反射掌，与完整提示一致；查看器标题九宫格冰系格斗动作精灵图，单次下载原PNG并先清单复制到指定source，前后字节和SHA一致。17:24:44.903118是其截图保存时完成复核时间，不是服务器首次生成。此登记助手本地核实原PNG/截图hash与完整decode；后续自己Edge接管属于下一次生成，不冒称本页为Edge生成。",
+  "prompt": {
+    "file": "docs/assets/aokiji-rfg-body-prompt1003.txt",
+    "sha256": "bfd66b817f15cdd23fb3cef98bf63ccde33595ecf881d3ce93050f74cdba8af4"
+  },
+  "referenceSources": {
+    "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T09:39:05.971206+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/assist-third-rfg-proof-1003.jpg",
+    "sha256": "eeef734f42e5a3e98ca333b74b27578ab88d7d53b17be2103af7de42b1cc90ee"
+  },
+  "referenceFiles": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

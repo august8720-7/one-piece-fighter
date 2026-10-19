@@ -3,6 +3,10 @@ import { createCueCatalog, eventCues } from './audioCues';
 import { synthesize } from './synthesize';
 import { MusicPlayer, type MusicCatalog } from './MusicPlayer';
 import { voiceLine } from './voiceLines';
+import { rosterCandidateEventCues, verifyRosterVoiceCandidate, withRosterVoiceCandidates } from './rosterVoiceCandidates1003';
+import { rosterReleaseEventCues, verifyRosterReleaseAudio } from './rosterSfx1004';
+import { verifySemanticDialogue, withSemanticDialogue } from './semanticDialogue1017';
+import { withAvailableRosterAudio } from '../characters/rosterAvailability1004';
 import type { PresentationAudioEvent, VoicePlayback } from './audioTypes';
 import { deliveryRecord, type AssetDownloads } from '../render/assetDownloads';
 import type { AudioCue, AudioFailureKind, AudioGroup, AudioHudState, AudioPreloadReport, AudioSettings, AudioTraceEntry, CueCatalog, FightAudioEvent, SfxKind } from './audioTypes';
@@ -12,6 +16,7 @@ const GROUPS: readonly AudioGroup[] = ['sfx', 'voice', 'ambient', 'music'];
 const GROUP_LIMITS: Record<AudioGroup, number> = { sfx: 10, voice: 2, ambient: 2, music: 2 };
 const DEFAULT_LEVELS: Record<AudioGroup, number> = { sfx: 0.8, voice: 0.9, ambient: 0.3, music: 0.5 };
 const TRACE_LIMIT = 64;
+const isDailyVoice = (id: string): boolean => /^voice\.[^.]+\.(idle|move)$/.test(id);
 type AudioStorage = Pick<Storage, 'getItem' | 'setItem'>;
 
 interface CachedSample {
@@ -66,6 +71,7 @@ export class AudioEngine {
   private readonly playing = new Map<number, PlayingSound>();
   private readonly loops = new Set<string>();
   private readonly lastPlayed = new Map<string, number>();
+  private readonly lastSpokenFile = new Map<string, number>();
   private readonly variants = new Map<string, number>();
   private readonly eventKeys = new Set<string>();
   private readonly presentationKeys = new Set<string>();
@@ -84,15 +90,18 @@ export class AudioEngine {
   private readonly traceEntries: AudioTraceEntry[] = [];
   private meters: { before: AnalyserNode; after: AnalyserNode; data: Float32Array<ArrayBuffer> } | null = null;
   private meterError: string | null = null;
+  private mixCaptureCancel: (() => void) | null = null;
   private readonly levels: Record<AudioGroup, number> = { ...DEFAULT_LEVELS };
   private sampledPlays = 0;
   private fallbackPlays = 0;
   muted = false;
   volume = 0.6;
+  private chatter = false;
+  get characterChatter(): boolean { return this.chatter; }
 
   constructor(options: AudioEngineOptions = {}) {
     this.music = new MusicPlayer(options.musicCatalog, options.mediaFactory);
-    this.catalog = createCueCatalog(options.catalog ?? sampleManifest.cues as unknown as CueCatalog);
+    this.catalog = createCueCatalog(withAvailableRosterAudio(options.catalog ?? withSemanticDialogue(withRosterVoiceCandidates(sampleManifest.cues as unknown as CueCatalog))));
     this.factory = options.contextFactory ?? (() => new AudioContext());
     this.fetcher = options.fetch ?? (typeof fetch === 'function' ? fetch.bind(globalThis) : null);
     this.now = options.now ?? (() => performance.now());
@@ -104,7 +113,8 @@ export class AudioEngine {
     try {
       const raw = storage?.getItem(STORAGE_KEY);
       if (raw) {
-        const data = JSON.parse(raw) as { muted?: boolean; volume?: number; groups?: Partial<Record<AudioGroup, number>> };
+        const data = JSON.parse(raw) as { muted?: boolean; volume?: number; groups?: Partial<Record<AudioGroup, number>>; characterChatter?: boolean };
+        if (typeof data.characterChatter === 'boolean') this.chatter = data.characterChatter;
         if (typeof data.muted === 'boolean') this.muted = data.muted;
         if (typeof data.volume === 'number') this.volume = volumeValue(data.volume, this.volume);
         for (const group of GROUPS) {
@@ -155,6 +165,7 @@ export class AudioEngine {
     let stage: 'unavailable' | 'resume_failed' = 'unavailable';
     try {
       if (!this.context || this.context.state === 'closed' || !this.master || !this.groups) {
+        this.mixCaptureCancel?.();
         this.detachMeters();
         this.master?.disconnect();
         if (this.groups) for (const group of GROUPS) this.groups[group].disconnect();
@@ -328,6 +339,9 @@ export class AudioEngine {
           bytes = await response.arrayBuffer();
         }
         if (!bytes.byteLength) throw new Error('empty audio response');
+        await verifyRosterVoiceCandidate(url, bytes, managed ? deliveryRecord(url)?.sourceSha256 : undefined);
+        await verifyRosterReleaseAudio(url, bytes, managed ? deliveryRecord(url)?.sourceSha256 : undefined);
+        await verifySemanticDialogue(url, bytes, managed ? deliveryRecord(url)?.sourceSha256 : undefined);
         if (this.destroyed) return;
         sample.bytes = bytes;
         await this.decode(sample);
@@ -386,7 +400,8 @@ export class AudioEngine {
     }
     // A known-bad exact voice file must not hide an available same-character generic shout.
     const hasVoice = (id: string) => !!this.catalog[id]?.files.some((file) => !this.samples.get(file)?.error);
-    for (const cue of eventCues(event, hasVoice)) this.playCue(cue.id, cue.player === undefined ? {} : { player: cue.player });
+    const preview = rosterCandidateEventCues(event, eventCues(event, hasVoice), hasVoice);
+    for (const cue of rosterReleaseEventCues(event, preview, hasVoice)) this.playCue(cue.id, cue.player === undefined ? {} : { player: cue.player });
   }
 
   /** Returns false when dropped/unavailable; old combat events are never queued. */
@@ -404,6 +419,70 @@ export class AudioEngine {
     return this.hudState('voice') !== 'ready' || [...this.playing.values()].some(sound => sound.group === 'voice');
   }
 
+  /** Exact active cue only; scene transitions may wait for selected words, never an unrelated voice. */
+  voicePlaying(cueId: string, player?: 0 | 1): boolean {
+    return [...this.playing.values()].some(sound => sound.group === 'voice' && sound.cueId === cueId
+      && (player === undefined || sound.player === player));
+  }
+
+  /** Record only the game's post-master output. No microphone, settings change,
+   * source replacement or speaker disconnection. One bounded capture at a time.
+   */
+  async captureMix(durationMs = 10_000): Promise<{ blob: Blob; mimeType: string }> {
+    if (this.mixCaptureCancel) throw new Error('已有一段游戏混音正在录制');
+    if (!Number.isFinite(durationMs) || durationMs < 500 || durationMs > 30_000) throw new Error('混音录制时长需为500～30000毫秒');
+    if (this.destroyed || !this.context || this.context.state !== 'running' || !this.master) throw new Error('请先通过真实点击开启游戏声音，再录制混音');
+    if (typeof MediaRecorder === 'undefined' || typeof this.context.createMediaStreamDestination !== 'function') throw new Error('当前浏览器不支持游戏输出混音录制');
+    const mimeType = ['audio/webm;codecs=opus', 'audio/webm', 'audio/ogg;codecs=opus']
+      .find(type => MediaRecorder.isTypeSupported(type));
+    if (!mimeType) throw new Error('当前浏览器没有可用的混音录音编码');
+    const context = this.context, master = this.master;
+    return new Promise((resolve, reject) => {
+      const chunks: Blob[] = [];
+      let tap: MediaStreamAudioDestinationNode | null = null;
+      let recorder: MediaRecorder | null = null;
+      let timer: ReturnType<typeof setTimeout> | undefined;
+      let watchdog: ReturnType<typeof setTimeout> | undefined;
+      let done = false;
+      const finish = (error?: Error): void => {
+        if (done) return;
+        done = true;
+        clearTimeout(timer); clearTimeout(watchdog);
+        if (recorder) {
+          recorder.ondataavailable = null; recorder.onstop = null; recorder.onerror = null;
+          if (recorder.state !== 'inactive') { try { recorder.stop(); } catch { /* Failed/cancelled encoder is already being released. */ } }
+        }
+        if (tap) {
+          try { master.disconnect(tap); } catch { /* This capture edge may already be detached during context destruction. */ }
+          try { tap.disconnect(); } catch { /* Owned tap may already be disconnected. */ }
+          for (const track of tap.stream.getTracks()) track.stop();
+        }
+        this.mixCaptureCancel = null;
+        if (error) { reject(error); return; }
+        const actualMime = recorder?.mimeType || mimeType;
+        const blob = new Blob(chunks, { type: actualMime });
+        if (!blob.size) { reject(new Error('录音未取得实际游戏输出字节')); return; }
+        resolve({ blob, mimeType: actualMime });
+      };
+      this.mixCaptureCancel = () => finish(new Error('游戏混音录制已取消'));
+      try {
+        tap = context.createMediaStreamDestination();
+        recorder = new MediaRecorder(tap.stream, { mimeType, audioBitsPerSecond: 128_000 });
+        recorder.ondataavailable = event => { if (event.data.size) chunks.push(event.data); };
+        recorder.onstop = () => finish();
+        recorder.onerror = () => finish(new Error('浏览器混音录制失败'));
+        master.connect(tap);
+        recorder.start(250);
+        timer = setTimeout(() => {
+          try { recorder?.stop(); } catch { finish(new Error('无法结束游戏混音录制')); }
+        }, durationMs);
+        watchdog = setTimeout(() => finish(new Error('游戏混音编码结束超时')), durationMs + 5000);
+      } catch (error) {
+        finish(error instanceof Error ? error : new Error('无法创建游戏混音录制'));
+      }
+    });
+  }
+
   playPresentation(event: PresentationAudioEvent): boolean {
     const key = `${event.phase}:${event.key}:${event.player ?? 'global'}`;
     if (this.presentationKeys.has(key)) return false;
@@ -419,6 +498,7 @@ export class AudioEngine {
 
   private playCueInternal(cueId: string, options: { player?: 0 | 1; ui?: boolean }, preview: boolean): boolean {
     if (this.destroyed) return this.drop(cueId, 'destroyed');
+    if (!this.chatter && isDailyVoice(cueId)) return this.drop(cueId, 'chatter_disabled');
     const cue = this.catalog[cueId];
     if (!cue) return this.drop(cueId, 'unknown_cue');
     if (cue.loop) this.loops.add(cueId);
@@ -453,6 +533,11 @@ export class AudioEngine {
       }
     }
     if (!buffer) return this.drop(cueId, 'sample_unavailable');
+    const spokenFileKey = selectedFile && cue.preserveSentence ? `${selectedFile}:${options.player ?? 'global'}` : null;
+    const previousFileStart = spokenFileKey ? this.lastSpokenFile.get(spokenFileKey) : undefined;
+    if (previousFileStart !== undefined && this.now() - previousFileStart < (cue.cooldownMs ?? 0)) {
+      return this.drop(cueId, 'shared_dialogue_cooldown');
+    }
     if (!this.makeRoom(cueId, cue, options.player)) return this.drop(cueId, 'priority_limit');
     let sound: PlayingSound | null = null;
     let source: AudioBufferSourceNode | null = null;
@@ -477,6 +562,7 @@ export class AudioEngine {
     }
     if (this.playbackErrorGroup === cue.group) { this.playbackError = null; this.playbackErrorGroup = null; }
     this.lastPlayed.set(key, this.now());
+    if (spokenFileKey) this.lastSpokenFile.set(spokenFileKey, this.now());
     if (mode === 'sample') this.sampledPlays++; else this.fallbackPlays++;
     this.trace('play', mode, cueId);
     this.updateMusicDuck();
@@ -508,15 +594,23 @@ export class AudioEngine {
 
   private makeRoom(cueId: string, cue: AudioCue, player: 0 | 1 | undefined): boolean {
     const priority = cue.priority ?? 40;
-    const current = [...this.playing.values()];
+    let current = [...this.playing.values()];
     if (cue.group === 'voice') {
+      // The fixed round window cannot fit a2s losing KO and the winner's full
+      // sentence sequentially. A playable win owns speech focus; keep KO files
+      // intact rather than overlap or silently trim them offline.
+      if (/^voice\.[^.]+\.win$/.test(cueId)) {
+        for (const sound of current) if (sound.group === 'voice' && sound.player !== player) this.stop(sound);
+        current = [...this.playing.values()];
+      }
       // Ambient chatter never overlaps either fighter's more useful speech.
       if (priority <= 10 && current.some(sound => sound.group === 'voice')) return false;
       if (priority > 10) for (const sound of current) {
         if (sound.group === 'voice' && sound.priority <= 10) this.stop(sound);
       }
-      const speaker = current.filter((sound) => sound.group === 'voice' && sound.player === player);
+      const speaker = [...this.playing.values()].filter((sound) => sound.group === 'voice' && sound.player === player);
       if (speaker.some((sound) => sound.priority > priority)) return false;
+      if (speaker.some(sound => this.catalog[sound.cueId]?.preserveSentence && sound.priority >= priority)) return false;
       for (const sound of speaker) this.stop(sound);
     }
     const matching = [...this.playing.values()].filter((sound) => sound.cueId === cueId && (cue.group !== 'voice' || sound.player === player));
@@ -555,6 +649,7 @@ export class AudioEngine {
     for (const sound of [...this.playing.values()]) this.stop(sound);
     this.loops.clear();
     this.lastPlayed.clear();
+    this.lastSpokenFile.clear();
     this.eventKeys.clear();
     this.presentationKeys.clear();
     this.variants.clear();
@@ -565,6 +660,7 @@ export class AudioEngine {
 
   /** Permanent game teardown. Scene exits use stopAll() so decoded samples remain reusable. */
   async destroy(): Promise<void> {
+    this.mixCaptureCancel?.();
     if (this.destroyed) return;
     this.destroyed = true;
     this.retryResume?.();
@@ -629,10 +725,18 @@ export class AudioEngine {
 
   groupVolume(group: AudioGroup): number { return this.levels[group]; }
 
-  settings(): AudioSettings { return { muted: this.muted, volume: this.volume, groups: { ...this.levels } }; }
+  settings(): AudioSettings { return { muted: this.muted, volume: this.volume, groups: { ...this.levels }, characterChatter: this.chatter }; }
+
+  setCharacterChatter(enabled: boolean): void {
+    this.chatter = enabled;
+    if (!enabled) this.interruptDailyVoice();
+    this.save();
+  }
 
   /** User-invoked only; never called by loading, errors or scene transitions. */
   restoreDefaults(): void {
+    this.chatter = false;
+    this.interruptDailyVoice();
     this.muted = false;
     this.volume = 0.6;
     Object.assign(this.levels, DEFAULT_LEVELS);
@@ -675,7 +779,7 @@ export class AudioEngine {
 
   interruptDailyVoice(player?: 0 | 1): void {
     for (const sound of [...this.playing.values()]) {
-      if (sound.group === 'voice' && (player === undefined || sound.player === player) && sound.priority <= 10) this.stop(sound);
+      if (sound.group === 'voice' && (player === undefined || sound.player === player) && isDailyVoice(sound.cueId)) this.stop(sound);
     }
   }
 
@@ -683,7 +787,7 @@ export class AudioEngine {
   private syncMusic(): void { this.music.control(!this.destroyed && !this.muted && this.volume > 0 && this.levels.music > 0, this.paused); }
 
   private save(): void {
-    try { this.storage?.setItem(STORAGE_KEY, JSON.stringify({ muted: this.muted, volume: this.volume, groups: this.levels })); } catch { /* Storage may be disabled. */ }
+    try { this.storage?.setItem(STORAGE_KEY, JSON.stringify({ muted: this.muted, volume: this.volume, groups: this.levels, characterChatter: this.chatter })); } catch { /* Storage may be disabled. */ }
   }
 
   setDiagnosticsEnabled(enabled: boolean): void {

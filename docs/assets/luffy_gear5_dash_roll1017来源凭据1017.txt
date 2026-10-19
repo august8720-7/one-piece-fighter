@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_dash_roll1017",
+  "file": "public/assets/generated/source/luffy-gear5-dash-roll1017.png",
+  "sha256": "4bec029ca5af93784db4b70021ac409e8d2a3ee7d42ab146ad4de1964f44fc22",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方未公开具体图像型号。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+  "observedCompletedAt": "2026-10-17T12:00:20.9289342+08:00",
+  "uiObservation": "同一母版会话极高档未更改，完整12格冲刺后撤翻滚拆投提示词后生成并downloadMedia取得1448x1086RGBA原PNG，外框alpha最大6。四肢和真实翻滚关键姿态静态候选待按实际动作时序裁切；不作为实战接触已通过。时间为原件核对时刻，截图为本会话此前实际模型菜单。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-dash-roll-prompt1017.txt",
+    "sha256": "c342e5224d209369152c1d2bffffaf44484e098a4ccf822a09b172bea7e98b8f"
+  },
+  "referenceSources": {
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+    "mobility": "5d94579bcc254d8dd831019d1ff042cb67debbc96337037ddf8f24abe196e481"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T04:00:21.788345+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/walk-near-model1017.png",
+    "sha256": "f2a72294b047d1d8690e36d4a419ac655e62ecc51a72c2fa49fb6a74d398c71f"
+  },
+  "referenceFiles": {
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    },
+    "mobility": {
+      "file": "public/assets/generated/source/luffy-gear5-mobility1017.png",
+      "sha256": "5d94579bcc254d8dd831019d1ff042cb67debbc96337037ddf8f24abe196e481"
+    }
+  },
+  "originalPngSize": [
+    1448,
+    1086
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

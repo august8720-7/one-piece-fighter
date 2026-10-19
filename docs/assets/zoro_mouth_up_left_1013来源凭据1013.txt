@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "zoro_mouth_up_left_1013",
+  "file": "public/assets/generated/source/roster-zoro-mouth-up-left-1013.png",
+  "sha256": "998ce79f4abe51ad81d0c4f0fefebe4c569b79818202689ad14775278cafa15f",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方网页未公开具体图像型号，不推断后台版本。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbe218-2044-83e8-b500-931a2779e800",
+  "observedCompletedAt": "2026-10-13T16:12:10.402627+08:00",
+  "recordedAt": "2026-10-13T16:12:10.402627+08:00",
+  "uiObservation": "root在同一已核GPT-6/极高4/5会话的IAB，实际上传前一张失败原PNG与本地左上箭头参考并提交独立短提示，随后直接将已显示原始PNG字节保存D盘。本子代理完整解码与实看新图及局部：口刀已真实向左上延伸、咬柄与嘴相连，两手刀独立且三刀完整。记录时间为本次复核，不是服务端首次生成时间。文字型号采用root同次现场确认；图片具体型号未公开。",
+  "prompt": {
+    "file": "docs/assets/zoro-mouth-up-left-correction1013.txt",
+    "sha256": "9d00a96bab6f9a4879f4d3f8630669185dcd15e19f18e1a0835624d1de4836b4"
+  },
+  "referenceSources": {
+    "zoro_floor_repair_1013": "feb2bac53792910b9140c7e7868c6361a6f4ffdc58a91e8678b95fd480c7f194",
+    "zoro_mouth_up_left_angle_guide1013": "61b383ed6061a0ac961c981a1335bf01b793327dfb762cf9e60c2df33b03f233"
+  },
+  "screenshot": {
+    "file": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\character-closure1013\\image-requests\\zoro-gpt6-confirmed-iab1013.jpg",
+    "sha256": "0b833896b058b9e4c191bc3ed9679dfbad6b7305616a96657f2a3fcfb9b43f49"
+  },
+  "completionScreenshot": {
+    "file": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\character-closure1013\\image-requests\\zoro-up-left-completed1013.jpg",
+    "sha256": "cd9842f8315692c7d5826c3ea553547b3c277ec18de6966587651be2d460e453"
+  },
+  "unitScale": 0.5156462585034014,
+  "scaleBasis": "Neutral alpha>=8 bbox[26, 21, 903, 756] height735; entire source uses379/735, no per-pose rescale.",
+  "sourceImageSize": [
+    1942,
+    809
+  ],
+  "sourceBytes": 900022,
+  "status": "static-three-sword-ground-and-scale-reviewed-runtime-pending",
+  "referenceFiles": {
+    "zoro_floor_repair_1013": {
+      "file": "public/assets/generated/source/roster-zoro-floor-repair-1013.png",
+      "sha256": "feb2bac53792910b9140c7e7868c6361a6f4ffdc58a91e8678b95fd480c7f194"
+    },
+    "zoro_mouth_up_left_angle_guide1013": {
+      "file": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\reference\\zoro-floor1013\\zoro-mouth-up-left-angle-guide1013.png",
+      "sha256": "61b383ed6061a0ac961c981a1335bf01b793327dfb762cf9e60c2df33b03f233",
+      "kind": "reference-guide-not-runtime",
+      "originalUploadedFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\character-closure1013\\zoro\\zoro-mouth-up-left-angle-guide1013.png",
+      "canonicalCopyByteIdentical": true
+    }
+  },
+  "runtimeAcceptance": false
+}

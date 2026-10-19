@@ -1,0 +1,1061 @@
+{
+  "schemaVersion": 1,
+  "workflowDecision": "pc-roster-0929",
+  "sources": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "本次官方登录图像页标题和说明均未披露具体图像型号，不能核实为GPT Image 2.5。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+      "observedCompletedAt": "2026-09-29T23:14:28+08:00",
+      "uiObservation": "官方images入口模型菜单最新选中，强度实际为极高第四项；同会话完整母版提示词后的回复显示已生成图像，查看器实际显示海军六人。23:14:28为登记阶段再次确认已完成的观察时刻，首次完成精确时间未另行记录，不是服务器生成时间。此前输入被换行拆开的短句已停止，未作为此母版的完整提示词。",
+      "prompt": {
+        "file": "docs/assets/海军人物母版提示词0929.txt",
+        "sha256": "ed6f2992014d4bf7dcc3c7656d45de6ca054f2dac3712461152012a4fe4e18d3"
+      },
+      "referenceSources": {},
+      "unitScale": 1,
+      "recordedAt": "2026-09-29T15:16:29.216310+00:00",
+      "sourceEvidence": {
+        "file": "docs/assets/marine_mother_0929来源凭据0929.txt",
+        "sha256": "a613e9660a8ba87b3e765183e442042c04380b35d62bf3f0b780ba40cbb18e35"
+      }
+    },
+    "kizaru_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-kizaru-locomotion-0929.png",
+      "sha256": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "本次官方图像入口只显示ChatGPT，未公开具体图像型号；不推断为GPT Image 2.5。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6abbd7c3-ab58-83e8-bc9d-5433cd330260",
+      "observedCompletedAt": "2026-09-29T23:32:25.2748896+08:00",
+      "uiObservation": "首张由主代理在Codex内置浏览器上传本游戏海军母版并单次发送本提示词，实际最新和极高第四项；本人随后在Microsoft Edge接续同会话核对完整提示词、用户附件和九格黄猿生成结果，再次核实菜单最新选中与极高第四项。此时间是当前再次观察已完成回复的时刻，不是服务器首次生成时间。Edge两个下载均保留crdownload后缀，均有完整PNG签名/IEND且Pillow验证和完整解码通过，尺寸1254x1254与网页一致、SHA256相同；按复制前清单保全为原PNG，未声称浏览器下载已完成。",
+      "prompt": {
+        "file": "docs/assets/kizaru-locomotion-prompt0929.txt",
+        "sha256": "ab1ba1a1848ae10d5aeef9f5fa55d4f1437ce4e82765161c4bb0e4caaecc2a28"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-09-29T15:32:25.538236+00:00",
+      "sourceEvidence": {
+        "file": "docs/assets/kizaru_locomotion_0929来源凭据0929.txt",
+        "sha256": "a7cbb52621bf7e636e84402d7479cef63c41b68c6af9f4e5e88f3ac67663e00d"
+      }
+    },
+    "kizaru_reaction_0929": {
+      "file": "public/assets/generated/source/roster-kizaru-reaction-0929.png",
+      "sha256": "b9db3e8aee51c7b6e5e2b8ce18da9e542859b28eebc11966fc9052145f8b8d38",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "本次官方图像入口仅显示ChatGPT，没有公开具体图像模型，不推断后台型号。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6abbd7c3-ab58-83e8-bc9d-5433cd330260",
+      "observedCompletedAt": "2026-09-29T23:38:03.2937434+08:00",
+      "uiObservation": "本子任务在Microsoft Edge接续已含真实海军母版和黄猿首张的官方会话；发送前DOM实际显示最新menuitemradio选中、极高第四项。完整反应提示词通过textbox.fill并单次点击发送，页面显示回答已完成和第二张生成图，查看器naturalWidth/naturalHeight为1254x1254。此时间为再次确认已完成结果的本机时刻，不是服务器首次生成时间。两份下载保留crdownload后缀，但完整PNG签名/IEND、Pillow.verify及load解码通过，与网页尺寸一致且SHA256相同；先清单后保全原PNG，未宣称浏览器下载已终结。",
+      "prompt": {
+        "file": "docs/assets/kizaru-reaction-prompt0929.txt",
+        "sha256": "e80e3fc7b09d1b87896cadd2ef8776f89cde199ef9f3373fa6f7b26d4cd87cc1"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+        "kizaru_locomotion_0929": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-09-29T15:38:03.560701+00:00",
+      "sourceEvidence": {
+        "file": "docs/assets/kizaru_reaction_0929来源凭据0929.txt",
+        "sha256": "13a37b3d7b55f96629d7acee5fa854fde9b61c446af0443a4a96af16410afa05"
+      }
+    },
+    "kizaru_walk_repair_0929": {
+      "file": "public/assets/generated/source/roster-kizaru-walk-repair-0929.png",
+      "sha256": "b9c40e81cf9ea2ffb95cd396499a73b7f7d38b8f869265e9e3c876718ea4b920",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方页面未披露具体图像型号，按本轮规则记unverified。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6abbd7c3-ab58-83e8-bc9d-5433cd330260",
+      "observedCompletedAt": "2026-09-29T23:50:43.8688656+08:00",
+      "uiObservation": "在原稳定黄猿会话提交一次只修步态的完整提示词，沿用本次实际核对的最新和极高档；页面Worked for 1m23s后显示回答已完成，查看器第三张为6格黄猿图，实际natural尺寸1254x1254。观察发现两次迈腿相似且抬膝过高，判定为未采用候选。本时间为后续登记时再次确认已完成原图的时刻，不代表服务器首次生成时间。两份Edge crdownload均通过PNG签名/IEND和Pillow完整解码，尺寸与网页一致、hash相同；先清单后复制保全，未伪称浏览器下载终结或步态验收通过。",
+      "prompt": {
+        "file": "docs/assets/kizaru-walk-repair-prompt0929.txt",
+        "sha256": "bb4fb22d11b0194a307a804d78190eef0c1c4547514bc99a623f99bc8e6e0c56"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+        "kizaru_locomotion_0929": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1",
+        "kizaru_reaction_0929": "b9db3e8aee51c7b6e5e2b8ce18da9e542859b28eebc11966fc9052145f8b8d38"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-09-29T15:50:44.150901+00:00",
+      "sourceEvidence": {
+        "file": "docs/assets/kizaru_walk_repair_0929来源凭据0929.txt",
+        "sha256": "0b994c6c5f295791bb261a1a7d377c9009b8db32be53ff7474eb5efc0b0d2aea"
+      }
+    },
+    "fujitora_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-fujitora-locomotion-0929.png",
+      "sha256": "a38f130276e431ca96988080c490d81675e3256c5632e0b305f73ed430f3c2ad",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方图像工作流未公开图像型号，不从文字选项推断图像模型。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6abbdda3-ba58-83ee-8d68-a51bc4c4d77e",
+      "observedCompletedAt": "2026-09-29T23:58:42.0104027+08:00",
+      "uiObservation": "通过官方更多操作的新聊天分支保留本游戏真实海军母版附件与上游黄猿风格图；新分支发送前实际菜单最新选中、极高第四项，完整藤虎提示词一次发送。完成后页面从临时local-chatgpt自动落稳到此UUID会话；查看器显示第二张为正确藤虎九格，natural尺寸1254x1254。本时间为保全后再检查已完成原图的本机时刻，不是服务器首生成时间。两份Edge未终结crdownload均有完整PNG签名/IEND且Pillow.verify+load通过，尺寸相符且hash相同；复制前后清单保留，不冒称下载UI完成或素材验收完成。",
+      "prompt": {
+        "file": "docs/assets/fujitora-locomotion-prompt0929.txt",
+        "sha256": "f686575c7e3eac9a4efb9ed5ead1f0143d5bae759cd759fa1caf55176cb3121c"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+        "kizaru_locomotion_0929": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-09-29T15:58:42.280352+00:00",
+      "sourceEvidence": {
+        "file": "docs/assets/fujitora_locomotion_0929来源凭据0929.txt",
+        "sha256": "444e1dad46cd67b12b3d0f64c0f5b64afc57d29a40c3cad3fdd60028134c95e3"
+      }
+    },
+    "fujitora_reaction_0929": {
+      "file": "public/assets/generated/source/roster-fujitora-reaction-0929.png",
+      "sha256": "6971fa5685477c4980ca22c66db39c1c9fa12e14a88659fc2cb55cde0d07d7a8",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "本次官方图像页未标示具体图像型号，按实际来源记unverified。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6abbdda3-ba58-83ee-8d68-a51bc4c4d77e",
+      "observedCompletedAt": "2026-09-30T00:05:13.4727321+08:00",
+      "uiObservation": "本子任务在已稳定藤虎分支使用当前最新+极高设置，完整反应提示词通过textbox.fill单次发送。页面回答已完成，查看器第三张显示藤虎待机/蹲防/受击/跳/倒地起身九格，natural尺寸1254x1254。本时间是下载保全后再次查看已完成原图的本机观察时刻，不是服务器生成时间。两份Edge crdownload签名/IEND、Pillow.verify和load全部通过，尺寸与页面一致、hash相同；先清单后复制原文件，不声称浏览器已结束下载或动态样板通过。",
+      "prompt": {
+        "file": "docs/assets/fujitora-reaction-prompt0929.txt",
+        "sha256": "dbafe6584b690d6fd66d798b086f5abfe93a3138b2c71cba22b7d2ffe5225db8"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+        "fujitora_locomotion_0929": "a38f130276e431ca96988080c490d81675e3256c5632e0b305f73ed430f3c2ad"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-09-29T16:05:13.761209+00:00",
+      "sourceEvidence": {
+        "file": "docs/assets/fujitora_reaction_0929来源凭据0929.txt",
+        "sha256": "5788476bd09f5502ed4b3c74487ffad9bb17c2d87fa5d1a3218e46307a00cfa1"
+      }
+    },
+    "ryokugyu_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-ryokugyu-locomotion-0929.png",
+      "sha256": "56f0d9e30aa939d51c75276b48a1048d4105237bc02a9be562386bee9a789d12",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "当前官方图像页不展示图像模型型号，不推断后台版本。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6abbe23e-14d4-83e8-ad30-b7dc498df32c",
+      "observedCompletedAt": "2026-09-30T00:14:10.3777977+08:00",
+      "uiObservation": "在官方新聊天分支保留同一真实海军母版，发送前菜单最新选中且极高第四项。绿牛完整提示词一次发送，完成后自动落稳到当前UUID会话；查看器第二张显示绿牛九格，natural尺寸1254x1254。此时刻为保全后再次观察已完成原图，不代表服务器首次生成时间。两份下载均暂留crdownload后缀，但签名/IEND/Pillow.verify+load通过、尺寸一致且SHA256相同，先清单后复制原图。四个行走姿势疑似同一前腿，尚不采用为走路循环。",
+      "prompt": {
+        "file": "docs/assets/ryokugyu-locomotion-prompt0929.txt",
+        "sha256": "9cdf18ddd0bcef56a73f7e6f5cbf82cae871023ee97bd16a4e6108fb5b88a581"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+        "kizaru_locomotion_0929": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-09-29T16:14:10.657863+00:00",
+      "sourceEvidence": {
+        "file": "docs/assets/ryokugyu_locomotion_0929来源凭据0929.txt",
+        "sha256": "05db92fa3d6dca82abc276b9f93afa578fb78a36c3d9c8517e25962966ad0f88"
+      }
+    },
+    "ryokugyu_reaction_0929": {
+      "file": "public/assets/generated/source/roster-ryokugyu-reaction-0929.png",
+      "sha256": "07ca0484489e3e2c1547eaddb1c64de820733afa5e12da3024475373b4ac2b36",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方图像入口未公开具体图像型号；本文只记录实际可见设置。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6abbe23e-14d4-83e8-ad30-b7dc498df32c",
+      "observedCompletedAt": "2026-09-30T00:20:50.1068771+08:00",
+      "uiObservation": "在已实际核实最新和极高的绿牛会话，通过完整textbox.fill后一次发送反应提示词；页面完成后另一个本人标签打开同UUID会话，第三张查看器显示九格绿牛人形反应，natural尺寸1254x1254。登记时再次查看已保全原图，此为本机完成复核时刻，不是服务器首次生成时间。两份下载虽保留crdownload后缀，完整PNG签名/IEND与Pillow.verify+load均通过，尺寸与页面相符且hash相同；复制前后清单已留。候选人物/透明背景可辨，未作正常速度或战斗验收。",
+      "prompt": {
+        "file": "docs/assets/ryokugyu-reaction-prompt0929.txt",
+        "sha256": "028bc14c3847dc6b997c35a2690dfc92c6816f156358f1e8a562b9bfb29894c3"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+        "ryokugyu_locomotion_0929": "56f0d9e30aa939d51c75276b48a1048d4105237bc02a9be562386bee9a789d12"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-09-29T16:20:50.396606+00:00",
+      "sourceEvidence": {
+        "file": "docs/assets/ryokugyu_reaction_0929来源凭据0929.txt",
+        "sha256": "533c827be9609b27e0555f76dbd83021454abc33a2a65457a51494b0ff7164cd"
+      }
+    },
+    "garp_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-garp-locomotion-0929.png",
+      "sha256": "ec9dd557b078da06545d63f84846b97d83dcc89f739aa23c19cae538e048d4de",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方页面没有公开具体图像型号，未将最新文字选项当作图像模型名称。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6abbe3fd-5db4-83ee-b1c2-58268d1a0616",
+      "observedCompletedAt": "2026-09-30T00:29:22.3312636+08:00",
+      "uiObservation": "卡普分支发送前实际菜单最新选中、极高第四项；完整卡普提示一次发送并落稳到本UUID会话。页面初始思考中状态未及时同步，重载后可见正确卡普九格；随后正文报告无法加载此ChatGPT对话，但查看器仍显示生成的图像2和下载按钮。通过该明确图像查看器AX下载一次，所得crdownload完整PNG签名/IEND、Pillow.verify+load均通过，原PNG1254x1254且view_image与网页可见卡普九格一致。网页natural尺寸读取因UI加载错误未成功，不伪称这一项通过。依据本轮最小验证只保全登记候选，不要求冗余第二下载；原下载后缀与正文错误真实保留。此登记时刻是本机复核原图已完成的时刻，不是服务器首次生成时间。",
+      "prompt": {
+        "file": "docs/assets/garp-locomotion-prompt0929.txt",
+        "sha256": "dfe21e72d47940b6ab21e27c2e15e70348f75f3e47bb1cf6307a22c808dc895a"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+        "kizaru_locomotion_0929": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-09-29T16:29:22.621138+00:00",
+      "sourceEvidence": {
+        "file": "docs/assets/garp_locomotion_0929来源凭据0929.txt",
+        "sha256": "598a33777f5f4c675ae0da1cd71cc8348362860c2a044ced9c7f5d09d7ec6ea0"
+      }
+    },
+    "sengoku_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-sengoku-locomotion-0929.png",
+      "sha256": "3829d8946b189a7530ef8225f5d97f0086977cb1c8f578e58e87b2bd8348e930",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方页面未披露图像型号，仅实际核实文字最新与极高。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6abbe4e2-3cb4-83e8-b530-23166e716bdb",
+      "observedCompletedAt": "2026-09-30T00:32:45.5694341+08:00",
+      "uiObservation": "由保留真实海军母版的官方新聊天分支生成战国，发送前实际菜单最新选中、极高第四项，完整提示一次发送并落稳到此UUID。页面标为预览且回答已完成，点击后图片预览对话框显示完整战国九格；对该实际img只读观察natural尺寸1254x1254。通过该媒体控件下载一次，PNG签名/IEND、Pillow.verify和load通过，图像与网页可见九格一致；原crdownload后缀保留，复制前后hash核对。按最小验证只登记候选，不重复下载、不声称UI资源所有状态正常或动作已验收。此时刻为保全后再次观察原图的本机时刻，不是服务器生成时间。",
+      "prompt": {
+        "file": "docs/assets/sengoku-locomotion-prompt0929.txt",
+        "sha256": "b02324258a74e2be16c9a1097cc6bd530d12e6d540743115c33ced4581a1a1e7"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+        "kizaru_locomotion_0929": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-09-29T16:32:45.864964+00:00",
+      "sourceEvidence": {
+        "file": "docs/assets/sengoku_locomotion_0929来源凭据0929.txt",
+        "sha256": "0c02259d7a152fcda11fa64a3d1eafab9c2a7c00294e09499020259a9e87c7e1"
+      }
+    },
+    "aokiji_qe_1003": {
+      "file": "public/assets/generated/source/roster-aokiji-qe-1003.png",
+      "sha256": "179770da1175ba66bfeab89c885dea82f1d1865d06db8fa7293f595cf2294973",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方图像页未公开具体图像型号，不从文字最新选项推断图像模型。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+      "observedCompletedAt": "2026-10-03T01:20:10+08:00",
+      "uiObservation": "主代理在同一官方青雉会话最初发送前实际核实最新和极高；1003首次生成报错，第二次完整同提示成功，为同会话图5。主代理恢复新tab5后实际点击下载，工具回执超时但PNG文件真实落至Downloads，主代理01:20:10再次观察已完成结果。此时刻不是服务器首次生成时间。本子代理接手只做静态加工，未亲自操作该网页；按主代理本轮现场观察登记。原件1254x1254、PNG完整解码及SHA256核实，原件未重编码；白底合成显示人物和独立冰FX可见alpha完整，不把来源登记当实机或美术放行。",
+      "prompt": {
+        "file": "docs/assets/青雉冰矛冰刀样板提示词0929.txt",
+        "sha256": "06bf4065d37332e89bd16b12c43bce9e7e622e2a17e6ea615909cd6e3804f8d1"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-02T17:23:51.962412+00:00",
+      "sourceEvidence": {
+        "file": "docs/assets/aokiji_qe_1003来源凭据0929.txt",
+        "sha256": "9bf944ee82fd0a017714de70bbad266ab484ee0f9b50a494f45dfbdcf65645e0"
+      },
+      "adoptionStatus": "shape_reviewed_candidate",
+      "adoptionScope": "Only static RGBA shape/edge review for explicit crops; Q/E physical contact and normal-speed gameplay remain unaccepted."
+    },
+    "aokiji_jump_dash_1003": {
+      "file": "public/assets/generated/source/roster-aokiji-jump-dash-1003.png",
+      "sha256": "bc0bb4330b08cb57a4a83504aa0f7c7221866817d59403a063eb6ff9e554aed6",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方网页未公开具体图像型号，分别记录文字最新及极高，不推断2.5。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+      "observedCompletedAt": "2026-10-03T15:44:24+08:00",
+      "uiObservation": "本轮独立青雉会话核对最新选中及极高第4项，完整fill九格跳跃冲刺提示后单次发送，原会话实际成图；主代理实际看查看器九格/图5，下载未落盘；香克斯子任务另开同一已保存会话查看器图4单次下载取得原件，原画内容已双方看图核对。15:44:24为主代理检查已下载PNG完成的观察时刻，不是服务器生成时间。前冲三姿不是持续换腿循环，暂不登记dash能力。",
+      "prompt": {
+        "file": "docs/assets/aokiji-jump-dash-prompt1003.txt",
+        "sha256": "93899864b32861b668cbcba49e70de489289a7046b67fe8d819c74e46774b6f6"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-03T07:49:38.959158+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/aokiji-download-assist-current-viewer.jpg",
+        "sha256": "3c1077a49aad278cecc4039a23827a7a3fa81ca658a4068e2956252d48cda38a"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/aokiji_jump_dash_1003来源凭据0929.txt",
+        "sha256": "e3b43cd7107bc9748cd4203697691560ea42f04f87cb86ab7950918b97e1e9b9"
+      }
+    },
+    "aokiji_backdash_roll_1003": {
+      "file": "public/assets/generated/source/roster-aokiji-backdash-roll-1003.png",
+      "sha256": "4f202b46f5c7358898fd089469ba43fc2defedb2f08f0e9491c2a6dad2642fcb",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "主代理在本轮官方ChatGPT图像入口核实最新与极高，但具体图像模型未公开，继续记为unverified，不推断后台图像型号。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+      "observedCompletedAt": "2026-10-03T16:30:19.649872+08:00",
+      "uiObservation": "本页由主代理在已核实的官方青雉同会话fill完整aokiji-backdash-roll-prompt1003.txt并单次发送，主代理实际最新菜单已核选中且极高可见。取回助手shanks_complete_art在其Codex内置IAB browser2/tab4仅查看最新已完成九格与完整提示一致，并单次点击官方查看器下载；16:30:19.649872是其完成复核截图时间，不是服务器生成时间。静态接入助手自身IAB不可用，仅本地核实原PNG与截图SHA256、PNG签名/IEND与完整RGBA解码，未冒称亲自在浏览器观察。下载原件保留Downloads，复制前后清单和哈希保留在aokiji-backdash-roll1003验收目录。",
+      "prompt": {
+        "file": "docs/assets/aokiji-backdash-roll-prompt1003.txt",
+        "sha256": "476f3ffb47aa61ba784c186f4df096c9e6baeba0774942bfede0ecf1d93c4442"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-03T08:43:05.804915+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/assist-second-completion-viewer-1003.jpg",
+        "sha256": "7d01d9c33937eca549136ed179f3b07037acf35aaa3f8d2425befd5a4261de44"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/aokiji_backdash_roll_1003来源凭据0929.txt",
+        "sha256": "b154d967111a2898803656bee1c22c2cd7f89bdab22566b58d68bffe42c60d2e"
+      }
+    },
+    "aokiji_rfg_body_1003": {
+      "file": "public/assets/generated/source/roster-aokiji-rfg-body-1003.png",
+      "sha256": "cd3b53d8fcda548ee3799469e46963934c585ab129f9c3583951d3e582c482d2",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "主代理在本轮官方图像入口核实最新与极高，具体图像模型没有公开；不把文字选项推断为后台图像型号。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+      "observedCompletedAt": "2026-10-03T17:24:44.903118+08:00",
+      "uiObservation": "root在原青雉官方会话实际核最新选中、极高可见后fill完整aokiji-rfg-body-prompt1003.txt并单次提交。shanks_complete_art随后仅在其IAB browser2/tab5查看最新已完成九格，上排上勾拳、中排压地掌、下排反射掌，与完整提示一致；查看器标题九宫格冰系格斗动作精灵图，单次下载原PNG并先清单复制到指定source，前后字节和SHA一致。17:24:44.903118是其截图保存时完成复核时间，不是服务器首次生成。此登记助手本地核实原PNG/截图hash与完整decode；后续自己Edge接管属于下一次生成，不冒称本页为Edge生成。",
+      "prompt": {
+        "file": "docs/assets/aokiji-rfg-body-prompt1003.txt",
+        "sha256": "bfd66b817f15cdd23fb3cef98bf63ccde33595ecf881d3ce93050f74cdba8af4"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-03T09:39:05.971206+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/assist-third-rfg-proof-1003.jpg",
+        "sha256": "eeef734f42e5a3e98ca333b74b27578ab88d7d53b17be2103af7de42b1cc90ee"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/aokiji_rfg_body_1003来源凭据0929.txt",
+        "sha256": "71e9f65a6b66159ce18052a8314a418f334f982f574751dd072db5e17ceeb65a"
+      }
+    },
+    "aokiji_zxcv_body_1003": {
+      "file": "public/assets/generated/source/roster-aokiji-zxcv-body-1003.png",
+      "sha256": "ebe916de97d47c3f9ba4d7be7da87d6de93064e587eb7b4c8443564ffd6eabf6",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "本次实际Microsoft Edge官方图像入口标题ChatGPT，未公开具体图像模型；文字最新与极高只按界面实录，不推断后台图像型号。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+      "observedCompletedAt": "2026-10-03T17:52:09.7817192+08:00",
+      "uiObservation": "本助手当前CUA只暴露Edge，内置不可用后在独立Edge新标签接管root已交回的青雉官方会话。发送前实际模型菜单最新menuitemradio选中、极高第四项可见，保留edge-latest-xhigh-before1003.png；完整Z/X/C/V十二格提示经textbox.fill后单次点击发送。页面显示回答已完成与已生成图像，实际打开最新查看器标题冰霜战士十二式姿态图，十二姿完整；此观察时间取实际查看器完成复核截图保存时，非服务器首次生成时间。查看器下载只点一次，Edge留下png.crdownload后缀，但原件PNG签名/IEND、Pillow.verify和完整RGBA解码成功，1254x1254，静态复核与复制前后SHA均一致；保留Downloads原件与UI未终结状态。另实际打开官方images入口标题ChatGPT，未见具体图像模型型号。",
+      "prompt": {
+        "file": "docs/assets/aokiji-zxcv-body-prompt1003.txt",
+        "sha256": "5a1ba7297227407c5ff27eebb530dd6a4d0aa907d02998da73e650f347e1f4d4"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-03T09:59:54.466016+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-zxcv1003/completion-viewer1003.png",
+        "sha256": "7bf6c71f8203160c53daff4bbcd6ecb62cd63e962e762b1c0c09a252c9fe96fb"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/aokiji_zxcv_body_1003来源凭据0929.txt",
+        "sha256": "ef469c8241fef8d17ba4a6e00791015fe16d27eb565a7594e6ec74bcd484dd92"
+      }
+    },
+    "aokiji_standing_attacks_1003": {
+      "file": "public/assets/generated/source/roster-aokiji-standing-attacks-1003.png",
+      "sha256": "3ce46ab1696c8cbb0e15e0f6156ffee6a240855250e82f5a4549c18f6126f6d9",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "实际官方Edge入口标题ChatGPT，具体图像型号不显示；最新与极高只记录文字菜单，不推断后台图像型号。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+      "observedCompletedAt": "2026-10-03T18:52:31.1224778+08:00",
+      "uiObservation": "沿同一青雉Edge会话已实核最新选中和极高第四项。本助手fill完整普通站立攻击提示；初次点击发送没有提交，现场两次snapshot仍见草稿和发送按钮，没有新用户turn，因此再用Control+Enter有效单次提交，随后明确ChatGPT正在回应、输入清空。最终回答已完成，实际最新查看器标题冰剑战士动作精灵图，四行各三姿完整；观察时间来自完成查看器截图保存，非服务器生成时间。只点一次下载，原文件留crdownload后缀但完整PNG签名/IEND与Pillowverify/全RGBA解码通过，1254x1254，白底实际身体和刀脚完整，复制前后SHA一致，Downloads保留不冒写UI下载完成。",
+      "prompt": {
+        "file": "docs/assets/aokiji-standing-attacks-prompt1003.txt",
+        "sha256": "adcac1d6f02045e4a4afa5fe4860cebb090b57bf86bd45e5b38ad18dfe462f11"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-03T11:03:29.301255+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-standing1003/completion-viewer1003.png",
+        "sha256": "7a35552b88760a67c4b371d84ffe800ff2b7631675c7c4ba9ea97ec2ccf5f847"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/aokiji_standing_attacks_1003来源凭据0929.txt",
+        "sha256": "99ad61a0d8bfe0da76ee62c8db10e6dff7ccbf35e0413e585b51775dd17cdd37"
+      }
+    },
+    "aokiji_crouch_attacks_1003": {
+      "file": "public/assets/generated/source/roster-aokiji-crouch-attacks-1003.png",
+      "sha256": "b329fdc4d0d255bb59662d32192809ce2b531d7e718adf47c0a5f3a02fcd9aa1",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "实际官方图像入口标题ChatGPT，仅能核文字最新/极高，不披露具体图像模型，不推断后台型号。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+      "observedCompletedAt": "2026-10-03T19:27:29.5514867+08:00",
+      "uiObservation": "本助手沿自己的青雉Edge标签，在已实际核最新选中/极高第四项的同一会话fill完整蹲攻提示后Control+Enter单次提交；随后输入清空且ChatGPT正在回应。页面最终回答已完成，打开最新查看器标题冰系海军大将格斗动作精灵表，站姿标尺与三行蹲攻可见。时间取本次真实完成复核截图保存，不是服务器首次生成。查看器下载只点一次，原件留crdownload但完整PNG签名/IEND/Pillowverify与全RGBAdecode通过，白底检视人物/手脚/刀完整；第4格误带冰刀保留失败不用，实际接入范围另列，不能把提示请求当已全通过。先清单复制和SHA一致，保留Downloads，不声称UI下载终结。",
+      "prompt": {
+        "file": "docs/assets/aokiji-crouch-attacks-prompt1003.txt",
+        "sha256": "e552245961e7d7bed04b01012238b4a63358d36aa5f0dc2b8ede72f96bc58226"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-03T11:34:03.655779+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-crouch1003/completion-viewer1003.png",
+        "sha256": "a7144fe6b7c2813320ba72699bf32fa27edfff1e89d273673852fb3abd2b03ec"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/aokiji_crouch_attacks_1003来源凭据0929.txt",
+        "sha256": "06bae449017809c3e11663ce27f386d41dc41601e972025bb5b8d189bf0aed8a"
+      }
+    },
+    "aokiji_air_attacks_1003": {
+      "file": "public/assets/generated/source/roster-aokiji-air-attacks-1003.png",
+      "sha256": "5a7fc11a48945a6d7154d9d23daf296420ce24bd654045346335349f2a56d91e",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方Edgeimages入口标题ChatGPT，实际最新选中/极高可见，但具体图像模型未披露，不推断后台型号。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+      "observedCompletedAt": "2026-10-03T19:45:01.3559221+08:00",
+      "uiObservation": "本助手沿同一独占青雉Edge会话在已实核最新选中/极高第四项后fill完整四空攻提示，单次Control+Enter，随后输入清空且ChatGPT正在回应。最终实际页面回答已完成，打开最新查看器标题海军冰刃战士十二姿态精灵图，站姿标尺和十一不同空姿可见。时间为实际完成复核截图保存，不是服务器首次生成。只点一次下载，原件留crdownload但PNG签名/IEND/Pillowverify和完整RGBAdecode通过，1254x1254，白底原画完整。先清单复制并SHA一致，保留Downloads，不冒写浏览器下载终结；独立肢体/根点/时序采纳后记录，不以生成回执当实机完成。",
+      "prompt": {
+        "file": "docs/assets/aokiji-air-attacks-prompt1003.txt",
+        "sha256": "1eda3a8c1e739d2ebfcdd93737ab4d739091600e6298f0385d51f30b1edcdefa"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-03T11:52:53.373499+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-air1003/completion-viewer1003.png",
+        "sha256": "acaf31ef852b7574a6f322a97b5db56464b8125e94d79318962be0b95284fb3e"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/aokiji_air_attacks_1003来源凭据0929.txt",
+        "sha256": "254ff6d32a055abdcfd155936a12c75d74975c37c89058b25b91ff7bf3091ff1"
+      }
+    },
+    "aokiji_blow_throws_1003": {
+      "file": "public/assets/generated/source/roster-aokiji-blow-throws-1003.png",
+      "sha256": "a3ebd0fbd0f7ca0541dd92932a899c13d39cfbb508fcc31f4a866edaf7f5fca3",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "实际Edge官方图像入口标题ChatGPT，文字最新选中/极高实核，具体图像型号仍未披露，不冒写2.5。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+      "observedCompletedAt": "2026-10-03T20:11:03.5422342+08:00",
+      "uiObservation": "本助手独占青雉Edge会话，已实核最新选中与极高第四项后fill完整吹飞抓投十二格提示，单次Control+Enter提交，输入清空且ChatGPT正在回应；随后页面出现思考中暂态未当成完成，最终真实有新生成图和回答已完成，打开最新查看器标题库赞冰系招式动作精灵图集，站肩/空肩/前后投四行可见。完成观察取截图保存时，不是服务器首次生成。只点下载一次，crdownload原件PNG签名/IEND/Pillowverify与全RGBAdecode完整、1254x1254，白底人物手脚轮廓完整；后投释放远臂被披风遮挡实际表现留为待实机项，未虚构接触。先清单复制并SHA一致，原件保留，不称浏览器UI下载终结。",
+      "prompt": {
+        "file": "docs/assets/aokiji-blow-throws-prompt1003.txt",
+        "sha256": "dc5b0b89c0114685ae017dd7f095c7d0842b659bb206feda5b321502929f3a56"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-03T12:19:21.132841+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-blowthrows1003/completion-viewer1003.png",
+        "sha256": "0b1228e14fb5b828adcb48931572d42a706938aeb259600fa4aa91dc67f77e2e"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/aokiji_blow_throws_1003来源凭据0929.txt",
+        "sha256": "06f8acce48aa52ec1566339d335a771072f63afebefdc90f29db537df6348bdf"
+      }
+    },
+    "aokiji_reactions_held_1003": {
+      "file": "public/assets/generated/source/roster-aokiji-reactions-held-1003.png",
+      "sha256": "0e3f2e8931f8f381ba977dbff46febf92cc547a7a5bf2207e050e8d7e50196cc",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "沿本会话已实际核对的最新选中与极高第四项继续官方图像制作；具体图像后台型号未公开，不记为2.5。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+      "observedCompletedAt": "2026-10-03T20:35:52.584847+08:00",
+      "uiObservation": "本助手接续同一独占青雉Edge会话中已单次有效提交的八姿完整提示，现场见思考中且没有成图，未重复发送；保存2033 pending截图和DOM后原会话正常reload恢复。随后真实最新响应出现成图，打开最新查看器，标题青雉八姿透明精灵图合集，img已生成图像5，八格完整人物可见。时间取实际完成复核截图保存，不是服务器首次生成。只点一次原生下载；Downloads保留crdownload但PNG签名、IEND、Pillowverify、全RGBA解码和稳定两次原字节实证通过，先清单复制并SHA一致。查看器灰色占位不作人物像素证据，原PNG白底另检。尚未把条件脚踝静态候选当成实际抓投或完整游戏通过。",
+      "prompt": {
+        "file": "docs/assets/aokiji-reactions-held-prompt1003.txt",
+        "sha256": "5635d5a5a2374e8ce18a5602633b53ddb29f7cb8e13d197150b2ab8af10f694e"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-03T12:39:08.608354+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-reactionsheld1003/completed-viewer-2036-1003.png",
+        "sha256": "9c238e8c43fc184641bce08cd82a22e9261d2ebaadcaf2a0599ef379c07ac408"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/aokiji_reactions_held_1003来源凭据0929.txt",
+        "sha256": "40399ebda84a37f51aaf74ecc391c13bc3d787aea65de5c05d7e70641159ab52"
+      }
+    },
+    "kizaru_walk_recovered_1003": {
+      "file": "public/assets/generated/source/roster-kizaru-walk-recovered-1003.png",
+      "sha256": "b9c40e81cf9ea2ffb95cd396499a73b7f7d38b8f869265e9e3c876718ea4b920",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "本助手在该官方会话实际菜单核验最新选中与极高第四项；图像后台具体型号未公开，不冒写2.5。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6abbd7c3-ab58-83e8-bc9d-5433cd330260",
+      "observedCompletedAt": "2026-10-03T21:00:17.4984968+08:00",
+      "uiObservation": "本助手恢复黄猿官方旧会话后先发现第三条六格近远腿纠正请求和已有生成结果，marine来源表未登记；未发送新提示、未重生图。现场打开最新图查看器，标题黄猿六帧行走姿态精灵图，img已生成图像3，六个黄猿完整姿势可见。保存当前实际完成复核截图和DOM，并从实际用户消息innerText保存完整原提示；时间是本次恢复复核不是服务器首次生成。下载只点一次，Downloads原件保留crdownload，PNG签名、IEND、Pillowverify、完整RGBAdecode和重复字节稳定通过，先清单复制再SHA核对一致。步态是否真实换腿另查，来源登记不等于美术或完整比赛通过。",
+      "prompt": {
+        "file": "docs/assets/kizaru-walk-recovered-prompt1003.txt",
+        "sha256": "bb4fb22d11b0194a307a804d78190eef0c1c4547514bc99a623f99bc8e6e0c56"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+        "kizaru_locomotion_0929": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-03T13:04:52.329014+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/kizaru-walk1003/completion-viewer1003.png",
+        "sha256": "afc0bb56ca8924b8783125ecc466bba673b6db8c970550134ad30dd53db31923"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/kizaru_walk_recovered_1003来源凭据0929.txt",
+        "sha256": "406febf2c28fd96b1f4acf2d6a837669a9061cf7f3b8bd9117433a983333ed8b"
+      }
+    },
+    "garp_reactions_1003": {
+      "file": "public/assets/generated/source/roster-garp-reaction-1003.png",
+      "sha256": "e5fe4892a2aed7a3042122dbc55190240197e8509360f3785e6e285dc7b4d0ee",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "本次恢复该官方会话现场菜单最新选中与极高第四项；具体图像后台型号未公开，不冒写2.5。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6abbe3fd-5db4-83ee-b1c2-58268d1a0616",
+      "observedCompletedAt": "2026-10-03T21:17:21.7205674+08:00",
+      "uiObservation": "本助手优先恢复卡普已有反应图会话，没有重发提示。新建标签初次绑定中断，但实际标签已经打开，通过已列出的同一Edge标签重新绑定安全恢复。现场核对卡普完整反应原文与docs1003提示规范化换行后一致，打开最新查看器标题白发海军元帅战斗姿态精灵图，img已生成图像3，九格卡普反应可见。当前时间是已有结果本次完成复核截图保存，不是服务器首次生成。只点下载一次，原件保留crdownload；PNG签名/IEND/Pillowverify/完整RGBAdecode/重复稳定原字节通过，先清单复制再SHA一致。边缘/人体比例与实际接触另查，不把旧成功稿回收当成完整人物完成。",
+      "prompt": {
+        "file": "docs/assets/garp-reaction-prompt1003.txt",
+        "sha256": "e5225b598bc3e7e0a439425f468cfa434a124fd94649fded6b9fe7b0ff127951"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+        "garp_locomotion_0929": "ec9dd557b078da06545d63f84846b97d83dcc89f739aa23c19cae538e048d4de"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-03T13:18:54.883433+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/garp-reactions1003/completion-viewer1003.png",
+        "sha256": "35d634040ca7c154b36bb9f73d7797c3e81b1b8f5e9ca12bb23951124c48d729"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/garp_reactions_1003来源凭据0929.txt",
+        "sha256": "8b3a990e11bcfac411f120bdb5d5225ea10996ebf10617912c2f372020bf83f6"
+      }
+    },
+    "kizaru_walk_guided_1003": {
+      "file": "public/assets/generated/source/roster-kizaru-walk-guided-1003.png",
+      "sha256": "43efb45d73e00e479ad4b5996a20496ac984ecfe46cfca88882d5a58edea7117",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "IAB辅助执行者重新现场核验最新radio选中及极高第4项，证据已保存；图像后台具体型号没有公开，不记2.5。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6abbd7c3-ab58-83e8-bc9d-5433cd330260",
+      "observedCompletedAt": "2026-10-03T21:37:03.5823620+08:00",
+      "uiObservation": "海贼素材执行者在Codex内置浏览器通过原生filechooser上传本游戏已有红近蓝远抽象步态指南，确认完成、最新和极高后fill完整准备提示并读回匹配，只发一次，21:20原会话出现用户附件与完整新请求，submitted-iab-assist证据在上一级。本助手接回Microsoft Edge同官方会话，正常reload恢复后现场看到最新新四相生成图，打开查看器标题四格动画：金色条纹军装漫步者，img已生成图像4；保存实际完成复核截图，不是服务器首次生成时间。只点一次下载，crdownload保留；PNG签名/IEND/Pillowverify/完整RGBAdecode/重复稳定原字节通过，复制前后SHA一致。具体四腿相身份与正常速度后查，抽象指南不计运行原画，未写连续动作或完整人物通过。",
+      "prompt": {
+        "file": "docs/assets/kizaru-walk-repair-prompt1003.txt",
+        "sha256": "3dae8eaabe1e19e548476b06f4934aca7ce7655702e13e752a900c97dc928cd9"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+        "kizaru_locomotion_0929": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-03T13:39:10.638728+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/kizaru-walk1003/guided-candidate1003/completion-viewer1003.png",
+        "sha256": "9a21f0db1e5feec6e86ce6d54edd0c406f09803c4fa42b618e58c12ef28ff3a0"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/kizaru_walk_guided_1003来源凭据0929.txt",
+        "sha256": "ef2b4a8c6ffcf408f02c7ef6c9b9b3711d442d01da456a3aa84ad4f76664320c"
+      }
+    },
+    "sengoku_reactions_recovered_1003": {
+      "file": "public/assets/generated/source/roster-sengoku-reaction-recovered-1003.png",
+      "sha256": "b8e32bc4d99da87ee70ea2ee005761c7c609edc3a6a5d2fb96dc45cce9081cd9",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "本次恢复该官方会话现场菜单最新选中与极高第四项；具体图像后台型号未公开，不冒写2.5。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6abbe4e2-3cb4-83e8-b530-23166e716bdb",
+      "observedCompletedAt": "2026-10-03T21:50:28.9312871+08:00",
+      "uiObservation": "本助手恢复战国已生成反应图的原会话，没有重发。初次新标签绑定中断后，同一Edge实际标签已打开，按现有元数据安全绑定恢复。实际旧网页请求677字符，后来docs准备稿828字符并不一致，故从该实际消息innerText保全完整原请求单独记录，不把未发送的裁切追加语冒称生成依据。最新查看器标题战国海军大将九姿态精灵图，img已生成图像3，九格人形与帽饰可见，截图保存是旧结果本次完成复核而非服务器首次生成时间。只点击一次下载，crdownload保留；PNG签名/IEND/Pillowverify/完整RGBAdecode/稳定重复字节通过，先清单复制再SHA一致。实际身体、帽饰、裁切与比例另查，不将取得旧图写为角色完整完成。",
+      "prompt": {
+        "file": "docs/assets/sengoku-reaction-recovered-prompt1003.txt",
+        "sha256": "63c3f1ffd91f16e52240af51b27aeb0b2657465f6fe63044bf4948e58dc07fd6"
+      },
+      "referenceSources": {
+        "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+        "sengoku_locomotion_0929": "3829d8946b189a7530ef8225f5d97f0086977cb1c8f578e58e87b2bd8348e930"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-03T13:52:55.019847+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/sengoku-reactions1003/completion-viewer1003.png",
+        "sha256": "e1228635b668c35abdf8f138eea05e3d12ee488b2b3a18eb505e91ff55ea728e"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/sengoku_reactions_recovered_1003来源凭据0929.txt",
+        "sha256": "41b66a07ef52b2e5a09669e39f284fea7d3fcffb5a7e527d04d76ce2162bcc87"
+      }
+    },
+    "kizaru_walk_contact_edit_1003": {
+      "file": "public/assets/generated/source/roster-kizaru-walk-contact-edit-1003.png",
+      "sha256": "8781a476a151b74fc8bdbb45cf72a7d5831bbdb7e9a59dca5f2af7423dce2d5f",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "在原会话已实际核验最新选中与极高第四项后继续官方图片编辑；图像后台型号仍未公开。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6abbd7c3-ab58-83e8-bc9d-5433cd330260",
+      "observedCompletedAt": "2026-10-03T22:15:03.4290150+08:00",
+      "uiObservation": "本助手在Edge当前第4图查看器内fill完整局部修第3接触相提示，单次ControlEnter，真实页面出现已编辑图像附件、完整新消息、正在回应及停止按钮。之后Edge被另一扩展UI挡住，暂停控制，不修改扩展权限。海贼执行者用现可用IAB正常读取同URL已有完成的第5图，无重发，标题黄猿四帧行走精灵图，natural1312x1199，原生下载得到PNG；其实际完成复核截图及下载JSON已留上级。本助手已view原PNG并重复实核完整签名/IEND/Pillowverify/全RGBAdecode及稳定字节，先清单复制SHA相等。时间是IAB完成复核截图时，不是服务器首次生成。原图尺寸与布局实际改变，不能声称其他像素不变；比例/四相尚未采用。",
+      "prompt": {
+        "file": "docs/assets/kizaru-walk-contact-fix-prompt1003.txt",
+        "sha256": "91702a60b48a6a9abf840298d9d35fcddfdd037477734387bb28c85b7577b95d"
+      },
+      "referenceSources": {
+        "kizaru_walk_guided_1003": "43efb45d73e00e479ad4b5996a20496ac984ecfe46cfca88882d5a58edea7117",
+        "kizaru_locomotion_0929": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-03T14:38:51.584086+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/kizaru-walk1003/contact-edit-iab-viewer1003.jpg",
+        "sha256": "28aa480e27f9a93b3fb55295531830ff872d73f9f98b0bffdc9119e013b66975"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/kizaru_walk_contact_edit_1003来源凭据0929.txt",
+        "sha256": "14d120334bf218c5505c7de5b05b609ffa07419b38cf733d2592d9d0a9abff37"
+      }
+    },
+    "aokiji_low_holds_1004": {
+      "file": "public/assets/generated/source/roster-aokiji-low-hold-1004.png",
+      "sha256": "d504a6abfbe0560f471ee57cff06c135771dbe1cd3a99781c596cdc7e6b283e6",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "主集成在原官方会话刷新后实际核验最新radio与极高第4/5，model1004截图保全；具体图像后台型号没有公开，不记2.5。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+      "observedCompletedAt": "2026-10-04T09:11:15.318182+08:00",
+      "uiObservation": "root在原青雉官方IAB会话实际核验最新/极高，原生filechooser上传完整既有站姿与wide抽象低握指南，完整1269字提示读回匹配后只发送一次。model/draft/completed1004截图同层保全。已有完成图在查看器实际可见，但原生下载与downloadMedia未落盘；不重发，使用同一官方文件操作在空间打开，实际https://chatgpt.com/space/file/libfile_40782eb1cef881918fe225032f203377显示同一青雉风格角色三姿态精灵图.png，已显示img源为相应/api/library/files/libfile_40782.../content。支持的pageAssets.list/bundle只取该PNG，downloaded1 failed0，原bundle manifest已保全。这是只读文件取回，空间sidebar模型不作生成依据。本人独立实查PNG签名/IEND/Pillowverify/全RGBAdecode/1586x992真实alpha0..255/重复稳定字节，与rootSHA相等，先清单复制原件与manifest再SHA核验。完成时刻取实际原会话完成复核截图，不是服务器首次生成。原件有手靠自己小腿和边界紧的待审问题，来源登记不等于美术/接触采用。",
+      "prompt": {
+        "file": "docs/assets/aokiji-low-hold-prompt1004.txt",
+        "sha256": "24ed85a9a03541adb52347924fefd22dbf11bbfd3f102cbd5b9fec223b79b310"
+      },
+      "referenceSources": {
+        "aokiji_blow_throws_1003": "a3ebd0fbd0f7ca0541dd92932a899c13d39cfbb508fcc31f4a866edaf7f5fca3"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-04T01:41:51.333203+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/aokiji-low-hold-completed1004.jpg",
+        "sha256": "03f865e204bf66af885e03728b8e51fa1c9b7f9114678c8ba1ee3089045daa8c"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/aokiji_low_holds_1004来源凭据0929.txt",
+        "sha256": "d9e66e3fb8c23d1459fc6c1b1a3c17a3491438d29135a12cf1b2008164441497"
+      }
+    },
+    "aokiji_low_holds_compact30_1004": {
+      "file": "public/assets/generated/source/roster-aokiji-low-hold-compact30-1004.png",
+      "sha256": "b639875afec46a55bc1e4b65f4264613b43d5300dd0d6d310babf5ec1a7459bb",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "root在原青雉官方会话实际核验最新/极高，model/draft/completed1004截图保全；本助手复看截图确认ChatGPT与极高显示，具体图像后台型号未公开，不记2.5。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+      "observedCompletedAt": "2026-10-04T11:12:38.838948+08:00",
+      "uiObservation": "root在原青雉官方IAB会话提交compact30局部修提示，附件为正确compact30关节指南，model/draft/completed截图已保全。完成查看器显示3格青雉、完整站尺与两格低握。原生下载未落盘后，在同一官方文件入口的空间页面https://chatgpt.com/space/file/libfile_69fcaab0b2408191b283a012e86dc15b，使用支持的pageAssets.list/bundle只导出已显示PNG，downloaded1/failed0；root bundle记录与Temp manifest原字节保全，未重发未换站。空间侧栏文字型号不作生成依据。本助手实际看原PNG，PNG签名/IEND/Pillowverify/完整RGBAdecode/2172x724真实alpha0..255/重复稳定原字节/SHA与root一致，先清单复制原件和manifest再哈希核验。完成时间是实际完成复核截图保存时间，非服务器首次生成时间。两格仍把手贴在自己的前小腿，双鞋仍宽；只登记来源失败稿，不改runtime或作者映射。",
+      "prompt": {
+        "file": "docs/assets/aokiji-low-hold-compact30-repair-prompt1004.txt",
+        "sha256": "886d7b6b5f854ea17c7aa5d2656acff9e7d3b3c89abc198f200e828d09f9026b"
+      },
+      "referenceSources": {
+        "aokiji_low_holds_1004": "d504a6abfbe0560f471ee57cff06c135771dbe1cd3a99781c596cdc7e6b283e6"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-04T03:27:55.195407+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/aokiji-compact30-completed1004.jpg",
+        "sha256": "38d0e6cf567671f28904cc1d1532724ca25d5013e72f873b194b9528646dfb23"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/aokiji_low_holds_compact30_1004来源凭据0929.txt",
+        "sha256": "ef7afd88e2c170c319b6a41b45f347e86c62aa788d2be7972327deb378eda09e"
+      }
+    },
+    "aokiji_low_hold_front_fresh_1004": {
+      "file": "public/assets/generated/source/roster-aokiji-low-hold-front-fresh-1004.png",
+      "sha256": "6518a82260d7054597cf57b23c19b1fad8a9fd290323fa9d8643fda87472aa05",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "root在新独立青雉官方会话实际核验最新与极高；model/draft/completed截图已保存，具体图像后台型号未公开，不记2.5。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ac1c91d-9a4c-83ee-90f8-5e05fd1c1774",
+      "observedCompletedAt": "2026-10-04T11:37:42.680726+08:00",
+      "uiObservation": "root使用新的独立官方会话，仅附完整已采用青雉站姿与正确compact30关节指南，按本助手已准备的两格短提示发送，未附低握失败图。现场最新/极高证据和完整draft/完成查看器截图在acceptance/aokiji-low-hold1004。原图完成后通过同一官方Space文件https://chatgpt.com/space/file/libfile_65c5006d75e88191bcbe134e078e6cd1，使用支持的pageAssets导出已显示PNG；原manifest只有1项image/png、failures为空，不重发不换站，空间侧栏型号不作生成依据。本助手实际看原PNG，两格完整青雉，第二格深蹲和手腿分离确有改善；PNG签名/IEND/Pillowverify/全RGBAdecode/1774x887真实alpha0..255/重复稳定原字节均通过，先清单复制原件、manifest和旧来源表再SHA一致。完成时间取本次完成复核截图，不是服务器首次生成。来源保全不代表握位/美术或实机验收通过，尚未改runtime或作者映射。",
+      "prompt": {
+        "file": "docs/assets/aokiji-low-hold-fresh-front-prompt1004.txt",
+        "sha256": "8436f954d08db8298b84686ec76e5428b79b8a8d9ba4eeb648f51110304337fc"
+      },
+      "referenceSources": {
+        "aokiji_blow_throws_1003": "a3ebd0fbd0f7ca0541dd92932a899c13d39cfbb508fcc31f4a866edaf7f5fca3"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-04T03:49:06.464834+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/aokiji-fresh-front-completed1004.jpg",
+        "sha256": "864e406c09777b9b599ee18a5100b30e1d2c12d815e0c8b13aaf39979c4778e5"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/aokiji_low_hold_front_fresh_1004来源凭据0929.txt",
+        "sha256": "0aee887fc827785021aaf2cf0361c3376facdf52f361b5b26abd5df72d6ac3df"
+      }
+    },
+    "aokiji_low_hold_front_joint1_1004": {
+      "file": "public/assets/generated/source/roster-aokiji-low-hold-front-joint1-1004.png",
+      "sha256": "68821242fd8639281926f6924b1035f2d9d4c063408e6d457e3e0cade189af4d",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "root在新独立青雉官方会话实际核验最新与极高；model/draft/completed截图已保存，具体图像后台型号未公开，不记2.5。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ac1c91d-9a4c-83ee-90f8-5e05fd1c1774",
+      "observedCompletedAt": "2026-10-04T12:09:01.503621+08:00",
+      "uiObservation": "本助手先在Edge实际核验最新radio checked/极高第4共5并留证，但setFiles受已有本地fileURL权限限制，没有填提示或提交，不改扩展权限。单控制者临时交给root现有IAB9，root原生上传fresh原PNG和绿色测点guide，完整joint短提示读回匹配后单次发送，joint-repair-latest-extra-high/draft/sent1004凭据保存。root提交后交回本助手，Edge原确切会话刷新导致一次绑定失联，按真实库存同tab843472206重新绑定恢复，没有重发。实际完整第二条用户消息与提示一致，最新图片查看器标题青雉双姿态透明精灵图，当前img已生成图像2；完成复核截图保存于同层。点击该实际文件菜单在空间中打开，经真实Space URL和DOM可见同名PNG，pageAssets.list/bundle只取已显示的对应image资产，下载1/失败0，原manifest和完整bundle JSON保留。空间sidebar型号不作生成依据。原图两格、相同1774x887，手区靠拢有实际改善；手点仍待量测，不登记接触通过。官方原文件https://chatgpt.com/space/file/libfile_be6a8abaf63c819199293d5d6236c5ec。PNG签名/IEND/Pillowverify/全RGBAdecode/1774x887真实alpha0..255/重复稳定原字节均通过，先清单复制原件、manifest和旧来源表再SHA一致。完成时间取本次完成复核截图，不是服务器首次生成。来源保全不代表握位/美术或实机验收通过，尚未改runtime或作者映射。",
+      "prompt": {
+        "file": "docs/assets/aokiji-low-hold-fresh-front-joint-repair-prompt1004.txt",
+        "sha256": "f51f81985ee0ac521936b76d1ee255b398ea5ba47cb4617c6d9ab887bec6603e"
+      },
+      "referenceSources": {
+        "aokiji_low_hold_front_fresh_1004": "6518a82260d7054597cf57b23c19b1fad8a9fd290323fa9d8643fda87472aa05"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-04T04:13:06.907582+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/aokiji-fresh-front-joint-completed1004.jpg",
+        "sha256": "516e2a4bb971c302cb890b3fa78ae56718e07c17713b83941edb322c7e36f6e5"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/aokiji_low_hold_front_joint1_1004来源凭据0929.txt",
+        "sha256": "8ad28ad7c5082dc25947f386d6764c9010e7417f8d7be2756714f81fc725773e"
+      }
+    },
+    "aokiji_low_hold_front_joint2_1004": {
+      "file": "public/assets/generated/source/roster-aokiji-low-hold-front-joint2-1004.png",
+      "sha256": "346d1f0cf2ecf9d40b26a092222afa649076f318f83b83fef4a785deb6c4d786",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "本助手在此确切会话实际菜单核验最新aria-checked=true，极高第4/5并截图；具体图像后台型号仍未公开。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6ac1c91d-9a4c-83ee-90f8-5e05fd1c1774",
+      "observedCompletedAt": "2026-10-04T12:28:47.942898+08:00",
+      "uiObservation": "本助手Edge单控制者返回同一fresh会话，实际菜单最新radio true/极高第4共5；只点最新图编辑，官方侧栏同名青雉双姿态透明精灵图显示img2。沿此前实际已上传green指南，不再上传新文件。完整368字joint2短提示fill后innerText逐字匹配，只点发送一次，真实第三条用户消息带已编辑的图像、完整提示、ChatGPT正在回应/停止/正在生成图像；model/draft/sent截图与send-observation JSON留存。随后实际回答已完成，官方侧栏生成的图像3、img3，文件标题青雉库赞双姿态透明立绘；本助手全屏保全完成截图，按该文件菜单在空间中打开，pageAssets发现已显示对应PNG，只bundle该1项、成功1/失败0，原manifest与完整bundle保留。原件整体人物与站高有变化，不能声称其他像素不变；手区灰色占位待审，不提前登记透明或接触通过。官方原文件https://chatgpt.com/space/file/libfile_919b78bd438c81919f80c556841cab9b。PNG签名/IEND/Pillowverify/全RGBAdecode/1774x887真实alpha0..255/重复稳定原字节均通过，先清单复制原件、manifest和旧来源表再SHA一致。完成时间取本次完成复核截图，不是服务器首次生成。来源保全不代表握位/美术或实机验收通过，尚未改runtime或作者映射。",
+      "prompt": {
+        "file": "docs/assets/aokiji-low-hold-front-joint2-prompt1004.txt",
+        "sha256": "923a52afaa08f7cb4b2ea40bafe666721812b062a239b43ec2ce8418871774b5"
+      },
+      "referenceSources": {
+        "aokiji_low_hold_front_joint1_1004": "68821242fd8639281926f6924b1035f2d9d4c063408e6d457e3e0cade189af4d"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-04T04:32:29.429019+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/aokiji-front-joint2-completed1004.jpg",
+        "sha256": "583cb0d6cae3466d2fa0c8048cc8a277ad7da91e6857294846d36f43e700e590"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/aokiji_low_hold_front_joint2_1004来源凭据0929.txt",
+        "sha256": "878efe111709a908fb44e25ed53750bd6c59d30d70ad5b34f95191c3181473b1"
+      }
+    },
+    "aokiji_low_hold_front_joint3_1004": {
+      "file": "public/assets/generated/source/roster-aokiji-low-hold-front-joint3-1004.png",
+      "sha256": "5cc59be048e6d2cb4a5341f7c348638b848b06fd74f33fa722708495bfe48462",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "本助手同一官方会话在第三次局部修前实际核验最新aria-checked=true/极高第4共5并截图；具体图像后台型号未公开。",
+      "observedTextModelLabel": "最新",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Microsoft Edge",
+      "sessionUrl": "https://chatgpt.com/c/6ac1c91d-9a4c-83ee-90f8-5e05fd1c1774",
+      "observedCompletedAt": "2026-10-04T12:44:02.984001+08:00",
+      "uiObservation": "本助手Edge单控制者在同一fresh会话，实际最新radio true/极高第4共5，点击最新图编辑，侧栏img3、青雉库赞双姿态透明立绘。348字最后一次joint3短提示fill后innerText完全匹配，仅点发送一次，无新上传，实际第四条用户消息包含已编辑的图像和完整要求，随后ChatGPT正在回应/停止/正在生成图像，model/draft/sent及send-observation留存。独立工作后读取实际回答已完成，侧栏青雉双姿势角色立绘、img4；全屏截图保全。通过该实际文件菜单在空间中打开，真实fileURL，pageAssets只bundle已显示对应PNG1项、成功1/失败0，原manifest和完整bundle JSON保留。不换站不重放登录，没有第4次局部请求。手区仍有灰蓝色待审，来源保全不表示透明或抓持放行，按第三次上限停止这一机械续修路线。官方原文件https://chatgpt.com/space/file/libfile_46ec381a62c481918fa516e3223c62a2。PNG签名/IEND/Pillowverify/全RGBAdecode/1774x887真实alpha0..255/重复稳定原字节均通过，先清单复制原件、manifest和旧来源表再SHA一致。完成时间取本次完成复核截图，不是服务器首次生成。来源保全不代表握位/美术或实机验收通过，尚未改runtime或作者映射。",
+      "prompt": {
+        "file": "docs/assets/aokiji-low-hold-front-joint3-prompt1004.txt",
+        "sha256": "9c4980f7fe245c6082f20db54ced9c0e4cd507d96fc65d18f26dd3b37d432ded"
+      },
+      "referenceSources": {
+        "aokiji_low_hold_front_joint2_1004": "346d1f0cf2ecf9d40b26a092222afa649076f318f83b83fef4a785deb6c4d786"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-04T04:48:09.437003+00:00",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/aokiji-front-joint3-completed1004.jpg",
+        "sha256": "c3946918ad5426e05dafdbde823d3874399ea97d9c375d83c676beb8f741c315"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/aokiji_low_hold_front_joint3_1004来源凭据0929.txt",
+        "sha256": "a7afd6d1a4c39e7c84b7ce04f970c1addcc3f40c4627bae65fedbcdf855b590d"
+      }
+    }
+  }
+}

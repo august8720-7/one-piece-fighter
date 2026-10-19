@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "characterId": "kizaru",
+  "date": "2026-10-13",
+  "status": "original-japanese-script-not-auditorily-accepted",
+  "provenance": "Original game dialogue; not anime quotation or actor imitation.",
+  "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "speaker": "Uncle Fu",
+  "language": "Japanese",
+  "voiceDirection": "中年男性、低めで少し鼻にかかった声。落ち着いて余裕がある。日本語として自然に発音する。既存の声優を模倣しない。",
+  "notes": [
+    "A shared built-in speaker with instruction variation is not an independently designed or cloned voice.",
+    "Only select, effort and hurt are generated for the initial small-sample gate.",
+    "No signal or ASR result substitutes for native audio review or user listening."
+  ],
+  "lines": [
+    { "event": "select", "text": "おや、もう始めるのかい。", "kana": "おや、もうはじめるのかい。", "meaningZh": "哦，这就开始了吗。", "instruction": "中年男性の低めで少し鼻にかかった声。余裕のある、ゆっくりしすぎない自然な日本語。軽くからかう口調で一度だけ短く話す。音楽、笑い声、追加の言葉なし。", "sample": true },
+    { "event": "effort", "text": "はあっ！", "kana": "はあっ！", "meaningZh": "哈！（短促出力声）", "instruction": "同じ中年男性の声で、格闘ゲームの攻撃時の短い気合いを一度だけ鋭く発する。説明口調にせず、息の立ち上がりがはっきりした短い叫び。追加の言葉、音楽、繰り返しなし。", "sample": true },
+    { "event": "hurt", "text": "うっ！", "kana": "うっ！", "meaningZh": "呃！（受击短声）", "instruction": "同じ中年男性の低めの声で、一瞬打撃を受けた短く抑えたうめき声を一度だけ出す。文字を説明せず、短い息声。追加の言葉、音楽、繰り返しなし。", "sample": true },
+    { "event": "ko", "text": "ぐああっ！", "kana": "ぐああっ！", "meaningZh": "呃啊！（倒下）", "instruction": "同じ中年男性の声。倒れた瞬間の苦しい叫びを一度だけ、短く自然に。笑い、音楽、追加の台詞なし。", "sample": false },
+    { "event": "win", "text": "今日は、ここまでだね。", "kana": "きょうは、ここまでだね。", "meaningZh": "今天就到这里吧。", "instruction": "同じ中年男性の低めの声。余裕があり、少し気だるい自然な日本語で短く話す。追加の言葉、音楽なし。", "sample": false },
+    { "event": "idle", "text": "そんなに急がなくても。", "kana": "そんなにいそがなくても。", "meaningZh": "不用那么着急嘛。", "instruction": "同じ中年男性の声。落ち着いた、少し気だるい、軽くからかう口調。自然な日本語。長く引き伸ばさず、追加の言葉、音楽なし。", "sample": false },
+    { "event": "move", "text": "さて、行こうかね。", "kana": "さて、いこうかね。", "meaningZh": "那么，走吧。", "instruction": "同じ中年男性の低めの声。余裕を保ちつつ短く自然に日本語を話す。気だるい語尾でも引き伸ばしすぎない。追加の言葉、音楽なし。", "sample": false }
+  ]
+}

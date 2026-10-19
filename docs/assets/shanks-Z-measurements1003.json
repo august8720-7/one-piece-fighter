@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_z_sidestep_1003",
+  "sourceSha256": "d266d7870a1dc853b5060dfe3c2c32592a47d5f5f32a101288aea0840e7bc4e0",
+  "status": "static-dodge-body-candidate-before-real-input-review",
+  "neutralVisibleAlpha8Bounds": [150, 16, 705, 519],
+  "neutralVisibleHeight": 503,
+  "referenceNeutralHeight": 380,
+  "unitScale": 0.7554671968190855,
+  "scaleBasis": "Whole-source neutral visible alpha>=8 height503px; all three Z poses share380/503 against the original380px idle. No per-pose fitting.",
+  "frames": {
+    "z_start_1003": {"source": "shanks_z_sidestep_1003", "crop": [807, 73, 707, 446], "root": [398, 436], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "z_evade_1003": {"source": "shanks_z_sidestep_1003", "crop": [153, 554, 563, 443], "root": [303, 432], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "z_recover_1003": {"source": "shanks_z_sidestep_1003", "crop": [891, 521, 550, 469], "root": [314, 457], "sockets": {}, "transparency": {"mode": "source-alpha"}}
+  },
+  "anims": {
+    "sp_sidestep": {"frames": ["z_start_1003", "z_evade_1003", "z_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 6}, {"frame": 1, "ticks": 8}, {"frame": 2, "ticks": 15}]}
+  },
+  "observations": ["Three independent drawings visibly begin protection, lean back away from the forward line, and recover. No attack, projectile or extra arm is drawn.", "First14ticks retain the original dodge startup;15ticks are recovery. The core invulnerability and meter cost are untouched.", "The actual in-game input, meter consumption and invulnerability remain separate validation items."]
+}

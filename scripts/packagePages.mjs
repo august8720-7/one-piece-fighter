@@ -3,6 +3,28 @@ import { existsSync, readFileSync, mkdirSync, copyFileSync, writeFileSync } from
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+function mergedSemanticAudio(samples, overlay, selected) {
+  const object = value => value && typeof value === 'object' && !Array.isArray(value);
+  if (!object(samples?.cues) || overlay?.schemaVersion !== 1 || !object(overlay.cues) || !object(overlay.fileChecks) || !Array.isArray(overlay.lines)) throw new Error('Invalid semantic dialogue schema/cues/fileChecks/lines');
+  const checks = {};
+  for (const [id, cue] of Object.entries(overlay.cues)) {
+    const match = /^voice\.([a-z0-9_]+)\.([a-z0-9_]+)$/.exec(id);
+    if (!match || !object(cue) || cue.group !== 'voice' || cue.characterId !== match[1] || !Array.isArray(cue.files) || !cue.files.length) throw new Error(`Invalid semantic dialogue cue: ${id}`);
+    for (const file of cue.files) {
+      if (typeof file !== 'string' || !new RegExp(`^assets/audio/voice/${match[1]}/[a-zA-Z0-9_.-]+\\.(wav|mp3|ogg)$`).test(file) || file.includes('..')) throw new Error(`Unsafe semantic dialogue file: ${file}`);
+      const check = overlay.fileChecks[file];
+      if (!object(check) || !/^[a-f0-9]{64}$/i.test(check.sha256 ?? '') || !Number.isSafeInteger(check.bytes) || check.bytes <= 0) throw new Error(`Missing semantic dialogue integrity: ${file}`);
+      if (!overlay.lines.some(line => line?.file === file && line.transcriptVerified === true && typeof line.translation === 'string' && line.translation.trim())) throw new Error(`Unverified semantic dialogue line: ${file}`);
+      if (selected.includes(match[1])) checks[file] = { sha256: check.sha256.toLowerCase(), bytes: check.bytes };
+    }
+  }
+  const cues = Object.fromEntries(Object.entries({ ...samples.cues, ...overlay.cues }).filter(([id, cue]) => {
+    const owner = cue.characterId ?? (id.startsWith('voice.') ? id.split('.')[1] : undefined);
+    return !owner || selected.includes(owner);
+  }));
+  return { cues, checks };
+}
+
 // Offline packaging only. Publishing remains an explicit, separate Git operation.
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const source = path.resolve(root, process.argv[2] ?? '.local-releases/candidate-0913');
@@ -57,6 +79,12 @@ for (const file of files) {
   for (const match of text.matchAll(/["']\.\/([^"'?#]+\.(?:js|css))["']/g)) add(path.posix.join(path.posix.dirname(file), match[1]));
 }
 const ui = readJson(path.join(root, 'src/render/anime/uiArtManifest.json'));
+const existingRoster = new Set(['luffy', 'akainu', 'labubu', 'twinkle']);
+const unfinishedRoster = Object.entries(ui.characters ?? {}).filter(([id, record]) =>
+  !existingRoster.has(id) && record?.pcRosterAccepted !== true);
+if (unfinishedRoster.length) {
+  throw new Error(`PC roster has no full acceptance: ${unfinishedRoster.map(([id]) => id).join(', ')}`);
+}
 const disabledCharacters = Object.entries(ui.characters ?? {}).filter(([, record]) => record?.enabled === false);
 if (disabledCharacters.length) {
   throw new Error(`Disabled character art cannot enter a formal runtime package: ${disabledCharacters.map(([id, record]) => `${id} (${record.reviewStatus ?? 'review blocked'})`).join(', ')}`);
@@ -126,8 +154,29 @@ if (!deliveryBuild && characterIds.some(id => !['luffy', 'akainu'].includes(id))
   }
 }
 if (!deliveryBuild) for (const name of ['backdrop', 'floor']) add(`assets/stages/marineford/${name}.webp`);
-const samples = readJson(path.join(root, 'src/audio/sampleManifest.json'));
-if (!deliveryBuild) for (const cue of Object.values(samples.cues)) for (const file of cue.files) add(file);
+const baseAudioPath = path.join(root, 'src/audio/sampleManifest.json');
+const semanticAudioPath = path.join(root, 'src/audio/semanticDialogue1017.json');
+const baseAudioRaw = readFileSync(baseAudioPath), semanticAudioRaw = readFileSync(semanticAudioPath);
+const semanticAudioSha = hash(semanticAudioRaw), baseAudioSha = hash(baseAudioRaw);
+const semantic = mergedSemanticAudio(JSON.parse(baseAudioRaw), JSON.parse(semanticAudioRaw), characterIds);
+if (deliveryBuild && Object.keys(semantic.checks).length && (deliveryBuild.semanticDialogue?.sha256 !== semanticAudioSha || deliveryBuild.semanticDialogue?.baseSha256 !== baseAudioSha)) throw new Error('Delivery build semantic dialogue snapshot differs from packaging manifest');
+const assertAudioSnapshot = () => {
+  if (hash(readFileSync(semanticAudioPath)) !== semanticAudioSha || hash(readFileSync(baseAudioPath)) !== baseAudioSha) throw new Error('Audio manifest changed during packaging; retry from a stable snapshot');
+};
+for (const [file, expected] of Object.entries(semantic.checks)) {
+  const bytes = readFileSync(safePath(deliveryBuild ? path.join(root, 'public') : source, file));
+  if (bytes.length !== expected.bytes || hash(bytes) !== expected.sha256) throw new Error(`Semantic dialogue exact audio mismatch: ${file}`);
+  if (deliveryBuild) {
+    const record = delivery.records[file];
+    if (!record || record.source !== file || record.sourceSha256 !== expected.sha256) throw new Error(`Missing or stale semantic dialogue delivery: ${file}`);
+    if (record.slice && (!Number.isSafeInteger(record.slice.offset) || record.slice.offset < 0 || !Number.isSafeInteger(record.slice.length) || record.slice.length <= 0 || record.slice.offset + record.slice.length > record.bytes)) throw new Error(`Invalid semantic dialogue slice: ${file}`);
+  }
+}
+if (!deliveryBuild) for (const [id, cue] of Object.entries(semantic.cues)) {
+  const owner = cue.characterId ?? (id.startsWith('voice.') ? id.split('.')[1] : undefined);
+  if (owner && !characterIds.includes(owner)) continue;
+  for (const file of cue.files) add(file);
+}
 const music = readJson(path.join(root, 'src/audio/musicManifest.json'));
 if (!deliveryBuild) for (const track of Object.values(music.tracks)) add(track.file);
 add('assets/audio/music/CREDITS.txt');
@@ -137,6 +186,7 @@ const manifest = [...files, ...rollbackFiles.keys()].sort().map(file => {
   if (data.length > 100 * 1024 * 1024) throw new Error(`GitHub file limit: ${file}`);
   return { file, bytes: data.length, sha256: hash(data) };
 });
+assertAudioSnapshot();
 // Keep each attempt intact, and write the full inventory before copying anything.
 if (existsSync(release)) throw new Error(`Release already exists: ${release}`);
 mkdirSync(release, { recursive: true });
@@ -148,6 +198,7 @@ for (const entry of manifest) {
   if (hash(readFileSync(destination)) !== entry.sha256) throw new Error(`Copy mismatch: ${entry.file}`);
 }
 
+assertAudioSnapshot();
 // This runs synchronously before Vite modules read the presentation and canvas size.
 const defaults = `    <script>
       (() => {
@@ -172,6 +223,7 @@ const report = {
   createdAt: new Date().toISOString(), source, site,
   defaultPresentation: { art: 'anime', scope: 'full', quality: 'high' },
   gameCodeUnchanged: true,
+  semanticDialogue: { sha256: semanticAudioSha, baseSha256: baseAudioSha, selectedFiles: Object.keys(semantic.checks).sort() },
   fileCount: published.length,
   totalBytes: published.reduce((total, item) => total + item.bytes, 0),
   files: published,

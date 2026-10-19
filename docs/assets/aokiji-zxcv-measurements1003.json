@@ -1,0 +1,434 @@
+{
+  "status": "static-body-candidate-not-FX-sound-or-gameplay-acceptance",
+  "sourceKey": "aokiji_zxcv_body_1003",
+  "sourceHash": "ebe916de97d47c3f9ba4d7be7da87d6de93064e587eb7b4c8443564ffd6eabf6",
+  "sourceNeutralAlpha64Height": 337,
+  "sourceUnitScale": 1.2077151335311573,
+  "worldPixelsPerSourcePixel": 0.2967359050445104,
+  "pointPrecision": "approximately5source pixels, manually observed semantic palms/soles",
+  "frames": [
+    {
+      "name": "ice_body_start_1003",
+      "sourceCell": 1,
+      "crop": [
+        48,
+        9,
+        355,
+        353
+      ],
+      "root": [
+        194,
+        345
+      ],
+      "excludeRects": [
+        [
+          189,
+          348,
+          31,
+          5
+        ]
+      ],
+      "ownAlpha16BodyExcluded": 0,
+      "socketsSourceLocal": {},
+      "socketsWorldRelativeToRoot": {}
+    },
+    {
+      "name": "ice_body_evade_1003",
+      "sourceCell": 2,
+      "crop": [
+        461,
+        17,
+        344,
+        343
+      ],
+      "root": [
+        184,
+        335
+      ],
+      "excludeRects": [],
+      "ownAlpha16BodyExcluded": 0,
+      "socketsSourceLocal": {},
+      "socketsWorldRelativeToRoot": {}
+    },
+    {
+      "name": "ice_body_return_1003",
+      "sourceCell": 3,
+      "crop": [
+        842,
+        9,
+        370,
+        354
+      ],
+      "root": [
+        206,
+        346
+      ],
+      "excludeRects": [
+        [
+          224,
+          350,
+          26,
+          4
+        ]
+      ],
+      "ownAlpha16BodyExcluded": 0,
+      "socketsSourceLocal": {},
+      "socketsWorldRelativeToRoot": {}
+    },
+    {
+      "name": "pheasant_start_1003",
+      "sourceCell": 4,
+      "crop": [
+        53,
+        350,
+        355,
+        332
+      ],
+      "root": [
+        176,
+        324
+      ],
+      "excludeRects": [
+        [
+          63,
+          0,
+          36,
+          5
+        ],
+        [
+          163,
+          310,
+          74,
+          22
+        ]
+      ],
+      "ownAlpha16BodyExcluded": 0,
+      "socketsSourceLocal": {},
+      "socketsWorldRelativeToRoot": {}
+    },
+    {
+      "name": "pheasant_release_1003",
+      "sourceCell": 5,
+      "crop": [
+        434,
+        359,
+        419,
+        324
+      ],
+      "root": [
+        183,
+        316
+      ],
+      "excludeRects": [],
+      "ownAlpha16BodyExcluded": 0,
+      "socketsSourceLocal": {
+        "palm_release": [
+          372,
+          74
+        ],
+        "fingertips": [
+          381,
+          43
+        ]
+      },
+      "socketsWorldRelativeToRoot": {
+        "palm_release": [
+          56.0831,
+          -71.8101
+        ],
+        "fingertips": [
+          58.7537,
+          -81.0089
+        ]
+      }
+    },
+    {
+      "name": "pheasant_recover_1003",
+      "sourceCell": 6,
+      "crop": [
+        872,
+        352,
+        352,
+        332
+      ],
+      "root": [
+        181,
+        324
+      ],
+      "excludeRects": [
+        [
+          52,
+          0,
+          33,
+          4
+        ],
+        [
+          165,
+          301,
+          81,
+          31
+        ]
+      ],
+      "ownAlpha16BodyExcluded": 0,
+      "socketsSourceLocal": {},
+      "socketsWorldRelativeToRoot": {}
+    },
+    {
+      "name": "glacier_start_1003",
+      "sourceCell": 7,
+      "crop": [
+        25,
+        653,
+        380,
+        302
+      ],
+      "root": [
+        193,
+        294
+      ],
+      "excludeRects": [
+        [
+          284,
+          0,
+          77,
+          10
+        ],
+        [
+          65,
+          0,
+          39,
+          22
+        ],
+        [
+          181,
+          280,
+          69,
+          22
+        ]
+      ],
+      "ownAlpha16BodyExcluded": 0,
+      "socketsSourceLocal": {},
+      "socketsWorldRelativeToRoot": {}
+    },
+    {
+      "name": "glacier_release_1003",
+      "sourceCell": 8,
+      "crop": [
+        441,
+        701,
+        395,
+        245
+      ],
+      "root": [
+        208,
+        228
+      ],
+      "excludeRects": [],
+      "ownAlpha16BodyExcluded": 0,
+      "socketsSourceLocal": {
+        "near_palm": [
+          209,
+          212
+        ],
+        "near_fingertips": [
+          207,
+          230
+        ],
+        "far_palm": [
+          265,
+          211
+        ],
+        "far_fingertips": [
+          269,
+          222
+        ]
+      },
+      "socketsWorldRelativeToRoot": {
+        "near_palm": [
+          0.2967,
+          -4.7478
+        ],
+        "near_fingertips": [
+          -0.2967,
+          0.5935
+        ],
+        "far_palm": [
+          16.9139,
+          -5.0445
+        ],
+        "far_fingertips": [
+          18.1009,
+          -1.7804
+        ]
+      }
+    },
+    {
+      "name": "glacier_recover_1003",
+      "sourceCell": 9,
+      "crop": [
+        862,
+        646,
+        364,
+        309
+      ],
+      "root": [
+        199,
+        301
+      ],
+      "excludeRects": [
+        [
+          270,
+          0,
+          75,
+          21
+        ],
+        [
+          53,
+          0,
+          47,
+          31
+        ],
+        [
+          171,
+          291,
+          69,
+          18
+        ]
+      ],
+      "ownAlpha16BodyExcluded": 0,
+      "socketsSourceLocal": {},
+      "socketsWorldRelativeToRoot": {}
+    },
+    {
+      "name": "ice_age_start_1003",
+      "sourceCell": 10,
+      "crop": [
+        46,
+        926,
+        353,
+        328
+      ],
+      "root": [
+        187,
+        321
+      ],
+      "excludeRects": [
+        [
+          254,
+          0,
+          80,
+          13
+        ],
+        [
+          19,
+          0,
+          52,
+          22
+        ]
+      ],
+      "ownAlpha16BodyExcluded": 0,
+      "socketsSourceLocal": {},
+      "socketsWorldRelativeToRoot": {}
+    },
+    {
+      "name": "ice_age_hold_1003",
+      "sourceCell": 11,
+      "crop": [
+        438,
+        942,
+        415,
+        312
+      ],
+      "root": [
+        190,
+        306
+      ],
+      "excludeRects": [],
+      "ownAlpha16BodyExcluded": 0,
+      "socketsSourceLocal": {
+        "palm_forward": [
+          372,
+          56
+        ],
+        "fingertips": [
+          381,
+          31
+        ]
+      },
+      "socketsWorldRelativeToRoot": {
+        "palm_forward": [
+          54.0059,
+          -74.184
+        ],
+        "fingertips": [
+          56.6766,
+          -81.6024
+        ]
+      }
+    },
+    {
+      "name": "ice_age_recover_1003",
+      "sourceCell": 12,
+      "crop": [
+        867,
+        930,
+        351,
+        324
+      ],
+      "root": [
+        188,
+        318
+      ],
+      "excludeRects": [
+        [
+          271,
+          0,
+          80,
+          8
+        ],
+        [
+          50,
+          0,
+          48,
+          18
+        ]
+      ],
+      "ownAlpha16BodyExcluded": 0,
+      "socketsSourceLocal": {},
+      "socketsWorldRelativeToRoot": {}
+    }
+  ],
+  "timing": {
+    "sp_ice_body": [
+      7,
+      7,
+      18
+    ],
+    "sp_ice_pheasant": [
+      15,
+      5,
+      34
+    ],
+    "sp_glacier_line": [
+      16,
+      18,
+      32
+    ],
+    "ult_ice_age": [
+      23,
+      6,
+      8,
+      7,
+      45
+    ]
+  },
+  "VBodySemantics": "Real source cell11 holds continuous press across both damage phases and intervening8tick buildup; one body gesture, not five independent pictures or fabricated second physical swing",
+  "ZBodySemantics": "Before/after normal guards are similar; source cell2 is real changed limb posture and ice material. Do not claim three different limb attacks from the normal-material restoration.",
+  "neighborExclusion": "Explicit tiny foreign-pose scraps; diagnostic alpha16 main-component membership verifies zero own visible body pixels removed; source file unchanged",
+  "newUniqueCrops": 12,
+  "totalCrops": 57,
+  "animationItems": 29,
+  "skillBodyCoverage": "9/9 candidates; not complete skills acceptance",
+  "recordedAtUtc": "2026-10-03T10:31:03.465258+00:00",
+  "manifestAfterSha256": "3a09486aa18149a3f0217c23459eee5377b0898b2fdcf9311d18d2ab7b43549a"
+}

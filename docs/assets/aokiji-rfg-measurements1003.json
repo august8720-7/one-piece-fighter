@@ -1,0 +1,381 @@
+{
+  "status": "static-body-candidate-not-FX-or-game-contact-acceptance",
+  "sourceKey": "aokiji_rfg_body_1003",
+  "sourceSha256": "cd3b53d8fcda548ee3799469e46963934c585ab129f9c3583951d3e582c482d2",
+  "sourceNeutralAlpha64Height": 413,
+  "sourceUnitScale": 0.9854721549636803,
+  "worldPixelsPerSourcePixel": 0.24213075060532688,
+  "pointPrecision": "approximately5 original source pixels, manual visual semantic points",
+  "frames": [
+    {
+      "frame": "uplift_start_1003",
+      "sourceCell": 1,
+      "crop": [
+        0,
+        0,
+        412,
+        455
+      ],
+      "root": [
+        226,
+        447
+      ],
+      "alpha16Bbox": [
+        19,
+        34,
+        385,
+        447
+      ],
+      "marginAlpha16": [
+        19,
+        34,
+        27,
+        8
+      ],
+      "socketsSourceLocal": {},
+      "socketsWorldRelativeToRoot": {}
+    },
+    {
+      "frame": "uplift_active_1003",
+      "sourceCell": 2,
+      "crop": [
+        424,
+        0,
+        416,
+        455
+      ],
+      "root": [
+        204,
+        447
+      ],
+      "alpha16Bbox": [
+        15,
+        13,
+        391,
+        447
+      ],
+      "marginAlpha16": [
+        15,
+        13,
+        25,
+        8
+      ],
+      "socketsSourceLocal": {
+        "fist": [
+          349,
+          43
+        ],
+        "ice_tip": [
+          378,
+          15
+        ],
+        "forearm": [
+          328,
+          82
+        ]
+      },
+      "socketsWorldRelativeToRoot": {
+        "fist": [
+          35.109,
+          -97.8208
+        ],
+        "ice_tip": [
+          42.1308,
+          -104.6005
+        ],
+        "forearm": [
+          30.0242,
+          -88.3777
+        ]
+      }
+    },
+    {
+      "frame": "uplift_recover_1003",
+      "sourceCell": 3,
+      "crop": [
+        849,
+        30,
+        402,
+        425
+      ],
+      "root": [
+        217,
+        417
+      ],
+      "alpha16Bbox": [
+        4,
+        28,
+        380,
+        417
+      ],
+      "marginAlpha16": [
+        4,
+        28,
+        22,
+        8
+      ],
+      "socketsSourceLocal": {},
+      "socketsWorldRelativeToRoot": {}
+    },
+    {
+      "frame": "spike_start_1003",
+      "sourceCell": 4,
+      "crop": [
+        0,
+        476,
+        416,
+        379
+      ],
+      "root": [
+        220,
+        371
+      ],
+      "alpha16Bbox": [
+        20,
+        12,
+        408,
+        371
+      ],
+      "marginAlpha16": [
+        20,
+        12,
+        8,
+        8
+      ],
+      "socketsSourceLocal": {},
+      "socketsWorldRelativeToRoot": {}
+    },
+    {
+      "frame": "spike_release_1003",
+      "sourceCell": 5,
+      "crop": [
+        424,
+        530,
+        416,
+        310
+      ],
+      "root": [
+        220,
+        282
+      ],
+      "alpha16Bbox": [
+        16,
+        6,
+        412,
+        290
+      ],
+      "marginAlpha16": [
+        16,
+        6,
+        4,
+        20
+      ],
+      "socketsSourceLocal": {
+        "pressed_palm": [
+          201,
+          269
+        ],
+        "pressed_fingertips": [
+          194,
+          281
+        ],
+        "front_sole": [
+          335,
+          281
+        ]
+      },
+      "socketsWorldRelativeToRoot": {
+        "pressed_palm": [
+          -4.6005,
+          -3.1477
+        ],
+        "pressed_fingertips": [
+          -6.2954,
+          -0.2421
+        ],
+        "front_sole": [
+          27.845,
+          -0.2421
+        ]
+      }
+    },
+    {
+      "frame": "spike_recover_1003",
+      "sourceCell": 6,
+      "crop": [
+        850,
+        450,
+        402,
+        404
+      ],
+      "root": [
+        220,
+        397
+      ],
+      "alpha16Bbox": [
+        15,
+        12,
+        385,
+        397
+      ],
+      "marginAlpha16": [
+        15,
+        12,
+        17,
+        7
+      ],
+      "socketsSourceLocal": {},
+      "socketsWorldRelativeToRoot": {}
+    },
+    {
+      "frame": "mirror_start_1003",
+      "sourceCell": 7,
+      "crop": [
+        0,
+        857,
+        418,
+        397
+      ],
+      "root": [
+        224,
+        386
+      ],
+      "alpha16Bbox": [
+        21,
+        10,
+        393,
+        386
+      ],
+      "marginAlpha16": [
+        21,
+        10,
+        25,
+        11
+      ],
+      "socketsSourceLocal": {},
+      "socketsWorldRelativeToRoot": {}
+    },
+    {
+      "frame": "mirror_active_1003",
+      "sourceCell": 8,
+      "crop": [
+        418,
+        857,
+        442,
+        397
+      ],
+      "root": [
+        220,
+        386
+      ],
+      "alpha16Bbox": [
+        4,
+        14,
+        424,
+        386
+      ],
+      "marginAlpha16": [
+        4,
+        14,
+        18,
+        11
+      ],
+      "socketsSourceLocal": {
+        "palm_forward": [
+          400,
+          82
+        ],
+        "fingertips": [
+          404,
+          55
+        ],
+        "front_sole": [
+          360,
+          381
+        ]
+      },
+      "socketsWorldRelativeToRoot": {
+        "palm_forward": [
+          43.5835,
+          -73.6077
+        ],
+        "fingertips": [
+          44.5521,
+          -80.1453
+        ],
+        "front_sole": [
+          33.8983,
+          -1.2107
+        ]
+      }
+    },
+    {
+      "frame": "mirror_recover_1003",
+      "sourceCell": 9,
+      "crop": [
+        864,
+        860,
+        390,
+        394
+      ],
+      "root": [
+        222,
+        383
+      ],
+      "alpha16Bbox": [
+        9,
+        8,
+        365,
+        383
+      ],
+      "marginAlpha16": [
+        9,
+        8,
+        25,
+        11
+      ],
+      "socketsSourceLocal": {},
+      "socketsWorldRelativeToRoot": {}
+    }
+  ],
+  "moveTiming": {
+    "sp_ice_uplift": {
+      "ticks": [
+        9,
+        6,
+        27
+      ],
+      "total": 42
+    },
+    "sp_ice_spike": {
+      "ticks": [
+        17,
+        5,
+        27
+      ],
+      "total": 49
+    },
+    "sp_ice_mirror": {
+      "ticks": [
+        7,
+        14,
+        25
+      ],
+      "total": 46
+    }
+  },
+  "releaseFrameF": 17,
+  "rootSourcePixelsUnchanged": true,
+  "perPoseScaleOrRotationUsed": false,
+  "newUniqueCrops": 9,
+  "totalCrops": 45,
+  "totalAnimationItems": 25,
+  "knownDifferences": [
+    "R fist/ice top lies around-98/-105 world, original hitbox extends to-142: root must calibrate visible FX/hitbox; body art alone does not cover it",
+    "F fingertips reach local caster ground; far90world spike is independent FX, not present in body sheet",
+    "G wide stance appears lower than neutral; keep one source-wide scale, do not enlarge row",
+    "Startup/recovery return to guarded stances; real recovery occupation/readability remains gameplay review"
+  ],
+  "manifestAfterSha256": "65481737a116ea8baa15973532b5689390457b54167cdb3bd375b04e2bdcbd37",
+  "recordedAtUtc": "2026-10-03T09:47:49.114583+00:00"
+}

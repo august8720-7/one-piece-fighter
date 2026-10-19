@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_zxcv_body_1003",
+  "file": "public/assets/generated/source/roster-aokiji-zxcv-body-1003.png",
+  "sha256": "ebe916de97d47c3f9ba4d7be7da87d6de93064e587eb7b4c8443564ffd6eabf6",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "本次实际Microsoft Edge官方图像入口标题ChatGPT，未公开具体图像模型；文字最新与极高只按界面实录，不推断后台图像型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Microsoft Edge",
+  "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+  "observedCompletedAt": "2026-10-03T17:52:09.7817192+08:00",
+  "uiObservation": "本助手当前CUA只暴露Edge，内置不可用后在独立Edge新标签接管root已交回的青雉官方会话。发送前实际模型菜单最新menuitemradio选中、极高第四项可见，保留edge-latest-xhigh-before1003.png；完整Z/X/C/V十二格提示经textbox.fill后单次点击发送。页面显示回答已完成与已生成图像，实际打开最新查看器标题冰霜战士十二式姿态图，十二姿完整；此观察时间取实际查看器完成复核截图保存时，非服务器首次生成时间。查看器下载只点一次，Edge留下png.crdownload后缀，但原件PNG签名/IEND、Pillow.verify和完整RGBA解码成功，1254x1254，静态复核与复制前后SHA均一致；保留Downloads原件与UI未终结状态。另实际打开官方images入口标题ChatGPT，未见具体图像模型型号。",
+  "prompt": {
+    "file": "docs/assets/aokiji-zxcv-body-prompt1003.txt",
+    "sha256": "5a1ba7297227407c5ff27eebb530dd6a4d0aa907d02998da73e650f347e1f4d4"
+  },
+  "referenceSources": {
+    "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T09:59:54.466016+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-zxcv1003/completion-viewer1003.png",
+    "sha256": "7bf6c71f8203160c53daff4bbcd6ecb62cd63e962e762b1c0c09a252c9fe96fb"
+  },
+  "referenceFiles": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

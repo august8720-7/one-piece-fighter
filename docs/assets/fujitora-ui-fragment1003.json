@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "characters": {
+    "fujitora": {
+      "image": "public\\assets\\characters\\fujitora\\anime\\ui-roster-1003.png",
+      "sha256": "167fd61bad1bc0cc0c4e711c131fde050a6c47f61ec2aebc3ce89b7dedf3ddbb",
+      "width": 383,
+      "height": 412,
+      "frames": {
+        "body": {
+          "x": 0,
+          "y": 0,
+          "w": 383,
+          "h": 412
+        },
+        "portrait": {
+          "x": 150,
+          "y": 0,
+          "w": 155,
+          "h": 145
+        }
+      },
+      "source": {
+        "sourceKey": "fujitora_locomotion_0929",
+        "file": "public/assets/generated/source/roster-fujitora-locomotion-0929.png",
+        "sha256": "a38f130276e431ca96988080c490d81675e3256c5632e0b305f73ed430f3c2ad",
+        "crop": [
+          17,
+          10,
+          383,
+          412
+        ]
+      },
+      "reviewStatus": "static-candidate-for-roster-preview-not-gameplay-acceptance",
+      "processing": {
+        "scale": 1,
+        "method": "explicit idle crop; original RGBA preserved",
+        "pixelsEqual": true
+      }
+    }
+  }
+}

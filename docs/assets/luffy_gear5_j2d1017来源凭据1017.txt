@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_j2d1017",
+  "file": "public/assets/generated/source/luffy-gear5-j2d1017.png",
+  "sha256": "ee0e1ceaa41a465f7b583389337245c17a9f3e8c96631d734dd3d4734c820aa8",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官网未披露具体图像型号；实际文字模型GPT-6与具体图像型号分开记录，图像型号仍未核实。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad2efa5-3138-83e8-8d2e-f5cf53fa3a56",
+  "observedCompletedAt": "2026-10-17T06:55:26.111Z",
+  "uiObservation": "根代理实际直接img导出并view_image；本次要求只直接生图，不经官网代码后处理，下载为图像入口不是Python输出文件。无新upload，沿本会话最初master及同一人物身份。根实际view四姿真实抬膝、向前下劈腿、收回，直接生图而非此前拒用的程序拉伸稿；交render在真实身体虚拟平面按冻结j_2d框量测。沿该会话此前实际GPT-6/极高设定，本完成截图不冒称另有型号菜单。观测为根下载后完成结果复核，不是服务器生成时间；C原件保留、D同字节PNG不处理。来源候选真实不等于接触通过或运行采用。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-j2d-direct-prompt1017.txt",
+    "sha256": "636a8310c42d617064fe69bf56d60ee58a9003ec5c6d632cce1f45275db4f4ec"
+  },
+  "referenceSources": {
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T06:58:06.694901+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/j2d-direct-web1017.png",
+    "sha256": "31d17d55a3850d830d5a012f8cfae0617595a90268f593f3b2f936644b66bfca"
+  },
+  "referenceFiles": {
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

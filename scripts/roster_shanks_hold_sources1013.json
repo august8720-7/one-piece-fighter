@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "workflowDecision": "pc-roster-0929",
+  "sources": {
+    "shanks_back_contact_marked_1013": {
+      "file": "public/assets/generated/source/roster-shanks-back-contact-marked-1013.png",
+      "sha256": "b41b9f6b572e423f31d232ed340e52afc71fe98a9eba150562c75eca773b2d5d",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方页面未公开具体图像型号，继续记unverified；不由文字GPT-6推断图像模型。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ac1cc86-9358-83ee-8a0c-ecf6a8e5e050",
+      "observedCompletedAt": "2026-10-13T14:28:46.057761+08:00",
+      "uiObservation": "根执行者在既有官方IAB会话实际选择GPT-6及极高第4/5项，上传be146原PNG和红绿空孔定位参考后单次提交。完整输入由实际已发送消息读回保存。locator.downloadMedia实际成功导出原PNG，复制前后清单记录原字节；本单写者只核本地源PNG、三体型静态包握和标准分层准备。observedCompletedAt取完成截图本地mtime，是完成复核时刻，不是服务端首次生成时间。迁移前下载/复制票据中的C路径保留为历史事实；本次只在D盘使用同SHA副本。",
+      "prompt": {
+        "file": "docs/assets/shanks-back-contact-marked-prompt1013.txt",
+        "sha256": "85edeb32a08113d8769dfc1f736cae9567c6fc9a86818fd814dc5948eefeb3e2"
+      },
+      "referenceSources": {
+        "shanks_back_contact_repair_1013": "be146d2ccac2dd2591078d45a1078ed6e722244aac742ba6a9e19a63d3810f6a",
+        "shanks_back_hole_guide_1013": "30ecda3e95f23e94b28e7d205bd202f5955976ab105be12f9353d8d39b87938d"
+      },
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/image-requests/shanks-gpt6-xhigh-iab1013.jpg",
+        "sha256": "6e63d2555a57d8568e073aaa38a6db1ccd08d62049c40abee05e9486be0d7d30"
+      },
+      "completionScreenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/image-requests/shanks-marked-completed1013.jpg",
+        "sha256": "fd975ee31892b679521e0f9413a7af9c54acec582541b4ab9866199d539ef5a8"
+      },
+      "unitScale": 0.3850050658561297,
+      "scaleBasis": "The actual standing reference alpha>4 connected silhouette spans y13..1000, height987; use uniform380/987 for this entire source. Existing character scale188/380 and textureDensity2 unchanged. Never fit root or scale to the grip.",
+      "recordedAt": "2026-10-13T06:59:14.453298+00:00",
+      "reviewStatus": "three-body-static-contact-accepted-gameplay-pending",
+      "sourceEvidence": {
+        "file": "docs/assets/shanks_back_contact_marked_1013来源凭据1013.txt",
+        "sha256": "644a128519a43e4bc02d084a7fda436b5dc9380dc913a746d880a76509a67ec1"
+      }
+    }
+  }
+}

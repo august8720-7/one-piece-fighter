@@ -1,0 +1,1413 @@
+{
+  "checkedAtUtc": "2026-10-04T00:19:15.097318+00:00",
+  "status": "read-only-static-pair-review-not-game-acceptance",
+  "runtimeOrRootOrMovesChanged": false,
+  "casterSourceMeasurements": {
+    "throw_fwd": {
+      "sourceKey": "aokiji_blow_throws_1003",
+      "sourceHash": "a3ebd0fbd0f7ca0541dd92932a899c13d39cfbb508fcc31f4a866edaf7f5fca3",
+      "crop": [
+        39,
+        623,
+        355,
+        310
+      ],
+      "sourceRootLocal": [
+        175,
+        302
+      ],
+      "sourceRootAbsolute": [
+        214,
+        925
+      ],
+      "nearGripLocal": [
+        314,
+        106
+      ],
+      "nearGripAbsolute": [
+        353,
+        729
+      ],
+      "farGripLocal": [
+        331,
+        76
+      ],
+      "farGripAbsolute": [
+        370,
+        699
+      ],
+      "worldUnitPerSourcePixel": 0.3184713375796179,
+      "nearWorldR": [
+        44.26751592356688,
+        -62.420382165605105
+      ],
+      "farWorldR": [
+        49.681528662420384,
+        -71.97452229299364
+      ],
+      "floorAxis": "Unchanged source root is world(0,0); lowest actual supported sole is at source-root ground line.",
+      "sourceLowestVisibleY": 302,
+      "connectedExposures": [
+        22,
+        8,
+        15
+      ]
+    },
+    "throw_back": {
+      "sourceKey": "aokiji_blow_throws_1003",
+      "sourceHash": "a3ebd0fbd0f7ca0541dd92932a899c13d39cfbb508fcc31f4a866edaf7f5fca3",
+      "crop": [
+        40,
+        922,
+        351,
+        322
+      ],
+      "sourceRootLocal": [
+        188,
+        314
+      ],
+      "sourceRootAbsolute": [
+        228,
+        1236
+      ],
+      "nearGripLocal": [
+        294,
+        109
+      ],
+      "nearGripAbsolute": [
+        334,
+        1031
+      ],
+      "farGripLocal": [
+        308,
+        83
+      ],
+      "farGripAbsolute": [
+        348,
+        1005
+      ],
+      "worldUnitPerSourcePixel": 0.3184713375796179,
+      "nearWorldR": [
+        33.7579617834395,
+        -65.28662420382167
+      ],
+      "farWorldR": [
+        38.21656050955414,
+        -73.56687898089173
+      ],
+      "floorAxis": "Unchanged source root is world(0,0); lowest actual supported sole is at source-root ground line.",
+      "sourceLowestVisibleY": 314,
+      "connectedExposures": [
+        22,
+        8,
+        15
+      ]
+    }
+  },
+  "actualSelector": "Aokiji ordinary throw resolves generic thrown; held_leg_flip is contract-only trial.",
+  "renderFormula": "world = (attachment - originalRoot)/(2*textureDensity); mirrored exactly as normal facing. Hold root distance38, ground y0. Same scalar zoom4 all bodies.",
+  "noWallOrReleaseClaim": true,
+  "inputHashes": {
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\scripts\\roster_aokiji_manifest0929.json": "3321f22418e06830b1ea19d63c80697fe845859e228169807dc482398a4c3b19",
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\src\\characters\\aokiji\\moves.ts": "90aec75cb34064f91b56e2a7290478a677f6a7b8ef76fd4d41a558df15111316",
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\generated\\source\\roster-aokiji-blow-throws-1003.png": "a3ebd0fbd0f7ca0541dd92932a899c13d39cfbb508fcc31f4a866edaf7f5fca3",
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\characters\\aokiji\\anime\\runtime.json": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\characters\\aokiji\\anime\\atlas-p1.json": "06248e49d668e0357516e9c1488304c654a7d97148172183a34d7d0c24100c67",
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\characters\\aokiji\\anime\\atlas-p1.png": "d2e263bc24a75a89f94923257e871e94f86840aab126bc4b8148e65cc6924db2",
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\characters\\labubu\\anime\\runtime.json": "3d1614f69aa632adf7002afead0baf650829d3e781d3ff598aa8cdbf4b23fb6f",
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\characters\\labubu\\anime\\atlas.json": "cc2cfb6600329dc0396db559032a8255d6165f32c8d060c5177b9bf065aa750a",
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\characters\\labubu\\anime\\atlas.png": "d1d81d1e3e7d0a5ed2146e09fb96c31f97d32fce08ad93e4c56a939120189d94",
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\characters\\luffy\\anime\\runtime.json": "071aaa8983a0f70f046fd179bfd6306f364b42f8d061bd98c585a6d76131f43d",
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\characters\\luffy\\anime\\atlas-p2.json": "9b92c006648969441f9babacb870c6be1fbbe8b51f7d3831c22bd88a597c7af2",
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\characters\\luffy\\anime\\atlas-p2.png": "150115195d9ae94749edd86f1a2b6ad76b73db793b3ad05d794d39b8c108b26c",
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\characters\\akainu\\anime\\runtime.json": "93370eb21affc410487e18171db61c847d39f41f838f20b43345ecd9ced90686",
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\characters\\akainu\\anime\\atlas-p2.json": "69b1e21384c3f2099dbbd8cb49a60c539dc5d73eb47057fd196bf54f39a75464",
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\characters\\akainu\\anime\\atlas-p2.png": "055551fb7289c3861b51d8d2cc9ef71980ac916514a04afa217e928ed94fff89",
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\characters\\luffy\\anime\\atlas.json": "b1243d6f9cb204cfb6fd53c5b3926bb0bf7ba31006d5796b6aee80c0de22ab11",
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\characters\\luffy\\anime\\atlas.png": "07b69d6c0fde6ea4bb7d24df4c9ede1568c314ca4fc17b0fbf80f189f985f948",
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\characters\\akainu\\anime\\atlas.json": "758804740d51e7dccfd2e3562c959a7ad4eeb55c0390f2971eb0c1a88fce9549",
+    "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\characters\\akainu\\anime\\atlas.png": "760262d0eaa142ed6b16dfb97eb992305b99f4f09a0457b45233bfaadd4adf48"
+  },
+  "pairs": [
+    {
+      "victim": "labubu",
+      "representative": "small verified legacy",
+      "reaction": "held_leg_flip",
+      "move": "throw_fwd",
+      "attackerFacing": 1,
+      "victimFacing": -1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        44.26751592356688,
+        -62.420382165605105
+      ],
+      "targetSocket": "grip",
+      "targetWorldRelativeAttacker": [
+        24.032786885245898,
+        -13.180327868852444
+      ],
+      "deltaHandMinusTarget": [
+        20.234729038320985,
+        -49.24005429675266
+      ],
+      "distance": 53.23558214579249,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "grip": [
+          24.032786885245898,
+          -13.180327868852444
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "contract-test-only",
+      "casterFrame": "aokiji/throw_fwd/0",
+      "victimFrame": "labubu/held_leg_flip/0",
+      "victimRuntimeHash": "3d1614f69aa632adf7002afead0baf650829d3e781d3ff598aa8cdbf4b23fb6f",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\held_leg_flip-labubu-throw_fwd-R1004.png"
+    },
+    {
+      "victim": "labubu",
+      "representative": "small verified legacy",
+      "reaction": "held_leg_flip",
+      "move": "throw_fwd",
+      "attackerFacing": -1,
+      "victimFacing": 1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        -38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        -44.26751592356688,
+        -62.420382165605105
+      ],
+      "targetSocket": "grip",
+      "targetWorldRelativeAttacker": [
+        -24.032786885245898,
+        -13.180327868852444
+      ],
+      "deltaHandMinusTarget": [
+        -20.234729038320985,
+        -49.24005429675266
+      ],
+      "distance": 53.23558214579249,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "grip": [
+          -24.032786885245898,
+          -13.180327868852444
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "contract-test-only",
+      "casterFrame": "aokiji/throw_fwd/0",
+      "victimFrame": "labubu/held_leg_flip/0",
+      "victimRuntimeHash": "3d1614f69aa632adf7002afead0baf650829d3e781d3ff598aa8cdbf4b23fb6f",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\held_leg_flip-labubu-throw_fwd-L1004.png"
+    },
+    {
+      "victim": "labubu",
+      "representative": "small verified legacy",
+      "reaction": "held_leg_flip",
+      "move": "throw_back",
+      "attackerFacing": 1,
+      "victimFacing": -1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        33.7579617834395,
+        -65.28662420382167
+      ],
+      "targetSocket": "grip",
+      "targetWorldRelativeAttacker": [
+        24.032786885245898,
+        -13.180327868852444
+      ],
+      "deltaHandMinusTarget": [
+        9.7251748981936,
+        -52.10629633496923
+      ],
+      "distance": 53.00608591990247,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "grip": [
+          24.032786885245898,
+          -13.180327868852444
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "contract-test-only",
+      "casterFrame": "aokiji/throw_back/0",
+      "victimFrame": "labubu/held_leg_flip/0",
+      "victimRuntimeHash": "3d1614f69aa632adf7002afead0baf650829d3e781d3ff598aa8cdbf4b23fb6f",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\held_leg_flip-labubu-throw_back-R1004.png"
+    },
+    {
+      "victim": "labubu",
+      "representative": "small verified legacy",
+      "reaction": "held_leg_flip",
+      "move": "throw_back",
+      "attackerFacing": -1,
+      "victimFacing": 1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        -38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        -33.7579617834395,
+        -65.28662420382167
+      ],
+      "targetSocket": "grip",
+      "targetWorldRelativeAttacker": [
+        -24.032786885245898,
+        -13.180327868852444
+      ],
+      "deltaHandMinusTarget": [
+        -9.7251748981936,
+        -52.10629633496923
+      ],
+      "distance": 53.00608591990247,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "grip": [
+          -24.032786885245898,
+          -13.180327868852444
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "contract-test-only",
+      "casterFrame": "aokiji/throw_back/0",
+      "victimFrame": "labubu/held_leg_flip/0",
+      "victimRuntimeHash": "3d1614f69aa632adf7002afead0baf650829d3e781d3ff598aa8cdbf4b23fb6f",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\held_leg_flip-labubu-throw_back-L1004.png"
+    },
+    {
+      "victim": "luffy",
+      "representative": "ordinary verified legacy",
+      "reaction": "held_leg_flip",
+      "move": "throw_fwd",
+      "attackerFacing": 1,
+      "victimFacing": -1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        44.26751592356688,
+        -62.420382165605105
+      ],
+      "targetSocket": "grip",
+      "targetWorldRelativeAttacker": [
+        24.032786885245905,
+        -13.180327868852459
+      ],
+      "deltaHandMinusTarget": [
+        20.234729038320978,
+        -49.240054296752646
+      ],
+      "distance": 53.23558214579248,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "grip": [
+          24.032786885245905,
+          -13.180327868852459
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "contract-test-only",
+      "casterFrame": "aokiji/throw_fwd/0",
+      "victimFrame": "luffy/held_leg_flip/0",
+      "victimRuntimeHash": "071aaa8983a0f70f046fd179bfd6306f364b42f8d061bd98c585a6d76131f43d",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\held_leg_flip-luffy-throw_fwd-R1004.png"
+    },
+    {
+      "victim": "luffy",
+      "representative": "ordinary verified legacy",
+      "reaction": "held_leg_flip",
+      "move": "throw_fwd",
+      "attackerFacing": -1,
+      "victimFacing": 1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        -38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        -44.26751592356688,
+        -62.420382165605105
+      ],
+      "targetSocket": "grip",
+      "targetWorldRelativeAttacker": [
+        -24.032786885245905,
+        -13.180327868852459
+      ],
+      "deltaHandMinusTarget": [
+        -20.234729038320978,
+        -49.240054296752646
+      ],
+      "distance": 53.23558214579248,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "grip": [
+          -24.032786885245905,
+          -13.180327868852459
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "contract-test-only",
+      "casterFrame": "aokiji/throw_fwd/0",
+      "victimFrame": "luffy/held_leg_flip/0",
+      "victimRuntimeHash": "071aaa8983a0f70f046fd179bfd6306f364b42f8d061bd98c585a6d76131f43d",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\held_leg_flip-luffy-throw_fwd-L1004.png"
+    },
+    {
+      "victim": "luffy",
+      "representative": "ordinary verified legacy",
+      "reaction": "held_leg_flip",
+      "move": "throw_back",
+      "attackerFacing": 1,
+      "victimFacing": -1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        33.7579617834395,
+        -65.28662420382167
+      ],
+      "targetSocket": "grip",
+      "targetWorldRelativeAttacker": [
+        24.032786885245905,
+        -13.180327868852459
+      ],
+      "deltaHandMinusTarget": [
+        9.725174898193593,
+        -52.106296334969215
+      ],
+      "distance": 53.00608591990245,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "grip": [
+          24.032786885245905,
+          -13.180327868852459
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "contract-test-only",
+      "casterFrame": "aokiji/throw_back/0",
+      "victimFrame": "luffy/held_leg_flip/0",
+      "victimRuntimeHash": "071aaa8983a0f70f046fd179bfd6306f364b42f8d061bd98c585a6d76131f43d",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\held_leg_flip-luffy-throw_back-R1004.png"
+    },
+    {
+      "victim": "luffy",
+      "representative": "ordinary verified legacy",
+      "reaction": "held_leg_flip",
+      "move": "throw_back",
+      "attackerFacing": -1,
+      "victimFacing": 1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        -38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        -33.7579617834395,
+        -65.28662420382167
+      ],
+      "targetSocket": "grip",
+      "targetWorldRelativeAttacker": [
+        -24.032786885245905,
+        -13.180327868852459
+      ],
+      "deltaHandMinusTarget": [
+        -9.725174898193593,
+        -52.106296334969215
+      ],
+      "distance": 53.00608591990245,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "grip": [
+          -24.032786885245905,
+          -13.180327868852459
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "contract-test-only",
+      "casterFrame": "aokiji/throw_back/0",
+      "victimFrame": "luffy/held_leg_flip/0",
+      "victimRuntimeHash": "071aaa8983a0f70f046fd179bfd6306f364b42f8d061bd98c585a6d76131f43d",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\held_leg_flip-luffy-throw_back-L1004.png"
+    },
+    {
+      "victim": "akainu",
+      "representative": "larger available adult legacy",
+      "reaction": "held_leg_flip",
+      "move": "throw_fwd",
+      "attackerFacing": 1,
+      "victimFacing": -1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        44.26751592356688,
+        -62.420382165605105
+      ],
+      "targetSocket": "grip",
+      "targetWorldRelativeAttacker": [
+        24.032786885245898,
+        -13.180327868852459
+      ],
+      "deltaHandMinusTarget": [
+        20.234729038320985,
+        -49.240054296752646
+      ],
+      "distance": 53.235582145792485,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "grip": [
+          24.032786885245898,
+          -13.180327868852459
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "contract-test-only",
+      "casterFrame": "aokiji/throw_fwd/0",
+      "victimFrame": "akainu/held_leg_flip/0",
+      "victimRuntimeHash": "93370eb21affc410487e18171db61c847d39f41f838f20b43345ecd9ced90686",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\held_leg_flip-akainu-throw_fwd-R1004.png"
+    },
+    {
+      "victim": "akainu",
+      "representative": "larger available adult legacy",
+      "reaction": "held_leg_flip",
+      "move": "throw_fwd",
+      "attackerFacing": -1,
+      "victimFacing": 1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        -38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        -44.26751592356688,
+        -62.420382165605105
+      ],
+      "targetSocket": "grip",
+      "targetWorldRelativeAttacker": [
+        -24.032786885245898,
+        -13.180327868852459
+      ],
+      "deltaHandMinusTarget": [
+        -20.234729038320985,
+        -49.240054296752646
+      ],
+      "distance": 53.235582145792485,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "grip": [
+          -24.032786885245898,
+          -13.180327868852459
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "contract-test-only",
+      "casterFrame": "aokiji/throw_fwd/0",
+      "victimFrame": "akainu/held_leg_flip/0",
+      "victimRuntimeHash": "93370eb21affc410487e18171db61c847d39f41f838f20b43345ecd9ced90686",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\held_leg_flip-akainu-throw_fwd-L1004.png"
+    },
+    {
+      "victim": "akainu",
+      "representative": "larger available adult legacy",
+      "reaction": "held_leg_flip",
+      "move": "throw_back",
+      "attackerFacing": 1,
+      "victimFacing": -1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        33.7579617834395,
+        -65.28662420382167
+      ],
+      "targetSocket": "grip",
+      "targetWorldRelativeAttacker": [
+        24.032786885245898,
+        -13.180327868852459
+      ],
+      "deltaHandMinusTarget": [
+        9.7251748981936,
+        -52.106296334969215
+      ],
+      "distance": 53.00608591990245,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "grip": [
+          24.032786885245898,
+          -13.180327868852459
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "contract-test-only",
+      "casterFrame": "aokiji/throw_back/0",
+      "victimFrame": "akainu/held_leg_flip/0",
+      "victimRuntimeHash": "93370eb21affc410487e18171db61c847d39f41f838f20b43345ecd9ced90686",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\held_leg_flip-akainu-throw_back-R1004.png"
+    },
+    {
+      "victim": "akainu",
+      "representative": "larger available adult legacy",
+      "reaction": "held_leg_flip",
+      "move": "throw_back",
+      "attackerFacing": -1,
+      "victimFacing": 1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        -38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        -33.7579617834395,
+        -65.28662420382167
+      ],
+      "targetSocket": "grip",
+      "targetWorldRelativeAttacker": [
+        -24.032786885245898,
+        -13.180327868852459
+      ],
+      "deltaHandMinusTarget": [
+        -9.7251748981936,
+        -52.106296334969215
+      ],
+      "distance": 53.00608591990245,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "grip": [
+          -24.032786885245898,
+          -13.180327868852459
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "contract-test-only",
+      "casterFrame": "aokiji/throw_back/0",
+      "victimFrame": "akainu/held_leg_flip/0",
+      "victimRuntimeHash": "93370eb21affc410487e18171db61c847d39f41f838f20b43345ecd9ced90686",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\held_leg_flip-akainu-throw_back-L1004.png"
+    },
+    {
+      "victim": "labubu",
+      "representative": "small verified legacy",
+      "reaction": "thrown",
+      "move": "throw_fwd",
+      "attackerFacing": 1,
+      "victimFacing": -1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        44.26751592356688,
+        -62.420382165605105
+      ],
+      "targetSocket": "contact",
+      "targetWorldRelativeAttacker": [
+        23.000000000000004,
+        -39.085714285714296
+      ],
+      "deltaHandMinusTarget": [
+        21.26751592356688,
+        -23.33466787989081
+      ],
+      "distance": 31.572360675501898,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "contact": [
+          23.000000000000004,
+          -39.085714285714296
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "current-generic-static-diagnostic",
+      "casterFrame": "aokiji/throw_fwd/0",
+      "victimFrame": "labubu/thrown/0",
+      "victimRuntimeHash": "3d1614f69aa632adf7002afead0baf650829d3e781d3ff598aa8cdbf4b23fb6f",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\thrown-labubu-throw_fwd-R1004.png"
+    },
+    {
+      "victim": "labubu",
+      "representative": "small verified legacy",
+      "reaction": "thrown",
+      "move": "throw_fwd",
+      "attackerFacing": -1,
+      "victimFacing": 1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        -38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        -44.26751592356688,
+        -62.420382165605105
+      ],
+      "targetSocket": "contact",
+      "targetWorldRelativeAttacker": [
+        -23.000000000000004,
+        -39.085714285714296
+      ],
+      "deltaHandMinusTarget": [
+        -21.26751592356688,
+        -23.33466787989081
+      ],
+      "distance": 31.572360675501898,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "contact": [
+          -23.000000000000004,
+          -39.085714285714296
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "current-generic-static-diagnostic",
+      "casterFrame": "aokiji/throw_fwd/0",
+      "victimFrame": "labubu/thrown/0",
+      "victimRuntimeHash": "3d1614f69aa632adf7002afead0baf650829d3e781d3ff598aa8cdbf4b23fb6f",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\thrown-labubu-throw_fwd-L1004.png"
+    },
+    {
+      "victim": "labubu",
+      "representative": "small verified legacy",
+      "reaction": "thrown",
+      "move": "throw_back",
+      "attackerFacing": 1,
+      "victimFacing": -1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        33.7579617834395,
+        -65.28662420382167
+      ],
+      "targetSocket": "contact",
+      "targetWorldRelativeAttacker": [
+        23.000000000000004,
+        -39.085714285714296
+      ],
+      "deltaHandMinusTarget": [
+        10.757961783439494,
+        -26.200909918107378
+      ],
+      "distance": 28.3235135933154,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "contact": [
+          23.000000000000004,
+          -39.085714285714296
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "current-generic-static-diagnostic",
+      "casterFrame": "aokiji/throw_back/0",
+      "victimFrame": "labubu/thrown/0",
+      "victimRuntimeHash": "3d1614f69aa632adf7002afead0baf650829d3e781d3ff598aa8cdbf4b23fb6f",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\thrown-labubu-throw_back-R1004.png"
+    },
+    {
+      "victim": "labubu",
+      "representative": "small verified legacy",
+      "reaction": "thrown",
+      "move": "throw_back",
+      "attackerFacing": -1,
+      "victimFacing": 1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        -38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        -33.7579617834395,
+        -65.28662420382167
+      ],
+      "targetSocket": "contact",
+      "targetWorldRelativeAttacker": [
+        -23.000000000000004,
+        -39.085714285714296
+      ],
+      "deltaHandMinusTarget": [
+        -10.757961783439494,
+        -26.200909918107378
+      ],
+      "distance": 28.3235135933154,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "contact": [
+          -23.000000000000004,
+          -39.085714285714296
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "current-generic-static-diagnostic",
+      "casterFrame": "aokiji/throw_back/0",
+      "victimFrame": "labubu/thrown/0",
+      "victimRuntimeHash": "3d1614f69aa632adf7002afead0baf650829d3e781d3ff598aa8cdbf4b23fb6f",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\thrown-labubu-throw_back-L1004.png"
+    },
+    {
+      "victim": "luffy",
+      "representative": "ordinary verified legacy",
+      "reaction": "thrown",
+      "move": "throw_fwd",
+      "attackerFacing": 1,
+      "victimFacing": -1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        44.26751592356688,
+        -62.420382165605105
+      ],
+      "targetSocket": "wrist",
+      "targetWorldRelativeAttacker": [
+        42.93018018018018,
+        -61.52864864864864
+      ],
+      "deltaHandMinusTarget": [
+        1.3373357433867028,
+        -0.8917335169564637
+      ],
+      "distance": 1.6073753624474927,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "sole_back": [
+          66.98945945945945,
+          0.0
+        ],
+        "sole_front": [
+          5.460810810810813,
+          -1.7748648648648668
+        ],
+        "wrist": [
+          42.93018018018018,
+          -61.52864864864864
+        ],
+        "wrist_other": [
+          23.406666666666666,
+          -55.0208108108108
+        ],
+        "palm": [
+          36.61954954954955,
+          -60.739819819819814
+        ],
+        "palm_other": [
+          28.336846846846846,
+          -58.17612612612612
+        ],
+        "chest": [
+          31.689369369369373,
+          -58.767747747747734
+        ],
+        "pelvis": [
+          35.04189189189189,
+          -41.610720720720714
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "current-generic-static-diagnostic",
+      "casterFrame": "aokiji/throw_fwd/0",
+      "victimFrame": "luffy/thrown/0",
+      "victimRuntimeHash": "071aaa8983a0f70f046fd179bfd6306f364b42f8d061bd98c585a6d76131f43d",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\thrown-luffy-throw_fwd-R1004.png"
+    },
+    {
+      "victim": "luffy",
+      "representative": "ordinary verified legacy",
+      "reaction": "thrown",
+      "move": "throw_fwd",
+      "attackerFacing": -1,
+      "victimFacing": 1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        -38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        -44.26751592356688,
+        -62.420382165605105
+      ],
+      "targetSocket": "wrist",
+      "targetWorldRelativeAttacker": [
+        -42.93018018018018,
+        -61.52864864864864
+      ],
+      "deltaHandMinusTarget": [
+        -1.3373357433867028,
+        -0.8917335169564637
+      ],
+      "distance": 1.6073753624474927,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "sole_back": [
+          -66.98945945945945,
+          0.0
+        ],
+        "sole_front": [
+          -5.460810810810813,
+          -1.7748648648648668
+        ],
+        "wrist": [
+          -42.93018018018018,
+          -61.52864864864864
+        ],
+        "wrist_other": [
+          -23.406666666666666,
+          -55.0208108108108
+        ],
+        "palm": [
+          -36.61954954954955,
+          -60.739819819819814
+        ],
+        "palm_other": [
+          -28.336846846846846,
+          -58.17612612612612
+        ],
+        "chest": [
+          -31.689369369369373,
+          -58.767747747747734
+        ],
+        "pelvis": [
+          -35.04189189189189,
+          -41.610720720720714
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "current-generic-static-diagnostic",
+      "casterFrame": "aokiji/throw_fwd/0",
+      "victimFrame": "luffy/thrown/0",
+      "victimRuntimeHash": "071aaa8983a0f70f046fd179bfd6306f364b42f8d061bd98c585a6d76131f43d",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\thrown-luffy-throw_fwd-L1004.png"
+    },
+    {
+      "victim": "luffy",
+      "representative": "ordinary verified legacy",
+      "reaction": "thrown",
+      "move": "throw_back",
+      "attackerFacing": 1,
+      "victimFacing": -1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        33.7579617834395,
+        -65.28662420382167
+      ],
+      "targetSocket": "palm",
+      "targetWorldRelativeAttacker": [
+        36.61954954954955,
+        -60.739819819819814
+      ],
+      "deltaHandMinusTarget": [
+        -2.8615877661100555,
+        -4.5468043840018595
+      ],
+      "distance": 5.372347219747553,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "sole_back": [
+          66.98945945945945,
+          0.0
+        ],
+        "sole_front": [
+          5.460810810810813,
+          -1.7748648648648668
+        ],
+        "wrist": [
+          42.93018018018018,
+          -61.52864864864864
+        ],
+        "wrist_other": [
+          23.406666666666666,
+          -55.0208108108108
+        ],
+        "palm": [
+          36.61954954954955,
+          -60.739819819819814
+        ],
+        "palm_other": [
+          28.336846846846846,
+          -58.17612612612612
+        ],
+        "chest": [
+          31.689369369369373,
+          -58.767747747747734
+        ],
+        "pelvis": [
+          35.04189189189189,
+          -41.610720720720714
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "current-generic-static-diagnostic",
+      "casterFrame": "aokiji/throw_back/0",
+      "victimFrame": "luffy/thrown/0",
+      "victimRuntimeHash": "071aaa8983a0f70f046fd179bfd6306f364b42f8d061bd98c585a6d76131f43d",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\thrown-luffy-throw_back-R1004.png"
+    },
+    {
+      "victim": "luffy",
+      "representative": "ordinary verified legacy",
+      "reaction": "thrown",
+      "move": "throw_back",
+      "attackerFacing": -1,
+      "victimFacing": 1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        -38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        -33.7579617834395,
+        -65.28662420382167
+      ],
+      "targetSocket": "palm",
+      "targetWorldRelativeAttacker": [
+        -36.61954954954955,
+        -60.739819819819814
+      ],
+      "deltaHandMinusTarget": [
+        2.8615877661100555,
+        -4.5468043840018595
+      ],
+      "distance": 5.372347219747553,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "sole_back": [
+          -66.98945945945945,
+          0.0
+        ],
+        "sole_front": [
+          -5.460810810810813,
+          -1.7748648648648668
+        ],
+        "wrist": [
+          -42.93018018018018,
+          -61.52864864864864
+        ],
+        "wrist_other": [
+          -23.406666666666666,
+          -55.0208108108108
+        ],
+        "palm": [
+          -36.61954954954955,
+          -60.739819819819814
+        ],
+        "palm_other": [
+          -28.336846846846846,
+          -58.17612612612612
+        ],
+        "chest": [
+          -31.689369369369373,
+          -58.767747747747734
+        ],
+        "pelvis": [
+          -35.04189189189189,
+          -41.610720720720714
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "current-generic-static-diagnostic",
+      "casterFrame": "aokiji/throw_back/0",
+      "victimFrame": "luffy/thrown/0",
+      "victimRuntimeHash": "071aaa8983a0f70f046fd179bfd6306f364b42f8d061bd98c585a6d76131f43d",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\thrown-luffy-throw_back-L1004.png"
+    },
+    {
+      "victim": "akainu",
+      "representative": "larger available adult legacy",
+      "reaction": "thrown",
+      "move": "throw_fwd",
+      "attackerFacing": 1,
+      "victimFacing": -1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        44.26751592356688,
+        -62.420382165605105
+      ],
+      "targetSocket": "wrist",
+      "targetWorldRelativeAttacker": [
+        43.04758465011287,
+        -58.96496613995486
+      ],
+      "deltaHandMinusTarget": [
+        1.2199312734540158,
+        -3.455416025650244
+      ],
+      "distance": 3.6644415976068805,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "sole_back": [
+          69.20325056433408,
+          0.0
+        ],
+        "sole_front": [
+          24.692731376975168,
+          -3.441534988713329
+        ],
+        "shoulder": [
+          33.41128668171557,
+          -66.76577878103839
+        ],
+        "wrist": [
+          43.04758465011287,
+          -58.96496613995486
+        ],
+        "palm": [
+          38.688306997742664,
+          -61.947629796839735
+        ],
+        "palm_other": [
+          20.792325056433405,
+          -55.29399548532732
+        ],
+        "chest": [
+          27.445959367945825,
+          -58.96496613995486
+        ],
+        "pelvis": [
+          38.22943566591422,
+          -38.31575620767495
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "current-generic-static-diagnostic",
+      "casterFrame": "aokiji/throw_fwd/0",
+      "victimFrame": "akainu/thrown/0",
+      "victimRuntimeHash": "93370eb21affc410487e18171db61c847d39f41f838f20b43345ecd9ced90686",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\thrown-akainu-throw_fwd-R1004.png"
+    },
+    {
+      "victim": "akainu",
+      "representative": "larger available adult legacy",
+      "reaction": "thrown",
+      "move": "throw_fwd",
+      "attackerFacing": -1,
+      "victimFacing": 1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        -38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        -44.26751592356688,
+        -62.420382165605105
+      ],
+      "targetSocket": "wrist",
+      "targetWorldRelativeAttacker": [
+        -43.04758465011287,
+        -58.96496613995486
+      ],
+      "deltaHandMinusTarget": [
+        -1.2199312734540158,
+        -3.455416025650244
+      ],
+      "distance": 3.6644415976068805,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "sole_back": [
+          -69.20325056433408,
+          0.0
+        ],
+        "sole_front": [
+          -24.692731376975168,
+          -3.441534988713329
+        ],
+        "shoulder": [
+          -33.41128668171557,
+          -66.76577878103839
+        ],
+        "wrist": [
+          -43.04758465011287,
+          -58.96496613995486
+        ],
+        "palm": [
+          -38.688306997742664,
+          -61.947629796839735
+        ],
+        "palm_other": [
+          -20.792325056433405,
+          -55.29399548532732
+        ],
+        "chest": [
+          -27.445959367945825,
+          -58.96496613995486
+        ],
+        "pelvis": [
+          -38.22943566591422,
+          -38.31575620767495
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "current-generic-static-diagnostic",
+      "casterFrame": "aokiji/throw_fwd/0",
+      "victimFrame": "akainu/thrown/0",
+      "victimRuntimeHash": "93370eb21affc410487e18171db61c847d39f41f838f20b43345ecd9ced90686",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\thrown-akainu-throw_fwd-L1004.png"
+    },
+    {
+      "victim": "akainu",
+      "representative": "larger available adult legacy",
+      "reaction": "thrown",
+      "move": "throw_back",
+      "attackerFacing": 1,
+      "victimFacing": -1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        33.7579617834395,
+        -65.28662420382167
+      ],
+      "targetSocket": "shoulder",
+      "targetWorldRelativeAttacker": [
+        33.41128668171557,
+        -66.76577878103839
+      ],
+      "deltaHandMinusTarget": [
+        0.3466751017239247,
+        1.4791545772167183
+      ],
+      "distance": 1.519237272270682,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "sole_back": [
+          69.20325056433408,
+          0.0
+        ],
+        "sole_front": [
+          24.692731376975168,
+          -3.441534988713329
+        ],
+        "shoulder": [
+          33.41128668171557,
+          -66.76577878103839
+        ],
+        "wrist": [
+          43.04758465011287,
+          -58.96496613995486
+        ],
+        "palm": [
+          38.688306997742664,
+          -61.947629796839735
+        ],
+        "palm_other": [
+          20.792325056433405,
+          -55.29399548532732
+        ],
+        "chest": [
+          27.445959367945825,
+          -58.96496613995486
+        ],
+        "pelvis": [
+          38.22943566591422,
+          -38.31575620767495
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "current-generic-static-diagnostic",
+      "casterFrame": "aokiji/throw_back/0",
+      "victimFrame": "akainu/thrown/0",
+      "victimRuntimeHash": "93370eb21affc410487e18171db61c847d39f41f838f20b43345ecd9ced90686",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\thrown-akainu-throw_back-R1004.png"
+    },
+    {
+      "victim": "akainu",
+      "representative": "larger available adult legacy",
+      "reaction": "thrown",
+      "move": "throw_back",
+      "attackerFacing": -1,
+      "victimFacing": 1,
+      "attackerRootWorld": [
+        0,
+        0
+      ],
+      "victimRootWorld": [
+        -38,
+        0
+      ],
+      "holdOffset": 38,
+      "handWorldRelativeAttacker": [
+        -33.7579617834395,
+        -65.28662420382167
+      ],
+      "targetSocket": "shoulder",
+      "targetWorldRelativeAttacker": [
+        -33.41128668171557,
+        -66.76577878103839
+      ],
+      "deltaHandMinusTarget": [
+        -0.3466751017239247,
+        1.4791545772167183
+      ],
+      "distance": 1.519237272270682,
+      "victimDeclaredSocketsWorldRelativeAttacker": {
+        "sole_back": [
+          -69.20325056433408,
+          0.0
+        ],
+        "sole_front": [
+          -24.692731376975168,
+          -3.441534988713329
+        ],
+        "shoulder": [
+          -33.41128668171557,
+          -66.76577878103839
+        ],
+        "wrist": [
+          -43.04758465011287,
+          -58.96496613995486
+        ],
+        "palm": [
+          -38.688306997742664,
+          -61.947629796839735
+        ],
+        "palm_other": [
+          -20.792325056433405,
+          -55.29399548532732
+        ],
+        "chest": [
+          -27.445959367945825,
+          -58.96496613995486
+        ],
+        "pelvis": [
+          -38.22943566591422,
+          -38.31575620767495
+        ]
+      },
+      "actualSelectorForAokijiNormalThrow": "thrown",
+      "kind": "current-generic-static-diagnostic",
+      "casterFrame": "aokiji/throw_back/0",
+      "victimFrame": "akainu/thrown/0",
+      "victimRuntimeHash": "93370eb21affc410487e18171db61c847d39f41f838f20b43345ecd9ced90686",
+      "casterRuntimeHash": "1255fb276b7a7fbb3d3fed0bdc93ce576620509da3030a8f9bbcade0bef76e1b",
+      "diagnosticFile": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-throw-pairs1004\\thrown-akainu-throw_back-L1004.png"
+    }
+  ]
+}

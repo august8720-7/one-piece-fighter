@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_dash_backdash_1003",
+  "sourceSha256": "fe3d84aa5e656fc6436a131c811e87ddb257f5a563bf189182a90c54f3be9aaa",
+  "status": "partial-source-only-backdash-adopted",
+  "neutralVisibleAlpha8Bounds": [15, 43, 408, 439],
+  "neutralVisibleHeight": 396,
+  "referenceNeutralHeight": 380,
+  "unitScale": 0.9595959595959596,
+  "scaleBasis": "Whole-page neutral visible alpha>=8 height396px; all adopted backdash poses uniformly use380/396 versus first-sheet380px. No per-pose fitting.",
+  "observations": [
+    "The three backdash drawings have distinct crouched takeoff, tucked airborne and landing/recovery configurations, retain one right arm and one complete saber.",
+    "The requested dash contact phases do not clearly exchange near/far legs. They remain rejected review crops, are not mapped to dash and do not count as added runtime poses.",
+    "Backdash holds original18-frame duration:4/8/6. Actual game wall/root/contact review remains pending."
+  ],
+  "frames": {
+    "backdash_start_1003": {"source": "shanks_dash_backdash_1003", "crop": [499, 506, 338, 322], "root": [203, 315], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "backdash_air_1003": {"source": "shanks_dash_backdash_1003", "crop": [852, 463, 364, 317], "root": [208, 394], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "backdash_land_1003": {"source": "shanks_dash_backdash_1003", "crop": [47, 862, 395, 350], "root": [203, 340], "sockets": {}, "transparency": {"mode": "source-alpha"}}
+  },
+  "anims": {
+    "backdash": {"frames": ["backdash_start_1003", "backdash_air_1003", "backdash_land_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 4}, {"frame": 1, "ticks": 8}, {"frame": 2, "ticks": 6}]}
+  },
+  "rejectedDashVisibleBounds": [[391, 130, 803, 439], [836, 84, 1223, 437], [43, 512, 431, 821]]
+}

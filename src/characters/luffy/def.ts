@@ -1,5 +1,6 @@
 ﻿import { px, type FighterDef } from '@core/index';
 import { luffyMoves } from './moves';
+import { luffyGear5 } from './gear5';
 
 /** 路飞：速攻连段型。血量中、移速快、翻滚远。数值为初始值，M3 实测后调整。 */
 export const luffyDef: FighterDef = {
@@ -27,6 +28,7 @@ export const luffyDef: FighterDef = {
   hurtboxCrouch: [[-16, -60, 32, 60]],
   hurtboxAir: [[-13, -84, 26, 66]],
   moves: luffyMoves,
+  gear5: luffyGear5,
   skillSlots: ['sp_gatling', 'sp_bazooka', 'sp_rifle', 'sp_rocket', 'sp_balloon', 'sp_gear2', 'sp_storm', 'sp_gigant_pistol', 'ult_red_hawk'],
   color: 0xe63946,
   tagline: '速攻 · 连段 · 二档',

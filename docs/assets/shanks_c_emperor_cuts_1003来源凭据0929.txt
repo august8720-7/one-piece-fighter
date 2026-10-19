@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "shanks_c_emperor_cuts_1003",
+  "file": "public/assets/generated/source/roster-shanks-c-emperor-cuts-1003.png",
+  "sha256": "a2bd3c51c316eceac12174a287274f2853c7aad17bfe175c3e4e1e8231fb88f6",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+  "observedCompletedAt": "2026-10-03T16:17:58.726160+08:00",
+  "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回全文匹配后单次发送。页面回答已完成，官方查看器标题赤发独臂剑士连招精灵图。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。查看器下载只点一次，Downloads正式PNG已落盘；完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。没有以download事件回执作为成功证据。既有images为工作流入口，本次直接续c会话。",
+  "prompt": {
+    "file": "docs/assets/shanks-c-emperor-cuts-prompt1003.txt",
+    "sha256": "327b0599c6823eabdb3a8f8ac3cb3ad5a15036a6a5acd076a50c3d75da8de088"
+  },
+  "referenceSources": {
+    "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+    "shanks_x_divine_departure_1003": "4d1ded4449ced17298d69e0cc6e1c5a61f38a52e505daf329922b97beb262d19"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T08:19:31.856847+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-c-result-viewer.jpg",
+    "sha256": "c19a1a347cfad785daecea697303ca343e26b9b79444be3e585261e3ede879be"
+  },
+  "referenceFiles": {
+    "shanks_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-shanks-locomotion-0929.png",
+      "sha256": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+    },
+    "shanks_x_divine_departure_1003": {
+      "file": "public/assets/generated/source/roster-shanks-x-divine-departure-1003.png",
+      "sha256": "4d1ded4449ced17298d69e0cc6e1c5a61f38a52e505daf329922b97beb262d19"
+    }
+  },
+  "originalPngSize": [
+    1086,
+    1448
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

@@ -1,0 +1,671 @@
+{
+  "characterId": "sengoku",
+  "status": "static-candidate-not-game-contact-or-sound-acceptance",
+  "sourceKey": "sengoku_reactions_recovered_1003",
+  "sourceHash": "b8e32bc4d99da87ee70ea2ee005761c7c609edc3a6a5d2fb96dc45cce9081cd9",
+  "referenceHeight64": 419,
+  "sourceUnitScale": 1.0023866348448687,
+  "worldPixelsPerSourcePixel": 0.24821002386634844,
+  "frames": [
+    {
+      "frame": "crouch_1003",
+      "crop": [
+        449,
+        130,
+        369,
+        315
+      ],
+      "root": [
+        201,
+        307
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        361,
+        307
+      ]
+    },
+    {
+      "frame": "block_stand_1003",
+      "crop": [
+        863,
+        0,
+        381,
+        434
+      ],
+      "root": [
+        213,
+        426
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        373,
+        426
+      ]
+    },
+    {
+      "frame": "block_crouch_1003",
+      "crop": [
+        41,
+        521,
+        371,
+        323
+      ],
+      "root": [
+        185,
+        315
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        363,
+        315
+      ]
+    },
+    {
+      "frame": "hit_crouch_1003",
+      "crop": [
+        430,
+        533,
+        397,
+        306
+      ],
+      "root": [
+        199,
+        298
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        389,
+        298
+      ]
+    },
+    {
+      "frame": "jump_guard_1003",
+      "crop": [
+        858,
+        430,
+        389,
+        379
+      ],
+      "root": [
+        255,
+        427
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [],
+      "alpha16Bbox": [
+        8,
+        8,
+        381,
+        371
+      ]
+    },
+    {
+      "frame": "hit_air_1003",
+      "crop": [
+        14,
+        850,
+        445,
+        363
+      ],
+      "root": [
+        211,
+        437
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [
+        [
+          442,
+          247,
+          3,
+          1
+        ],
+        [
+          439,
+          248,
+          6,
+          1
+        ],
+        [
+          436,
+          249,
+          9,
+          1
+        ],
+        [
+          435,
+          250,
+          10,
+          1
+        ],
+        [
+          434,
+          251,
+          11,
+          1
+        ],
+        [
+          433,
+          252,
+          12,
+          1
+        ],
+        [
+          432,
+          253,
+          13,
+          1
+        ],
+        [
+          431,
+          254,
+          14,
+          2
+        ],
+        [
+          430,
+          256,
+          15,
+          2
+        ],
+        [
+          429,
+          258,
+          16,
+          12
+        ],
+        [
+          430,
+          270,
+          15,
+          1
+        ],
+        [
+          431,
+          271,
+          14,
+          2
+        ],
+        [
+          432,
+          273,
+          13,
+          2
+        ],
+        [
+          431,
+          275,
+          14,
+          7
+        ],
+        [
+          430,
+          282,
+          15,
+          1
+        ],
+        [
+          429,
+          283,
+          16,
+          1
+        ],
+        [
+          426,
+          284,
+          19,
+          1
+        ],
+        [
+          422,
+          285,
+          23,
+          1
+        ],
+        [
+          420,
+          286,
+          25,
+          1
+        ],
+        [
+          418,
+          287,
+          27,
+          1
+        ],
+        [
+          416,
+          288,
+          29,
+          1
+        ],
+        [
+          414,
+          289,
+          31,
+          1
+        ],
+        [
+          412,
+          290,
+          33,
+          1
+        ],
+        [
+          411,
+          291,
+          34,
+          1
+        ],
+        [
+          410,
+          292,
+          35,
+          2
+        ],
+        [
+          409,
+          294,
+          36,
+          1
+        ],
+        [
+          408,
+          295,
+          37,
+          6
+        ],
+        [
+          407,
+          301,
+          38,
+          6
+        ],
+        [
+          408,
+          307,
+          31,
+          1
+        ],
+        [
+          440,
+          307,
+          3,
+          1
+        ],
+        [
+          408,
+          308,
+          28,
+          1
+        ],
+        [
+          408,
+          309,
+          27,
+          1
+        ],
+        [
+          408,
+          310,
+          26,
+          1
+        ],
+        [
+          409,
+          311,
+          24,
+          1
+        ],
+        [
+          409,
+          312,
+          22,
+          3
+        ],
+        [
+          410,
+          315,
+          21,
+          3
+        ],
+        [
+          410,
+          318,
+          22,
+          1
+        ],
+        [
+          411,
+          319,
+          21,
+          3
+        ],
+        [
+          412,
+          322,
+          20,
+          1
+        ],
+        [
+          412,
+          323,
+          19,
+          1
+        ],
+        [
+          413,
+          324,
+          18,
+          1
+        ],
+        [
+          414,
+          325,
+          15,
+          2
+        ],
+        [
+          415,
+          327,
+          14,
+          1
+        ],
+        [
+          416,
+          328,
+          13,
+          2
+        ],
+        [
+          417,
+          330,
+          13,
+          1
+        ],
+        [
+          418,
+          331,
+          12,
+          1
+        ],
+        [
+          419,
+          332,
+          11,
+          2
+        ],
+        [
+          420,
+          334,
+          11,
+          1
+        ],
+        [
+          421,
+          335,
+          10,
+          1
+        ],
+        [
+          422,
+          336,
+          10,
+          1
+        ],
+        [
+          423,
+          337,
+          9,
+          1
+        ],
+        [
+          424,
+          338,
+          8,
+          1
+        ],
+        [
+          426,
+          339,
+          6,
+          1
+        ],
+        [
+          428,
+          340,
+          4,
+          1
+        ]
+      ],
+      "alpha16Bbox": [
+        8,
+        8,
+        437,
+        355
+      ]
+    },
+    {
+      "frame": "knockdown_1003",
+      "crop": [
+        414,
+        1090,
+        473,
+        155
+      ],
+      "root": [
+        207,
+        147
+      ],
+      "socketsWorldRelativeToRoot": {},
+      "excludeRects": [
+        [
+          0,
+          0,
+          15,
+          2
+        ],
+        [
+          0,
+          2,
+          13,
+          1
+        ],
+        [
+          0,
+          3,
+          10,
+          1
+        ],
+        [
+          0,
+          4,
+          8,
+          1
+        ],
+        [
+          0,
+          5,
+          5,
+          1
+        ],
+        [
+          0,
+          6,
+          2,
+          1
+        ],
+        [
+          471,
+          94,
+          2,
+          1
+        ],
+        [
+          470,
+          95,
+          3,
+          1
+        ],
+        [
+          469,
+          96,
+          4,
+          2
+        ],
+        [
+          468,
+          98,
+          5,
+          4
+        ],
+        [
+          469,
+          102,
+          4,
+          2
+        ],
+        [
+          470,
+          104,
+          3,
+          2
+        ],
+        [
+          471,
+          106,
+          2,
+          1
+        ]
+      ],
+      "alpha16Bbox": [
+        8,
+        8,
+        465,
+        147
+      ]
+    },
+    {
+      "frame": "getup_kneel_1003",
+      "crop": [
+        875,
+        929,
+        376,
+        306
+      ],
+      "root": [
+        230,
+        298
+      ],
+      "socketsWorldRelativeToRoot": {
+        "ground_palm": [
+          -15.389,
+          -3.7232
+        ]
+      },
+      "excludeRects": [
+        [
+          0,
+          215,
+          2,
+          1
+        ],
+        [
+          0,
+          216,
+          3,
+          2
+        ],
+        [
+          0,
+          218,
+          4,
+          4
+        ],
+        [
+          0,
+          222,
+          5,
+          8
+        ],
+        [
+          0,
+          230,
+          4,
+          7
+        ],
+        [
+          0,
+          237,
+          3,
+          4
+        ],
+        [
+          0,
+          241,
+          2,
+          3
+        ]
+      ],
+      "alpha16Bbox": [
+        8,
+        8,
+        368,
+        298
+      ]
+    }
+  ],
+  "timing": {
+    "crouch": [
+      60
+    ],
+    "block_stand": [
+      12
+    ],
+    "block_crouch": [
+      12
+    ],
+    "hit_crouch": [
+      12
+    ],
+    "jump_neutral": [
+      30
+    ],
+    "hit_air": [
+      12
+    ],
+    "knockdown": [
+      36
+    ],
+    "getup": [
+      12,
+      2
+    ]
+  },
+  "knownDifferences": [
+    "Actual recovered webpage prompt677characters differs from prepared1003draft828characters; receipt records recovered exact prompt, no unsubmitted clipping instruction attributed to this image.",
+    "Eight true new reaction crops; existing neutral is explicit final2ticks of14tick getup, not additional new art.",
+    "Jump guard is one actual folded-leg midair candidate; rising/falling phases and other jump directions remain absent before complete release.",
+    "All reactions remain human-uniform; no Buddha form is substituted for basic states. Actual hat, bird, round glasses and long braid retained.",
+    "Cells7/8 interleave nominal grid areas. Exact other inspected silhouette row exclusions preserve every own alpha16 pixel, and both cropped full figures were manually viewed intact.",
+    "Old ambiguous walk poses are not adopted. Static reactions are not a controllable basic sample, nine skills, sound or full-match acceptance."
+  ],
+  "newCrops": 8,
+  "totalCrops": 13,
+  "totalAnims": 11,
+  "recordedAtUtc": "2026-10-03T13:58:10.422483+00:00",
+  "manifestAfterHash": "411f69e07d34016eda78f9bc71338409a492ab24a21835612c9d7ee3fe2409a2"
+}

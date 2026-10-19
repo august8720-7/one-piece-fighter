@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "characterId": "zoro",
+  "sourceKey": "zoro_down_getup_repair_1003",
+  "status": "two-repair-candidates-awaiting-FightScene",
+  "realIndependentNewPoses": [
+    "knockdown",
+    "getup"
+  ],
+  "unitScale": 0.6966911764705882,
+  "neutralAlpha8Bounds": [
+    52,
+    16,
+    695,
+    560
+  ],
+  "notes": [
+    "Both hands and mouth now each hold a distinct visible blade in the lying pose.",
+    "Getup three swords have complete tips and wide source margin.",
+    "Single true pose per state, not continuous multi-frame animation.",
+    "Knockdown mouth blade drops below torso baseline; actual floor contact is an explicit runtime review item.",
+    "No combat data/core or central registration changed."
+  ]
+}

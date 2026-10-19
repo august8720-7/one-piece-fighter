@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_normal_crlight_1003",
+  "sourceSha256": "a4f80fac2a292448b467631ed51f199b4cd5a9ebe16a99ddf1c859b1267dde23",
+  "status": "crouch-light-bodies-before-contact-review",
+  "neutralVisibleAlpha8Bounds": [28, 12, 470, 409],
+  "neutralVisibleHeight": 397,
+  "referenceNeutralHeight": 380,
+  "unitScale": 0.9571788413098237,
+  "scaleBasis": "One fixed neutral visible alpha>=8 height397px; every crouch-light pose uniformly uses380/397 against the original380px, no per-pose fitting.",
+  "frames": {
+    "cr_a_start_1003": {"source": "shanks_normal_crlight_1003", "crop": [564, 156, 430, 261], "root": [268, 249], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "cr_a_active_1003": {"source": "shanks_normal_crlight_1003", "crop": [25, 469, 515, 286], "root": [313, 272], "sockets": {"hilt_contact": [493, 80]}, "transparency": {"mode": "source-alpha"}},
+    "cr_a_recover_1003": {"source": "shanks_normal_crlight_1003", "crop": [599, 479, 410, 274], "root": [247, 262], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "cr_b_start_1003": {"source": "shanks_normal_crlight_1003", "crop": [41, 779, 417, 303], "root": [268, 291], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "cr_b_active_1003": {"source": "shanks_normal_crlight_1003", "crop": [560, 792, 498, 286], "root": [221, 274], "sockets": {"striking_foot": [464, 143]}, "transparency": {"mode": "source-alpha"}},
+    "cr_b_recover_1003": {"source": "shanks_normal_crlight_1003", "crop": [20, 1157, 438, 271], "root": [298, 260], "sockets": {}, "transparency": {"mode": "source-alpha"}}
+  },
+  "anims": {
+    "cr_a": {"frames": ["cr_a_start_1003", "cr_a_active_1003", "cr_a_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 5}, {"frame": 1, "ticks": 3}, {"frame": 2, "ticks": 9}]},
+    "cr_b": {"frames": ["cr_b_start_1003", "cr_b_active_1003", "cr_b_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 5}, {"frame": 1, "ticks": 3}, {"frame": 2, "ticks": 11}]}
+  },
+  "parentContactReview": {
+    "cr_a": {"approxWorldHiltContact": [42.62, -45.46], "currentHitbox": [8, -35, 31, 19], "suggestedMeasuredHitbox": [30, -52, 20, 19], "preserve": "31 damage and5/3/9"},
+    "cr_b": {"approxWorldStrikingFoot": [57.54, -31.02], "currentHitbox": [8, -18, 43, 17], "suggestedMeasuredHitbox": [37, -37, 24, 20], "preserve": "34 damage and5/3/11, low guard"},
+    "note": "Static hand/shoe proposals only. Parent decides actual contact calibration, never count this sheet as real hits."
+  },
+  "observations": ["Six actual different crouch/hilt/kick/recovery drawings, full right arm and complete saber/feet.", "Source came through documented inline downloadMedia into a GUID-named PNG after a timed-out receipt; actual complete PNG and visible preview content were verified. No fake file-viewer click is claimed."]
+}

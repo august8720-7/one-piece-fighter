@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_walk_near1017",
+  "file": "public/assets/generated/source/luffy-gear5-walk-near1017.png",
+  "sha256": "d892b35970b1bd5e8888ff9f6efbb4b8d5f8f544dbce6142c662f70512a7ede2",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方未公开具体图像型号。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+  "observedCompletedAt": "2026-10-17T11:38:03.8065466+08:00",
+  "uiObservation": "保持前一正常肤色两格的胸廓朝向与腰带向右，先官方生成近腿前和远腿经过两格红蓝诊断，再官方移除诊断颜色恢复正常肤色白裤；实际downloadMedia取回完整PNG。当前实见GPT-6极高第4/5项并截图。静态候选待组合正常速度，不记完整动作通过。时间是下载后重新核对的观察时刻，非服务器生成时间。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-walk-near-prompt1017.txt",
+    "sha256": "0293065b64b1c3dc2c093c24bd3f825acdb8713b10d487e1d8b5610989a49592"
+  },
+  "referenceSources": {
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+    "opposite": "8fbd59f30d9824f9972ee947b9ee19ce17206013dae5528940c60c89b08a79d0",
+    "diagnostic": "ec622b5d3a61974c91266769f389205611f052095bfdd29bc309c247499c4bb1"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T03:38:04.757383+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/walk-near-model1017.png",
+    "sha256": "f2a72294b047d1d8690e36d4a419ac655e62ecc51a72c2fa49fb6a74d398c71f"
+  },
+  "referenceFiles": {
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    },
+    "opposite": {
+      "file": "public/assets/generated/source/luffy-gear5-walk-opposite1017.png",
+      "sha256": "8fbd59f30d9824f9972ee947b9ee19ce17206013dae5528940c60c89b08a79d0"
+    },
+    "diagnostic": {
+      "file": "public/assets/generated/source/luffy-gear5-walk-near-diagnostic1017.png",
+      "sha256": "ec622b5d3a61974c91266769f389205611f052095bfdd29bc309c247499c4bb1"
+    }
+  },
+  "originalPngSize": [
+    1536,
+    1024
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

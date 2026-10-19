@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "shanks_qe_body_1003",
+  "file": "public/assets/generated/source/roster-shanks-qe-body-1003.png",
+  "sha256": "802066e6355c3eeb896ed0006bcccd64f9e267ce040fc0f127f0c23f1d7a9869",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方页面未公开具体图像型号，不推断后台模型。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+  "observedCompletedAt": "2026-10-03T00:16:00+08:00",
+  "uiObservation": "1003恢复既有官方会话后的完成复核，不是本轮新生成或服务器生成时间。会话最后完整Q/E提示词与本地提示词一致，查看器显示已生成图像5，标题红发浪人九式剑影Spritesheet；当前菜单实见最新radio选中、极高第4项。当前档位只证明本次完成复核时状态，不反推历史提交瞬间。downloadMedia调用超时但Downloads出现完整1254x1254RGBA PNG，签名/IEND/解码/hash及九格实际内容匹配；保留原下载后先清单再复制。不声称下载回执成功。images为原工作流入口，本次直接恢复c会话，页签标题生成六位海贼角色原画，站点ChatGPT。",
+  "prompt": {
+    "file": "docs/assets/shanks-qe-body-prompt0929.txt",
+    "sha256": "f7f7f06f3cdc87140fedeb9c643a7acc60c4ea2bf317d37c9e6795a1d2476904"
+  },
+  "referenceSources": {
+    "pirate_mother_0929": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b",
+    "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-02T16:17:17.710557+00:00",
+  "referenceFiles": {
+    "pirate_mother_0929": {
+      "file": "public/assets/generated/source/roster-pirate-mother-0929.png",
+      "sha256": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b"
+    },
+    "shanks_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-shanks-locomotion-0929.png",
+      "sha256": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

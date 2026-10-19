@@ -154,6 +154,100 @@
         "method": "explicit crop; original RGBA preserved",
         "pixelsEqual": true
       }
+    },
+    "aokiji": {
+      "image": "assets/characters/aokiji/anime/ui-roster-0929.png",
+      "sha256": "90326357e840d0e00de749198a870157b39bd557a10a8653d88194e0bc0a075c",
+      "width": 334,
+      "height": 508,
+      "frames": {
+        "body": {
+          "x": 0,
+          "y": 0,
+          "w": 334,
+          "h": 508
+        },
+        "portrait": {
+          "x": 180,
+          "y": 0,
+          "w": 130,
+          "h": 140
+        }
+      },
+      "source": {
+        "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+        "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+        "crop": [
+          156,
+          0,
+          334,
+          508
+        ]
+      },
+      "enabled": true,
+      "reviewStatus": "内部实机已验；混音反馈待定；仅本地六人候选",
+      "processing": {
+        "scale": 1,
+        "method": "explicit mother crop; unchanged original RGBA",
+        "pixelsEqual": true,
+        "note": "Bottom at508 preserves both boots and excludes the next-row hair fringe. No battle sprite enlargement."
+      },
+      "pcRosterAccepted": true
+    },
+    "shanks": {
+      "image": "assets/characters/shanks/anime/ui-roster-0929.png",
+      "sha256": "021cf353c989b42c08136ad2c72a606025d8ba69b1e7a404a8b7a053b71ffe41",
+      "width": 570,
+      "height": 490,
+      "frames": {
+        "body": {
+          "x": 0,
+          "y": 0,
+          "w": 570,
+          "h": 490
+        },
+        "portrait": {
+          "x": 260,
+          "y": 0,
+          "w": 170,
+          "h": 170
+        }
+      },
+      "source": {
+        "key": "pirate_mother_0929",
+        "file": "public/assets/generated/source/roster-pirate-mother-0929.png",
+        "sha256": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b",
+        "crop": [
+          40,
+          0,
+          570,
+          490
+        ]
+      },
+      "processing": {
+        "scale": 1,
+        "method": "Original-density RGBA crop with one explicit neighboring Whitebeard blade-tip exclusion; no body repaint or resampling.",
+        "transparency": "source-alpha",
+        "excludeRects": [
+          [
+            532,
+            462,
+            38,
+            28
+          ]
+        ],
+        "excludedNeighborAlphaPixels": 200,
+        "protectedPixelsEqual": true,
+        "protectedRgbaSha256": "aee5622ea09fc966a94f1a187b642329590a2824d879fe1f21cdc862c804bdf2"
+      },
+      "reviewStatus": "内部实机已验；混音反馈待定；仅本地六人候选",
+      "notes": [
+        "Full Shanks body and entire saber retained. Crop ends before Zoro artwork begins.",
+        "The bottom-right exclusion removes a detached neighboring Whitebeard blade tip below y462 of the UI crop; Shanks saber ends near source y422 and no Shanks body pixels occupy this rectangle.",
+        "Portrait is an overlapping original-density frame of this same PNG, not a enlarged battle sprite."
+      ],
+      "enabled": true,
+      "pcRosterAccepted": true
     }
   }
 }

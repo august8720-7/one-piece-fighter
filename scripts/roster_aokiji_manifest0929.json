@@ -1,0 +1,4731 @@
+{
+  "schemaVersion": 1,
+  "status": "mobility-static-candidate-needs-gameplay-jump-and-remaining-full-actions",
+  "notes": [
+    "Only real inspected crops, no missing state stand-ins. Walk is a candidate pending normal-speed inspection.",
+    "No full game or even full training entry permitted until required eight basic reactions are present.",
+    "Fist root/sockets are source-pixel measurements pending real hitbox calibration.",
+    "1003 QE source true RGBA has visible alpha>=16 right margin15px for lance release,7px for blade active; image outer edge alpha<=1. Ice hidden RGB is not visible artwork. New neutral height423 versus baseline407; all six poses use407/423. Q palm and E tip measured in aokiji-QE静态裁切与量测1003.md; source/FX static review does not approve gameplay contact.",
+    "1003 real jump/dash source adds5 distinct pre-jump/vertical/forward/back/landing drawings. The original neutral air drawing is an explicit shared falling pose, not a new independent crop. Dash source only has launch/drive/recovery, not alternating sustained run; it remains unused and does not open dash.",
+    "1008 reviewed 1004 exact front-grip mask intake only; source pixels/scale/root and 22/8/15 clock preserved. Back holding remains unaccepted; no complete-character promotion."
+  ],
+  "characters": {
+    "aokiji": {
+      "scale": 0.4914004914004914,
+      "textureDensity": 2,
+      "maxTextureSize": 4096,
+      "sources": {
+        "aokiji_basics_0929": {
+          "file": "public/assets/generated/source/roster-aokiji-basics-0929.png",
+          "sha256": "b1af2667cd650e36311eed1822b3c572b1f18c55c5acdf50d02c40e291b8bc5c",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方网页具体图像型号未公开，不能由文字选项推断。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+          "observedCompletedAt": "2026-09-29T23:16:27+08:00",
+          "uiObservation": "同一海军母版会话，保留极高档，完整粘贴青雉九格动作提示词后单次发送；实际查看器显示生成的图像2，九格全身走步、出拳和受击，并实际点击下载。23:16:27为再次检查完成及下载文件的观察时刻，不是服务器生成时间。",
+          "prompt": {
+            "file": "docs/assets/青雉基础动作样板提示词0929.txt",
+            "sha256": "a93ec54397ab885a3c66236bc4e1651da67f074c9769654d33d4a0523d96562c"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+          },
+          "unitScale": 1,
+          "recordedAt": "2026-09-29T15:17:58.813154+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/aokiji_basics_0929来源凭据0929.txt",
+            "sha256": "f5fb8b2b99434a7dbfc7cc4198489a6a552826c88aeea7a7112563c93fac7d7b"
+          }
+        },
+        "aokiji_walk_fix_0929": {
+          "file": "public/assets/generated/source/roster-aokiji-walk-fix-0929.png",
+          "sha256": "cc0dda1fe3d16ef61bfcec3cdfd1ca32af6e21dc638c904c490c0eb6cb60ffc5",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "本次官方网页未公开具体图像型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+          "observedCompletedAt": "2026-09-29T23:34:40+08:00",
+          "uiObservation": "同会话最新和极高保持；完整步态纠正提示词后得到图像3，实际观察2乘2姿态，两个经过相鞋间距离较前稿缩小；已点原始下载。23:34:40为再次观察下载文件已完成的时刻。是否正常循环仍待播放，不记为动作验收通过。",
+          "prompt": {
+            "file": "docs/assets/青雉步态纠正提示词0929.txt",
+            "sha256": "795c40c86be8be6ad9917926aaee9452ee333c9602bde65466e14f6ec012d6c3"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+            "aokiji_basics_0929": "b1af2667cd650e36311eed1822b3c572b1f18c55c5acdf50d02c40e291b8bc5c"
+          },
+          "unitScale": 0.6957264957264957,
+          "recordedAt": "2026-09-29T15:35:29.651618+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/aokiji_walk_fix_0929来源凭据0929.txt",
+            "sha256": "55bd55fb75a8c77aa6755030e899ca54d86451abd2abdc02a42afb75366ba5e4"
+          },
+          "scaleBasis": "One sheet-wide reference: basic neutral visible alpha>=64 height407px; walk correction passing pose index1 height585px. Align full standing body height once for all four poses; no per-pose fitting. Preliminary visual scale, to be checked at normal speed."
+        },
+        "aokiji_reactions_0929": {
+          "file": "public/assets/generated/source/roster-aokiji-reactions-0929.png",
+          "sha256": "e17fa009d21d39b63aa78dc83d6cb189d499e608d48761e247e597e5812a46f2",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方页未展示具体图像型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+          "observedCompletedAt": "2026-09-30T00:00:42+08:00",
+          "uiObservation": "同会话图像4，实际下载并查看九格独立青雉反应，包括蹲、防御、受击、倒地、起身；极高沿用同会话。观察完成跨至0930，文件主题仍为0929，不推断服务器生成时刻。",
+          "prompt": {
+            "file": "docs/assets/青雉基础反应提示词0929.txt",
+            "sha256": "be4bc836c933d1d2ccf71a365c241e75d958d427108d1ace38be69608cbea015"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+            "aokiji_basics_0929": "b1af2667cd650e36311eed1822b3c572b1f18c55c5acdf50d02c40e291b8bc5c"
+          },
+          "unitScale": 0.9465116279069767,
+          "recordedAt": "2026-09-29T16:02:36.879742+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/aokiji_reactions_0929来源凭据0929.txt",
+            "sha256": "e64c6cacce8d5ff1bbed8b864226bac2083567df831af7ea565688a600ddc2da"
+          },
+          "scaleBasis": "Reaction index0 neutral has alpha>=64 visible height430px; basic neutral407px. Every reaction uses the same407/430 unitScale, with unchanged original body proportions."
+        },
+        "aokiji_qe_1003": {
+          "file": "public/assets/generated/source/roster-aokiji-qe-1003.png",
+          "sha256": "179770da1175ba66bfeab89c885dea82f1d1865d06db8fa7293f595cf2294973",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方图像页未公开具体图像型号，不从文字最新选项推断图像模型。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+          "observedCompletedAt": "2026-10-03T01:20:10+08:00",
+          "uiObservation": "主代理在同一官方青雉会话最初发送前实际核实最新和极高；1003首次生成报错，第二次完整同提示成功，为同会话图5。主代理恢复新tab5后实际点击下载，工具回执超时但PNG文件真实落至Downloads，主代理01:20:10再次观察已完成结果。此时刻不是服务器首次生成时间。本子代理接手只做静态加工，未亲自操作该网页；按主代理本轮现场观察登记。原件1254x1254、PNG完整解码及SHA256核实，原件未重编码；白底合成显示人物和独立冰FX可见alpha完整，不把来源登记当实机或美术放行。",
+          "prompt": {
+            "file": "docs/assets/青雉冰矛冰刀样板提示词0929.txt",
+            "sha256": "06bf4065d37332e89bd16b12c43bce9e7e622e2a17e6ea615909cd6e3804f8d1"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+          },
+          "unitScale": 0.9621749408983451,
+          "recordedAt": "2026-10-02T17:23:51.962412+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/aokiji_qe_1003来源凭据0929.txt",
+            "sha256": "9bf944ee82fd0a017714de70bbad266ab484ee0f9b50a494f45dfbdcf65645e0"
+          },
+          "adoptionStatus": "shape_reviewed_candidate",
+          "adoptionScope": "Only static RGBA shape/edge review for explicit crops; Q/E physical contact and normal-speed gameplay remain unaccepted.",
+          "scaleBasis": "Fixed neutral reference at row1 col1 in this sheet: alpha>=64 source bbox [34,20,366,443], height423. Existing baseline is407. All six QE poses share407/423; no per-pose rescale."
+        },
+        "aokiji_jump_dash_1003": {
+          "file": "public/assets/generated/source/roster-aokiji-jump-dash-1003.png",
+          "sha256": "bc0bb4330b08cb57a4a83504aa0f7c7221866817d59403a063eb6ff9e554aed6",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方网页未公开具体图像型号，分别记录文字最新及极高，不推断2.5。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+          "observedCompletedAt": "2026-10-03T15:44:24+08:00",
+          "uiObservation": "本轮独立青雉会话核对最新选中及极高第4项，完整fill九格跳跃冲刺提示后单次发送，原会话实际成图；主代理实际看查看器九格/图5，下载未落盘；香克斯子任务另开同一已保存会话查看器图4单次下载取得原件，原画内容已双方看图核对。15:44:24为主代理检查已下载PNG完成的观察时刻，不是服务器生成时间。前冲三姿不是持续换腿循环，暂不登记dash能力。",
+          "prompt": {
+            "file": "docs/assets/aokiji-jump-dash-prompt1003.txt",
+            "sha256": "93899864b32861b668cbcba49e70de489289a7046b67fe8d819c74e46774b6f6"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+          },
+          "unitScale": 0.9902676399026764,
+          "recordedAt": "2026-10-03T07:49:38.959158+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/aokiji-download-assist-current-viewer.jpg",
+            "sha256": "3c1077a49aad278cecc4039a23827a7a3fa81ca658a4068e2956252d48cda38a"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/aokiji_jump_dash_1003来源凭据0929.txt",
+            "sha256": "e3b43cd7107bc9748cd4203697691560ea42f04f87cb86ab7950918b97e1e9b9"
+          },
+          "scaleBasis": "One neutral alpha64 standing height 411px against baseline407px; one scale for all source poses, no per-pose fitting."
+        },
+        "aokiji_backdash_roll_1003": {
+          "file": "public/assets/generated/source/roster-aokiji-backdash-roll-1003.png",
+          "sha256": "4f202b46f5c7358898fd089469ba43fc2defedb2f08f0e9491c2a6dad2642fcb",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "主代理在本轮官方ChatGPT图像入口核实最新与极高，但具体图像模型未公开，继续记为unverified，不推断后台图像型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+          "observedCompletedAt": "2026-10-03T16:30:19.649872+08:00",
+          "uiObservation": "本页由主代理在已核实的官方青雉同会话fill完整aokiji-backdash-roll-prompt1003.txt并单次发送，主代理实际最新菜单已核选中且极高可见。取回助手shanks_complete_art在其Codex内置IAB browser2/tab4仅查看最新已完成九格与完整提示一致，并单次点击官方查看器下载；16:30:19.649872是其完成复核截图时间，不是服务器生成时间。静态接入助手自身IAB不可用，仅本地核实原PNG与截图SHA256、PNG签名/IEND与完整RGBA解码，未冒称亲自在浏览器观察。下载原件保留Downloads，复制前后清单和哈希保留在aokiji-backdash-roll1003验收目录。",
+          "prompt": {
+            "file": "docs/assets/aokiji-backdash-roll-prompt1003.txt",
+            "sha256": "476f3ffb47aa61ba784c186f4df096c9e6baeba0774942bfede0ecf1d93c4442"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+          },
+          "unitScale": 0.9487179487179487,
+          "recordedAt": "2026-10-03T08:43:05.804915+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/assist-second-completion-viewer-1003.jpg",
+            "sha256": "7d01d9c33937eca549136ed179f3b07037acf35aaa3f8d2425befd5a4261de44"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/aokiji_backdash_roll_1003来源凭据0929.txt",
+            "sha256": "b154d967111a2898803656bee1c22c2cd7f89bdab22566b58d68bffe42c60d2e"
+          },
+          "scaleBasis": "One neutral reference at source cell1, crop[0,0,418,447], alpha>=64 bbox[25,11,379,440], height429px against established basic neutral407px. Every backdash/roll pose shares407/429; no per-pose rescale or hurtbox fitting."
+        },
+        "aokiji_rfg_body_1003": {
+          "file": "public/assets/generated/source/roster-aokiji-rfg-body-1003.png",
+          "sha256": "cd3b53d8fcda548ee3799469e46963934c585ab129f9c3583951d3e582c482d2",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "主代理在本轮官方图像入口核实最新与极高，具体图像模型没有公开；不把文字选项推断为后台图像型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Codex内置浏览器",
+          "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+          "observedCompletedAt": "2026-10-03T17:24:44.903118+08:00",
+          "uiObservation": "root在原青雉官方会话实际核最新选中、极高可见后fill完整aokiji-rfg-body-prompt1003.txt并单次提交。shanks_complete_art随后仅在其IAB browser2/tab5查看最新已完成九格，上排上勾拳、中排压地掌、下排反射掌，与完整提示一致；查看器标题九宫格冰系格斗动作精灵图，单次下载原PNG并先清单复制到指定source，前后字节和SHA一致。17:24:44.903118是其截图保存时完成复核时间，不是服务器首次生成。此登记助手本地核实原PNG/截图hash与完整decode；后续自己Edge接管属于下一次生成，不冒称本页为Edge生成。",
+          "prompt": {
+            "file": "docs/assets/aokiji-rfg-body-prompt1003.txt",
+            "sha256": "bfd66b817f15cdd23fb3cef98bf63ccde33595ecf881d3ce93050f74cdba8af4"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+          },
+          "unitScale": 0.9854721549636803,
+          "recordedAt": "2026-10-03T09:39:05.971206+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/assist-third-rfg-proof-1003.jpg",
+            "sha256": "eeef734f42e5a3e98ca333b74b27578ab88d7d53b17be2103af7de42b1cc90ee"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/aokiji_rfg_body_1003来源凭据0929.txt",
+            "sha256": "71e9f65a6b66159ce18052a8314a418f334f982f574751dd072db5e17ceeb65a"
+          },
+          "scaleBasis": "One full standing R startup reference cell1, crop[0,0,412,455], alpha>=64 bbox[20,34,385,447], height413px against existing neutral407px. All9RFG poses share407/413, including kneeling and wide stances; no row/per-pose fitting."
+        },
+        "aokiji_zxcv_body_1003": {
+          "file": "public/assets/generated/source/roster-aokiji-zxcv-body-1003.png",
+          "sha256": "ebe916de97d47c3f9ba4d7be7da87d6de93064e587eb7b4c8443564ffd6eabf6",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "本次实际Microsoft Edge官方图像入口标题ChatGPT，未公开具体图像模型；文字最新与极高只按界面实录，不推断后台图像型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+          "observedCompletedAt": "2026-10-03T17:52:09.7817192+08:00",
+          "uiObservation": "本助手当前CUA只暴露Edge，内置不可用后在独立Edge新标签接管root已交回的青雉官方会话。发送前实际模型菜单最新menuitemradio选中、极高第四项可见，保留edge-latest-xhigh-before1003.png；完整Z/X/C/V十二格提示经textbox.fill后单次点击发送。页面显示回答已完成与已生成图像，实际打开最新查看器标题冰霜战士十二式姿态图，十二姿完整；此观察时间取实际查看器完成复核截图保存时，非服务器首次生成时间。查看器下载只点一次，Edge留下png.crdownload后缀，但原件PNG签名/IEND、Pillow.verify和完整RGBA解码成功，1254x1254，静态复核与复制前后SHA均一致；保留Downloads原件与UI未终结状态。另实际打开官方images入口标题ChatGPT，未见具体图像模型型号。",
+          "prompt": {
+            "file": "docs/assets/aokiji-zxcv-body-prompt1003.txt",
+            "sha256": "5a1ba7297227407c5ff27eebb530dd6a4d0aa907d02998da73e650f347e1f4d4"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+          },
+          "unitScale": 1.2077151335311573,
+          "recordedAt": "2026-10-03T09:59:54.466016+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-zxcv1003/completion-viewer1003.png",
+            "sha256": "7bf6c71f8203160c53daff4bbcd6ecb62cd63e962e762b1c0c09a252c9fe96fb"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/aokiji_zxcv_body_1003来源凭据0929.txt",
+            "sha256": "ef469c8241fef8d17ba4a6e00791015fe16d27eb565a7594e6ec74bcd484dd92"
+          },
+          "scaleBasis": "One Z normal-material standing guard at cell1, explicit crop[48,9,355,353], alpha>=64 bbox[8,8,346,345], height337px against established neutral407px. All12poses share407/337 including ice material/kneeling/wide stances, no per-row/pose scale."
+        },
+        "aokiji_standing_attacks_1003": {
+          "file": "public/assets/generated/source/roster-aokiji-standing-attacks-1003.png",
+          "sha256": "3ce46ab1696c8cbb0e15e0f6156ffee6a240855250e82f5a4549c18f6126f6d9",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "实际官方Edge入口标题ChatGPT，具体图像型号不显示；最新与极高只记录文字菜单，不推断后台图像型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+          "observedCompletedAt": "2026-10-03T18:52:31.1224778+08:00",
+          "uiObservation": "沿同一青雉Edge会话已实核最新选中和极高第四项。本助手fill完整普通站立攻击提示；初次点击发送没有提交，现场两次snapshot仍见草稿和发送按钮，没有新用户turn，因此再用Control+Enter有效单次提交，随后明确ChatGPT正在回应、输入清空。最终回答已完成，实际最新查看器标题冰剑战士动作精灵图，四行各三姿完整；观察时间来自完成查看器截图保存，非服务器生成时间。只点一次下载，原文件留crdownload后缀但完整PNG签名/IEND与Pillowverify/全RGBA解码通过，1254x1254，白底实际身体和刀脚完整，复制前后SHA一致，Downloads保留不冒写UI下载完成。",
+          "prompt": {
+            "file": "docs/assets/aokiji-standing-attacks-prompt1003.txt",
+            "sha256": "adcac1d6f02045e4a4afa5fe4860cebb090b57bf86bd45e5b38ad18dfe462f11"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+          },
+          "unitScale": 1.3086816720257235,
+          "recordedAt": "2026-10-03T11:03:29.301255+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-standing1003/completion-viewer1003.png",
+            "sha256": "7a35552b88760a67c4b371d84ffe800ff2b7631675c7c4ba9ea97ec2ccf5f847"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/aokiji_standing_attacks_1003来源凭据0929.txt",
+            "sha256": "99ad61a0d8bfe0da76ee62c8db10e6dff7ccbf35e0413e585b51775dd17cdd37"
+          },
+          "scaleBasis": "One upright single-support kick preparation at source cell1, alpha64height311px against established neutral407px; all12standing poses share407/311 including high legs and lean; no per-pose fitting."
+        },
+        "aokiji_crouch_attacks_1003": {
+          "file": "public/assets/generated/source/roster-aokiji-crouch-attacks-1003.png",
+          "sha256": "b329fdc4d0d255bb59662d32192809ce2b531d7e718adf47c0a5f3a02fcd9aa1",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "实际官方图像入口标题ChatGPT，仅能核文字最新/极高，不披露具体图像模型，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+          "observedCompletedAt": "2026-10-03T19:27:29.5514867+08:00",
+          "uiObservation": "本助手沿自己的青雉Edge标签，在已实际核最新选中/极高第四项的同一会话fill完整蹲攻提示后Control+Enter单次提交；随后输入清空且ChatGPT正在回应。页面最终回答已完成，打开最新查看器标题冰系海军大将格斗动作精灵表，站姿标尺与三行蹲攻可见。时间取本次真实完成复核截图保存，不是服务器首次生成。查看器下载只点一次，原件留crdownload但完整PNG签名/IEND/Pillowverify与全RGBAdecode通过，白底检视人物/手脚/刀完整；第4格误带冰刀保留失败不用，实际接入范围另列，不能把提示请求当已全通过。先清单复制和SHA一致，保留Downloads，不声称UI下载终结。",
+          "prompt": {
+            "file": "docs/assets/aokiji-crouch-attacks-prompt1003.txt",
+            "sha256": "e552245961e7d7bed04b01012238b4a63358d36aa5f0dc2b8ede72f96bc58226"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+          },
+          "unitScale": 1.0970350404312668,
+          "recordedAt": "2026-10-03T11:34:03.655779+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-crouch1003/completion-viewer1003.png",
+            "sha256": "a7144fe6b7c2813320ba72699bf32fa27edfff1e89d273673852fb3abd2b03ec"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/aokiji_crouch_attacks_1003来源凭据0929.txt",
+            "sha256": "06bae449017809c3e11663ce27f386d41dc41601e972025bb5b8d189bf0aed8a"
+          },
+          "scaleBasis": "Cell1 separate normal standing neutral alpha64height371px vs existing407px; all ten adopted crouch poses use407/371, no per-pose scale."
+        },
+        "aokiji_air_attacks_1003": {
+          "file": "public/assets/generated/source/roster-aokiji-air-attacks-1003.png",
+          "sha256": "5a7fc11a48945a6d7154d9d23daf296420ce24bd654045346335349f2a56d91e",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方Edgeimages入口标题ChatGPT，实际最新选中/极高可见，但具体图像模型未披露，不推断后台型号。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+          "observedCompletedAt": "2026-10-03T19:45:01.3559221+08:00",
+          "uiObservation": "本助手沿同一独占青雉Edge会话在已实核最新选中/极高第四项后fill完整四空攻提示，单次Control+Enter，随后输入清空且ChatGPT正在回应。最终实际页面回答已完成，打开最新查看器标题海军冰刃战士十二姿态精灵图，站姿标尺和十一不同空姿可见。时间为实际完成复核截图保存，不是服务器首次生成。只点一次下载，原件留crdownload但PNG签名/IEND/Pillowverify和完整RGBAdecode通过，1254x1254，白底原画完整。先清单复制并SHA一致，保留Downloads，不冒写浏览器下载终结；独立肢体/根点/时序采纳后记录，不以生成回执当实机完成。",
+          "prompt": {
+            "file": "docs/assets/aokiji-air-attacks-prompt1003.txt",
+            "sha256": "1eda3a8c1e739d2ebfcdd93737ab4d739091600e6298f0385d51f30b1edcdefa"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+          },
+          "unitScale": 1.2961783439490446,
+          "recordedAt": "2026-10-03T11:52:53.373499+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-air1003/completion-viewer1003.png",
+            "sha256": "acaf31ef852b7574a6f322a97b5db56464b8125e94d79318962be0b95284fb3e"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/aokiji_air_attacks_1003来源凭据0929.txt",
+            "sha256": "254ff6d32a055abdcfd155936a12c75d74975c37c89058b25b91ff7bf3091ff1"
+          },
+          "scaleBasis": "Sourcecell1 full standing neutral alpha64height314 vs established407; all11air poses share407/314. Virtual air root stands one neutral height below observed crown; no per-pose scale, no program floating/rotation to create art."
+        },
+        "aokiji_blow_throws_1003": {
+          "file": "public/assets/generated/source/roster-aokiji-blow-throws-1003.png",
+          "sha256": "a3ebd0fbd0f7ca0541dd92932a899c13d39cfbb508fcc31f4a866edaf7f5fca3",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "实际Edge官方图像入口标题ChatGPT，文字最新选中/极高实核，具体图像型号仍未披露，不冒写2.5。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+          "observedCompletedAt": "2026-10-03T20:11:03.5422342+08:00",
+          "uiObservation": "本助手独占青雉Edge会话，已实核最新选中与极高第四项后fill完整吹飞抓投十二格提示，单次Control+Enter提交，输入清空且ChatGPT正在回应；随后页面出现思考中暂态未当成完成，最终真实有新生成图和回答已完成，打开最新查看器标题库赞冰系招式动作精灵图集，站肩/空肩/前后投四行可见。完成观察取截图保存时，不是服务器首次生成。只点下载一次，crdownload原件PNG签名/IEND/Pillowverify与全RGBAdecode完整、1254x1254，白底人物手脚轮廓完整；后投释放远臂被披风遮挡实际表现留为待实机项，未虚构接触。先清单复制并SHA一致，原件保留，不称浏览器UI下载终结。",
+          "prompt": {
+            "file": "docs/assets/aokiji-blow-throws-prompt1003.txt",
+            "sha256": "dc5b0b89c0114685ae017dd7f095c7d0842b659bb206feda5b321502929f3a56"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+          },
+          "unitScale": 1.2961783439490446,
+          "recordedAt": "2026-10-03T12:19:21.132841+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-blowthrows1003/completion-viewer1003.png",
+            "sha256": "0b1228e14fb5b828adcb48931572d42a706938aeb259600fa4aa91dc67f77e2e"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/aokiji_blow_throws_1003来源凭据0929.txt",
+            "sha256": "06f8acce48aa52ec1566339d335a771072f63afebefdc90f29db537df6348bdf"
+          },
+          "scaleBasis": "Cell1 full-standing shoulder preparation alpha64height314 against established407; all12 body cells share407/314. Ground roots from visible shoe support, air roots from neutral height, no hitbox-fitting transforms."
+        },
+        "aokiji_reactions_held_1003": {
+          "file": "public/assets/generated/source/roster-aokiji-reactions-held-1003.png",
+          "sha256": "0e3f2e8931f8f381ba977dbff46febf92cc547a7a5bf2207e050e8d7e50196cc",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "沿本会话已实际核对的最新选中与极高第四项继续官方图像制作；具体图像后台型号未公开，不记为2.5。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+          "observedCompletedAt": "2026-10-03T20:35:52.584847+08:00",
+          "uiObservation": "本助手接续同一独占青雉Edge会话中已单次有效提交的八姿完整提示，现场见思考中且没有成图，未重复发送；保存2033 pending截图和DOM后原会话正常reload恢复。随后真实最新响应出现成图，打开最新查看器，标题青雉八姿透明精灵图合集，img已生成图像5，八格完整人物可见。时间取实际完成复核截图保存，不是服务器首次生成。只点一次原生下载；Downloads保留crdownload但PNG签名、IEND、Pillowverify、全RGBA解码和稳定两次原字节实证通过，先清单复制并SHA一致。查看器灰色占位不作人物像素证据，原PNG白底另检。尚未把条件脚踝静态候选当成实际抓投或完整游戏通过。",
+          "prompt": {
+            "file": "docs/assets/aokiji-reactions-held-prompt1003.txt",
+            "sha256": "5635d5a5a2374e8ce18a5602633b53ddb29f7cb8e13d197150b2ab8af10f694e"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+          },
+          "unitScale": 1.038265306122449,
+          "recordedAt": "2026-10-03T12:39:08.608354+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-reactionsheld1003/completed-viewer-2036-1003.png",
+            "sha256": "9c238e8c43fc184641bce08cd82a22e9261d2ebaadcaf2a0599ef379c07ac408"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/aokiji_reactions_held_1003来源凭据0929.txt",
+            "sha256": "40399ebda84a37f51aaf74ecc391c13bc3d787aea65de5c05d7e70641159ab52"
+          },
+          "scaleBasis": "Cell1 complete neutral standing alpha64height392 against established407; all7 adopted original body poses share407/392. Reference is not a new runtime pose. Conditional roots use actual ankle pixels and legacy canonical socket offsets; no rendered transforms."
+        },
+        "aokiji_low_hold_front_joint3_1004": {
+          "file": "public/assets/generated/source/roster-aokiji-low-hold-front-joint3-1004.png",
+          "sha256": "5cc59be048e6d2cb4a5341f7c348638b848b06fd74f33fa722708495bfe48462",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "本助手同一官方会话在第三次局部修前实际核验最新aria-checked=true/极高第4共5并截图；具体图像后台型号未公开。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6ac1c91d-9a4c-83ee-90f8-5e05fd1c1774",
+          "observedCompletedAt": "2026-10-04T12:44:02.984001+08:00",
+          "uiObservation": "本助手Edge单控制者在同一fresh会话，实际最新radio true/极高第4共5，点击最新图编辑，侧栏img3、青雉库赞双姿态透明立绘。348字最后一次joint3短提示fill后innerText完全匹配，仅点发送一次，无新上传，实际第四条用户消息包含已编辑的图像和完整要求，随后ChatGPT正在回应/停止/正在生成图像，model/draft/sent及send-observation留存。独立工作后读取实际回答已完成，侧栏青雉双姿势角色立绘、img4；全屏截图保全。通过该实际文件菜单在空间中打开，真实fileURL，pageAssets只bundle已显示对应PNG1项、成功1/失败0，原manifest和完整bundle JSON保留。不换站不重放登录，没有第4次局部请求。手区仍有灰蓝色待审，来源保全不表示透明或抓持放行，按第三次上限停止这一机械续修路线。官方原文件https://chatgpt.com/space/file/libfile_46ec381a62c481918fa516e3223c62a2。PNG签名/IEND/Pillowverify/全RGBAdecode/1774x887真实alpha0..255/重复稳定原字节均通过，先清单复制原件、manifest和旧来源表再SHA一致。完成时间取本次完成复核截图，不是服务器首次生成。来源保全不代表握位/美术或实机验收通过，尚未改runtime或作者映射。",
+          "prompt": {
+            "file": "docs/assets/aokiji-low-hold-front-joint3-prompt1004.txt",
+            "sha256": "9c4980f7fe245c6082f20db54ced9c0e4cd507d96fc65d18f26dd3b37d432ded"
+          },
+          "referenceSources": {
+            "aokiji_low_hold_front_joint2_1004": "346d1f0cf2ecf9d40b26a092222afa649076f318f83b83fef4a785deb6c4d786"
+          },
+          "unitScale": 0.4951338199513382,
+          "recordedAt": "2026-10-04T04:48:09.437003+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/aokiji-front-joint3-completed1004.jpg",
+            "sha256": "c3946918ad5426e05dafdbde823d3874399ea97d9c375d83c676beb8f741c315"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/aokiji_low_hold_front_joint3_1004来源凭据0929.txt",
+            "sha256": "a7afd6d1a4c39e7c84b7ce04f970c1addcc3f40c4627bae65fedbcdf855b590d"
+          },
+          "scaleBasis": "Actual sheet standing alpha64H822 compared with established407; one source-wide scale, no per-pose fitting"
+        },
+        "aokiji_low_hold_back_retrieved_1008": {
+          "file": "public/assets/generated/source/roster-aokiji-independent-back-holding-1008.png",
+          "sha256": "45b28d32caa687992f9affefa52e0b52e6d2d15e9dfd3a5334242a5fca0e42b3",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "1004实际创建字段来自Edge单次发送JSON：最新、极高，prompt读回一致；具体图像后台型号未公开。1008只在Codex内置浏览器取回旧完成图，不用Space的Pro或新GPT-6菜单追改旧创建字段。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6ac1c91d-9a4c-83ee-90f8-5e05fd1c1774",
+          "observedCompletedAt": "2026-10-08T12:24:13.145Z",
+          "uiObservation": "原海军代理1004在同fresh官方会话的实际img4编辑侧栏，434字独立backholding完整提示fill读回匹配后单次发送；本人1008读取aokiji-backholding-send-observation1004.json，确认Edge/latest/极高/readbackMatch/singleSend与实际prompt路径，model/draft/sent1004原截图及JSON均保留。root1008重新核对同会话已完成的第5图，通过官方文件菜单→Space libfile_8d1067dee0c4819183288832b87e556c→pageAssets.bundle导出对应原PNG，1项image/png、failures为空，没有重发或新生成。observedCompletedAt为1008实际完成复查截图采集时刻，不是服务器生成时刻；创建浏览器为Edge，本次取回者为Codex内置浏览器，Space模型不作创建依据。本助手已完整PNG签名/IEND/verify/RGBA解码、1039875字节、1774x887、真实alpha0..255，并先清单复制到source及D原件备份，SHA一致。独立后握已按真实站高824、鞋轴576/816，原像素近掌/前臂分层与LABUBU/路飞/赤犬双朝向静配，body+foreground逐字节重构。该登记只是来源与静态候选，不代表实机抓住/释放/墙角完成。",
+          "prompt": {
+            "file": "docs/assets/aokiji-low-hold-backholding-prompt1004.txt",
+            "sha256": "17a730c3097c9c84e1a6638ccd2bdf09ccc0b409e98c2cfdac9e575e6927e826"
+          },
+          "referenceSources": {
+            "aokiji_low_hold_front_joint3_1004": "5cc59be048e6d2cb4a5341f7c348638b848b06fd74f33fa722708495bfe48462"
+          },
+          "unitScale": 0.49393203883495146,
+          "recordedAt": "2026-10-09T01:50:36.738878+00:00",
+          "screenshot": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/backholding-browser1008/aokiji-back-original-space1008.png",
+            "sha256": "880d92a1d65cf3ade19e2c7c859af0dc51a73d6e181a33f7694838af9bf4e08a"
+          },
+          "sourceEvidence": {
+            "file": "docs/assets/aokiji_low_hold_back_retrieved_1008来源凭据0929.txt",
+            "sha256": "5a5e0cff98387d38d4635154d7261e2434cb21cb63d3607c5c13a49e8c5d91fb"
+          },
+          "scaleBasis": "Measured complete left standing alpha64H824 versus established407; source-wide uniform scale only. Canonical character scale unchanged.",
+          "creationObservationFile": {
+            "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/aokiji-backholding-send-observation1004.json",
+            "sha256": "b51ed4e30787a36570e6549fae4fae2c6abd870e84c855acd080858f159172d4"
+          },
+          "creationObservedSentAt": "2026-10-04T05:31:32.946Z",
+          "completionRecheckBrowserLabel": "Codex内置浏览器"
+        }
+      },
+      "frames": {
+        "neutral": {
+          "source": "aokiji_basics_0929",
+          "crop": [
+            50,
+            0,
+            370,
+            422
+          ],
+          "root": [
+            217,
+            413
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Full neutral crop; floor from soles, root centered between planted feet."
+        },
+        "punch_start": {
+          "source": "aokiji_basics_0929",
+          "crop": [
+            888,
+            424,
+            369,
+            402
+          ],
+          "root": [
+            222,
+            400
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": ""
+        },
+        "punch_active": {
+          "source": "aokiji_basics_0929",
+          "crop": [
+            16,
+            827,
+            453,
+            395
+          ],
+          "root": [
+            226,
+            386
+          ],
+          "sockets": {
+            "wrist": [
+              414,
+              66
+            ],
+            "fist": [
+              432,
+              64
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Explicit crop crosses nominal grid boundary to keep real extended fist; does not include neighbor."
+        },
+        "punch_recover": {
+          "source": "aokiji_basics_0929",
+          "crop": [
+            477,
+            830,
+            348,
+            400
+          ],
+          "root": [
+            200,
+            388
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": ""
+        },
+        "stand_hit": {
+          "source": "aokiji_basics_0929",
+          "crop": [
+            850,
+            833,
+            405,
+            399
+          ],
+          "root": [
+            265,
+            379
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": ""
+        },
+        "walk_contact_near": {
+          "source": "aokiji_walk_fix_0929",
+          "crop": [
+            72,
+            25,
+            547,
+            590
+          ],
+          "root": [
+            325,
+            581
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": ""
+        },
+        "walk_pass_near": {
+          "source": "aokiji_walk_fix_0929",
+          "crop": [
+            701,
+            25,
+            394,
+            601
+          ],
+          "root": [
+            279,
+            593
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": ""
+        },
+        "walk_contact_far": {
+          "source": "aokiji_walk_fix_0929",
+          "crop": [
+            57,
+            630,
+            598,
+            590
+          ],
+          "root": [
+            340,
+            582
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": ""
+        },
+        "walk_pass_far": {
+          "source": "aokiji_walk_fix_0929",
+          "crop": [
+            700,
+            630,
+            382,
+            609
+          ],
+          "root": [
+            280,
+            595
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": ""
+        },
+        "reaction_crouch": {
+          "source": "aokiji_reactions_0929",
+          "crop": [
+            455,
+            147,
+            372,
+            311
+          ],
+          "root": [
+            211,
+            301
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Explicit whole-body crop, source-wide scale. Air root is intentionally below feet. Candidate pending real training contact."
+        },
+        "reaction_block_stand": {
+          "source": "aokiji_reactions_0929",
+          "crop": [
+            853,
+            0,
+            376,
+            457
+          ],
+          "root": [
+            226,
+            452
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Explicit whole-body crop, source-wide scale. Air root is intentionally below feet. Candidate pending real training contact."
+        },
+        "reaction_block_crouch": {
+          "source": "aokiji_reactions_0929",
+          "crop": [
+            38,
+            548,
+            370,
+            304
+          ],
+          "root": [
+            213,
+            292
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Explicit whole-body crop, source-wide scale. Air root is intentionally below feet. Candidate pending real training contact."
+        },
+        "reaction_hit_crouch": {
+          "source": "aokiji_reactions_0929",
+          "crop": [
+            436,
+            553,
+            390,
+            309
+          ],
+          "root": [
+            220,
+            296
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Explicit whole-body crop, source-wide scale. Air root is intentionally below feet. Candidate pending real training contact."
+        },
+        "reaction_jump_neutral": {
+          "source": "aokiji_reactions_0929",
+          "crop": [
+            840,
+            440,
+            395,
+            398
+          ],
+          "root": [
+            243,
+            446
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Explicit whole-body crop, source-wide scale. Air root is intentionally below feet. Candidate pending real training contact."
+        },
+        "reaction_hit_air": {
+          "source": "aokiji_reactions_0929",
+          "crop": [
+            34,
+            858,
+            421,
+            352
+          ],
+          "root": [
+            206,
+            377
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Explicit whole-body crop, source-wide scale. Air root is intentionally below feet. Candidate pending real training contact."
+        },
+        "reaction_knockdown": {
+          "source": "aokiji_reactions_0929",
+          "crop": [
+            425,
+            1017,
+            462,
+            209
+          ],
+          "root": [
+            237,
+            199
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Explicit whole-body crop, source-wide scale. Air root is intentionally below feet. Candidate pending real training contact."
+        },
+        "reaction_getup": {
+          "source": "aokiji_reactions_0929",
+          "crop": [
+            879,
+            930,
+            364,
+            299
+          ],
+          "root": [
+            221,
+            286
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Explicit whole-body crop, source-wide scale. Air root is intentionally below feet. Candidate pending real training contact."
+        },
+        "lance_start": {
+          "source": "aokiji_qe_1003",
+          "crop": [
+            390,
+            50,
+            387,
+            400
+          ],
+          "root": [
+            211,
+            391
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "1003 real source crop, one sheet-wide scale; authored visible sole root. Static candidate only, physical contact differs from current logical hit/spawn positions."
+        },
+        "lance_release": {
+          "source": "aokiji_qe_1003",
+          "crop": [
+            779,
+            40,
+            475,
+            411
+          ],
+          "root": [
+            214,
+            402
+          ],
+          "sockets": {
+            "palm_release": [
+              424,
+              105
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "1003 real source crop, one sheet-wide scale; authored visible sole root. Static candidate only, physical contact differs from current logical hit/spawn positions."
+        },
+        "lance_recover": {
+          "source": "aokiji_qe_1003",
+          "crop": [
+            10,
+            451,
+            373,
+            409
+          ],
+          "root": [
+            205,
+            403
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "1003 real source crop, one sheet-wide scale; authored visible sole root. Static candidate only, physical contact differs from current logical hit/spawn positions. Lower-middle exclusion removes the next-row blade-recovery head entering the crop; both current shoes remain outside this rectangle.",
+          "excludeRects": [
+            [
+              205,
+              402,
+              100,
+              7
+            ]
+          ]
+        },
+        "blade_start": {
+          "source": "aokiji_qe_1003",
+          "crop": [
+            392,
+            452,
+            385,
+            410
+          ],
+          "root": [
+            213,
+            402
+          ],
+          "sockets": {
+            "weapon_grip": [
+              135,
+              194
+            ],
+            "weapon_tip": [
+              251,
+              123
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "1003 real source crop, one sheet-wide scale; authored visible sole root. Static candidate only, physical contact differs from current logical hit/spawn positions."
+        },
+        "blade_active": {
+          "source": "aokiji_qe_1003",
+          "crop": [
+            773,
+            460,
+            481,
+            404
+          ],
+          "root": [
+            236,
+            394
+          ],
+          "sockets": {
+            "weapon_grip": [
+              317,
+              119
+            ],
+            "weapon_tip": [
+              469,
+              147
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "1003 real source crop, one sheet-wide scale; authored visible sole root. Static candidate only, physical contact differs from current logical hit/spawn positions."
+        },
+        "blade_recover": {
+          "source": "aokiji_qe_1003",
+          "crop": [
+            0,
+            852,
+            410,
+            392
+          ],
+          "root": [
+            225,
+            376
+          ],
+          "sockets": {
+            "weapon_grip": [
+              170,
+              178
+            ],
+            "weapon_tip": [
+              337,
+              236
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "1003 real source crop, one sheet-wide scale; authored visible sole root. Static candidate only, physical contact differs from current logical hit/spawn positions. Top-left 9px excludes previous-row rear shoe only; current head starts near x239 and is preserved.",
+          "excludeRects": [
+            [
+              0,
+              0,
+              200,
+              9
+            ]
+          ]
+        },
+        "mob_prejump_1003": {
+          "source": "aokiji_jump_dash_1003",
+          "crop": [
+            430,
+            108,
+            365,
+            337
+          ],
+          "root": [
+            184,
+            326
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "True original source crop; ground root from visible planted soles, air virtual root below folded feet preserves standing head height. Static candidate, real jump test pending."
+        },
+        "mob_jump_vertical_1003": {
+          "source": "aokiji_jump_dash_1003",
+          "crop": [
+            813,
+            12,
+            403,
+            406
+          ],
+          "root": [
+            242,
+            421
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "True original source crop; ground root from visible planted soles, air virtual root below folded feet preserves standing head height. Static candidate, real jump test pending."
+        },
+        "mob_jump_forward_1003": {
+          "source": "aokiji_jump_dash_1003",
+          "crop": [
+            17,
+            457,
+            451,
+            280
+          ],
+          "root": [
+            269,
+            419
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "True original source crop; ground root from visible planted soles, air virtual root below folded feet preserves standing head height. Static candidate, real jump test pending."
+        },
+        "mob_jump_back_1003": {
+          "source": "aokiji_jump_dash_1003",
+          "crop": [
+            496,
+            455,
+            354,
+            312
+          ],
+          "root": [
+            143,
+            420
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "True original source crop; ground root from visible planted soles, air virtual root below folded feet preserves standing head height. Static candidate, real jump test pending."
+        },
+        "mob_landing_1003": {
+          "source": "aokiji_jump_dash_1003",
+          "crop": [
+            847,
+            527,
+            395,
+            302
+          ],
+          "root": [
+            257,
+            290
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "True original source crop; ground root from visible planted soles, air virtual root below folded feet preserves standing head height. Static candidate, real jump test pending."
+        },
+        "backdash_start_1003": {
+          "source": "aokiji_backdash_roll_1003",
+          "crop": [
+            450,
+            20,
+            416,
+            429
+          ],
+          "root": [
+            256,
+            407
+          ],
+          "sockets": {
+            "near_sole": [
+              153,
+              406
+            ],
+            "far_sole": [
+              359,
+              405
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Independent backward-lean preparation. Root is centered between the visible shoes, on the sole ground line."
+        },
+        "backdash_hop_1003": {
+          "source": "aokiji_backdash_roll_1003",
+          "crop": [
+            870,
+            0,
+            374,
+            455
+          ],
+          "root": [
+            216,
+            447
+          ],
+          "sockets": {
+            "planted_sole": [
+              216,
+              445
+            ],
+            "raised_shoe": [
+              218,
+              338
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Independent knee-withdrawal pose, face stays right. One shoe planted; cape extends left as authored. Real lateral retreat and normal-speed continuity remain to be checked."
+        },
+        "backdash_settle_1003": {
+          "source": "aokiji_backdash_roll_1003",
+          "crop": [
+            0,
+            444,
+            413,
+            400
+          ],
+          "root": [
+            230,
+            391
+          ],
+          "sockets": {
+            "near_sole": [
+              116,
+              389
+            ],
+            "far_sole": [
+              343,
+              382
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Independent two-shoe settlement, ground defined by visible lower sole rather than resizing to a neutral height."
+        },
+        "roll_compress_1003": {
+          "source": "aokiji_backdash_roll_1003",
+          "crop": [
+            452,
+            528,
+            407,
+            317
+          ],
+          "root": [
+            246,
+            310
+          ],
+          "sockets": {
+            "near_sole": [
+              134,
+              309
+            ],
+            "far_sole": [
+              359,
+              303
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "True newly drawn low compressed preparation, shared explicitly by forward and backward rolls. Not a duplicated independent backward pose."
+        },
+        "roll_fwd_coil_1003": {
+          "source": "aokiji_backdash_roll_1003",
+          "crop": [
+            895,
+            515,
+            352,
+            330
+          ],
+          "root": [
+            214,
+            319
+          ],
+          "sockets": {
+            "lower_shoulder": [
+              224,
+              310
+            ],
+            "visible_shoe": [
+              59,
+              101
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "True rightward coiled body from original. Root at the low shoulder/back-cloth contact plane; overlapping shoe contours are not given invented separate coordinates. No rotation or mirror applied."
+        },
+        "roll_fwd_rise_1003": {
+          "source": "aokiji_backdash_roll_1003",
+          "crop": [
+            0,
+            900,
+            416,
+            342
+          ],
+          "root": [
+            227,
+            321
+          ],
+          "sockets": {
+            "planted_sole": [
+              227,
+              320
+            ],
+            "lower_fingertips": [
+              377,
+              303
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Independent front-roll rising pose. Visible lower fingertips are above the shoe plane; root stays at the planted shoe and is not pulled to force a palm-ground contact."
+        },
+        "roll_back_coil_1003": {
+          "source": "aokiji_backdash_roll_1003",
+          "crop": [
+            431,
+            897,
+            408,
+            333
+          ],
+          "root": [
+            204,
+            301
+          ],
+          "sockets": {
+            "lower_back": [
+              204,
+              299
+            ],
+            "near_shoe": [
+              326,
+              54
+            ],
+            "far_shoe": [
+              343,
+              109
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "True separately drawn back-roll coiled body, face looking right/up. Ground plane comes from low back-cloth contact. Not a mirror of forward roll."
+        },
+        "roll_back_rise_1003": {
+          "source": "aokiji_backdash_roll_1003",
+          "crop": [
+            841,
+            900,
+            413,
+            345
+          ],
+          "root": [
+            173,
+            330
+          ],
+          "sockets": {
+            "planted_sole": [
+              173,
+              329
+            ],
+            "folded_shoe": [
+              140,
+              270
+            ],
+            "lower_fingertips": [
+              391,
+              297
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Independent back-roll rising pose. Shoe defines ground; lower fingers remain above that plane. Forward torso/head offset must be checked in the real game; no root fitting to hurtboxes."
+        },
+        "uplift_start_1003": {
+          "source": "aokiji_rfg_body_1003",
+          "crop": [
+            0,
+            0,
+            412,
+            455
+          ],
+          "root": [
+            226,
+            447
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "True independent original RFG body pose; one sheet-wide neutral scale and visible shoe-ground root. Independent FX and actual hit/reflect contact are not accepted by this static registration."
+        },
+        "uplift_active_1003": {
+          "source": "aokiji_rfg_body_1003",
+          "crop": [
+            424,
+            0,
+            416,
+            455
+          ],
+          "root": [
+            204,
+            447
+          ],
+          "sockets": {
+            "fist": [
+              349,
+              43
+            ],
+            "ice_tip": [
+              378,
+              15
+            ],
+            "forearm": [
+              328,
+              82
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "True independent original RFG body pose; one sheet-wide neutral scale and visible shoe-ground root. Independent FX and actual hit/reflect contact are not accepted by this static registration."
+        },
+        "uplift_recover_1003": {
+          "source": "aokiji_rfg_body_1003",
+          "crop": [
+            849,
+            30,
+            402,
+            425
+          ],
+          "root": [
+            217,
+            417
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "True independent original RFG body pose; one sheet-wide neutral scale and visible shoe-ground root. Independent FX and actual hit/reflect contact are not accepted by this static registration."
+        },
+        "spike_start_1003": {
+          "source": "aokiji_rfg_body_1003",
+          "crop": [
+            0,
+            476,
+            416,
+            379
+          ],
+          "root": [
+            220,
+            371
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "True independent original RFG body pose; one sheet-wide neutral scale and visible shoe-ground root. Independent FX and actual hit/reflect contact are not accepted by this static registration."
+        },
+        "spike_release_1003": {
+          "source": "aokiji_rfg_body_1003",
+          "crop": [
+            424,
+            530,
+            416,
+            310
+          ],
+          "root": [
+            220,
+            282
+          ],
+          "sockets": {
+            "pressed_palm": [
+              201,
+              269
+            ],
+            "pressed_fingertips": [
+              194,
+              281
+            ],
+            "front_sole": [
+              335,
+              281
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "True independent original RFG body pose; one sheet-wide neutral scale and visible shoe-ground root. Independent FX and actual hit/reflect contact are not accepted by this static registration."
+        },
+        "spike_recover_1003": {
+          "source": "aokiji_rfg_body_1003",
+          "crop": [
+            850,
+            450,
+            402,
+            404
+          ],
+          "root": [
+            220,
+            397
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "True independent original RFG body pose; one sheet-wide neutral scale and visible shoe-ground root. Independent FX and actual hit/reflect contact are not accepted by this static registration."
+        },
+        "mirror_start_1003": {
+          "source": "aokiji_rfg_body_1003",
+          "crop": [
+            0,
+            857,
+            418,
+            397
+          ],
+          "root": [
+            224,
+            386
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "True independent original RFG body pose; one sheet-wide neutral scale and visible shoe-ground root. Independent FX and actual hit/reflect contact are not accepted by this static registration."
+        },
+        "mirror_active_1003": {
+          "source": "aokiji_rfg_body_1003",
+          "crop": [
+            418,
+            857,
+            442,
+            397
+          ],
+          "root": [
+            220,
+            386
+          ],
+          "sockets": {
+            "palm_forward": [
+              400,
+              82
+            ],
+            "fingertips": [
+              404,
+              55
+            ],
+            "front_sole": [
+              360,
+              381
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "True independent original RFG body pose; one sheet-wide neutral scale and visible shoe-ground root. Independent FX and actual hit/reflect contact are not accepted by this static registration."
+        },
+        "mirror_recover_1003": {
+          "source": "aokiji_rfg_body_1003",
+          "crop": [
+            864,
+            860,
+            390,
+            394
+          ],
+          "root": [
+            222,
+            383
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "True independent original RFG body pose; one sheet-wide neutral scale and visible shoe-ground root. Independent FX and actual hit/reflect contact are not accepted by this static registration."
+        },
+        "ice_body_start_1003": {
+          "source": "aokiji_zxcv_body_1003",
+          "crop": [
+            48,
+            9,
+            355,
+            353
+          ],
+          "root": [
+            194,
+            345
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Actual original cell. Inspected explicit neighbor exclusion removes only foreign-pose scraps; own visible alpha16 body pixels preserved. One sheet scale, no pose rotation/mirror. Independent FX/contact and normal-speed review remain separate.",
+          "excludeRects": [
+            [
+              189,
+              348,
+              31,
+              5
+            ]
+          ]
+        },
+        "ice_body_evade_1003": {
+          "source": "aokiji_zxcv_body_1003",
+          "crop": [
+            461,
+            17,
+            344,
+            343
+          ],
+          "root": [
+            184,
+            335
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Actual original cell. Inspected explicit neighbor exclusion removes only foreign-pose scraps; own visible alpha16 body pixels preserved. One sheet scale, no pose rotation/mirror. Independent FX/contact and normal-speed review remain separate."
+        },
+        "ice_body_return_1003": {
+          "source": "aokiji_zxcv_body_1003",
+          "crop": [
+            842,
+            9,
+            370,
+            354
+          ],
+          "root": [
+            206,
+            346
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Actual original cell. Inspected explicit neighbor exclusion removes only foreign-pose scraps; own visible alpha16 body pixels preserved. One sheet scale, no pose rotation/mirror. Independent FX/contact and normal-speed review remain separate.",
+          "excludeRects": [
+            [
+              224,
+              350,
+              26,
+              4
+            ]
+          ]
+        },
+        "pheasant_start_1003": {
+          "source": "aokiji_zxcv_body_1003",
+          "crop": [
+            53,
+            350,
+            355,
+            332
+          ],
+          "root": [
+            176,
+            324
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Actual original cell. Inspected explicit neighbor exclusion removes only foreign-pose scraps; own visible alpha16 body pixels preserved. One sheet scale, no pose rotation/mirror. Independent FX/contact and normal-speed review remain separate.",
+          "excludeRects": [
+            [
+              63,
+              0,
+              36,
+              5
+            ],
+            [
+              163,
+              310,
+              74,
+              22
+            ]
+          ]
+        },
+        "pheasant_release_1003": {
+          "source": "aokiji_zxcv_body_1003",
+          "crop": [
+            434,
+            359,
+            419,
+            324
+          ],
+          "root": [
+            183,
+            316
+          ],
+          "sockets": {
+            "palm_release": [
+              372,
+              74
+            ],
+            "fingertips": [
+              381,
+              43
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Actual original cell. Inspected explicit neighbor exclusion removes only foreign-pose scraps; own visible alpha16 body pixels preserved. One sheet scale, no pose rotation/mirror. Independent FX/contact and normal-speed review remain separate."
+        },
+        "pheasant_recover_1003": {
+          "source": "aokiji_zxcv_body_1003",
+          "crop": [
+            872,
+            352,
+            352,
+            332
+          ],
+          "root": [
+            181,
+            324
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Actual original cell. Inspected explicit neighbor exclusion removes only foreign-pose scraps; own visible alpha16 body pixels preserved. One sheet scale, no pose rotation/mirror. Independent FX/contact and normal-speed review remain separate.",
+          "excludeRects": [
+            [
+              52,
+              0,
+              33,
+              4
+            ],
+            [
+              165,
+              301,
+              81,
+              31
+            ]
+          ]
+        },
+        "glacier_start_1003": {
+          "source": "aokiji_zxcv_body_1003",
+          "crop": [
+            25,
+            653,
+            380,
+            302
+          ],
+          "root": [
+            193,
+            294
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Actual original cell. Inspected explicit neighbor exclusion removes only foreign-pose scraps; own visible alpha16 body pixels preserved. One sheet scale, no pose rotation/mirror. Independent FX/contact and normal-speed review remain separate.",
+          "excludeRects": [
+            [
+              284,
+              0,
+              77,
+              10
+            ],
+            [
+              65,
+              0,
+              39,
+              22
+            ],
+            [
+              181,
+              280,
+              69,
+              22
+            ]
+          ]
+        },
+        "glacier_release_1003": {
+          "source": "aokiji_zxcv_body_1003",
+          "crop": [
+            441,
+            701,
+            395,
+            245
+          ],
+          "root": [
+            208,
+            228
+          ],
+          "sockets": {
+            "near_palm": [
+              209,
+              212
+            ],
+            "near_fingertips": [
+              207,
+              230
+            ],
+            "far_palm": [
+              265,
+              211
+            ],
+            "far_fingertips": [
+              269,
+              222
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Actual original cell. Inspected explicit neighbor exclusion removes only foreign-pose scraps; own visible alpha16 body pixels preserved. One sheet scale, no pose rotation/mirror. Independent FX/contact and normal-speed review remain separate."
+        },
+        "glacier_recover_1003": {
+          "source": "aokiji_zxcv_body_1003",
+          "crop": [
+            862,
+            646,
+            364,
+            309
+          ],
+          "root": [
+            199,
+            301
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Actual original cell. Inspected explicit neighbor exclusion removes only foreign-pose scraps; own visible alpha16 body pixels preserved. One sheet scale, no pose rotation/mirror. Independent FX/contact and normal-speed review remain separate.",
+          "excludeRects": [
+            [
+              270,
+              0,
+              75,
+              21
+            ],
+            [
+              53,
+              0,
+              47,
+              31
+            ],
+            [
+              171,
+              291,
+              69,
+              18
+            ]
+          ]
+        },
+        "ice_age_start_1003": {
+          "source": "aokiji_zxcv_body_1003",
+          "crop": [
+            46,
+            926,
+            353,
+            328
+          ],
+          "root": [
+            187,
+            321
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Actual original cell. Inspected explicit neighbor exclusion removes only foreign-pose scraps; own visible alpha16 body pixels preserved. One sheet scale, no pose rotation/mirror. Independent FX/contact and normal-speed review remain separate.",
+          "excludeRects": [
+            [
+              254,
+              0,
+              80,
+              13
+            ],
+            [
+              19,
+              0,
+              52,
+              22
+            ]
+          ]
+        },
+        "ice_age_hold_1003": {
+          "source": "aokiji_zxcv_body_1003",
+          "crop": [
+            438,
+            942,
+            415,
+            312
+          ],
+          "root": [
+            190,
+            306
+          ],
+          "sockets": {
+            "palm_forward": [
+              372,
+              56
+            ],
+            "fingertips": [
+              381,
+              31
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Actual original cell. Inspected explicit neighbor exclusion removes only foreign-pose scraps; own visible alpha16 body pixels preserved. One sheet scale, no pose rotation/mirror. Independent FX/contact and normal-speed review remain separate."
+        },
+        "ice_age_recover_1003": {
+          "source": "aokiji_zxcv_body_1003",
+          "crop": [
+            867,
+            930,
+            351,
+            324
+          ],
+          "root": [
+            188,
+            318
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "note": "Actual original cell. Inspected explicit neighbor exclusion removes only foreign-pose scraps; own visible alpha16 body pixels preserved. One sheet scale, no pose rotation/mirror. Independent FX/contact and normal-speed review remain separate.",
+          "excludeRects": [
+            [
+              271,
+              0,
+              80,
+              8
+            ],
+            [
+              50,
+              0,
+              48,
+              18
+            ]
+          ]
+        },
+        "st_b_start_1003": {
+          "crop": [
+            106,
+            0,
+            284,
+            326
+          ],
+          "root": [
+            161,
+            318
+          ],
+          "sockets": {},
+          "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+          "excludeRects": [
+            [
+              116,
+              321,
+              28,
+              5
+            ]
+          ],
+          "source": "aokiji_standing_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_b_active_1003": {
+          "crop": [
+            467,
+            0,
+            361,
+            326
+          ],
+          "root": [
+            184,
+            318
+          ],
+          "sockets": {
+            "shoe_front": [
+              350,
+              71
+            ],
+            "ankle": [
+              326,
+              113
+            ]
+          },
+          "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+          "source": "aokiji_standing_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_b_recover_1003": {
+          "crop": [
+            877,
+            0,
+            298,
+            326
+          ],
+          "root": [
+            170,
+            318
+          ],
+          "sockets": {},
+          "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+          "excludeRects": [
+            [
+              177,
+              322,
+              26,
+              4
+            ]
+          ],
+          "source": "aokiji_standing_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_c_start_1003": {
+          "crop": [
+            48,
+            314,
+            327,
+            321
+          ],
+          "root": [
+            172,
+            313
+          ],
+          "sockets": {},
+          "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+          "excludeRects": [
+            [
+              185,
+              0,
+              25,
+              4
+            ],
+            [
+              210,
+              0,
+              43,
+              5
+            ],
+            [
+              161,
+              314,
+              33,
+              7
+            ]
+          ],
+          "source": "aokiji_standing_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_c_active_1003": {
+          "crop": [
+            444,
+            319,
+            454,
+            316
+          ],
+          "root": [
+            204,
+            308
+          ],
+          "sockets": {
+            "weapon_grip": [
+              291,
+              94
+            ],
+            "weapon_tip": [
+              444,
+              94
+            ]
+          },
+          "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+          "excludeRects": [
+            [
+              443,
+              223,
+              11,
+              33
+            ],
+            [
+              452,
+              182,
+              2,
+              8
+            ]
+          ],
+          "source": "aokiji_standing_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_c_recover_1003": {
+          "crop": [
+            880,
+            315,
+            319,
+            320
+          ],
+          "root": [
+            177,
+            312
+          ],
+          "sockets": {},
+          "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+          "excludeRects": [
+            [
+              134,
+              0,
+              23,
+              3
+            ],
+            [
+              158,
+              0,
+              41,
+              4
+            ],
+            [
+              0,
+              94,
+              11,
+              10
+            ],
+            [
+              144,
+              311,
+              38,
+              9
+            ]
+          ],
+          "source": "aokiji_standing_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_d_start_1003": {
+          "crop": [
+            72,
+            621,
+            315,
+            326
+          ],
+          "root": [
+            107,
+            318
+          ],
+          "sockets": {},
+          "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+          "excludeRects": [
+            [
+              21,
+              0,
+              39,
+              7
+            ],
+            [
+              254,
+              0,
+              30,
+              3
+            ],
+            [
+              115,
+              317,
+              58,
+              9
+            ],
+            [
+              173,
+              323,
+              8,
+              3
+            ]
+          ],
+          "source": "aokiji_standing_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_d_active_1003": {
+          "crop": [
+            450,
+            629,
+            379,
+            319
+          ],
+          "root": [
+            121,
+            311
+          ],
+          "sockets": {
+            "shoe_front": [
+              369,
+              54
+            ],
+            "ankle": [
+              339,
+              72
+            ]
+          },
+          "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+          "source": "aokiji_standing_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_d_recover_1003": {
+          "crop": [
+            886,
+            619,
+            279,
+            329
+          ],
+          "root": [
+            112,
+            321
+          ],
+          "sockets": {},
+          "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+          "excludeRects": [
+            [
+              237,
+              0,
+              17,
+              2
+            ],
+            [
+              53,
+              0,
+              39,
+              9
+            ],
+            [
+              265,
+              0,
+              14,
+              3
+            ]
+          ],
+          "source": "aokiji_standing_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "f_c_start_1003": {
+          "crop": [
+            84,
+            931,
+            311,
+            323
+          ],
+          "root": [
+            168,
+            319
+          ],
+          "sockets": {},
+          "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+          "excludeRects": [
+            [
+              75,
+              0,
+              38,
+              9
+            ]
+          ],
+          "source": "aokiji_standing_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "f_c_active_1003": {
+          "crop": [
+            457,
+            958,
+            373,
+            296
+          ],
+          "root": [
+            181,
+            292
+          ],
+          "sockets": {
+            "weapon_grip": [
+              238,
+              153
+            ],
+            "weapon_tip": [
+              366,
+              229
+            ]
+          },
+          "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+          "source": "aokiji_standing_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "f_c_recover_1003": {
+          "crop": [
+            878,
+            945,
+            308,
+            309
+          ],
+          "root": [
+            164,
+            305
+          ],
+          "sockets": {},
+          "note": "Actual independent ordinary standing attack pose; ground root from visible sole(s). One source-wide reference scale; new-role hitboxes require measured contact calibration.",
+          "source": "aokiji_standing_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_a_active_1003": {
+          "crop": [
+            440,
+            107,
+            380,
+            284
+          ],
+          "root": [
+            166,
+            276
+          ],
+          "sockets": {
+            "fist": [
+              355,
+              91
+            ]
+          },
+          "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation.",
+          "source": "aokiji_crouch_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_a_recover_1003": {
+          "crop": [
+            863,
+            102,
+            343,
+            289
+          ],
+          "root": [
+            168,
+            281
+          ],
+          "sockets": {},
+          "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation.",
+          "source": "aokiji_crouch_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_b_active_1003": {
+          "crop": [
+            426,
+            403,
+            431,
+            271
+          ],
+          "root": [
+            164,
+            263
+          ],
+          "sockets": {
+            "shoe_front": [
+              415,
+              228
+            ]
+          },
+          "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation.",
+          "excludeRects": [
+            [
+              392,
+              254,
+              39,
+              17
+            ]
+          ],
+          "source": "aokiji_crouch_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_b_recover_1003": {
+          "crop": [
+            880,
+            397,
+            333,
+            281
+          ],
+          "root": [
+            177,
+            273
+          ],
+          "sockets": {},
+          "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation.",
+          "source": "aokiji_crouch_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_c_start_1003": {
+          "crop": [
+            42,
+            681,
+            347,
+            290
+          ],
+          "root": [
+            248,
+            276
+          ],
+          "sockets": {},
+          "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation.",
+          "excludeRects": [
+            [
+              240,
+              0,
+              7,
+              2
+            ]
+          ],
+          "source": "aokiji_crouch_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_c_active_1003": {
+          "crop": [
+            441,
+            646,
+            445,
+            327
+          ],
+          "root": [
+            176,
+            308
+          ],
+          "sockets": {
+            "weapon_grip": [
+              298,
+              93
+            ],
+            "weapon_tip": [
+              433,
+              15
+            ]
+          },
+          "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation.",
+          "excludeRects": [
+            [
+              121,
+              0,
+              47,
+              21
+            ],
+            [
+              13,
+              0,
+              79,
+              21
+            ],
+            [
+              334,
+              0,
+              62,
+              7
+            ],
+            [
+              273,
+              0,
+              30,
+              13
+            ]
+          ],
+          "source": "aokiji_crouch_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_c_recover_1003": {
+          "crop": [
+            878,
+            689,
+            337,
+            284
+          ],
+          "root": [
+            195,
+            276
+          ],
+          "sockets": {},
+          "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation.",
+          "source": "aokiji_crouch_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_d_start_1003": {
+          "crop": [
+            39,
+            972,
+            339,
+            274
+          ],
+          "root": [
+            170,
+            266
+          ],
+          "sockets": {},
+          "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation.",
+          "source": "aokiji_crouch_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_d_active_1003": {
+          "crop": [
+            417,
+            1010,
+            458,
+            232
+          ],
+          "root": [
+            168,
+            220
+          ],
+          "sockets": {
+            "shoe_front": [
+              442,
+              194
+            ]
+          },
+          "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation.",
+          "source": "aokiji_crouch_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cr_d_recover_1003": {
+          "crop": [
+            889,
+            973,
+            332,
+            268
+          ],
+          "root": [
+            187,
+            260
+          ],
+          "sockets": {},
+          "note": "True original crouch attack pose. Ground root from visible shoe support; source-wide scale from separate full standing neutral. Neighbor scraps only excluded, no pose scaling/rotation.",
+          "source": "aokiji_crouch_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_a_active_1003": {
+          "crop": [
+            448,
+            11,
+            377,
+            312
+          ],
+          "root": [
+            170,
+            322
+          ],
+          "sockets": {
+            "fist": [
+              353,
+              65
+            ]
+          },
+          "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes.",
+          "source": "aokiji_air_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_a_recover_1003": {
+          "crop": [
+            873,
+            12,
+            317,
+            296
+          ],
+          "root": [
+            170,
+            322
+          ],
+          "sockets": {},
+          "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes.",
+          "source": "aokiji_air_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_b_start_1003": {
+          "crop": [
+            61,
+            324,
+            316,
+            317
+          ],
+          "root": [
+            185,
+            322
+          ],
+          "sockets": {},
+          "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes.",
+          "excludeRects": [
+            [
+              90,
+              0,
+              36,
+              10
+            ],
+            [
+              254,
+              0,
+              36,
+              4
+            ]
+          ],
+          "source": "aokiji_air_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_b_active_1003": {
+          "crop": [
+            438,
+            321,
+            422,
+            276
+          ],
+          "root": [
+            192,
+            322
+          ],
+          "sockets": {
+            "shoe_front": [
+              400,
+              97
+            ]
+          },
+          "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes.",
+          "source": "aokiji_air_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_b_recover_1003": {
+          "crop": [
+            882,
+            323,
+            298,
+            309
+          ],
+          "root": [
+            178,
+            322
+          ],
+          "sockets": {},
+          "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes.",
+          "source": "aokiji_air_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_c_start_1003": {
+          "crop": [
+            40,
+            634,
+            343,
+            289
+          ],
+          "root": [
+            184,
+            322
+          ],
+          "sockets": {},
+          "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes.",
+          "source": "aokiji_air_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_c_active_1003": {
+          "crop": [
+            427,
+            634,
+            454,
+            264
+          ],
+          "root": [
+            188,
+            322
+          ],
+          "sockets": {
+            "weapon_grip": [
+              297,
+              74
+            ],
+            "weapon_tip": [
+              443,
+              72
+            ]
+          },
+          "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes.",
+          "source": "aokiji_air_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_c_recover_1003": {
+          "crop": [
+            882,
+            637,
+            333,
+            288
+          ],
+          "root": [
+            190,
+            322
+          ],
+          "sockets": {},
+          "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes.",
+          "source": "aokiji_air_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_d_start_1003": {
+          "crop": [
+            47,
+            922,
+            336,
+            321
+          ],
+          "root": [
+            182,
+            322
+          ],
+          "sockets": {},
+          "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes.",
+          "source": "aokiji_air_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_d_active_1003": {
+          "crop": [
+            423,
+            928,
+            434,
+            306
+          ],
+          "root": [
+            144,
+            322
+          ],
+          "sockets": {
+            "shoe_front": [
+              420,
+              87
+            ]
+          },
+          "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes.",
+          "source": "aokiji_air_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_d_recover_1003": {
+          "crop": [
+            886,
+            927,
+            329,
+            316
+          ],
+          "root": [
+            184,
+            322
+          ],
+          "sockets": {},
+          "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes.",
+          "source": "aokiji_air_attacks_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cd_start_1003": {
+          "crop": [
+            66,
+            0,
+            334,
+            332
+          ],
+          "root": [
+            182,
+            323
+          ],
+          "sockets": {},
+          "note": "Independent generated pose. Ground root from actual shoe support; one source-wide scale; no per-pose scale or contact-fitting transform.",
+          "excludeRects": [
+            [
+              182,
+              327,
+              28,
+              5
+            ]
+          ],
+          "source": "aokiji_blow_throws_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cd_active_1003": {
+          "crop": [
+            458,
+            22,
+            349,
+            308
+          ],
+          "root": [
+            178,
+            300
+          ],
+          "sockets": {
+            "shoulder": [
+              246,
+              63
+            ],
+            "ice_edge": [
+              277,
+              67
+            ]
+          },
+          "note": "Independent generated pose. Ground root from actual shoe support; one source-wide scale; no per-pose scale or contact-fitting transform.",
+          "source": "aokiji_blow_throws_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "cd_recover_1003": {
+          "crop": [
+            871,
+            6,
+            323,
+            326
+          ],
+          "root": [
+            172,
+            318
+          ],
+          "sockets": {},
+          "note": "Independent generated pose. Ground root from actual shoe support; one source-wide scale; no per-pose scale or contact-fitting transform.",
+          "source": "aokiji_blow_throws_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_cd_start_1003": {
+          "crop": [
+            39,
+            320,
+            342,
+            268
+          ],
+          "root": [
+            193,
+            323
+          ],
+          "sockets": {},
+          "note": "Independent generated airborne shoulder pose. Virtual root one standing height below observed crown, x at pelvic projection; not a rotated/translated standing frame.",
+          "excludeRects": [
+            [
+              86,
+              0,
+              39,
+              5
+            ]
+          ],
+          "source": "aokiji_blow_throws_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_cd_active_1003": {
+          "crop": [
+            472,
+            328,
+            312,
+            293
+          ],
+          "root": [
+            233,
+            323
+          ],
+          "sockets": {
+            "shoulder": [
+              244,
+              58
+            ],
+            "ice_edge": [
+              265,
+              62
+            ]
+          },
+          "note": "Independent generated airborne shoulder pose. Virtual root one standing height below observed crown, x at pelvic projection; not a rotated/translated standing frame.",
+          "source": "aokiji_blow_throws_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "j_cd_recover_1003": {
+          "crop": [
+            866,
+            325,
+            338,
+            318
+          ],
+          "root": [
+            204,
+            323
+          ],
+          "sockets": {},
+          "note": "Independent generated airborne shoulder pose. Virtual root one standing height below observed crown, x at pelvic projection; not a rotated/translated standing frame.",
+          "excludeRects": [
+            [
+              179,
+              303,
+              65,
+              15
+            ]
+          ],
+          "source": "aokiji_blow_throws_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "throw_fwd_release_1003": {
+          "crop": [
+            457,
+            629,
+            383,
+            300
+          ],
+          "root": [
+            207,
+            292
+          ],
+          "sockets": {
+            "released_palm": [
+              322,
+              95
+            ],
+            "released_palm_far": [
+              333,
+              50
+            ]
+          },
+          "note": "Independent generated pose. Ground root from actual shoe support; one source-wide scale; no per-pose scale or contact-fitting transform.",
+          "excludeRects": [
+            [
+              200,
+              294,
+              32,
+              6
+            ]
+          ],
+          "source": "aokiji_blow_throws_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "throw_fwd_recover_1003": {
+          "crop": [
+            894,
+            621,
+            319,
+            315
+          ],
+          "root": [
+            176,
+            307
+          ],
+          "sockets": {},
+          "note": "Independent generated pose. Ground root from actual shoe support; one source-wide scale; no per-pose scale or contact-fitting transform.",
+          "excludeRects": [
+            [
+              233,
+              0,
+              70,
+              15
+            ],
+            [
+              170,
+              310,
+              29,
+              5
+            ]
+          ],
+          "source": "aokiji_blow_throws_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "throw_back_release_1003": {
+          "crop": [
+            455,
+            916,
+            400,
+            318
+          ],
+          "root": [
+            233,
+            310
+          ],
+          "sockets": {
+            "released_palm": [
+              51,
+              57
+            ]
+          },
+          "note": "Independent generated pose. Ground root from actual shoe support; one source-wide scale; no per-pose scale or contact-fitting transform. Back-release far arm is hidden behind the actual cape; only one hand is visible. Normal-speed readability remains unverified.",
+          "excludeRects": [
+            [
+              35,
+              0,
+              39,
+              6
+            ]
+          ],
+          "source": "aokiji_blow_throws_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "throw_back_recover_1003": {
+          "crop": [
+            896,
+            924,
+            337,
+            325
+          ],
+          "root": [
+            183,
+            317
+          ],
+          "sockets": {},
+          "note": "Independent generated pose. Ground root from actual shoe support; one source-wide scale; no per-pose scale or contact-fitting transform.",
+          "excludeRects": [
+            [
+              42,
+              0,
+              39,
+              5
+            ]
+          ],
+          "source": "aokiji_blow_throws_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "thrown_generic_1003": {
+          "crop": [
+            593,
+            9,
+            423,
+            365
+          ],
+          "root": [
+            206,
+            357
+          ],
+          "sockets": {
+            "grip": [
+              160,
+              112
+            ]
+          },
+          "note": "Independent real generated reaction. Ground roots use visible sole/floor and pelvic projection; one source-wide standing scale.",
+          "source": "aokiji_reactions_held_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "throw_tech_push_1003": {
+          "crop": [
+            51,
+            396,
+            404,
+            368
+          ],
+          "root": [
+            219,
+            360
+          ],
+          "sockets": {
+            "near_palm": [
+              309,
+              82
+            ],
+            "far_palm": [
+              374,
+              71
+            ]
+          },
+          "note": "Independent real generated reaction. Ground roots use visible sole/floor and pelvic projection; one source-wide standing scale.",
+          "excludeRects": [
+            [
+              94,
+              0,
+              42,
+              8
+            ],
+            [
+              191,
+              346,
+              67,
+              22
+            ],
+            [
+              281,
+              350,
+              11,
+              18
+            ]
+          ],
+          "source": "aokiji_reactions_held_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "ko_recline_1003": {
+          "crop": [
+            550,
+            554,
+            519,
+            186
+          ],
+          "root": [
+            240,
+            178
+          ],
+          "sockets": {},
+          "note": "Independent real generated reaction. Ground roots use visible sole/floor and pelvic projection; one source-wide standing scale.",
+          "source": "aokiji_reactions_held_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "win_ice_1003": {
+          "crop": [
+            79,
+            735,
+            346,
+            410
+          ],
+          "root": [
+            185,
+            402
+          ],
+          "sockets": {
+            "ice_palm": [
+              255,
+              115
+            ]
+          },
+          "note": "Independent real generated reaction. Ground roots use visible sole/floor and pelvic projection; one source-wide standing scale.",
+          "excludeRects": [
+            [
+              55,
+              0,
+              45,
+              22
+            ],
+            [
+              169,
+              397,
+              27,
+              13
+            ],
+            [
+              196,
+              408,
+              4,
+              2
+            ]
+          ],
+          "source": "aokiji_reactions_held_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "held_leg_flip_1003": {
+          "crop": [
+            552,
+            768,
+            527,
+            334
+          ],
+          "root": [
+            397.2485245901639,
+            335.66688524590165
+          ],
+          "sockets": {
+            "grip": [
+              452,
+              284
+            ]
+          },
+          "note": "Independent actual ankle-held body: measured visible cuff/upper shoe grip, static root registered at existing canonical world offset [13.967213114754095, -13.180327868852459]. This is not a reused/rotated pose or a runtime translation, rotation, or per-pose scale. Actual pair fit and release remain unverified.",
+          "source": "aokiji_reactions_held_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "held_labubu_throw_1003": {
+          "crop": [
+            63,
+            1125,
+            478,
+            310
+          ],
+          "root": [
+            334.952,
+            371.272
+          ],
+          "sockets": {
+            "grip": [
+              411,
+              267
+            ]
+          },
+          "note": "Independent actual ankle-held body: measured visible cuff/upper shoe grip, static root registered at existing canonical world offset [19.4, -26.599999999999994]. This is not a reused/rotated pose or a runtime translation, rotation, or per-pose scale. Actual pair fit and release remain unverified.",
+          "excludeRects": [
+            [
+              98,
+              0,
+              43,
+              13
+            ],
+            [
+              270,
+              0,
+              42,
+              4
+            ]
+          ],
+          "source": "aokiji_reactions_held_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "held_twinkle_throw_1003": {
+          "crop": [
+            541,
+            1182,
+            517,
+            253
+          ],
+          "root": [
+            354.82,
+            341.26
+          ],
+          "sockets": {
+            "grip": [
+              444,
+              207
+            ]
+          },
+          "note": "Independent actual ankle-held body: measured visible cuff/upper shoe grip, static root registered at existing canonical world offset [22.75, -34.25]. This is not a reused/rotated pose or a runtime translation, rotation, or per-pose scale. Actual pair fit and release remain unverified.",
+          "source": "aokiji_reactions_held_1003",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "throw_fwd_hold_mask_1008": {
+          "crop": [
+            887,
+            0,
+            887,
+            887
+          ],
+          "root": [
+            466,
+            815
+          ],
+          "sockets": {
+            "grip": [
+              594,
+              714
+            ],
+            "near_palm": [
+              594,
+              714
+            ],
+            "far_palm": [
+              666,
+              677
+            ],
+            "diagnostic_cloth_region": [
+              644,
+              701
+            ]
+          },
+          "foregroundMask": {
+            "file": "public/assets/generated/source/roster-aokiji-low-hold-front-mask-1004.png",
+            "sha256": "b1d27644a1ee3bd8054dd8fef4c8abf731cee9052fb10a8db36e70b59e700c70",
+            "sourceSha256": "5cc59be048e6d2cb4a5341f7c348638b848b06fd74f33fa722708495bfe48462"
+          },
+          "foregroundNote": "Exact original near palm/fingers selection, far knuckles excluded; source RGBA reconstitutes exactly; cloak/grey pixels stay in body. Same crop/root/source hash. Not a new independent pose.",
+          "source": "aokiji_low_hold_front_joint3_1004",
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "throw_back_hold_1009": {
+          "source": "aokiji_low_hold_back_retrieved_1008",
+          "crop": [
+            887,
+            0,
+            887,
+            887
+          ],
+          "root": [
+            576,
+            816
+          ],
+          "sockets": {
+            "grip": [
+              735,
+              702
+            ],
+            "near_palm": [
+              735,
+              702
+            ],
+            "sole_back": [
+              511,
+              816
+            ],
+            "sole_front": [
+              641,
+              808
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "foregroundPolygon": [
+            [
+              541,
+              545
+            ],
+            [
+              556,
+              547
+            ],
+            [
+              581,
+              572
+            ],
+            [
+              608,
+              604
+            ],
+            [
+              634,
+              639
+            ],
+            [
+              655,
+              662
+            ],
+            [
+              671,
+              677
+            ],
+            [
+              682,
+              677
+            ],
+            [
+              697,
+              672
+            ],
+            [
+              712,
+              671
+            ],
+            [
+              727,
+              674
+            ],
+            [
+              740,
+              676
+            ],
+            [
+              747,
+              680
+            ],
+            [
+              749,
+              685
+            ],
+            [
+              746,
+              689
+            ],
+            [
+              739,
+              690
+            ],
+            [
+              732,
+              687
+            ],
+            [
+              724,
+              690
+            ],
+            [
+              719,
+              695
+            ],
+            [
+              716,
+              702
+            ],
+            [
+              719,
+              711
+            ],
+            [
+              725,
+              719
+            ],
+            [
+              730,
+              723
+            ],
+            [
+              742,
+              728
+            ],
+            [
+              756,
+              730
+            ],
+            [
+              767,
+              725
+            ],
+            [
+              774,
+              721
+            ],
+            [
+              777,
+              722
+            ],
+            [
+              779,
+              727
+            ],
+            [
+              775,
+              732
+            ],
+            [
+              767,
+              737
+            ],
+            [
+              756,
+              741
+            ],
+            [
+              741,
+              744
+            ],
+            [
+              727,
+              741
+            ],
+            [
+              714,
+              737
+            ],
+            [
+              701,
+              732
+            ],
+            [
+              689,
+              725
+            ],
+            [
+              679,
+              716
+            ],
+            [
+              667,
+              703
+            ],
+            [
+              655,
+              696
+            ],
+            [
+              646,
+              684
+            ],
+            [
+              628,
+              667
+            ],
+            [
+              608,
+              646
+            ],
+            [
+              585,
+              621
+            ],
+            [
+              564,
+              594
+            ],
+            [
+              548,
+              567
+            ]
+          ],
+          "foregroundNote": "Reviewed original near forearm/palm only; source body+foreground exact RGBA reconstitution before and after common resampling. Far palm/fingers and cape remain body. No pixel painting, displacement or pose scale.",
+          "note": "Independent official backholding requested1004, original retrieved1008 and statically reviewed at measured shoe-axis576/816, neutralH824, roots0/30. All old front mappings and character scale retained. Static review is not game input/grab/release acceptance."
+        }
+      },
+      "anims": {
+        "idle": {
+          "frames": [
+            "neutral"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 60
+            }
+          ]
+        },
+        "walk_fwd": {
+          "frames": [
+            "walk_contact_near",
+            "walk_pass_near",
+            "walk_contact_far",
+            "walk_pass_far"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 10
+            },
+            {
+              "frame": 1,
+              "ticks": 10
+            },
+            {
+              "frame": 2,
+              "ticks": 10
+            },
+            {
+              "frame": 3,
+              "ticks": 10
+            }
+          ]
+        },
+        "walk_back": {
+          "frames": [
+            "walk_pass_far",
+            "walk_contact_far",
+            "walk_pass_near",
+            "walk_contact_near"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            },
+            {
+              "frame": 1,
+              "ticks": 12
+            },
+            {
+              "frame": 2,
+              "ticks": 12
+            },
+            {
+              "frame": 3,
+              "ticks": 12
+            }
+          ]
+        },
+        "st_a": {
+          "frames": [
+            "punch_start",
+            "punch_active",
+            "punch_recover"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 5
+            },
+            {
+              "frame": 1,
+              "ticks": 3
+            },
+            {
+              "frame": 2,
+              "ticks": 10
+            }
+          ]
+        },
+        "hit_stand": {
+          "frames": [
+            "stand_hit"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 24
+            }
+          ]
+        },
+        "crouch": {
+          "frames": [
+            "reaction_crouch"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "block_stand": {
+          "frames": [
+            "reaction_block_stand"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "block_crouch": {
+          "frames": [
+            "reaction_block_crouch"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "hit_crouch": {
+          "frames": [
+            "reaction_hit_crouch"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "jump_neutral": {
+          "frames": [
+            "mob_jump_vertical_1003",
+            "reaction_jump_neutral"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 8
+            },
+            {
+              "frame": 1,
+              "ticks": 8
+            }
+          ],
+          "airbornePhases": {
+            "rising": 0,
+            "falling": 1
+          }
+        },
+        "hit_air": {
+          "frames": [
+            "reaction_hit_air"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "knockdown": {
+          "frames": [
+            "reaction_knockdown"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "getup": {
+          "frames": [
+            "reaction_getup"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "sp_ice_lance": {
+          "frames": [
+            "lance_start",
+            "lance_release",
+            "lance_recover"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 11
+            },
+            {
+              "frame": 1,
+              "ticks": 4
+            },
+            {
+              "frame": 2,
+              "ticks": 22
+            }
+          ]
+        },
+        "sp_ice_blade": {
+          "frames": [
+            "blade_start",
+            "blade_active",
+            "blade_recover"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 11
+            },
+            {
+              "frame": 1,
+              "ticks": 5
+            },
+            {
+              "frame": 2,
+              "ticks": 24
+            }
+          ]
+        },
+        "prejump": {
+          "frames": [
+            "mob_prejump_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 3
+            }
+          ]
+        },
+        "landing": {
+          "frames": [
+            "mob_landing_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 3
+            }
+          ]
+        },
+        "jump_fwd": {
+          "frames": [
+            "mob_jump_forward_1003",
+            "reaction_jump_neutral"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 8
+            },
+            {
+              "frame": 1,
+              "ticks": 8
+            }
+          ],
+          "airbornePhases": {
+            "rising": 0,
+            "falling": 1
+          }
+        },
+        "jump_back": {
+          "frames": [
+            "mob_jump_back_1003",
+            "reaction_jump_neutral"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 8
+            },
+            {
+              "frame": 1,
+              "ticks": 8
+            }
+          ],
+          "airbornePhases": {
+            "rising": 0,
+            "falling": 1
+          }
+        },
+        "backdash": {
+          "frames": [
+            "backdash_start_1003",
+            "backdash_hop_1003",
+            "backdash_settle_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 4
+            },
+            {
+              "frame": 1,
+              "ticks": 8
+            },
+            {
+              "frame": 2,
+              "ticks": 8
+            }
+          ]
+        },
+        "roll_fwd": {
+          "frames": [
+            "roll_compress_1003",
+            "roll_fwd_coil_1003",
+            "roll_fwd_rise_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 6
+            },
+            {
+              "frame": 1,
+              "ticks": 13
+            },
+            {
+              "frame": 2,
+              "ticks": 10
+            }
+          ]
+        },
+        "roll_back": {
+          "frames": [
+            "roll_compress_1003",
+            "roll_back_coil_1003",
+            "roll_back_rise_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 6
+            },
+            {
+              "frame": 1,
+              "ticks": 13
+            },
+            {
+              "frame": 2,
+              "ticks": 10
+            }
+          ]
+        },
+        "sp_ice_uplift": {
+          "frames": [
+            "uplift_start_1003",
+            "uplift_active_1003",
+            "uplift_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 9
+            },
+            {
+              "frame": 1,
+              "ticks": 6
+            },
+            {
+              "frame": 2,
+              "ticks": 27
+            }
+          ]
+        },
+        "sp_ice_spike": {
+          "frames": [
+            "spike_start_1003",
+            "spike_release_1003",
+            "spike_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 17
+            },
+            {
+              "frame": 1,
+              "ticks": 5
+            },
+            {
+              "frame": 2,
+              "ticks": 27
+            }
+          ]
+        },
+        "sp_ice_mirror": {
+          "frames": [
+            "mirror_start_1003",
+            "mirror_active_1003",
+            "mirror_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 7
+            },
+            {
+              "frame": 1,
+              "ticks": 14
+            },
+            {
+              "frame": 2,
+              "ticks": 25
+            }
+          ]
+        },
+        "sp_ice_body": {
+          "frames": [
+            "ice_body_start_1003",
+            "ice_body_evade_1003",
+            "ice_body_return_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 7
+            },
+            {
+              "frame": 1,
+              "ticks": 7
+            },
+            {
+              "frame": 2,
+              "ticks": 18
+            }
+          ]
+        },
+        "sp_ice_pheasant": {
+          "frames": [
+            "pheasant_start_1003",
+            "pheasant_release_1003",
+            "pheasant_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 15
+            },
+            {
+              "frame": 1,
+              "ticks": 5
+            },
+            {
+              "frame": 2,
+              "ticks": 34
+            }
+          ]
+        },
+        "sp_glacier_line": {
+          "frames": [
+            "glacier_start_1003",
+            "glacier_release_1003",
+            "glacier_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 16
+            },
+            {
+              "frame": 1,
+              "ticks": 18
+            },
+            {
+              "frame": 2,
+              "ticks": 32
+            }
+          ]
+        },
+        "ult_ice_age": {
+          "frames": [
+            "ice_age_start_1003",
+            "ice_age_hold_1003",
+            "ice_age_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 23
+            },
+            {
+              "frame": 1,
+              "ticks": 6
+            },
+            {
+              "frame": 1,
+              "ticks": 8
+            },
+            {
+              "frame": 1,
+              "ticks": 7
+            },
+            {
+              "frame": 2,
+              "ticks": 45
+            }
+          ]
+        },
+        "st_b": {
+          "frames": [
+            "st_b_start_1003",
+            "st_b_active_1003",
+            "st_b_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 7
+            },
+            {
+              "frame": 1,
+              "ticks": 4
+            },
+            {
+              "frame": 2,
+              "ticks": 12
+            }
+          ]
+        },
+        "st_c": {
+          "frames": [
+            "st_c_start_1003",
+            "st_c_active_1003",
+            "st_c_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 11
+            },
+            {
+              "frame": 1,
+              "ticks": 4
+            },
+            {
+              "frame": 2,
+              "ticks": 19
+            }
+          ]
+        },
+        "st_d": {
+          "frames": [
+            "st_d_start_1003",
+            "st_d_active_1003",
+            "st_d_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 13
+            },
+            {
+              "frame": 1,
+              "ticks": 5
+            },
+            {
+              "frame": 2,
+              "ticks": 22
+            }
+          ]
+        },
+        "f_c": {
+          "frames": [
+            "f_c_start_1003",
+            "f_c_active_1003",
+            "f_c_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 17
+            },
+            {
+              "frame": 1,
+              "ticks": 4
+            },
+            {
+              "frame": 2,
+              "ticks": 23
+            }
+          ]
+        },
+        "cr_a": {
+          "frames": [
+            "reaction_crouch",
+            "cr_a_active_1003",
+            "cr_a_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 5
+            },
+            {
+              "frame": 1,
+              "ticks": 3
+            },
+            {
+              "frame": 2,
+              "ticks": 9
+            }
+          ]
+        },
+        "cr_b": {
+          "frames": [
+            "reaction_crouch",
+            "cr_b_active_1003",
+            "cr_b_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 6
+            },
+            {
+              "frame": 1,
+              "ticks": 3
+            },
+            {
+              "frame": 2,
+              "ticks": 11
+            }
+          ]
+        },
+        "cr_c": {
+          "frames": [
+            "cr_c_start_1003",
+            "cr_c_active_1003",
+            "cr_c_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 10
+            },
+            {
+              "frame": 1,
+              "ticks": 5
+            },
+            {
+              "frame": 2,
+              "ticks": 22
+            }
+          ]
+        },
+        "cr_d": {
+          "frames": [
+            "cr_d_start_1003",
+            "cr_d_active_1003",
+            "cr_d_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            },
+            {
+              "frame": 1,
+              "ticks": 4
+            },
+            {
+              "frame": 2,
+              "ticks": 24
+            }
+          ]
+        },
+        "j_a": {
+          "frames": [
+            "mob_jump_vertical_1003",
+            "j_a_active_1003",
+            "j_a_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 5
+            },
+            {
+              "frame": 1,
+              "ticks": 6
+            },
+            {
+              "frame": 2,
+              "ticks": 9
+            }
+          ]
+        },
+        "j_b": {
+          "frames": [
+            "j_b_start_1003",
+            "j_b_active_1003",
+            "j_b_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 6
+            },
+            {
+              "frame": 1,
+              "ticks": 6
+            },
+            {
+              "frame": 2,
+              "ticks": 10
+            }
+          ]
+        },
+        "j_c": {
+          "frames": [
+            "j_c_start_1003",
+            "j_c_active_1003",
+            "j_c_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 10
+            },
+            {
+              "frame": 1,
+              "ticks": 5
+            },
+            {
+              "frame": 2,
+              "ticks": 13
+            }
+          ]
+        },
+        "j_d": {
+          "frames": [
+            "j_d_start_1003",
+            "j_d_active_1003",
+            "j_d_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 11
+            },
+            {
+              "frame": 1,
+              "ticks": 6
+            },
+            {
+              "frame": 2,
+              "ticks": 14
+            }
+          ]
+        },
+        "cd": {
+          "frames": [
+            "cd_start_1003",
+            "cd_active_1003",
+            "cd_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 18
+            },
+            {
+              "frame": 1,
+              "ticks": 5
+            },
+            {
+              "frame": 2,
+              "ticks": 27
+            }
+          ]
+        },
+        "j_cd": {
+          "frames": [
+            "j_cd_start_1003",
+            "j_cd_active_1003",
+            "j_cd_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            },
+            {
+              "frame": 1,
+              "ticks": 6
+            },
+            {
+              "frame": 2,
+              "ticks": 16
+            }
+          ]
+        },
+        "throw_fwd": {
+          "frames": [
+            "throw_fwd_hold_mask_1008",
+            "throw_fwd_release_1003",
+            "throw_fwd_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 22
+            },
+            {
+              "frame": 1,
+              "ticks": 8
+            },
+            {
+              "frame": 2,
+              "ticks": 15
+            }
+          ],
+          "throwExposures": [
+            {
+              "frame": 0,
+              "ticks": 22
+            },
+            {
+              "frame": 1,
+              "ticks": 8
+            },
+            {
+              "frame": 2,
+              "ticks": 15
+            }
+          ]
+        },
+        "throw_back": {
+          "frames": [
+            "throw_back_hold_1009",
+            "throw_back_release_1003",
+            "throw_back_recover_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 22
+            },
+            {
+              "frame": 1,
+              "ticks": 8
+            },
+            {
+              "frame": 2,
+              "ticks": 15
+            }
+          ],
+          "throwExposures": [
+            {
+              "frame": 0,
+              "ticks": 22
+            },
+            {
+              "frame": 1,
+              "ticks": 8
+            },
+            {
+              "frame": 2,
+              "ticks": 15
+            }
+          ]
+        },
+        "throw": {
+          "frames": [
+            "throw_fwd_hold_mask_1008"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 45
+            }
+          ]
+        },
+        "thrown": {
+          "frames": [
+            "thrown_generic_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 45
+            }
+          ]
+        },
+        "throw_tech": {
+          "frames": [
+            "throw_tech_push_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "ko": {
+          "frames": [
+            "ko_recline_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 60
+            }
+          ]
+        },
+        "win": {
+          "frames": [
+            "win_ice_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 60
+            }
+          ]
+        },
+        "held_leg_flip": {
+          "frames": [
+            "held_leg_flip_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 24
+            }
+          ]
+        },
+        "held_labubu_throw": {
+          "frames": [
+            "held_labubu_throw_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 24
+            }
+          ]
+        },
+        "held_twinkle_throw": {
+          "frames": [
+            "held_twinkle_throw_1003"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 26
+            }
+          ]
+        },
+        "dash": {
+          "frames": [
+            "walk_contact_near",
+            "walk_pass_near",
+            "walk_contact_far",
+            "walk_pass_far"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 4
+            },
+            {
+              "frame": 1,
+              "ticks": 4
+            },
+            {
+              "frame": 2,
+              "ticks": 4
+            },
+            {
+              "frame": 3,
+              "ticks": 5
+            }
+          ]
+        }
+      }
+    }
+  },
+  "unusedReviewCrops": {
+    "aokiji_dash_candidate_1003": {
+      "source": "aokiji_jump_dash_1003",
+      "reason": "three distinct finite burst poses do not establish continuous alternating run; not mapped as dash",
+      "regions": [
+        [
+          0,
+          831,
+          430,
+          423
+        ],
+        [
+          431,
+          831,
+          460,
+          423
+        ],
+        [
+          892,
+          831,
+          362,
+          423
+        ]
+      ]
+    },
+    "aokiji_backdash_roll_neutral_reference_1003": {
+      "source": "aokiji_backdash_roll_1003",
+      "reason": "Cell1 only sets sheet-wide neutral scale; existing idle is kept. Does not count as new runtime pose.",
+      "regions": [
+        [
+          0,
+          0,
+          418,
+          447
+        ]
+      ],
+      "alpha64Box": [
+        25,
+        11,
+        379,
+        440
+      ],
+      "sourceHash": "4f202b46f5c7358898fd089469ba43fc2defedb2f08f0e9491c2a6dad2642fcb"
+    },
+    "aokiji_crouch_cell4_wrong_weapon_1003": {
+      "source": "aokiji_crouch_attacks_1003",
+      "regions": [
+        [
+          37,
+          397,
+          363,
+          293
+        ]
+      ],
+      "reason": "Requested unarmed light-kick startup but source introduced ice sword; not adopted. Actual existing reaction_crouch explicitly reused for cr_b startup, not a new picture."
+    },
+    "aokiji_crouch_neutral_reference_1003": {
+      "source": "aokiji_crouch_attacks_1003",
+      "regions": [
+        [
+          39,
+          2,
+          355,
+          388
+        ]
+      ],
+      "reason": "Scale reference only; not a new runtime idle pose."
+    },
+    "aokiji_air_neutral_reference_1003": {
+      "source": "aokiji_air_attacks_1003",
+      "regions": [
+        [
+          90,
+          11,
+          290,
+          330
+        ]
+      ],
+      "reason": "Neutral scale reference, not a new runtime pose."
+    },
+    "aokiji_reactionsheld_neutral_reference_1003": {
+      "source": "aokiji_reactions_held_1003",
+      "regions": [
+        [
+          67,
+          2,
+          362,
+          409
+        ]
+      ],
+      "reason": "Single sheet-wide standing scale reference; existing neutral remains, not counted as additional art."
+    },
+    "throw_fwd_hold_1003": {
+      "crop": [
+        39,
+        623,
+        355,
+        310
+      ],
+      "root": [
+        175,
+        302
+      ],
+      "sockets": {
+        "grip": [
+          314,
+          106
+        ],
+        "grip_far": [
+          331,
+          76
+        ]
+      },
+      "note": "Preserved prior prototype; front uses the reviewed low grip. Back animation unchanged.",
+      "excludeRects": [
+        [
+          187,
+          306,
+          26,
+          4
+        ]
+      ],
+      "source": "aokiji_blow_throws_1003",
+      "transparency": {
+        "mode": "source-alpha"
+      },
+      "reviewStatus": "preserved-pre1008-front-hold"
+    },
+    "throw_back_hold_1003": {
+      "crop": [
+        40,
+        922,
+        351,
+        322
+      ],
+      "root": [
+        188,
+        314
+      ],
+      "sockets": {
+        "grip": [
+          294,
+          109
+        ],
+        "grip_far": [
+          308,
+          83
+        ]
+      },
+      "note": "Independent generated pose. Ground root from actual shoe support; one source-wide scale; no per-pose scale or contact-fitting transform.",
+      "excludeRects": [
+        [
+          41,
+          0,
+          38,
+          4
+        ]
+      ],
+      "source": "aokiji_blow_throws_1003",
+      "transparency": {
+        "mode": "source-alpha"
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "sengoku_reactions_recovered_1003",
+  "file": "public/assets/generated/source/roster-sengoku-reaction-recovered-1003.png",
+  "sha256": "b8e32bc4d99da87ee70ea2ee005761c7c609edc3a6a5d2fb96dc45cce9081cd9",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "本次恢复该官方会话现场菜单最新选中与极高第四项；具体图像后台型号未公开，不冒写2.5。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Microsoft Edge",
+  "sessionUrl": "https://chatgpt.com/c/6abbe4e2-3cb4-83e8-b530-23166e716bdb",
+  "observedCompletedAt": "2026-10-03T21:50:28.9312871+08:00",
+  "uiObservation": "本助手恢复战国已生成反应图的原会话，没有重发。初次新标签绑定中断后，同一Edge实际标签已打开，按现有元数据安全绑定恢复。实际旧网页请求677字符，后来docs准备稿828字符并不一致，故从该实际消息innerText保全完整原请求单独记录，不把未发送的裁切追加语冒称生成依据。最新查看器标题战国海军大将九姿态精灵图，img已生成图像3，九格人形与帽饰可见，截图保存是旧结果本次完成复核而非服务器首次生成时间。只点击一次下载，crdownload保留；PNG签名/IEND/Pillowverify/完整RGBAdecode/稳定重复字节通过，先清单复制再SHA一致。实际身体、帽饰、裁切与比例另查，不将取得旧图写为角色完整完成。",
+  "prompt": {
+    "file": "docs/assets/sengoku-reaction-recovered-prompt1003.txt",
+    "sha256": "63c3f1ffd91f16e52240af51b27aeb0b2657465f6fe63044bf4948e58dc07fd6"
+  },
+  "referenceSources": {
+    "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+    "sengoku_locomotion_0929": "3829d8946b189a7530ef8225f5d97f0086977cb1c8f578e58e87b2bd8348e930"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T13:52:55.019847+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/sengoku-reactions1003/completion-viewer1003.png",
+    "sha256": "e1228635b668c35abdf8f138eea05e3d12ee488b2b3a18eb505e91ff55ea728e"
+  },
+  "referenceFiles": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+    },
+    "sengoku_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-sengoku-locomotion-0929.png",
+      "sha256": "3829d8946b189a7530ef8225f5d97f0086977cb1c8f578e58e87b2bd8348e930"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

@@ -1,0 +1,95 @@
+{
+  "sourceKey": "aokiji_low_holds_compact30_1004",
+  "sourceHash": "b639875afec46a55bc1e4b65f4264613b43d5300dd0d6d310babf5ec1a7459bb",
+  "reviewDir": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/compact30-review1004",
+  "holdOffset": 30,
+  "scaleReference": {
+    "crop": [
+      0,
+      0,
+      724,
+      724
+    ],
+    "excludeRects": [],
+    "expectedHeight64": 706,
+    "referenceOnly": true,
+    "headAndBothSolesComplete": true
+  },
+  "holding": {
+    "throw_fwd": {
+      "crop": [
+        724,
+        0,
+        724,
+        724
+      ],
+      "excludeRects": [],
+      "root": [
+        369,
+        719
+      ],
+      "sockets": {
+        "grip": [
+          554,
+          561
+        ],
+        "near_palm": [
+          524,
+          546
+        ],
+        "far_palm": [
+          560,
+          578
+        ],
+        "sole_back": [
+          183,
+          714
+        ],
+        "sole_front": [
+          554,
+          701
+        ]
+      },
+      "rootBasis": "Actual shoe support-centre x183/554; rounded midpoint369. Floor719 from rear sole alpha16 exclusive boundary. Front sole lies13 source pixels higher. Grip manually marks enclosed own front white trouser/shin; all shoe/hand marks inspected in original724px cell, approximate landmark tolerance2px. No root pulled to target."
+    },
+    "throw_back": {
+      "crop": [
+        1448,
+        0,
+        724,
+        724
+      ],
+      "excludeRects": [],
+      "root": [
+        350,
+        720
+      ],
+      "sockets": {
+        "grip": [
+          552,
+          557
+        ],
+        "near_palm": [
+          507,
+          547
+        ],
+        "far_palm": [
+          549,
+          578
+        ],
+        "sole_back": [
+          150,
+          715
+        ],
+        "sole_front": [
+          550,
+          702
+        ]
+      },
+      "rootBasis": "Actual shoe support-centre x150/550; midpoint350. Floor720 from rear sole alpha16 exclusive boundary. Front sole lies14 source pixels higher. Grip manually marks own front white shin. Original724px cell, landmark tolerance2px; no target-derived root."
+    }
+  },
+  "manualLandmarkTolerancePx": 2,
+  "status": "not-adopted-own-shin-enclosed-shoes-wide",
+  "runtimeOrAuthoringOrRootChanged": false
+}

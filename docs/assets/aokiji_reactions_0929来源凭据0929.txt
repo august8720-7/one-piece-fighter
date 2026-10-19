@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_reactions_0929",
+  "file": "public/assets/generated/source/roster-aokiji-reactions-0929.png",
+  "sha256": "e17fa009d21d39b63aa78dc83d6cb189d499e608d48761e247e597e5812a46f2",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方页未展示具体图像型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+  "observedCompletedAt": "2026-09-30T00:00:42+08:00",
+  "uiObservation": "同会话图像4，实际下载并查看九格独立青雉反应，包括蹲、防御、受击、倒地、起身；极高沿用同会话。观察完成跨至0930，文件主题仍为0929，不推断服务器生成时刻。",
+  "prompt": {
+    "file": "docs/assets/青雉基础反应提示词0929.txt",
+    "sha256": "be4bc836c933d1d2ccf71a365c241e75d958d427108d1ace38be69608cbea015"
+  },
+  "referenceSources": {
+    "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+    "aokiji_basics_0929": "b1af2667cd650e36311eed1822b3c572b1f18c55c5acdf50d02c40e291b8bc5c"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-09-29T16:02:36.879742+00:00",
+  "referenceFiles": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+    },
+    "aokiji_basics_0929": {
+      "file": "public/assets/generated/source/roster-aokiji-basics-0929.png",
+      "sha256": "b1af2667cd650e36311eed1822b3c572b1f18c55c5acdf50d02c40e291b8bc5c"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

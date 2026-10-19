@@ -1,0 +1,327 @@
+{
+  "sourceKey": "aokiji_air_attacks_1003",
+  "sourceHash": "5a7fc11a48945a6d7154d9d23daf296420ce24bd654045346335349f2a56d91e",
+  "evidenceDir": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-air1003",
+  "measurementFile": "docs/assets/aokiji-air-measurements1003.json",
+  "scaleReference": {
+    "crop": [
+      90,
+      11,
+      290,
+      330
+    ],
+    "excludeRects": [
+      [
+        142,
+        320,
+        43,
+        10
+      ]
+    ],
+    "expectedHeight64": 314,
+    "basis": "Sourcecell1 full standing neutral alpha64height314 vs established407; all11air poses share407/314. Virtual air root stands one neutral height below observed crown; no per-pose scale, no program floating/rotation to create art."
+  },
+  "frames": {
+    "j_a_active_1003": {
+      "crop": [
+        448,
+        11,
+        377,
+        312
+      ],
+      "root": [
+        170,
+        322
+      ],
+      "sockets": {
+        "fist": [
+          353,
+          65
+        ]
+      },
+      "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes."
+    },
+    "j_a_recover_1003": {
+      "crop": [
+        873,
+        12,
+        317,
+        296
+      ],
+      "root": [
+        170,
+        322
+      ],
+      "sockets": {},
+      "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes."
+    },
+    "j_b_start_1003": {
+      "crop": [
+        61,
+        324,
+        316,
+        317
+      ],
+      "root": [
+        185,
+        322
+      ],
+      "sockets": {},
+      "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes.",
+      "excludeRects": [
+        [
+          90,
+          0,
+          36,
+          10
+        ],
+        [
+          254,
+          0,
+          36,
+          4
+        ]
+      ]
+    },
+    "j_b_active_1003": {
+      "crop": [
+        438,
+        321,
+        422,
+        276
+      ],
+      "root": [
+        192,
+        322
+      ],
+      "sockets": {
+        "shoe_front": [
+          400,
+          97
+        ]
+      },
+      "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes."
+    },
+    "j_b_recover_1003": {
+      "crop": [
+        882,
+        323,
+        298,
+        309
+      ],
+      "root": [
+        178,
+        322
+      ],
+      "sockets": {},
+      "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes."
+    },
+    "j_c_start_1003": {
+      "crop": [
+        40,
+        634,
+        343,
+        289
+      ],
+      "root": [
+        184,
+        322
+      ],
+      "sockets": {},
+      "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes."
+    },
+    "j_c_active_1003": {
+      "crop": [
+        427,
+        634,
+        454,
+        264
+      ],
+      "root": [
+        188,
+        322
+      ],
+      "sockets": {
+        "weapon_grip": [
+          297,
+          74
+        ],
+        "weapon_tip": [
+          443,
+          72
+        ]
+      },
+      "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes."
+    },
+    "j_c_recover_1003": {
+      "crop": [
+        882,
+        637,
+        333,
+        288
+      ],
+      "root": [
+        190,
+        322
+      ],
+      "sockets": {},
+      "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes."
+    },
+    "j_d_start_1003": {
+      "crop": [
+        47,
+        922,
+        336,
+        321
+      ],
+      "root": [
+        182,
+        322
+      ],
+      "sockets": {},
+      "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes."
+    },
+    "j_d_active_1003": {
+      "crop": [
+        423,
+        928,
+        434,
+        306
+      ],
+      "root": [
+        144,
+        322
+      ],
+      "sockets": {
+        "shoe_front": [
+          420,
+          87
+        ]
+      },
+      "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes."
+    },
+    "j_d_recover_1003": {
+      "crop": [
+        886,
+        927,
+        329,
+        316
+      ],
+      "root": [
+        184,
+        322
+      ],
+      "sockets": {},
+      "note": "True original airborne pose. Virtual root below visible folded feet: same head-to-root standing height from source neutral, x follows observed pelvic projection; not moved to fit old attack boxes."
+    }
+  },
+  "anims": {
+    "j_a": {
+      "frames": [
+        "mob_jump_vertical_1003",
+        "j_a_active_1003",
+        "j_a_recover_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 5
+        },
+        {
+          "frame": 1,
+          "ticks": 6
+        },
+        {
+          "frame": 2,
+          "ticks": 9
+        }
+      ]
+    },
+    "j_b": {
+      "frames": [
+        "j_b_start_1003",
+        "j_b_active_1003",
+        "j_b_recover_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 6
+        },
+        {
+          "frame": 1,
+          "ticks": 6
+        },
+        {
+          "frame": 2,
+          "ticks": 10
+        }
+      ]
+    },
+    "j_c": {
+      "frames": [
+        "j_c_start_1003",
+        "j_c_active_1003",
+        "j_c_recover_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 10
+        },
+        {
+          "frame": 1,
+          "ticks": 5
+        },
+        {
+          "frame": 2,
+          "ticks": 13
+        }
+      ]
+    },
+    "j_d": {
+      "frames": [
+        "j_d_start_1003",
+        "j_d_active_1003",
+        "j_d_recover_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 11
+        },
+        {
+          "frame": 1,
+          "ticks": 6
+        },
+        {
+          "frame": 2,
+          "ticks": 14
+        }
+      ]
+    }
+  },
+  "unusedReviewCrops": {
+    "aokiji_air_neutral_reference_1003": {
+      "source": "aokiji_air_attacks_1003",
+      "regions": [
+        [
+          90,
+          11,
+          290,
+          330
+        ]
+      ],
+      "reason": "Neutral scale reference, not a new runtime pose."
+    }
+  },
+  "knownDifferences": [
+    "ja startup explicitly reuses existing real vertical jump guard, not new art.",
+    "Some virtual roots lie below crop because folded feet are raised; literal sole roots would sink the head relative to logical y. Actual normal-speed rise/fall/air-hit contact remain parent checks.",
+    "Generated extended kicks/blade are higher/farther than draft boxes; measured endpoints supplied for parent new-role box calibration."
+  ]
+}

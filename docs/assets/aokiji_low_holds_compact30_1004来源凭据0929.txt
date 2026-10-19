@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_low_holds_compact30_1004",
+  "file": "public/assets/generated/source/roster-aokiji-low-hold-compact30-1004.png",
+  "sha256": "b639875afec46a55bc1e4b65f4264613b43d5300dd0d6d310babf5ec1a7459bb",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "root在原青雉官方会话实际核验最新/极高，model/draft/completed1004截图保全；本助手复看截图确认ChatGPT与极高显示，具体图像后台型号未公开，不记2.5。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+  "observedCompletedAt": "2026-10-04T11:12:38.838948+08:00",
+  "uiObservation": "root在原青雉官方IAB会话提交compact30局部修提示，附件为正确compact30关节指南，model/draft/completed截图已保全。完成查看器显示3格青雉、完整站尺与两格低握。原生下载未落盘后，在同一官方文件入口的空间页面https://chatgpt.com/space/file/libfile_69fcaab0b2408191b283a012e86dc15b，使用支持的pageAssets.list/bundle只导出已显示PNG，downloaded1/failed0；root bundle记录与Temp manifest原字节保全，未重发未换站。空间侧栏文字型号不作生成依据。本助手实际看原PNG，PNG签名/IEND/Pillowverify/完整RGBAdecode/2172x724真实alpha0..255/重复稳定原字节/SHA与root一致，先清单复制原件和manifest再哈希核验。完成时间是实际完成复核截图保存时间，非服务器首次生成时间。两格仍把手贴在自己的前小腿，双鞋仍宽；只登记来源失败稿，不改runtime或作者映射。",
+  "prompt": {
+    "file": "docs/assets/aokiji-low-hold-compact30-repair-prompt1004.txt",
+    "sha256": "886d7b6b5f854ea17c7aa5d2656acff9e7d3b3c89abc198f200e828d09f9026b"
+  },
+  "referenceSources": {
+    "aokiji_low_holds_1004": "d504a6abfbe0560f471ee57cff06c135771dbe1cd3a99781c596cdc7e6b283e6"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-04T03:27:55.195407+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/aokiji-compact30-completed1004.jpg",
+    "sha256": "38d0e6cf567671f28904cc1d1532724ca25d5013e72f873b194b9528646dfb23"
+  },
+  "referenceFiles": {
+    "aokiji_low_holds_1004": {
+      "file": "public/assets/generated/source/roster-aokiji-low-hold-1004.png",
+      "sha256": "d504a6abfbe0560f471ee57cff06c135771dbe1cd3a99781c596cdc7e6b283e6"
+    }
+  },
+  "originalPngSize": [
+    2172,
+    724
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

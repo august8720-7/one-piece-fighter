@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "characters": {
+    "garp": {
+      "image": "public\\assets\\characters\\garp\\anime\\ui-roster-1003.png",
+      "sha256": "07581215874928f209c10d953a61101cdf3154d583cc41fb206adca05c7c50e9",
+      "width": 405,
+      "height": 421,
+      "frames": {
+        "body": {
+          "x": 0,
+          "y": 0,
+          "w": 405,
+          "h": 421
+        },
+        "portrait": {
+          "x": 145,
+          "y": 0,
+          "w": 180,
+          "h": 160
+        }
+      },
+      "source": {
+        "sourceKey": "garp_locomotion_0929",
+        "file": "public/assets/generated/source/roster-garp-locomotion-0929.png",
+        "sha256": "ec9dd557b078da06545d63f84846b97d83dcc89f739aa23c19cae538e048d4de",
+        "crop": [
+          18,
+          0,
+          405,
+          421
+        ]
+      },
+      "reviewStatus": "static-candidate-for-roster-preview-not-gameplay-acceptance",
+      "processing": {
+        "scale": 1,
+        "method": "explicit idle crop; original RGBA preserved",
+        "pixelsEqual": true
+      }
+    }
+  }
+}

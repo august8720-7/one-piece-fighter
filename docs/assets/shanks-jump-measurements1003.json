@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_jump_mobility_1003",
+  "sourceSha256": "a0e9b2f42d7eced6bac6cc3156910d89799302518f9f9a17680744bb325302ae",
+  "sourceSize": [1536, 1024],
+  "status": "source-reviewed-candidate-before-runtime-review",
+  "neutralVisibleAlpha8Bounds": [30, 57, 499, 525],
+  "neutralVisibleHeight": 468,
+  "referenceNeutralHeight": 380,
+  "unitScale": 0.811965811965812,
+  "scaleBasis": "One neutral reference visible alpha>=8 height468px; all five poses use uniform380/468 versus the first-sheet380px. No per-pose size fitting.",
+  "observations": [
+    "Actual new source has six independently drawn figures: a calibration idle and five new jumping/landing poses. No second hand or restored left arm is visible.",
+    "The near-neutral landing pose and prejump differ in knee depth, sword angle and cape position; they are not duplicated frames.",
+    "Forward/back jump preserve facing right with different torso and leg angles.",
+    "Two crop exclusions remove only disconnected neighboring drawing fragments. No target pixels are redrawn or geometrically transformed.",
+    "Airborne roots below the cropped feet refer to the full-height virtual foot baseline from the same source idle. They still require actual game jump-height/contact inspection."
+  ],
+  "frames": {
+    "prejump_1003": {"source": "shanks_jump_mobility_1003", "crop": [528, 166, 462, 359], "root": [255, 349], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "jump_fwd_1003": {"source": "shanks_jump_mobility_1003", "crop": [1003, 54, 518, 420], "root": [310, 471], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "jump_back_1003": {"source": "shanks_jump_mobility_1003", "crop": [18, 569, 519, 347], "root": [295, 468], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "landing_1003": {"source": "shanks_jump_mobility_1003", "crop": [545, 668, 513, 327], "root": [273, 317], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[479, 0, 34, 217]]},
+    "jump_neutral_fall_1003": {"source": "shanks_jump_mobility_1003", "crop": [1019, 510, 486, 462], "root": [300, 527], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[0, 370, 44, 92]]}
+  },
+  "basicSampleRecheck": {
+    "url": "http://127.0.0.1:4290/",
+    "buildReportPrefix": "a9e95524392d",
+    "observed": ["idle", "walk_fwd", "st_a", "hit_stand"],
+    "kind": "normal-speed-pose-viewer-recheck-not-full-gameplay-or-sound-acceptance",
+    "result": "Existing drawings kept one visible arm, intact sword and complete shoes; four-frame walk has distinct passing poses. Reused earlier actual training contact evidence remains separate."
+  }
+}

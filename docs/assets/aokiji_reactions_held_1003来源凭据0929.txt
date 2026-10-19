@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_reactions_held_1003",
+  "file": "public/assets/generated/source/roster-aokiji-reactions-held-1003.png",
+  "sha256": "0e3f2e8931f8f381ba977dbff46febf92cc547a7a5bf2207e050e8d7e50196cc",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "沿本会话已实际核对的最新选中与极高第四项继续官方图像制作；具体图像后台型号未公开，不记为2.5。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Microsoft Edge",
+  "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+  "observedCompletedAt": "2026-10-03T20:35:52.584847+08:00",
+  "uiObservation": "本助手接续同一独占青雉Edge会话中已单次有效提交的八姿完整提示，现场见思考中且没有成图，未重复发送；保存2033 pending截图和DOM后原会话正常reload恢复。随后真实最新响应出现成图，打开最新查看器，标题青雉八姿透明精灵图合集，img已生成图像5，八格完整人物可见。时间取实际完成复核截图保存，不是服务器首次生成。只点一次原生下载；Downloads保留crdownload但PNG签名、IEND、Pillowverify、全RGBA解码和稳定两次原字节实证通过，先清单复制并SHA一致。查看器灰色占位不作人物像素证据，原PNG白底另检。尚未把条件脚踝静态候选当成实际抓投或完整游戏通过。",
+  "prompt": {
+    "file": "docs/assets/aokiji-reactions-held-prompt1003.txt",
+    "sha256": "5635d5a5a2374e8ce18a5602633b53ddb29f7cb8e13d197150b2ab8af10f694e"
+  },
+  "referenceSources": {
+    "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T12:39:08.608354+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-reactionsheld1003/completed-viewer-2036-1003.png",
+    "sha256": "9c238e8c43fc184641bce08cd82a22e9261d2ebaadcaf2a0599ef379c07ac408"
+  },
+  "referenceFiles": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+    }
+  },
+  "originalPngSize": [
+    1086,
+    1448
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

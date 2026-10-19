@@ -1,0 +1,181 @@
+{
+  "date": "2026-10-03",
+  "status": "reference-and-unsubmitted-prompts-not-production-art",
+  "referenceRoot": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\reference\\legend-1003",
+  "characters": {
+    "blackbeard": {
+      "name": "黑胡子",
+      "selection": "官方主图所示两年后大胡辫、羽饰帽造型",
+      "facts": "黑卷长发；长黑胡须分束垂下；三骷髅帽徽的宽大黑帽及羽饰；黑长外套、黄橙毛边、洋红门襟；敞胸圆腹；深色花纹裤、条纹袜、棕鞋；双手双脚完整。",
+      "unknown": "不推定戒指数量、腰间所有装饰和每颗缺牙精确位置；正反面中未见处不冒称官方细节。",
+      "weapon": "本游戏以徒手暗影与震拳为主；腰间可保留主图已见的枪柄作固定装饰，母版不追加持剑。",
+      "prompt": "docs\\assets\\blackbeard-mother-prompt1003.txt",
+      "promptSha256": "4a4ef8bf821f9ecf8cec035f136c0bc2be4e6b50f7f9a7ce3f58d9797acc3765",
+      "source": {
+        "id": "blackbeard",
+        "profile": "https://one-piece.com/character/Marshall_D_Teech/index.html",
+        "image": "https://one-piece.com/o/assets/images/anime/character/data/Marshall_D_Teech/Marshall_D_Teech_main_egghead.png",
+        "source": "C:\\Users\\august\\AppData\\Local\\Temp\\blackbeard-official-reference1003.png",
+        "destination": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\reference\\legend-1003\\blackbeard-official-reference1003.png",
+        "sha256": "82f2ae512dce740c4053089f2c3033bd4aa1aa0010b7dbb648e52ab9574771ef",
+        "size": [
+          1200,
+          998
+        ],
+        "format": "PNG",
+        "status": 200
+      }
+    },
+    "roger": {
+      "name": "罗杰",
+      "selection": "成熟期宽上翘黑胡子、红披风、单剑；排除受刑木枷和年轻期短胡须混搭",
+      "facts": "官方人物主图为受刑状态，能核黑发、红金边长外衣；官方关联成熟期手办能核宽上翘黑胡子、敞胸短衫、披肩长红外衣、长裤、长靴、单剑与圆弧护手。",
+      "unknown": "成熟期参考为SPECIAL ver.商品特殊涂装，金属金裤/粉银袖不能当动画标准色；本游戏采用去金属化深红外衣、暗粉短衫、暖橙长裤/黄色腰带是明示配色选型。剑的正式名称本轮未核。",
+      "weapon": "一把单手长剑，金色圆弧护手；另一手完整可自由活动，不戴木枷，不将剑同时复制为两把。",
+      "prompt": "docs\\assets\\roger-mother-prompt1003.txt",
+      "promptSha256": "97061d8588df9ef0f5c177508d125a7edc6ca7b2ee15f398e99c65a2c4c7546b",
+      "source": {
+        "id": "roger",
+        "profile": "https://one-piece.com/character/Gold_Roger/index.html",
+        "image": "https://one-piece.com/o/assets/images/anime/character/data/Gold_Roger/img.jpg",
+        "source": "C:\\Users\\august\\AppData\\Local\\Temp\\roger-official-reference1003.jpg",
+        "destination": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\reference\\legend-1003\\roger-official-reference1003.jpg",
+        "sha256": "29d7529995598646f92eb56d29c162661054e4607f010ddf37e92ea8959c06c8",
+        "size": [
+          1200,
+          998
+        ],
+        "format": "WEBP",
+        "status": 200
+      },
+      "matureReference": {
+        "profile": "https://one-piece.com/figure/78180/index.html",
+        "image": "https://one-piece.com/img/figure/0225_103382103382-figure.jpg",
+        "source": "C:\\Users\\august\\AppData\\Local\\Temp\\roger-mature-official-reference1003.jpg",
+        "destination": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\reference\\legend-1003\\roger-mature-official-reference1003.jpg",
+        "sha256": "bce5ebba772980f8d3b39cbd79e0180d14b271bece238e64d597aaaf47fc3b89",
+        "format": "JPEG",
+        "size": [
+          1080,
+          1080
+        ],
+        "status": 200
+      }
+    },
+    "rocks": {
+      "name": "洛克斯",
+      "selection": "仅可准备“官方阴影轮廓基础上的本游戏演绎”候选，非官方完整复原",
+      "facts": "官方主图实际是黑白阴影半身：向外张扬的尖束长发轮廓、咧嘴露齿表情、宽翻领/肩部外衣轮廓。",
+      "unknown": "本次官方人物页不提供可核实的完整脸部、疤痕、全身、衣服颜色、发色或武器图。不能由黑白阴影断言黑发。其他作品是否已公开更多设定本轮未做穷尽核查。",
+      "weapon": "七角数据使用剑是本游戏演绎。若主代理继续候选，采用一把普通弧护手海盗剑；不命名为官方武器。",
+      "prompt": "docs\\assets\\rocks-mother-prompt1003.txt",
+      "promptSha256": "997d0ea577aff49ee2b55b482e7be8ac3dd2e5a893698accf4041700141519ba",
+      "source": {
+        "id": "rocks",
+        "profile": "https://one-piece.com/character/Rocks_D_Xebec/index.html",
+        "image": "https://one-piece.com/img/character/Rocks_D_Xebec_main.jpg",
+        "source": "C:\\Users\\august\\AppData\\Local\\Temp\\rocks-official-reference1003.jpg",
+        "destination": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\reference\\legend-1003\\rocks-official-reference1003.jpg",
+        "sha256": "dcf2e7fd5461cc5874c6747713f19c7c33db18b51d07393ea07ef9ea540fc8b0",
+        "size": [
+          1200,
+          998
+        ],
+        "format": "JPEG",
+        "status": 200
+      }
+    },
+    "shiki": {
+      "name": "金狮子",
+      "selection": "官方主图老年剑腿形态，后续动作须匹配剑腿",
+      "facts": "金色狮鬃般极长头发及下巴金胡；头顶嵌入的舵轮部分；橙黄竖条纹长外衣/袍、深色内襟、绿色腰布、红裤；膝下两把长剑作为腿部支撑，双手没有持剑。",
+      "unknown": "本轮未用年轻完整双腿造型资料。剑名未核；不可凭动画需求自行恢复双脚或新增两把手持剑。",
+      "weapon": "总共两把剑，固定在双腿末端；两条剑身和剑尖完整可见。手臂用于姿态平衡/施力，不复制出人类双脚。",
+      "prompt": "docs\\assets\\shiki-mother-prompt1003.txt",
+      "promptSha256": "f4042ba547cde0220e91ee0dd632972972abfd71c7c1faaa4893de12e78ec3df",
+      "source": {
+        "id": "shiki",
+        "profile": "https://one-piece.com/character/Shiki/index.html",
+        "image": "https://one-piece.com/o/assets/images/anime/character/data/Shiki/img.jpg",
+        "source": "C:\\Users\\august\\AppData\\Local\\Temp\\shiki-official-reference1003.jpg",
+        "destination": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\reference\\legend-1003\\shiki-official-reference1003.jpg",
+        "sha256": "034b39fe6e670fa2c48c1f5d89a83bcaea7cb0d8bdc2f26c2926a4f42d3e6707",
+        "size": [
+          1200,
+          998
+        ],
+        "format": "WEBP",
+        "status": 200
+      }
+    },
+    "rayleigh": {
+      "name": "雷利",
+      "selection": "老年银白发、眼镜与披风造型",
+      "facts": "向后梳的银白长发、白胡须、圆框眼镜；角色右眼一侧的纵向疤痕在官方主图可见；浅灰白兜帽披风、深绿内衬、黄色扣衫、暗红七分裤、凉鞋；四肢完整。",
+      "unknown": "主图没有拔剑，剑刃/护手的精确花纹与武器名称未核；不用商品或AI图片臆造名刀证据。",
+      "weapon": "本游戏采用一把朴素单手剑作为剑术道具，金属刃与简洁护手属于当前制作选型；保留单剑，不加第二把。",
+      "prompt": "docs\\assets\\rayleigh-mother-prompt1003.txt",
+      "promptSha256": "782e0d899868f030d911ada30b906c5afab10733563457c9e0f03e66bca53336",
+      "source": {
+        "id": "rayleigh",
+        "profile": "https://one-piece.com/character/Silvers_Rayleigh/index.html",
+        "image": "https://one-piece.com/o/assets/images/anime/character/data/Silvers_Rayleigh/img.jpg",
+        "source": "C:\\Users\\august\\AppData\\Local\\Temp\\rayleigh-official-reference1003.jpg",
+        "destination": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\reference\\legend-1003\\rayleigh-official-reference1003.jpg",
+        "sha256": "8c59d2fc47ac3792c9e15249fa5d3f55958f5b28bd753610589385b470f731b2",
+        "size": [
+          1200,
+          998
+        ],
+        "format": "WEBP",
+        "status": 200
+      }
+    },
+    "gaban": {
+      "name": "贾巴",
+      "selection": "官方人物主图青年期，与老人形态不混合",
+      "facts": "官网文字明确双手各持斧战斗、背后展开的长发与太阳镜；彩图显示黑色长发束向后成大束、蓝灰小圆镜片、紫短袖V领衫、奶油色长腰布、橙色七分裤、深色平底鞋；四肢完整。",
+      "unknown": "主图未展示斧头，斧柄长度/刃型/纹样没有本次图证；不能把青年彩图写成当前老年艾尔巴夫造型。",
+      "weapon": "两手各一把斧，总数严格两把。短柄单刃金属斧的具体样式先按本游戏朴素设计，不声明官方一比一。",
+      "prompt": "docs\\assets\\gaban-mother-prompt1003.txt",
+      "promptSha256": "cd7e99ffd503eddd9473b26cd7e536a3ed188adf19cf6409f0e121de1e724fcb",
+      "source": {
+        "id": "gaban",
+        "profile": "https://one-piece.com/character/Scopper_Gaban/index.html",
+        "image": "https://one-piece.com/img/character/Scopper_Gaban_main.jpg",
+        "source": "C:\\Users\\august\\AppData\\Local\\Temp\\gaban-official-reference1003.jpg",
+        "destination": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\reference\\legend-1003\\gaban-official-reference1003.jpg",
+        "sha256": "ba5269de6f19079e51ff1ba0545339a8fe3cef3a796fda353ea5bf90c3d562f7",
+        "size": [
+          1200,
+          998
+        ],
+        "format": "JPEG",
+        "status": 200
+      }
+    },
+    "beckman": {
+      "name": "贝克曼",
+      "selection": "官方人物主图成熟灰发造型",
+      "facts": "向后梳灰发、胡茬；角色左太阳穴至眼侧疤痕；深色V领短袖衫、黄腰布、浅橄榄工装裤、深色长靴、蓝紫大卷纹长披风；腰间可见一把长枪枪托/枪身部分；双手双脚完整。",
+      "unknown": "主图枪管未完整露出，枪口/准星细节未核；香烟是静态造型元素，不当作独立技能或额外手指。",
+      "weapon": "仅一把长枪，整支枪按传统木枪托和金属枪管设计；待机可端持或单手持枪，另一手完整。不加瞄准镜、弹匣阵列、双枪或自动追踪瞄准。",
+      "prompt": "docs\\assets\\beckman-mother-prompt1003.txt",
+      "promptSha256": "bfff5e00d476eb020e8e9cd153fae68baa0a72c17bcfc16c40420a8716f832fa",
+      "source": {
+        "id": "beckman",
+        "profile": "https://one-piece.com/character/Ben_Beckman/index.html",
+        "image": "https://one-piece.com/o/assets/images/anime/character/data/Ben_Beckman/img.jpg",
+        "source": "C:\\Users\\august\\AppData\\Local\\Temp\\beckman-official-reference1003.jpg",
+        "destination": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\reference\\legend-1003\\beckman-official-reference1003.jpg",
+        "sha256": "3866ecb1ff48358745c6276a4a7e50b20e82352b4ca71c10434d761d3f4fe5ef",
+        "size": [
+          1200,
+          998
+        ],
+        "format": "WEBP",
+        "status": 200
+      }
+    }
+  }
+}

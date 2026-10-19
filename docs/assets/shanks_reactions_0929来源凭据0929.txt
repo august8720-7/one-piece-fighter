@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "shanks_reactions_0929",
+  "file": "public/assets/generated/source/roster-shanks-reactions-0929.png",
+  "sha256": "e05c579c6fb6c41fd40c40e46c47913de34d83cd1044a5653972d88cff41acaf",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方网页仅显示ChatGPT，具体图像模型未公开，仍记unverified。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Microsoft Edge",
+  "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+  "observedCompletedAt": "2026-09-29T23:32:42+08:00",
+  "uiObservation": "续用同一Microsoft Edge海贼会话；发送前本次重新打开选择ChatGPT模型菜单，DOM明确最新radio已选中、极高第4项。完整第二基础反应提示词经textbox.fill后单次发送，实际完成一张九格香克斯防御/反应图；官方查看器显示生成的图像3。23:32:42为完成结果再次观察时刻，不是服务器生成时间。下载按钮只点一次，浏览器暂存后缀仍未结束；文件具有完整PNG签名、IEND，Pillow完整解码为1254x1254 RGBA，保留临时原文件，先清单后按相同SHA256复制。未声称浏览器下载UI完成。",
+  "prompt": {
+    "file": "docs/assets/shanks-reactions-prompt0929.txt",
+    "sha256": "adcb3ee76f02c1e771cb4d2d40de73b1b764add9acdbd2946d2107af1f63cd2b"
+  },
+  "referenceSources": {
+    "pirate_mother_0929": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b",
+    "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-09-29T15:34:52.968309+00:00",
+  "referenceFiles": {
+    "pirate_mother_0929": {
+      "file": "public/assets/generated/source/roster-pirate-mother-0929.png",
+      "sha256": "32286902ec533357ab55a290a7aa890b39be1dc8907ed0d80cfbedb7490da78b"
+    },
+    "shanks_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-shanks-locomotion-0929.png",
+      "sha256": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

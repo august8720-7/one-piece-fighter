@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "kind": "held-source-art-review-not-gameplay-acceptance",
+  "runtimeAdopted": "three-reviewed-reactions-only",
+  "sources": [
+    {
+      "key": "shanks_held_reactions_1003",
+      "sha256": "674a222618235be5664a0e593a2e723b377dc053ad161979cca5dac371af6b78",
+      "status": "preserved-unmapped",
+      "issues": [
+        "Twinkle extended far shoe is lower than proposed fixed virtual root while the held shoe is too high.",
+        "All poses retain sole right arm and complete saber; horizontal ankle distance differs from requested neutral-root relation. Actual attacker pairing unverified."
+      ]
+    },
+    {
+      "key": "shanks_held_joint_repair_1003",
+      "sha256": "b9f33721ef228bc81ae0da52a4bb2c0cab7cee67cbbcfac7768f47ab7fb82d83",
+      "status": "partial-adopted-legflip-labubu-only",
+      "guideSha256": "4fe6dff45065d0181c90c8cfa953f6ec50700c93192fea4293b8d22911bf251a",
+      "issues": [
+        "Output largely repeats the high-front-knee arrangement rather than supplied fixed joint geometry.",
+        "Twinkle lower far shoe still risks ground penetration when held-shoe height is aligned. Its pose is not mapped."
+      ],
+      "reviewRevision": "Held root is a virtual floor axis. As in existing characters, uniform neutral scale plus measured true ankle and fixed throw contract determine one static author registration; tile-idle coordinates are not mechanically copied across independent poses. Both ankle poses pass static forward/mirror whole-body/face/floor pairing; true game review still pending."
+    }
+  ],
+  "thirdPoseReview": {
+    "sourceKey": "shanks_held_twinkle_focus_1003",
+    "sourceSha256": "8cd86d6e2cd91c1dfee955dda6b8ba85cea60949a47430cbd92c1f63f2bf2bdd",
+    "prompt": "docs/assets/shanks-held-twinkle-focus-prompt1003.txt",
+    "guideSha256": "5d5f3b75b52b39338d7c91a44f76303c251285d05385d8f313266ef8f6a46e16",
+    "status": "rejected-static-pair-eye-occlusion-not-mapped",
+    "observations": [
+      "Near thigh horizontal; near shoe below hip; far shoe higher; no second arm; complete saber.",
+      "Natural1536x1024 and actualGUID PNG match; native downloadMedia receipt timed out after5s, original complete file preserved.",
+      "Canonical static shoe-sole registration gives correct contact and30.389world floor clearance, but actual paired front knee and vertical shin hide Twinkle right eye. Rejected without modifying core, dynamic root or pixels."
+    ]
+  },
+  "fourthPoseReview": {
+    "sourceKey": "shanks_held_twinkle_face_clear_1003",
+    "sha256": "ea2fed126f1428309117d4033cb0f2c2143fbe6fe03ae50c28712b95307b8440",
+    "prompt": "docs/assets/shanks-held-twinkle-face-clear-prompt1003.txt",
+    "guideSha256": "b1050a01004ac7f5d2ca6c1ae791e7d2a9e967aa3c8a41fd9a38433d5c956d5e",
+    "status": "leg-occlusion-fixed-cape-occlusion-rejected-not-mapped",
+    "observations": ["Front knee lower and nearer hip; shin nearly horizontal; proper true sole and whole visible source15.853world above floor.", "Knee/shin no longer hides eyes, but actual source-pixel before/after comparison confirms forward cape corner still covers lower part of Twinkle right eye. Reject without erasing cape or moving root."]
+  },
+  "nextAttempt": {
+    "prompt": "docs/assets/shanks-held-twinkle-cape-repair-prompt1003.txt",
+    "guideSha256": "39bf9c14fd01594e877c0d294859d1d22f3156b36d19dff37b02919c7b5c2955",
+    "scope": "Only cape direction: fold forward cape tip toward own back; preserve accepted low-knee anatomy",
+    "status": "retrieved-static-passed-and-adopted"
+  },
+  "finalTwinkleAdoption": {"sourceKey": "shanks_held_twinkle_cape_repair_1003", "sha256": "150e2031d86be7dbbf1d0b75f0de2078f91a55167252d15d1f562c7ed5e6c0e6", "measurement": "docs/assets/shanks-held-twinkle-cape-repair-measurements1003.json", "sourceFoot": [1460, 666], "worldGrip": [22.75, -34.25], "worldBounds": [-71.5, -88.5, 30.125, -15.5], "uniformWorldScale": "94/752=0.125", "staticForwardMirrorReview": "Actual shoe plantar contact, complete one-arm body and saber, both eyes and mouth visible; lowest whole-source visible pixel15.5world above floor.", "eyePixelDiagnostic": "Exact RGB-zero assertion failed41 pixels per direction, maximum2/255 difference; actual source pose alpha max2 in eye ROI, zero alpha>=8 body pixels. Recorded, never called byte-identical; no visible eye obstruction in normal paired image. No source pixels erased or scale/root moved to pass.", "gameplayAcceptance": "pending-parent-integration"},
+  "counts": {
+    "uniqueCrops": 122,
+    "animationItems": 54,
+    "existingHeldMapped": 3
+  },
+  "note": "Counts reflect only actual authoring/runtime mappings. Preserved source sheets and abstract vector guides do not increase coverage."
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "characterId": "kizaru",
+  "date": "2026-10-13",
+  "reviewType": "character-owner-assessment-of-exact-root-native-audio-evidence",
+  "nativeModelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+  "nativeEvidenceRoot": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/native-qa/20261013T045504347029Z",
+  "expectedTextProvidedToNativeModel": false,
+  "humanListened": false,
+  "gameAdopted": false,
+  "samples": [
+    {
+      "event": "select",
+      "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/kizaru/kizaru-voice-select-qwen1013-20261013T113454.wav",
+      "sha256": "cab4ba40ac8ffbaa8ab0ad90236b1d4cc690b643e39c3aef9f76df2824425e46",
+      "nativeEvidence": "result-06.json",
+      "observedTranscript": "おやもう始めるのかい",
+      "contentAssessment": "matches-original-japanese-input-ignoring-punctuation",
+      "nativeQualityAssessment": "No truncation, repetition, tail, music, noise, obvious distortion or pronunciation issue reported.",
+      "status": "eligible-for-runtime-mix-candidate-not-yet-adopted"
+    },
+    {
+      "event": "effort",
+      "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/kizaru/kizaru-voice-effort-qwen1013-20261013T113454.wav",
+      "sha256": "cff1eb7dbea782aca3cfa4b5ebd468ccf27adcdcafae5925912320b5780d5fa1",
+      "nativeEvidence": "result-07.json",
+      "observedTranscript": "huh?",
+      "assessment": "A nonverbal short exertion cannot reliably be assigned a language from this model label. Do not label it proven English, or claim requested Japanese shout passed.",
+      "status": "ambiguous-retain-not-adopted",
+      "repair": "Generate one clear Japanese word phrase そこだ。 with the same preset; new bytes require independent native review."
+    },
+    {
+      "event": "hurt",
+      "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/character-closure1013/kizaru/kizaru-voice-hurt-qwen1013-20261013T113454.wav",
+      "sha256": "4f38bfb53a03e48da06fa51a3bd87ea6edb06692c51dd557359119fd532b57bb",
+      "nativeEvidence": "result-08.json",
+      "assessment": "Native response degenerated into repeated 'uh' and did not finish the quality questions. This alone does not prove the audio contains that many repetitions. Original 3.12-second short-grunt candidate has unresolved practical quality and duration concerns.",
+      "status": "rejected-for-runtime-adoption-retain-original",
+      "repair": "Generate one clear Japanese 痛っ！ with the same preset; new bytes require independent native review."
+    }
+  ],
+  "next": "Only the two precise repairs are authorized for this round; no full seven-event batch until reviewed."
+}

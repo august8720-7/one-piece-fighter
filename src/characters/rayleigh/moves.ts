@@ -1,0 +1,31 @@
+import { Btn, K, P, attack, balance, normal, throwMove, utility, type MoveData } from '@core/index';
+
+/** 本游戏1003数据与招名演绎候选；原画和实际接触均待制作核验。 */
+export const rayleighMoves: readonly MoveData[] = [
+  attack({"id": "sp_precise_thrust", "name": "精准直刺", "stance": "stand", "button": P, "motion": "236", "recovery": 21, "damage": 72, "stepX": 0.9, "activeStepX": 2.1, "segments": [{"startup": 8, "active": 3, "hitbox": [12, -87, 74, 61]}]}),
+  attack({"id": "sp_double_edge", "name": "双段截斩", "stance": "stand", "button": P, "motion": "214", "recovery": 25, "damage": 41, "hitstun": 29, "knockback": {"x": 1}, "activeStepX": 1.2, "segments": [{"startup": 9, "active": 3, "hitbox": [12, -87, 60, 61]}, {"startup": 5, "active": 5, "hitbox": [12, -92, 67, 66]}]}),
+  attack({"id": "sp_upward_edge", "name": "升锋", "stance": "stand", "button": P, "motion": "623", "recovery": 28, "damage": 90, "knockback": {"x": 4, "y": -9}, "segments": [{"startup": 8, "active": 5, "hitbox": [9, -146, 51, 122]}]}),
+  attack({"id": "sp_timed_riposte", "name": "迎击反斩", "stance": "stand", "button": P, "motion": "22", "recovery": 30, "damage": 102, "invuln": 4, "armorBreak": true, "segments": [{"startup": 13, "active": 4, "hitbox": [12, -87, 76, 61]}]}),
+  attack({"id": "sp_blade_parry", "name": "剑面弹返", "stance": "stand", "button": K, "motion": "214", "recovery": 23, "damage": 0, "reflect": true, "segments": [{"startup": 3, "active": 18, "hitbox": [8, -116, 45, 109]}]}),
+  utility({"id": "sp_quiet_step", "name": "静步避锋", "stance": "stand", "button": K, "motion": "22", "recovery": 17, "damage": 0, "startup": 15, "meterCost": balance.DODGE_COST, "invuln": 15, "dodge": true}),
+  attack({"id": "sp_master_sequence", "name": "老练三连锋", "stance": "stand", "button": P, "motion": "236236", "recovery": 31, "damage": 67, "type": "super", "meterCost": balance.SUPER_COST, "hitstun": 38, "knockback": {"x": 1}, "activeStepX": 1.2, "segments": [{"startup": 11, "active": 3, "hitbox": [12, -87, 64, 61]}, {"startup": 5, "active": 3, "hitbox": [12, -92, 71, 66]}, {"startup": 6, "active": 5, "hitbox": [12, -97, 78, 71]}]}),
+  utility({"id": "sp_silver_wave", "name": "银色斩波", "stance": "stand", "button": P, "motion": "214214", "recovery": 32, "damage": 191, "type": "super", "meterCost": balance.SUPER_COST, "startup": 23, "projectiles": [{"frame": 17, "kind": "rayleigh_sp_silver_wave", "x": 32, "y": -55, "vx": 5.7, "vy": 0, "ttl": 100, "box": [-13, -25, 26, 48], "durability": 1}]}),
+  attack({"id": "ult_dark_king_edge", "name": "冥王终锋·本作演绎", "stance": "stand", "button": K, "motion": "236236", "recovery": 45, "damage": 310, "type": "ultimate", "meterCost": balance.ULTIMATE_COST, "invuln": 8, "armorBreak": true, "knockdown": true, "knockback": {"x": 13, "y": -7}, "segments": [{"startup": 21, "active": 6, "hitbox": [11, -126, 125, 117]}]}),
+  normal({"id": "cd", "name": "剑吹飞", "stance": "stand", "button": Btn.C, "plus": Btn.D, "startup": 16, "active": 5, "recovery": 29, "hitbox": [12, -88, 76, 70], "damage": 95, "knockback": {"x": 12, "y": -6}, "wallBounce": true}),
+  normal({"id": "j_cd", "name": "空中剑吹飞", "stance": "air", "button": Btn.C, "plus": Btn.D, "startup": 10, "active": 6, "recovery": 17, "hitbox": [11, -81, 72, 63], "damage": 87, "knockback": {"x": 9, "y": -5}}),
+  throwMove({"id": "throw_fwd", "name": "剑牵制前摔", "direction": 6, "button": Btn.C, "damage": 112, "total": 44, "throwData": {"range": 48, "techWindow": 8, "releaseFrame": 21, "holdOffset": 37}}),
+  throwMove({"id": "throw_back", "name": "剑牵制后摔", "direction": 4, "button": Btn.C, "damage": 112, "total": 44, "throwData": {"range": 48, "techWindow": 8, "releaseFrame": 21, "holdOffset": 37}}),
+  normal({"id": "f_c", "name": "踏步剑下击", "stance": "stand", "button": Btn.C, "direction": 6, "startup": 17, "active": 4, "recovery": 26, "hitbox": [12, -101, 62, 92], "damage": 80, "guard": "high", "stepX": 0.8}),
+  normal({"id": "st_a", "name": "轻剑突", "stance": "stand", "button": Btn.A, "startup": 5, "active": 3, "recovery": 10, "hitbox": [12, -61, 57, 30], "damage": 31, "chain": ["st_c", "cr_d", "f_c"]}),
+  normal({"id": "st_b", "name": "前踢", "stance": "stand", "button": Btn.B, "startup": 5, "active": 3, "recovery": 10, "hitbox": [12, -61, 37, 30], "damage": 31}),
+  normal({"id": "st_c", "name": "重剑横击", "stance": "stand", "button": Btn.C, "startup": 10, "active": 5, "recovery": 23, "hitbox": [11, -87, 69, 58], "damage": 73}),
+  normal({"id": "st_d", "name": "侧踢", "stance": "stand", "button": Btn.D, "startup": 10, "active": 5, "recovery": 23, "hitbox": [12, -51, 49, 37], "damage": 73}),
+  normal({"id": "cr_a", "name": "蹲轻剑", "stance": "crouch", "button": Btn.A, "startup": 5, "active": 3, "recovery": 10, "hitbox": [12, -37, 57, 30], "damage": 31, "chain": ["st_c", "cr_d", "f_c"]}),
+  normal({"id": "cr_b", "name": "低踢", "stance": "crouch", "button": Btn.B, "startup": 5, "active": 3, "recovery": 10, "hitbox": [11, -22, 37, 21], "damage": 31, "guard": "low"}),
+  normal({"id": "cr_c", "name": "蹲扬剑", "stance": "crouch", "button": Btn.C, "startup": 10, "active": 5, "recovery": 23, "hitbox": [10, -117, 50, 95], "damage": 73, "knockback": {"x": 3, "y": -7}}),
+  normal({"id": "cr_d", "name": "低身扫踢", "stance": "crouch", "button": Btn.D, "startup": 10, "active": 5, "recovery": 23, "hitbox": [11, -22, 63, 21], "damage": 73, "guard": "low", "knockdown": true}),
+  normal({"id": "j_a", "name": "空轻剑", "stance": "air", "button": Btn.A, "startup": 6, "active": 6, "recovery": 10, "hitbox": [12, -58, 57, 30], "damage": 31}),
+  normal({"id": "j_b", "name": "空踢", "stance": "air", "button": Btn.B, "startup": 6, "active": 6, "recovery": 10, "hitbox": [12, -58, 37, 30], "damage": 31}),
+  normal({"id": "j_c", "name": "空重剑", "stance": "air", "button": Btn.C, "startup": 11, "active": 6, "recovery": 23, "hitbox": [11, -87, 69, 58], "damage": 73}),
+  normal({"id": "j_d", "name": "空重踢", "stance": "air", "button": Btn.D, "startup": 11, "active": 6, "recovery": 23, "hitbox": [12, -51, 49, 37], "damage": 73}),
+];

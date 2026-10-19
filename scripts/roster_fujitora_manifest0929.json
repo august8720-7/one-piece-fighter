@@ -1,0 +1,566 @@
+{
+  "schemaVersion": 1,
+  "status": "partial-candidate-reaction-crops-reviewed1002-walk-and-gameplay-pending",
+  "notes": [
+    "Real source alpha retained; no background key or local body transform.",
+    "Locomotion neutral alpha>=16 bbox[33,22,385,413], height391; character-wide scale196/391 gives world98 under existing renderer convention.",
+    "Attack is a fully sheathed cane thrust as requested. The cane tip extends beyond the nominal grid; explicit wider crop preserves it and excludes only adjacent pose fragments below the tip.",
+    "Weapon tip approximately source[525,908] and foot root[225,1224], so draft st_a collision requires physical contact calibration before gameplay use.",
+    "Four walk drawings are retained as unused review crops until normal-speed examination of the feet and cane, not assumed correct because four poses exist.",
+    "Reaction source fujitora_reaction_0929 is preserved and registered; reaction roots and cropping remain pending.",
+    "2026-10-02: Added eight genuine reaction-sheet drawings after white-background RGBA visual inspection. One source-wide unitScale aligns standing alpha>=16 heights: 0.9750623441396509. No per-pose transform, generated pixels or repeated pose used to claim motion. Sole/air-foot/body-ground roots authored visibly; normal-speed gameplay and contact remain pending.",
+    "2026-10-03: Explicit excludeRects remove only visually verified detached neighboring-cell pixels: {'hit_crouch': [[421, 118, 9, 41]], 'jump_neutral': [[0, 352, 14, 35]]}. No character pixels redrawn. Fujitora crouch root centers visible supporting soles."
+  ],
+  "characters": {
+    "fujitora": {
+      "scale": 0.5012787723785166,
+      "textureDensity": 2,
+      "maxTextureSize": 4096,
+      "sources": {
+        "fujitora_locomotion_0929": {
+          "file": "public/assets/generated/source/roster-fujitora-locomotion-0929.png",
+          "sha256": "a38f130276e431ca96988080c490d81675e3256c5632e0b305f73ed430f3c2ad",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方图像工作流未公开图像型号，不从文字选项推断图像模型。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6abbdda3-ba58-83ee-8d68-a51bc4c4d77e",
+          "observedCompletedAt": "2026-09-29T23:58:42.0104027+08:00",
+          "uiObservation": "通过官方更多操作的新聊天分支保留本游戏真实海军母版附件与上游黄猿风格图；新分支发送前实际菜单最新选中、极高第四项，完整藤虎提示词一次发送。完成后页面从临时local-chatgpt自动落稳到此UUID会话；查看器显示第二张为正确藤虎九格，natural尺寸1254x1254。本时间为保全后再检查已完成原图的本机时刻，不是服务器首生成时间。两份Edge未终结crdownload均有完整PNG签名/IEND且Pillow.verify+load通过，尺寸相符且hash相同；复制前后清单保留，不冒称下载UI完成或素材验收完成。",
+          "prompt": {
+            "file": "docs/assets/fujitora-locomotion-prompt0929.txt",
+            "sha256": "f686575c7e3eac9a4efb9ed5ead1f0143d5bae759cd759fa1caf55176cb3121c"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+            "kizaru_locomotion_0929": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+          },
+          "unitScale": 1,
+          "recordedAt": "2026-09-29T15:58:42.280352+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/fujitora_locomotion_0929来源凭据0929.txt",
+            "sha256": "444e1dad46cd67b12b3d0f64c0f5b64afc57d29a40c3cad3fdd60028134c95e3"
+          }
+        },
+        "fujitora_reaction_0929": {
+          "file": "public/assets/generated/source/roster-fujitora-reaction-0929.png",
+          "sha256": "6971fa5685477c4980ca22c66db39c1c9fa12e14a88659fc2cb55cde0d07d7a8",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "本次官方图像页未标示具体图像型号，按实际来源记unverified。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6abbdda3-ba58-83ee-8d68-a51bc4c4d77e",
+          "observedCompletedAt": "2026-09-30T00:05:13.4727321+08:00",
+          "uiObservation": "本子任务在已稳定藤虎分支使用当前最新+极高设置，完整反应提示词通过textbox.fill单次发送。页面回答已完成，查看器第三张显示藤虎待机/蹲防/受击/跳/倒地起身九格，natural尺寸1254x1254。本时间是下载保全后再次查看已完成原图的本机观察时刻，不是服务器生成时间。两份Edge crdownload签名/IEND、Pillow.verify和load全部通过，尺寸与页面一致、hash相同；先清单后复制原文件，不声称浏览器已结束下载或动态样板通过。",
+          "prompt": {
+            "file": "docs/assets/fujitora-reaction-prompt0929.txt",
+            "sha256": "dbafe6584b690d6fd66d798b086f5abfe93a3138b2c71cba22b7d2ffe5225db8"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+            "fujitora_locomotion_0929": "a38f130276e431ca96988080c490d81675e3256c5632e0b305f73ed430f3c2ad"
+          },
+          "unitScale": 0.9750623441396509,
+          "recordedAt": "2026-09-29T16:05:13.761209+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/fujitora_reaction_0929来源凭据0929.txt",
+            "sha256": "5788476bd09f5502ed4b3c74487ffad9bb17c2d87fa5d1a3218e46307a00cfa1"
+          },
+          "scaleBasis": "Fixed standing reference alpha>=16: locomotion idle crop [17,10,383,412] bbox [16,12,368,403], height 391; reaction top-left reference [0,0,420,465] bbox [20,19,383,420], height 401. Entire reaction source uses 391/401."
+        }
+      },
+      "frames": {
+        "idle": {
+          "source": "fujitora_locomotion_0929",
+          "crop": [
+            17,
+            10,
+            383,
+            412
+          ],
+          "root": [
+            215,
+            401
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_a_start": {
+          "source": "fujitora_locomotion_0929",
+          "crop": [
+            850,
+            426,
+            390,
+            401
+          ],
+          "root": [
+            220,
+            391
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_a_active": {
+          "source": "fujitora_locomotion_0929",
+          "crop": [
+            8,
+            838,
+            535,
+            402
+          ],
+          "root": [
+            217,
+            386
+          ],
+          "sockets": {
+            "weapon_grip": [
+              359,
+              86
+            ],
+            "weapon_tip": [
+              517,
+              70
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              420,
+              115,
+              115,
+              287
+            ]
+          ]
+        },
+        "st_a_recover": {
+          "source": "fujitora_locomotion_0929",
+          "crop": [
+            441,
+            838,
+            392,
+            402
+          ],
+          "root": [
+            220,
+            384
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              45,
+              92,
+              58
+            ]
+          ]
+        },
+        "hit_stand": {
+          "source": "fujitora_locomotion_0929",
+          "crop": [
+            843,
+            848,
+            409,
+            394
+          ],
+          "root": [
+            257,
+            381
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "crouch": {
+          "source": "fujitora_reaction_0929",
+          "crop": [
+            430,
+            120,
+            410,
+            305
+          ],
+          "root": [
+            198,
+            299
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "block_stand": {
+          "source": "fujitora_reaction_0929",
+          "crop": [
+            862,
+            3,
+            385,
+            425
+          ],
+          "root": [
+            214,
+            414
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "block_crouch": {
+          "source": "fujitora_reaction_0929",
+          "crop": [
+            8,
+            510,
+            414,
+            320
+          ],
+          "root": [
+            245,
+            307
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "hit_crouch": {
+          "source": "fujitora_reaction_0929",
+          "crop": [
+            422,
+            505,
+            430,
+            325
+          ],
+          "root": [
+            262,
+            311
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              421,
+              118,
+              9,
+              41
+            ]
+          ]
+        },
+        "jump_neutral": {
+          "source": "fujitora_reaction_0929",
+          "crop": [
+            840,
+            430,
+            407,
+            400
+          ],
+          "root": [
+            220,
+            371
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              0,
+              352,
+              14,
+              35
+            ]
+          ]
+        },
+        "hit_air": {
+          "source": "fujitora_reaction_0929",
+          "crop": [
+            3,
+            866,
+            422,
+            347
+          ],
+          "root": [
+            317,
+            294
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "knockdown": {
+          "source": "fujitora_reaction_0929",
+          "crop": [
+            429,
+            998,
+            455,
+            231
+          ],
+          "root": [
+            222,
+            218
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "getup": {
+          "source": "fujitora_reaction_0929",
+          "crop": [
+            882,
+            879,
+            363,
+            338
+          ],
+          "root": [
+            290,
+            311
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        }
+      },
+      "anims": {
+        "idle": {
+          "frames": [
+            "idle"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "st_a": {
+          "frames": [
+            "st_a_start",
+            "st_a_active",
+            "st_a_recover"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 6
+            },
+            {
+              "frame": 1,
+              "ticks": 3
+            },
+            {
+              "frame": 2,
+              "ticks": 11
+            }
+          ]
+        },
+        "hit_stand": {
+          "frames": [
+            "hit_stand"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "crouch": {
+          "frames": [
+            "crouch"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "block_stand": {
+          "frames": [
+            "block_stand"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "block_crouch": {
+          "frames": [
+            "block_crouch"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "hit_crouch": {
+          "frames": [
+            "hit_crouch"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "jump_neutral": {
+          "frames": [
+            "jump_neutral"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "hit_air": {
+          "frames": [
+            "hit_air"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "knockdown": {
+          "frames": [
+            "knockdown"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "getup": {
+          "frames": [
+            "getup"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        }
+      }
+    }
+  },
+  "unusedReviewCrops": {
+    "walk_0": {
+      "source": "fujitora_locomotion_0929",
+      "crop": [
+        420,
+        10,
+        395,
+        412
+      ],
+      "root": [
+        233,
+        403
+      ],
+      "sockets": {},
+      "transparency": {
+        "mode": "source-alpha"
+      }
+    },
+    "walk_1": {
+      "source": "fujitora_locomotion_0929",
+      "crop": [
+        846,
+        10,
+        399,
+        412
+      ],
+      "root": [
+        230,
+        402
+      ],
+      "sockets": {},
+      "transparency": {
+        "mode": "source-alpha"
+      }
+    },
+    "walk_2": {
+      "source": "fujitora_locomotion_0929",
+      "crop": [
+        18,
+        426,
+        382,
+        401
+      ],
+      "root": [
+        228,
+        389
+      ],
+      "sockets": {},
+      "transparency": {
+        "mode": "source-alpha"
+      }
+    },
+    "walk_3": {
+      "source": "fujitora_locomotion_0929",
+      "crop": [
+        421,
+        426,
+        395,
+        401
+      ],
+      "root": [
+        235,
+        390
+      ],
+      "sockets": {},
+      "transparency": {
+        "mode": "source-alpha"
+      }
+    }
+  }
+}

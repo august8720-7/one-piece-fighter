@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_contact_fix1017",
+  "file": "public/assets/generated/source/luffy-gear5-contact-fix1017.png",
+  "sha256": "ec6839b2fdf01372e30a49d23692508a96179632b4468e053b78fb46a74384ea",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官网图像界面没有公开具体图像型号；GPT-6为会话此前实际文字标签，不能确定后台图像型号。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad2efa5-3138-83e8-8d2e-f5cf53fa3a56",
+  "observedCompletedAt": "2026-10-17T05:19:15.797Z",
+  "uiObservation": "根代理实际下载并view_image后提供：反应会话沿最初五档母版，无新附件；2×2为neutral、重脚有效、头槌有效、蹲重拳上挑有效修正候选。沿此前实际GPT-6/极高设定，完成截图只证明本次页面结果，不冒称有新菜单。观察时间为下载后完成复核，不是服务器生成时间。根观察重脚明显降低、头槌真实伸颈、蹲拳向上伸长，但蹲拳x可能过右，仍须renderer按真实尺度/root/关节落点和原逻辑框精测。来源完整不代表采用；不改变旧判定/伤害/时序，不覆旧稿，C原下载和D原件都保留。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-contact-fix-prompt1017.txt",
+    "sha256": "10fad2de43ae346f61e9fbf5f2e84f9cfb519fb091d8a86f5c0a66906680a703"
+  },
+  "referenceSources": {
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T05:20:56.714678+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/contact-fix-web1017.png",
+    "sha256": "97a94e780dec8e0183c0c0cf80853db05a009d757906bd4aee12e72c9978ac0c"
+  },
+  "referenceFiles": {
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

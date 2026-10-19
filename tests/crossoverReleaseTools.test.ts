@@ -29,7 +29,7 @@ async function verifiedSnapshot(root: string, files: Record<string, string>): Pr
   await writeFile(`${root}-verified.json`, JSON.stringify({ verified: true, destination: root, files: inventory }));
 }
 
-async function packageFixture() {
+async function packageFixture(delivered = true) {
   const root = await mkdtemp(resolve(tmpdir(), 'opf-crossover-package-'));
   await mkdir(resolve(root, 'scripts'));
   await copyFile(resolve('scripts/packagePages.mjs'), resolve(root, 'scripts/packagePages.mjs'));
@@ -37,7 +37,7 @@ async function packageFixture() {
   const output = resolve(root, 'output');
   await write(source, 'index.html', '<html>\n    <script type="module" src="./assets/app.js"></script>\n</html>');
   await write(source, 'assets/app.js', 'console.log("candidate")');
-  await write(source, 'delivery-build.json', JSON.stringify({ version: 'delivery-test' }));
+  if (delivered) await write(source, 'delivery-build.json', JSON.stringify({ version: 'delivery-test' }));
   await write(source, 'assets/audio/music/CREDITS.txt', 'credits');
   for (const id of ['luffy', 'akainu']) for (const name of ['atlas.png', 'atlas.json', 'placeholder.png', 'placeholder.json']) {
     await write(source, `assets/characters/${id}/${name}`, `${id}:${name}`);
@@ -55,11 +55,45 @@ async function packageFixture() {
     await write(source, file, data);
     records[url] = { file, bytes: Buffer.byteLength(data), sha256: hash(data), contentType: 'application/octet-stream', source: url, sourceSha256: hash(`source:${url}`) };
   }
-  await write(root, 'src/render/anime/uiArtManifest.json', JSON.stringify({ characters: { hero: { image: 'assets/characters/hero/anime/ui.png' } } }));
+  await write(root, 'src/render/anime/uiArtManifest.json', JSON.stringify({ characters: { hero: { image: 'assets/characters/hero/anime/ui.png', pcRosterAccepted: true } } }));
   await write(root, 'src/render/deliveryManifest.json', JSON.stringify({ version: 'delivery-test', records }));
   await write(root, 'src/audio/sampleManifest.json', JSON.stringify({ cues: {} }));
+  await write(root, 'src/audio/semanticDialogue1017.json', JSON.stringify({ schemaVersion: 1, cues: {}, lines: [], fileChecks: {} }));
   await write(root, 'src/audio/musicManifest.json', JSON.stringify({ tracks: {} }));
+  if (!delivered) {
+    for (const [logicalPath, [, data]] of Object.entries(logical)) await write(source, logicalPath, data);
+    await write(source, 'assets/characters/hero/anime/runtime.json', JSON.stringify({ characterId: 'hero', textureDensity: 2, pages: [{ image: 'atlas.png', data: 'atlas.json' }] }));
+    await write(source, 'assets/characters/hero/anime/atlas.png', 'body');
+    await write(source, 'assets/characters/hero/anime/atlas.json', '{}');
+    for (const name of ['backdrop', 'floor']) await write(source, `assets/stages/marineford/${name}.webp`, name);
+  }
   return { root, source, output };
+}
+
+
+async function semanticPackageFixture(delivered: boolean) {
+  const fixture = await packageFixture(delivered);
+  const file = 'assets/audio/voice/hero/named1017.wav', unselected = 'assets/audio/voice/not_selected/private1017.wav';
+  const raw = 'explicit meaningful audio fixture', payload = 'encoded-fixture';
+  const overlay = { schemaVersion: 1, cues: {
+    'voice.hero.sp_named': { files: [file], group: 'voice', characterId: 'hero' },
+    'voice.not_selected.intro': { files: [unselected], group: 'voice', characterId: 'not_selected' },
+  }, lines: [file, unselected].map(file => ({ file, transcriptVerified: true, translation: '测试句子' })),
+    fileChecks: Object.fromEntries([file, unselected].map(file => [file, { bytes: Buffer.byteLength(raw), sha256: hash(raw) }])) };
+  await write(fixture.root, 'src/audio/semanticDialogue1017.json', JSON.stringify(overlay));
+  await write(fixture.root, 'public/' + file, raw);
+  if (delivered) {
+    const manifestPath = resolve(fixture.root, 'src/render/deliveryManifest.json');
+    const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
+    manifest.records[file] = { file: 'assets/delivery/semantic-hero.bin', bytes: Buffer.byteLength(payload), sha256: hash(payload),
+      source: file, sourceSha256: hash(raw), contentType: 'audio/ogg', slice: { offset: 0, length: Buffer.byteLength(payload) } };
+    await writeFile(manifestPath, JSON.stringify(manifest));
+    await write(fixture.source, 'assets/delivery/semantic-hero.bin', payload);
+    await write(fixture.source, 'delivery-build.json', JSON.stringify({ version: 'delivery-test', semanticDialogue: {
+      sha256: hash(JSON.stringify(overlay)), baseSha256: hash(await readFile(resolve(fixture.root, 'src/audio/sampleManifest.json'))),
+    } }));
+  } else await write(fixture.source, file, raw);
+  return { ...fixture, file, raw, overlay };
 }
 
 async function freePort(): Promise<number> {
@@ -83,6 +117,42 @@ function launch(script: string, release: string, port: number, crossoverRoot: st
 }
 
 describe('crossover release tools', () => {
+  it.each([false, true])('semantic explicit new files enter only their selected runtime whitelist (delivery=%s)', async delivered => {
+    const f = await semanticPackageFixture(delivered);
+    const { stdout } = await run(process.execPath, [resolve(f.root, 'scripts/packagePages.mjs'), f.source, f.output]);
+    const result = JSON.parse(stdout) as { site: string; release: string };
+    const report = JSON.parse(await readFile(resolve(result.release, 'package-report.json'), 'utf8'));
+    expect(report.semanticDialogue.selectedFiles).toEqual([f.file]);
+    const expected = delivered ? 'assets/delivery/semantic-hero.bin' : f.file;
+    expect(report.files.some((item: { file: string }) => item.file === expected)).toBe(true);
+    expect(report.files.some((item: { file: string }) => item.file.includes('not_selected') || item.file.includes('sources/'))).toBe(false);
+    expect(await readFile(resolve(result.site, expected), 'utf8')).toBe(delivered ? 'encoded-fixture' : f.raw);
+  });
+
+  it('semantic stale source identity and invalid bank bounds stop before copying', async () => {
+    for (const field of ['sourceSha256', 'slice'] as const) {
+      const f = await semanticPackageFixture(true), path = resolve(f.root, 'src/render/deliveryManifest.json');
+      const manifest = JSON.parse(await readFile(path, 'utf8'));
+      if (field === 'slice') manifest.records[f.file].slice = { offset: 1, length: 9999 };
+      else manifest.records[f.file].sourceSha256 = '0'.repeat(64);
+      await writeFile(path, JSON.stringify(manifest));
+      await expect(run(process.execPath, [resolve(f.root, 'scripts/packagePages.mjs'), f.source, f.output]))
+        .rejects.toMatchObject({ stderr: expect.stringContaining(field === 'slice' ? 'Invalid semantic dialogue slice' : 'stale semantic dialogue delivery') });
+      await expect(stat(f.output)).rejects.toMatchObject({ code: 'ENOENT' });
+    }
+  });
+
+  it('semantic raw bytes and the compiled overlay snapshot cannot drift silently', async () => {
+    const f = await semanticPackageFixture(true);
+    await write(f.root, 'public/' + f.file, 'tampered');
+    await expect(run(process.execPath, [resolve(f.root, 'scripts/packagePages.mjs'), f.source, f.output]))
+      .rejects.toMatchObject({ stderr: expect.stringContaining('Semantic dialogue exact audio mismatch') });
+    await write(f.root, 'public/' + f.file, f.raw);
+    await write(f.source, 'delivery-build.json', JSON.stringify({ version: 'delivery-test', semanticDialogue: { sha256: '0'.repeat(64), baseSha256: '0'.repeat(64) } }));
+    await expect(run(process.execPath, [resolve(f.root, 'scripts/packagePages.mjs'), f.source, f.output]))
+      .rejects.toMatchObject({ stderr: expect.stringContaining('snapshot differs') });
+  });
+
   it.each([false, true])('checks both atlas formats before copying (corrupt alternate=%s)', async corrupt => {
     const fixture = await packageFixture();
     const manifestPath = resolve(fixture.root, 'src/render/deliveryManifest.json');

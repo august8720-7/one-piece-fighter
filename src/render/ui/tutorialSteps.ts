@@ -10,6 +10,8 @@ const SPECIAL_BY_CHAR: Record<string, { moveId: string; name: string }> = {
   akainu: { moveId: 'sp_daifunka', name: '大喷火' },
   labubu: { moveId: 'sp_pounce_rush', name: '扑扑突袭' },
   twinkle: { moveId: 'sp_tiny_star', name: '小星弹' },
+  aokiji: { moveId: 'sp_ice_lance', name: '冰矛·直射' },
+  shanks: { moveId: 'sp_haki_slash', name: '霸气斩波' },
 };
 export function tutorialSpecial(charId: string): { moveId: string; name: string } {
   const special = SPECIAL_BY_CHAR[charId];

@@ -1075,6 +1075,448 @@
       "priority": 50,
       "cooldownMs": 900,
       "maxInstances": 1
+    },
+    "voice.shanks.hurt": {
+      "files": [
+        "assets/audio/voice/shanks/hurt-kokoro-original1004.wav"
+      ],
+      "group": "voice",
+      "characterId": "shanks",
+      "gain": 0.65,
+      "source": "scripts/first_pair_voice_selection1004.json",
+      "note": "Original Chinese synthetic generic event phrase, never a dedicated original-actor move call.",
+      "priority": 25,
+      "maxInstances": 1,
+      "cooldownMs": 676
+    },
+    "voice.shanks.select": {
+      "files": [
+        "assets/audio/voice/shanks/select-1003.wav"
+      ],
+      "group": "voice",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "source": "scripts/first_pair_voice_selection1004.json",
+      "note": "Previously reviewed Japanese original-C selection only; not original voice coverage for all skills.",
+      "priority": 60,
+      "maxInstances": 1,
+      "cooldownMs": 0
+    },
+    "sfx.aokiji.ice_lance.release": {
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "files": [
+        "assets/audio/sfx/roster-adopted1004/aokiji/ice_lance-release.wav"
+      ],
+      "source": "scripts/first_pair_sfx_selection1004.json",
+      "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+    },
+    "sfx.aokiji.ice_blade.release": {
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "files": [
+        "assets/audio/sfx/roster-adopted1004/aokiji/ice_blade-release.wav"
+      ],
+      "source": "scripts/first_pair_sfx_selection1004.json",
+      "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+    },
+    "sfx.aokiji.ice_uplift.release": {
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "files": [
+        "assets/audio/sfx/roster-adopted1004/aokiji/ice_blade-release.wav"
+      ],
+      "source": "scripts/first_pair_sfx_selection1004.json",
+      "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+    },
+    "sfx.aokiji.ice_spike.release": {
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "files": [
+        "assets/audio/sfx/roster-adopted1004/aokiji/ice_spike-release.wav"
+      ],
+      "source": "scripts/first_pair_sfx_selection1004.json",
+      "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+    },
+    "sfx.aokiji.glacier_line.release": {
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "files": [
+        "assets/audio/sfx/roster-adopted1004/aokiji/ice_spike-release.wav"
+      ],
+      "source": "scripts/first_pair_sfx_selection1004.json",
+      "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+    },
+    "sfx.aokiji.ice_mirror.release": {
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "files": [
+        "assets/audio/sfx/roster-adopted1004/aokiji/ice_blade-release.wav"
+      ],
+      "source": "scripts/first_pair_sfx_selection1004.json",
+      "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+    },
+    "sfx.aokiji.ice_body.release": {
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "files": [
+        "assets/audio/sfx/roster-adopted1004/aokiji/ice_body-release.wav"
+      ],
+      "source": "scripts/first_pair_sfx_selection1004.json",
+      "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+    },
+    "sfx.aokiji.ice_pheasant.release": {
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "files": [
+        "assets/audio/sfx/roster-adopted1004/aokiji/ice_pheasant-release.wav"
+      ],
+      "source": "scripts/first_pair_sfx_selection1004.json",
+      "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+    },
+    "sfx.aokiji.ice_age.release": {
+      "group": "sfx",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "files": [
+        "assets/audio/sfx/roster-adopted1004/aokiji/ice_age-release.wav"
+      ],
+      "source": "scripts/first_pair_sfx_selection1004.json",
+      "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+    },
+    "sfx.shanks.haki_slash.release": {
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "files": [
+        "assets/audio/sfx/roster-adopted1004/shanks/haki_slash-release.wav"
+      ],
+      "source": "scripts/first_pair_sfx_selection1004.json",
+      "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+    },
+    "sfx.shanks.single_arm_cut.release": {
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "files": [
+        "assets/audio/sfx/roster-adopted1004/shanks/single_arm_cut-release.wav"
+      ],
+      "source": "scripts/first_pair_sfx_selection1004.json",
+      "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+    },
+    "sfx.shanks.rising_guard.release": {
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "files": [
+        "assets/audio/sfx/roster-adopted1004/shanks/rising_guard-release.wav"
+      ],
+      "source": "scripts/first_pair_sfx_selection1004.json",
+      "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+    },
+    "sfx.shanks.step_thrust.release": {
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "files": [
+        "assets/audio/sfx/roster-adopted1004/shanks/low_cut-release.wav"
+      ],
+      "source": "scripts/first_pair_sfx_selection1004.json",
+      "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+    },
+    "sfx.shanks.low_cut.release": {
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "files": [
+        "assets/audio/sfx/roster-adopted1004/shanks/low_cut-release.wav"
+      ],
+      "source": "scripts/first_pair_sfx_selection1004.json",
+      "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+    },
+    "sfx.shanks.sidestep.release": {
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "files": [
+        "assets/audio/sfx/roster-adopted1004/shanks/low_cut-release.wav"
+      ],
+      "source": "scripts/first_pair_sfx_selection1004.json",
+      "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+    },
+    "sfx.shanks.divine_departure.release": {
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "files": [
+        "assets/audio/sfx/roster-adopted1004/shanks/divine_departure-release.wav"
+      ],
+      "source": "scripts/first_pair_sfx_selection1004.json",
+      "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+    },
+    "sfx.shanks.emperor_cuts.release": {
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "files": [
+        "assets/audio/sfx/roster-adopted1004/shanks/emperor_cuts-release.wav"
+      ],
+      "source": "scripts/first_pair_sfx_selection1004.json",
+      "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+    },
+    "sfx.shanks.red_hair_finale.release": {
+      "group": "sfx",
+      "characterId": "shanks",
+      "gain": 0.7,
+      "priority": 45,
+      "cooldownMs": 35,
+      "maxInstances": 3,
+      "files": [
+        "assets/audio/sfx/roster-adopted1004/shanks/red_hair_finale-release.wav"
+      ],
+      "source": "scripts/first_pair_sfx_selection1004.json",
+      "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+    },
+    "voice.shanks.effort": {
+      "files": [
+        "assets/audio/voice/shanks/effort-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "shanks",
+      "gain": 0.62,
+      "source": "scripts/first_pair_voice_selection1013.json",
+      "note": "Same exact reviewed Japanese generic effort WAV; requested 来い！, observed こおい. Explicit attack/effort reuse, no original-actor or per-move shout claim.",
+      "priority": 50,
+      "maxInstances": 1,
+      "cooldownMs": 721
+    },
+    "voice.shanks.attack": {
+      "files": [
+        "assets/audio/voice/shanks/effort-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "shanks",
+      "gain": 0.85,
+      "source": "scripts/first_pair_voice_selection1013.json",
+      "note": "Same exact reviewed Japanese generic effort WAV; requested 来い！, observed こおい. Explicit attack/effort reuse, no original-actor or per-move shout claim.",
+      "priority": 70,
+      "maxInstances": 1,
+      "cooldownMs": 721
+    },
+    "voice.shanks.ko": {
+      "files": [
+        "assets/audio/voice/shanks/ko-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "shanks",
+      "gain": 0.85,
+      "source": "scripts/first_pair_voice_selection1013.json",
+      "note": "Reviewed original synthetic Japanese generic event. Actual content and separate quality responses bind to these unchanged WAV bytes. Not original actor or dedicated move voice.",
+      "priority": 100,
+      "maxInstances": 1,
+      "cooldownMs": 0
+    },
+    "voice.shanks.win": {
+      "files": [
+        "assets/audio/voice/shanks/win-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "shanks",
+      "gain": 0.85,
+      "source": "scripts/first_pair_voice_selection1013.json",
+      "note": "Reviewed original synthetic Japanese generic event. Actual content and separate quality responses bind to these unchanged WAV bytes. Not original actor or dedicated move voice.",
+      "priority": 70,
+      "maxInstances": 1,
+      "cooldownMs": 0
+    },
+    "voice.shanks.idle": {
+      "files": [
+        "assets/audio/voice/shanks/idle-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "shanks",
+      "gain": 0.62,
+      "source": "scripts/first_pair_voice_selection1013.json",
+      "note": "Reviewed original synthetic Japanese generic event. Actual content and separate quality responses bind to these unchanged WAV bytes. Not original actor or dedicated move voice.",
+      "priority": 10,
+      "maxInstances": 1,
+      "cooldownMs": 0
+    },
+    "voice.shanks.move": {
+      "files": [
+        "assets/audio/voice/shanks/move-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "shanks",
+      "gain": 0.62,
+      "source": "scripts/first_pair_voice_selection1013.json",
+      "note": "Reviewed original synthetic Japanese generic event. Actual content and separate quality responses bind to these unchanged WAV bytes. Not original actor or dedicated move voice.",
+      "priority": 9,
+      "maxInstances": 1,
+      "cooldownMs": 0
+    },
+    "voice.aokiji.select": {
+      "files": [
+        "assets/audio/voice/aokiji/select-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "aokiji",
+      "gain": 0.7,
+      "source": "scripts/first_pair_voice_selection1013.json",
+      "note": "Original synthetic Japanese; exact whole WAV. Requested and heard wording remain separate.",
+      "priority": 60,
+      "maxInstances": 1,
+      "cooldownMs": 0
+    },
+    "voice.aokiji.attack": {
+      "files": [
+        "assets/audio/voice/aokiji/attack-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "aokiji",
+      "gain": 0.85,
+      "source": "scripts/first_pair_voice_selection1013.json",
+      "note": "Original synthetic Japanese; exact whole WAV. Requested and heard wording remain separate.",
+      "priority": 70,
+      "maxInstances": 1,
+      "cooldownMs": 1041
+    },
+    "voice.aokiji.ko": {
+      "files": [
+        "assets/audio/voice/aokiji/ko-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "aokiji",
+      "gain": 0.85,
+      "source": "scripts/first_pair_voice_selection1013.json",
+      "note": "Original synthetic Japanese; exact whole WAV. Requested and heard wording remain separate.",
+      "priority": 100,
+      "maxInstances": 1,
+      "cooldownMs": 0
+    },
+    "voice.aokiji.hurt": {
+      "files": [
+        "assets/audio/voice/aokiji/hurt-kokoro-original1004.wav"
+      ],
+      "group": "voice",
+      "characterId": "aokiji",
+      "gain": 0.65,
+      "source": "scripts/first_pair_voice_selection1004.json",
+      "note": "Original Chinese synthetic generic event phrase, never a dedicated original-actor move call.",
+      "priority": 25,
+      "maxInstances": 1,
+      "cooldownMs": 476
+    },
+    "voice.aokiji.idle": {
+      "files": [
+        "assets/audio/voice/aokiji/win-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "aokiji",
+      "gain": 0.62,
+      "source": "scripts/first_pair_voice_selection1013.json",
+      "note": "Explicit generic idle reuse of reviewed win WAV, not a new line or distinct named skill call.",
+      "priority": 10,
+      "maxInstances": 1,
+      "cooldownMs": 0
+    },
+    "voice.aokiji.move": {
+      "files": [
+        "assets/audio/voice/aokiji/attack-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "aokiji",
+      "gain": 0.62,
+      "source": "scripts/first_pair_voice_selection1013.json",
+      "note": "Explicit generic move reuse of reviewed attack WAV, not a new line or distinct named skill call.",
+      "priority": 9,
+      "maxInstances": 1,
+      "cooldownMs": 0
+    },
+    "voice.aokiji.effort": {
+      "files": [
+        "assets/audio/voice/aokiji/attack-qwen-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "aokiji",
+      "gain": 0.62,
+      "source": "scripts/first_pair_voice_selection1013.json",
+      "note": "Explicit generic effort reuse of reviewed attack WAV, not a new line or distinct named skill call.",
+      "priority": 50,
+      "maxInstances": 1,
+      "cooldownMs": 1041
+    },
+    "voice.aokiji.win": {
+      "files": [
+        "assets/audio/voice/aokiji/win-qwen-atempo1p4-japanese1013.wav"
+      ],
+      "group": "voice",
+      "characterId": "aokiji",
+      "gain": 0.85,
+      "source": "scripts/first_pair_voice_selection1013.json",
+      "note": "Full original Japanese calm line processed once with pitch-preserving ffmpeg atempo1.4, no syllable trimming; new1.720791667s bytes independently native-reviewed. Original2.40s remains idle only.",
+      "priority": 70,
+      "maxInstances": 1,
+      "cooldownMs": 0
     }
   }
 }

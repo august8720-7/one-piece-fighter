@@ -1,9 +1,22 @@
 import { describe, expect, it, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { AudioEngine } from '../../src/audio/AudioEngine';
 import { createCueCatalog } from '../../src/audio/audioCues';
 import sampleManifest from '../../src/audio/sampleManifest.json';
 import voiceSelection from '../../scripts/voice_manifest.json';
+import rosterVoiceCandidate from '../../src/audio/rosterVoiceCandidates1003.json';
 import type { CueCatalog } from '../../src/audio/audioTypes';
+import semanticManifest from '../../src/audio/semanticDialogue1017.json';
+
+const exactFixtureFetch: typeof fetch = async url => {
+  const file = String(url);
+  // Exact-hash dialogue uses real accepted fixture bytes; unrelated synthesis
+  // device tests retain their tiny fake payloads. No integrity checks are bypassed.
+  const bytes = Object.hasOwn(semanticManifest.fileChecks, file) || file === rosterVoiceCandidate.file
+    ? new Uint8Array(readFileSync(resolve('public', file))) : new Uint8Array([1, 2, 3]);
+  return new Response(bytes);
+};
 
 function audioDevice() {
   const gains: { gain: { value: number }; connect: ReturnType<typeof vi.fn>; disconnect: ReturnType<typeof vi.fn> }[] = [];
@@ -50,7 +63,7 @@ const sampleCatalog: CueCatalog = {
   marineford_ambient: { files: ['/assets/audio/sfx/sea.wav'], group: 'ambient', loop: true },
 };
 
-function setup(catalog = sampleCatalog, fetcher = vi.fn<typeof fetch>(async () => new Response(new Uint8Array([1, 2, 3])))) {
+function setup(catalog = sampleCatalog, fetcher = vi.fn<typeof fetch>(exactFixtureFetch)) {
   const fake = audioDevice();
   let time = 0;
   const factory = vi.fn(() => fake.context);
@@ -59,6 +72,215 @@ function setup(catalog = sampleCatalog, fetcher = vi.fn<typeof fetch>(async () =
 }
 
 describe('sample-first playback and cache', () => {
+  it('captures one bounded post-master stream and releases only its own tap (device fixture, not real game recording)', async () => {
+    vi.useFakeTimers();
+    const rig = setup({});
+    const track = { stop: vi.fn() };
+    const stream = { getTracks: () => [track] };
+    const tap = { stream, disconnect: vi.fn() };
+    Object.assign(rig.device, { createMediaStreamDestination: vi.fn(() => tap) });
+    class RecorderFixture {
+      static isTypeSupported(): boolean { return true; }
+      state = 'inactive';
+      mimeType = 'audio/webm;codecs=opus';
+      ondataavailable: ((event: { data: Blob }) => void) | null = null;
+      onstop: (() => void) | null = null;
+      onerror: (() => void) | null = null;
+      start(): void { this.state = 'recording'; }
+      stop(): void {
+        this.state = 'inactive';
+        this.ondataavailable?.({ data: new Blob(['explicit device fixture, not actual game audio']) });
+        this.onstop?.();
+      }
+    }
+    vi.stubGlobal('MediaRecorder', RecorderFixture);
+    try {
+      await expect(rig.engine.captureMix(1000)).rejects.toThrow('开启游戏声音');
+      await rig.engine.unlock();
+      const capture = rig.engine.captureMix(1000); void capture.catch(() => {});
+      await expect(rig.engine.captureMix(1000)).rejects.toThrow('正在录制');
+      expect(rig.gains[0]!.connect).toHaveBeenCalledWith(rig.device.destination);
+      expect(rig.gains[0]!.connect).toHaveBeenCalledWith(tap);
+      await vi.advanceTimersByTimeAsync(1000);
+      const result = await capture;
+      expect(result.mimeType).toBe('audio/webm;codecs=opus');
+      expect(await result.blob.text()).toContain('device fixture');
+      expect(rig.gains[0]!.disconnect.mock.calls).toEqual([[tap]]);
+      expect(tap.disconnect).toHaveBeenCalledOnce(); expect(track.stop).toHaveBeenCalledOnce();
+      await expect(rig.engine.captureMix(0)).rejects.toThrow('500');
+    } finally {
+      await rig.engine.destroy(); vi.unstubAllGlobals(); vi.useRealTimers();
+    }
+  });
+  it('a playable winner line clears the other losing KO speech instead of speaking two full results at once', async () => {
+    const rig = setup({
+      'voice.twinkle.ko': { files: ['/loser.wav'], group: 'voice', cooldownMs: 0 },
+      'voice.labubu.win': { files: ['/winner.wav'], group: 'voice', cooldownMs: 0 },
+    });
+    await rig.engine.preload(); await rig.engine.unlock();
+    expect(rig.engine.playCue('voice.twinkle.ko', { player: 1 })).toBe(true);
+    const loser = rig.sources.at(-1)!;
+    expect(rig.engine.playCue('voice.labubu.win', { player: 0 })).toBe(true);
+    expect(loser.stop).toHaveBeenCalledOnce();
+    expect(rig.engine.diagnostics().playing.filter(sound => sound.group === 'voice').map(sound => sound.cueId))
+      .toEqual(['voice.labubu.win']);
+    await rig.engine.destroy();
+  });
+  it('does not repeat one shared meaningful file merely because two moves use different cue IDs', async () => {
+    const rig = setup({
+      'voice.twinkle.sp_tiny_star': { files: ['/shared.wav'], group: 'voice', cooldownMs: 4000, preserveSentence: true },
+      'voice.twinkle.sp_falling_star': { files: ['/shared.wav'], group: 'voice', cooldownMs: 4000, preserveSentence: true },
+    });
+    await rig.engine.preload(); await rig.engine.unlock();
+    expect(rig.engine.playCue('voice.twinkle.sp_tiny_star', { player: 0 })).toBe(true);
+    rig.sources.at(-1)!.onended?.(); rig.advance(1000);
+    expect(rig.engine.playCue('voice.twinkle.sp_falling_star', { player: 0 })).toBe(false);
+    rig.advance(3000);
+    expect(rig.engine.playCue('voice.twinkle.sp_falling_star', { player: 0 })).toBe(true);
+    await rig.engine.destroy();
+  });
+  it('finishes meaningful words against equal/lower new speech; hurt/KO can interrupt, and exact select state is readable', async () => {
+    const rig = setup({
+      'voice.luffy.g5_awakening': { files: ['/awake.wav'], group: 'voice', cooldownMs: 0, preserveSentence: true },
+      'voice.luffy.sp_gatling': { files: ['/skill.wav'], group: 'voice', cooldownMs: 0, preserveSentence: true },
+      'voice.luffy.effort': { files: ['/effort.wav'], group: 'voice', cooldownMs: 0 },
+      'voice.luffy.hurt': { files: ['/hurt.wav'], group: 'voice', cooldownMs: 0 },
+    });
+    await rig.engine.preload(); await rig.engine.unlock();
+    expect(rig.engine.playCue('voice.luffy.g5_awakening', { player: 0 })).toBe(true);
+    const spoken = rig.sources.at(-1)!;
+    expect(rig.engine.voicePlaying('voice.luffy.g5_awakening', 0)).toBe(true);
+    expect(rig.engine.voicePlaying('voice.luffy.g5_awakening', 1)).toBe(false);
+    expect(rig.engine.playCue('voice.luffy.sp_gatling', { player: 0 })).toBe(false);
+    expect(rig.engine.playCue('voice.luffy.effort', { player: 0 })).toBe(false);
+    expect(spoken.stop).not.toHaveBeenCalled();
+    expect(rig.engine.playCue('voice.luffy.hurt', { player: 0 })).toBe(true);
+    expect(spoken.stop).toHaveBeenCalledOnce();
+    expect(rig.engine.voicePlaying('voice.luffy.g5_awakening', 0)).toBe(false);
+    await rig.engine.destroy();
+  });
+  it('defaults old saves to quiet without writing, then persists only an explicit chatter change', () => {
+    let raw = JSON.stringify({ muted: true, volume: 0.4, groups: { sfx: 0.2, voice: 0.7 } });
+    const storage = { getItem: () => raw, setItem: vi.fn((_key: string, value: string) => { raw = value; }) };
+    const engine = new AudioEngine({ storage, catalog: {} });
+    expect(engine.characterChatter).toBe(false); expect(storage.setItem).not.toHaveBeenCalled();
+    engine.setCharacterChatter(true);
+    const reopened = new AudioEngine({ storage, catalog: {} });
+    expect(reopened.settings()).toMatchObject({ characterChatter: true, muted: true, volume: 0.4, groups: { sfx: 0.2, voice: 0.7 } });
+  });
+  it('turning off chatter stops only daily lines, preserving actual hurt/KO speech and motion SFX', async () => {
+    const rig = setup({
+      'voice.luffy.idle': { files: ['/idle.wav'], group: 'voice', cooldownMs: 0 },
+      'voice.akainu.hurt': { files: ['/hurt.wav'], group: 'voice', cooldownMs: 0 },
+      'sfx.luffy.footstep': { files: ['/foot.wav'], group: 'sfx', cooldownMs: 0 },
+    });
+    await rig.engine.preload(); await rig.engine.unlock();
+    expect(rig.engine.playCue('voice.luffy.idle', { player: 0 })).toBe(false);
+    expect(rig.engine.playCue('sfx.luffy.footstep', { player: 0 })).toBe(true);
+    rig.engine.setCharacterChatter(true);
+    expect(rig.engine.playCue('voice.luffy.idle', { player: 0 })).toBe(true);
+    const idle = rig.sources.at(-1)!;
+    // A separate player may speak an important response. Starting it already preempts daily speech.
+    expect(rig.engine.playCue('voice.akainu.hurt', { player: 1 })).toBe(true);
+    const hurt = rig.sources.at(-1)!;
+    rig.engine.setCharacterChatter(false);
+    expect(idle.stop).toHaveBeenCalledOnce(); expect(hurt.stop).not.toHaveBeenCalled();
+    expect(rig.engine.playCue('voice.luffy.idle', { player: 0 })).toBe(false);
+    expect(rig.engine.diagnostics().playing.some(sound => sound.cueId === 'sfx.luffy.footstep')).toBe(true);
+    await rig.engine.destroy();
+  });
+  it('prioritizes result over hurt over skills over effort, and never replays a dropped old line', async () => {
+    const rig = setup({
+      'voice.luffy.effort': { files: ['/effort.wav'], group: 'voice', cooldownMs: 0, priority: 50 },
+      'voice.luffy.attack': { files: ['/attack.wav'], group: 'voice', cooldownMs: 0, priority: 70 },
+      'voice.luffy.hurt': { files: ['/hurt.wav'], group: 'voice', cooldownMs: 0, priority: 25 },
+      'voice.luffy.win': { files: ['/win.wav'], group: 'voice', cooldownMs: 0, priority: 70 },
+    });
+    await rig.engine.preload(); await rig.engine.unlock();
+    expect(rig.engine.playCue('voice.luffy.effort', { player: 0 })).toBe(true);
+    const effort = rig.sources.at(-1)!;
+    expect(rig.engine.playCue('voice.luffy.attack', { player: 0 })).toBe(true); expect(effort.stop).toHaveBeenCalledOnce();
+    const attack = rig.sources.at(-1)!;
+    expect(rig.engine.playCue('voice.luffy.hurt', { player: 0 })).toBe(true); expect(attack.stop).toHaveBeenCalledOnce();
+    const hurt = rig.sources.at(-1)!;
+    expect(rig.engine.playCue('voice.luffy.win', { player: 0 })).toBe(true); expect(hurt.stop).toHaveBeenCalledOnce();
+    expect(rig.engine.playCue('voice.luffy.hurt', { player: 0 })).toBe(false);
+    const count = rig.sources.length; rig.sources.at(-1)!.onended?.(); rig.advance(10000);
+    expect(rig.sources).toHaveLength(count); expect(rig.engine.diagnostics().playing).toHaveLength(0);
+    await rig.engine.destroy();
+  });
+  it('plays a reviewed release once when both preview and release adapters see the same real event', async () => {
+    vi.stubEnv('DEV', true);
+    vi.stubGlobal('window', { location: { search: '?rosterPreview=0929&p1=shanks&p2=luffy' } });
+    const cueId = 'sfx.shanks.step_thrust.release';
+    const cue = (sampleManifest.cues as CueCatalog)[cueId]!;
+    // Real adopted bytes verify the loader; the audio device remains a routing fixture.
+    const fetcher = vi.fn<typeof fetch>(async url => new Response(readFileSync(resolve('public', String(url)))));
+    const rig = setup({ [cueId]: cue }, fetcher);
+    try {
+      expect((await rig.engine.preload(['shanks'])).failed).toEqual([]);
+      await rig.engine.unlock();
+      const event = { phase: 'swing' as const, player: 0 as const, characterId: 'shanks',
+        moveId: 'sp_step_thrust', moveInstance: 7, segmentId: 0 };
+      rig.engine.playEvent(event);
+      rig.engine.playEvent(event);
+      expect(rig.engine.diagnostics()).toMatchObject({ sampledPlays: 1, fallbackPlays: 0 });
+      expect(rig.engine.diagnostics().playing.map(sound => sound.cueId)).toEqual([cueId]);
+      expect(rig.sources).toHaveLength(1);
+    } finally { await rig.engine.destroy(); vi.unstubAllGlobals(); vi.unstubAllEnvs(); }
+  });
+  it('new roster defeat voice interrupts its real effort cue and rejects subsequent lower-priority hurt', async () => {
+    vi.stubEnv('DEV', true);
+    vi.stubGlobal('window', { location: { search: '?rosterPreview=0929&p1=aokiji&p2=luffy' } });
+    const rig = setup(sampleManifest.cues as CueCatalog);
+    try {
+      await rig.engine.preload(['aokiji']); await rig.engine.unlock();
+      expect(rig.engine.playCue('voice.aokiji.effort', { player: 0 })).toBe(true);
+      const effort = rig.sources.at(-1)!;
+      expect(rig.engine.playCue('voice.aokiji.ko', { player: 0 })).toBe(true);
+      expect(effort.stop).toHaveBeenCalledOnce();
+      expect(rig.engine.playCue('voice.aokiji.hurt', { player: 0 })).toBe(false);
+    } finally { await rig.engine.destroy(); vi.unstubAllGlobals(); vi.unstubAllEnvs(); }
+  });
+  it('routes the development Shanks selection and its exact subtitle through existing preload and playback', async () => {
+    vi.stubEnv('DEV', true);
+    vi.stubGlobal('window', { location: { search: '?rosterPreview=0929&p1=shanks&p2=luffy' } });
+    // Playback device is controlled, while selected voice fixture hashes are real.
+    const fake = audioDevice();
+    const fetcher = vi.fn<typeof fetch>(exactFixtureFetch);
+    const engine = new AudioEngine({ contextFactory: () => fake.context, fetch: fetcher, storage: null });
+    try {
+      const heard = vi.fn(); engine.onVoice(heard);
+      const report = await engine.preloadMenu();
+      expect(report.failed).toEqual([]);
+      expect(fetcher.mock.calls.filter(([url]) => url === rosterVoiceCandidate.file)).toHaveLength(1);
+      await engine.unlock();
+      expect(engine.playPresentation({ phase: 'select', key: 'shanks-preview', characterId: 'shanks', player: 1 })).toBe(true);
+      expect(heard).toHaveBeenLastCalledWith(expect.objectContaining({
+        cueId: rosterVoiceCandidate.cueId, file: rosterVoiceCandidate.file,
+        text: '上来吧。', transcriptVerified: true, player: 1,
+      }));
+      expect(engine.playPresentation({ phase: 'select', key: 'shanks-preview', characterId: 'shanks', player: 1 })).toBe(false);
+    } finally {
+      await engine.destroy(); vi.unstubAllGlobals(); vi.unstubAllEnvs();
+    }
+  });
+
+  it('does not request or play the Shanks candidate from the default menu', async () => {
+    vi.stubEnv('DEV', true);
+    vi.stubGlobal('window', { location: { search: '' } });
+    const fake = audioDevice();
+    const fetcher = vi.fn<typeof fetch>(async () => new Response(new Uint8Array([1, 2, 3])));
+    const engine = new AudioEngine({ contextFactory: () => fake.context, fetch: fetcher, storage: null });
+    try {
+      await engine.preloadMenu(); await engine.unlock();
+      expect(fetcher.mock.calls.some(([url]) => url === rosterVoiceCandidate.file)).toBe(false);
+      expect(engine.playPresentation({ phase: 'select', key: 'not-preview', characterId: 'shanks', player: 0 })).toBe(false);
+    } finally {
+      await engine.destroy(); vi.unstubAllGlobals(); vi.unstubAllEnvs();
+    }
+  });
+
   it('announces final round only from explicit match state, including extra rounds after draws', async () => {
     const rig = setup(Object.fromEntries(['round1', 'round2', 'round3', 'nextRound'].map(id => [
       `announcer.${id}`, { files: [`/${id}.wav`], group: 'voice', priority: 95, cooldownMs: 0 },
@@ -277,6 +499,7 @@ describe('sample-first playback and cache', () => {
 
   it('keeps reviewed idle replies below combat speech and captions their actual words', async () => {
     const rig = setup(createCueCatalog(sampleManifest.cues as CueCatalog));
+    rig.engine.setCharacterChatter(true);
     await rig.engine.preload(['labubu', 'twinkle']);
     await rig.engine.unlock();
     const heard = vi.fn();
@@ -356,6 +579,7 @@ describe('sample-first playback and cache', () => {
       'voice.akainu.idle': { files: ['/idle2.wav'], group: 'voice', priority: 10, cooldownMs: 0 },
       'voice.akainu.effort': { files: ['/effort.wav'], group: 'voice', priority: 50, cooldownMs: 0 },
     });
+    rig.engine.setCharacterChatter(true);
     await rig.engine.preload(); await rig.engine.unlock();
     expect(rig.engine.playCue('voice.luffy.idle', { player: 0 })).toBe(true);
     expect(rig.engine.playCue('voice.akainu.idle', { player: 1 })).toBe(false);
@@ -369,7 +593,7 @@ describe('sample-first playback and cache', () => {
   it('adds only the music default to an old save and keeps each original volume and mute setting', () => {
     const storage = { getItem: () => JSON.stringify({ muted: true, volume: 0, groups: { sfx: 0.2, voice: 0.7, ambient: 0 } }), setItem: vi.fn() };
     const engine = new AudioEngine({ storage, catalog: {} });
-    expect(engine.settings()).toEqual({ muted: true, volume: 0, groups: { sfx: 0.2, voice: 0.7, ambient: 0, music: 0.5 } });
+    expect(engine.settings()).toEqual({ muted: true, volume: 0, groups: { sfx: 0.2, voice: 0.7, ambient: 0, music: 0.5 }, characterChatter: false });
     expect(storage.setItem).not.toHaveBeenCalled();
     engine.toggleMute(); expect(engine.hudState('music')).toBe('master_zero');
     engine.setVolume(0.4); engine.setGroupVolume('music', 0); expect(engine.hudState('music')).toBe('group_zero');
@@ -891,7 +1115,7 @@ describe('audio recovery, honest status and same-bus preview', () => {
     expect(await rig.engine.preview()).toBe(false);
     expect(rig.sources).toHaveLength(0);
     rig.engine.restoreDefaults();
-    expect(rig.engine.settings()).toEqual({ muted: false, volume: 0.6, groups: { sfx: 0.8, voice: 0.9, ambient: 0.3, music: 0.5 } });
+    expect(rig.engine.settings()).toEqual({ muted: false, volume: 0.6, groups: { sfx: 0.8, voice: 0.9, ambient: 0.3, music: 0.5 }, characterChatter: false });
     expect(rig.engine.hudState()).toBe('ready');
   });
 

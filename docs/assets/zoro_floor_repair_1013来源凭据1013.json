@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "zoro_floor_repair_1013",
+  "file": "public/assets/generated/source/roster-zoro-floor-repair-1013.png",
+  "sha256": "feb2bac53792910b9140c7e7868c6361a6f4ffdc58a91e8678b95fd480c7f194",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方网页未公开具体图像型号，保持未核实。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbe218-2044-83e8-b500-931a2779e800",
+  "observedCompletedAt": "2026-10-13T15:46:58.839534+08:00",
+  "recordedAt": "2026-10-13T15:46:58.839534+08:00",
+  "timeMeaning": "本子代理首次完整解码与审核完成结果的记录时间，不是服务端生成时间。",
+  "uiObservation": "root报告本次在原会话IAB以GPT-6/极高4/5提交并取回最新第6图原PNG，直接导出D盘，无C盘浏览器下载。本子代理实看确认截图的极高状态与完成查看器，GPT-6文字标签依据root同次现场确认，不把此图像型号推断为任何具体后台版本。早期zoro-gpt6-xhigh-iab1013.jpg未用于本条证据。",
+  "prompt": {
+    "file": "docs/assets/zoro-floor-fix-fullprompt1013.txt",
+    "sha256": "8c0694dd3926aa28be502ddff02a5a3b09abaa4aabe11f91ad73fc0e34245cd3"
+  },
+  "screenshots": [
+    {
+      "file": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\character-closure1013\\image-requests\\zoro-gpt6-confirmed-iab1013.jpg",
+      "sha256": "0b833896b058b9e4c191bc3ed9679dfbad6b7305616a96657f2a3fcfb9b43f49"
+    },
+    {
+      "file": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\character-closure1013\\image-requests\\zoro-floor-completed1013.jpg",
+      "sha256": "1f691a2d8dacc18ecf394e8cd741a1af7c627406be60842b53b69c13384a9ca2"
+    }
+  ],
+  "referenceSources": {
+    "zoro_down_getup_repair_1003": "5c704a879238d0873c77b76f25acffeaed0dc4aaf6102bfd20eee57d610ee581"
+  },
+  "sourceFileSize": 1374522,
+  "sourceImageSize": [
+    1536,
+    1024
+  ],
+  "status": "retained-rejected-for-mouth-blade-ground-geometry",
+  "runtimeAdopted": false
+}

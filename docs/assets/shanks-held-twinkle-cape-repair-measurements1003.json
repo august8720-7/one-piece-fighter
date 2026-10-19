@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "status": "true-foot-fixed-held-contract-static-pair-review-before-game",
+  "rootRegistrationContract": "Held root is a virtual floor axis registered once from observed ankle/sole and existing fixed world hold contract. Source-tile idle coordinates do not define every airborne pose axis. No image translation/rotation, pose-specific scaling, or runtime root adjustment.",
+  "referenceEvidence": {
+    "file": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\reference\\shanks-held-1003\\held-reference-metadata1003.json",
+    "sha256": "a1ec918f32a22967a4f8da2ae3ee84a27cc21383122f5c592ff4d50223f9c51c",
+    "kind": "existing-game-pose-reference-only-not-shanks-art"
+  },
+  "sources": {
+    "shanks_held_twinkle_cape_repair_1003": {
+      "unitScale": 0.5053191489361702,
+      "scaleBasis": "One actual neutral alpha>=8 height752px. Uniform380/752 for every adopted drawing from this page; no per-pose fitting.",
+      "neutralVisibleAlpha8Bounds": [
+        29,
+        164,
+        676,
+        916
+      ],
+      "sourceSha256": "150e2031d86be7dbbf1d0b75f0de2078f91a55167252d15d1f562c7ed5e6c0e6"
+    }
+  },
+  "frames": {
+    "held_twinkle_throw_1003": {
+      "source": "shanks_held_twinkle_cape_repair_1003",
+      "crop": [
+        700,
+        226,
+        825,
+        596
+      ],
+      "root": [
+        578.0,
+        714.0
+      ],
+      "sockets": {
+        "grip": [
+          760,
+          440
+        ]
+      },
+      "transparency": {
+        "mode": "source-alpha"
+      }
+    }
+  },
+  "anims": {
+    "held_twinkle_throw": {
+      "frames": [
+        "held_twinkle_throw_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 12
+        }
+      ]
+    }
+  },
+  "registrations": [
+    {
+      "anim": "held_twinkle_throw",
+      "source": "shanks_held_twinkle_cape_repair_1003",
+      "sourceFoot": [
+        1460,
+        666
+      ],
+      "footKind": "actual visible lower plantar edge near midfoot, inside source alpha; low knee and folded-back cape",
+      "worldUnitPerSourcePixel": 0.125,
+      "targetWorldGripFacingRight": [
+        22.75,
+        -34.25
+      ],
+      "sourceVirtualRootAbsolute": [
+        1278.0,
+        940.0
+      ],
+      "cropLocalRoot": [
+        578.0,
+        714.0
+      ],
+      "formula": "sourceVirtualRoot = measuredFoot - targetWorldGrip/worldUnitPerSourcePixel",
+      "worldVisibleAlpha8Bounds": [
+        -71.5,
+        -88.5,
+        30.125,
+        -15.5
+      ],
+      "lowestVisiblePixelAboveFloor": 15.5,
+      "runtimePoseTranslation": false,
+      "individualPoseScaling": false
+    }
+  ],
+  "observations": [
+    "One real official-web cape-direction correction preserves the true low-knee posture, sole right arm and complete saber.",
+    "Forward cape tip is naturally folded behind the body, not erased/cropped, shifted or locally rescaled. Both shoes and full art stay above virtual floor.",
+    "Actual source midsole edge1460,666; uniform94/752=0.125world/source and fixed22.75,-34.25 hold contract define one static registration. Real game acceptance remains separate."
+  ]
+}

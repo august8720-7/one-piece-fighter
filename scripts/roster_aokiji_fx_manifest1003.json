@@ -1,0 +1,363 @@
+{
+  "schemaVersion": 2,
+  "catalogs": [
+    "scripts/roster_marine_sources0929.json",
+    "scripts/roster_fx_sources1003.json"
+  ],
+  "maxCropEdgeAlpha": 4,
+  "maxTextureSize": 4096,
+  "characters": {
+    "aokiji": {
+      "frames": {
+        "ice_lance": {
+          "source": "aokiji_qe_1003",
+          "crop": [
+            418,
+            960,
+            490,
+            184
+          ]
+        },
+        "ice_impact": {
+          "source": "aokiji_qe_1003",
+          "crop": [
+            910,
+            866,
+            344,
+            364
+          ]
+        },
+        "spike_start": {
+          "source": "aokiji_fx_projectiles_1003",
+          "crop": [
+            0,
+            0,
+            362,
+            361
+          ]
+        },
+        "spike_live": {
+          "source": "aokiji_fx_projectiles_1003",
+          "crop": [
+            362,
+            0,
+            362,
+            361
+          ]
+        },
+        "spike_break": {
+          "source": "aokiji_fx_projectiles_1003",
+          "crop": [
+            724,
+            0,
+            362,
+            361
+          ]
+        },
+        "mirror_start": {
+          "source": "aokiji_fx_projectiles_1003",
+          "crop": [
+            55,
+            375,
+            244,
+            349
+          ]
+        },
+        "mirror_live": {
+          "source": "aokiji_fx_projectiles_1003",
+          "crop": [
+            420,
+            369,
+            245,
+            376
+          ]
+        },
+        "mirror_break": {
+          "source": "aokiji_fx_projectiles_1003",
+          "crop": [
+            744,
+            368,
+            320,
+            369
+          ]
+        },
+        "bird_break": {
+          "source": "aokiji_fx_projectiles_1003",
+          "crop": [
+            724,
+            739,
+            360,
+            348
+          ]
+        },
+        "vapor_start": {
+          "source": "aokiji_fx_projectiles_1003",
+          "crop": [
+            0,
+            1094,
+            362,
+            354
+          ]
+        },
+        "vapor_live": {
+          "source": "aokiji_fx_projectiles_1003",
+          "crop": [
+            363,
+            1094,
+            372,
+            354
+          ]
+        },
+        "vapor_end": {
+          "source": "aokiji_fx_projectiles_1003",
+          "crop": [
+            735,
+            1094,
+            351,
+            354
+          ]
+        },
+        "uplift_start": {
+          "source": "aokiji_fx_blade_field_1003",
+          "crop": [
+            0,
+            0,
+            418,
+            506
+          ]
+        },
+        "uplift_live": {
+          "source": "aokiji_fx_blade_field_1003",
+          "crop": [
+            418,
+            0,
+            418,
+            506
+          ]
+        },
+        "uplift_break": {
+          "source": "aokiji_fx_blade_field_1003",
+          "crop": [
+            836,
+            0,
+            418,
+            506
+          ]
+        },
+        "blade_start": {
+          "source": "aokiji_fx_blade_field_1003",
+          "crop": [
+            0,
+            506,
+            418,
+            328
+          ]
+        },
+        "blade_live": {
+          "source": "aokiji_fx_blade_field_1003",
+          "crop": [
+            418,
+            506,
+            458,
+            328
+          ]
+        },
+        "blade_break": {
+          "source": "aokiji_fx_blade_field_1003",
+          "crop": [
+            876,
+            506,
+            378,
+            328
+          ]
+        },
+        "field_start": {
+          "source": "aokiji_fx_blade_field_1003",
+          "crop": [
+            0,
+            850,
+            418,
+            404
+          ]
+        },
+        "field_live": {
+          "source": "aokiji_fx_blade_field_1003",
+          "crop": [
+            418,
+            899,
+            418,
+            277
+          ]
+        },
+        "field_break": {
+          "source": "aokiji_fx_blade_field_1003",
+          "crop": [
+            836,
+            850,
+            418,
+            404
+          ]
+        },
+        "bird_up": {
+          "source": "aokiji_fx_bird_spacing_1003",
+          "crop": [
+            0,
+            0,
+            887,
+            887
+          ]
+        },
+        "bird_down": {
+          "source": "aokiji_fx_bird_spacing_1003",
+          "crop": [
+            887,
+            0,
+            887,
+            887
+          ]
+        }
+      },
+      "pages": {
+        "p0": [
+          "ice_lance",
+          "ice_impact",
+          "spike_start",
+          "spike_live",
+          "spike_break"
+        ],
+        "p1": [
+          "mirror_start",
+          "mirror_live",
+          "mirror_break",
+          "bird_break",
+          "vapor_start",
+          "vapor_live",
+          "vapor_end"
+        ],
+        "p2": [
+          "uplift_start",
+          "uplift_live",
+          "uplift_break",
+          "blade_start",
+          "blade_live",
+          "blade_break",
+          "field_start",
+          "field_live",
+          "field_break"
+        ],
+        "p3": [
+          "bird_up",
+          "bird_down"
+        ]
+      },
+      "animations": {
+        "ice_spike": {
+          "frames": [
+            "spike_live",
+            "spike_break"
+          ],
+          "ticks": [
+            7,
+            2
+          ],
+          "loop": false
+        },
+        "ice_spike_fade": {
+          "frames": [
+            "spike_break"
+          ],
+          "ticks": [
+            12
+          ],
+          "loop": false
+        },
+        "ice_mirror": {
+          "frames": [
+            "mirror_live"
+          ],
+          "ticks": [
+            14
+          ],
+          "loop": false
+        },
+        "ice_vapor": {
+          "frames": [
+            "vapor_start",
+            "vapor_live",
+            "vapor_end"
+          ],
+          "ticks": [
+            5,
+            9,
+            18
+          ],
+          "loop": false
+        },
+        "ice_bird_fade": {
+          "frames": [
+            "bird_break"
+          ],
+          "ticks": [
+            12
+          ],
+          "loop": false
+        },
+        "ice_uplift": {
+          "frames": [
+            "uplift_live",
+            "uplift_break"
+          ],
+          "ticks": [
+            4,
+            2
+          ],
+          "loop": false
+        },
+        "ice_blade_cut": {
+          "frames": [
+            "blade_live",
+            "blade_break"
+          ],
+          "ticks": [
+            3,
+            2
+          ],
+          "loop": false
+        },
+        "ice_field_first": {
+          "frames": [
+            "field_live",
+            "field_break"
+          ],
+          "ticks": [
+            4,
+            2
+          ],
+          "loop": false
+        },
+        "ice_field_second": {
+          "frames": [
+            "field_live",
+            "field_break"
+          ],
+          "ticks": [
+            5,
+            2
+          ],
+          "loop": false
+        },
+        "ice_pheasant": {
+          "frames": [
+            "bird_up",
+            "bird_down"
+          ],
+          "ticks": [
+            5,
+            5
+          ],
+          "loop": true
+        }
+      }
+    }
+  }
+}

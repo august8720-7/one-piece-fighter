@@ -1,0 +1,23 @@
+{
+  "sourceKey": "aokiji_low_hold_front_joint2_1004",
+  "sourceHash": "346d1f0cf2ecf9d40b26a092222afa649076f318f83b83fef4a785deb6c4d786",
+  "reviewDir": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/fresh-front-joint2-review1004",
+  "holdOffset": 30,
+  "scaleReference": {"crop": [0,0,887,887], "excludeRects": [], "expectedHeight64": 849, "referenceOnly": true, "headAndBothSolesComplete": true},
+  "holding": {
+    "throw_fwd": {
+      "crop": [887,0,887,887],
+      "excludeRects": [],
+      "root": [430,838],
+      "sockets": {"grip": [600,750], "near_palm": [565,746], "far_palm": [636,720], "sole_back": [368,832], "sole_front": [492,828]},
+      "rootBasis": "Actual complete rear/front shoe support centres368/492, midpoint430. Actual rear alpha16 shoe floor838, front834. Whole-page standing849 sets100world. Shared grip marks centre of visibly opaque grey oval600/750 from original887px cell; not pulled to target. Manual points+/-3px, no pose translation/rotation or per-pose scale."
+    }
+  },
+  "manualLandmarkTolerancePx": 3,
+  "observedGripRGBA": [158,134,111,240],
+  "observedInnerGripAlphaBox": {"crop": [592,741,17,19], "alphaMinMax": [238,253], "zeroPixels": 0, "below64Pixels": 0, "totalPixels": 323},
+  "openingIsTransparent": false,
+  "sourceStandingHeightChangedFrom793To849": true,
+  "status": "not-adopted-opaque-grey-oval-and-residual-rightward-grip",
+  "runtimeOrAuthoringOrDataChanged": false
+}

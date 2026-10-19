@@ -1,4 +1,4 @@
-import { Btn, K, METER_STOCK, P, type FighterDef, type MoveData, type ControlMode } from '@core/index';
+import { Btn, K, METER_STOCK, P, type FighterDef, type FighterState, type MoveData, type ControlMode } from '@core/index';
 import { keyLabel, type KeyBinding, type Action } from '@input/keymap';
 
 export const MOVE_GROUPS = [
@@ -9,6 +9,18 @@ export const MOVE_GROUPS = [
 ] as const;
 export type MoveGroup = (typeof MOVE_GROUPS)[number]['id'];
 export const MOVES_PER_PAGE = 10;
+
+/** The pause list describes the same form and slots as the live simulation. */
+export function moveListDefinition(fighter: Pick<FighterState, 'def' | 'form'>, moves: readonly MoveData[]): FighterDef {
+  if (fighter.form !== 'gear5' || !fighter.def.gear5) return fighter.def;
+  const replacements = fighter.def.gear5.replacements;
+  return {
+    ...fighter.def,
+    name: `${fighter.def.name} · 五档`,
+    moves: moves.filter(move => !move.install),
+    ...(fighter.def.skillSlots ? { skillSlots: fighter.def.skillSlots.map(id => replacements[id] ?? id) } : {}),
+  };
+}
 
 export function moveGroup(move: MoveData): MoveGroup {
   if (move.type === 'super' || move.type === 'ultimate') return 'super';

@@ -1,0 +1,347 @@
+{
+  "sourceKey": "aokiji_reactions_held_1003",
+  "sourceHash": "0e3f2e8931f8f381ba977dbff46febf92cc547a7a5bf2207e050e8d7e50196cc",
+  "evidenceDir": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\aokiji-reactionsheld1003",
+  "measurementFile": "docs/assets/aokiji-reactionsheld-measurements1003.json",
+  "scaleReference": {
+    "crop": [
+      67,
+      2,
+      362,
+      409
+    ],
+    "excludeRects": [
+      [
+        189,
+        401,
+        39,
+        8
+      ]
+    ],
+    "expectedHeight64": 392,
+    "basis": "Cell1 complete neutral standing alpha64height392 against established407; all7 adopted original body poses share407/392. Reference is not a new runtime pose. Conditional roots use actual ankle pixels and legacy canonical socket offsets; no rendered transforms."
+  },
+  "frames": {
+    "thrown_generic_1003": {
+      "crop": [
+        593,
+        9,
+        423,
+        365
+      ],
+      "root": [
+        206,
+        357
+      ],
+      "sockets": {
+        "grip": [
+          160,
+          112
+        ]
+      },
+      "note": "Independent real generated reaction. Ground roots use visible sole/floor and pelvic projection; one source-wide standing scale."
+    },
+    "throw_tech_push_1003": {
+      "crop": [
+        51,
+        396,
+        404,
+        368
+      ],
+      "root": [
+        219,
+        360
+      ],
+      "sockets": {
+        "near_palm": [
+          309,
+          82
+        ],
+        "far_palm": [
+          374,
+          71
+        ]
+      },
+      "note": "Independent real generated reaction. Ground roots use visible sole/floor and pelvic projection; one source-wide standing scale.",
+      "excludeRects": [
+        [
+          94,
+          0,
+          42,
+          8
+        ],
+        [
+          191,
+          346,
+          67,
+          22
+        ],
+        [
+          281,
+          350,
+          11,
+          18
+        ]
+      ]
+    },
+    "ko_recline_1003": {
+      "crop": [
+        550,
+        554,
+        519,
+        186
+      ],
+      "root": [
+        240,
+        178
+      ],
+      "sockets": {},
+      "note": "Independent real generated reaction. Ground roots use visible sole/floor and pelvic projection; one source-wide standing scale."
+    },
+    "win_ice_1003": {
+      "crop": [
+        79,
+        735,
+        346,
+        410
+      ],
+      "root": [
+        185,
+        402
+      ],
+      "sockets": {
+        "ice_palm": [
+          255,
+          115
+        ]
+      },
+      "note": "Independent real generated reaction. Ground roots use visible sole/floor and pelvic projection; one source-wide standing scale.",
+      "excludeRects": [
+        [
+          55,
+          0,
+          45,
+          22
+        ],
+        [
+          169,
+          397,
+          27,
+          13
+        ],
+        [
+          196,
+          408,
+          4,
+          2
+        ]
+      ]
+    },
+    "held_leg_flip_1003": {
+      "crop": [
+        552,
+        768,
+        527,
+        334
+      ],
+      "root": [
+        397.2485245901639,
+        335.66688524590165
+      ],
+      "sockets": {
+        "grip": [
+          452,
+          284
+        ]
+      },
+      "note": "Independent actual ankle-held body: measured visible cuff/upper shoe grip, static root registered at existing canonical world offset [13.967213114754095, -13.180327868852459]. This is not a reused/rotated pose or a runtime translation, rotation, or per-pose scale. Actual pair fit and release remain unverified."
+    },
+    "held_labubu_throw_1003": {
+      "crop": [
+        63,
+        1125,
+        478,
+        310
+      ],
+      "root": [
+        334.952,
+        371.272
+      ],
+      "sockets": {
+        "grip": [
+          411,
+          267
+        ]
+      },
+      "note": "Independent actual ankle-held body: measured visible cuff/upper shoe grip, static root registered at existing canonical world offset [19.4, -26.599999999999994]. This is not a reused/rotated pose or a runtime translation, rotation, or per-pose scale. Actual pair fit and release remain unverified.",
+      "excludeRects": [
+        [
+          98,
+          0,
+          43,
+          13
+        ],
+        [
+          270,
+          0,
+          42,
+          4
+        ]
+      ]
+    },
+    "held_twinkle_throw_1003": {
+      "crop": [
+        541,
+        1182,
+        517,
+        253
+      ],
+      "root": [
+        354.82,
+        341.26
+      ],
+      "sockets": {
+        "grip": [
+          444,
+          207
+        ]
+      },
+      "note": "Independent actual ankle-held body: measured visible cuff/upper shoe grip, static root registered at existing canonical world offset [22.75, -34.25]. This is not a reused/rotated pose or a runtime translation, rotation, or per-pose scale. Actual pair fit and release remain unverified."
+    }
+  },
+  "anims": {
+    "thrown": {
+      "frames": [
+        "thrown_generic_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 45
+        }
+      ]
+    },
+    "throw_tech": {
+      "frames": [
+        "throw_tech_push_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 12
+        }
+      ]
+    },
+    "ko": {
+      "frames": [
+        "ko_recline_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 60
+        }
+      ]
+    },
+    "win": {
+      "frames": [
+        "win_ice_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 60
+        }
+      ]
+    },
+    "held_leg_flip": {
+      "frames": [
+        "held_leg_flip_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 24
+        }
+      ]
+    },
+    "held_labubu_throw": {
+      "frames": [
+        "held_labubu_throw_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 24
+        }
+      ]
+    },
+    "held_twinkle_throw": {
+      "frames": [
+        "held_twinkle_throw_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 26
+        }
+      ]
+    },
+    "dash": {
+      "frames": [
+        "walk_contact_near",
+        "walk_pass_near",
+        "walk_contact_far",
+        "walk_pass_far"
+      ],
+      "loop": true,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 4
+        },
+        {
+          "frame": 1,
+          "ticks": 4
+        },
+        {
+          "frame": 2,
+          "ticks": 4
+        },
+        {
+          "frame": 3,
+          "ticks": 5
+        }
+      ]
+    }
+  },
+  "unusedReviewCrops": {
+    "aokiji_reactionsheld_neutral_reference_1003": {
+      "source": "aokiji_reactions_held_1003",
+      "regions": [
+        [
+          67,
+          2,
+          362,
+          409
+        ]
+      ],
+      "reason": "Single sheet-wide standing scale reference; existing neutral remains, not counted as additional art."
+    }
+  },
+  "knownDifferences": [
+    "Seven actual independent reactions, no generated reference counted as adopted crop.",
+    "Three cuff/upper-shoe sockets observed in separate real hip/knee/arm poses. Existing canonical held roots register actual socket position, but cannot certify pairing or visual readability.",
+    "Generic thrown is a separate raised-leg losing-balance pose. It is not substituted for any of the three specific held poses.",
+    "Dash explicitly reuses the existing four real alternating walk poses at4/4/4/5ticks; zero new dash art. Walk40ticks at1.8984375 travels75.9375world; dash17ticks at4.3984375 travels74.7734375, difference1.53percent. Normal-speed gait/sliding check remains pending.",
+    "KO body is actual reclining art, no rotation of standing; win actual one-hand ice display differs from idle.",
+    "All base states/26 moves/9 skills being present only means static resource candidate coverage; sound, FX, real contact, CPU/full match and publication are parent work."
+  ]
+}

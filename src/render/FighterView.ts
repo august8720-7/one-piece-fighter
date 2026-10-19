@@ -13,6 +13,7 @@ export class FighterView {
   private readonly strictFrames: boolean;
   private activeTextureKey: string;
   private drawnFrame: string | null = null;
+  private drawnPresentation: CharacterPresentation | undefined;
   private missing = new Set<string>();
   private foreground: Phaser.GameObjects.Sprite | null = null;
   private foregroundTextureKey: string | null = null;
@@ -48,16 +49,26 @@ export class FighterView {
     override?: AnimationOverride,
     scale = 1,
   ): boolean {
+    const form = this.strictFrames && f.form === 'gear5' ? this.presentation?.forms?.gear5 : undefined;
+    if (this.strictFrames && f.form === 'gear5' && !form) {
+      this.missing.add(`${this.charId}/forms/gear5`);
+      this.hide();
+      return false;
+    }
+    const presentation = form ?? this.presentation;
+    const anims = form?.anims ?? this.anims;
+    const textureKey = form?.key ?? this.textureKey;
+    this.drawnPresentation = presentation;
     const reaction = this.strictFrames ? connectedHeldReaction(sim, f) : null;
-    const { anim, index: visualIndex } = reaction ?? currentAnimation(sim, f, this.anims, override);
+    const { anim, index: visualIndex } = reaction ?? currentAnimation(sim, f, anims, override);
     const index = !override && !this.continuous && f.state === 'attack' ? sim.currentFrame(f)?.sprite ?? 0 : visualIndex;
     let name = frameName(this.charId, anim, index);
-    if (reaction && (!this.presentation || heldReactionFrameIssues(this.charId, this.anims, this.presentation.attachments, reaction.anim).length)) {
+    if (reaction && (!presentation || heldReactionFrameIssues(this.charId, anims, presentation.attachments, reaction.anim).length)) {
       this.missing.add(name);
       this.hide();
       return false;
     }
-    const requestedTexture = this.presentation?.frameTextures?.[name] ?? this.textureKey;
+    const requestedTexture = presentation?.frameTextures?.[name] ?? textureKey;
     if (requestedTexture !== this.activeTextureKey) {
       this.sprite.setTexture(requestedTexture);
       this.activeTextureKey = requestedTexture;
@@ -73,9 +84,9 @@ export class FighterView {
       this.hide();
       return false;
     }
-    const foregroundName = this.presentation?.foregroundFrames?.[name];
+    const foregroundName = presentation?.foregroundFrames?.[name];
     if (foregroundName) {
-      const key = this.presentation?.frameTextures?.[foregroundName] ?? this.textureKey;
+      const key = presentation?.frameTextures?.[foregroundName] ?? textureKey;
       if (!this.foreground) {
         this.foreground = this.scene.add.sprite(0, 0, key).setVisible(false);
         this.worldLayer?.add(this.foreground);
@@ -86,7 +97,7 @@ export class FighterView {
         this.foregroundTextureKey = key;
         if (this.strictFrames) this.foreground.texture.setFilter(Phaser.Textures.FilterMode.LINEAR);
       }
-      if (!this.foreground.texture.has(foregroundName) || !this.presentation?.attachments[foregroundName]) {
+      if (!this.foreground.texture.has(foregroundName) || !presentation?.attachments[foregroundName]) {
         this.missing.add(foregroundName);
         this.hide();
         return false;
@@ -100,12 +111,12 @@ export class FighterView {
     this.sprite.setFrame(name);
     this.drawnFrame = name;
     const fr = this.sprite.frame;
-    const geometry = this.presentation?.attachments[name];
+    const geometry = presentation?.attachments[name];
     const ox = geometry ? geometry.root.x / geometry.size.width : fr.customPivot ? fr.pivotX : 0.5;
     const oy = geometry ? geometry.root.y / geometry.size.height : fr.customPivot ? fr.pivotY : 1;
     this.sprite
       .setOrigin(ox, oy)
-      .setScale(scale / (this.presentation?.textureDensity ?? 1))
+      .setScale(scale / (presentation?.textureDensity ?? 1))
       .setPosition(Math.round(screenX), Math.round(screenY))
       .setFlipX(f.facing === -1)
       .setVisible(true)
@@ -115,7 +126,7 @@ export class FighterView {
     else this.sprite.setTint(tint);
     if (foregroundName && this.foreground) {
       this.foreground.setFrame(foregroundName).setOrigin(ox, oy)
-        .setScale(scale / (this.presentation?.textureDensity ?? 1))
+        .setScale(scale / (presentation?.textureDensity ?? 1))
         .setPosition(Math.round(screenX), Math.round(screenY)).setFlipX(f.facing === -1)
         .setVisible(true).setAlpha(alpha).setDepth(13);
       if (tint === null) this.foreground.clearTint();
@@ -132,7 +143,7 @@ export class FighterView {
 
   /** Current shoulder/wrist/etc. in screen pixels, mirrored around the same root as the body. */
   socket(name: string): AttachmentPoint | null {
-    const frame = this.drawnFrame ? this.presentation?.attachments[this.drawnFrame] : undefined;
+    const frame = this.drawnFrame ? this.drawnPresentation?.attachments[this.drawnFrame] : undefined;
     if (!frame || !this.sprite.visible) return null;
     const point = attachmentPoint(frame, name, {
       x: this.sprite.x, y: this.sprite.y, facing: this.sprite.flipX ? -1 : 1,
@@ -144,16 +155,18 @@ export class FighterView {
 
   /** Includes the action's adjacent poses so a wide recovery/knockdown does not suddenly crop. */
   cameraBounds(): FightBounds | null {
-    if (!this.drawnFrame || !this.sprite.visible || this.presentation?.style !== 'anime') return null;
+    if (!this.drawnFrame || !this.sprite.visible || this.drawnPresentation?.style !== 'anime') return null;
+    const presentation = this.drawnPresentation;
     const anim = this.drawnFrame.split('/')[1]!;
-    let names = this.framingGroups.get(anim);
+    const groupKey = `${this.activeTextureKey}:${anim}`;
+    let names = this.framingGroups.get(groupKey);
     if (!names) {
       const families = isHeldReactionAnim(anim) ? [anim, 'hit_air', 'knockdown']
         : anim === 'hit_air' || anim === 'thrown' || anim === 'ko' ? [anim, 'knockdown'] : [anim];
-      names = Object.keys(this.presentation.attachments).filter(name => families.some(family => name.startsWith(`${this.charId}/${family}/`)));
-      this.framingGroups.set(anim, names);
+      names = Object.keys(presentation.attachments).filter(name => families.some(family => name.startsWith(`${this.charId}/${family}/`)));
+      this.framingGroups.set(groupKey, names);
     }
-    return unionFightBounds(names.map(name => frameFramingBounds(this.presentation!.attachments[name]!,
+    return unionFightBounds(names.map(name => frameFramingBounds(presentation.attachments[name]!,
       this.sprite.x, this.sprite.y, this.sprite.flipX ? -1 : 1, this.sprite.scaleX)));
   }
 

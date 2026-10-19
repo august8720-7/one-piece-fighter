@@ -1,0 +1,132 @@
+{
+  "scope": "Independent parent integration hints; not an approved release manifest",
+  "voiceSource": "scripts/roster_voice_adoption1003.voices.json",
+  "sfxSource": "scripts/roster_voice_adoption1003.foley.json",
+  "voiceRouting": {
+    "specialStart": "voice.<id>.attack",
+    "ordinaryAttack": "voice.<id>.effort",
+    "dedicatedCallsApproved": false
+  },
+  "commonCues": {
+    "sfx.aokiji.footstep": {
+      "files": [
+        "assets/audio/sfx/akainu-step-0-0914.wav",
+        "assets/audio/sfx/akainu-step-1-0914.wav",
+        "assets/audio/sfx/akainu-step-2-0914.wav"
+      ],
+      "group": "sfx",
+      "gain": 0.68,
+      "priority": 12,
+      "cooldownMs": 110,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "characterId": "aokiji",
+      "note": "Existing public CC0 footstep/movement material reused transparently; new character timing/mix still pending. No old character voice reused."
+    },
+    "sfx.aokiji.movement": {
+      "files": [
+        "assets/audio/sfx/whoosh-1-0912.wav"
+      ],
+      "group": "sfx",
+      "gain": 0.25,
+      "priority": 12,
+      "cooldownMs": 180,
+      "maxInstances": 1,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Existing public CC0 footstep/movement material reused transparently; new character timing/mix still pending. No old character voice reused.",
+      "characterId": "aokiji"
+    },
+    "sfx.shanks.footstep": {
+      "files": [
+        "assets/audio/sfx/luffy-step-0-0914.wav",
+        "assets/audio/sfx/luffy-step-1-0914.wav",
+        "assets/audio/sfx/luffy-step-2-0914.wav"
+      ],
+      "group": "sfx",
+      "gain": 0.55,
+      "priority": 12,
+      "cooldownMs": 110,
+      "maxInstances": 2,
+      "source": "docs/assets/声音接续1003.md",
+      "characterId": "shanks",
+      "note": "Existing public CC0 footstep/movement material reused transparently; new character timing/mix still pending. No old character voice reused."
+    },
+    "sfx.shanks.movement": {
+      "files": [
+        "assets/audio/sfx/whoosh-1-0912.wav"
+      ],
+      "group": "sfx",
+      "gain": 0.25,
+      "priority": 12,
+      "cooldownMs": 180,
+      "maxInstances": 1,
+      "source": "docs/assets/声音接续1003.md",
+      "note": "Existing public CC0 footstep/movement material reused transparently; new character timing/mix still pending. No old character voice reused.",
+      "characterId": "shanks"
+    }
+  },
+  "reusedFileChecks": [
+    {
+      "file": "assets/audio/sfx/akainu-step-0-0914.wav",
+      "sha256": "3b8839b54199c12f36b681c10bd619a3ade3d39e4ba4e9fb263cc13570f8da1e",
+      "bytes": 11954
+    },
+    {
+      "file": "assets/audio/sfx/akainu-step-1-0914.wav",
+      "sha256": "6c3199c14645feeb4d5513032d896b187b2d3c5e8a69858bacb8cf047309d95e",
+      "bytes": 11698
+    },
+    {
+      "file": "assets/audio/sfx/akainu-step-2-0914.wav",
+      "sha256": "0391ea5cd0d5ca529850d67b631534ffd7d11112bef321862891950c857ab96f",
+      "bytes": 11698
+    },
+    {
+      "file": "assets/audio/sfx/luffy-step-0-0914.wav",
+      "sha256": "fe9b9a6eeec5cd1831a32c66f903b18bb294b414b759aa06c2f8b53ecf527a3a",
+      "bytes": 11698
+    },
+    {
+      "file": "assets/audio/sfx/luffy-step-1-0914.wav",
+      "sha256": "46269d5118ddf38d4c67553ff4334c45b56478e67ca43b113326051abadbdb20",
+      "bytes": 11698
+    },
+    {
+      "file": "assets/audio/sfx/luffy-step-2-0914.wav",
+      "sha256": "5d8a1e6d24374c04eb49a5696774544fd3c701d066a4e64b5f7c62c1d985132a",
+      "bytes": 11698
+    },
+    {
+      "file": "assets/audio/sfx/whoosh-1-0912.wav",
+      "sha256": "cefa052ee5fd1e0802cb1851b8a6fa4a5a67d1f9fa5260118bbab5d24a2a24d0",
+      "bytes": 16556
+    }
+  ],
+  "projectileMoveIds": {
+    "aokiji": [
+      "sp_ice_lance",
+      "sp_ice_spike",
+      "sp_ice_pheasant",
+      "sp_glacier_line"
+    ],
+    "shanks": [
+      "sp_haki_slash"
+    ]
+  },
+  "projectileRelease": "At actual spawn only; mark profiles as projectile so fighter swing does not duplicate release",
+  "materialRouting": "Use original materialCharacterId after reflection; do not replace ice/slash timbre with reflector timbre",
+  "stageReuse": {
+    "sfx.aokiji.glacier_line.release": {
+      "runtimeFile": "assets/audio/sfx/aokiji-ice_spike-release-cc0-1003.wav",
+      "explicitReuse": true,
+      "why": "Three logical spawns at16/23/30 each need one fracture release; initial triple-layer glacier candidate retained but do not triple it at all three spawns"
+    }
+  },
+  "newVoiceAdopted": 0,
+  "newSoundEffectAdopted": 0,
+  "remaining": [
+    "independent actual audio quality review",
+    "actual game decode/unlock/play/subtitle",
+    "new SFX timing/impact/decay/mix"
+  ]
+}

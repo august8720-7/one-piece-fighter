@@ -43,8 +43,12 @@ export class TutorialCoach {
   }
   skip(): void {
     if (!this.active) return;
-    this.active = false;
+    this.suspend();
     saveTutorial('skipped', this.mode);
+  }
+  /** Switching to optional role practice must not rewrite the old six-step record. */
+  suspend(): void {
+    this.active = false;
     this.hide();
   }
   tick(sim: FightSim, p1: number): void {

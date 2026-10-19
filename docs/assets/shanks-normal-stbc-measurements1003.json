@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_normal_stbc_1003",
+  "sourceSha256": "9cc7ab4bdb9292c09f30d8bb249171a3aa7931d0e103f829e9086f19b951c4b5",
+  "status": "two-normal-bodies-before-real-contact-review",
+  "neutralVisibleAlpha8Bounds": [39, 18, 452, 390],
+  "neutralVisibleHeight": 372,
+  "referenceNeutralHeight": 380,
+  "unitScale": 1.021505376344086,
+  "scaleBasis": "Single page neutral visible alpha>=8 height372px; all six normal poses share380/372 versus the original380px. No per-pose fitting.",
+  "frames": {
+    "st_b_start_1003": {"source": "shanks_normal_stbc_1003", "crop": [583, 11, 344, 382], "root": [207, 370], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "st_b_active_1003": {"source": "shanks_normal_stbc_1003", "crop": [42, 389, 449, 371], "root": [199, 361], "sockets": {"striking_foot": [433, 126]}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[0, 0, 449, 5], [225, 367, 30, 4]]},
+    "st_b_recover_1003": {"source": "shanks_normal_stbc_1003", "crop": [601, 402, 331, 357], "root": [190, 346], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "st_c_start_1003": {"source": "shanks_normal_stbc_1003", "crop": [41, 752, 425, 333], "root": [192, 321], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[0, 0, 425, 6], [200, 329, 110, 4]]},
+    "st_c_active_1003": {"source": "shanks_normal_stbc_1003", "crop": [554, 753, 525, 332], "root": [232, 321], "sockets": {"weapon_grip": [346, 98], "weapon_tip": [516, 97]}, "transparency": {"mode": "source-alpha"}},
+    "st_c_recover_1003": {"source": "shanks_normal_stbc_1003", "crop": [55, 1075, 423, 365], "root": [213, 353], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[0, 0, 423, 5]]}
+  },
+  "anims": {
+    "st_b": {"frames": ["st_b_start_1003", "st_b_active_1003", "st_b_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 6}, {"frame": 1, "ticks": 3}, {"frame": 2, "ticks": 12}]},
+    "st_c": {"frames": ["st_c_start_1003", "st_c_active_1003", "st_c_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 10}, {"frame": 1, "ticks": 4}, {"frame": 2, "ticks": 23}]}
+  },
+  "parentContactReview": {
+    "st_b": {"approxWorldStrikingFoot": [59.13, -59.38], "currentHitbox": [11, -33, 39, 22], "suggestedMeasuredHitbox": [34, -64, 30, 24], "note": "The actual front kick is chest-height rather than the initial low paper box. Parent decides contact calibration or a targeted redraw; keep39 damage and6/3/12."},
+    "st_c": {"approxWorldGrip": [28.81, -56.35], "approxWorldTip": [71.76, -56.60], "currentHitbox": [9, -68, 72, 35], "note": "Current horizontal sword box covers the actual blade. Real left/right contact remains to be checked."}
+  },
+  "observations": ["Actual new drawings provide raised-knee/kick/retraction and drawn-saber/horizontal-cut/recovery; no copied static stand poses count as attacks.", "Single arm, full saber and complete shoes maintained. Body candidate does not prove hit tests or sound."]
+}

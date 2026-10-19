@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_balloon_upper_single1017",
+  "file": "public/assets/generated/source/luffy-gear5-balloon-upper-single1017.png",
+  "sha256": "df7a728a19c370715ecdb4b29cc109768f10eaf74160e636302060b5c93f82ce",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官网未披露具体图像型号；实际文字模型GPT-6与具体图像型号分开记录，图像型号仍未核实。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad30b00-1890-83e8-af5d-982a71002c85",
+  "observedCompletedAt": "2026-10-17T16:33:41.435+08:00",
+  "uiObservation": "根实际view本次官网下载原PNG和官网完成结果；完整三段prompt经Playwright.fill后click发送，本次没有提前误发，不与上一修稿曾误发短段的过程混淆。只用图像工具直接生成，不运行官网代码后处理。沿同会话16:12已核GPT-6/中文极高第4/5准备截图，本次未重新打开菜单，不冒称新型号/档位观测；旧截图真实路径与SHA在docs/assets/luffy-gear5-balloon-y70-repair-ui-observation1017.json。实际参考上一张已登记luffy_gear5_balloon_y70_repair1017的neutral、最初master身份和会话已有同一balloon_y70_target1017指南，本次没有新上传。根看巨腹更大、前上方改善；仍待render统一neutral身体尺度、脚根和y=-70真实截面及发顶完整性量测。原PNG alpha>=16边界触y=0，仅是边缘统计，不据此断言发顶完整或裁掉。候选来源登记不代表采用，不动authoring，不变旧反射框。C原件保留、D同字节复制和SHA核验；时间为根实际完成复核，非服务器首次生成时间。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-balloon-upper-single-prompt1017.txt",
+    "sha256": "2e6677a18794bff3649580965c65280ab72c92f7fc3659f0265573425e90ecf3"
+  },
+  "referenceSources": {
+    "luffy_gear5_balloon_y70_repair1017": "f43eafc8b0111b58931b49d4b3a53bade4b6fb16019344010f71e145afbd2de8",
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+    "balloon_y70_target1017": "9bc9637b23bed070f1ecfcb233c6019a94e423cdd73957b680850eecbb06cd32"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T08:34:53.213752+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/balloon-upper-single-completed-web1017.png",
+    "sha256": "529642e95d311e9adc7b130f4930c9e2fbf2cf0f1a588ffc172473fa6fe9109d"
+  },
+  "referenceFiles": {
+    "luffy_gear5_balloon_y70_repair1017": {
+      "file": "public/assets/generated/source/luffy-gear5-balloon-y70-repair1017.png",
+      "sha256": "f43eafc8b0111b58931b49d4b3a53bade4b6fb16019344010f71e145afbd2de8"
+    },
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    },
+    "balloon_y70_target1017": {
+      "file": "D:/one-piece-fighter-crossover-0922/roster-0929/reference/balloon-contact-y70-1017/balloon-y70-target1017.png",
+      "sha256": "9bc9637b23bed070f1ecfcb233c6019a94e423cdd73957b680850eecbb06cd32",
+      "kind": "reference-guide-not-runtime"
+    }
+  },
+  "originalPngSize": [
+    1448,
+    1086
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

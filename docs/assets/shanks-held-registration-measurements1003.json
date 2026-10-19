@@ -1,0 +1,255 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "status": "two-ankle-poses-static-passed-twinkle-eye-occlusion-rejected",
+  "rootRegistrationContract": "Held root is a virtual floor axis registered once from observed ankle/sole and existing fixed world hold contract. Source-tile idle coordinates do not define every airborne pose axis. No image translation/rotation, pose-specific scaling, or runtime root adjustment.",
+  "referenceEvidence": {
+    "file": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\reference\\shanks-held-1003\\held-reference-metadata1003.json",
+    "sha256": "a1ec918f32a22967a4f8da2ae3ee84a27cc21383122f5c592ff4d50223f9c51c",
+    "kind": "existing-game-pose-reference-only-not-shanks-art"
+  },
+  "sources": {
+    "shanks_held_joint_repair_1003": {
+      "unitScale": 0.7584830339321357,
+      "scaleBasis": "One actual neutral alpha>=8 height501px. Uniform380/501 for every adopted drawing from this page; no per-pose fitting.",
+      "neutralVisibleAlpha8Bounds": [
+        54,
+        13,
+        543,
+        514
+      ],
+      "sourceSha256": "b9f33721ef228bc81ae0da52a4bb2c0cab7cee67cbbcfac7768f47ab7fb82d83"
+    }
+  },
+  "frames": {
+    "held_leg_flip_1003": {
+      "source": "shanks_held_joint_repair_1003",
+      "crop": [
+        776,
+        33,
+        681,
+        457
+      ],
+      "root": [
+        519.557725845832,
+        480.24834321590515
+      ],
+      "sockets": {
+        "grip": [
+          594,
+          410
+        ]
+      },
+      "transparency": {
+        "mode": "source-alpha"
+      }
+    },
+    "held_labubu_throw_1003": {
+      "source": "shanks_held_joint_repair_1003",
+      "crop": [
+        67,
+        556,
+        769,
+        407
+      ],
+      "root": [
+        580.6021276595744,
+        469.77234042553187
+      ],
+      "sockets": {
+        "grip": [
+          684,
+          328
+        ]
+      },
+      "transparency": {
+        "mode": "source-alpha"
+      }
+    }
+  },
+  "anims": {
+    "held_leg_flip": {
+      "frames": [
+        "held_leg_flip_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 12
+        }
+      ]
+    },
+    "held_labubu_throw": {
+      "frames": [
+        "held_labubu_throw_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 12
+        }
+      ]
+    }
+  },
+  "registrations": [
+    {
+      "anim": "held_leg_flip",
+      "source": "shanks_held_joint_repair_1003",
+      "sourceFoot": [
+        1370,
+        443
+      ],
+      "footKind": "visible bare ankle just above sandal strap",
+      "worldUnitPerSourcePixel": 0.18762475049900199,
+      "targetWorldGripFacingRight": [
+        13.967213114754095,
+        -13.180327868852459
+      ],
+      "sourceVirtualRootAbsolute": [
+        1295.557725845832,
+        513.2483432159052
+      ],
+      "cropLocalRoot": [
+        519.557725845832,
+        480.24834321590515
+      ],
+      "formula": "sourceVirtualRoot = measuredFoot - targetWorldGrip/worldUnitPerSourcePixel",
+      "worldVisibleAlpha8Bounds": [
+        -96.35614017865909,
+        -88.98072707044926,
+        29.164817905173233,
+        -5.487713098393382
+      ],
+      "lowestVisiblePixelAboveFloor": 5.487713098393382,
+      "runtimePoseTranslation": false,
+      "individualPoseScaling": false
+    },
+    {
+      "anim": "held_labubu_throw",
+      "source": "shanks_held_joint_repair_1003",
+      "sourceFoot": [
+        751,
+        884
+      ],
+      "footKind": "visible bare ankle above rear sandal strap",
+      "worldUnitPerSourcePixel": 0.18762475049900199,
+      "targetWorldGripFacingRight": [
+        19.4,
+        -26.599999999999994
+      ],
+      "sourceVirtualRootAbsolute": [
+        647.6021276595744,
+        1025.7723404255319
+      ],
+      "cropLocalRoot": [
+        580.6021276595744,
+        469.77234042553187
+      ],
+      "formula": "sourceVirtualRoot = measuredFoot - targetWorldGrip/worldUnitPerSourcePixel",
+      "worldVisibleAlpha8Bounds": [
+        -107.80958083832334,
+        -87.01516966067862,
+        34.222355289421166,
+        -12.903393213572844
+      ],
+      "lowestVisiblePixelAboveFloor": 12.903393213572844,
+      "runtimePoseTranslation": false,
+      "individualPoseScaling": false
+    },
+    {
+      "anim": "held_twinkle_throw",
+      "source": "shanks_held_twinkle_focus_1003",
+      "sourceFoot": [
+        1460,
+        733
+      ],
+      "footKind": "visible lower plantar sole near midfoot; other shoe is higher",
+      "worldUnitPerSourcePixel": 0.12066752246469833,
+      "targetWorldGripFacingRight": [
+        22.75,
+        -34.25
+      ],
+      "sourceVirtualRootAbsolute": [
+        1271.465425531915,
+        1016.8377659574468
+      ],
+      "cropLocalRoot": [
+        535.4654255319149,
+        821.8377659574468
+      ],
+      "formula": "sourceVirtualRoot = measuredFoot - targetWorldGrip/worldUnitPerSourcePixel",
+      "worldVisibleAlpha8Bounds": [
+        -63.889281129653405,
+        -98.4451219512195,
+        29.628048780487806,
+        -30.38863928112965
+      ],
+      "lowestVisiblePixelAboveFloor": 30.38863928112965,
+      "runtimePoseTranslation": false,
+      "individualPoseScaling": false
+    }
+  ],
+  "observations": [
+    "Three independently drawn joint poses from two actual web sources. Original unsuitable twinkle poses are preserved and not mapped.",
+    "First two are distinct ankle-grab postures; third source is newly drawn low-front-shoe posture with the other shoe higher.",
+    "Root registration is measured true foot plus canonical held contract, not a mechanical tile-idle origin. Actual pairing is still subject to real game review."
+  ],
+  "rejectedFrames": {
+    "held_twinkle_throw_1003": {
+      "source": "shanks_held_twinkle_focus_1003",
+      "crop": [
+        736,
+        195,
+        787,
+        576
+      ],
+      "root": [
+        535.4654255319149,
+        821.8377659574468
+      ],
+      "sockets": {
+        "grip": [
+          724,
+          538
+        ]
+      },
+      "transparency": {
+        "mode": "source-alpha"
+      }
+    }
+  },
+  "rejectedAnimations": {
+    "held_twinkle_throw": {
+      "frames": [
+        "held_twinkle_throw_1003"
+      ],
+      "loop": false,
+      "exposures": [
+        {
+          "frame": 0,
+          "ticks": 12
+        }
+      ]
+    }
+  },
+  "rejectedSources": {
+    "shanks_held_twinkle_focus_1003": {
+      "unitScale": 0.4878048780487805,
+      "scaleBasis": "One actual neutral alpha>=8 height779px. Uniform380/779 for every adopted drawing from this page; no per-pose fitting.",
+      "neutralVisibleAlpha8Bounds": [
+        16,
+        136,
+        672,
+        915
+      ],
+      "sourceSha256": "8cd86d6e2cd91c1dfee955dda6b8ba85cea60949a47430cbd92c1f63f2bf2bdd"
+    }
+  },
+  "rejectionReason": "Static forward/mirror pair: front knee and vertical shin hide Twinkle right eye, despite true foot alignment and floor clearance. Twinkle source not mapped.",
+  "staticPassed": [
+    "held_leg_flip",
+    "held_labubu_throw"
+  ]
+}

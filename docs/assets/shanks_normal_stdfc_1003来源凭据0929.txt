@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "shanks_normal_stdfc_1003",
+  "file": "public/assets/generated/source/roster-shanks-normal-stdfc-1003.png",
+  "sha256": "9482b3986a31a98c2e6e7195de8b6e044c13cbceb2b34daa63a3a31ce026c751",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方页面仅显示ChatGPT，具体图像型号未公开且未核实，不推断后台型号。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+  "observedCompletedAt": "2026-10-03T18:43:49.948948+08:00",
+  "uiObservation": "1003同一香克斯官方会话续作。提交前DOM实见最新radio选中、极高第4项；完整UTF-8提示经textbox.fill读回全文匹配后单次发送。页面回答已完成，官方查看器标题红发独臂剑士战斗姿态精灵图集。时间来自该真实结果截图保存时刻，是完成观察而非服务器生成时间。查看器下载只点一次，Downloads正式PNG已落盘；完整PNG签名/IEND、Pillow全解码、真实alpha、SHA256及复制前后记录均实证。没有以download事件回执作为成功证据。既有images为工作流入口，本次直接续c会话。",
+  "prompt": {
+    "file": "docs/assets/shanks-normal-standing-hilt-forward-cut-prompt1003.txt",
+    "sha256": "cfb9969bc6c5e3c976ef13ed161e83cfefb9016f60d0eb5906bd7e49273d4658"
+  },
+  "referenceSources": {
+    "shanks_locomotion_0929": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c",
+    "shanks_normal_stbc_1003": "9cc7ab4bdb9292c09f30d8bb249171a3aa7931d0e103f829e9086f19b951c4b5"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T10:45:43.936463+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-normal-standing-hilt-forward-cut-result-viewer.jpg",
+    "sha256": "da87d1f4917ce9b8cbf144079e95b71a3e0e8bc28c7af6f03a4e5b5e03462dad"
+  },
+  "referenceFiles": {
+    "shanks_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-shanks-locomotion-0929.png",
+      "sha256": "14433b2fcf4c70e7171a8ec0cc7e9e2b28fc54934017026b1b464c127e94443c"
+    },
+    "shanks_normal_stbc_1003": {
+      "file": "public/assets/generated/source/roster-shanks-normal-stbc-1003.png",
+      "sha256": "9cc7ab4bdb9292c09f30d8bb249171a3aa7931d0e103f829e9086f19b951c4b5"
+    }
+  },
+  "originalPngSize": [
+    1086,
+    1448
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

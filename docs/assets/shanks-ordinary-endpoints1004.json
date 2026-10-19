@@ -1,0 +1,377 @@
+{
+  "character": "shanks",
+  "kind": "static-real-endpoint-calibration-before-game",
+  "preserved": [
+    "damage",
+    "startup/active/recovery",
+    "input",
+    "cancel",
+    "knockback",
+    "old characters/core"
+  ],
+  "backup": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\baseline\\shanks-normal-contact1004-082530",
+  "oldMovesSha256": "c868b739fa62427655fcbaa9f7c3d10e6c90eda482c08eda1ca9eade73d49c49",
+  "newMovesSha256": "12a69be09bdb966e5f253df32968b10c2ad8bedfb3fbf4a6e4511be13eeff9a3",
+  "moves": [
+    {
+      "move": "st_c",
+      "oldBox": [
+        9,
+        -68,
+        72,
+        35
+      ],
+      "newBox": [
+        24,
+        -63,
+        52,
+        15
+      ],
+      "frame": "st_c_active_1003",
+      "source": "shanks_normal_stbc_1003",
+      "sourceSha256": "9cc7ab4bdb9292c09f30d8bb249171a3aa7931d0e103f829e9086f19b951c4b5",
+      "crop": [
+        554,
+        753,
+        525,
+        332
+      ],
+      "sourceRoot": [
+        232,
+        321
+      ],
+      "sourceSockets": {
+        "weapon_grip": [
+          346,
+          98
+        ],
+        "weapon_tip": [
+          516,
+          97
+        ]
+      },
+      "worldUnitsPerSourcePixel": 0.25268817204301075,
+      "measuredWorldEndpoints": {
+        "weapon_grip": [
+          28.806451612903224,
+          -56.3494623655914
+        ],
+        "weapon_tip": [
+          71.76344086021506,
+          -56.60215053763441
+        ]
+      }
+    },
+    {
+      "move": "st_d",
+      "oldBox": [
+        12,
+        -70,
+        47,
+        46
+      ],
+      "newBox": [
+        30,
+        -72,
+        17,
+        22
+      ],
+      "frame": "st_d_active_1003",
+      "source": "shanks_normal_stdfc_1003",
+      "sourceSha256": "9482b3986a31a98c2e6e7195de8b6e044c13cbceb2b34daa63a3a31ce026c751",
+      "crop": [
+        45,
+        407,
+        478,
+        338
+      ],
+      "sourceRoot": [
+        296,
+        327
+      ],
+      "sourceSockets": {
+        "hilt_contact": [
+          458,
+          72
+        ]
+      },
+      "worldUnitsPerSourcePixel": 0.2506666666666667,
+      "measuredWorldEndpoints": {
+        "hilt_contact": [
+          40.608000000000004,
+          -63.92000000000001
+        ]
+      }
+    },
+    {
+      "move": "j_a",
+      "oldBox": [
+        7,
+        -57,
+        32,
+        22
+      ],
+      "newBox": [
+        25,
+        -72,
+        18,
+        24
+      ],
+      "frame": "j_a_active_1003",
+      "source": "shanks_air_hilt_repair_1003",
+      "sourceSha256": "0be0d641e28a4fdf326582fe2dabb5846d10fded7ecd4084797332c51ad4c803",
+      "crop": [
+        63,
+        572,
+        654,
+        415
+      ],
+      "sourceRoot": [
+        413,
+        493
+      ],
+      "sourceSockets": {
+        "hilt_contact": [
+          624,
+          129
+        ]
+      },
+      "worldUnitsPerSourcePixel": 0.17247706422018352,
+      "measuredWorldEndpoints": {
+        "hilt_contact": [
+          36.39266055045872,
+          -62.781651376146804
+        ]
+      }
+    },
+    {
+      "move": "j_b",
+      "oldBox": [
+        8,
+        -34,
+        42,
+        29
+      ],
+      "newBox": [
+        27,
+        -59,
+        25,
+        23
+      ],
+      "frame": "j_b_active_1003",
+      "source": "shanks_normal_airlight_1003",
+      "sourceSha256": "d9db444628aa66bafc51ac3f7d4549871b0959564a42cd83462f353840811fd3",
+      "crop": [
+        541,
+        773,
+        498,
+        325
+      ],
+      "sourceRoot": [
+        283,
+        357
+      ],
+      "sourceSockets": {
+        "striking_foot": [
+          484,
+          128
+        ]
+      },
+      "worldUnitsPerSourcePixel": 0.23618090452261306,
+      "measuredWorldEndpoints": {
+        "striking_foot": [
+          47.472361809045225,
+          -54.085427135678394
+        ]
+      }
+    },
+    {
+      "move": "j_c",
+      "oldBox": [
+        9,
+        -65,
+        65,
+        46
+      ],
+      "newBox": [
+        27,
+        -57,
+        48,
+        22
+      ],
+      "frame": "j_c_active_1003",
+      "source": "shanks_normal_airheavy_1003",
+      "sourceSha256": "e8626138ae37a44806af972802aa1ed16ebe945fc615d9fbe7f935a13c00e41a",
+      "crop": [
+        47,
+        428,
+        568,
+        303
+      ],
+      "sourceRoot": [
+        262,
+        334
+      ],
+      "sourceSockets": {
+        "weapon_grip": [
+          390,
+          114
+        ],
+        "weapon_tip": [
+          560,
+          164
+        ]
+      },
+      "worldUnitsPerSourcePixel": 0.2379746835443038,
+      "measuredWorldEndpoints": {
+        "weapon_grip": [
+          30.460759493670885,
+          -52.35443037974683
+        ],
+        "weapon_tip": [
+          70.91645569620253,
+          -40.45569620253164
+        ]
+      }
+    },
+    {
+      "move": "j_d",
+      "oldBox": [
+        9,
+        -38,
+        56,
+        33
+      ],
+      "newBox": [
+        34,
+        -64,
+        26,
+        25
+      ],
+      "frame": "j_d_active_1003",
+      "source": "shanks_normal_airheavy_1003",
+      "sourceSha256": "e8626138ae37a44806af972802aa1ed16ebe945fc615d9fbe7f935a13c00e41a",
+      "crop": [
+        519,
+        768,
+        541,
+        301
+      ],
+      "sourceRoot": [
+        290,
+        356
+      ],
+      "sourceSockets": {
+        "striking_foot": [
+          523,
+          108
+        ]
+      },
+      "worldUnitsPerSourcePixel": 0.2379746835443038,
+      "measuredWorldEndpoints": {
+        "striking_foot": [
+          55.448101265822785,
+          -59.01772151898734
+        ]
+      }
+    },
+    {
+      "move": "cd",
+      "oldBox": [
+        8,
+        -71,
+        67,
+        55
+      ],
+      "newBox": [
+        43,
+        -70,
+        57,
+        24
+      ],
+      "frame": "cd_active_1003",
+      "source": "shanks_normal_blowback_1003",
+      "sourceSha256": "da82c6a8d6232e0206578b9da93da38fac541583b62dc666729135dcf5d44339",
+      "crop": [
+        36,
+        419,
+        664,
+        348
+      ],
+      "sourceRoot": [
+        250,
+        337
+      ],
+      "sourceSockets": {
+        "weapon_grip": [
+          462,
+          81
+        ],
+        "weapon_tip": [
+          654,
+          71
+        ]
+      },
+      "worldUnitsPerSourcePixel": 0.23918575063613232,
+      "measuredWorldEndpoints": {
+        "weapon_grip": [
+          50.70737913486005,
+          -61.23155216284987
+        ],
+        "weapon_tip": [
+          96.63104325699746,
+          -63.6234096692112
+        ]
+      }
+    },
+    {
+      "move": "j_cd",
+      "oldBox": [
+        10,
+        -68,
+        68,
+        54
+      ],
+      "newBox": [
+        14,
+        -67,
+        51,
+        14
+      ],
+      "frame": "j_cd_active_1003",
+      "source": "shanks_normal_blowback_1003",
+      "sourceSha256": "da82c6a8d6232e0206578b9da93da38fac541583b62dc666729135dcf5d44339",
+      "crop": [
+        549,
+        778,
+        524,
+        299
+      ],
+      "sourceRoot": [
+        262,
+        353
+      ],
+      "sourceSockets": {
+        "weapon_grip": [
+          338,
+          92
+        ],
+        "weapon_tip": [
+          516,
+          97
+        ]
+      },
+      "worldUnitsPerSourcePixel": 0.23918575063613232,
+      "measuredWorldEndpoints": {
+        "weapon_grip": [
+          18.178117048346056,
+          -62.42748091603053
+        ],
+        "weapon_tip": [
+          60.75318066157761,
+          -61.23155216284987
+        ]
+      }
+    }
+  ]
+}

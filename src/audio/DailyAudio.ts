@@ -23,7 +23,7 @@ export class DailyAudio {
   /** Call only when the engine accepted the requested daily voice. */
   notePlayed(player: 0 | 1): void { this.speakers[player].voiceAt = this.tick; this.speakers[player].idleAt = this.tick; }
 
-  step(fighters: readonly DailyFighter[], active: boolean, contact: boolean, voiceBusy = false): CueRequest[] {
+  step(fighters: readonly DailyFighter[], active: boolean, contact: boolean, voiceBusy = false, characterChatter = false): CueRequest[] {
     if (!active) { this.interrupt(); return []; }
     this.tick++;
     if (contact) this.contactAt = this.tick;
@@ -35,17 +35,17 @@ export class DailyAudio {
       const displaced = s.state !== '' && f.x !== s.x;
       const foot = f.animationFrame === 0 || f.animationFrame === Math.floor(f.animationFrames / 2);
       if (f.hitstop === 0) {
-        s.idle = f.state === 'idle' ? s.idle + 1 : 0;
+        s.idle = characterChatter && f.state === 'idle' ? s.idle + 1 : 0;
         s.moving = moving(f.state) && displaced ? s.moving + 1 : 0;
         if (s.moving > 0 && !f.airborne && foot && (changed || s.animationFrame !== f.animationFrame) && this.tick - s.footAt >= 9) {
           cues.push({ id: `sfx.${f.characterId}.footstep`, player: f.player }); s.footAt = this.tick;
         }
         const burst = changed && (f.state === 'dash' || f.state === 'backdash' || f.state.startsWith('jump_'));
         if (burst) cues.push({ id: `sfx.${f.characterId}.movement`, player: f.player });
-        if ((s.moving >= 24 || burst) && this.tick - s.voiceAt >= 1200) {
+        if (characterChatter && (s.moving >= 24 || burst) && this.tick - s.voiceAt >= 1200) {
           candidates.push({ id: `voice.${f.characterId}.move`, player: f.player });
         }
-        if (s.idle >= 240 && this.tick - this.contactAt >= 120 && this.tick - s.voiceAt >= 1200) {
+        if (characterChatter && s.idle >= 240 && this.tick - this.contactAt >= 120 && this.tick - s.voiceAt >= 1200) {
           candidates.push({ id: `voice.${f.characterId}.idle`, player: f.player });
         }
       }

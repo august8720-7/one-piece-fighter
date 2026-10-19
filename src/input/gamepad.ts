@@ -17,6 +17,7 @@ const BUTTON_BITS: Record<number, number> = {
   1: Btn.D,
   4: Btn.A | Btn.B,
   5: Btn.C | Btn.D,
+  6: Btn.Awakening,
   9: Btn.Start,
   12: Btn.Up,
   13: Btn.Down,

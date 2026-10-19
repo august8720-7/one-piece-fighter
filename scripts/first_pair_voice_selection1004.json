@@ -1,0 +1,973 @@
+{
+  "version": 1,
+  "status": "native-reviewed-generic-events",
+  "humanAuditioned": false,
+  "cues": [
+    {
+      "character": "aokiji",
+      "event": "attack",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1004.json",
+      "note": "Original Chinese synthetic generic event phrase, never a dedicated original-actor move call.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "135d8a7d5af6de7222ab42c428821d447c1e15e9087f46402c9c4105bba8be08",
+          "transcript": "嘿",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+          "evidence": [
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-01\\response.txt",
+              "sha256": "366202e6f781f5974bc6732bf02acddfe4e239b996b58e867709e27fcb86ed00",
+              "role": "response"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-01\\native-result.json",
+              "sha256": "5193baa88cb75d4aa6da04ebfdf0000adae11d1bb50dd042c9b2cf2396d19b6d",
+              "role": "native-result"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-01\\request.json",
+              "sha256": "f91d3706012d4b1c6926871dad72c200a7b84512f1da836ba2ca2b8bfc436a1b",
+              "role": "request"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-01\\native-input-before-generation.json",
+              "sha256": "80c5a7ea9ecacab654b279e5df72a401574d06cfbe1c4901de80c9e029a88589",
+              "role": "audio-features"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/aokiji/attack-kokoro-original1004.wav",
+          "sha256": "135d8a7d5af6de7222ab42c428821d447c1e15e9087f46402c9c4105bba8be08",
+          "transcript": "嘿",
+          "translation": "嘿！",
+          "source_start_seconds": 0,
+          "source_end_seconds": 0.555
+        }
+      ],
+      "playback": {
+        "gain": 0.85,
+        "cooldownMs": 556
+      }
+    },
+    {
+      "character": "aokiji",
+      "event": "hurt",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1004.json",
+      "note": "Original Chinese synthetic generic event phrase, never a dedicated original-actor move call.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "89e57117583da106bc2e8686bbc08afb052ecb4a1222c6d97b91112e5ffbf4bf",
+          "transcript": "呃",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+          "evidence": [
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-03\\response.txt",
+              "sha256": "6b9fcd7f70c8dbf42c2002928e44dba79260509c607a323792740a94be901386",
+              "role": "response"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-03\\native-result.json",
+              "sha256": "f1246a99fc5f0e35d3a6e3c7d5263c49b5ff658baa33edcfc7dfbb269fac498f",
+              "role": "native-result"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-03\\request.json",
+              "sha256": "bb123d9689dc6f0969fe83938ee65814c5d7d9752a7b1e1cd95a0e95b7475ed1",
+              "role": "request"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-03\\native-input-before-generation.json",
+              "sha256": "75d52adc4917705d8d3886788883b5e1acbd7bf3ee012631e4a497af3ecbce7e",
+              "role": "audio-features"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/aokiji/hurt-kokoro-original1004.wav",
+          "sha256": "89e57117583da106bc2e8686bbc08afb052ecb4a1222c6d97b91112e5ffbf4bf",
+          "transcript": "呃",
+          "translation": "呃！",
+          "source_start_seconds": 0,
+          "source_end_seconds": 0.475
+        }
+      ],
+      "playback": {
+        "gain": 0.65,
+        "cooldownMs": 476
+      }
+    },
+    {
+      "character": "aokiji",
+      "event": "idle",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1004.json",
+      "note": "Original Chinese synthetic generic event phrase, never a dedicated original-actor move call.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "5b8d34cf636c7a06fa8f00f56dc4f57e6673e75a8dd3733821e7af0a26f82423",
+          "transcript": "别太着急",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+          "evidence": [
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-04\\response.txt",
+              "sha256": "2260164c41570c78092721ec5222c4ab2d72b3ad09b91082bcc4c80a4204e298",
+              "role": "response"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-04\\native-result.json",
+              "sha256": "61b7caa60ea07993c239e67994c63d7a234160f5e9aa04064917066f0efdbeb9",
+              "role": "native-result"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-04\\request.json",
+              "sha256": "0a551ea79639e27409cefcc3e8421e1f01393bb4e42d9e41085c598131c0de1e",
+              "role": "request"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-04\\native-input-before-generation.json",
+              "sha256": "ac6e8df0d747343db5797e07b508a95d97c9f071f4d5caa70bc64ee8d58e8733",
+              "role": "audio-features"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/aokiji/idle-kokoro-original1004.wav",
+          "sha256": "5b8d34cf636c7a06fa8f00f56dc4f57e6673e75a8dd3733821e7af0a26f82423",
+          "transcript": "别太着急",
+          "translation": "别太着急。",
+          "source_start_seconds": 0,
+          "source_end_seconds": 1.035
+        }
+      ],
+      "playback": {
+        "gain": 0.62,
+        "cooldownMs": 0
+      }
+    },
+    {
+      "character": "aokiji",
+      "event": "ko",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1004.json",
+      "note": "Original Chinese synthetic generic event phrase, never a dedicated original-actor move call.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "16a3c726c83828365f1758976b59d560c59fbd273604f746bbcb1b2ec0a0f14f",
+          "transcript": "到此为止了",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+          "evidence": [
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-05\\response.txt",
+              "sha256": "61593deb4a89d2c6598406c102f6d1544c54abe1d9e26cc42df44e9222aa2bd9",
+              "role": "response"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-05\\native-result.json",
+              "sha256": "04ba37e9e2f685c5a5a0b771c39deb8d70018bd8040d82fa998d019445683734",
+              "role": "native-result"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-05\\request.json",
+              "sha256": "57d9d1485d1409c22a93bc065c50c829e2980740608dd7fb8664b59d5404f92b",
+              "role": "request"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-05\\native-input-before-generation.json",
+              "sha256": "0a6bc245e93d3e136edd3624c347341f9b8e9d34e32dc80605147fff262cf1b2",
+              "role": "audio-features"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/aokiji/ko-kokoro-original1004.wav",
+          "sha256": "16a3c726c83828365f1758976b59d560c59fbd273604f746bbcb1b2ec0a0f14f",
+          "transcript": "到此为止了",
+          "translation": "到此为止了。",
+          "source_start_seconds": 0,
+          "source_end_seconds": 1.045
+        }
+      ],
+      "playback": {
+        "gain": 0.85,
+        "cooldownMs": 0
+      }
+    },
+    {
+      "character": "aokiji",
+      "event": "move",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1004.json",
+      "note": "Original Chinese synthetic generic event phrase, never a dedicated original-actor move call.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "d4a17ea00f55e8c9a7a68150d68b46aef723db824473a0c14742f54a607c30f8",
+          "transcript": "走吧",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+          "evidence": [
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-06\\response.txt",
+              "sha256": "5a4bf99c21e10dfee8931eb3753c0c62d4c85b61dc1134e2bc0645ea9deac9f5",
+              "role": "response"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-06\\native-result.json",
+              "sha256": "0ff07f5dc8dbdc70b201b873866379423a96715c8e50c1f3b27701cd0747becc",
+              "role": "native-result"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-06\\request.json",
+              "sha256": "055ef9c61a76bafcb24d51128d1463d43322ba20023a1b6ab058ea3f4df51adc",
+              "role": "request"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-06\\native-input-before-generation.json",
+              "sha256": "69cf0a2602a39001886ed2e039210793168a37dbfdaa32caccb58fb6b34bf561",
+              "role": "audio-features"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/aokiji/move-kokoro-original1004.wav",
+          "sha256": "d4a17ea00f55e8c9a7a68150d68b46aef723db824473a0c14742f54a607c30f8",
+          "transcript": "走吧",
+          "translation": "走吧！",
+          "source_start_seconds": 0,
+          "source_end_seconds": 0.595
+        }
+      ],
+      "playback": {
+        "gain": 0.62,
+        "cooldownMs": 0
+      }
+    },
+    {
+      "character": "aokiji",
+      "event": "select",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1004.json",
+      "note": "Original Chinese synthetic generic event phrase, never a dedicated original-actor move call.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "2b499ece5db8c28a385f51912cedf9263cd5fd2ce445179b07ac12c579765cca",
+          "transcript": "那就开始吧",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+          "evidence": [
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-07\\response.txt",
+              "sha256": "8b45ca70c84082480299a3a4e8b1d9032a8f853252da59234c04be2e014f45f0",
+              "role": "response"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-07\\native-result.json",
+              "sha256": "53b46f6deee87e9b58370362e896069b0ea58c2d7c6e28670813a475549700c6",
+              "role": "native-result"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-07\\request.json",
+              "sha256": "76e65a0e8056f2ceb34cf70a46199419da79d70406c4e46d98a86b14a1791ab1",
+              "role": "request"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-07\\native-input-before-generation.json",
+              "sha256": "dd71edc9f2881720d0fd4278d7c8ff4eb1fd80d72d037473097adf40155b957f",
+              "role": "audio-features"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/aokiji/select-kokoro-original1004.wav",
+          "sha256": "2b499ece5db8c28a385f51912cedf9263cd5fd2ce445179b07ac12c579765cca",
+          "transcript": "那就开始吧",
+          "translation": "那就开始吧。",
+          "source_start_seconds": 0,
+          "source_end_seconds": 1.065
+        }
+      ],
+      "playback": {
+        "gain": 0.7,
+        "cooldownMs": 0
+      }
+    },
+    {
+      "character": "aokiji",
+      "event": "win",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1004.json",
+      "note": "Original Chinese synthetic generic event phrase, never a dedicated original-actor move call.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "d8e543333434d2a9f51b24cd5e7bc71a61ab5c649429a20fae2047a1e94696fa",
+          "transcript": "冷静一点",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+          "evidence": [
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-08\\response.txt",
+              "sha256": "60186ebc6b211f6b754f0c2e330f9e021db939598120746a8b5b578f29da7268",
+              "role": "response"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-08\\native-result.json",
+              "sha256": "2da128bbed47a7ad27df9d1c240bcdc9b606b46c110c6485f396467a4f3e0b49",
+              "role": "native-result"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-08\\request.json",
+              "sha256": "7c912909cd0f78b314a7cbfaf8c94a397344e42294438ecb98846b00bde79559",
+              "role": "request"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-08\\native-input-before-generation.json",
+              "sha256": "42dc8f16df285b301863f658d57cd94373581ee0f27d79702407beed04c6da47",
+              "role": "audio-features"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/aokiji/win-kokoro-original1004.wav",
+          "sha256": "d8e543333434d2a9f51b24cd5e7bc71a61ab5c649429a20fae2047a1e94696fa",
+          "transcript": "冷静一点",
+          "translation": "冷静一点。",
+          "source_start_seconds": 0,
+          "source_end_seconds": 0.925
+        }
+      ],
+      "playback": {
+        "gain": 0.85,
+        "cooldownMs": 0
+      }
+    },
+    {
+      "character": "shanks",
+      "event": "idle",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1004.json",
+      "note": "Original Chinese synthetic generic event phrase, never a dedicated original-actor move call.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "c12965b11a0b0c3602050db20db65f7d5ecfdad7757db85c5a31e65009cabcf2",
+          "transcript": "尽管放马过来",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+          "evidence": [
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-12\\response.txt",
+              "sha256": "49dc3f84b81cbff6f191ea0524fb41a1c78387bc4cc8cd8d0afcd296443101a0",
+              "role": "response"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-12\\native-result.json",
+              "sha256": "94b40eb10a5315221aafa138e54189aa89f104ab5bee7076bd3ded24009e7f9c",
+              "role": "native-result"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-12\\request.json",
+              "sha256": "e6a2e44037e4434843083b3bf13c8868c5a66b751b7d1c8685ea7ccdf63a1be6",
+              "role": "request"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-12\\native-input-before-generation.json",
+              "sha256": "69518fd19f8a3db87be68282ea1ede083191e9252f97fd04cf95523f8b87d87e",
+              "role": "audio-features"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/shanks/idle-kokoro-original1004.wav",
+          "sha256": "c12965b11a0b0c3602050db20db65f7d5ecfdad7757db85c5a31e65009cabcf2",
+          "transcript": "尽管放马过来",
+          "translation": "尽管放马过来。",
+          "source_start_seconds": 0,
+          "source_end_seconds": 1.445
+        }
+      ],
+      "playback": {
+        "gain": 0.62,
+        "cooldownMs": 0
+      }
+    },
+    {
+      "character": "shanks",
+      "event": "ko",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1004.json",
+      "note": "Original Chinese synthetic generic event phrase, never a dedicated original-actor move call.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "55e3bc0adbf0ae547bf87220ea91a0b34de5c65493b4f1959c41c15e1b2678af",
+          "transcript": "这次是你赢了",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+          "evidence": [
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-13\\response.txt",
+              "sha256": "61d4df43455a5d5f01d3b3ddca7b2fc39dd76d99a04a7f44afb7cb0633df3c08",
+              "role": "response"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-13\\native-result.json",
+              "sha256": "ef967ae4dadf3d3040baa1c1b8740416fdcabed59d53d883779797183d8b9434",
+              "role": "native-result"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-13\\request.json",
+              "sha256": "b725653cd66c28e04d0bbbf3ba8d56c004f6c439e9bd110431536709259370bb",
+              "role": "request"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-13\\native-input-before-generation.json",
+              "sha256": "970003c95c5803b666fee7b9423b505df55bf94f02bc7c66ccc0d411b562bde9",
+              "role": "audio-features"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/shanks/ko-kokoro-original1004.wav",
+          "sha256": "55e3bc0adbf0ae547bf87220ea91a0b34de5c65493b4f1959c41c15e1b2678af",
+          "transcript": "这次是你赢了",
+          "translation": "这次是你赢了。",
+          "source_start_seconds": 0,
+          "source_end_seconds": 1.305
+        }
+      ],
+      "playback": {
+        "gain": 0.85,
+        "cooldownMs": 0
+      }
+    },
+    {
+      "character": "shanks",
+      "event": "move",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1004.json",
+      "note": "Original Chinese synthetic generic event phrase, never a dedicated original-actor move call.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "95c7ba1420f9f827ecf69111e96dbf5256cc6840110f9b4b28127863fb5f3e84",
+          "transcript": "走",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+          "evidence": [
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-14\\response.txt",
+              "sha256": "8f0eb2abd4dd8f6bb9446e8e15b384b5aaeaa39e373bb667de8d5ad2351807e1",
+              "role": "response"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-14\\native-result.json",
+              "sha256": "907dea1e2a7aca94629876079113a87b88c8fe324e802fd19ce0721c03456dc0",
+              "role": "native-result"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-14\\request.json",
+              "sha256": "cc9eb08ed85c514c908cf21cb485c5caa8ecb8587e6cc1706942ea3d929b09ab",
+              "role": "request"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-14\\native-input-before-generation.json",
+              "sha256": "861bb9b0b3c2e8c3f32af9ef51710db986ef9f8b3b14d86d5d04c144604d0ae3",
+              "role": "audio-features"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/shanks/move-kokoro-original1004.wav",
+          "sha256": "95c7ba1420f9f827ecf69111e96dbf5256cc6840110f9b4b28127863fb5f3e84",
+          "transcript": "走",
+          "translation": "走！",
+          "source_start_seconds": 0,
+          "source_end_seconds": 0.465
+        }
+      ],
+      "playback": {
+        "gain": 0.62,
+        "cooldownMs": 0
+      }
+    },
+    {
+      "character": "shanks",
+      "event": "win",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1004.json",
+      "note": "Original Chinese synthetic generic event phrase, never a dedicated original-actor move call.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "93c76307ffe0a2639105c68cfc3b3ab62691909208f05032cbb5cc0e61f5d976",
+          "transcript": "下一次再见",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+          "evidence": [
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-16\\response.txt",
+              "sha256": "abe8236df71b98fdf9e792a1eee2046b61e6f113b24ab06ad827350c6127cb55",
+              "role": "response"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-16\\native-result.json",
+              "sha256": "fe49b6d2bff2eef7f8a8f86329ac97a028c93bac597c05becf9c21221a109dd4",
+              "role": "native-result"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-16\\request.json",
+              "sha256": "966a551345e6e2ce646fa479f7caa9e244e67ef9d6bdcaadc23eb9c5d8e3d7dc",
+              "role": "request"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-16\\native-input-before-generation.json",
+              "sha256": "5a6890bf6dc8fdcc5d33698a547996e83a8e9da8c0a49f929476b14060fc87a2",
+              "role": "audio-features"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/shanks/win-kokoro-original1004.wav",
+          "sha256": "93c76307ffe0a2639105c68cfc3b3ab62691909208f05032cbb5cc0e61f5d976",
+          "transcript": "下一次再见",
+          "translation": "下一次再见。",
+          "source_start_seconds": 0,
+          "source_end_seconds": 1.355
+        }
+      ],
+      "playback": {
+        "gain": 0.85,
+        "cooldownMs": 0
+      }
+    },
+    {
+      "character": "shanks",
+      "event": "attack",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1004.json",
+      "note": "Original Chinese synthetic generic event phrase, never a dedicated original-actor move call.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "2b552c1c06b197d15dd799671a63f5ad90d0fe67f2c26b58f85c6ac7ab1d76b0",
+          "transcript": "看招",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+          "evidence": [
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-01\\response.txt",
+              "sha256": "ce1234871e5f1560dbb3eaa5ccf8eaebef6291a09ce5f5fe8b536e8ae6e9b0b5",
+              "role": "response"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-01\\native-result.json",
+              "sha256": "4b16cfc820b1b9fca307c42a196532f694bef2f9a603a415ec00d0ad51c06511",
+              "role": "native-result"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-01\\request.json",
+              "sha256": "21d11d2a85e22b68d58b0b3ae8e7abc851c3c5e2df21a8653f0d1f221f675829",
+              "role": "request"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-01\\native-input-before-generation.json",
+              "sha256": "c041f3c6669093b8a2cb24f3e3416af41b3ae9d87d98d0d4118bbed1747c8d1d",
+              "role": "audio-features"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/shanks/attack-kokoro-original1004.wav",
+          "sha256": "2b552c1c06b197d15dd799671a63f5ad90d0fe67f2c26b58f85c6ac7ab1d76b0",
+          "transcript": "看招",
+          "translation": "看招！",
+          "source_start_seconds": 0,
+          "source_end_seconds": 0.655
+        }
+      ],
+      "playback": {
+        "gain": 0.85,
+        "cooldownMs": 656
+      }
+    },
+    {
+      "character": "shanks",
+      "event": "effort",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1004.json",
+      "note": "Original Chinese synthetic generic event phrase, never a dedicated original-actor move call.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "4b0ce0d4ea9a8d8738069e8ee67eb8a1359a8563a52891abfd8a76e688e981a9",
+          "transcript": "接住",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+          "evidence": [
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-02\\response.txt",
+              "sha256": "3660aa58d2565ff1ffa047c65145d0e1272cfd06c33c0d13f2da2e34933a31ec",
+              "role": "response"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-02\\native-result.json",
+              "sha256": "eed0665a9a4796888515e3af9ed9ee17cb7ae142b08a6c946084519f4f6d87f0",
+              "role": "native-result"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-02\\request.json",
+              "sha256": "25627cfc39a7fde47d759bcdaf9de990ef55a9618f58228495e50e91cea4eded",
+              "role": "request"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-02\\native-input-before-generation.json",
+              "sha256": "3df28c3b3774af0904b26a626ad3f3c7ced2512330c5bcd8225af45c4d936916",
+              "role": "audio-features"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/shanks/effort-kokoro-original1004.wav",
+          "sha256": "4b0ce0d4ea9a8d8738069e8ee67eb8a1359a8563a52891abfd8a76e688e981a9",
+          "transcript": "接住",
+          "translation": "接住！",
+          "source_start_seconds": 0,
+          "source_end_seconds": 0.635
+        }
+      ],
+      "playback": {
+        "gain": 0.62,
+        "cooldownMs": 636
+      }
+    },
+    {
+      "character": "shanks",
+      "event": "hurt",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1004.json",
+      "note": "Original Chinese synthetic generic event phrase, never a dedicated original-actor move call.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "6460845d22bd08838ada6ecface6d64c61c95c016130c42742232bd38b9524ca",
+          "transcript": "大意了",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+          "evidence": [
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-03\\response.txt",
+              "sha256": "a085a34b61d14390668f69c0f1fb96582f445fe72797cb669ce63989e409cedb",
+              "role": "response"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-03\\native-result.json",
+              "sha256": "dfa3f9ee46790f28919f7a0576442f99854f00194edcb0aa5d0728657d474d64",
+              "role": "native-result"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-03\\request.json",
+              "sha256": "4cebf7351efaf346eef0a87828eccd4ddda056da325004b0e6389a0ec451922d",
+              "role": "request"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-clarity3-gpu6g1004-20261004T014732Z\\clip-03\\native-input-before-generation.json",
+              "sha256": "28dc91046e44f433325e4b28bbcf998a13b0fa8086fae564dfb0a2d5cf54970d",
+              "role": "audio-features"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/shanks/hurt-kokoro-original1004.wav",
+          "sha256": "6460845d22bd08838ada6ecface6d64c61c95c016130c42742232bd38b9524ca",
+          "transcript": "大意了",
+          "translation": "大意了！",
+          "source_start_seconds": 0,
+          "source_end_seconds": 0.675
+        }
+      ],
+      "playback": {
+        "gain": 0.65,
+        "cooldownMs": 676
+      }
+    },
+    {
+      "character": "aokiji",
+      "event": "effort",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1004.json",
+      "note": "Reuse this character exact reviewed 嘿 clip as ordinary effort; unverified 哈 clip remains unadopted.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "135d8a7d5af6de7222ab42c428821d447c1e15e9087f46402c9c4105bba8be08",
+          "transcript": "嘿",
+          "provider": "local Qwen2.5-Omni-3B native encoder and multimodal generation",
+          "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+          "expectedTextProvided": false,
+          "meaning": "Main-agent post-review accepts exact content and model-reported completeness/noise for this game event; not human voice identity or game-mix acceptance.",
+          "evidence": [
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-01\\response.txt",
+              "sha256": "366202e6f781f5974bc6732bf02acddfe4e239b996b58e867709e27fcb86ed00",
+              "role": "response"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-01\\native-result.json",
+              "sha256": "5193baa88cb75d4aa6da04ebfdf0000adae11d1bb50dd042c9b2cf2396d19b6d",
+              "role": "native-result"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-01\\request.json",
+              "sha256": "f91d3706012d4b1c6926871dad72c200a7b84512f1da836ba2ca2b8bfc436a1b",
+              "role": "request"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-gpu6g1004-20261004T011524Z\\clip-01\\native-input-before-generation.json",
+              "sha256": "80c5a7ea9ecacab654b279e5df72a401574d06cfbe1c4901de80c9e029a88589",
+              "role": "audio-features"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/aokiji/attack-kokoro-original1004.wav",
+          "sha256": "135d8a7d5af6de7222ab42c428821d447c1e15e9087f46402c9c4105bba8be08",
+          "transcript": "嘿",
+          "translation": "嘿！",
+          "source_start_seconds": 0,
+          "source_end_seconds": 0.555
+        }
+      ],
+      "playback": {
+        "gain": 0.62,
+        "cooldownMs": 556
+      }
+    },
+    {
+      "character": "shanks",
+      "event": "select",
+      "reviewStatus": "accepted",
+      "evidence": "scripts/first_pair_voice_selection1004.json",
+      "note": "Previously reviewed Japanese original-C selection only; not original voice coverage for all skills.",
+      "contentReview": {
+        "actualContentReview": {
+          "kind": "agent_audio_model",
+          "status": "accepted",
+          "inputAudioAttached": true,
+          "nativeAudioReviewed": true,
+          "headTailComplete": true,
+          "noUnexpectedNoiseOrDistortion": true,
+          "humanListened": false,
+          "audioSha256": "87801104e09e3f598e17df5c8f70e2dd379c7328782f700061cc5f0e217d220c",
+          "transcript": "上がってこい",
+          "expectedTextProvided": false,
+          "provider": "Previously authorized official Qwen3-Omni Demo original-C review; no new upload",
+          "evidence": [
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\review-1002\\clip-C-native-review1003.json",
+              "sha256": "03b544134310d2f03f05959c3d7268c7dbe0bcb6830ac364dc44dd76a964df06",
+              "role": "response"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\review-1002\\clip-C-response.sse",
+              "sha256": "d2c7727e373d0b061d6aae84928d83b6e459e7e4f72404d93697d03530e12a9d",
+              "role": "native-stream"
+            },
+            {
+              "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\review-1002\\clip-C-request.json",
+              "sha256": "86aed5ce44b81032d948c64e063f3a2ccc61fb0da8db5eba44979d3d7cdae885",
+              "role": "request"
+            }
+          ]
+        }
+      },
+      "clips": [
+        {
+          "path": "public/assets/audio/voice/shanks/select-1003.wav",
+          "sha256": "87801104e09e3f598e17df5c8f70e2dd379c7328782f700061cc5f0e217d220c",
+          "transcript": "上がってこい",
+          "translation": "上来吧。",
+          "source_start_seconds": 0,
+          "source_end_seconds": 1.54
+        }
+      ],
+      "playback": {
+        "gain": 0.7,
+        "cooldownMs": 0
+      }
+    }
+  ],
+  "rejectedOldIndices": [
+    2,
+    9,
+    10,
+    11,
+    15
+  ],
+  "newSpeechIndices": [
+    1,
+    2,
+    3
+  ],
+  "formalCharacterAcceptanceUnchanged": true
+}

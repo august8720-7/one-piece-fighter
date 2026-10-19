@@ -1,0 +1,452 @@
+{
+  "status": "static-candidate-not-normal-speed-or-gameplay-acceptance",
+  "sourceKey": "aokiji_backdash_roll_1003",
+  "sourceSha256": "4f202b46f5c7358898fd089469ba43fc2defedb2f08f0e9491c2a6dad2642fcb",
+  "sourceNeutralAlpha64Height": 429,
+  "baselineHeight": 407,
+  "sourceUnitScale": 0.9487179487179487,
+  "worldPixelsPerSourcePixel": 0.2331002331002331,
+  "worldScaleMeaning": "character.scale * sourceUnitScale * UI_SCALE/RENDER_SCALE; UI_SCALE/RENDER_SCALE = 1/2, textureDensity cancels",
+  "pointPrecision": "Manually inspected semantic shoe/contact points, approximately5 source pixels; not automatic contact detection",
+  "newUniqueRuntimeCrops": 8,
+  "newStates": {
+    "backdash": {
+      "ticks": [
+        4,
+        8,
+        8
+      ],
+      "total": 20
+    },
+    "roll_fwd": {
+      "ticks": [
+        6,
+        13,
+        10
+      ],
+      "total": 29
+    },
+    "roll_back": {
+      "ticks": [
+        6,
+        13,
+        10
+      ],
+      "total": 29
+    }
+  },
+  "sharedRealPose": {
+    "frame": "roll_compress_1003",
+    "sourceCell": 5,
+    "animations": [
+      "roll_fwd",
+      "roll_back"
+    ],
+    "countsAsIndependentExtraPose": false
+  },
+  "frames": [
+    {
+      "frame": "backdash_start_1003",
+      "sourceCell": 2,
+      "crop": [
+        450,
+        20,
+        416,
+        429
+      ],
+      "root": [
+        256,
+        407
+      ],
+      "alpha16Bbox": [
+        17,
+        20,
+        403,
+        408
+      ],
+      "sourceMarginsAlpha16": [
+        17,
+        20,
+        13,
+        21
+      ],
+      "socketsSourceLocal": {
+        "near_sole": [
+          153,
+          406
+        ],
+        "far_sole": [
+          359,
+          405
+        ]
+      },
+      "socketsWorldRelativeToRoot": {
+        "near_sole": [
+          -24.0093,
+          -0.2331
+        ],
+        "far_sole": [
+          24.0093,
+          -0.4662
+        ]
+      },
+      "note": "Independent backward-lean preparation. Root is centered between the visible shoes, on the sole ground line."
+    },
+    {
+      "frame": "backdash_hop_1003",
+      "sourceCell": 3,
+      "crop": [
+        870,
+        0,
+        374,
+        455
+      ],
+      "root": [
+        216,
+        447
+      ],
+      "alpha16Bbox": [
+        15,
+        12,
+        343,
+        447
+      ],
+      "sourceMarginsAlpha16": [
+        15,
+        12,
+        31,
+        8
+      ],
+      "socketsSourceLocal": {
+        "planted_sole": [
+          216,
+          445
+        ],
+        "raised_shoe": [
+          218,
+          338
+        ]
+      },
+      "socketsWorldRelativeToRoot": {
+        "planted_sole": [
+          0.0,
+          -0.4662
+        ],
+        "raised_shoe": [
+          0.4662,
+          -25.4079
+        ]
+      },
+      "note": "Independent knee-withdrawal pose, face stays right. One shoe planted; cape extends left as authored. Real lateral retreat and normal-speed continuity remain to be checked."
+    },
+    {
+      "frame": "backdash_settle_1003",
+      "sourceCell": 4,
+      "crop": [
+        0,
+        444,
+        413,
+        400
+      ],
+      "root": [
+        230,
+        391
+      ],
+      "alpha16Bbox": [
+        22,
+        7,
+        372,
+        391
+      ],
+      "sourceMarginsAlpha16": [
+        22,
+        7,
+        41,
+        9
+      ],
+      "socketsSourceLocal": {
+        "near_sole": [
+          116,
+          389
+        ],
+        "far_sole": [
+          343,
+          382
+        ]
+      },
+      "socketsWorldRelativeToRoot": {
+        "near_sole": [
+          -26.5734,
+          -0.4662
+        ],
+        "far_sole": [
+          26.3403,
+          -2.0979
+        ]
+      },
+      "note": "Independent two-shoe settlement, ground defined by visible lower sole rather than resizing to a neutral height."
+    },
+    {
+      "frame": "roll_compress_1003",
+      "sourceCell": 5,
+      "crop": [
+        452,
+        528,
+        407,
+        317
+      ],
+      "root": [
+        246,
+        310
+      ],
+      "alpha16Bbox": [
+        22,
+        18,
+        385,
+        310
+      ],
+      "sourceMarginsAlpha16": [
+        22,
+        18,
+        22,
+        7
+      ],
+      "socketsSourceLocal": {
+        "near_sole": [
+          134,
+          309
+        ],
+        "far_sole": [
+          359,
+          303
+        ]
+      },
+      "socketsWorldRelativeToRoot": {
+        "near_sole": [
+          -26.1072,
+          -0.2331
+        ],
+        "far_sole": [
+          26.3403,
+          -1.6317
+        ]
+      },
+      "note": "True newly drawn low compressed preparation, shared explicitly by forward and backward rolls. Not a duplicated independent backward pose."
+    },
+    {
+      "frame": "roll_fwd_coil_1003",
+      "sourceCell": 6,
+      "crop": [
+        895,
+        515,
+        352,
+        330
+      ],
+      "root": [
+        214,
+        319
+      ],
+      "alpha16Bbox": [
+        23,
+        18,
+        328,
+        319
+      ],
+      "sourceMarginsAlpha16": [
+        23,
+        18,
+        24,
+        11
+      ],
+      "socketsSourceLocal": {
+        "lower_shoulder": [
+          224,
+          310
+        ],
+        "visible_shoe": [
+          59,
+          101
+        ]
+      },
+      "socketsWorldRelativeToRoot": {
+        "lower_shoulder": [
+          2.331,
+          -2.0979
+        ],
+        "visible_shoe": [
+          -36.1305,
+          -50.8159
+        ]
+      },
+      "note": "True rightward coiled body from original. Root at the low shoulder/back-cloth contact plane; overlapping shoe contours are not given invented separate coordinates. No rotation or mirror applied."
+    },
+    {
+      "frame": "roll_fwd_rise_1003",
+      "sourceCell": 7,
+      "crop": [
+        0,
+        900,
+        416,
+        342
+      ],
+      "root": [
+        227,
+        321
+      ],
+      "alpha16Bbox": [
+        18,
+        12,
+        395,
+        321
+      ],
+      "sourceMarginsAlpha16": [
+        18,
+        12,
+        21,
+        21
+      ],
+      "socketsSourceLocal": {
+        "planted_sole": [
+          227,
+          320
+        ],
+        "lower_fingertips": [
+          377,
+          303
+        ]
+      },
+      "socketsWorldRelativeToRoot": {
+        "planted_sole": [
+          0.0,
+          -0.2331
+        ],
+        "lower_fingertips": [
+          34.965,
+          -4.1958
+        ]
+      },
+      "note": "Independent front-roll rising pose. Visible lower fingertips are above the shoe plane; root stays at the planted shoe and is not pulled to force a palm-ground contact."
+    },
+    {
+      "frame": "roll_back_coil_1003",
+      "sourceCell": 8,
+      "crop": [
+        431,
+        897,
+        408,
+        333
+      ],
+      "root": [
+        204,
+        301
+      ],
+      "alpha16Bbox": [
+        21,
+        15,
+        378,
+        301
+      ],
+      "sourceMarginsAlpha16": [
+        21,
+        15,
+        30,
+        32
+      ],
+      "socketsSourceLocal": {
+        "lower_back": [
+          204,
+          299
+        ],
+        "near_shoe": [
+          326,
+          54
+        ],
+        "far_shoe": [
+          343,
+          109
+        ]
+      },
+      "socketsWorldRelativeToRoot": {
+        "lower_back": [
+          0.0,
+          -0.4662
+        ],
+        "near_shoe": [
+          28.4382,
+          -57.5758
+        ],
+        "far_shoe": [
+          32.4009,
+          -44.7552
+        ]
+      },
+      "note": "True separately drawn back-roll coiled body, face looking right/up. Ground plane comes from low back-cloth contact. Not a mirror of forward roll."
+    },
+    {
+      "frame": "roll_back_rise_1003",
+      "sourceCell": 9,
+      "crop": [
+        841,
+        900,
+        413,
+        345
+      ],
+      "root": [
+        173,
+        330
+      ],
+      "alpha16Bbox": [
+        15,
+        15,
+        403,
+        330
+      ],
+      "sourceMarginsAlpha16": [
+        15,
+        15,
+        10,
+        15
+      ],
+      "socketsSourceLocal": {
+        "planted_sole": [
+          173,
+          329
+        ],
+        "folded_shoe": [
+          140,
+          270
+        ],
+        "lower_fingertips": [
+          391,
+          297
+        ]
+      },
+      "socketsWorldRelativeToRoot": {
+        "planted_sole": [
+          0.0,
+          -0.2331
+        ],
+        "folded_shoe": [
+          -7.6923,
+          -13.986
+        ],
+        "lower_fingertips": [
+          50.8159,
+          -7.6923
+        ]
+      },
+      "note": "Independent back-roll rising pose. Shoe defines ground; lower fingers remain above that plane. Forward torso/head offset must be checked in the real game; no root fitting to hurtboxes."
+    }
+  ],
+  "remaining": [
+    "normal-speed lateral retreat/roll continuity",
+    "both facing directions",
+    "post-invulnerability torso/hand height and hurtbox contact",
+    "actual inputs and state capability gating"
+  ],
+  "sourcePixelsAlteredBeforeAtlasResample": false,
+  "poseRotationOrMirrorUsed": false,
+  "perPoseScaleUsed": false,
+  "manifestAfterSha256": "2077301aa498179d823e6df07c0d65c518fce46a08f8591538a434bdd671048b",
+  "recordedAtUtc": "2026-10-03T08:50:02.163368+00:00"
+}

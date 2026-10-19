@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_fx_projectiles_1003",
+  "file": "public/assets/generated/source/roster-aokiji-fx-projectiles-1003.png",
+  "sha256": "44258570edac6d9efc33674b9162b5371738e6a85cb1dd77053ec438db40677d",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方图像入口未公开可核实的具体图像型号，来源保留unverified。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ac0c9f8-7e10-83e8-a1ef-9dfed61cde74",
+  "observedCompletedAt": "2026-10-03T17:32:30.460+08:00",
+  "uiObservation": "在独立特效会话核实菜单最新已选、极高第4项共5项，fill完整提示词后单次发送。结果为4行3列冰脊/冰镜/冰雉/冰雾十二格，查看器实际标题冰晶特效动画精灵图，点击原下载后PNG1475653bytes完整落盘。17:32:30为成图再次观察与实际截图保存时间，不是服务器生成时间。",
+  "prompt": {
+    "file": "docs/assets/aokiji-fx-projectiles-prompt1003.txt",
+    "sha256": "e979ba77d04a66cbafd2166eab6a2b58cc76a8fd55a79244dc8f840bd5078ea8"
+  },
+  "referenceSources": {},
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T09:33:14.205191+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/first-pair-1733-1003/aokiji-fx-web-preview.jpg",
+    "sha256": "1c8a114aa479b926e152cc635a61a2c406e211b4f10b52a44746c94b60b7a75c"
+  },
+  "referenceFiles": {},
+  "originalPngSize": [
+    1086,
+    1448
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

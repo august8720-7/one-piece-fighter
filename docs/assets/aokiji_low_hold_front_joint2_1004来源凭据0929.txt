@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_low_hold_front_joint2_1004",
+  "file": "public/assets/generated/source/roster-aokiji-low-hold-front-joint2-1004.png",
+  "sha256": "346d1f0cf2ecf9d40b26a092222afa649076f318f83b83fef4a785deb6c4d786",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "本助手在此确切会话实际菜单核验最新aria-checked=true，极高第4/5并截图；具体图像后台型号仍未公开。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Microsoft Edge",
+  "sessionUrl": "https://chatgpt.com/c/6ac1c91d-9a4c-83ee-90f8-5e05fd1c1774",
+  "observedCompletedAt": "2026-10-04T12:28:47.942898+08:00",
+  "uiObservation": "本助手Edge单控制者返回同一fresh会话，实际菜单最新radio true/极高第4共5；只点最新图编辑，官方侧栏同名青雉双姿态透明精灵图显示img2。沿此前实际已上传green指南，不再上传新文件。完整368字joint2短提示fill后innerText逐字匹配，只点发送一次，真实第三条用户消息带已编辑的图像、完整提示、ChatGPT正在回应/停止/正在生成图像；model/draft/sent截图与send-observation JSON留存。随后实际回答已完成，官方侧栏生成的图像3、img3，文件标题青雉库赞双姿态透明立绘；本助手全屏保全完成截图，按该文件菜单在空间中打开，pageAssets发现已显示对应PNG，只bundle该1项、成功1/失败0，原manifest与完整bundle保留。原件整体人物与站高有变化，不能声称其他像素不变；手区灰色占位待审，不提前登记透明或接触通过。官方原文件https://chatgpt.com/space/file/libfile_919b78bd438c81919f80c556841cab9b。PNG签名/IEND/Pillowverify/全RGBAdecode/1774x887真实alpha0..255/重复稳定原字节均通过，先清单复制原件、manifest和旧来源表再SHA一致。完成时间取本次完成复核截图，不是服务器首次生成。来源保全不代表握位/美术或实机验收通过，尚未改runtime或作者映射。",
+  "prompt": {
+    "file": "docs/assets/aokiji-low-hold-front-joint2-prompt1004.txt",
+    "sha256": "923a52afaa08f7cb4b2ea40bafe666721812b062a239b43ec2ce8418871774b5"
+  },
+  "referenceSources": {
+    "aokiji_low_hold_front_joint1_1004": "68821242fd8639281926f6924b1035f2d9d4c063408e6d457e3e0cade189af4d"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-04T04:32:29.429019+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/aokiji-front-joint2-completed1004.jpg",
+    "sha256": "583cb0d6cae3466d2fa0c8048cc8a277ad7da91e6857294846d36f43e700e590"
+  },
+  "referenceFiles": {
+    "aokiji_low_hold_front_joint1_1004": {
+      "file": "public/assets/generated/source/roster-aokiji-low-hold-front-joint1-1004.png",
+      "sha256": "68821242fd8639281926f6924b1035f2d9d4c063408e6d457e3e0cade189af4d"
+    }
+  },
+  "originalPngSize": [
+    1774,
+    887
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

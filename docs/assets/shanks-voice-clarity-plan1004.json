@@ -1,0 +1,9 @@
+{
+  "scope": "new original synthetic revisions; old ambiguous short calls retained and not adopted",
+  "decision": "Use clear short Mandarin phrases with the same existing Kokoro preset after native blind hearing could not reliably identify 0.4 to 0.5 second calls. No actor imitation, upload, payment, or voice-clone reference.",
+  "utterances": [
+    { "character": "shanks", "event": "attack", "text": "看招！" },
+    { "character": "shanks", "event": "effort", "text": "接住！" },
+    { "character": "shanks", "event": "hurt", "text": "大意了！" }
+  ]
+}

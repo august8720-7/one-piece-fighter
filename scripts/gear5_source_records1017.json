@@ -1,0 +1,1217 @@
+{
+  "schemaVersion": 1,
+  "workflowDecision": "pc-roster-0929",
+  "sources": {
+    "luffy_gear5_four_actions1017": {
+      "file": "public/assets/generated/source/luffy-gear5-four-actions1017.png",
+      "sha256": "c56bb922b5b913048cb615679bce6c54ee629caa5ec336e61a4107fd6a25bdb6",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方图像入口未公开具体图像型号；文字GPT-6与图像型号分别记录。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+      "observedCompletedAt": "2026-10-17T11:08:16+08:00",
+      "uiObservation": "1017通过官网images上传原五档母版并一次发送完整四动作提示词；实际选择GPT-6与极高第4/5项。回答已完成后downloadMedia取得RGBA原PNG并同SHA归档。观察时间为本轮重新核对实际已完成原件与下载的时刻，不是服务器生成时间。截图为同会话完成后再次展开模型菜单的现场。初稿步行重复近侧腿，尚未采用；待机/出拳/受击待正常速度样板。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-four-actions-prompt1017.txt",
+        "sha256": "d3960e0df852850673b1794efd465858474c71cfa6b5ae80eaa21c1d5a5fe6cf"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T03:11:24.726953+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/four-actions-model1017.png",
+        "sha256": "6fe005faa275aa2eb9737d08d80491f16b0313144e11fb56e5a48647caaa9568"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_four_actions1017来源凭据1017.txt",
+        "sha256": "0feab5ca423a7c2fa87ac80694b8944f443233f6c639936f3df7f3d4b624d73a"
+      }
+    },
+    "luffy_gear5_walk_fix1017": {
+      "file": "public/assets/generated/source/luffy-gear5-walk-fix1017.png",
+      "sha256": "1f6906dbd3691df68ddee603a7e8d1bd09058ef6f4436bd4a13f47354be40ca5",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方未公开具体图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+      "observedCompletedAt": "2026-10-17T11:19:09+08:00",
+      "uiObservation": "同一母版及四动作会话，上传既有抽象步态指南后单次生成四格换腿修稿；原件真实下载1254方形RGBA。前两姿为候选，后两姿仍重复同侧腿，未采用为完整循环。时间为归档重新核对时刻，截图是同会话后续再次核对GPT-6极高，非声称服务器生成时间。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-walk-fix-prompt1017.txt",
+        "sha256": "8cedfb0fa1520aae4ac5e9996f4ac2076ee96986dacd202d4c5468515f8d8e4c"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+        "four_actions": "c56bb922b5b913048cb615679bce6c54ee629caa5ec336e61a4107fd6a25bdb6",
+        "walk": "2f7a15ec7b524c57584026216287b367c8d964bf99d47d583005c3e59c826655"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T03:28:18.019533+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/walk-model1017.png",
+        "sha256": "1046d3f836b5c04d6689fcae9768e868bf003344cde280f35f0dbd675fcef01a"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_walk_fix1017来源凭据1017.txt",
+        "sha256": "bfd60e36f9e4c702c18d796c8fd0f9f2dad628ce135d1f62f8db47d0bc887519"
+      }
+    },
+    "luffy_gear5_walk_opposite1017": {
+      "file": "public/assets/generated/source/luffy-gear5-walk-opposite1017.png",
+      "sha256": "8fbd59f30d9824f9972ee947b9ee19ce17206013dae5528940c60c89b08a79d0",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方未公开具体图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+      "observedCompletedAt": "2026-10-17T11:28:50.5847725+08:00",
+      "uiObservation": "同一会话先以红色近腿和蓝色远腿生成诊断，再要求官方恢复正常肤色白裤并降低抬脚，实际下载两格反向半步PNG。仅是静态候选，尚未正常速度循环。母版、四动作、抽象指南均为此前会话真实参考；本轮使用紧前的彩色诊断延续生成，并未重新上传其他私有内容。时间是当前原件归档再核对时刻，非服务器生成时间。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-walk-opposite-prompt1017.txt",
+        "sha256": "77d808a04b10b6ec75890f19f5e7b25b7972468b0016638d64ce4c85ce4e4010"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+        "diagnostic": "9305ba8ac0ed21fedd6868c5b733468ec8f2ca54136afc4c190170b6cd163ffd"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T03:28:51.348996+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/walk-model1017.png",
+        "sha256": "1046d3f836b5c04d6689fcae9768e868bf003344cde280f35f0dbd675fcef01a"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_walk_opposite1017来源凭据1017.txt",
+        "sha256": "9237888e1a0f42958a27cf5c455e8004ed7494ab2aa29e22a4b38cccd42b2ab3"
+      }
+    },
+    "luffy_gear5_walk_near1017": {
+      "file": "public/assets/generated/source/luffy-gear5-walk-near1017.png",
+      "sha256": "d892b35970b1bd5e8888ff9f6efbb4b8d5f8f544dbce6142c662f70512a7ede2",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方未公开具体图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+      "observedCompletedAt": "2026-10-17T11:38:03.8065466+08:00",
+      "uiObservation": "保持前一正常肤色两格的胸廓朝向与腰带向右，先官方生成近腿前和远腿经过两格红蓝诊断，再官方移除诊断颜色恢复正常肤色白裤；实际downloadMedia取回完整PNG。当前实见GPT-6极高第4/5项并截图。静态候选待组合正常速度，不记完整动作通过。时间是下载后重新核对的观察时刻，非服务器生成时间。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-walk-near-prompt1017.txt",
+        "sha256": "0293065b64b1c3dc2c093c24bd3f825acdb8713b10d487e1d8b5610989a49592"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+        "opposite": "8fbd59f30d9824f9972ee947b9ee19ce17206013dae5528940c60c89b08a79d0",
+        "diagnostic": "ec622b5d3a61974c91266769f389205611f052095bfdd29bc309c247499c4bb1"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T03:38:04.757383+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/walk-near-model1017.png",
+        "sha256": "f2a72294b047d1d8690e36d4a419ac655e62ecc51a72c2fa49fb6a74d398c71f"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_walk_near1017来源凭据1017.txt",
+        "sha256": "bba92b02331c90a4293793e86be7c6225fd94f5b009bf645bc57edcdf16a2cb9"
+      }
+    },
+    "luffy_gear5_mobility1017": {
+      "file": "public/assets/generated/source/luffy-gear5-mobility1017.png",
+      "sha256": "5d94579bcc254d8dd831019d1ff042cb67debbc96337037ddf8f24abe196e481",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方未公开具体图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+      "observedCompletedAt": "2026-10-17T11:52:47.4905685+08:00",
+      "uiObservation": "同一已核母版会话，在四动作正常速度样板后提交9格移动/空中完整提示词；实际完成后下载1254方形RGBA原PNG，外框alpha最大2，无可见主体截边。静态9姿候选待真实裁切及接入；截图是紧前同会话GPT-6极高设置，后续未改档。时间是本轮下载再核对观察，不是服务器生成时间。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-mobility-prompt1017.txt",
+        "sha256": "a8db5d184e7c6c1811ee4b1b5e1129b724cb9b3559e9eed32287b2dda61dbae4"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+        "walk": "d892b35970b1bd5e8888ff9f6efbb4b8d5f8f544dbce6142c662f70512a7ede2"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T03:52:48.200365+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/walk-near-model1017.png",
+        "sha256": "f2a72294b047d1d8690e36d4a419ac655e62ecc51a72c2fa49fb6a74d398c71f"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_mobility1017来源凭据1017.txt",
+        "sha256": "bc6e8b38d890aeb3b8d14cbbaf69197b389c16ab7af87a55da95607799ff9242"
+      }
+    },
+    "luffy_gear5_reactions1017": {
+      "file": "public/assets/generated/source/luffy-gear5-reactions1017.png",
+      "sha256": "2589434624e40b4e939951a656f04e06befb9d78c0b095873d0be7265098fc2c",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方未公开具体图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2efa5-3138-83e8-8d2e-f5cf53fa3a56",
+      "observedCompletedAt": "2026-10-17T11:56:51.4812596+08:00",
+      "uiObservation": "独立会话实际上传原母版。首次仅附件意外触发中档生成的单母版未采用；随后在截图可见GPT-6极高第4/5项下提交完整9格反应提示词并取得此原PNG。1254方形RGBA，边界alpha最大4；静态姿势完整候选，尚未实际对局验收。当前时间为下载后观察，非首次服务器生成时刻。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-reactions-prompt1017.txt",
+        "sha256": "1fd5194423d50f67c30a4dd22e4be26e13c8e7eeee8cee8dde312a5c396115ff"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T03:56:52.124512+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/reaction-model1017.png",
+        "sha256": "34deacc74d0676df30282375cba2e2f11978e7d576210ac902afbb1fdaa15826"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_reactions1017来源凭据1017.txt",
+        "sha256": "3e6acd6cfd3b4b90c05045d3aff2cf5b3e6063879cf060e2f9edc27ddeaafdf8"
+      }
+    },
+    "luffy_gear5_dash_roll1017": {
+      "file": "public/assets/generated/source/luffy-gear5-dash-roll1017.png",
+      "sha256": "4bec029ca5af93784db4b70021ac409e8d2a3ee7d42ab146ad4de1964f44fc22",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方未公开具体图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+      "observedCompletedAt": "2026-10-17T12:00:20.9289342+08:00",
+      "uiObservation": "同一母版会话极高档未更改，完整12格冲刺后撤翻滚拆投提示词后生成并downloadMedia取得1448x1086RGBA原PNG，外框alpha最大6。四肢和真实翻滚关键姿态静态候选待按实际动作时序裁切；不作为实战接触已通过。时间为原件核对时刻，截图为本会话此前实际模型菜单。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-dash-roll-prompt1017.txt",
+        "sha256": "c342e5224d209369152c1d2bffffaf44484e098a4ccf822a09b172bea7e98b8f"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+        "mobility": "5d94579bcc254d8dd831019d1ff042cb67debbc96337037ddf8f24abe196e481"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T04:00:21.788345+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/walk-near-model1017.png",
+        "sha256": "f2a72294b047d1d8690e36d4a419ac655e62ecc51a72c2fa49fb6a74d398c71f"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_dash_roll1017来源凭据1017.txt",
+        "sha256": "d3984b82b895dac8540a9fedf9b086f8d294ca472981b941cdb7ee66e0ad293c"
+      }
+    },
+    "luffy_gear5_ground_kicks_head1017": {
+      "file": "public/assets/generated/source/luffy-gear5-ground-kicks-head1017.png",
+      "sha256": "6332dc4274e9aec9c6253cdf4ecfdc58f4f0d1014ab4c15147c5de04fddd6c4c",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方图像入口未公开具体图像型号；GPT-6是实际文字模型标签，不能据此确认图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2efa5-3138-83e8-8d2e-f5cf53fa3a56",
+      "observedCompletedAt": "2026-10-17T04:05:49.565Z",
+      "uiObservation": "根代理提供实际观察：正确GPT-6与极高、完整prompt后生成9格，3行分别为st_b、st_d、f_c的起手、有效、回收；这不是同会话先前仅附件、中档生成的母版，后者未采用。观察时间是根代理下载原PNG后查看的完成复核时刻，不是服务器首次生成时间。截图为本组请求前实际模型/极高设置，之后未改，不冒称完成当时截图。根代理已view_image认为静态候选完整可辨，但st_d有效脚掌似高于预期腰部，必须交render独立量测接触，尚不采用。原图仅同字节复制，alpha边界另留票据，未修图。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-ground-kicks-head-prompt1017.txt",
+        "sha256": "1145398649c71c26b0d336480c1a1eb88b6d8c836925523b48cbd1df4fa247a2"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T04:08:23.178548+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/reaction-model1017.png",
+        "sha256": "34deacc74d0676df30282375cba2e2f11978e7d576210ac902afbb1fdaa15826"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_ground_kicks_head1017来源凭据1017.txt",
+        "sha256": "b69784b26efbefbf7211f8c4a43a66e044f91c5394564c685dd2400b8edc91f7"
+      }
+    },
+    "luffy_gear5_stc1017": {
+      "file": "public/assets/generated/source/luffy-gear5-stc1017.png",
+      "sha256": "455c09bd886b59b2e8d5b87f998cd47e4308868c55fa79ca681f2a4d8e3a684b",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网图像入口未公开具体图像型号；实际GPT-6为文字模型标签，图像型号仍未核实。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+      "observedCompletedAt": "2026-10-17T04:12:58.647Z",
+      "uiObservation": "根代理提供实际观察并已view_image核对文件真实性：同会话实际GPT-6/极高后完成2×2原图，四格为neutral/start/长拳active/recover；连续皮肤胳膊完整，不用FX替代。观察时刻是根下载后对已完成结果的复核，不是服务器生成时间；截图为该同会话紧前实际模型设置，之后未改，不冒称完成时截图。根粗看active拳偏低、伸长距离可能不足旧st_c判定[14,-80,140,20]；须交render按真实source尺度/root测拳心及逻辑框，再决定需修稿或既有合法bounded rubber后处理。不改旧数值，不把长臂存在记成接触通过。原件保留，同字节复制，无改画。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-stc-prompt1017.txt",
+        "sha256": "25dbb1354e098cbf4a3ba692ab6e9c83d70f166952445e5040cc4aff4ab50ed5"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T04:17:26.388516+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/walk-near-model1017.png",
+        "sha256": "f2a72294b047d1d8690e36d4a419ac655e62ecc51a72c2fa49fb6a74d398c71f"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_stc1017来源凭据1017.txt",
+        "sha256": "375bb2663e27d1cec73c5eb9a4cf425e23250798fb0efadd6b1433fb76591571"
+      }
+    },
+    "luffy_gear5_crouch_abc1017": {
+      "file": "public/assets/generated/source/luffy-gear5-crouch-abc1017.png",
+      "sha256": "5c9639c8cd006ee8f53a157b33416e60e3fa82c0057d2a28b251d0e12dd41c4a",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网图像入口未公开具体图像型号；实际GPT-6是文字模型标签，图像型号未核实。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2efa5-3138-83e8-8d2e-f5cf53fa3a56",
+      "observedCompletedAt": "2026-10-17T04:21:51.015Z",
+      "uiObservation": "根代理实际view_image后提供观察：正确GPT-6/极高和完整prompt后生成9格，3行为cr_a、cr_b、cr_c的起手、有效、回收，身体完整、蹲低、脚底低踢和上挑可辨。观察时刻为下载后对真实已完成PNG的复核，不是服务器生成时间。截图为同组请求前实际模型与极高设置，之后未改，不冒称完成时截图。当前未做逻辑接触；cr_c上挑点仍需render按真实源尺度/root映射到逻辑框，邻格碎片只允许后续显式保护处理。原图仅同字节复制并保留C下载，未裁切清理、改画或自动采用。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-crouch-abc-prompt1017.txt",
+        "sha256": "9fabbc0fd273572cd3663f8c14fdae33f854559697678cc51481c62df670e382"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T04:23:03.511937+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/reaction-model1017.png",
+        "sha256": "34deacc74d0676df30282375cba2e2f11978e7d576210ac902afbb1fdaa15826"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_crouch_abc1017来源凭据1017.txt",
+        "sha256": "088a09d27343d36586a799f43c6e151dd3fa9f324baadea7a4ef8029727b4757"
+      }
+    },
+    "luffy_gear5_throw_held1017": {
+      "file": "public/assets/generated/source/luffy-gear5-throw-held1017.png",
+      "sha256": "57c57711b393cbb515259da2f3ad97bec23532a8ebbe2479e990b883778ab912",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网图像界面未公开具体图像型号；GPT-6沿本主会话此前实际核对的文字模型标签，不能确认图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+      "observedCompletedAt": "2026-10-17T05:05+00:00",
+      "uiObservation": "根代理提供主会话真实已完成6格下载并已view_image；观察时间约2026-10-17T05:05Z，仅分钟级近似，不伪造精确秒或服务器生成时间。此前主会话实际GPT-6/极高设置沿用，本次完成截图也实际可见极高，但不另冒称截图含文字型号菜单。6姿完整；抓保持双手偏前高，条件受投躯干偏立直，必须render实测握点/root与接触。5个明确附件是旧常态原画真实矩形裁切而非新生成、非原完整图，绑定五档握姿参考附件1017.json；master为同会话初始造型依据，不虚称本次另上传。原PNG同字节复制，灰渐变RGB先核alpha：原有透明像素及白底诊断显示白底可辨，不能单看RGB认定不透明背景。白底图仅诊断不改原图；本来源不代表姿势/接触采用。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-throw-held-prompt1017.txt",
+        "sha256": "e5d5646395ab27de67a8d2f52a81dfe8a4860d03e418d63815a945109cc4961a"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+        "gear5_grip_reach_reference1017": "cc28d77c1766c30f723835f22eee8a3f61b44153f371d9bfded36ccdfcf41db8",
+        "gear5_grip_hold_reference1017": "29ea0d6da55bc5b010c22302cecfaff180132d5742af1d64e27ab1278e7ffa9e",
+        "gear5_grip_release_reference1017": "46598cf29afb7798f87555a0fc16a0762c6fa0dd47345efe0f803ac663f9a725",
+        "gear5_grip_thrown_resist_reference1017": "e83aef40947ceef1e66a9dc959ad5413823ef0149ce454d4dc9385916b389e11",
+        "gear5_grip_held_shared_reference1017": "b5063f0d6b0d14ae3e6b3bee0f56c4abf6f1c216ff58d6aaca0711dc9f6efbe4"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T05:07:39.899874+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/throw-held-web1017.png",
+        "sha256": "167396cc6b44887b659ad5a410cc6a2e6bff3887593e4added7c6690e792fb83"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_throw_held1017来源凭据1017.txt",
+        "sha256": "de1b9878cc4732a98e880b01be5de24da53830adb7d00ec3bd888a87e947b813"
+      }
+    },
+    "luffy_gear5_air_abcd1017": {
+      "file": "public/assets/generated/source/luffy-gear5-air-abcd1017.png",
+      "sha256": "fe5884ae3d2da8c4a2566906589a5842eeff5e824fe9c4bfbc86658f7da20757",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方图像界面未公开具体图像型号；GPT-6是本反应会话此前实际核对的文字标签，不能确定图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2efa5-3138-83e8-8d2e-f5cf53fa3a56",
+      "observedCompletedAt": "2026-10-17T05:05:13.583Z",
+      "uiObservation": "根代理提供实际原图下载并view_image：完整12格，4行j_a/j_b/j_c/j_d的起手、有效、回收；空中关节不同，无站地冒充。沿本反应会话此前已核GPT-6与极高，本张完成截图可见极高但不冒称含型号菜单。观察时刻是根提供的下载后完成复核2026-10-17T05:05:13.583Z，不是服务器生成时间。master沿本会话初始已上传造型参考，没有额外上传。长拳有效帧紧邻右格云，仍需显式exclude保护本体及真实接触量测；来源登记不自动采用，不通过改数值或改原图清理凑合。C下载保留，D原件同字节复制。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-air-abcd-prompt1017.txt",
+        "sha256": "e8514ce4291cb995505f53feba07245cdf03d63adda18caffda9b8265033d7d1"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T05:07:41.448310+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/air-abcd-web1017.png",
+        "sha256": "c99dc9c0e2249a2ebf5c343044819e509d36dd35a557b069f348876ae55689ba"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_air_abcd1017来源凭据1017.txt",
+        "sha256": "31c2c0dff5e5a7b9db5bb76c80e2a0e2b50b8356ab2a95aec23844f4bfc17a0b"
+      }
+    },
+    "luffy_gear5_stc_fix1017": {
+      "file": "public/assets/generated/source/luffy-gear5-stc-fix1017.png",
+      "sha256": "00fbb9fed3d1a70f4075ad42822d79acc23ccc897faf779031eb44208f0b1dbc",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网图像界面没有公开具体图像型号；GPT-6为会话此前实际文字标签，不能确定后台图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+      "observedCompletedAt": "2026-10-17T05:19:05.908Z",
+      "uiObservation": "根代理实际下载并view_image后提供：同主会话沿最初五档母版，无新附件；一列两行neutral与长拳有效帧修正候选。沿此前已核GPT-6/极高设置，完成截图绑定本次结果，不冒称有新的型号菜单。观察时刻为根提供的下载后已完成结果复核，不是服务器生成时间。根粗看长拳仍可能未达到提示词1.65站高水平距离；必须render按统一源尺度/root/拳心精测，不把改稿存在算接触通过，不改旧st_c数值。旧稿、C原下载均保留，D原PNG只同字节复制，无图片处理或采用。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-stc-fix-prompt1017.txt",
+        "sha256": "f9eb937923023197141f92d92f65485406be225955cf9913106a7c62af13192d"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T05:20:55.136451+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/stc-fix-web1017.png",
+        "sha256": "43e699c737627cc7fecaa985e33c09488508a76ca6e29f92f2850e75c67fb167"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_stc_fix1017来源凭据1017.txt",
+        "sha256": "5eb4a3b8baab6fc86bbd610ddbf22552db943bcbe8aab6bd82796b2627d07d1e"
+      }
+    },
+    "luffy_gear5_contact_fix1017": {
+      "file": "public/assets/generated/source/luffy-gear5-contact-fix1017.png",
+      "sha256": "ec6839b2fdf01372e30a49d23692508a96179632b4468e053b78fb46a74384ea",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网图像界面没有公开具体图像型号；GPT-6为会话此前实际文字标签，不能确定后台图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2efa5-3138-83e8-8d2e-f5cf53fa3a56",
+      "observedCompletedAt": "2026-10-17T05:19:15.797Z",
+      "uiObservation": "根代理实际下载并view_image后提供：反应会话沿最初五档母版，无新附件；2×2为neutral、重脚有效、头槌有效、蹲重拳上挑有效修正候选。沿此前实际GPT-6/极高设定，完成截图只证明本次页面结果，不冒称有新菜单。观察时间为下载后完成复核，不是服务器生成时间。根观察重脚明显降低、头槌真实伸颈、蹲拳向上伸长，但蹲拳x可能过右，仍须renderer按真实尺度/root/关节落点和原逻辑框精测。来源完整不代表采用；不改变旧判定/伤害/时序，不覆旧稿，C原下载和D原件都保留。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-contact-fix-prompt1017.txt",
+        "sha256": "10fad2de43ae346f61e9fbf5f2e84f9cfb519fb091d8a86f5c0a66906680a703"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T05:20:56.714678+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/contact-fix-web1017.png",
+        "sha256": "97a94e780dec8e0183c0c0cf80853db05a009d757906bd4aee12e72c9978ac0c"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_contact_fix1017来源凭据1017.txt",
+        "sha256": "f6c27c6a3e8df9bcfb7ce7db74f352c5d60b66333edb22192ca36b71ebdf2af5"
+      }
+    },
+    "luffy_gear5_stc_wide1017": {
+      "file": "public/assets/generated/source/luffy-gear5-stc-wide1017.png",
+      "sha256": "40c5cfc77544b9d6791694b36fffb9be2d9b5fd5912736c6978fb19c1ddc4239",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方图像入口未披露具体图像型号；GPT-6沿本主会话此前实际文字模型标签，不能推定后台图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+      "observedCompletedAt": "2026-10-17T05:31:42.116Z",
+      "uiObservation": "根代理实际下载并view_image提供：主会话新增一张单姿宽幅长拳有效原画，沿最初五档母版身份；新增上传附件仅为程序绘制抽象stc-target.png指南，不是人物原画，也不能进入runtime或计动作。该指南原在six-game1014/reference/gear5-contact-guide1017；为了原recorder的reference-guide允许根，来源执行者另复制到roster-0929/reference/gear5-contact-guide1017/stc-target-samebytes1017.png，复制前后同SHA且原指南保留，票据记录真实映射。沿此前实际GPT-6/极高设置；本次完成截图绑定原结果，不冒称含新菜单。观察时刻为根提供下载后完成复核，不是服务器生成时间。根看身体完整但仍填满高，根到拳粗比约1.25H、可能仍短；只交render快速量测，不反复精测同失败稿，不改变st_c旧判定、不提前采用。C下载保留，D原PNG同字节复制，没有修图。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-stc-wide-prompt1017.txt",
+        "sha256": "e22522f4e7320025f39424e155e59cc7d6fd368187cb9163a781635a3daa889e"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+        "stc_target": "ee22a6101a6d75c9a925d3cbbee10dbf35e4f535bc020dbe83e539f9f6751a92"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T05:36:05.451204+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/stc-wide-web1017.png",
+        "sha256": "6242b4519892b943f4893734bef01c9b36d69c3ea944158723a9d5bd7bfb93c4"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_stc_wide1017来源凭据1017.txt",
+        "sha256": "4b7099f947f96fed0934edec0e06861f61cb949c897614954c3d60882b1abdf0"
+      }
+    },
+    "luffy_gear5_high_contact_guide1017": {
+      "file": "public/assets/generated/source/luffy-gear5-high-contact-guide1017.png",
+      "sha256": "e969ec7440db75f3a1add35c9ce7795cc843a9f4fc32d39611025f111e305712",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网图像界面没有公开具体图像型号；GPT-6为本会话此前实际文字标签，不能推定后台图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2efa5-3138-83e8-8d2e-f5cf53fa3a56",
+      "observedCompletedAt": "2026-10-17T05:35:51.870Z",
+      "uiObservation": "根代理真实下载并view_image：反应会话本轮实际新上传head-target.png与uppercut-target.png两张抽象程序指南，沿初始五档母版身份，生成完整3姿；头高与上挑近身明显修正。两指南原在six-game1014/reference/gear5-contact-guide1017，仅为匹配recorder的reference-guide根同字节复制到roster-0929/reference/gear5-contact-guide1017，原件和复制前后SHA映射都保留；指南不是人物原画、不进runtime、不计动作。沿此前实际GPT-6/极高设定；完成截图绑定本次结果，不另冒称含新菜单。观测时刻为根下载后已完成结果复核，不是服务器生成时间。还需render真实源尺度/root/接触量测，不因静态修正就采用或改旧框。C原件保留，D同字节复制，未改画。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-high-contact-guide-prompt1017.txt",
+        "sha256": "0625fa40ab7c331ce33ed12f4a484fbf6b6dd212173f704cd1a0f7f7e90e366b"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+        "head_target": "e7780b72e53a592a67df010747db4f965e288afb1ca5a735a5b3b9326cc79e8e",
+        "uppercut_target": "2bc13e5835b1a60da0077e44e0512862976f91a4337b448ae304d098d9ff70c5"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T05:41:44.473253+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/high-contact-guide-web1017.png",
+        "sha256": "9a67dd82a1330d71205ae810bdc311dccbe4ca49a660e41c6c53e5f2d4e628e0"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_high_contact_guide1017来源凭据1017.txt",
+        "sha256": "dfba8db3fe5b805fd571bc760d6b60d020c85da637e62894f3f9e08f0ca644f3"
+      }
+    },
+    "luffy_gear5_stc_ultrawide1017": {
+      "file": "public/assets/generated/source/luffy-gear5-stc-ultrawide1017.png",
+      "sha256": "858290e4faa99c34b2c8ca1d56ab211e565fda6fe160a4b405a29e6648cb24de",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网图像界面没有公开具体图像型号；GPT-6为本会话此前实际文字标签，不能推定后台图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+      "observedCompletedAt": "2026-10-17T05:35:52.391Z",
+      "uiObservation": "根代理真实下载并view_image：本主会话本轮无新上传附件，明确编辑上一张实际来源luffy_gear5_stc_wide1017，并沿初始五档母版身份；该直接母图已用同catalog来源key绑定，不能只记master而漏直接编辑来源。超长真实皮肤手臂已可辨，根粗看长度超过3H；拳高度可能仍接近旧st_c框下沿，交render按统一真实尺度/root做合法橡胶段压缩候选及实际接触量测。沿此前已核GPT-6/极高，完成截图绑定本次图，不冒称新型号菜单。观测为根下载后完成复核，不是服务器生成时间。原始超长图不改、不自动采用；后处理另行留保护区和像素证据，不修改旧数值或假造root。C/D原件都保留同字节。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-stc-ultrawide-prompt1017.txt",
+        "sha256": "d2a4e81d15621e0ef8580a81df8f33bb531f4dc8f0a44421c4bad2a62f8cda8d"
+      },
+      "referenceSources": {
+        "luffy_gear5_stc_wide1017": "40c5cfc77544b9d6791694b36fffb9be2d9b5fd5912736c6978fb19c1ddc4239",
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T05:41:46.190253+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/stc-ultrawide-web1017.png",
+        "sha256": "60cd32a067d303815c7a84d566074dae9d44d5bef3e576581b091f300c67ebe5"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_stc_ultrawide1017来源凭据1017.txt",
+        "sha256": "2aeb8b8ba3acf004a9946a91e5146cc54f033f5d7da36eefebd01186bfabd560"
+      }
+    },
+    "luffy_gear5_hold_fix1017": {
+      "file": "public/assets/generated/source/luffy-gear5-hold-fix1017.png",
+      "sha256": "62a7ef5f548c79a944cf98eb4208e7de69239c351e6059036430918acb0a7bd1",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网图像入口未披露具体图像型号；GPT-6沿本主会话此前实际文字模型标签，不能推定后台图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+      "observedCompletedAt": "2026-10-17T05:46:04.356Z",
+      "uiObservation": "根代理实际下载并view_image提供：本轮主会话无新上传，明确参考本会话luffy_gear5_throw_held1017上排右hold进行单pose修正；完整直接来源key已绑定，不能只记master忽略母图。根看全身单姿、双手更向前伸、头更靠后，但是否改善两脸遮挡需render按真实握点/根点静态配对量测，不自动采用。沿此前实际GPT-6/极高设定，完成截图绑定本张结果，不冒称另含型号菜单。观测时刻为根下载后对完成结果的复核，不是服务器生成时间。C原下载和旧稿保留，D原PNG同字节复制，未裁切/处理/改数值。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-hold-fix-prompt1017.txt",
+        "sha256": "2398475f8fd976daecd2ccd5c4e66bc86c64fbfa1b553c89ca6841650219a718"
+      },
+      "referenceSources": {
+        "luffy_gear5_throw_held1017": "57c57711b393cbb515259da2f3ad97bec23532a8ebbe2479e990b883778ab912",
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T05:47:25.265719+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/hold-fix-web1017.png",
+        "sha256": "25954b770c53cc68209908b6f635c958e13744091f28941710776b75ba2f5e37"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_hold_fix1017来源凭据1017.txt",
+        "sha256": "e3352bb4f05f93346e0479e1cf42d529336b5f7d52dc51a385530e75d54d8fc8"
+      }
+    },
+    "luffy_gear5_balloon1017": {
+      "file": "public/assets/generated/source/luffy-gear5-balloon1017.png",
+      "sha256": "48ae07e62db2c2c36594fb330b01e4a90996468839534f113166c7f7f8ea6fc2",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官方网页未披露具体图像型号；GPT-6为实际文字模型标签，不能据此推断图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad30b00-1890-83e8-af5d-982a71002c85",
+      "observedCompletedAt": "2026-10-17T05:48:09.016Z",
+      "uiObservation": "实际截图顺序为GPT-6菜单时仍显示Medium，随后明确调整至英文Extra High、五档第4项；脚本极高为其规范化值，不冒称看见中文极高。三张截图及SHA、完整观测记录见docs/assets/luffy-gear5-balloon-ui-observation1017.json（SHA256 221322ccbe359bcf2840bf4069f4d799dbde5ab2a4e5ed5469bfa45d6197a281）。原始上传为master，网页自动名luffy-gear5-master1014(2).png不是新原件。根代理下载并实际查看完成图：四个真实站立/吸气膨胀/保持/回缩姿势，身体完整，腹部膨胀而非外部气泡代替躯干；仍是待量测候选，来源登记不代表动作/接触/运行采用验收。完成时刻为根代理复核结果时间，不是服务器生成时间；C下载保留，D为未处理同字节PNG。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-remaining-balloon-prompt1017.txt",
+        "sha256": "fa779bfbcdc576eb91abc416c3ea7fa9419ee44f32415eaf729a39712afada3e"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T05:51:15.453656+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/special-studio-extra-high1017.png",
+        "sha256": "ed93da8d957deddf012ac8f457add2227942e86eccee1ae971e56816535338c9"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_balloon1017来源凭据1017.txt",
+        "sha256": "f7f93497db19aa1bcd1e481821650a6a0744bdeb23c394b3bf36b2f41ff5c5a6"
+      }
+    },
+    "luffy_gear5_crd1017": {
+      "file": "public/assets/generated/source/luffy-gear5-crd1017.png",
+      "sha256": "f0a5b33062feb2354133563b72ad8da2298d63f1cee73c4f9f3b1a4fb45d025f",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网图像入口未披露具体图像型号；GPT-6沿本主会话此前实际文字模型标签，不能推定后台图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+      "observedCompletedAt": "2026-10-17T05:51:18.647Z",
+      "uiObservation": "根代理实际下载并view_image提供：主会话无新附件，延续master和本会话同一五档路飞身份；根见四姿全身、真实低扫长腿贴地且起手/收势不同。仍需render统一source尺度、低扫真实接触与邻格保护量测，不能提前采用。沿此前实际GPT-6/极高设定，完成截图只绑定本张结果，不冒称另含型号菜单。观测时刻为根下载后完成复核，不是服务器生成时间。C原下载与旧稿保留，D为未处理同字节PNG；alpha边界记录不等于人物截断判断或美术验收。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-remaining-crd-prompt1017.txt",
+        "sha256": "1672d6971976680d885dc63db416464e5d6644196967a40c35bd05e34414f377"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T05:53:01.173487+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/crd-web1017.png",
+        "sha256": "8d8918f89e99b1fd2c6d94b5c58c3b52d087db7ce354347b85ce1ae8a9f08052"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_crd1017来源凭据1017.txt",
+        "sha256": "cbc156ca7f6a12cb3fad1bc30eaa2b188df744f434b6953e815d29f2a9251500"
+      }
+    },
+    "luffy_gear5_rocket_dash_loop1017": {
+      "file": "public/assets/generated/source/luffy-gear5-rocket-dash-loop1017.png",
+      "sha256": "9c765304fed2338ba47d8fe881b11e2f5dfe53f1cdd657519e45277fc371c4a7",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网未披露具体图像型号；GPT-6为实际文字模型标签，不能推定后台图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad30b00-1890-83e8-af5d-982a71002c85",
+      "observedCompletedAt": "2026-10-17T05:53:43.409Z",
+      "uiObservation": "根代理实际下载并view_image提供：special会话无新upload，延续最初master；两跑姿疑似同一近腿在前，不能当换步或完整循环通过。交audio仅量neutral与有效A并判断步相，不强加B为循环；根将另修真实反相。该会话实际英文Extra High规范化为脚本极高，时序和原标签见docs/assets/luffy-gear5-balloon-ui-observation1017.json；未冒称本完成截图含型号菜单。观测时间为完成复核，不是服务器生成时间。原PNG和C下载保留，来源登记不等于动作/接触/采用验收。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-rocket-dash-loop-prompt1017.txt",
+        "sha256": "85e3597b4f1f7a9e395546c703f893a4c968b0d18e1b8e1d0867a8f8ed8b05f2"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T05:55:42.655189+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/rocket-dash-loop-web1017.png",
+        "sha256": "05c66dbb572dc64989d5234463602af43b6aecb0dd320887885b18ae92b05b30"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_rocket_dash_loop1017来源凭据1017.txt",
+        "sha256": "eac0ad62dc1ab484fa0644644c90b9ed1492a3c5bc4c5dae3eff9db6b6d177f6"
+      }
+    },
+    "luffy_gear5_cd1017": {
+      "file": "public/assets/generated/source/luffy-gear5-cd1017.png",
+      "sha256": "1f0fb444796046a0dac4f310abc858f4b0b6766e99d9e203f6bb0dc3da515518",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网图像入口未披露具体图像型号；GPT-6沿主会话此前实际文字模型标签，不能推定后台图像型号。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+      "observedCompletedAt": "2026-10-17T05:53:43.825Z",
+      "uiObservation": "根代理实际下载并view_image提供：主会话无新upload，延续master与同一人物身份；根看四个真实姿势、横向长臂完整。原raw显示灰色RGB不能直接判为背景；此PNG真实RGBA，alpha范围0到254，1229441个全透明像素、343423个部分透明、无255完全不透明像素；只能证明alpha数据，实际白底合成与人物完整性仍由render核验。交render做统一source尺度/真实接触/邻格保护；不提前采用。沿此前实际GPT-6/极高设定，本完成截图不冒称另含型号菜单。时间为根完成复核、非服务器生成时间。C下载及D原PNG完整保留，不做alpha修补或画新像素。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-remaining-cd-prompt1017.txt",
+        "sha256": "64263e19dfb7174dcbb3aaf7355d05853a81d8a639afab2299d89a1d6c561c60"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T05:56:03.578372+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/cd-web1017.png",
+        "sha256": "f2440a262997435ee1a3a47a89abc96a4c484abcad91fd893acdb26a5b0ac0f8"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_cd1017来源凭据1017.txt",
+        "sha256": "d5107630b7c7aeea235111b69424236f525ed1c17a1573f2ee4a97e6f6613718"
+      }
+    },
+    "luffy_gear5_g5_rising_direct1017": {
+      "file": "public/assets/generated/source/luffy-gear5-g5-rising-direct1017.png",
+      "sha256": "aaf05e1d10438033e366b14f5ebf7819a33e3a3b5d4c466836e4edf66573d612",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网未披露具体图像型号；实际文字模型GPT-6与具体图像型号分开记录，图像型号仍未核实。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+      "observedCompletedAt": "2026-10-17T06:30:15.028Z",
+      "uiObservation": "根代理实际直接img download并view_image；官网本次明确要求仅直接生图、禁止代码后处理，下载为图像入口不是Python输出文件。无新附件，沿本会话最初master及同一人物身份。根实际view见真实超长向右上臂；仍需render判断原范围与合法压缩，不提前采用。沿该会话此前实际GPT-6/极高设定，本完成截图不冒称另有型号菜单。观测为根下载后完成结果复核，不是服务器生成时间；C原件保留、D同字节PNG不处理。来源登记不等于完整接触或运行采用验收。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-g5-rising-direct-prompt1017.txt",
+        "sha256": "508c2b1ddec1f8832754cf86422849a3cb4bd3b1942aaedae460c0b569b77554"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T06:32:46.249892+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/g5-rising-direct-web1017.png",
+        "sha256": "1d5c13dc70dd88bbe54d6ff80bfd9bfdadd4c7529f400a15580696cb33f84ef5"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_g5_rising_direct1017来源凭据1017.txt",
+        "sha256": "d0391b4a2455f58dde6e22ad8832d631b4f089480030c6873b11d6a0c1386ce7"
+      }
+    },
+    "luffy_gear5_jd_direct1017": {
+      "file": "public/assets/generated/source/luffy-gear5-jd-direct1017.png",
+      "sha256": "f781fc582d9771af81cc865a98f886d5c88686ea3ac6468025a6a4acb2db5243",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网未披露具体图像型号；实际文字模型GPT-6与具体图像型号分开记录，图像型号仍未核实。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2efa5-3138-83e8-8d2e-f5cf53fa3a56",
+      "observedCompletedAt": "2026-10-17T06:30:15.529Z",
+      "uiObservation": "根代理实际直接img download并view_image；官网本次明确要求仅直接生图、禁止代码后处理，下载为图像入口不是Python输出文件。无新附件，沿本会话最初master及同一人物身份。根实际view见真实空中向前下踢、脚更低；需render实测原判定与同源尺度，不使用此前已拒用warped稿。沿该会话此前实际GPT-6/极高设定，本完成截图不冒称另有型号菜单。观测为根下载后完成结果复核，不是服务器生成时间；C原件保留、D同字节PNG不处理。来源登记不等于完整接触或运行采用验收。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-jd-direct-prompt1017.txt",
+        "sha256": "dd7af172112c41978742c10f5ce66c7d38897ffcdd6d19c90735a95bb34954e2"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T06:33:06.817872+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/jd-direct-web1017.png",
+        "sha256": "68da983996d4a7190622b7a1d4eb11acd9886861209a33c4e1dfbafabd83eebe"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_jd_direct1017来源凭据1017.txt",
+        "sha256": "bc663fd995a30b6156c4939d2871af561d60e3cf043e4a54bbacfa7dc823a65e"
+      }
+    },
+    "luffy_gear5_balloon_large1017": {
+      "file": "public/assets/generated/source/luffy-gear5-balloon-large1017.png",
+      "sha256": "aa0935d4c3946f0d99ef5b6b73387cc988cd72a51c2461915b30395fe3447536",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网未披露具体图像型号；实际文字模型GPT-6与具体图像型号分开记录，图像型号仍未核实。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad30b00-1890-83e8-af5d-982a71002c85",
+      "observedCompletedAt": "2026-10-17T06:30:16.081Z",
+      "uiObservation": "根代理实际直接img download并view_image；官网本次明确要求仅直接生图、禁止代码后处理，下载为图像入口不是Python输出文件。无新附件，沿本会话最初master及同一人物身份。根实际view见真实巨大腹部；为此前balloon源同一会话重绘身份关联，交audio独占量测侧表，再交render合并；不先判原反射范围完全贴合。该special会话实际英文Extra High为脚本极高的规范值，原标签/调整时序留在docs/assets/luffy-gear5-balloon-ui-observation1017.json；文字GPT-6与图像型号分开，本完成截图不冒称另有型号菜单。观测为根下载后完成结果复核，不是服务器生成时间；C原件保留、D同字节PNG不处理。来源登记不等于完整接触或运行采用验收。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-balloon-large-direct-prompt1017.txt",
+        "sha256": "5350445f97352ae14b647bf60b6b85432ff7bdf058b158e52b1d08207a49cb3c"
+      },
+      "referenceSources": {
+        "luffy_gear5_balloon1017": "48ae07e62db2c2c36594fb330b01e4a90996468839534f113166c7f7f8ea6fc2",
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T06:33:27.806613+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/balloon-large-web1017.png",
+        "sha256": "eeec36da8ab1bc80bb543cc3dd516352c7c55070230b458a5c90bba7f875883a"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_balloon_large1017来源凭据1017.txt",
+        "sha256": "2dce7f7828506d038c2a46b1cffbe52e6c6300ca244a1950b9f7e438b4814b71"
+      }
+    },
+    "luffy_gear5_g5_rush1017": {
+      "file": "public/assets/generated/source/luffy-gear5-g5-rush1017.png",
+      "sha256": "944ea26960393ee7c0e872d1890823e8a8f75ff6583249c5e5c84a0f58772349",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网未披露具体图像型号；实际文字模型GPT-6与具体图像型号分开记录，图像型号仍未核实。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+      "observedCompletedAt": "2026-10-17T06:35:42.234Z",
+      "uiObservation": "根代理实际直接img导出并view_image；本次要求只直接生图，不经官网代码后处理，下载为图像入口不是Python输出文件。无新附件，沿本会话最初master及同一人物身份。根实际view八姿中有真实三拳，但未明确左右拳交换，可能同手三连戳，不能宣称交替；长度与第一拳高度仍交render量测。沿该会话此前实际GPT-6/极高设定；special会话英文Extra High规范化为脚本极高，其原标签/调整时序另有观测记录，本完成截图不冒称另有型号菜单。观测为根下载后完成结果复核，不是服务器生成时间；C原件保留、D同字节PNG不处理。来源候选真实不等于接触通过或运行采用。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-g5-rush-direct-prompt1017.txt",
+        "sha256": "c203f1b225fbb0963de80b8161ced78b25ffd8fcf23985d942977600690c8db9"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T06:38:11.440031+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/g5-rush-direct-web1017.png",
+        "sha256": "bef78087c37a15990cd7b11fe3a1922540b5d3fce915fab119b73cb651c4cd5c"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_g5_rush1017来源凭据1017.txt",
+        "sha256": "a926c2758f4160559e2e6f5902cb6dbae37d151b0d53d5f51df56fc0491fcc03"
+      }
+    },
+    "luffy_gear5_jcd1017": {
+      "file": "public/assets/generated/source/luffy-gear5-jcd1017.png",
+      "sha256": "53e6fd85e69e0106917ab7df21387e6c84f1ff25959ae175cf2fb36121b754d5",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网未披露具体图像型号；实际文字模型GPT-6与具体图像型号分开记录，图像型号仍未核实。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2efa5-3138-83e8-8d2e-f5cf53fa3a56",
+      "observedCompletedAt": "2026-10-17T06:35:42.782Z",
+      "uiObservation": "根代理实际直接img导出并view_image；本次要求只直接生图，不经官网代码后处理，下载为图像入口不是Python输出文件。无新附件，沿本会话最初master及同一人物身份。根实际view四姿空中真实蓄势/横臂/收势全身，仍需render统一source尺度和实际接触量测。沿该会话此前实际GPT-6/极高设定；special会话英文Extra High规范化为脚本极高，其原标签/调整时序另有观测记录，本完成截图不冒称另有型号菜单。观测为根下载后完成结果复核，不是服务器生成时间；C原件保留、D同字节PNG不处理。来源候选真实不等于接触通过或运行采用。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-jcd-direct-prompt1017.txt",
+        "sha256": "795a92fd460bcaaa3970e459da34bd1e4d57507325278f56d0168ddea12b1eb7"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T06:38:15.934202+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/jcd-direct-web1017.png",
+        "sha256": "12f9dcdef9260e9de74c966fe6f8a08a70bebc88922454df806f43a34a870043"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_jcd1017来源凭据1017.txt",
+        "sha256": "ee67dad4bf5a5dd4261e5296f7f040043bebbd3f397d45814f60fec6b575bec1"
+      }
+    },
+    "luffy_gear5_g5_slam1017": {
+      "file": "public/assets/generated/source/luffy-gear5-g5-slam1017.png",
+      "sha256": "b3811e187a78c027aed500c7c997288234732eeb9bb1da794a5ecb59623cc98a",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网未披露具体图像型号；实际文字模型GPT-6与具体图像型号分开记录，图像型号仍未核实。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad30b00-1890-83e8-af5d-982a71002c85",
+      "observedCompletedAt": "2026-10-17T06:35:43.267Z",
+      "uiObservation": "根代理实际直接img导出并view_image；本次要求只直接生图，不经官网代码后处理，下载为图像入口不是Python输出文件。无新附件，沿本会话最初master及同一人物身份。根实际view六姿真实举拳/下砸/回收，仍需render判断有效接触、统一source尺度和原判定范围。沿该会话此前实际GPT-6/极高设定；special会话英文Extra High规范化为脚本极高，其原标签/调整时序另有观测记录，本完成截图不冒称另有型号菜单。观测为根下载后完成结果复核，不是服务器生成时间；C原件保留、D同字节PNG不处理。来源候选真实不等于接触通过或运行采用。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-g5-slam-direct-prompt1017.txt",
+        "sha256": "3f17702830fafb14349710084d1e159d1bd0a2702fae41cc0c26d8c724db59df"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T06:38:20.486758+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/g5-slam-direct-web1017.png",
+        "sha256": "c2ed7702ba83f58582ae1322a249bc7ecc576b2ae08af657aec4536808d3b590"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_g5_slam1017来源凭据1017.txt",
+        "sha256": "975cdfaded3078209aacf75bb72fbff14fba6a9ad272ba76bac48fa1704b4e6d"
+      }
+    },
+    "luffy_gear5_gigant_active1017": {
+      "file": "public/assets/generated/source/luffy-gear5-gigant-active1017.png",
+      "sha256": "10ab953211db8dcf0b544c12a88a444ea249805e4bfd25686876bc550ab6808a",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网未披露具体图像型号；实际文字模型GPT-6与具体图像型号分开记录，图像型号仍未核实。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+      "observedCompletedAt": "2026-10-17T06:55:25.598Z",
+      "uiObservation": "根代理实际直接img导出并view_image；本次要求只直接生图，不经官网代码后处理，下载为图像入口不是Python输出文件。无新upload，沿本会话最初master及同一人物身份。根实际view连续超长真实手臂与真实大拳，全身完整；交render按旧巨人枪框合法压短量测，起收可用其它真实巨拳姿；旧招判定冻结不随图修改。沿该会话此前实际GPT-6/极高设定，本完成截图不冒称另有型号菜单。观测为根下载后完成结果复核，不是服务器生成时间；C原件保留、D同字节PNG不处理。来源候选真实不等于接触通过或运行采用。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-gigant-active-direct-prompt1017.txt",
+        "sha256": "cf788f90a435826b60bf1b7cacbb6055e2e3d7c03af01491429203e43855ef2f"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T06:58:02.038846+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/gigant-active-direct-web1017.png",
+        "sha256": "bc1d2196166af3971763a3a668d9e1291f17fea01ee65cfb0bbdad2618e9cc12"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_gigant_active1017来源凭据1017.txt",
+        "sha256": "dc210d1421d570c5eff40d4ebd5fdceaf35c5ebe222d8f59eda4b2e8b7cbc0a1"
+      }
+    },
+    "luffy_gear5_j2d1017": {
+      "file": "public/assets/generated/source/luffy-gear5-j2d1017.png",
+      "sha256": "ee0e1ceaa41a465f7b583389337245c17a9f3e8c96631d734dd3d4734c820aa8",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网未披露具体图像型号；实际文字模型GPT-6与具体图像型号分开记录，图像型号仍未核实。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad2efa5-3138-83e8-8d2e-f5cf53fa3a56",
+      "observedCompletedAt": "2026-10-17T06:55:26.111Z",
+      "uiObservation": "根代理实际直接img导出并view_image；本次要求只直接生图，不经官网代码后处理，下载为图像入口不是Python输出文件。无新upload，沿本会话最初master及同一人物身份。根实际view四姿真实抬膝、向前下劈腿、收回，直接生图而非此前拒用的程序拉伸稿；交render在真实身体虚拟平面按冻结j_2d框量测。沿该会话此前实际GPT-6/极高设定，本完成截图不冒称另有型号菜单。观测为根下载后完成结果复核，不是服务器生成时间；C原件保留、D同字节PNG不处理。来源候选真实不等于接触通过或运行采用。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-j2d-direct-prompt1017.txt",
+        "sha256": "636a8310c42d617064fe69bf56d60ee58a9003ec5c6d632cce1f45275db4f4ec"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T06:58:06.694901+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/j2d-direct-web1017.png",
+        "sha256": "31d17d55a3850d830d5a012f8cfae0617595a90268f593f3b2f936644b66bfca"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_j2d1017来源凭据1017.txt",
+        "sha256": "6566e75c6dd777d6117a2cabf71cdc95106d025d1de00b1e559483049f44da92"
+      }
+    },
+    "luffy_gear5_jd_guide_direct1017": {
+      "file": "public/assets/generated/source/luffy-gear5-jd-guide-direct1017.png",
+      "sha256": "397f0f4a97114cd25ccc48d1e3ae448c710dcbbdf0f4cc2fe04c5de6c0c704f0",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网未披露具体图像型号；实际文字模型GPT-6与具体图像型号分开记录，图像型号仍未核实。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad30b00-1890-83e8-af5d-982a71002c85",
+      "observedCompletedAt": "2026-10-17T07:06:02.665Z",
+      "uiObservation": "根代理实际直接imagegen原图下载并view_image，明确不运行官网代码后处理。本轮新增上传仅为six-game1014/reference/gear5-contact-guide1017/air-kick-target.png抽象程序指南；为匹配recorder允许reference根，同SHA复制为roster-0929/reference/gear5-contact-guide1017/air-kick-target-samebytes1017.png，复制映射存于本次intake，不是人物源、不入runtime、不计动作。人物身份沿本special会话初始master上传。根实见横幅单人真实空中，攻击腿更平向右、鞋比前失败稿抬高，正常肤色/白衣；仍交render按冻结旧j_d框及身体虚拟平面判断，不自动采用。该special会话真实英文Extra High规范化极高，标签/时序另有观测记录，文字GPT-6与图像型号分开；完成截图不冒称含新菜单。时间为根完成结果复核、非服务器生成时间；C原件保留、D同字节PNG未处理，来源不代替接触验收。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-jd-guide-direct-prompt1017.txt",
+        "sha256": "fdc1c8acfb0572f893ee3ddad110216aef60063d3a34b78de443450649dd069c"
+      },
+      "referenceSources": {
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+        "air_kick_target": "76001977fb01da2d45af81c387f2ead76414368fca8e352e63883d3e718a7d04"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T07:07:38.279162+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/jd-guide-direct-web1017.png",
+        "sha256": "c8796ab4e2ec3409fb9692f45c1b75b3698254498f8f0a93e6f0fbb6df8b2481"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_jd_guide_direct1017来源凭据1017.txt",
+        "sha256": "5f421a10ab2df95caf9530e437ccb19eb857593f6728b07f05fcafdc5ec2686a"
+      }
+    },
+    "luffy_gear5_balloon_y70_repair1017": {
+      "file": "public/assets/generated/source/luffy-gear5-balloon-y70-repair1017.png",
+      "sha256": "f43eafc8b0111b58931b49d4b3a53bade4b6fb16019344010f71e145afbd2de8",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网未披露具体图像型号；实际文字模型GPT-6与具体图像型号分开记录，图像型号仍未核实。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad30b00-1890-83e8-af5d-982a71002c85",
+      "observedCompletedAt": "2026-10-17T16:18:58.648+08:00",
+      "uiObservation": "根实际官网直接下载并view_image完成的两格新原PNG，本轮明确只用图像工具生成、不运行官网代码后处理。先一次typeText误将第一段提前发送，根已停止，该短段/结果不计本source；随后完整保存prompt另一次已真实发送并得到本两格。本人独立查看准备截图：GPT-6菜单勾选、中文极高实见且滑条第4/5；虽然文件名extra-high，截图这次并非英文Extra High。准备截图显示此前空中踢图而非本完成图，不混充完成截图。三截图/观测说明JSON及SHA绑定：docs/assets/luffy-gear5-balloon-y70-repair-ui-observation1017.json（450b8ee3c74e733b07d7c56dd879b0ff5e8410568b5f4b09a62b0b1d40bceef8）。人物身份沿同会话初始master；此前已登记balloon_large为同形态前稿比较关联，不声称本轮重新上传人物图。本轮新上传仅balloon-y70-target1017抽象指南，不是人物源或运行图。根看腹向前上改善但y=-70仍可能不足；仅交render按冻结反射框量测，不采用，不写authoring，不把prompt目标当实测。C原件保留/D同SHA；时间为根实际完成复核，不是服务器首次生成时间。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-balloon-y70-repair-prompt1017.txt",
+        "sha256": "b087764d3c965fd9523396e5ce5142283de645e3c396e3d816a8bd7867077cbd"
+      },
+      "referenceSources": {
+        "luffy_gear5_balloon_large1017": "aa0935d4c3946f0d99ef5b6b73387cc988cd72a51c2461915b30395fe3447536",
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+        "balloon_y70_target1017": "9bc9637b23bed070f1ecfcb233c6019a94e423cdd73957b680850eecbb06cd32"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T08:21:28.533260+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/balloon-y70-repair-completed-web1017.png",
+        "sha256": "20d650a98d9f90ba78c4ab13b2d027cf9bbba4d2c8877af61ded182f455ed345"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_balloon_y70_repair1017来源凭据1017.txt",
+        "sha256": "84c3fb66d0c2eec003c9a7b5a5f74c81de8c0f17a3a736f451eabcba440b3a1d"
+      }
+    },
+    "luffy_gear5_balloon_upper_single1017": {
+      "file": "public/assets/generated/source/luffy-gear5-balloon-upper-single1017.png",
+      "sha256": "df7a728a19c370715ecdb4b29cc109768f10eaf74160e636302060b5c93f82ce",
+      "provider": "chatgpt-web",
+      "model": "unverified",
+      "workflowDecision": "pc-roster-0929",
+      "observedImageModel": null,
+      "imageModelDisclosure": "exact-model-unavailable",
+      "modelUnavailableStatement": "官网未披露具体图像型号；实际文字模型GPT-6与具体图像型号分开记录，图像型号仍未核实。",
+      "observedTextModelLabel": "GPT-6",
+      "observedReasoningEffort": "极高",
+      "entryUrl": "https://chatgpt.com/images/",
+      "entryTitle": "ChatGPT",
+      "browserLabel": "Codex内置浏览器",
+      "sessionUrl": "https://chatgpt.com/c/6ad30b00-1890-83e8-af5d-982a71002c85",
+      "observedCompletedAt": "2026-10-17T16:33:41.435+08:00",
+      "uiObservation": "根实际view本次官网下载原PNG和官网完成结果；完整三段prompt经Playwright.fill后click发送，本次没有提前误发，不与上一修稿曾误发短段的过程混淆。只用图像工具直接生成，不运行官网代码后处理。沿同会话16:12已核GPT-6/中文极高第4/5准备截图，本次未重新打开菜单，不冒称新型号/档位观测；旧截图真实路径与SHA在docs/assets/luffy-gear5-balloon-y70-repair-ui-observation1017.json。实际参考上一张已登记luffy_gear5_balloon_y70_repair1017的neutral、最初master身份和会话已有同一balloon_y70_target1017指南，本次没有新上传。根看巨腹更大、前上方改善；仍待render统一neutral身体尺度、脚根和y=-70真实截面及发顶完整性量测。原PNG alpha>=16边界触y=0，仅是边缘统计，不据此断言发顶完整或裁掉。候选来源登记不代表采用，不动authoring，不变旧反射框。C原件保留、D同字节复制和SHA核验；时间为根实际完成复核，非服务器首次生成时间。",
+      "prompt": {
+        "file": "docs/assets/luffy-gear5-balloon-upper-single-prompt1017.txt",
+        "sha256": "2e6677a18794bff3649580965c65280ab72c92f7fc3659f0265573425e90ecf3"
+      },
+      "referenceSources": {
+        "luffy_gear5_balloon_y70_repair1017": "f43eafc8b0111b58931b49d4b3a53bade4b6fb16019344010f71e145afbd2de8",
+        "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a",
+        "balloon_y70_target1017": "9bc9637b23bed070f1ecfcb233c6019a94e423cdd73957b680850eecbb06cd32"
+      },
+      "unitScale": 1,
+      "recordedAt": "2026-10-17T08:34:53.213752+00:00",
+      "formId": "gear5",
+      "screenshot": {
+        "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/balloon-upper-single-completed-web1017.png",
+        "sha256": "529642e95d311e9adc7b130f4930c9e2fbf2cf0f1a588ffc172473fa6fe9109d"
+      },
+      "sourceEvidence": {
+        "file": "docs/assets/luffy_gear5_balloon_upper_single1017来源凭据1017.txt",
+        "sha256": "6628c7aa0d159ea6551b30d75939a1868653f616e679f72734f621b55f927dc8"
+      }
+    }
+  }
+}

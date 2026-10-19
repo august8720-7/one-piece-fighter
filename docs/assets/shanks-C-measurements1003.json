@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_c_emperor_cuts_1003",
+  "sourceSha256": "a2bd3c51c316eceac12174a287274f2853c7aad17bfe175c3e4e1e8231fb88f6",
+  "status": "three-hit-body-candidate-before-contact-review",
+  "neutralVisibleAlpha8Bounds": [59, 11, 504, 378],
+  "neutralVisibleHeight": 367,
+  "referenceNeutralHeight": 380,
+  "unitScale": 1.0354223433242506,
+  "scaleBasis": "One neutral visible alpha>=8 height367px; all seven C poses uniformly use380/367 versus the original380px reference. No per-pose fitting.",
+  "frames": {
+    "c_start_1003": {"source": "shanks_c_emperor_cuts_1003", "crop": [559, 38, 471, 347], "root": [241, 334], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "c_hit1_1003": {"source": "shanks_c_emperor_cuts_1003", "crop": [34, 384, 651, 349], "root": [254, 338], "sockets": {"weapon_grip": [398, 115], "weapon_tip": [642, 120]}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[571, 138, 80, 211]]},
+    "c_turn2_1003": {"source": "shanks_c_emperor_cuts_1003", "crop": [605, 417, 446, 313], "root": [237, 301], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[0, 68, 82, 34], [140, 299, 46, 14]]},
+    "c_hit2_1003": {"source": "shanks_c_emperor_cuts_1003", "crop": [61, 777, 623, 299], "root": [257, 289], "sockets": {"weapon_grip": [394, 145], "weapon_tip": [615, 276]}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[581, 0, 42, 250]]},
+    "c_turn3_1003": {"source": "shanks_c_emperor_cuts_1003", "crop": [638, 712, 410, 380], "root": [221, 368], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[0, 0, 94, 17], [260, 0, 130, 22], [0, 310, 48, 56], [149, 364, 64, 16]]},
+    "c_hit3_1003": {"source": "shanks_c_emperor_cuts_1003", "crop": [26, 1081, 599, 333], "root": [251, 325], "sockets": {"weapon_grip": [375, 174], "weapon_tip": [589, 324]}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[576, 0, 23, 290]]},
+    "c_recover_1003": {"source": "shanks_c_emperor_cuts_1003", "crop": [596, 1072, 459, 363], "root": [255, 352], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[0, 310, 36, 36], [101, 0, 70, 16], [361, 0, 81, 16]]}
+  },
+  "anims": {
+    "sp_emperor_cuts": {"frames": ["c_start_1003", "c_hit1_1003", "c_turn2_1003", "c_hit2_1003", "c_turn3_1003", "c_hit3_1003", "c_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 11}, {"frame": 1, "ticks": 3}, {"frame": 2, "ticks": 4}, {"frame": 3, "ticks": 3}, {"frame": 4, "ticks": 5}, {"frame": 5, "ticks": 5}, {"frame": 6, "ticks": 31}]}
+  },
+  "parentContactReview": {
+    "hit1": {"approxWorldGrip": [36.88, -57.12], "approxWorldTip": [99.38, -55.84], "currentHitbox": [9, -67, 64, 41], "suggestedMeasuredHitbox": [29, -63, 73, 20]},
+    "hit2": {"approxWorldGrip": [35.09, -36.88], "approxWorldTip": [91.69, -3.33], "currentHitbox": [10, -54, 70, 37], "suggestedMeasuredHitbox": [27, -42, 69, 42]},
+    "hit3": {"approxWorldGrip": [31.76, -38.68], "approxWorldTip": [86.57, -0.26], "currentHitbox": [9, -82, 83, 63], "suggestedMeasuredHitbox": [25, -44, 65, 44]},
+    "note": "Static approximate proposals from hand/tip coordinates only. Parent decides actual sweeping FX versus contact calibration, preserves67 damage per hit and11/3/4/3/5/5/31 timing. These are not in-game hit results."
+  },
+  "observations": ["Eight real source figures consist of one reference plus seven independent action poses. The three hit poses have different arm/blade angles, not copied pixels.", "All figures preserve one right arm, a complete saber and both feet. Explicit exclusions must pass component diagnostics before atlas adoption.", "Skill FX, voices and real three-hit chaining remain required."]
+}

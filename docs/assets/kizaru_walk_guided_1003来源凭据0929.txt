@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "kizaru_walk_guided_1003",
+  "file": "public/assets/generated/source/roster-kizaru-walk-guided-1003.png",
+  "sha256": "43efb45d73e00e479ad4b5996a20496ac984ecfe46cfca88882d5a58edea7117",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "IAB辅助执行者重新现场核验最新radio选中及极高第4项，证据已保存；图像后台具体型号没有公开，不记2.5。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd7c3-ab58-83e8-bc9d-5433cd330260",
+  "observedCompletedAt": "2026-10-03T21:37:03.5823620+08:00",
+  "uiObservation": "海贼素材执行者在Codex内置浏览器通过原生filechooser上传本游戏已有红近蓝远抽象步态指南，确认完成、最新和极高后fill完整准备提示并读回匹配，只发一次，21:20原会话出现用户附件与完整新请求，submitted-iab-assist证据在上一级。本助手接回Microsoft Edge同官方会话，正常reload恢复后现场看到最新新四相生成图，打开查看器标题四格动画：金色条纹军装漫步者，img已生成图像4；保存实际完成复核截图，不是服务器首次生成时间。只点一次下载，crdownload保留；PNG签名/IEND/Pillowverify/完整RGBAdecode/重复稳定原字节通过，复制前后SHA一致。具体四腿相身份与正常速度后查，抽象指南不计运行原画，未写连续动作或完整人物通过。",
+  "prompt": {
+    "file": "docs/assets/kizaru-walk-repair-prompt1003.txt",
+    "sha256": "3dae8eaabe1e19e548476b06f4934aca7ce7655702e13e752a900c97dc928cd9"
+  },
+  "referenceSources": {
+    "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+    "kizaru_locomotion_0929": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T13:39:10.638728+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/kizaru-walk1003/guided-candidate1003/completion-viewer1003.png",
+    "sha256": "9a21f0db1e5feec6e86ce6d54edd0c406f09803c4fa42b618e58c12ef28ff3a0"
+  },
+  "referenceFiles": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+    },
+    "kizaru_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-kizaru-locomotion-0929.png",
+      "sha256": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

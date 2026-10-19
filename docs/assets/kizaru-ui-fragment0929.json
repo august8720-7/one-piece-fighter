@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "characters": {
+    "kizaru": {
+      "image": "assets/characters/kizaru/anime/ui-roster-0929.png",
+      "sha256": "7e84cfae381d19be6b1381fd7bdc0fb11fa2c38ab44bf4cb5142332f2961c093",
+      "width": 374,
+      "height": 512,
+      "frames": {
+        "body": {
+          "x": 0,
+          "y": 0,
+          "w": 374,
+          "h": 512
+        },
+        "portrait": {
+          "x": 160,
+          "y": 0,
+          "w": 160,
+          "h": 165
+        }
+      },
+      "source": {
+        "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+        "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+        "crop": [
+          576,
+          0,
+          374,
+          512
+        ]
+      },
+      "reviewStatus": "static-candidate-for-roster-preview-not-gameplay-acceptance",
+      "processing": {
+        "scale": 1,
+        "method": "explicit crop; original RGBA preserved",
+        "pixelsEqual": true
+      }
+    }
+  }
+}

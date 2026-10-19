@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_dash_guide_1003",
+  "role": "auxiliary-reference-only",
+  "uploadedFile": "D:/one-piece-fighter-crossover-0922/roster-0929/reference/shanks-running-1003/near-far-run-guide1003.png",
+  "sha256": "2c986d101e79f265f4d0ab9f1f2a7aa5caf637cede01deb8bd6c3fa09be7c623",
+  "destination": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+  "actualUiObservation": "Documented filechooser selected the exact PNG. The guide filename button was present and its upload progressbar absent before full prompt fill and single send. No additional private input was uploaded or sent.",
+  "prompt": "docs/assets/shanks-dash-guide-prompt1003.txt",
+  "actualRequestScreenshot": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/shanks-dash-guide-request.jpg",
+  "imageModel": "unverified",
+  "runtimeAdopted": false,
+  "actionResult": "Actual official generated PNG registered but run poses still failed leg alternation; not used in runtime."
+}

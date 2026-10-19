@@ -5,6 +5,7 @@ export type AudioHudState = 'muted' | 'master_zero' | 'group_zero' | 'paused' | 
   | 'download_failed' | 'decode_failed' | 'resume_failed' | 'start_failed' | 'unavailable' | 'ready' | 'destroyed';
 export type AudioFailureKind = 'download' | 'decode';
 export interface AudioSettings {
+  characterChatter: boolean;
   muted: boolean;
   volume: number;
   groups: Record<AudioGroup, number>;
@@ -34,6 +35,8 @@ export interface AudioCue {
   transcript?: string;
   source?: string;
   note?: string;
+  /** Finish meaningful words before an equal/lower-priority new utterance. Hurt/KO may still interrupt. */
+  preserveSentence?: boolean;
 }
 
 export type CueCatalog = Record<string, AudioCue>;
@@ -41,7 +44,7 @@ export type ProjectileEndReason = 'hit' | 'block' | 'clash' | 'ground' | 'timeou
 
 export interface FightAudioEvent {
   /** recover is the first frame of the final recovery segment, not every gap between hits. */
-  phase: 'start' | 'swing' | 'recover' | 'hit' | 'block' | 'reflect' | 'throw' | 'landing' | 'ko' | 'win' | 'projectile_spawn' | 'projectile_end' | 'round_start';
+  phase: 'start' | 'swing' | 'recover' | 'hit' | 'block' | 'reflect' | 'throw' | 'landing' | 'ko' | 'win' | 'projectile_spawn' | 'projectile_end' | 'round_start' | 'form_exit' | 'intro';
   characterId: string;
   player: 0 | 1;
   moveId?: string;

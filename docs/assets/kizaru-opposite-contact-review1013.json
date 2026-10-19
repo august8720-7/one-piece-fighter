@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "characterId": "kizaru",
+  "date": "2026-10-13",
+  "sourceFile": "public/assets/generated/source/roster-kizaru-opposite-contact-1013-1242.png",
+  "sourceSha256": "bd586e5774462eca5476d6a9f2422e21d0c04a6ddf15900e94545f690502ba0a",
+  "actualImage": {
+    "size": [1774, 887],
+    "mode": "RGBA",
+    "pillowVerify": "passed",
+    "fullDecode": "passed",
+    "alphaExtrema": [0, 255],
+    "alphaZeroPixels": 946875,
+    "canvasPixels": 1573538,
+    "alpha16Bounds": [116, 31, 1644, 859],
+    "leftAlpha16Bounds": [116, 31, 787, 859],
+    "rightAlpha16BoundsAbsolute": [967, 32, 1644, 858],
+    "leftBodyExtentHeight": 828,
+    "rightBodyExtentHeight": 826,
+    "sourceWideScaleCandidate": "402/828 relative to baseline locomotion source; not applied",
+    "notClipped": true
+  },
+  "visualReview": {
+    "identity": "Same recognizable middle-aged yellow striped suit, orange glasses, white shoes and marine cape. Both figures complete.",
+    "uniformScale": "Neutral and contact figures have consistent head size and near-identical standing extents; no per-pose rescaling needed or performed.",
+    "arms": "Near-side bent arm swings forward, far arm hangs back; requested arm alternation is visible.",
+    "legs": "Rejected. The uninterrupted bright near-side thigh still runs to the right-front shoe. The darker far-side leg emerges behind it and extends to the left-rear shoe. This is near-front/far-back again, not the requested near-back/far-front contact phase.",
+    "acceptance": "not-accepted-as-opposite-contact-gait",
+    "runtimePatch": "none",
+    "usedFramesAdded": 0
+  },
+  "rootReportedProvenance": {
+    "provider": "chatgpt-web",
+    "browser": "Microsoft Edge",
+    "sessionUrl": "https://chatgpt.com/c/6abbd7c3-ab58-83e8-bc9d-5433cd330260",
+    "observedTextModelLabel": "GPT-6",
+    "observedReasoningEffort": "极高4/5",
+    "imageModel": "unverified",
+    "reference": "Existing first model sheet and previously uploaded red/blue gait guide in the same conversation; no new attachment uploaded this request.",
+    "download": "Root used supported CDP Page.getResourceContent on the already displayed generated blob to preserve original PNG bytes after ordinary download and pageAssets failed; not screenshot pixels.",
+    "provenanceOwner": "root; exact request/model/completion screenshots remain with root"
+  },
+  "next": "One bounded local correction with shorter explicit bright-near-leg-behind / dark-far-leg-in-front geometry. Do not resubmit the same long prompt or count arm-only change as leg alternation. Preserve this candidate even if the next correction succeeds."
+}

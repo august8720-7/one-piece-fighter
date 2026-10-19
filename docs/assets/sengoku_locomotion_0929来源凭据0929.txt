@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "sengoku_locomotion_0929",
+  "file": "public/assets/generated/source/roster-sengoku-locomotion-0929.png",
+  "sha256": "3829d8946b189a7530ef8225f5d97f0086977cb1c8f578e58e87b2bd8348e930",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方页面未披露图像型号，仅实际核实文字最新与极高。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Microsoft Edge",
+  "sessionUrl": "https://chatgpt.com/c/6abbe4e2-3cb4-83e8-b530-23166e716bdb",
+  "observedCompletedAt": "2026-09-30T00:32:45.5694341+08:00",
+  "uiObservation": "由保留真实海军母版的官方新聊天分支生成战国，发送前实际菜单最新选中、极高第四项，完整提示一次发送并落稳到此UUID。页面标为预览且回答已完成，点击后图片预览对话框显示完整战国九格；对该实际img只读观察natural尺寸1254x1254。通过该媒体控件下载一次，PNG签名/IEND、Pillow.verify和load通过，图像与网页可见九格一致；原crdownload后缀保留，复制前后hash核对。按最小验证只登记候选，不重复下载、不声称UI资源所有状态正常或动作已验收。此时刻为保全后再次观察原图的本机时刻，不是服务器生成时间。",
+  "prompt": {
+    "file": "docs/assets/sengoku-locomotion-prompt0929.txt",
+    "sha256": "b02324258a74e2be16c9a1097cc6bd530d12e6d540743115c33ced4581a1a1e7"
+  },
+  "referenceSources": {
+    "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+    "kizaru_locomotion_0929": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-09-29T16:32:45.864964+00:00",
+  "referenceFiles": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+    },
+    "kizaru_locomotion_0929": {
+      "file": "public/assets/generated/source/roster-kizaru-locomotion-0929.png",
+      "sha256": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

@@ -13,6 +13,8 @@ import { labubuDef } from './labubu/def';
 import { twinkleAi } from './twinkle/ai';
 import { twinkleAnims } from './twinkle/animations';
 import { twinkleDef } from './twinkle/def';
+import { rosterCandidates0929 } from './rosterCandidates0929';
+import { availablePcRosterIds } from './rosterAvailability1004';
 
 export const characterAi: Record<string, AiProfile> = {
   luffy: luffyAi,
@@ -39,6 +41,16 @@ export const characterAnims: Record<string, AnimTable> = {
   labubu: labubuAnims,
   twinkle: twinkleAnims,
 };
+
+// Only explicit PC acceptance promotes a character into the normal roster.
+// Requested DEV participants retain the same full resource/coverage checks.
+const availableRoster = new Set(availablePcRosterIds());
+for (const { def, anims, ai } of rosterCandidates0929) {
+  if (!availableRoster.has(def.id)) continue;
+  characters[def.id] = def;
+  characterAnims[def.id] = anims;
+  characterAi[def.id] = ai;
+}
 
 /** 同时覆盖逻辑 sprite 和显式连续视觉序列，保证占位回退完整。 */
 export function moveFrameCounts(def: FighterDef): Record<string, number> {

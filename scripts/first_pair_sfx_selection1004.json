@@ -1,0 +1,2308 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-04T04:12:50.475863+00:00",
+  "scope": "first-pair 18 actual release mappings only; 13 exact reviewed CC0-derived WAV files, no source/control/core change",
+  "decisionRecord": {
+    "decisionOwner": "root",
+    "authority": "explicit parent instruction following exact local native hearing results",
+    "replacements": {
+      "aokiji.sp_ice_uplift": "reuse aokiji ice_blade release",
+      "aokiji.sp_ice_mirror": "reuse aokiji ice_blade release",
+      "shanks.sp_step_thrust": "reuse shanks low_cut release",
+      "shanks.sp_sidestep": "reuse shanks low_cut release"
+    },
+    "singleSpawnReuse": "aokiji glacier_line and ice_spike use one same single-layer file, one play at each actual spawn",
+    "notClaimed": "54 newly distinct stage sounds, original anime sounds, exclusive named-move calls, human taste or full game mix acceptance"
+  },
+  "adoptedStage": "release",
+  "otherStages": "retain existing shared start/end sounds and FX; no unheard new start/end candidates adopted",
+  "uniqueAdoptedFiles": 13,
+  "actualReleaseMappings": 18,
+  "files": [
+    {
+      "id": "aokiji.ice_lance.release",
+      "character": "aokiji",
+      "selectedNativeIndex": 1,
+      "sourceRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\aokiji\\ice_lance-release.wav",
+      "sourceCandidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_lance-release-cc0-1003.wav",
+      "target": "public/assets/audio/sfx/roster-adopted1004/aokiji/ice_lance-release.wav",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/aokiji/ice_lance-release.wav",
+      "sha256": "309a8d0f06b740647f49ba9be1aba6c4337cbb19b264dc012fd66df1f7cf18d5",
+      "pcmSha256": "ccb3c1b199e4af9b7ea1f28d1052db7ade6c9bb7e61b325868bdc467d34ae80c",
+      "bytes": 29150,
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "frames": 14553,
+      "durationSeconds": 0.33,
+      "sourceKind": "original-game-sfx-design-from-CC0-recordings-not-original-actor-or-anime-sound",
+      "recipes": [
+        {
+          "source": "swish/swosh-02.flac",
+          "sourceSha256": "6148210eed26653d305eedc7f43e0f623864d434f0f4d8e3a540f623a823ff26",
+          "beginSeconds": 0,
+          "endSeconds": 0.20217687074829932,
+          "speed": 1.3,
+          "gain": 0.75,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.05,
+          "endSeconds": 0.38,
+          "speed": 1,
+          "gain": 0.6,
+          "highpassHz": 900,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "licenseSources": [
+        {
+          "sourceKey": "glass",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\roster-1003\\foley\\glass-break-till-behrend-1003.wav",
+          "sha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "decodedSeconds": 1.308843537414966,
+          "url": "https://opengameart.org/sites/default/files/glass_breaking.wav",
+          "page": "https://opengameart.org/content/glass-break",
+          "author": "Till Behrend / TinyWorlds",
+          "license": "CC0",
+          "sourcePageSha256": "169833dc6e39659192c33e6eb422d59d25f00c25da829b4e124333953c6e872a"
+        },
+        {
+          "sourceKey": "swish/swosh-02.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-02.flac",
+          "sha256": "6148210eed26653d305eedc7f43e0f623864d434f0f4d8e3a540f623a823ff26",
+          "decodedSeconds": 0.20217687074829932,
+          "path": "public/assets/audio/sources/swish/swosh-02.flac",
+          "duration_seconds": 0.202177,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+          "author": "qubodup / Iwan Gabovitch",
+          "license": "CC0"
+        }
+      ],
+      "qualityReview": {
+        "kind": "agent_audio_model",
+        "rootSelectionStatus": "selected-for-release",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "audioSha256": "309a8d0f06b740647f49ba9be1aba6c4337cbb19b264dc012fd66df1f7cf18d5",
+        "pcmSha256": "ccb3c1b199e4af9b7ea1f28d1052db7ade6c9bb7e61b325868bdc467d34ae80c",
+        "response": "1. 砰的一声\n2. 无\n3. 无\n4. 无",
+        "responseSha256": "2b42a9dfeea712e8a5b902f6dceab1da7bbe2cc8b9fd6e3e1fa4fb9def4add82",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "modelReportedNoObviousNoiseOrDistortion": true,
+        "modelReportedNoObviousBoundaryClickOrTruncation": true,
+        "humanListened": false,
+        "gameMixVerified": false,
+        "actualValidAudioFeatureFrames": 33,
+        "assessmentBasis": "one neutral follow-up explicitly answered background noise none, distortion none, abrupt boundary/click none",
+        "evidence": [
+          {
+            "role": "request",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-quality5-gpu6g1004-20261004T035624Z\\clip-01\\request.json",
+            "sha256": "752afccdf3652eaaada97b61035cd24d541731eb1f57e4619aad8f5e68c61763",
+            "bytes": 2353
+          },
+          {
+            "role": "native-input",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-quality5-gpu6g1004-20261004T035624Z\\clip-01\\native-input-before-generation.json",
+            "sha256": "8ee869dad4f8d14d0c5e8c5923a4c52043b2ca33fb2367770a7841427090b153",
+            "bytes": 465
+          },
+          {
+            "role": "response",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-quality5-gpu6g1004-20261004T035624Z\\clip-01\\response.txt",
+            "sha256": "2b42a9dfeea712e8a5b902f6dceab1da7bbe2cc8b9fd6e3e1fa4fb9def4add82",
+            "bytes": 36
+          },
+          {
+            "role": "native-result",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-quality5-gpu6g1004-20261004T035624Z\\clip-01\\native-result.json",
+            "sha256": "045419d86b3036dabea23ba2387d4cee8c37daf7943589cfbc6aff7e00580117",
+            "bytes": 3977
+          }
+        ]
+      }
+    },
+    {
+      "id": "aokiji.ice_blade.release",
+      "character": "aokiji",
+      "selectedNativeIndex": 2,
+      "sourceRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\aokiji\\ice_blade-release.wav",
+      "sourceCandidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_blade-release-cc0-1003.wav",
+      "target": "public/assets/audio/sfx/roster-adopted1004/aokiji/ice_blade-release.wav",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/aokiji/ice_blade-release.wav",
+      "sha256": "8161803fd325ae2bbc0f0063efe16e2dccaa48821ad98b96b189e74f4e63c7a6",
+      "pcmSha256": "e707712205ce1bd464ed64b213243289e2c7f02f1784380e013f5df3e07951fc",
+      "bytes": 26504,
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "frames": 13230,
+      "durationSeconds": 0.3,
+      "sourceKind": "original-game-sfx-design-from-CC0-recordings-not-original-actor-or-anime-sound",
+      "recipes": [
+        {
+          "source": "swish/swosh-04.flac",
+          "sourceSha256": "651afe743f1713c01b46a43a8fe099e5f866b46c22a98682c7d05728cfa4f5ae",
+          "beginSeconds": 0,
+          "endSeconds": 0.25551020408163266,
+          "speed": 1.1,
+          "gain": 0.8,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.12,
+          "endSeconds": 0.42,
+          "speed": 1,
+          "gain": 0.4,
+          "highpassHz": 650,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "licenseSources": [
+        {
+          "sourceKey": "glass",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\roster-1003\\foley\\glass-break-till-behrend-1003.wav",
+          "sha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "decodedSeconds": 1.308843537414966,
+          "url": "https://opengameart.org/sites/default/files/glass_breaking.wav",
+          "page": "https://opengameart.org/content/glass-break",
+          "author": "Till Behrend / TinyWorlds",
+          "license": "CC0",
+          "sourcePageSha256": "169833dc6e39659192c33e6eb422d59d25f00c25da829b4e124333953c6e872a"
+        },
+        {
+          "sourceKey": "swish/swosh-04.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-04.flac",
+          "sha256": "651afe743f1713c01b46a43a8fe099e5f866b46c22a98682c7d05728cfa4f5ae",
+          "decodedSeconds": 0.25551020408163266,
+          "path": "public/assets/audio/sources/swish/swosh-04.flac",
+          "duration_seconds": 0.25551,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+          "author": "qubodup / Iwan Gabovitch",
+          "license": "CC0"
+        }
+      ],
+      "qualityReview": {
+        "kind": "agent_audio_model",
+        "rootSelectionStatus": "selected-for-release",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "audioSha256": "8161803fd325ae2bbc0f0063efe16e2dccaa48821ad98b96b189e74f4e63c7a6",
+        "pcmSha256": "e707712205ce1bd464ed64b213243289e2c7f02f1784380e013f5df3e07951fc",
+        "response": "音频中没有明显的人声。音频中包含一个短促的冲击声，随后是轻微的回声。音频没有明显的录音破音、失真、无关背景杂音、首尾截断或突兀点击。",
+        "responseSha256": "de5afca073510f9c4f4407763f72f2644a54387ace7300afd0968c655845defb",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "modelReportedNoObviousNoiseOrDistortion": true,
+        "modelReportedNoObviousBoundaryClickOrTruncation": true,
+        "humanListened": false,
+        "gameMixVerified": false,
+        "actualValidAudioFeatureFrames": 30,
+        "assessmentBasis": "native model explicitly reported no obvious recording distortion, unrelated noise, boundary truncation or click",
+        "evidence": [
+          {
+            "role": "request",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-02\\request.json",
+            "sha256": "6c03963409e03e3e49c39057ff3ce2657e5261497105148275250aee03ad5f4a",
+            "bytes": 2584
+          },
+          {
+            "role": "native-input",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-02\\native-input-before-generation.json",
+            "sha256": "813bd325cdfd128ee384f831d0e1b1bb203708aa8f8a027dfbbcea0bb1119023",
+            "bytes": 465
+          },
+          {
+            "role": "response",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-02\\response.txt",
+            "sha256": "de5afca073510f9c4f4407763f72f2644a54387ace7300afd0968c655845defb",
+            "bytes": 198
+          },
+          {
+            "role": "native-result",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-02\\native-result.json",
+            "sha256": "a3b0c848eca634a82b6f0c37295c9cf3091a09866715e5233035a0ade3938d8a",
+            "bytes": 4365
+          }
+        ]
+      }
+    },
+    {
+      "id": "aokiji.ice_spike.release",
+      "character": "aokiji",
+      "selectedNativeIndex": 4,
+      "sourceRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\aokiji\\ice_spike-release.wav",
+      "sourceCandidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_spike-release-cc0-1003.wav",
+      "target": "public/assets/audio/sfx/roster-adopted1004/aokiji/ice_spike-release.wav",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/aokiji/ice_spike-release.wav",
+      "sha256": "df24ca581a462b40107165fc831c3929fa0a4de99b8e1b8f50978ef0eae4d6e3",
+      "pcmSha256": "dc720d73ea3334a974b3f4e9021743b0275ba7e7658985eb6b406b85d44fd858",
+      "bytes": 52964,
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "frames": 26460,
+      "durationSeconds": 0.6,
+      "sourceKind": "original-game-sfx-design-from-CC0-recordings-not-original-actor-or-anime-sound",
+      "recipes": [
+        {
+          "source": "hits/hit19.mp3.flac",
+          "sourceSha256": "ef5773159eec3b6bc59f613acf7b7c8f0d7ff68d306f00f53dfa116f8c5bb438",
+          "beginSeconds": 0,
+          "endSeconds": 0.34,
+          "speed": 1,
+          "gain": 0.55,
+          "highpassHz": null,
+          "lowpassHz": 2000,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0,
+          "endSeconds": 0.48,
+          "speed": 0.8,
+          "gain": 0.8,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "licenseSources": [
+        {
+          "sourceKey": "glass",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\roster-1003\\foley\\glass-break-till-behrend-1003.wav",
+          "sha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "decodedSeconds": 1.308843537414966,
+          "url": "https://opengameart.org/sites/default/files/glass_breaking.wav",
+          "page": "https://opengameart.org/content/glass-break",
+          "author": "Till Behrend / TinyWorlds",
+          "license": "CC0",
+          "sourcePageSha256": "169833dc6e39659192c33e6eb422d59d25f00c25da829b4e124333953c6e872a"
+        },
+        {
+          "sourceKey": "hits/hit19.mp3.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\hits\\hit19.mp3.flac",
+          "sha256": "ef5773159eec3b6bc59f613acf7b7c8f0d7ff68d306f00f53dfa116f8c5bb438",
+          "decodedSeconds": 1.0982086167800453,
+          "path": "public/assets/audio/sources/hits/hit19.mp3.flac",
+          "duration_seconds": 1.098209,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/37-hitspunches",
+          "author": "Independent.nu; submitted by qubodup",
+          "license": "CC0"
+        }
+      ],
+      "qualityReview": {
+        "kind": "agent_audio_model",
+        "rootSelectionStatus": "selected-for-release",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "audioSha256": "df24ca581a462b40107165fc831c3929fa0a4de99b8e1b8f50978ef0eae4d6e3",
+        "pcmSha256": "dc720d73ea3334a974b3f4e9021743b0275ba7e7658985eb6b406b85d44fd858",
+        "response": "音频中没有明显的人声。音频中包含一个短促的冲击声，随后是短暂的沙沙声。冲击声和沙沙声都具有明显的瞬态特征，没有明显的连续性。冲击声的强度适中，频率适中，没有明显的尾声变化。沙沙声的强度较弱，频率较低，没有明显的尾声变化。音频中没有明显的录音破音、失真、无关背景杂音、首尾截断或突兀点击。",
+        "responseSha256": "aa5436645079edf0a6fe04e4832c53093c6adc2f03582a7afd10eb88981dbebc",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "modelReportedNoObviousNoiseOrDistortion": true,
+        "modelReportedNoObviousBoundaryClickOrTruncation": true,
+        "humanListened": false,
+        "gameMixVerified": false,
+        "actualValidAudioFeatureFrames": 60,
+        "assessmentBasis": "native model explicitly reported no obvious recording distortion, unrelated noise, boundary truncation or click",
+        "evidence": [
+          {
+            "role": "request",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-04\\request.json",
+            "sha256": "a8f74e27c91588dd444df32baa6ae27ad87feddb141e875c2bbd58524d518d9f",
+            "bytes": 3307
+          },
+          {
+            "role": "native-input",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-04\\native-input-before-generation.json",
+            "sha256": "ff88ef730d0c5208eaa80ffcf54514cf079dac059f7fd06fe818cf9124955d88",
+            "bytes": 465
+          },
+          {
+            "role": "response",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-04\\response.txt",
+            "sha256": "aa5436645079edf0a6fe04e4832c53093c6adc2f03582a7afd10eb88981dbebc",
+            "bytes": 429
+          },
+          {
+            "role": "native-result",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-04\\native-result.json",
+            "sha256": "ad52e3e097cd4090ecbfb5505b010e4df46c3606c89de328da807538b82f6b28",
+            "bytes": 5347
+          }
+        ]
+      }
+    },
+    {
+      "id": "aokiji.ice_body.release",
+      "character": "aokiji",
+      "selectedNativeIndex": 6,
+      "sourceRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\aokiji\\ice_body-release.wav",
+      "sourceCandidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_body-release-cc0-1003.wav",
+      "target": "public/assets/audio/sfx/roster-adopted1004/aokiji/ice_body-release.wav",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/aokiji/ice_body-release.wav",
+      "sha256": "448e8e681861115c7fe927a8866c4ac4e814331c6da727bd3b0f65de4040a329",
+      "pcmSha256": "29cb5a8ff52e42aa8a4308fc982b566e628ea2b898bede49eb4225a82274d96d",
+      "bytes": 19448,
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "frames": 9702,
+      "durationSeconds": 0.22,
+      "sourceKind": "original-game-sfx-design-from-CC0-recordings-not-original-actor-or-anime-sound",
+      "recipes": [
+        {
+          "source": "swish/swosh-03.flac",
+          "sourceSha256": "2111003e4c61b8f3589f926f549ffc36094319da7b99238624c7d64e91bddc09",
+          "beginSeconds": 0,
+          "endSeconds": 0.3,
+          "speed": 1.4,
+          "gain": 0.6,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.13,
+          "endSeconds": 0.35,
+          "speed": 1,
+          "gain": 0.45,
+          "highpassHz": 1800,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "licenseSources": [
+        {
+          "sourceKey": "glass",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\roster-1003\\foley\\glass-break-till-behrend-1003.wav",
+          "sha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "decodedSeconds": 1.308843537414966,
+          "url": "https://opengameart.org/sites/default/files/glass_breaking.wav",
+          "page": "https://opengameart.org/content/glass-break",
+          "author": "Till Behrend / TinyWorlds",
+          "license": "CC0",
+          "sourcePageSha256": "169833dc6e39659192c33e6eb422d59d25f00c25da829b4e124333953c6e872a"
+        },
+        {
+          "sourceKey": "swish/swosh-03.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-03.flac",
+          "sha256": "2111003e4c61b8f3589f926f549ffc36094319da7b99238624c7d64e91bddc09",
+          "decodedSeconds": 0.5755102040816327,
+          "path": "public/assets/audio/sources/swish/swosh-03.flac",
+          "duration_seconds": 0.57551,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+          "author": "qubodup / Iwan Gabovitch",
+          "license": "CC0"
+        }
+      ],
+      "qualityReview": {
+        "kind": "agent_audio_model",
+        "rootSelectionStatus": "selected-for-release",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "audioSha256": "448e8e681861115c7fe927a8866c4ac4e814331c6da727bd3b0f65de4040a329",
+        "pcmSha256": "29cb5a8ff52e42aa8a4308fc982b566e628ea2b898bede49eb4225a82274d96d",
+        "response": "音频中没有明显的人声。音频中只包含一个声音，是连续的，没有明显的尾声变化，没有明显的冲击或宽带瞬态，也没有录音破音、失真、无关背景杂音、首尾截断或突兀点击。",
+        "responseSha256": "caa38580edc11a8272f2569ad6a4da74daa9fc56a1b5000318a452a4c454ca05",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "modelReportedNoObviousNoiseOrDistortion": true,
+        "modelReportedNoObviousBoundaryClickOrTruncation": true,
+        "humanListened": false,
+        "gameMixVerified": false,
+        "actualValidAudioFeatureFrames": 22,
+        "assessmentBasis": "native model explicitly reported no obvious recording distortion, unrelated noise, boundary truncation or click",
+        "evidence": [
+          {
+            "role": "request",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-06\\request.json",
+            "sha256": "dd6c8c2a5c90a92ab627153e25c966b25a4f719c0354d42f577038390ffd14d9",
+            "bytes": 2578
+          },
+          {
+            "role": "native-input",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-06\\native-input-before-generation.json",
+            "sha256": "3f8a86fb17697f24a4fc05b041a7d68e530ff63c8724a76d7d49fabf960cb8ca",
+            "bytes": 465
+          },
+          {
+            "role": "response",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-06\\response.txt",
+            "sha256": "caa38580edc11a8272f2569ad6a4da74daa9fc56a1b5000318a452a4c454ca05",
+            "bytes": 234
+          },
+          {
+            "role": "native-result",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-06\\native-result.json",
+            "sha256": "7f36099e8a7e6b9d6cbd643e7498ab780e4665022f3414b144b8fbf323d34585",
+            "bytes": 4397
+          }
+        ]
+      }
+    },
+    {
+      "id": "aokiji.ice_pheasant.release",
+      "character": "aokiji",
+      "selectedNativeIndex": 7,
+      "sourceRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\aokiji\\ice_pheasant-release.wav",
+      "sourceCandidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_pheasant-release-cc0-1003.wav",
+      "target": "public/assets/audio/sfx/roster-adopted1004/aokiji/ice_pheasant-release.wav",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/aokiji/ice_pheasant-release.wav",
+      "sha256": "c84d330f55cc066f51bc9cae142690bfd0eb6b99133525443eda4b596ecc779a",
+      "pcmSha256": "7aa00e4e05779b91dba7bfaa6f16b59f2b51831252460a7b7ee143a23331829e",
+      "bytes": 45908,
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "frames": 22932,
+      "durationSeconds": 0.52,
+      "sourceKind": "original-game-sfx-design-from-CC0-recordings-not-original-actor-or-anime-sound",
+      "recipes": [
+        {
+          "source": "wind_background_noise_2.wav",
+          "sourceSha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "beginSeconds": 4,
+          "endSeconds": 4.5,
+          "speed": 1,
+          "gain": 0.4,
+          "highpassHz": 700,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "swish/swosh-05.flac",
+          "sourceSha256": "f8e711a61eb4d6f271a2ce71ba355148bc6f53628b21292338a27a9b7673cc1e",
+          "beginSeconds": 0,
+          "endSeconds": 0.4,
+          "speed": 0.8,
+          "gain": 0.7,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0,
+          "endSeconds": 0.52,
+          "speed": 1,
+          "gain": 0.65,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "licenseSources": [
+        {
+          "sourceKey": "glass",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\roster-1003\\foley\\glass-break-till-behrend-1003.wav",
+          "sha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "decodedSeconds": 1.308843537414966,
+          "url": "https://opengameart.org/sites/default/files/glass_breaking.wav",
+          "page": "https://opengameart.org/content/glass-break",
+          "author": "Till Behrend / TinyWorlds",
+          "license": "CC0",
+          "sourcePageSha256": "169833dc6e39659192c33e6eb422d59d25f00c25da829b4e124333953c6e872a"
+        },
+        {
+          "sourceKey": "swish/swosh-05.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-05.flac",
+          "sha256": "f8e711a61eb4d6f271a2ce71ba355148bc6f53628b21292338a27a9b7673cc1e",
+          "decodedSeconds": 0.41551020408163264,
+          "path": "public/assets/audio/sources/swish/swosh-05.flac",
+          "duration_seconds": 0.41551,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+          "author": "qubodup / Iwan Gabovitch",
+          "license": "CC0"
+        },
+        {
+          "sourceKey": "wind_background_noise_2.wav",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\wind_background_noise_2.wav",
+          "sha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "decodedSeconds": 44.50961451247166,
+          "path": "public/assets/audio/sources/wind_background_noise_2.wav",
+          "duration_seconds": 44.509615,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/mild-wind-background-noise",
+          "author": "Bashar3A / Bashar from Skirmish.io",
+          "license": "CC0"
+        }
+      ],
+      "qualityReview": {
+        "kind": "agent_audio_model",
+        "rootSelectionStatus": "selected-for-release",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "audioSha256": "c84d330f55cc066f51bc9cae142690bfd0eb6b99133525443eda4b596ecc779a",
+        "pcmSha256": "7aa00e4e05779b91dba7bfaa6f16b59f2b51831252460a7b7ee143a23331829e",
+        "response": "音频中没有明显的人声。音频中包含一个短促的冲击声，随后是短暂的金属碰撞声。音频没有明显的录音破音、失真、无关背景杂音、首尾截断或突兀点击。",
+        "responseSha256": "758c151833632d1c74de33440f12dae347d38c456faa21a774bd14794e83f856",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "modelReportedNoObviousNoiseOrDistortion": true,
+        "modelReportedNoObviousBoundaryClickOrTruncation": true,
+        "humanListened": false,
+        "gameMixVerified": false,
+        "actualValidAudioFeatureFrames": 52,
+        "assessmentBasis": "native model explicitly reported no obvious recording distortion, unrelated noise, boundary truncation or click",
+        "evidence": [
+          {
+            "role": "request",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-07\\request.json",
+            "sha256": "2fa1fcd35511a3466a82f5b2120e07a6c641dde3c66aa0f1074937c82295f478",
+            "bytes": 2604
+          },
+          {
+            "role": "native-input",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-07\\native-input-before-generation.json",
+            "sha256": "10e96b8ed95d9d1d54852076ad4ca0913b6d8a5522cd5977776667f0afc0d80f",
+            "bytes": 465
+          },
+          {
+            "role": "response",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-07\\response.txt",
+            "sha256": "758c151833632d1c74de33440f12dae347d38c456faa21a774bd14794e83f856",
+            "bytes": 207
+          },
+          {
+            "role": "native-result",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-07\\native-result.json",
+            "sha256": "8af40096ef4673ef56b45b0f749080645d7328b0ef2610da655a33eef9de2dfa",
+            "bytes": 4394
+          }
+        ]
+      }
+    },
+    {
+      "id": "aokiji.ice_age.release",
+      "character": "aokiji",
+      "selectedNativeIndex": 8,
+      "sourceRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\aokiji\\ice_age-release.wav",
+      "sourceCandidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\aokiji-ice_age-release-cc0-1003.wav",
+      "target": "public/assets/audio/sfx/roster-adopted1004/aokiji/ice_age-release.wav",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/aokiji/ice_age-release.wav",
+      "sha256": "2f1af5b354a37ff896ccdb676731cb11296fc6d1fc36189e8b48c16905a186e9",
+      "pcmSha256": "0d3a5739280ea12553618d110eb0437bfd994d71af45c566aebc4a67384c4622",
+      "bytes": 66194,
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "frames": 33075,
+      "durationSeconds": 0.75,
+      "sourceKind": "original-game-sfx-design-from-CC0-recordings-not-original-actor-or-anime-sound",
+      "recipes": [
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0,
+          "endSeconds": 0.65,
+          "speed": 0.72,
+          "gain": 0.8,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "glass",
+          "sourceSha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "beginSeconds": 0.06,
+          "endSeconds": 0.51,
+          "speed": 1.1,
+          "gain": 0.45,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0.12
+        },
+        {
+          "source": "hits/hit19.mp3.flac",
+          "sourceSha256": "ef5773159eec3b6bc59f613acf7b7c8f0d7ff68d306f00f53dfa116f8c5bb438",
+          "beginSeconds": 0,
+          "endSeconds": 0.4,
+          "speed": 0.75,
+          "gain": 0.5,
+          "highpassHz": null,
+          "lowpassHz": 1500,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "licenseSources": [
+        {
+          "sourceKey": "glass",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\roster-1003\\foley\\glass-break-till-behrend-1003.wav",
+          "sha256": "37d29069c885afe3f7ca639293fa679fb6511a6a1e54316f0e403e4493f502b3",
+          "decodedSeconds": 1.308843537414966,
+          "url": "https://opengameart.org/sites/default/files/glass_breaking.wav",
+          "page": "https://opengameart.org/content/glass-break",
+          "author": "Till Behrend / TinyWorlds",
+          "license": "CC0",
+          "sourcePageSha256": "169833dc6e39659192c33e6eb422d59d25f00c25da829b4e124333953c6e872a"
+        },
+        {
+          "sourceKey": "hits/hit19.mp3.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\hits\\hit19.mp3.flac",
+          "sha256": "ef5773159eec3b6bc59f613acf7b7c8f0d7ff68d306f00f53dfa116f8c5bb438",
+          "decodedSeconds": 1.0982086167800453,
+          "path": "public/assets/audio/sources/hits/hit19.mp3.flac",
+          "duration_seconds": 1.098209,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/37-hitspunches",
+          "author": "Independent.nu; submitted by qubodup",
+          "license": "CC0"
+        }
+      ],
+      "qualityReview": {
+        "kind": "agent_audio_model",
+        "rootSelectionStatus": "selected-for-release",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "audioSha256": "2f1af5b354a37ff896ccdb676731cb11296fc6d1fc36189e8b48c16905a186e9",
+        "pcmSha256": "0d3a5739280ea12553618d110eb0437bfd994d71af45c566aebc4a67384c4622",
+        "response": "一、音频中没有人声。\n二、音频中包含一个短促的冲击声，随后是类似物体破碎的声音，声音的强度适中，频率中等，没有明显的尾声变化。来源或具体物体无法确定。\n三、音频中没有明显的录音破音、失真、无关背景杂音、首尾截断或突兀点击。",
+        "responseSha256": "85348cd3581453f7748365327b5fc317e9e179b98ef8169a747fe60f00cee1da",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "modelReportedNoObviousNoiseOrDistortion": true,
+        "modelReportedNoObviousBoundaryClickOrTruncation": true,
+        "humanListened": false,
+        "gameMixVerified": false,
+        "actualValidAudioFeatureFrames": 75,
+        "assessmentBasis": "native model explicitly reported no obvious recording distortion, unrelated noise, boundary truncation or click",
+        "evidence": [
+          {
+            "role": "request",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-08\\request.json",
+            "sha256": "bc9a20a193cc5bd054549a01bc982a9e68751fe6e87819b5cb6d4b01f3c83649",
+            "bytes": 2572
+          },
+          {
+            "role": "native-input",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-08\\native-input-before-generation.json",
+            "sha256": "0d8f43794e76fa3814d0d599087efda82b8c14220305e6d8710898bd4b50a8e2",
+            "bytes": 465
+          },
+          {
+            "role": "response",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-08\\response.txt",
+            "sha256": "85348cd3581453f7748365327b5fc317e9e179b98ef8169a747fe60f00cee1da",
+            "bytes": 329
+          },
+          {
+            "role": "native-result",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-08\\native-result.json",
+            "sha256": "26f887d5c10721cef96eb508b196cf339369d7773e79300a6fab18c3af85be31",
+            "bytes": 4486
+          }
+        ]
+      }
+    },
+    {
+      "id": "shanks.haki_slash.release",
+      "character": "shanks",
+      "selectedNativeIndex": 9,
+      "sourceRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\shanks\\haki_slash-release.wav",
+      "sourceCandidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-haki_slash-release-cc0-1003.wav",
+      "target": "public/assets/audio/sfx/roster-adopted1004/shanks/haki_slash-release.wav",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/shanks/haki_slash-release.wav",
+      "sha256": "2cd9cc609015cab47da698a7cb8665ff8e4958d294fbf3722cee891901b65cc4",
+      "pcmSha256": "00f659494b132386cbbd4beb7b99db0aad68a6386c070db43afe9d777c37a097",
+      "bytes": 36362,
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "frames": 18159,
+      "durationSeconds": 0.4117687074829932,
+      "sourceKind": "original-game-sfx-design-from-CC0-recordings-not-original-actor-or-anime-sound",
+      "recipes": [
+        {
+          "source": "swish/swosh-05.flac",
+          "sourceSha256": "f8e711a61eb4d6f271a2ce71ba355148bc6f53628b21292338a27a9b7673cc1e",
+          "beginSeconds": 0,
+          "endSeconds": 0.35,
+          "speed": 0.85,
+          "gain": 0.9,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "wind_background_noise_2.wav",
+          "sourceSha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "beginSeconds": 4,
+          "endSeconds": 4.4,
+          "speed": 1,
+          "gain": 0.2,
+          "highpassHz": 350,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "licenseSources": [
+        {
+          "sourceKey": "swish/swosh-05.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-05.flac",
+          "sha256": "f8e711a61eb4d6f271a2ce71ba355148bc6f53628b21292338a27a9b7673cc1e",
+          "decodedSeconds": 0.41551020408163264,
+          "path": "public/assets/audio/sources/swish/swosh-05.flac",
+          "duration_seconds": 0.41551,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+          "author": "qubodup / Iwan Gabovitch",
+          "license": "CC0"
+        },
+        {
+          "sourceKey": "wind_background_noise_2.wav",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\wind_background_noise_2.wav",
+          "sha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "decodedSeconds": 44.50961451247166,
+          "path": "public/assets/audio/sources/wind_background_noise_2.wav",
+          "duration_seconds": 44.509615,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/mild-wind-background-noise",
+          "author": "Bashar3A / Bashar from Skirmish.io",
+          "license": "CC0"
+        }
+      ],
+      "qualityReview": {
+        "kind": "agent_audio_model",
+        "rootSelectionStatus": "selected-for-release",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "audioSha256": "2cd9cc609015cab47da698a7cb8665ff8e4958d294fbf3722cee891901b65cc4",
+        "pcmSha256": "00f659494b132386cbbd4beb7b99db0aad68a6386c070db43afe9d777c37a097",
+        "response": "音频中没有明显的人声。音频中有一个短促的冲击声，类似于嗖嗖声，没有明显的录音破音、失真、无关背景杂音、首尾截断或突兀点击。",
+        "responseSha256": "480157b7b2945ef3650f6037882c6eff02449c5cbdd5c4c5854916e6138e0c4c",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "modelReportedNoObviousNoiseOrDistortion": true,
+        "modelReportedNoObviousBoundaryClickOrTruncation": true,
+        "humanListened": false,
+        "gameMixVerified": false,
+        "actualValidAudioFeatureFrames": 42,
+        "assessmentBasis": "native model explicitly reported no obvious recording distortion, unrelated noise, boundary truncation or click",
+        "evidence": [
+          {
+            "role": "request",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-09\\request.json",
+            "sha256": "b95561091b691fab7e31ac26ef4701e0bc52a954dd46653aa8e680cf5cba7ffb",
+            "bytes": 2605
+          },
+          {
+            "role": "native-input",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-09\\native-input-before-generation.json",
+            "sha256": "5d1a524d0fd7b2b848c3cfede4784ed2fe50bb0eba24e762ee8b543654710373",
+            "bytes": 465
+          },
+          {
+            "role": "response",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-09\\response.txt",
+            "sha256": "480157b7b2945ef3650f6037882c6eff02449c5cbdd5c4c5854916e6138e0c4c",
+            "bytes": 183
+          },
+          {
+            "role": "native-result",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-09\\native-result.json",
+            "sha256": "52bd71288f7e638b0e8bfaab9545d32047fb3c35cb24d2653d011864adbfdd18",
+            "bytes": 4373
+          }
+        ]
+      }
+    },
+    {
+      "id": "shanks.single_arm_cut.release",
+      "character": "shanks",
+      "selectedNativeIndex": 10,
+      "sourceRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\shanks\\single_arm_cut-release.wav",
+      "sourceCandidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-single_arm_cut-release-cc0-1003.wav",
+      "target": "public/assets/audio/sfx/roster-adopted1004/shanks/single_arm_cut-release.wav",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/shanks/single_arm_cut-release.wav",
+      "sha256": "581bf704e331f93ef517bfe4b09e0e1006b4442d02721f0d7338460a8cb8499b",
+      "pcmSha256": "fe800fccf6d5d1106fcb1029101a30fc8970bfb8310dd28a8fd73f1db4b76c67",
+      "bytes": 32248,
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "frames": 16102,
+      "durationSeconds": 0.365124716553288,
+      "sourceKind": "original-game-sfx-design-from-CC0-recordings-not-original-actor-or-anime-sound",
+      "recipes": [
+        {
+          "source": "swish/swosh-04.flac",
+          "sourceSha256": "651afe743f1713c01b46a43a8fe099e5f866b46c22a98682c7d05728cfa4f5ae",
+          "beginSeconds": 0,
+          "endSeconds": 0.25551020408163266,
+          "speed": 1.25,
+          "gain": 0.8,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "swish/swosh-07.flac",
+          "sourceSha256": "2c33fea0dd6daed6e68e39d13be78d90455698650415d54a9af3fdfb3f1437b2",
+          "beginSeconds": 0,
+          "endSeconds": 0.33015873015873015,
+          "speed": 1.2,
+          "gain": 0.75,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0.09
+        }
+      ],
+      "licenseSources": [
+        {
+          "sourceKey": "swish/swosh-04.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-04.flac",
+          "sha256": "651afe743f1713c01b46a43a8fe099e5f866b46c22a98682c7d05728cfa4f5ae",
+          "decodedSeconds": 0.25551020408163266,
+          "path": "public/assets/audio/sources/swish/swosh-04.flac",
+          "duration_seconds": 0.25551,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+          "author": "qubodup / Iwan Gabovitch",
+          "license": "CC0"
+        },
+        {
+          "sourceKey": "swish/swosh-07.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-07.flac",
+          "sha256": "2c33fea0dd6daed6e68e39d13be78d90455698650415d54a9af3fdfb3f1437b2",
+          "decodedSeconds": 0.33015873015873015,
+          "path": "public/assets/audio/sources/swish/swosh-07.flac",
+          "duration_seconds": 0.330159,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+          "author": "qubodup / Iwan Gabovitch",
+          "license": "CC0"
+        }
+      ],
+      "qualityReview": {
+        "kind": "agent_audio_model",
+        "rootSelectionStatus": "selected-for-release",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "audioSha256": "581bf704e331f93ef517bfe4b09e0e1006b4442d02721f0d7338460a8cb8499b",
+        "pcmSha256": "fe800fccf6d5d1106fcb1029101a30fc8970bfb8310dd28a8fd73f1db4b76c67",
+        "response": "音频中没有明显的人声。音频中有一个短促的冲击声，类似于嗖的一声，没有明显的尾声或变化。音频没有明显的录音破音、失真、无关背景杂音、首尾截断或突兀点击。",
+        "responseSha256": "93183ce08d20ca75e5a1eaadc8f095bf12fac71bebacb9fb48c51e39a5ae7f2f",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "modelReportedNoObviousNoiseOrDistortion": true,
+        "modelReportedNoObviousBoundaryClickOrTruncation": true,
+        "humanListened": false,
+        "gameMixVerified": false,
+        "actualValidAudioFeatureFrames": 37,
+        "assessmentBasis": "native model explicitly reported no obvious recording distortion, unrelated noise, boundary truncation or click",
+        "evidence": [
+          {
+            "role": "request",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-10\\request.json",
+            "sha256": "20f3b3ff55acd5cc100ab5b300e22c79cd5a5097cc409cebfa4d07339514ac32",
+            "bytes": 2635
+          },
+          {
+            "role": "native-input",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-10\\native-input-before-generation.json",
+            "sha256": "dca6829e1b8086fd01d1fae7e1a24ae8c51373631a1dbd83b241c4890ac10f5b",
+            "bytes": 465
+          },
+          {
+            "role": "response",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-10\\response.txt",
+            "sha256": "93183ce08d20ca75e5a1eaadc8f095bf12fac71bebacb9fb48c51e39a5ae7f2f",
+            "bytes": 225
+          },
+          {
+            "role": "native-result",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-10\\native-result.json",
+            "sha256": "80819b9744b1fe74e3c85a7c9abd3553867468c5633abc9cec784a8047d9ffc3",
+            "bytes": 4447
+          }
+        ]
+      }
+    },
+    {
+      "id": "shanks.rising_guard.release",
+      "character": "shanks",
+      "selectedNativeIndex": 11,
+      "sourceRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\shanks\\rising_guard-release.wav",
+      "sourceCandidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-rising_guard-release-cc0-1003.wav",
+      "target": "public/assets/audio/sfx/roster-adopted1004/shanks/rising_guard-release.wav",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/shanks/rising_guard-release.wav",
+      "sha256": "c87e27da0a3832f89edf8661f93b3dbcad3f73a9843912dd6eb8ecfa8f4c74dc",
+      "pcmSha256": "d74cbc4226c2e19ac07d1a393c8e2e2f50cb8f1b584f088bef92ee9e8d73ca20",
+      "bytes": 25366,
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "frames": 12661,
+      "durationSeconds": 0.2870975056689342,
+      "sourceKind": "original-game-sfx-design-from-CC0-recordings-not-original-actor-or-anime-sound",
+      "recipes": [
+        {
+          "source": "swish/swosh-07.flac",
+          "sourceSha256": "2c33fea0dd6daed6e68e39d13be78d90455698650415d54a9af3fdfb3f1437b2",
+          "beginSeconds": 0,
+          "endSeconds": 0.33015873015873015,
+          "speed": 1.15,
+          "gain": 0.8,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "hits/hit03.mp3.flac",
+          "sourceSha256": "b97c1246a9b3c02f1d0e0ce6ce0f36a407de32ff912c00c1ddadcf0b8196235e",
+          "beginSeconds": 0,
+          "endSeconds": 0.2,
+          "speed": 1.6,
+          "gain": 0.3,
+          "highpassHz": 1000,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "licenseSources": [
+        {
+          "sourceKey": "hits/hit03.mp3.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\hits\\hit03.mp3.flac",
+          "sha256": "b97c1246a9b3c02f1d0e0ce6ce0f36a407de32ff912c00c1ddadcf0b8196235e",
+          "decodedSeconds": 1.0720861678004534,
+          "path": "public/assets/audio/sources/hits/hit03.mp3.flac",
+          "duration_seconds": 1.072086,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/37-hitspunches",
+          "author": "Independent.nu; submitted by qubodup",
+          "license": "CC0"
+        },
+        {
+          "sourceKey": "swish/swosh-07.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-07.flac",
+          "sha256": "2c33fea0dd6daed6e68e39d13be78d90455698650415d54a9af3fdfb3f1437b2",
+          "decodedSeconds": 0.33015873015873015,
+          "path": "public/assets/audio/sources/swish/swosh-07.flac",
+          "duration_seconds": 0.330159,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+          "author": "qubodup / Iwan Gabovitch",
+          "license": "CC0"
+        }
+      ],
+      "qualityReview": {
+        "kind": "agent_audio_model",
+        "rootSelectionStatus": "selected-for-release",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "audioSha256": "c87e27da0a3832f89edf8661f93b3dbcad3f73a9843912dd6eb8ecfa8f4c74dc",
+        "pcmSha256": "d74cbc4226c2e19ac07d1a393c8e2e2f50cb8f1b584f088bef92ee9e8d73ca20",
+        "response": "音频中没有明显的人声。音频中只有一段声音，是连续的，没有明显的尾声变化，没有明显的录音破音、失真、无关背景杂音、首尾截断或突兀点击。",
+        "responseSha256": "6c670e881e04cadbde094f1449a06a86e0691f7d157ee08838752621b28e7a63",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "modelReportedNoObviousNoiseOrDistortion": true,
+        "modelReportedNoObviousBoundaryClickOrTruncation": true,
+        "humanListened": false,
+        "gameMixVerified": false,
+        "actualValidAudioFeatureFrames": 29,
+        "assessmentBasis": "native model explicitly reported no obvious recording distortion, unrelated noise, boundary truncation or click",
+        "evidence": [
+          {
+            "role": "request",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-11\\request.json",
+            "sha256": "8771b0da10404c40a8b22787ba148ff860b468c2404aaecbc1d7bcc616dcb3a8",
+            "bytes": 2622
+          },
+          {
+            "role": "native-input",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-11\\native-input-before-generation.json",
+            "sha256": "4225ae5cf9fa775d1d3e42265098843d8c34e0a2fc0b71eb1d0b35d6835e96c2",
+            "bytes": 465
+          },
+          {
+            "role": "response",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-11\\response.txt",
+            "sha256": "6c670e881e04cadbde094f1449a06a86e0691f7d157ee08838752621b28e7a63",
+            "bytes": 198
+          },
+          {
+            "role": "native-result",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-11\\native-result.json",
+            "sha256": "5e7dac9a742811c39578e63896d1f7f0e88cf41b650737aa9131bc79a6b8fbfd",
+            "bytes": 4407
+          }
+        ]
+      }
+    },
+    {
+      "id": "shanks.low_cut.release",
+      "character": "shanks",
+      "selectedNativeIndex": 13,
+      "sourceRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\shanks\\low_cut-release.wav",
+      "sourceCandidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-low_cut-release-cc0-1003.wav",
+      "target": "public/assets/audio/sfx/roster-adopted1004/shanks/low_cut-release.wav",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/shanks/low_cut-release.wav",
+      "sha256": "a925876da565f1f2b82d40c8cacb7a313f799418dc26b99596e7c4de083f1236",
+      "pcmSha256": "9e78f8ec3ae75095e1bc15a436903d52567012bed7792bf063973d38ac0a1037",
+      "bytes": 26888,
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "frames": 13422,
+      "durationSeconds": 0.30435374149659866,
+      "sourceKind": "original-game-sfx-design-from-CC0-recordings-not-original-actor-or-anime-sound",
+      "recipes": [
+        {
+          "source": "swish/swosh-03.flac",
+          "sourceSha256": "2111003e4c61b8f3589f926f549ffc36094319da7b99238624c7d64e91bddc09",
+          "beginSeconds": 0,
+          "endSeconds": 0.35,
+          "speed": 1.15,
+          "gain": 0.9,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "licenseSources": [
+        {
+          "sourceKey": "swish/swosh-03.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-03.flac",
+          "sha256": "2111003e4c61b8f3589f926f549ffc36094319da7b99238624c7d64e91bddc09",
+          "decodedSeconds": 0.5755102040816327,
+          "path": "public/assets/audio/sources/swish/swosh-03.flac",
+          "duration_seconds": 0.57551,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+          "author": "qubodup / Iwan Gabovitch",
+          "license": "CC0"
+        }
+      ],
+      "qualityReview": {
+        "kind": "agent_audio_model",
+        "rootSelectionStatus": "selected-for-release",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "audioSha256": "a925876da565f1f2b82d40c8cacb7a313f799418dc26b99596e7c4de083f1236",
+        "pcmSha256": "9e78f8ec3ae75095e1bc15a436903d52567012bed7792bf063973d38ac0a1037",
+        "response": "一、音频中没有人声。\n二、音频中有一个短促的冲击声，类似于“嗖”的一声，没有明显的音调变化，没有尾声，没有明显的强弱变化，没有明显的来源或物体，没有明显的录音问题。\n三、没有明显录音破音、失真、无关背景杂音、首尾截断或突兀点击。",
+        "responseSha256": "f1a10543c87c518e46050c2ac081fa0b4f356bc1ffd631492313bfb61362825b",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "modelReportedNoObviousNoiseOrDistortion": true,
+        "modelReportedNoObviousBoundaryClickOrTruncation": true,
+        "humanListened": false,
+        "gameMixVerified": false,
+        "actualValidAudioFeatureFrames": 31,
+        "assessmentBasis": "native model explicitly reported no obvious recording distortion, unrelated noise, boundary truncation or click",
+        "evidence": [
+          {
+            "role": "request",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-13\\request.json",
+            "sha256": "10b3990318294f8691e02d29d6c5065af6eca3e26be6abd51079cf8a35210919",
+            "bytes": 2588
+          },
+          {
+            "role": "native-input",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-13\\native-input-before-generation.json",
+            "sha256": "1d3b185edcbbe73eca5ac51aefcef964e7ccd3509b1e5783200c44cd0c848914",
+            "bytes": 465
+          },
+          {
+            "role": "response",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-13\\response.txt",
+            "sha256": "f1a10543c87c518e46050c2ac081fa0b4f356bc1ffd631492313bfb61362825b",
+            "bytes": 338
+          },
+          {
+            "role": "native-result",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-13\\native-result.json",
+            "sha256": "51f74c3bb59ca877c1c68c568bf436648731de15b49ffa449e96888adf5e8194",
+            "bytes": 4513
+          }
+        ]
+      }
+    },
+    {
+      "id": "shanks.divine_departure.release",
+      "character": "shanks",
+      "selectedNativeIndex": 15,
+      "sourceRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\shanks\\divine_departure-release.wav",
+      "sourceCandidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-divine_departure-release-cc0-1003.wav",
+      "target": "public/assets/audio/sfx/roster-adopted1004/shanks/divine_departure-release.wav",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/shanks/divine_departure-release.wav",
+      "sha256": "e8e62fa6a99cdf26a26139a734690921fbe64b1228e2c7010d912ea97324bb9d",
+      "pcmSha256": "1a1b8cf318b973468eb6f2f9813101f919d9b1b6b12baca8d68b2a0034fd97b2",
+      "bytes": 41204,
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "frames": 20580,
+      "durationSeconds": 0.4666666666666667,
+      "sourceKind": "original-game-sfx-design-from-CC0-recordings-not-original-actor-or-anime-sound",
+      "recipes": [
+        {
+          "source": "swish/swosh-05.flac",
+          "sourceSha256": "f8e711a61eb4d6f271a2ce71ba355148bc6f53628b21292338a27a9b7673cc1e",
+          "beginSeconds": 0,
+          "endSeconds": 0.35,
+          "speed": 0.75,
+          "gain": 0.85,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "hits/hit09.mp3.flac",
+          "sourceSha256": "97666669bdb698ee5a9061a8dbe78fa6cb873f3158899f3689d5e9efdde8cf0a",
+          "beginSeconds": 0,
+          "endSeconds": 0.3,
+          "speed": 0.9,
+          "gain": 0.6,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "wind_background_noise_2.wav",
+          "sourceSha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "beginSeconds": 4,
+          "endSeconds": 4.45,
+          "speed": 1,
+          "gain": 0.25,
+          "highpassHz": 750,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        }
+      ],
+      "licenseSources": [
+        {
+          "sourceKey": "hits/hit09.mp3.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\hits\\hit09.mp3.flac",
+          "sha256": "97666669bdb698ee5a9061a8dbe78fa6cb873f3158899f3689d5e9efdde8cf0a",
+          "decodedSeconds": 0.6018820861678005,
+          "path": "public/assets/audio/sources/hits/hit09.mp3.flac",
+          "duration_seconds": 0.601882,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/37-hitspunches",
+          "author": "Independent.nu; submitted by qubodup",
+          "license": "CC0"
+        },
+        {
+          "sourceKey": "swish/swosh-05.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-05.flac",
+          "sha256": "f8e711a61eb4d6f271a2ce71ba355148bc6f53628b21292338a27a9b7673cc1e",
+          "decodedSeconds": 0.41551020408163264,
+          "path": "public/assets/audio/sources/swish/swosh-05.flac",
+          "duration_seconds": 0.41551,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+          "author": "qubodup / Iwan Gabovitch",
+          "license": "CC0"
+        },
+        {
+          "sourceKey": "wind_background_noise_2.wav",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\wind_background_noise_2.wav",
+          "sha256": "9f1fd5c8b37949e6889a7f6acbd822f66e0ab4e918d72bda58d8d8c2c7e85a80",
+          "decodedSeconds": 44.50961451247166,
+          "path": "public/assets/audio/sources/wind_background_noise_2.wav",
+          "duration_seconds": 44.509615,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/mild-wind-background-noise",
+          "author": "Bashar3A / Bashar from Skirmish.io",
+          "license": "CC0"
+        }
+      ],
+      "qualityReview": {
+        "kind": "agent_audio_model",
+        "rootSelectionStatus": "selected-for-release",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "audioSha256": "e8e62fa6a99cdf26a26139a734690921fbe64b1228e2c7010d912ea97324bb9d",
+        "pcmSha256": "1a1b8cf318b973468eb6f2f9813101f919d9b1b6b12baca8d68b2a0034fd97b2",
+        "response": "音频中没有明显的人声。音频中包含一个短促的冲击声，随后是短暂的低音。音频没有明显的录音问题，如破音、失真、无关背景杂音、首尾截断或突兀点击。",
+        "responseSha256": "16ba10da5fa7d17d7c87f328ee4e531ec46ed64d58f7eda7b60ab9a7abfd1c69",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "modelReportedNoObviousNoiseOrDistortion": true,
+        "modelReportedNoObviousBoundaryClickOrTruncation": true,
+        "humanListened": false,
+        "gameMixVerified": false,
+        "actualValidAudioFeatureFrames": 47,
+        "assessmentBasis": "native model explicitly reported no obvious recording distortion, unrelated noise, boundary truncation or click",
+        "evidence": [
+          {
+            "role": "request",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-15\\request.json",
+            "sha256": "7c9c4a1c55dadd8326137a33e4b0afe7d656c5c231444498e4f09c9609d85d36",
+            "bytes": 2650
+          },
+          {
+            "role": "native-input",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-15\\native-input-before-generation.json",
+            "sha256": "68050ff79371adac7bbb1da6d9c8ce46076edbd8857258dda06b17719c1c4f31",
+            "bytes": 465
+          },
+          {
+            "role": "response",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-15\\response.txt",
+            "sha256": "16ba10da5fa7d17d7c87f328ee4e531ec46ed64d58f7eda7b60ab9a7abfd1c69",
+            "bytes": 210
+          },
+          {
+            "role": "native-result",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-15\\native-result.json",
+            "sha256": "344dbd2b240fa47031b58e896706e66c18e5abe5b1602302c2e7909712fb694a",
+            "bytes": 4445
+          }
+        ]
+      }
+    },
+    {
+      "id": "shanks.emperor_cuts.release",
+      "character": "shanks",
+      "selectedNativeIndex": 16,
+      "sourceRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\shanks\\emperor_cuts-release.wav",
+      "sourceCandidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-emperor_cuts-release-cc0-1003.wav",
+      "target": "public/assets/audio/sfx/roster-adopted1004/shanks/emperor_cuts-release.wav",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/shanks/emperor_cuts-release.wav",
+      "sha256": "4f20d4d29f0a035c4915dcbfadd6806703b354e8b201f1bb5243619b21bd6001",
+      "pcmSha256": "c1bfec136e1ca18d2e85bf79cf00dab63a9c724c47cd92d60219bad88e8e50dc",
+      "bytes": 39304,
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "frames": 19630,
+      "durationSeconds": 0.445124716553288,
+      "sourceKind": "original-game-sfx-design-from-CC0-recordings-not-original-actor-or-anime-sound",
+      "recipes": [
+        {
+          "source": "swish/swosh-02.flac",
+          "sourceSha256": "6148210eed26653d305eedc7f43e0f623864d434f0f4d8e3a540f623a823ff26",
+          "beginSeconds": 0,
+          "endSeconds": 0.20217687074829932,
+          "speed": 1.25,
+          "gain": 0.75,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "swish/swosh-04.flac",
+          "sourceSha256": "651afe743f1713c01b46a43a8fe099e5f866b46c22a98682c7d05728cfa4f5ae",
+          "beginSeconds": 0,
+          "endSeconds": 0.25551020408163266,
+          "speed": 1.35,
+          "gain": 0.8,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0.08
+        },
+        {
+          "source": "swish/swosh-07.flac",
+          "sourceSha256": "2c33fea0dd6daed6e68e39d13be78d90455698650415d54a9af3fdfb3f1437b2",
+          "beginSeconds": 0,
+          "endSeconds": 0.33015873015873015,
+          "speed": 1.2,
+          "gain": 0.8,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0.17
+        }
+      ],
+      "licenseSources": [
+        {
+          "sourceKey": "swish/swosh-02.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-02.flac",
+          "sha256": "6148210eed26653d305eedc7f43e0f623864d434f0f4d8e3a540f623a823ff26",
+          "decodedSeconds": 0.20217687074829932,
+          "path": "public/assets/audio/sources/swish/swosh-02.flac",
+          "duration_seconds": 0.202177,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+          "author": "qubodup / Iwan Gabovitch",
+          "license": "CC0"
+        },
+        {
+          "sourceKey": "swish/swosh-04.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-04.flac",
+          "sha256": "651afe743f1713c01b46a43a8fe099e5f866b46c22a98682c7d05728cfa4f5ae",
+          "decodedSeconds": 0.25551020408163266,
+          "path": "public/assets/audio/sources/swish/swosh-04.flac",
+          "duration_seconds": 0.25551,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+          "author": "qubodup / Iwan Gabovitch",
+          "license": "CC0"
+        },
+        {
+          "sourceKey": "swish/swosh-07.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-07.flac",
+          "sha256": "2c33fea0dd6daed6e68e39d13be78d90455698650415d54a9af3fdfb3f1437b2",
+          "decodedSeconds": 0.33015873015873015,
+          "path": "public/assets/audio/sources/swish/swosh-07.flac",
+          "duration_seconds": 0.330159,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+          "author": "qubodup / Iwan Gabovitch",
+          "license": "CC0"
+        }
+      ],
+      "qualityReview": {
+        "kind": "agent_audio_model",
+        "rootSelectionStatus": "selected-for-release",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "audioSha256": "4f20d4d29f0a035c4915dcbfadd6806703b354e8b201f1bb5243619b21bd6001",
+        "pcmSha256": "c1bfec136e1ca18d2e85bf79cf00dab63a9c724c47cd92d60219bad88e8e50dc",
+        "response": "音频中没有明显的人声。音频中包含一个短促的冲击声，可能是物体碰撞或弹跳的声音。声音的强度适中，没有明显的尾声变化。音频没有明显的录音破音、失真、无关背景杂音、首尾截断或突兀点击。",
+        "responseSha256": "f86a38bdaa72391a369ab40257741d402da20963729b3a627ca1827ce8ba820c",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "modelReportedNoObviousNoiseOrDistortion": true,
+        "modelReportedNoObviousBoundaryClickOrTruncation": true,
+        "humanListened": false,
+        "gameMixVerified": false,
+        "actualValidAudioFeatureFrames": 45,
+        "assessmentBasis": "native model explicitly reported no obvious recording distortion, unrelated noise, boundary truncation or click",
+        "evidence": [
+          {
+            "role": "request",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-16\\request.json",
+            "sha256": "995e879f33aaaf33675c68b2c817337ae89eb78d397edaf3ff15579c63e9188f",
+            "bytes": 2621
+          },
+          {
+            "role": "native-input",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-16\\native-input-before-generation.json",
+            "sha256": "1622dce7f9213bbc257e9f90567431a96feb470f38446a921b05f8b7a23b6253",
+            "bytes": 465
+          },
+          {
+            "role": "response",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-16\\response.txt",
+            "sha256": "f86a38bdaa72391a369ab40257741d402da20963729b3a627ca1827ce8ba820c",
+            "bytes": 267
+          },
+          {
+            "role": "native-result",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-16\\native-result.json",
+            "sha256": "2ade13d8b6708607cf56a11231d06ff9cc108b4aef5a098693c18214eabc20e4",
+            "bytes": 4473
+          }
+        ]
+      }
+    },
+    {
+      "id": "shanks.red_hair_finale.release",
+      "character": "shanks",
+      "selectedNativeIndex": 17,
+      "sourceRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\shanks\\red_hair_finale-release.wav",
+      "sourceCandidate": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\foley\\20261003T072715228075Z\\shanks-red_hair_finale-release-cc0-1003.wav",
+      "target": "public/assets/audio/sfx/roster-adopted1004/shanks/red_hair_finale-release.wav",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/shanks/red_hair_finale-release.wav",
+      "sha256": "fd14958a9557600bf5594e5adf1bdf6b370958883dd23955e59d0950db3b912d",
+      "pcmSha256": "c9ea0a132a1c97d723100943410b85bd5b69e3c47354d39369775c000162fbfc",
+      "bytes": 47028,
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "sampleWidthBytes": 2,
+      "frames": 23492,
+      "durationSeconds": 0.5326984126984127,
+      "sourceKind": "original-game-sfx-design-from-CC0-recordings-not-original-actor-or-anime-sound",
+      "recipes": [
+        {
+          "source": "swish/swosh-05.flac",
+          "sourceSha256": "f8e711a61eb4d6f271a2ce71ba355148bc6f53628b21292338a27a9b7673cc1e",
+          "beginSeconds": 0,
+          "endSeconds": 0.35,
+          "speed": 0.7,
+          "gain": 0.85,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "hits/hit19.mp3.flac",
+          "sourceSha256": "ef5773159eec3b6bc59f613acf7b7c8f0d7ff68d306f00f53dfa116f8c5bb438",
+          "beginSeconds": 0,
+          "endSeconds": 0.42,
+          "speed": 0.8,
+          "gain": 0.55,
+          "highpassHz": null,
+          "lowpassHz": 2300,
+          "reverse": false,
+          "offsetSeconds": 0
+        },
+        {
+          "source": "swish/swosh-07.flac",
+          "sourceSha256": "2c33fea0dd6daed6e68e39d13be78d90455698650415d54a9af3fdfb3f1437b2",
+          "beginSeconds": 0,
+          "endSeconds": 0.33015873015873015,
+          "speed": 0.8,
+          "gain": 0.45,
+          "highpassHz": null,
+          "lowpassHz": null,
+          "reverse": false,
+          "offsetSeconds": 0.12
+        }
+      ],
+      "licenseSources": [
+        {
+          "sourceKey": "hits/hit19.mp3.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\hits\\hit19.mp3.flac",
+          "sha256": "ef5773159eec3b6bc59f613acf7b7c8f0d7ff68d306f00f53dfa116f8c5bb438",
+          "decodedSeconds": 1.0982086167800453,
+          "path": "public/assets/audio/sources/hits/hit19.mp3.flac",
+          "duration_seconds": 1.098209,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/37-hitspunches",
+          "author": "Independent.nu; submitted by qubodup",
+          "license": "CC0"
+        },
+        {
+          "sourceKey": "swish/swosh-05.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-05.flac",
+          "sha256": "f8e711a61eb4d6f271a2ce71ba355148bc6f53628b21292338a27a9b7673cc1e",
+          "decodedSeconds": 0.41551020408163264,
+          "path": "public/assets/audio/sources/swish/swosh-05.flac",
+          "duration_seconds": 0.41551,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+          "author": "qubodup / Iwan Gabovitch",
+          "license": "CC0"
+        },
+        {
+          "sourceKey": "swish/swosh-07.flac",
+          "file": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sources\\swish\\swosh-07.flac",
+          "sha256": "2c33fea0dd6daed6e68e39d13be78d90455698650415d54a9af3fdfb3f1437b2",
+          "decodedSeconds": 0.33015873015873015,
+          "path": "public/assets/audio/sources/swish/swosh-07.flac",
+          "duration_seconds": 0.330159,
+          "original_sample_rate": 44100,
+          "url": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+          "author": "qubodup / Iwan Gabovitch",
+          "license": "CC0"
+        }
+      ],
+      "qualityReview": {
+        "kind": "agent_audio_model",
+        "rootSelectionStatus": "selected-for-release",
+        "inputAudioAttached": true,
+        "nativeAudioReviewed": true,
+        "audioSha256": "fd14958a9557600bf5594e5adf1bdf6b370958883dd23955e59d0950db3b912d",
+        "pcmSha256": "c9ea0a132a1c97d723100943410b85bd5b69e3c47354d39369775c000162fbfc",
+        "response": "一、音频中没有人声。\n二、音频中有一个短促的冲击声，类似于物体碰撞或击打的声音，没有明显的持续或变化。\n三、音频中没有明显的录音破音、失真、无关背景杂音、首尾截断或突兀点击。",
+        "responseSha256": "6b71981e11b1dab0911954b049af40715fff7ba05244a7d0a3bcc404da1c28f7",
+        "modelRevision": "f75b40e3da2003cdd6e1829b1f420ca70797c34e",
+        "modelReportedNoObviousNoiseOrDistortion": true,
+        "modelReportedNoObviousBoundaryClickOrTruncation": true,
+        "humanListened": false,
+        "gameMixVerified": false,
+        "actualValidAudioFeatureFrames": 54,
+        "assessmentBasis": "native model explicitly reported no obvious recording distortion, unrelated noise, boundary truncation or click",
+        "evidence": [
+          {
+            "role": "request",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-17\\request.json",
+            "sha256": "ead64420e54087d5e7ed56d31975d2ad8b9d86dd12292b418988813bfb248bf4",
+            "bytes": 2644
+          },
+          {
+            "role": "native-input",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-17\\native-input-before-generation.json",
+            "sha256": "80b888deecb5511e6e226641aeb55ec494cb01db31453b985d9b324d188bcde4",
+            "bytes": 465
+          },
+          {
+            "role": "response",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-17\\response.txt",
+            "sha256": "6b71981e11b1dab0911954b049af40715fff7ba05244a7d0a3bcc404da1c28f7",
+            "bytes": 257
+          },
+          {
+            "role": "native-result",
+            "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\clip-17\\native-result.json",
+            "sha256": "90d31fee7423e3e8c577d12a0f8fe86d518f51203c2817d25c2a482025026fb6",
+            "bytes": 4488
+          }
+        ]
+      }
+    }
+  ],
+  "mappings": [
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_lance",
+      "stage": "release",
+      "cueId": "sfx.aokiji.ice_lance.release",
+      "fileId": "aokiji.ice_lance.release",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/aokiji/ice_lance-release.wav",
+      "sha256": "309a8d0f06b740647f49ba9be1aba6c4337cbb19b264dc012fd66df1f7cf18d5",
+      "pcmSha256": "ccb3c1b199e4af9b7ea1f28d1052db7ade6c9bb7e61b325868bdc467d34ae80c",
+      "selectedNativeIndex": 1,
+      "previousNativeIndex": 1,
+      "previousCandidateRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\aokiji\\ice_lance-release.wav",
+      "previousCandidateSha256": "309a8d0f06b740647f49ba9be1aba6c4337cbb19b264dc012fd66df1f7cf18d5",
+      "explicitReuse": false,
+      "decisionReason": "directly retain the exact reviewed release sound",
+      "projectileRelease": true,
+      "eachRealSpawnOrActiveReleasePlaysOnce": true
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_blade",
+      "stage": "release",
+      "cueId": "sfx.aokiji.ice_blade.release",
+      "fileId": "aokiji.ice_blade.release",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/aokiji/ice_blade-release.wav",
+      "sha256": "8161803fd325ae2bbc0f0063efe16e2dccaa48821ad98b96b189e74f4e63c7a6",
+      "pcmSha256": "e707712205ce1bd464ed64b213243289e2c7f02f1784380e013f5df3e07951fc",
+      "selectedNativeIndex": 2,
+      "previousNativeIndex": 2,
+      "previousCandidateRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\aokiji\\ice_blade-release.wav",
+      "previousCandidateSha256": "8161803fd325ae2bbc0f0063efe16e2dccaa48821ad98b96b189e74f4e63c7a6",
+      "explicitReuse": false,
+      "decisionReason": "directly retain the exact reviewed release sound",
+      "projectileRelease": false,
+      "eachRealSpawnOrActiveReleasePlaysOnce": true
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_uplift",
+      "stage": "release",
+      "cueId": "sfx.aokiji.ice_uplift.release",
+      "fileId": "aokiji.ice_blade.release",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/aokiji/ice_blade-release.wav",
+      "sha256": "8161803fd325ae2bbc0f0063efe16e2dccaa48821ad98b96b189e74f4e63c7a6",
+      "pcmSha256": "e707712205ce1bd464ed64b213243289e2c7f02f1784380e013f5df3e07951fc",
+      "selectedNativeIndex": 2,
+      "previousNativeIndex": 3,
+      "previousCandidateRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\aokiji\\ice_uplift-release.wav",
+      "previousCandidateSha256": "7d66d53caaae6380ea2099f2581db65147805b8d992971f315c983efae046832",
+      "explicitReuse": true,
+      "decisionReason": "root replaced this unknown/flagged source with the already reviewed same-character sound",
+      "projectileRelease": false,
+      "eachRealSpawnOrActiveReleasePlaysOnce": true
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_spike",
+      "stage": "release",
+      "cueId": "sfx.aokiji.ice_spike.release",
+      "fileId": "aokiji.ice_spike.release",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/aokiji/ice_spike-release.wav",
+      "sha256": "df24ca581a462b40107165fc831c3929fa0a4de99b8e1b8f50978ef0eae4d6e3",
+      "pcmSha256": "dc720d73ea3334a974b3f4e9021743b0275ba7e7658985eb6b406b85d44fd858",
+      "selectedNativeIndex": 4,
+      "previousNativeIndex": 4,
+      "previousCandidateRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\aokiji\\ice_spike-release.wav",
+      "previousCandidateSha256": "df24ca581a462b40107165fc831c3929fa0a4de99b8e1b8f50978ef0eae4d6e3",
+      "explicitReuse": false,
+      "decisionReason": "directly retain the exact reviewed release sound",
+      "projectileRelease": true,
+      "eachRealSpawnOrActiveReleasePlaysOnce": true
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_glacier_line",
+      "stage": "release",
+      "cueId": "sfx.aokiji.glacier_line.release",
+      "fileId": "aokiji.ice_spike.release",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/aokiji/ice_spike-release.wav",
+      "sha256": "df24ca581a462b40107165fc831c3929fa0a4de99b8e1b8f50978ef0eae4d6e3",
+      "pcmSha256": "dc720d73ea3334a974b3f4e9021743b0275ba7e7658985eb6b406b85d44fd858",
+      "selectedNativeIndex": 4,
+      "previousNativeIndex": 4,
+      "previousCandidateRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\aokiji\\ice_spike-release.wav",
+      "previousCandidateSha256": "df24ca581a462b40107165fc831c3929fa0a4de99b8e1b8f50978ef0eae4d6e3",
+      "explicitReuse": true,
+      "decisionReason": "existing glacier per-spawn route explicitly reuses the single ice-spike sound",
+      "projectileRelease": true,
+      "eachRealSpawnOrActiveReleasePlaysOnce": true
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_mirror",
+      "stage": "release",
+      "cueId": "sfx.aokiji.ice_mirror.release",
+      "fileId": "aokiji.ice_blade.release",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/aokiji/ice_blade-release.wav",
+      "sha256": "8161803fd325ae2bbc0f0063efe16e2dccaa48821ad98b96b189e74f4e63c7a6",
+      "pcmSha256": "e707712205ce1bd464ed64b213243289e2c7f02f1784380e013f5df3e07951fc",
+      "selectedNativeIndex": 2,
+      "previousNativeIndex": 5,
+      "previousCandidateRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\aokiji\\ice_mirror-release.wav",
+      "previousCandidateSha256": "d961a799c0ae2b00d2f128451c034de002ba13c12ed5faec942451c949402d30",
+      "explicitReuse": true,
+      "decisionReason": "root replaced this unknown/flagged source with the already reviewed same-character sound",
+      "projectileRelease": false,
+      "eachRealSpawnOrActiveReleasePlaysOnce": true
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_body",
+      "stage": "release",
+      "cueId": "sfx.aokiji.ice_body.release",
+      "fileId": "aokiji.ice_body.release",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/aokiji/ice_body-release.wav",
+      "sha256": "448e8e681861115c7fe927a8866c4ac4e814331c6da727bd3b0f65de4040a329",
+      "pcmSha256": "29cb5a8ff52e42aa8a4308fc982b566e628ea2b898bede49eb4225a82274d96d",
+      "selectedNativeIndex": 6,
+      "previousNativeIndex": 6,
+      "previousCandidateRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\aokiji\\ice_body-release.wav",
+      "previousCandidateSha256": "448e8e681861115c7fe927a8866c4ac4e814331c6da727bd3b0f65de4040a329",
+      "explicitReuse": false,
+      "decisionReason": "directly retain the exact reviewed release sound",
+      "projectileRelease": false,
+      "eachRealSpawnOrActiveReleasePlaysOnce": true
+    },
+    {
+      "character": "aokiji",
+      "moveId": "sp_ice_pheasant",
+      "stage": "release",
+      "cueId": "sfx.aokiji.ice_pheasant.release",
+      "fileId": "aokiji.ice_pheasant.release",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/aokiji/ice_pheasant-release.wav",
+      "sha256": "c84d330f55cc066f51bc9cae142690bfd0eb6b99133525443eda4b596ecc779a",
+      "pcmSha256": "7aa00e4e05779b91dba7bfaa6f16b59f2b51831252460a7b7ee143a23331829e",
+      "selectedNativeIndex": 7,
+      "previousNativeIndex": 7,
+      "previousCandidateRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\aokiji\\ice_pheasant-release.wav",
+      "previousCandidateSha256": "c84d330f55cc066f51bc9cae142690bfd0eb6b99133525443eda4b596ecc779a",
+      "explicitReuse": false,
+      "decisionReason": "directly retain the exact reviewed release sound",
+      "projectileRelease": true,
+      "eachRealSpawnOrActiveReleasePlaysOnce": true
+    },
+    {
+      "character": "aokiji",
+      "moveId": "ult_ice_age",
+      "stage": "release",
+      "cueId": "sfx.aokiji.ice_age.release",
+      "fileId": "aokiji.ice_age.release",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/aokiji/ice_age-release.wav",
+      "sha256": "2f1af5b354a37ff896ccdb676731cb11296fc6d1fc36189e8b48c16905a186e9",
+      "pcmSha256": "0d3a5739280ea12553618d110eb0437bfd994d71af45c566aebc4a67384c4622",
+      "selectedNativeIndex": 8,
+      "previousNativeIndex": 8,
+      "previousCandidateRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\aokiji\\ice_age-release.wav",
+      "previousCandidateSha256": "2f1af5b354a37ff896ccdb676731cb11296fc6d1fc36189e8b48c16905a186e9",
+      "explicitReuse": false,
+      "decisionReason": "directly retain the exact reviewed release sound",
+      "projectileRelease": false,
+      "eachRealSpawnOrActiveReleasePlaysOnce": true
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_haki_slash",
+      "stage": "release",
+      "cueId": "sfx.shanks.haki_slash.release",
+      "fileId": "shanks.haki_slash.release",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/shanks/haki_slash-release.wav",
+      "sha256": "2cd9cc609015cab47da698a7cb8665ff8e4958d294fbf3722cee891901b65cc4",
+      "pcmSha256": "00f659494b132386cbbd4beb7b99db0aad68a6386c070db43afe9d777c37a097",
+      "selectedNativeIndex": 9,
+      "previousNativeIndex": 9,
+      "previousCandidateRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\shanks\\haki_slash-release.wav",
+      "previousCandidateSha256": "2cd9cc609015cab47da698a7cb8665ff8e4958d294fbf3722cee891901b65cc4",
+      "explicitReuse": false,
+      "decisionReason": "directly retain the exact reviewed release sound",
+      "projectileRelease": true,
+      "eachRealSpawnOrActiveReleasePlaysOnce": true
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_single_arm_cut",
+      "stage": "release",
+      "cueId": "sfx.shanks.single_arm_cut.release",
+      "fileId": "shanks.single_arm_cut.release",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/shanks/single_arm_cut-release.wav",
+      "sha256": "581bf704e331f93ef517bfe4b09e0e1006b4442d02721f0d7338460a8cb8499b",
+      "pcmSha256": "fe800fccf6d5d1106fcb1029101a30fc8970bfb8310dd28a8fd73f1db4b76c67",
+      "selectedNativeIndex": 10,
+      "previousNativeIndex": 10,
+      "previousCandidateRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\shanks\\single_arm_cut-release.wav",
+      "previousCandidateSha256": "581bf704e331f93ef517bfe4b09e0e1006b4442d02721f0d7338460a8cb8499b",
+      "explicitReuse": false,
+      "decisionReason": "directly retain the exact reviewed release sound",
+      "projectileRelease": false,
+      "eachRealSpawnOrActiveReleasePlaysOnce": true
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_rising_guard",
+      "stage": "release",
+      "cueId": "sfx.shanks.rising_guard.release",
+      "fileId": "shanks.rising_guard.release",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/shanks/rising_guard-release.wav",
+      "sha256": "c87e27da0a3832f89edf8661f93b3dbcad3f73a9843912dd6eb8ecfa8f4c74dc",
+      "pcmSha256": "d74cbc4226c2e19ac07d1a393c8e2e2f50cb8f1b584f088bef92ee9e8d73ca20",
+      "selectedNativeIndex": 11,
+      "previousNativeIndex": 11,
+      "previousCandidateRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\shanks\\rising_guard-release.wav",
+      "previousCandidateSha256": "c87e27da0a3832f89edf8661f93b3dbcad3f73a9843912dd6eb8ecfa8f4c74dc",
+      "explicitReuse": false,
+      "decisionReason": "directly retain the exact reviewed release sound",
+      "projectileRelease": false,
+      "eachRealSpawnOrActiveReleasePlaysOnce": true
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_step_thrust",
+      "stage": "release",
+      "cueId": "sfx.shanks.step_thrust.release",
+      "fileId": "shanks.low_cut.release",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/shanks/low_cut-release.wav",
+      "sha256": "a925876da565f1f2b82d40c8cacb7a313f799418dc26b99596e7c4de083f1236",
+      "pcmSha256": "9e78f8ec3ae75095e1bc15a436903d52567012bed7792bf063973d38ac0a1037",
+      "selectedNativeIndex": 13,
+      "previousNativeIndex": 12,
+      "previousCandidateRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\shanks\\step_thrust-release.wav",
+      "previousCandidateSha256": "548e7cf89dd31e966f7f4c3543c98298d489400c1317a51e5f74915551cfd791",
+      "explicitReuse": true,
+      "decisionReason": "root replaced this unknown/flagged source with the already reviewed same-character sound",
+      "projectileRelease": false,
+      "eachRealSpawnOrActiveReleasePlaysOnce": true
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_low_cut",
+      "stage": "release",
+      "cueId": "sfx.shanks.low_cut.release",
+      "fileId": "shanks.low_cut.release",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/shanks/low_cut-release.wav",
+      "sha256": "a925876da565f1f2b82d40c8cacb7a313f799418dc26b99596e7c4de083f1236",
+      "pcmSha256": "9e78f8ec3ae75095e1bc15a436903d52567012bed7792bf063973d38ac0a1037",
+      "selectedNativeIndex": 13,
+      "previousNativeIndex": 13,
+      "previousCandidateRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\shanks\\low_cut-release.wav",
+      "previousCandidateSha256": "a925876da565f1f2b82d40c8cacb7a313f799418dc26b99596e7c4de083f1236",
+      "explicitReuse": false,
+      "decisionReason": "directly retain the exact reviewed release sound",
+      "projectileRelease": false,
+      "eachRealSpawnOrActiveReleasePlaysOnce": true
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_sidestep",
+      "stage": "release",
+      "cueId": "sfx.shanks.sidestep.release",
+      "fileId": "shanks.low_cut.release",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/shanks/low_cut-release.wav",
+      "sha256": "a925876da565f1f2b82d40c8cacb7a313f799418dc26b99596e7c4de083f1236",
+      "pcmSha256": "9e78f8ec3ae75095e1bc15a436903d52567012bed7792bf063973d38ac0a1037",
+      "selectedNativeIndex": 13,
+      "previousNativeIndex": 14,
+      "previousCandidateRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\shanks\\sidestep-release.wav",
+      "previousCandidateSha256": "5f71783c612ef5f763b391c615413e49bffb9ad75763bd5e2777dfbb6e2c152d",
+      "explicitReuse": true,
+      "decisionReason": "root replaced this unknown/flagged source with the already reviewed same-character sound",
+      "projectileRelease": false,
+      "eachRealSpawnOrActiveReleasePlaysOnce": true
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_divine_departure",
+      "stage": "release",
+      "cueId": "sfx.shanks.divine_departure.release",
+      "fileId": "shanks.divine_departure.release",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/shanks/divine_departure-release.wav",
+      "sha256": "e8e62fa6a99cdf26a26139a734690921fbe64b1228e2c7010d912ea97324bb9d",
+      "pcmSha256": "1a1b8cf318b973468eb6f2f9813101f919d9b1b6b12baca8d68b2a0034fd97b2",
+      "selectedNativeIndex": 15,
+      "previousNativeIndex": 15,
+      "previousCandidateRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\shanks\\divine_departure-release.wav",
+      "previousCandidateSha256": "e8e62fa6a99cdf26a26139a734690921fbe64b1228e2c7010d912ea97324bb9d",
+      "explicitReuse": false,
+      "decisionReason": "directly retain the exact reviewed release sound",
+      "projectileRelease": false,
+      "eachRealSpawnOrActiveReleasePlaysOnce": true
+    },
+    {
+      "character": "shanks",
+      "moveId": "sp_emperor_cuts",
+      "stage": "release",
+      "cueId": "sfx.shanks.emperor_cuts.release",
+      "fileId": "shanks.emperor_cuts.release",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/shanks/emperor_cuts-release.wav",
+      "sha256": "4f20d4d29f0a035c4915dcbfadd6806703b354e8b201f1bb5243619b21bd6001",
+      "pcmSha256": "c1bfec136e1ca18d2e85bf79cf00dab63a9c724c47cd92d60219bad88e8e50dc",
+      "selectedNativeIndex": 16,
+      "previousNativeIndex": 16,
+      "previousCandidateRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\shanks\\emperor_cuts-release.wav",
+      "previousCandidateSha256": "4f20d4d29f0a035c4915dcbfadd6806703b354e8b201f1bb5243619b21bd6001",
+      "explicitReuse": false,
+      "decisionReason": "directly retain the exact reviewed release sound",
+      "projectileRelease": false,
+      "eachRealSpawnOrActiveReleasePlaysOnce": true
+    },
+    {
+      "character": "shanks",
+      "moveId": "ult_red_hair_finale",
+      "stage": "release",
+      "cueId": "sfx.shanks.red_hair_finale.release",
+      "fileId": "shanks.red_hair_finale.release",
+      "runtimeFile": "assets/audio/sfx/roster-adopted1004/shanks/red_hair_finale-release.wav",
+      "sha256": "fd14958a9557600bf5594e5adf1bdf6b370958883dd23955e59d0950db3b912d",
+      "pcmSha256": "c9ea0a132a1c97d723100943410b85bd5b69e3c47354d39369775c000162fbfc",
+      "selectedNativeIndex": 17,
+      "previousNativeIndex": 17,
+      "previousCandidateRuntimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\shanks\\red_hair_finale-release.wav",
+      "previousCandidateSha256": "fd14958a9557600bf5594e5adf1bdf6b370958883dd23955e59d0950db3b912d",
+      "explicitReuse": false,
+      "decisionReason": "directly retain the exact reviewed release sound",
+      "projectileRelease": false,
+      "eachRealSpawnOrActiveReleasePlaysOnce": true
+    }
+  ],
+  "rejectedOriginalCandidates": [
+    {
+      "nativeIndex": 3,
+      "runtimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\aokiji\\ice_uplift-release.wav",
+      "sha256": "7d66d53caaae6380ea2099f2581db65147805b8d992971f315c983efae046832",
+      "pcmSha256": "f6dccc7a6122b40c110ddef54e25e7d53740d9932422b57862a54589c786fd97",
+      "response": "1. 不确定\n2. 不确定\n3. 不确定\n4. 不确定",
+      "responseEvidence": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-quality5-gpu6g1004-20261004T035624Z\\clip-03\\response.txt",
+      "responseSha256": "d9f7796bac9c09c8f9160bcf21012c1f3515a4216c2fc4c8ea43cf6e8cd867af",
+      "decision": "not adopted; preserve original unknown/flagged candidate and its evidence",
+      "replacedByNativeIndex": 2
+    },
+    {
+      "nativeIndex": 5,
+      "runtimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\aokiji\\ice_mirror-release.wav",
+      "sha256": "d961a799c0ae2b00d2f128451c034de002ba13c12ed5faec942451c949402d30",
+      "pcmSha256": "d3afed45108a62f89105e3ee6be5c5073c06b0efd44c2573f04bb68ba7018a32",
+      "response": "1. 没有实际听到什么声音。\n2. 不明显。\n3. 不明显。\n4. 首尾有突兀截断或点击。",
+      "responseEvidence": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-quality5-gpu6g1004-20261004T035624Z\\clip-05\\response.txt",
+      "responseSha256": "247a605d20667a8fa79f6e22edd18bc03036ee2aae234fd39cedc7972208f5c7",
+      "decision": "not adopted; preserve original unknown/flagged candidate and its evidence",
+      "replacedByNativeIndex": 2
+    },
+    {
+      "nativeIndex": 12,
+      "runtimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\shanks\\step_thrust-release.wav",
+      "sha256": "548e7cf89dd31e966f7f4c3543c98298d489400c1317a51e5f74915551cfd791",
+      "pcmSha256": "eb2e3962b51a2b1c41242af0c2e95572c2383551ed1cf70fd00a55bc67aa48fb",
+      "response": "1. 有明显无关背景杂音\n2. 有\n3. 无\n4. 无",
+      "responseEvidence": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-quality5-gpu6g1004-20261004T035624Z\\clip-12\\response.txt",
+      "responseSha256": "209537b52ad8e54515ac3c71e66b7ff585ea563cec8cb084f9517d2636289c52",
+      "decision": "not adopted; preserve original unknown/flagged candidate and its evidence",
+      "replacedByNativeIndex": 13
+    },
+    {
+      "nativeIndex": 14,
+      "runtimeFile": "C:\\Users\\august\\Projects\\one-piece-fighter\\public\\assets\\audio\\sfx\\roster-preview1003\\shanks\\sidestep-release.wav",
+      "sha256": "5f71783c612ef5f763b391c615413e49bffb9ad75763bd5e2777dfbb6e2c152d",
+      "pcmSha256": "33313943ac3f37c4b6edc273418c8fa361e616cbc45200656076b5815079223f",
+      "response": "1. 有明显无关背景杂音\n2. 有\n3. 无\n4. 无",
+      "responseEvidence": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-quality5-gpu6g1004-20261004T035624Z\\clip-14\\response.txt",
+      "responseSha256": "209537b52ad8e54515ac3c71e66b7ff585ea563cec8cb084f9517d2636289c52",
+      "decision": "not adopted; preserve original unknown/flagged candidate and its evidence",
+      "replacedByNativeIndex": 13
+    }
+  ],
+  "evidenceReceipts": [
+    {
+      "role": "release-native-receipt",
+      "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-gpu6g1004-20261004T033259Z\\sealed-release-sfx-receipt1004.json",
+      "sha256": "c9bbc3734b070dd56255f53bfb12250313bda987e9026cb46f479124290b3e3d",
+      "bytes": 74703
+    },
+    {
+      "role": "quality-followup-receipt",
+      "path": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\voice\\continuation-1003\\validation\\native-local-release-sfx-quality5-gpu6g1004-20261004T035624Z\\sealed-quality-followup1004.json",
+      "sha256": "934b37956a5a4c54def6246a7a16363ee4d8cd0bcc2bf8e15b72dc47671fe1bc",
+      "bytes": 19871
+    }
+  ],
+  "sourceManifests": [
+    {
+      "role": "foley-source-snapshot",
+      "path": "C:\\Users\\august\\Projects\\one-piece-fighter\\scripts\\roster_voice_adoption1003.foley.json",
+      "sha256": "d34d8bc59c5dcf9ac81d167d591b2b34d339a8a70397513930628ecc44bf8702",
+      "bytes": 124209
+    },
+    {
+      "role": "runtime-source-snapshot",
+      "path": "C:\\Users\\august\\Projects\\one-piece-fighter\\src\\audio\\rosterVoiceCandidates1003.json",
+      "sha256": "a208e44de9d7eac89a9662efa8288c0d3bf5ed8241307cea2d56adc0e9e741b0",
+      "bytes": 81295
+    }
+  ],
+  "centralIntegration": {
+    "cues": {
+      "sfx.aokiji.ice_lance.release": {
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "files": [
+          "assets/audio/sfx/roster-adopted1004/aokiji/ice_lance-release.wav"
+        ],
+        "source": "scripts/first_pair_sfx_selection1004.json",
+        "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+      },
+      "sfx.aokiji.ice_blade.release": {
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "files": [
+          "assets/audio/sfx/roster-adopted1004/aokiji/ice_blade-release.wav"
+        ],
+        "source": "scripts/first_pair_sfx_selection1004.json",
+        "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+      },
+      "sfx.aokiji.ice_uplift.release": {
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "files": [
+          "assets/audio/sfx/roster-adopted1004/aokiji/ice_blade-release.wav"
+        ],
+        "source": "scripts/first_pair_sfx_selection1004.json",
+        "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+      },
+      "sfx.aokiji.ice_spike.release": {
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "files": [
+          "assets/audio/sfx/roster-adopted1004/aokiji/ice_spike-release.wav"
+        ],
+        "source": "scripts/first_pair_sfx_selection1004.json",
+        "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+      },
+      "sfx.aokiji.glacier_line.release": {
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "files": [
+          "assets/audio/sfx/roster-adopted1004/aokiji/ice_spike-release.wav"
+        ],
+        "source": "scripts/first_pair_sfx_selection1004.json",
+        "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+      },
+      "sfx.aokiji.ice_mirror.release": {
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "files": [
+          "assets/audio/sfx/roster-adopted1004/aokiji/ice_blade-release.wav"
+        ],
+        "source": "scripts/first_pair_sfx_selection1004.json",
+        "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+      },
+      "sfx.aokiji.ice_body.release": {
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "files": [
+          "assets/audio/sfx/roster-adopted1004/aokiji/ice_body-release.wav"
+        ],
+        "source": "scripts/first_pair_sfx_selection1004.json",
+        "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+      },
+      "sfx.aokiji.ice_pheasant.release": {
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "files": [
+          "assets/audio/sfx/roster-adopted1004/aokiji/ice_pheasant-release.wav"
+        ],
+        "source": "scripts/first_pair_sfx_selection1004.json",
+        "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+      },
+      "sfx.aokiji.ice_age.release": {
+        "group": "sfx",
+        "characterId": "aokiji",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "files": [
+          "assets/audio/sfx/roster-adopted1004/aokiji/ice_age-release.wav"
+        ],
+        "source": "scripts/first_pair_sfx_selection1004.json",
+        "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+      },
+      "sfx.shanks.haki_slash.release": {
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "files": [
+          "assets/audio/sfx/roster-adopted1004/shanks/haki_slash-release.wav"
+        ],
+        "source": "scripts/first_pair_sfx_selection1004.json",
+        "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+      },
+      "sfx.shanks.single_arm_cut.release": {
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "files": [
+          "assets/audio/sfx/roster-adopted1004/shanks/single_arm_cut-release.wav"
+        ],
+        "source": "scripts/first_pair_sfx_selection1004.json",
+        "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+      },
+      "sfx.shanks.rising_guard.release": {
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "files": [
+          "assets/audio/sfx/roster-adopted1004/shanks/rising_guard-release.wav"
+        ],
+        "source": "scripts/first_pair_sfx_selection1004.json",
+        "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+      },
+      "sfx.shanks.step_thrust.release": {
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "files": [
+          "assets/audio/sfx/roster-adopted1004/shanks/low_cut-release.wav"
+        ],
+        "source": "scripts/first_pair_sfx_selection1004.json",
+        "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+      },
+      "sfx.shanks.low_cut.release": {
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "files": [
+          "assets/audio/sfx/roster-adopted1004/shanks/low_cut-release.wav"
+        ],
+        "source": "scripts/first_pair_sfx_selection1004.json",
+        "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+      },
+      "sfx.shanks.sidestep.release": {
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "files": [
+          "assets/audio/sfx/roster-adopted1004/shanks/low_cut-release.wav"
+        ],
+        "source": "scripts/first_pair_sfx_selection1004.json",
+        "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+      },
+      "sfx.shanks.divine_departure.release": {
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "files": [
+          "assets/audio/sfx/roster-adopted1004/shanks/divine_departure-release.wav"
+        ],
+        "source": "scripts/first_pair_sfx_selection1004.json",
+        "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+      },
+      "sfx.shanks.emperor_cuts.release": {
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "files": [
+          "assets/audio/sfx/roster-adopted1004/shanks/emperor_cuts-release.wav"
+        ],
+        "source": "scripts/first_pair_sfx_selection1004.json",
+        "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+      },
+      "sfx.shanks.red_hair_finale.release": {
+        "group": "sfx",
+        "characterId": "shanks",
+        "gain": 0.7,
+        "priority": 45,
+        "cooldownMs": 35,
+        "maxInstances": 3,
+        "files": [
+          "assets/audio/sfx/roster-adopted1004/shanks/red_hair_finale-release.wav"
+        ],
+        "source": "scripts/first_pair_sfx_selection1004.json",
+        "note": "Reviewed exact CC0-derived release-only game audio; same-character file reuse is explicit, never an original anime/exclusive per-move sound claim."
+      }
+    },
+    "releaseMoveMap": {
+      "aokiji": {
+        "sp_ice_lance": "sfx.aokiji.ice_lance.release",
+        "sp_ice_blade": "sfx.aokiji.ice_blade.release",
+        "sp_ice_uplift": "sfx.aokiji.ice_uplift.release",
+        "sp_ice_spike": "sfx.aokiji.ice_spike.release",
+        "sp_glacier_line": "sfx.aokiji.glacier_line.release",
+        "sp_ice_mirror": "sfx.aokiji.ice_mirror.release",
+        "sp_ice_body": "sfx.aokiji.ice_body.release",
+        "sp_ice_pheasant": "sfx.aokiji.ice_pheasant.release",
+        "ult_ice_age": "sfx.aokiji.ice_age.release"
+      },
+      "shanks": {
+        "sp_haki_slash": "sfx.shanks.haki_slash.release",
+        "sp_single_arm_cut": "sfx.shanks.single_arm_cut.release",
+        "sp_rising_guard": "sfx.shanks.rising_guard.release",
+        "sp_step_thrust": "sfx.shanks.step_thrust.release",
+        "sp_low_cut": "sfx.shanks.low_cut.release",
+        "sp_sidestep": "sfx.shanks.sidestep.release",
+        "sp_divine_departure": "sfx.shanks.divine_departure.release",
+        "sp_emperor_cuts": "sfx.shanks.emperor_cuts.release",
+        "ult_red_hair_finale": "sfx.shanks.red_hair_finale.release"
+      }
+    },
+    "fileChecks": {
+      "assets/audio/sfx/roster-adopted1004/aokiji/ice_lance-release.wav": {
+        "sha256": "309a8d0f06b740647f49ba9be1aba6c4337cbb19b264dc012fd66df1f7cf18d5",
+        "pcmSha256": "ccb3c1b199e4af9b7ea1f28d1052db7ade6c9bb7e61b325868bdc467d34ae80c",
+        "bytes": 29150
+      },
+      "assets/audio/sfx/roster-adopted1004/aokiji/ice_blade-release.wav": {
+        "sha256": "8161803fd325ae2bbc0f0063efe16e2dccaa48821ad98b96b189e74f4e63c7a6",
+        "pcmSha256": "e707712205ce1bd464ed64b213243289e2c7f02f1784380e013f5df3e07951fc",
+        "bytes": 26504
+      },
+      "assets/audio/sfx/roster-adopted1004/aokiji/ice_spike-release.wav": {
+        "sha256": "df24ca581a462b40107165fc831c3929fa0a4de99b8e1b8f50978ef0eae4d6e3",
+        "pcmSha256": "dc720d73ea3334a974b3f4e9021743b0275ba7e7658985eb6b406b85d44fd858",
+        "bytes": 52964
+      },
+      "assets/audio/sfx/roster-adopted1004/aokiji/ice_body-release.wav": {
+        "sha256": "448e8e681861115c7fe927a8866c4ac4e814331c6da727bd3b0f65de4040a329",
+        "pcmSha256": "29cb5a8ff52e42aa8a4308fc982b566e628ea2b898bede49eb4225a82274d96d",
+        "bytes": 19448
+      },
+      "assets/audio/sfx/roster-adopted1004/aokiji/ice_pheasant-release.wav": {
+        "sha256": "c84d330f55cc066f51bc9cae142690bfd0eb6b99133525443eda4b596ecc779a",
+        "pcmSha256": "7aa00e4e05779b91dba7bfaa6f16b59f2b51831252460a7b7ee143a23331829e",
+        "bytes": 45908
+      },
+      "assets/audio/sfx/roster-adopted1004/aokiji/ice_age-release.wav": {
+        "sha256": "2f1af5b354a37ff896ccdb676731cb11296fc6d1fc36189e8b48c16905a186e9",
+        "pcmSha256": "0d3a5739280ea12553618d110eb0437bfd994d71af45c566aebc4a67384c4622",
+        "bytes": 66194
+      },
+      "assets/audio/sfx/roster-adopted1004/shanks/haki_slash-release.wav": {
+        "sha256": "2cd9cc609015cab47da698a7cb8665ff8e4958d294fbf3722cee891901b65cc4",
+        "pcmSha256": "00f659494b132386cbbd4beb7b99db0aad68a6386c070db43afe9d777c37a097",
+        "bytes": 36362
+      },
+      "assets/audio/sfx/roster-adopted1004/shanks/single_arm_cut-release.wav": {
+        "sha256": "581bf704e331f93ef517bfe4b09e0e1006b4442d02721f0d7338460a8cb8499b",
+        "pcmSha256": "fe800fccf6d5d1106fcb1029101a30fc8970bfb8310dd28a8fd73f1db4b76c67",
+        "bytes": 32248
+      },
+      "assets/audio/sfx/roster-adopted1004/shanks/rising_guard-release.wav": {
+        "sha256": "c87e27da0a3832f89edf8661f93b3dbcad3f73a9843912dd6eb8ecfa8f4c74dc",
+        "pcmSha256": "d74cbc4226c2e19ac07d1a393c8e2e2f50cb8f1b584f088bef92ee9e8d73ca20",
+        "bytes": 25366
+      },
+      "assets/audio/sfx/roster-adopted1004/shanks/low_cut-release.wav": {
+        "sha256": "a925876da565f1f2b82d40c8cacb7a313f799418dc26b99596e7c4de083f1236",
+        "pcmSha256": "9e78f8ec3ae75095e1bc15a436903d52567012bed7792bf063973d38ac0a1037",
+        "bytes": 26888
+      },
+      "assets/audio/sfx/roster-adopted1004/shanks/divine_departure-release.wav": {
+        "sha256": "e8e62fa6a99cdf26a26139a734690921fbe64b1228e2c7010d912ea97324bb9d",
+        "pcmSha256": "1a1b8cf318b973468eb6f2f9813101f919d9b1b6b12baca8d68b2a0034fd97b2",
+        "bytes": 41204
+      },
+      "assets/audio/sfx/roster-adopted1004/shanks/emperor_cuts-release.wav": {
+        "sha256": "4f20d4d29f0a035c4915dcbfadd6806703b354e8b201f1bb5243619b21bd6001",
+        "pcmSha256": "c1bfec136e1ca18d2e85bf79cf00dab63a9c724c47cd92d60219bad88e8e50dc",
+        "bytes": 39304
+      },
+      "assets/audio/sfx/roster-adopted1004/shanks/red_hair_finale-release.wav": {
+        "sha256": "fd14958a9557600bf5594e5adf1bdf6b370958883dd23955e59d0950db3b912d",
+        "pcmSha256": "c9ea0a132a1c97d723100943410b85bd5b69e3c47354d39369775c000162fbfc",
+        "bytes": 47028
+      }
+    },
+    "newStages": [
+      "release"
+    ],
+    "startEndUseExistingSharedAudio": true
+  },
+  "audioUploads": 0,
+  "humanListened": false,
+  "gamePlaybackAndMixVerification": "root integrates and checks actual events, volume and decoding; this copy/selection is not game acceptance",
+  "oldCandidatesAndSourceOriginalsPreserved": true,
+  "sharedRuntimeTablesModifiedByThisTool": false
+}

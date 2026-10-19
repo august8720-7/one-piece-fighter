@@ -1,0 +1,475 @@
+{
+  "schemaVersion": 1,
+  "status": "partial-candidate-reaction-crops-reviewed1002-walk-and-gameplay-pending",
+  "notes": [
+    "Original RGBA preserved; no green key applied to green hair, tattoo or clothing.",
+    "Neutral alpha>=16 bbox[48,30,399,414], height384. One character-wide scale212/384 matches world106 in the existing renderer.",
+    "Four initial walk drawings visibly keep the same leading leg and are not mapped as walking. Distinct body poses alone do not prove an alternating loop.",
+    "Real front fist socket and measured foot roots are retained for contact calibration; no final gameplay claim.",
+    "Reaction original ryokugyu_reaction_0929 is saved and provenance registered, awaiting source-wide scale calibration and explicit cropping.",
+    "2026-10-02: Added eight genuine reaction-sheet drawings after white-background RGBA visual inspection. One source-wide unitScale aligns standing alpha>=16 heights: 0.8629213483146068. No per-pose transform, generated pixels or repeated pose used to claim motion. Sole/air-foot/body-ground roots authored visibly; normal-speed gameplay and contact remain pending.",
+    "2026-10-03: Explicit excludeRects remove only visually verified detached neighboring-cell pixels: {'block_stand': [[237, 440, 43, 9]], 'jump_neutral': [[72, 0, 31, 3]]}. No character pixels redrawn. Fujitora crouch root centers visible supporting soles."
+  ],
+  "characters": {
+    "ryokugyu": {
+      "scale": 0.5520833333333334,
+      "textureDensity": 2,
+      "maxTextureSize": 4096,
+      "sources": {
+        "ryokugyu_locomotion_0929": {
+          "file": "public/assets/generated/source/roster-ryokugyu-locomotion-0929.png",
+          "sha256": "56f0d9e30aa939d51c75276b48a1048d4105237bc02a9be562386bee9a789d12",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "当前官方图像页不展示图像模型型号，不推断后台版本。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6abbe23e-14d4-83e8-ad30-b7dc498df32c",
+          "observedCompletedAt": "2026-09-30T00:14:10.3777977+08:00",
+          "uiObservation": "在官方新聊天分支保留同一真实海军母版，发送前菜单最新选中且极高第四项。绿牛完整提示词一次发送，完成后自动落稳到当前UUID会话；查看器第二张显示绿牛九格，natural尺寸1254x1254。此时刻为保全后再次观察已完成原图，不代表服务器首次生成时间。两份下载均暂留crdownload后缀，但签名/IEND/Pillow.verify+load通过、尺寸一致且SHA256相同，先清单后复制原图。四个行走姿势疑似同一前腿，尚不采用为走路循环。",
+          "prompt": {
+            "file": "docs/assets/ryokugyu-locomotion-prompt0929.txt",
+            "sha256": "9cdf18ddd0bcef56a73f7e6f5cbf82cae871023ee97bd16a4e6108fb5b88a581"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+            "kizaru_locomotion_0929": "5f7997b50c663b2ce7ef7ba0dff8748484abde809019cc0416ff7b2267d9d7e1"
+          },
+          "unitScale": 1,
+          "recordedAt": "2026-09-29T16:14:10.657863+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/ryokugyu_locomotion_0929来源凭据0929.txt",
+            "sha256": "05db92fa3d6dca82abc276b9f93afa578fb78a36c3d9c8517e25962966ad0f88"
+          }
+        },
+        "ryokugyu_reaction_0929": {
+          "file": "public/assets/generated/source/roster-ryokugyu-reaction-0929.png",
+          "sha256": "07ca0484489e3e2c1547eaddb1c64de820733afa5e12da3024475373b4ac2b36",
+          "provider": "chatgpt-web",
+          "model": "unverified",
+          "workflowDecision": "pc-roster-0929",
+          "observedImageModel": null,
+          "imageModelDisclosure": "exact-model-unavailable",
+          "modelUnavailableStatement": "官方图像入口未公开具体图像型号；本文只记录实际可见设置。",
+          "observedTextModelLabel": "最新",
+          "observedReasoningEffort": "极高",
+          "entryUrl": "https://chatgpt.com/images/",
+          "entryTitle": "ChatGPT",
+          "browserLabel": "Microsoft Edge",
+          "sessionUrl": "https://chatgpt.com/c/6abbe23e-14d4-83e8-ad30-b7dc498df32c",
+          "observedCompletedAt": "2026-09-30T00:20:50.1068771+08:00",
+          "uiObservation": "在已实际核实最新和极高的绿牛会话，通过完整textbox.fill后一次发送反应提示词；页面完成后另一个本人标签打开同UUID会话，第三张查看器显示九格绿牛人形反应，natural尺寸1254x1254。登记时再次查看已保全原图，此为本机完成复核时刻，不是服务器首次生成时间。两份下载虽保留crdownload后缀，完整PNG签名/IEND与Pillow.verify+load均通过，尺寸与页面相符且hash相同；复制前后清单已留。候选人物/透明背景可辨，未作正常速度或战斗验收。",
+          "prompt": {
+            "file": "docs/assets/ryokugyu-reaction-prompt0929.txt",
+            "sha256": "028bc14c3847dc6b997c35a2690dfc92c6816f156358f1e8a562b9bfb29894c3"
+          },
+          "referenceSources": {
+            "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+            "ryokugyu_locomotion_0929": "56f0d9e30aa939d51c75276b48a1048d4105237bc02a9be562386bee9a789d12"
+          },
+          "unitScale": 0.8629213483146068,
+          "recordedAt": "2026-09-29T16:20:50.396606+00:00",
+          "sourceEvidence": {
+            "file": "docs/assets/ryokugyu_reaction_0929来源凭据0929.txt",
+            "sha256": "533c827be9609b27e0555f76dbd83021454abc33a2a65457a51494b0ff7164cd"
+          },
+          "scaleBasis": "Fixed standing reference alpha>=16: locomotion idle crop [20,0,395,422] bbox [28,30,379,414], height 384; reaction top-left reference [0,0,420,465] bbox [38,16,391,461], height 445. Entire reaction source uses 384/445."
+        }
+      },
+      "frames": {
+        "idle": {
+          "source": "ryokugyu_locomotion_0929",
+          "crop": [
+            20,
+            0,
+            395,
+            422
+          ],
+          "root": [
+            224,
+            412
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_a_start": {
+          "source": "ryokugyu_locomotion_0929",
+          "crop": [
+            845,
+            421,
+            385,
+            412
+          ],
+          "root": [
+            212,
+            400
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_a_active": {
+          "source": "ryokugyu_locomotion_0929",
+          "crop": [
+            12,
+            839,
+            438,
+            401
+          ],
+          "root": [
+            230,
+            383
+          ],
+          "sockets": {
+            "hand_front": [
+              407,
+              70
+            ]
+          },
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "st_a_recover": {
+          "source": "ryokugyu_locomotion_0929",
+          "crop": [
+            440,
+            839,
+            376,
+            401
+          ],
+          "root": [
+            219,
+            382
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "hit_stand": {
+          "source": "ryokugyu_locomotion_0929",
+          "crop": [
+            834,
+            839,
+            409,
+            406
+          ],
+          "root": [
+            252,
+            382
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "crouch": {
+          "source": "ryokugyu_reaction_0929",
+          "crop": [
+            441,
+            156,
+            394,
+            310
+          ],
+          "root": [
+            225,
+            295
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "block_stand": {
+          "source": "ryokugyu_reaction_0929",
+          "crop": [
+            872,
+            18,
+            375,
+            449
+          ],
+          "root": [
+            199,
+            431
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              237,
+              440,
+              43,
+              9
+            ]
+          ]
+        },
+        "block_crouch": {
+          "source": "ryokugyu_reaction_0929",
+          "crop": [
+            22,
+            579,
+            379,
+            282
+          ],
+          "root": [
+            208,
+            261
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "hit_crouch": {
+          "source": "ryokugyu_reaction_0929",
+          "crop": [
+            439,
+            576,
+            400,
+            286
+          ],
+          "root": [
+            222,
+            264
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "jump_neutral": {
+          "source": "ryokugyu_reaction_0929",
+          "crop": [
+            842,
+            462,
+            390,
+            359
+          ],
+          "root": [
+            201,
+            335
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          },
+          "excludeRects": [
+            [
+              72,
+              0,
+              31,
+              3
+            ]
+          ]
+        },
+        "hit_air": {
+          "source": "ryokugyu_reaction_0929",
+          "crop": [
+            11,
+            868,
+            423,
+            357
+          ],
+          "root": [
+            330,
+            309
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "knockdown": {
+          "source": "ryokugyu_reaction_0929",
+          "crop": [
+            430,
+            1021,
+            460,
+            191
+          ],
+          "root": [
+            239,
+            176
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        },
+        "getup": {
+          "source": "ryokugyu_reaction_0929",
+          "crop": [
+            907,
+            940,
+            339,
+            284
+          ],
+          "root": [
+            201,
+            268
+          ],
+          "sockets": {},
+          "transparency": {
+            "mode": "source-alpha"
+          }
+        }
+      },
+      "anims": {
+        "idle": {
+          "frames": [
+            "idle"
+          ],
+          "loop": true,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "st_a": {
+          "frames": [
+            "st_a_start",
+            "st_a_active",
+            "st_a_recover"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 6
+            },
+            {
+              "frame": 1,
+              "ticks": 3
+            },
+            {
+              "frame": 2,
+              "ticks": 11
+            }
+          ]
+        },
+        "hit_stand": {
+          "frames": [
+            "hit_stand"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "crouch": {
+          "frames": [
+            "crouch"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "block_stand": {
+          "frames": [
+            "block_stand"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "block_crouch": {
+          "frames": [
+            "block_crouch"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "hit_crouch": {
+          "frames": [
+            "hit_crouch"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "jump_neutral": {
+          "frames": [
+            "jump_neutral"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "hit_air": {
+          "frames": [
+            "hit_air"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "knockdown": {
+          "frames": [
+            "knockdown"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        },
+        "getup": {
+          "frames": [
+            "getup"
+          ],
+          "loop": false,
+          "exposures": [
+            {
+              "frame": 0,
+              "ticks": 12
+            }
+          ]
+        }
+      }
+    }
+  }
+}

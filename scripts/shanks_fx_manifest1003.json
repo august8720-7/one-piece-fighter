@@ -1,0 +1,352 @@
+{
+  "schemaVersion": 2,
+  "catalogs": [
+    "scripts/roster_sources0929.json",
+    "scripts/roster_fx_sources1003.json"
+  ],
+  "maxCropEdgeAlpha": 4,
+  "maxTextureSize": 4096,
+  "characters": {
+    "shanks": {
+      "frames": {
+        "haki_wave": {
+          "source": "shanks_fx_1003",
+          "crop": [
+            468,
+            5,
+            390,
+            729
+          ]
+        },
+        "haki_impact": {
+          "source": "shanks_fx_1003",
+          "crop": [
+            363,
+            734,
+            528,
+            500
+          ]
+        },
+        "r_start": {
+          "source": "shanks_fx_rfgz_1003",
+          "crop": [
+            0,
+            0,
+            345,
+            360
+          ]
+        },
+        "r_live": {
+          "source": "shanks_fx_rfgz_1003",
+          "crop": [
+            345,
+            0,
+            379,
+            360
+          ]
+        },
+        "r_end": {
+          "source": "shanks_fx_rfgz_1003",
+          "crop": [
+            724,
+            0,
+            362,
+            360
+          ]
+        },
+        "f_start": {
+          "source": "shanks_fx_rfgz_1003",
+          "crop": [
+            0,
+            362,
+            340,
+            362
+          ]
+        },
+        "f_live": {
+          "source": "shanks_fx_rfgz_1003",
+          "crop": [
+            340,
+            362,
+            396,
+            362
+          ]
+        },
+        "f_end": {
+          "source": "shanks_fx_rfgz_1003",
+          "crop": [
+            736,
+            362,
+            350,
+            362
+          ]
+        },
+        "g_start": {
+          "source": "shanks_fx_rfgz_1003",
+          "crop": [
+            0,
+            724,
+            332,
+            362
+          ]
+        },
+        "g_live": {
+          "source": "shanks_fx_rfgz_1003",
+          "crop": [
+            332,
+            724,
+            402,
+            362
+          ]
+        },
+        "g_end": {
+          "source": "shanks_fx_rfgz_1003",
+          "crop": [
+            734,
+            724,
+            352,
+            362
+          ]
+        },
+        "z_start": {
+          "source": "shanks_fx_rfgz_1003",
+          "crop": [
+            0,
+            1086,
+            350,
+            362
+          ]
+        },
+        "z_live": {
+          "source": "shanks_fx_rfgz_1003",
+          "crop": [
+            350,
+            1086,
+            380,
+            362
+          ]
+        },
+        "z_end": {
+          "source": "shanks_fx_rfgz_1003",
+          "crop": [
+            730,
+            1086,
+            356,
+            362
+          ]
+        },
+        "x_start": {
+          "source": "shanks_fx_xcv_1003",
+          "crop": [
+            0,
+            0,
+            418,
+            418
+          ]
+        },
+        "x_live": {
+          "source": "shanks_fx_xcv_1003",
+          "crop": [
+            418,
+            0,
+            418,
+            418
+          ]
+        },
+        "x_end": {
+          "source": "shanks_fx_xcv_1003",
+          "crop": [
+            836,
+            0,
+            418,
+            418
+          ]
+        },
+        "v_start": {
+          "source": "shanks_fx_xcv_1003",
+          "crop": [
+            0,
+            418,
+            418,
+            418
+          ]
+        },
+        "v_live": {
+          "source": "shanks_fx_xcv_1003",
+          "crop": [
+            418,
+            418,
+            418,
+            418
+          ]
+        },
+        "v_end": {
+          "source": "shanks_fx_xcv_1003",
+          "crop": [
+            836,
+            418,
+            418,
+            418
+          ]
+        },
+        "c_horizontal": {
+          "source": "shanks_fx_xcv_1003",
+          "crop": [
+            0,
+            836,
+            418,
+            418
+          ]
+        },
+        "c_down": {
+          "source": "shanks_fx_xcv_1003",
+          "crop": [
+            418,
+            836,
+            418,
+            418
+          ]
+        },
+        "c_final": {
+          "source": "shanks_fx_xcv_1003",
+          "crop": [
+            836,
+            836,
+            418,
+            418
+          ]
+        }
+      },
+      "pages": {
+        "p0": [
+          "haki_wave",
+          "haki_impact"
+        ],
+        "p1": [
+          "r_start",
+          "r_live",
+          "r_end",
+          "f_start",
+          "f_live",
+          "f_end"
+        ],
+        "p2": [
+          "g_start",
+          "g_live",
+          "g_end",
+          "z_start",
+          "z_live",
+          "z_end"
+        ],
+        "p3": [
+          "x_start",
+          "x_live",
+          "x_end",
+          "v_start",
+          "v_live",
+          "v_end",
+          "c_horizontal",
+          "c_down",
+          "c_final"
+        ]
+      },
+      "animations": {
+        "shanks_rise": {
+          "frames": [
+            "r_live",
+            "r_end"
+          ],
+          "ticks": [
+            4,
+            2
+          ],
+          "loop": false
+        },
+        "shanks_thrust": {
+          "frames": [
+            "f_live",
+            "f_end"
+          ],
+          "ticks": [
+            3,
+            1
+          ],
+          "loop": false
+        },
+        "shanks_low": {
+          "frames": [
+            "g_live",
+            "g_end"
+          ],
+          "ticks": [
+            3,
+            2
+          ],
+          "loop": false
+        },
+        "shanks_dodge": {
+          "frames": [
+            "z_start",
+            "z_live",
+            "z_end"
+          ],
+          "ticks": [
+            5,
+            9,
+            15
+          ],
+          "loop": false
+        },
+        "shanks_divine": {
+          "frames": [
+            "x_live",
+            "x_end"
+          ],
+          "ticks": [
+            3,
+            2
+          ],
+          "loop": false
+        },
+        "shanks_finale": {
+          "frames": [
+            "v_live",
+            "v_end"
+          ],
+          "ticks": [
+            5,
+            2
+          ],
+          "loop": false
+        },
+        "shanks_emperor_first": {
+          "frames": [
+            "c_horizontal"
+          ],
+          "ticks": [
+            3
+          ],
+          "loop": false
+        },
+        "shanks_emperor_second": {
+          "frames": [
+            "c_down"
+          ],
+          "ticks": [
+            3
+          ],
+          "loop": false
+        },
+        "shanks_emperor_third": {
+          "frames": [
+            "c_final"
+          ],
+          "ticks": [
+            5
+          ],
+          "loop": false
+        }
+      }
+    }
+  }
+}

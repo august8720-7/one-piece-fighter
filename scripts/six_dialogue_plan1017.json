@@ -1,0 +1,385 @@
+{
+  "schemaVersion": 1,
+  "scope": "Meaningful select, first-match intro, signature skill and victory for six; Gear5 awakening/exit. Generic normal effort may remain nonverbal.",
+  "oldExactAudit": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/audio1017/native/20261017T032414960848Z",
+  "semantics": {
+    "luffy": {
+      "select": {
+        "reuse": "assets/audio/voice/luffy/daily-idle-1-0914.wav",
+        "heard": "よしやるか",
+        "translation": "好，开打吧！",
+        "evidenceResults": [
+          1,
+          2
+        ]
+      },
+      "intro": {
+        "reuse": "assets/audio/voice/luffy/daily-idle-1-0914.wav",
+        "heard": "よしやるか",
+        "translation": "好，开打吧！",
+        "evidenceResults": [
+          1,
+          2
+        ],
+        "existingButUntriggered": true
+      },
+      "signature": {
+        "moveId": "sp_gatling",
+        "requestedSupplement": "ゴムの連打！",
+        "identity": "New high/young Japanese preset supplement; never claim original actor or accepted timbre match."
+      },
+      "win": {
+        "reuse": "assets/audio/voice/luffy/candidate-review-win-0912.wav",
+        "heard": "ぶっ飛ばしてやった",
+        "translation": "把你打飞了！",
+        "evidenceResults": [
+          5,
+          6
+        ]
+      },
+      "g5_awakening": {
+        "requestedSupplement": "ギア、フィフス！",
+        "translation": "五档！"
+      },
+      "g5_exit": {
+        "requestedSupplement": "少し休むぞ。",
+        "translation": "先歇一下。"
+      }
+    },
+    "akainu": {
+      "select": {
+        "reuse": "assets/audio/voice/akainu/daily-idle-2-0914.wav",
+        "heard": "次はお前じゃ",
+        "translation": "下一个就是你。",
+        "evidenceResults": [
+          9,
+          10
+        ],
+        "note": "Current selected idle1 was ambiguously heard逃げ射撃; preserve that old file but do not certify its guessed wording."
+      },
+      "intro": {
+        "reuse": "assets/audio/voice/akainu/daily-idle-2-0914.wav",
+        "heard": "次はお前じゃ",
+        "translation": "下一个就是你。",
+        "evidenceResults": [
+          9,
+          10
+        ],
+        "existingButUntriggered": true
+      },
+      "signature": {
+        "moveId": "sp_daifunka",
+        "existingCandidate": "public/assets/audio/sources/voice-0922/candidate-09-akainu-cut-0922.wav",
+        "status": "needs-exact-native-content-and-quality-review"
+      },
+      "win": {
+        "reuse": "assets/audio/voice/akainu/candidate-review-win-0912.wav",
+        "heard": "敗北者が",
+        "translation": "败者……",
+        "evidenceResults": [
+          11,
+          12
+        ]
+      }
+    },
+    "labubu": {
+      "select": {
+        "reuse": "assets/audio/voice/labubu/select-0926.wav",
+        "heard": "嘿嘿，来追我呀！",
+        "language": "Chinese"
+      },
+      "intro": {
+        "reuse": "assets/audio/voice/labubu/idle-0927.mp3",
+        "heard": "快来陪我玩呀",
+        "language": "Chinese",
+        "existingButUntriggered": true
+      },
+      "signature": {
+        "moveId": "sp_leg_flip",
+        "existingCandidate": "public/assets/audio/sources/crossover-0925/labubu-attack-vox-0925.mp3",
+        "requestedTextOnlyNotHeard": "抓到你啦！",
+        "status": "retain-same-reference-derived-voice; needs-exact-native-review, do-not-replace-with-CustomVoice"
+      },
+      "win": {
+        "reuse": "assets/audio/voice/labubu/win-0927.mp3",
+        "heard": "我赢啦。",
+        "language": "Chinese"
+      }
+    },
+    "twinkle": {
+      "select": {
+        "reuse": "assets/audio/voice/twinkle/select-0926.mp3",
+        "heard": "一起闪闪发光吧。",
+        "language": "Chinese"
+      },
+      "intro": {
+        "reuse": "assets/audio/voice/twinkle/idle-0927.mp3",
+        "heard": "让星光陪你玩。",
+        "language": "Chinese",
+        "existingButUntriggered": true
+      },
+      "signature": {
+        "moveId": "sp_tiny_star",
+        "reuse": "assets/audio/voice/twinkle/attack-0927.mp3",
+        "heard": "星星，出击。",
+        "language": "Chinese",
+        "note": "Exact meaningful star attack phrase; explicit skill mapping rather than normal-hit exertion."
+      },
+      "win": {
+        "reuse": "assets/audio/voice/twinkle/win-0927.mp3",
+        "heard": "星星赢啦",
+        "language": "Chinese",
+        "timing": "1.944s preserved; scene trigger32 gives1.966667s window"
+      }
+    },
+    "aokiji": {
+      "select": {
+        "reuse": "assets/audio/voice/aokiji/select-qwen-japanese1013.wav",
+        "heard": "さあ始めようか",
+        "translation": "那么，开始吧。"
+      },
+      "intro": {
+        "reuse": "assets/audio/voice/aokiji/select-qwen-japanese1013.wav",
+        "heard": "さあ始めようか",
+        "translation": "那么，开始吧。",
+        "existingButUntriggered": true
+      },
+      "signature": {
+        "moveId": "ult_ice_age",
+        "requestedSupplement": "アイス・エイジ！",
+        "speaker": "Ryan",
+        "identity": "Retain established1013 synthetic profile; not original actor."
+      },
+      "win": {
+        "reuse": "assets/audio/voice/aokiji/win-qwen-atempo1p4-japanese1013.wav",
+        "heard": "少し冷静になれ",
+        "translation": "稍微冷静一点吧。"
+      }
+    },
+    "shanks": {
+      "select": {
+        "reuse": "assets/audio/voice/shanks/select-1003.wav",
+        "heard": "上がってこい",
+        "translation": "上来吧。"
+      },
+      "intro": {
+        "reuse": "assets/audio/voice/shanks/idle-qwen-japanese1013.wav",
+        "heard": "焦るなよ",
+        "translation": "别着急。",
+        "existingButUntriggered": true
+      },
+      "signature": {
+        "moveId": "sp_divine_departure",
+        "requestedSupplement": "かむさり！",
+        "speaker": "Uncle Fu",
+        "identity": "Retain established1013 synthetic profile; text kana fixes intended神避 reading without pretending original actor."
+      },
+      "win": {
+        "reuse": "assets/audio/voice/shanks/win-qwen-japanese1013.wav",
+        "heard": "また来いよ",
+        "translation": "下次再来吧。"
+      }
+    }
+  },
+  "generationPlans": {
+    "aokiji": {
+      "character": "aokiji",
+      "language": "Japanese",
+      "speaker": "Ryan",
+      "lines": [
+        {
+          "event": "ult_ice_age",
+          "text": "アイス・エイジ！",
+          "instruction": "日本語。落ち着いた低めの男性、余裕のあるクールな声。短く力を込めて技名を一息で、語尾を伸ばさない。指定された台詞のみ、音楽・笑い声・余分な言葉なし。"
+        }
+      ]
+    },
+    "shanks": {
+      "character": "shanks",
+      "language": "Japanese",
+      "speaker": "Uncle Fu",
+      "lines": [
+        {
+          "event": "sp_divine_departure",
+          "text": "かむさり！",
+          "instruction": "自然な日本語。落ち着いた成熟した男性、少しかすれた低めの声、余裕と力強さ。戦う瞬間の鋭い短い掛け声。一息で、語尾を伸ばさない。指定台詞のみ、音楽・効果音・余分な言葉なし。"
+        }
+      ]
+    },
+    "luffy": {
+      "character": "luffy",
+      "language": "Japanese",
+      "speaker": "Ono Anna",
+      "voiceIdentityMode": "synthetic-supplement-not-original-actor",
+      "note": "Original accepted Luffy actor clips remain unchanged. This young high Japanese preset is a review-only supplement; audible identity mismatch must not be silently adopted.",
+      "lines": [
+        {
+          "event": "sp_gatling",
+          "text": "ゴムの連打！",
+          "instruction": "日本語。少年漫画の若い主人公のような、明るく高めで少しざらついた元気な中高音。大人の低い声にしない。実在の声優の声を模倣しない。短く力強く一息で、語尾を伸ばさない。指定台詞のみ。"
+        },
+        {
+          "event": "g5_awakening",
+          "text": "ギア、フィフス！",
+          "instruction": "日本語。若く高めで明るい少年風、自由で楽しげな力強さ。大人の低音にしない。実在の声優の声を模倣しない。短く一息で、余分な笑い声や音楽なし。指定台詞のみ。"
+        },
+        {
+          "event": "g5_exit",
+          "text": "少し休むぞ。",
+          "instruction": "日本語。若く高めの少年風の声。疲れているが明るさを保ち、軽く息をつくように自然に短く言う。大人の低音にしない。実在声優の模倣や音楽なし。指定台詞のみ。"
+        }
+      ]
+    }
+  },
+  "runtimePolicy": "First-round scene prelude P1 thenP2 before unchanged60tick core intro; true skill start only; finish meaningful sentences against equal/lower priority, but hurt/KO may interrupt; never queue old dropped skill lines.",
+  "status": "explicit-plan-plus-old-native-review; new synthesis pending, no auto adoption",
+  "generationPlansAdditional": {
+    "luffy": {
+      "character": "luffy",
+      "language": "Japanese",
+      "speaker": "Ono Anna",
+      "voiceIdentityMode": "synthetic-supplement-not-original-actor",
+      "lines": [
+        {
+          "event": "st_c",
+          "text": "伸びろ！",
+          "instruction": "自然な日本語。若い少年風の明るく高めの少しざらついた声。大人の低音にしない。短く一息、実在声優を模倣せず指定台詞のみ。",
+          "maxDurationSeconds": 2.0
+        },
+        {
+          "event": "sp_rocket",
+          "text": "飛び込むぞ！",
+          "instruction": "自然な日本語。明るく高めの若い少年のような元気な声。突進する瞬間、短く力強く。実在声優を模倣せず指定台詞のみ。",
+          "maxDurationSeconds": 2.0
+        },
+        {
+          "event": "sp_balloon",
+          "text": "ゴム風船！",
+          "instruction": "自然な日本語。若く高めの元気な少年風。技名を歯切れよく一息で、語尾を伸ばさない。実在声優の模倣なし、指定台詞のみ。",
+          "maxDurationSeconds": 2.0
+        },
+        {
+          "event": "g5_awakening",
+          "text": "自由に戦うぞ！",
+          "instruction": "自然な日本語。若く高めの明るい少年風。自由を楽しんで力強く、しかし短く一息。大人の低音や実在声優の模倣なし、余分な笑いや言葉なし。",
+          "maxDurationSeconds": 2.4
+        }
+      ]
+    },
+    "akainu": {
+      "character": "akainu",
+      "language": "Japanese",
+      "speaker": "Uncle Fu",
+      "voiceIdentityMode": "synthetic-supplement-not-original-actor",
+      "lines": [
+        {
+          "event": "sp_inugami",
+          "text": "溶岩の牙！",
+          "instruction": "自然な日本語。重く低い、厳格な成熟男性、強い威圧感。技を放つ瞬間に短く鋭く、一息で。実在俳優の模倣なし。指定台詞のみ、繰り返さない。",
+          "maxDurationSeconds": 2.4
+        },
+        {
+          "event": "sp_meigou",
+          "text": "捕まえたぞ！",
+          "instruction": "自然な日本語。重く低い厳格な成熟男性、強い威圧感。相手を捕らえた瞬間、短く強く。実在俳優の模倣なし。指定台詞のみ、繰り返さない。",
+          "maxDurationSeconds": 2.4
+        },
+        {
+          "event": "ult_meigou_end",
+          "text": "焼き尽くす！",
+          "instruction": "自然な日本語。厳格で重く低い成熟男性。決め技として鋭く一息、語尾を伸ばさない。実在俳優の模倣なし。指定台詞のみ、音楽や余分な言葉なし。",
+          "maxDurationSeconds": 2.4
+        }
+      ]
+    },
+    "aokiji": {
+      "character": "aokiji",
+      "language": "Japanese",
+      "speaker": "Ryan",
+      "lines": [
+        {
+          "event": "ult_ice_age",
+          "text": "凍れ！",
+          "instruction": "自然な日本語。落ち着いた低めの男性。冷静な強さで「こおれ」の短い一言だけを鋭く言う。一息、1秒程度、繰り返さず、余分な音や音楽なし。",
+          "maxDurationSeconds": 2.0
+        }
+      ]
+    },
+    "shanks": {
+      "character": "shanks",
+      "language": "Japanese",
+      "speaker": "Uncle Fu",
+      "lines": [
+        {
+          "event": "ult_red_hair_finale",
+          "text": "これで終わりだ！",
+          "instruction": "自然な日本語。落ち着いた成熟男性、少しかすれた低めの余裕ある声。決めの一刀、短く一息で。語尾を伸ばさない。指定台詞だけ、余分な音や音楽なし。",
+          "maxDurationSeconds": 2.4
+        }
+      ]
+    }
+  },
+  "firstGenerationActual": {
+    "files": 5,
+    "aokiji": "25.04s timing rejected despite generic QA response; active to25.007625s, not silence; preserve original, remake short Japanese command",
+    "shanks": "0.88s カムサリ native content/quality passed",
+    "luffy": [
+      "1.28s ゴムの連打 native content/quality passed, continuity not certified",
+      "1.60s ギアフィフス interpreted yeah feels/English; wording uncertain, not adopted, remake clearer Japanese",
+      "1.44s 少し休むぞ native content/quality passed, continuity not certified"
+    ]
+  },
+  "generationPlansFinalShort": {
+    "luffy": {
+      "character": "luffy",
+      "language": "Japanese",
+      "speaker": "Ono Anna",
+      "voiceIdentityMode": "synthetic-supplement-not-original-actor",
+      "lines": [
+        {
+          "event": "sp_rocket",
+          "text": "飛ぶぞ！",
+          "instruction": "自然な日本語。若い少年風の明るく高めの声、勢いよく跳び込む瞬間。短い一言だけ、一息、語尾を伸ばさず、繰り返さない。大人低音や声優模倣、音楽なし。",
+          "maxDurationSeconds": 2.0
+        },
+        {
+          "event": "g5_awakening",
+          "text": "自由だ！",
+          "instruction": "自然な日本語。若く高めの少年風。楽しげで力強く「じゆうだ」の一言だけを一息で、伸ばさず、繰り返さない。実在声優の模倣なし。余分な笑いや音楽なし。",
+          "maxDurationSeconds": 2.0
+        },
+        {
+          "event": "ult_red_hawk",
+          "text": "燃える拳！",
+          "instruction": "自然な日本語。若い少年風、明るく高めで少しざらついた元気な声。決め技、短く力強い一息。語尾を伸ばさず、繰り返さない。実在声優の模倣や音楽なし。",
+          "maxDurationSeconds": 2.0
+        }
+      ]
+    },
+    "aokiji": {
+      "character": "aokiji",
+      "language": "Japanese",
+      "speaker": "Ryan",
+      "lines": [
+        {
+          "event": "ult_ice_age",
+          "text": "氷の力だ！",
+          "instruction": "自然な日本語。落ち着いた低めの男性声。冷静な強さで短い一文をはっきり一息で言う。繰り返さない、語尾を伸ばさない。指定した台詞だけ、余分な音や音楽なし。",
+          "maxDurationSeconds": 2.4
+        }
+      ]
+    }
+  },
+  "threeNamedCallsFollowup1017": {
+    "inputFolder": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\six-game1014\\candidate\\audio1017\\three-named-calls-20261017T081741Z",
+    "baseline": "baseline/20261017T081741-three-calls",
+    "exactFinalReview": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\six-game1014\\candidate\\audio1017\\three-named-calls-20261017T081741Z\\final-three-call-and-short-mix-review.json",
+    "generatedOriginal": 3,
+    "targetedKanaRepairs": 2,
+    "newAdopted": 1,
+    "newAdoptedMove": "luffy.g5_bounce_slam",
+    "aokijiAndAkainuOldMappingRetained": true,
+    "runtimeSha256": "53c5cf5dc4d3edf02dc392ee5e011625c35298dedd2b1aac1c11fc18626bb4af",
+    "mixStatus": "short and prior long native reviews remain inconclusive; final consolidated exact-clip/user listening pending"
+  }
+}

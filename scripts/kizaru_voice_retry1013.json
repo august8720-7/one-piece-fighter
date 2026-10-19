@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "characterId": "kizaru",
+  "date": "2026-10-13",
+  "status": "two-clarity-repairs-not-auditorily-accepted",
+  "provenance": "Original game dialogue, not anime quotation or actor imitation.",
+  "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "speaker": "Uncle Fu",
+  "language": "Japanese",
+  "reason": "Initial select passed native content/quality review; nonverbal effort ambiguous; hurt produced no usable completed native review. Replace only these two samples with clear short Japanese words. Do not regenerate select or the four untested event plans.",
+  "lines": [
+    {
+      "event": "effort",
+      "text": "そこだ。",
+      "kana": "そこだ。",
+      "meaningZh": "就是那里。",
+      "instruction": "中年男性の低めで少し鼻にかかった声。落ち着いた余裕を残しつつ、攻撃の瞬間に短く鋭く言い切る。自然で明瞭な日本語で一度だけ話す。追加の言葉、ため息、音楽、繰り返しなし。",
+      "sample": true
+    },
+    {
+      "event": "hurt",
+      "text": "痛っ！",
+      "kana": "いたっ！",
+      "meaningZh": "疼！（短促受击反应）",
+      "instruction": "同じ中年男性の低めの声。軽い打撃を受けた瞬間、思わず痛みを感じて「いたっ」と短く一度だけ発する。自然で明瞭な日本語。長い叫びにせず、追加の言葉、うめき声の繰り返し、音楽なし。",
+      "sample": true
+    }
+  ]
+}

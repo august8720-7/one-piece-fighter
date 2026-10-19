@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "batch": "pc-roster-0929",
+  "status": "shanks-base-candidate-awaiting-parent-normal-speed-review",
+  "sourceCatalog": "scripts/roster_pirate_sources0929.json",
+  "characterManifest": "scripts/roster_shanks_manifest0929.json",
+  "sourceKeys": ["shanks_locomotion_0929", "shanks_reactions_0929", "shanks_walk_repair_0929"],
+  "candidateOutput": "public/assets/characters/shanks/anime/",
+  "realIndependentCrops": 17,
+  "mappedFramesIncludingReverseWalkReuse": 21,
+  "animationEntries": 13,
+  "browser": {
+    "name": "Microsoft Edge",
+    "providerId": "1",
+    "tabId": "843471440",
+    "sessionUrl": "https://chatgpt.com/c/6abbd2b4-2644-83e8-ad51-9d1f0fd79722",
+    "handoffMarked": true,
+    "currentUi": "Generated image 4 viewer showing repaired walking sheet; close viewer to continue.",
+    "uiGenerationPolicy": "Use cua_repl documented APIs only; all runtime JS names start with pirateArtist. Never typeText multiline prompts. Check actual Latest and highest selected effort for each generation; exact image model remains undisclosed."
+  },
+  "preview": {
+    "url": "http://127.0.0.1:4290/",
+    "execSessionId": 90201,
+    "reportHashPrefix": "55c2fee5674a",
+    "command": "node scripts/previewRosterPoses0929.mjs --character shanks --port 4290",
+    "kind": "internal-pose-preview-not-gameplay-acceptance",
+    "parentRequestedSinglePreview": true
+  },
+  "knownReviewItems": [
+    "Parent approved adopting st_a as light sword thrust; parent owns actual new-candidate move rename and contact hitbox correction. Keep original damage34 and 5/3/10 timing.",
+    "Repaired walk uses four real independent drawings. Check normal-speed near/far leg alternation for single-leg skipping appearance before accepting.",
+    "Airborne virtual roots and getup blade tip relative to the floor still need runtime inspection.",
+    "Do not relax sampleMode/full-match capability gates; many states, remaining attacks, skills and audio are absent.",
+    "Shanks first source bytes matched a later normal in-app-browser download. Second and walk-repair sources were complete PNG bytes copied from preserved Edge temporary downloads, with recorded signature/IEND/decode/hash evidence; source receipts explicitly distinguish that from completed browser download UI."
+  ],
+  "preparedButNotSubmitted": [
+    "docs/assets/zoro-locomotion-prompt0929.txt",
+    "docs/assets/sanji-locomotion-prompt0929.txt",
+    "docs/assets/whitebeard-locomotion-prompt0929.txt",
+    "docs/assets/bigmom-locomotion-prompt0929.txt",
+    "docs/assets/kaido-locomotion-prompt0929.txt"
+  ],
+  "next": "Continue the remaining five characters after the parent reviews the Shanks normal-speed base sample; repair actual defects locally. Use separate official image conversations per character with the authorized mother reference and individual source records. Do not generate all skills before each character base sample is checked."
+}

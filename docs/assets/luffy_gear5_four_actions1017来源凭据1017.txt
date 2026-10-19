@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "luffy_gear5_four_actions1017",
+  "file": "public/assets/generated/source/luffy-gear5-four-actions1017.png",
+  "sha256": "c56bb922b5b913048cb615679bce6c54ee629caa5ec336e61a4107fd6a25bdb6",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方图像入口未公开具体图像型号；文字GPT-6与图像型号分别记录。",
+  "observedTextModelLabel": "GPT-6",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ad2e5aa-826c-83ee-81f8-a127ecb10905",
+  "observedCompletedAt": "2026-10-17T11:08:16+08:00",
+  "uiObservation": "1017通过官网images上传原五档母版并一次发送完整四动作提示词；实际选择GPT-6与极高第4/5项。回答已完成后downloadMedia取得RGBA原PNG并同SHA归档。观察时间为本轮重新核对实际已完成原件与下载的时刻，不是服务器生成时间。截图为同会话完成后再次展开模型菜单的现场。初稿步行重复近侧腿，尚未采用；待机/出拳/受击待正常速度样板。",
+  "prompt": {
+    "file": "docs/assets/luffy-gear5-four-actions-prompt1017.txt",
+    "sha256": "d3960e0df852850673b1794efd465858474c71cfa6b5ae80eaa21c1d5a5fe6cf"
+  },
+  "referenceSources": {
+    "master": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-17T03:11:24.726953+00:00",
+  "formId": "gear5",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/acceptance/art1017/four-actions-model1017.png",
+    "sha256": "6fe005faa275aa2eb9737d08d80491f16b0313144e11fb56e5a48647caaa9568"
+  },
+  "referenceFiles": {
+    "master": {
+      "file": "public/assets/generated/source/luffy-gear5-master1014.png",
+      "sha256": "194374edcdb1415c6c6c0cd65aa93a2b9cfe98a8bddeececc36fb56d082cb22a"
+    }
+  },
+  "originalPngSize": [
+    1448,
+    1086
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

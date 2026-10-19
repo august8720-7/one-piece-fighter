@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_normal_crheavy_1003",
+  "sourceSha256": "8209508865836bee3814ca3d8035e89970f17b6e74c424c14a4891e4dba95e76",
+  "status": "crouch-heavy-body-candidate-normal-speed-style-and-contact-pending",
+  "neutralVisibleAlpha8Bounds": [52, 3, 401, 390],
+  "neutralVisibleHeight": 387,
+  "referenceNeutralHeight": 380,
+  "unitScale": 0.9819121447028424,
+  "scaleBasis": "One page neutral visible alpha>=8 height387px; all six crouch-heavy poses uniformly use380/387 against original380px. No per-pose fitting.",
+  "frames": {
+    "cr_c_start_1003": {"source": "shanks_normal_crheavy_1003", "crop": [557, 145, 416, 251], "root": [295, 239], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[24, 234, 16, 17]]},
+    "cr_c_active_1003": {"source": "shanks_normal_crheavy_1003", "crop": [53, 375, 548, 437], "root": [201, 427], "sockets": {"weapon_grip": [379, 130], "weapon_tip": [541, 9]}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[0, 0, 350, 20], [525, 195, 23, 230]]},
+    "cr_c_recover_1003": {"source": "shanks_normal_crheavy_1003", "crop": [578, 570, 415, 245], "root": [303, 232], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "cr_d_start_1003": {"source": "shanks_normal_crheavy_1003", "crop": [24, 918, 405, 225], "root": [317, 213], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "cr_d_active_1003": {"source": "shanks_normal_crheavy_1003", "crop": [545, 914, 482, 229], "root": [200, 218], "sockets": {"striking_foot": [465, 108]}, "transparency": {"mode": "source-alpha"}},
+    "cr_d_recover_1003": {"source": "shanks_normal_crheavy_1003", "crop": [39, 1175, 397, 259], "root": [289, 249], "sockets": {}, "transparency": {"mode": "source-alpha"}}
+  },
+  "anims": {
+    "cr_c": {"frames": ["cr_c_start_1003", "cr_c_active_1003", "cr_c_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 9}, {"frame": 1, "ticks": 5}, {"frame": 2, "ticks": 22}]},
+    "cr_d": {"frames": ["cr_d_start_1003", "cr_d_active_1003", "cr_d_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 10}, {"frame": 1, "ticks": 4}, {"frame": 2, "ticks": 25}]}
+  },
+  "parentContactReview": {
+    "cr_c": {"approxWorldGrip": [43.23, -72.13], "approxWorldTip": [82.60, -101.53], "currentHitbox": [7, -92, 45, 72], "suggestedMeasuredHitbox": [36, -106, 51, 48], "preserve": "79 damage and9/5/22"},
+    "cr_d": {"approxWorldStrikingFoot": [64.37, -26.72], "currentHitbox": [7, -17, 57, 17], "suggestedMeasuredHitbox": [34, -33, 33, 23], "preserve": "70 damage and10/4/25, low guard/knockdown"},
+    "note": "Static endpoint suggestions only; parent owns move edits and real contacts."
+  },
+  "observations": ["Six genuine distinct low/upward-saber/low-kick/recovery drawings preserve one arm and full saber.", "This sheet renders hair and cloth pattern with slightly stronger linework than prior pages; normal-speed side-by-side style review is pending, not assumed accepted by atlas checks.", "No physics, hurtbox or damage change was made by the art producer."]
+}

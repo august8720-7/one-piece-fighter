@@ -1,0 +1,43 @@
+{
+  "status": "prepared-exact-selection-data-not-active-authoring",
+  "sourceKey": "aokiji_low_hold_front_joint3_1004",
+  "sourceFile": "public/assets/generated/source/roster-aokiji-low-hold-front-joint3-1004.png",
+  "sourceSha256": "5cc59be048e6d2cb4a5341f7c348638b848b06fd74f33fa722708495bfe48462",
+  "foregroundMask": {
+    "file": "public/assets/generated/source/roster-aokiji-low-hold-front-mask-1004.png",
+    "sha256": "b1d27644a1ee3bd8054dd8fef4c8abf731cee9052fb10a8db36e70b59e700c70",
+    "sourceSha256": "5cc59be048e6d2cb4a5341f7c348638b848b06fd74f33fa722708495bfe48462"
+  },
+  "crop": [
+    887,
+    0,
+    887,
+    887
+  ],
+  "root": [
+    466,
+    815
+  ],
+  "sockets": {
+    "grip": [
+      594,
+      714
+    ],
+    "near_palm": [
+      594,
+      714
+    ],
+    "far_palm": [
+      666,
+      677
+    ],
+    "diagnostic_C_cloth_region": [
+      644,
+      701
+    ]
+  },
+  "unitScale": 0.4951338199513382,
+  "scaleBasis": "Actual sheet standing alpha64H822 compared with established407; one source-wide scale, no per-pose fitting",
+  "foregroundNote": "Exact original near palm/fingers selection, far knuckles excluded; source RGBA reconstitutes exactly; cloak/grey pixels stay in body. Same crop/root/source hash. Not a new independent pose.",
+  "runtimeOrActiveAuthorOrDataChanged": false
+}

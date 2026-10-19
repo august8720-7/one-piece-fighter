@@ -1,0 +1,39 @@
+{
+  "characterId": "aokiji",
+  "image": "assets/characters/aokiji/anime/ui-roster-0929.png",
+  "sha256": "90326357e840d0e00de749198a870157b39bd557a10a8653d88194e0bc0a075c",
+  "width": 334,
+  "height": 508,
+  "frames": {
+    "body": {
+      "x": 0,
+      "y": 0,
+      "w": 334,
+      "h": 508
+    },
+    "portrait": {
+      "x": 180,
+      "y": 0,
+      "w": 130,
+      "h": 140
+    }
+  },
+  "source": {
+    "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+    "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8",
+    "crop": [
+      156,
+      0,
+      334,
+      508
+    ]
+  },
+  "enabled": true,
+  "reviewStatus": "static-shape-reviewed-local-candidate",
+  "processing": {
+    "scale": 1,
+    "method": "explicit mother crop; unchanged original RGBA",
+    "pixelsEqual": true,
+    "note": "Bottom at508 preserves both boots and excludes the next-row hair fringe. No battle sprite enlargement."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "characterId": "kizaru",
+  "sourceKey": "kizaru_walk_recovered_1003",
+  "sourceHash": "b9c40e81cf9ea2ffb95cd396499a73b7f7d38b8f869265e9e3c876718ea4b920",
+  "status": "not-adopted-as-continuous-gait",
+  "inspection": "Actual complete RGBA PNG viewed on white. Six distinct original cells exist, but contactA and contactC retain the same forward-leg contour and arm swing. Actual alternating near/far leg identity cannot be established from these poses. Two raised-leg cells also do not resolve the contact-phase identity.",
+  "kept": "Original download, project PNG, source receipt, full actual recovered prompt, UI screenshots, copy before/after hashes remain unchanged.",
+  "runtimeChange": "None. Thirteen existing adopted crops and eleven animations remain. Recovered cells are not counted as adopted continuous locomotion.",
+  "next": "Use existing abstract red-near/blue-far four-phase guide only as official-web pose reference, redraw the character joints and costume, then inspect the actual new PNG. No program mirror/rotation creates the missing leg phases."
+}

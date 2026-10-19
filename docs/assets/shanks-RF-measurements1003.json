@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "status": "static-measured-candidate-before-real-contact-review",
+  "sources": {
+    "shanks_r_rising_guard_1003": {"neutralVisibleAlpha8Bounds": [124, 18, 679, 511], "neutralVisibleHeight": 493, "referenceNeutralHeight": 380, "unitScale": 0.77079107505071, "scaleBasis": "Single fixed neutral visible height493px; all R poses use uniform380/493 versus the original380px reference. No per-pose fitting."},
+    "shanks_f_step_thrust_1003": {"neutralVisibleAlpha8Bounds": [78, 18, 646, 516], "neutralVisibleHeight": 498, "referenceNeutralHeight": 380, "unitScale": 0.7630522088353414, "scaleBasis": "Single fixed neutral visible height498px; all F poses use uniform380/498 versus the original380px reference. No per-pose fitting."}
+  },
+  "frames": {
+    "r_start_1003": {"source": "shanks_r_rising_guard_1003", "crop": [852, 125, 647, 385], "root": [276, 372], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "r_active_1003": {"source": "shanks_r_rising_guard_1003", "crop": [101, 427, 682, 587], "root": [329, 574], "sockets": {"weapon_grip": [487, 153], "weapon_tip": [671, 10]}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[0, 0, 520, 93], [520, 0, 78, 44]]},
+    "r_recover_1003": {"source": "shanks_r_rising_guard_1003", "crop": [831, 601, 600, 413], "root": [269, 399], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "f_start_1003": {"source": "shanks_f_step_thrust_1003", "crop": [845, 62, 670, 456], "root": [285, 444], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "f_active_1003": {"source": "shanks_f_step_thrust_1003", "crop": [20, 562, 945, 422], "root": [386, 409], "sockets": {"weapon_grip": [610, 91], "weapon_tip": [938, 88]}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[855, 138, 90, 284]]},
+    "f_recover_1003": {"source": "shanks_f_step_thrust_1003", "crop": [878, 540, 641, 451], "root": [257, 441], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[0, 92, 87, 33]]}
+  },
+  "anims": {
+    "sp_rising_guard": {"frames": ["r_start_1003", "r_active_1003", "r_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 8}, {"frame": 1, "ticks": 6}, {"frame": 2, "ticks": 31}]},
+    "sp_step_thrust": {"frames": ["f_start_1003", "f_active_1003", "f_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 10}, {"frame": 1, "ticks": 4}, {"frame": 2, "ticks": 29}]}
+  },
+  "parentContactReview": {
+    "r": {"worldGrip": [30.12, -80.27], "worldTip": [65.20, -107.54], "currentHitbox": [8, -116, 53, 90], "suggestedMeasuredHitbox": [25, -111, 43, 42], "reason": "Raised final saber lies in upper-right space, so the original box extends below the actual blade. A separately authored sweeping effect or contact calibration is required; static measurements do not prove a hit."},
+    "f": {"worldGrip": [42.28, -60.02], "worldTip": [104.19, -60.59], "currentHitbox": [19, -56, 72, 18], "suggestedMeasuredHitbox": [35, -64, 72, 15], "reason": "New real thrust is straight around y=-60, above the current box, and reaches x104. The source blade is intact. Keep damage95 and10/4/29 timing if parent adopts contact calibration."},
+    "status": "proposal-only-parent-owns-moves-and-real-game-contact"
+  },
+  "observations": ["All six adopted poses retain one right arm and a full closed saber tip.", "The F active crop crosses the nominal grid boundary; explicit disconnected-neighbor exclusions preserve the entire real thrust. No geometric transform is used.", "No skill FX or voice completion is claimed by these body crops."]
+}

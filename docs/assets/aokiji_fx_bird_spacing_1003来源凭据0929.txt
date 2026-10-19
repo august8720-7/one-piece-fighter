@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_fx_bird_spacing_1003",
+  "file": "public/assets/generated/source/roster-aokiji-fx-bird-spacing-1003.png",
+  "sha256": "23609680b477f7f4e53ce7fa5fdbf9f0f584fffcae726c68e20821f548f5a1d6",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "具体图像型号未公开，不根据文字选项推断。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ac0c9f8-7e10-83e8-a1ef-9dfed61cde74",
+  "observedCompletedAt": "2026-10-03T18:44:53.188+08:00",
+  "uiObservation": "同一极高会话只补两帧翼形与间距。最初blob预览natural尺寸1774x887，downloadMedia回执超时但完整RGBA PNG实际以UUID名落盘；随后最终编辑/原下载控件出现，实际查看器标题冰晶凤凰双姿态精灵图、img已生成图像3，再原生下载一次，最终PNG958724bytes与先前文件逐字节及SHA256完全一致。18:44:53是最终原图下载/截图复查时刻，不是生成服务器时刻；没有以预览独自作为原件。",
+  "prompt": {
+    "file": "docs/assets/aokiji-fx-bird-spacing-prompt1003.txt",
+    "sha256": "e9efa95939ef9c65892b200d31190812c6aa10ab3a90761b244ec5c40737c3d2"
+  },
+  "referenceSources": {},
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T10:47:50.414619+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/first-pair-1733-1003/aokiji-fx-bird-final-web-preview.jpg",
+    "sha256": "c47069e40871c1206aa1f0cbf81cd74a71a62bf7362206f8b569226714ec8be6"
+  },
+  "referenceFiles": {},
+  "originalPngSize": [
+    1774,
+    887
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_normal_airlight_1003",
+  "sourceSha256": "d9db444628aa66bafc51ac3f7d4549871b0959564a42cd83462f353840811fd3",
+  "status": "only-jb-adopted-ja-active-rejected-extra-arm",
+  "neutralVisibleAlpha8Bounds": [54, 8, 424, 406],
+  "neutralVisibleHeight": 398,
+  "referenceNeutralHeight": 380,
+  "unitScale": 0.9547738693467337,
+  "scaleBasis": "Neutral visible alpha>=8 height398px; all adopted j_b poses share380/398 versus original380px. No per-pose fitting.",
+  "frames": {
+    "j_b_start_1003": {"source": "shanks_normal_airlight_1003", "crop": [49, 749, 368, 326], "root": [257, 378], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[144, 0, 24, 10]]},
+    "j_b_active_1003": {"source": "shanks_normal_airlight_1003", "crop": [541, 773, 498, 325], "root": [283, 357], "sockets": {"striking_foot": [484, 128]}, "transparency": {"mode": "source-alpha"}},
+    "j_b_recover_1003": {"source": "shanks_normal_airlight_1003", "crop": [54, 1102, 359, 342], "root": [251, 385], "sockets": {}, "transparency": {"mode": "source-alpha"}}
+  },
+  "anims": {
+    "j_b": {"frames": ["j_b_start_1003", "j_b_active_1003", "j_b_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 6}, {"frame": 1, "ticks": 6}, {"frame": 2, "ticks": 9}]}
+  },
+  "parentContactReview": {"approxWorldStrikingFoot": [47.47, -54.07], "currentHitbox": [8, -34, 42, 29], "suggestedMeasuredHitbox": [30, -61, 21, 23], "note": "Static shoe endpoint only. Preserve38 damage and6/6/9; parent checks airborne roots and real contacts."},
+  "rejected": {"move": "j_a", "sourceActiveVisibleBounds": [53, 428, 514, 757], "reason": "The active pose holds the full saber below while another complete arm holds an additional hilt in front. Restored second arm violates single-arm identity. No j_a mapping and no three-phase completion claim from this source."}
+}

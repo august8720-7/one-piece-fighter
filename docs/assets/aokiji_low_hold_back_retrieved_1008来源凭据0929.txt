@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_low_hold_back_retrieved_1008",
+  "file": "public/assets/generated/source/roster-aokiji-independent-back-holding-1008.png",
+  "sha256": "45b28d32caa687992f9affefa52e0b52e6d2d15e9dfd3a5334242a5fca0e42b3",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "1004实际创建字段来自Edge单次发送JSON：最新、极高，prompt读回一致；具体图像后台型号未公开。1008只在Codex内置浏览器取回旧完成图，不用Space的Pro或新GPT-6菜单追改旧创建字段。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Microsoft Edge",
+  "sessionUrl": "https://chatgpt.com/c/6ac1c91d-9a4c-83ee-90f8-5e05fd1c1774",
+  "observedCompletedAt": "2026-10-08T12:24:13.145Z",
+  "uiObservation": "原海军代理1004在同fresh官方会话的实际img4编辑侧栏，434字独立backholding完整提示fill读回匹配后单次发送；本人1008读取aokiji-backholding-send-observation1004.json，确认Edge/latest/极高/readbackMatch/singleSend与实际prompt路径，model/draft/sent1004原截图及JSON均保留。root1008重新核对同会话已完成的第5图，通过官方文件菜单→Space libfile_8d1067dee0c4819183288832b87e556c→pageAssets.bundle导出对应原PNG，1项image/png、failures为空，没有重发或新生成。observedCompletedAt为1008实际完成复查截图采集时刻，不是服务器生成时刻；创建浏览器为Edge，本次取回者为Codex内置浏览器，Space模型不作创建依据。本助手已完整PNG签名/IEND/verify/RGBA解码、1039875字节、1774x887、真实alpha0..255，并先清单复制到source及D原件备份，SHA一致。独立后握已按真实站高824、鞋轴576/816，原像素近掌/前臂分层与LABUBU/路飞/赤犬双朝向静配，body+foreground逐字节重构。该登记只是来源与静态候选，不代表实机抓住/释放/墙角完成。",
+  "prompt": {
+    "file": "docs/assets/aokiji-low-hold-backholding-prompt1004.txt",
+    "sha256": "17a730c3097c9c84e1a6638ccd2bdf09ccc0b409e98c2cfdac9e575e6927e826"
+  },
+  "referenceSources": {
+    "aokiji_low_hold_front_joint3_1004": "5cc59be048e6d2cb4a5341f7c348638b848b06fd74f33fa722708495bfe48462"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-09T01:50:36.738878+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/backholding-browser1008/aokiji-back-original-space1008.png",
+    "sha256": "880d92a1d65cf3ade19e2c7c859af0dc51a73d6e181a33f7694838af9bf4e08a"
+  },
+  "referenceFiles": {
+    "aokiji_low_hold_front_joint3_1004": {
+      "file": "public/assets/generated/source/roster-aokiji-low-hold-front-joint3-1004.png",
+      "sha256": "5cc59be048e6d2cb4a5341f7c348638b848b06fd74f33fa722708495bfe48462"
+    }
+  },
+  "originalPngSize": [
+    1774,
+    887
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

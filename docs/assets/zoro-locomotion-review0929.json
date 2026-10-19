@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "characterId": "zoro",
+  "status": "corrected-base-candidate-awaiting-normal-speed-and-contact-review",
+  "sourceKey": "zoro_sword_repair_0929",
+  "sourceFile": "public/assets/generated/source/roster-zoro-sword-repair-0929.png",
+  "sourceSha256": "09fb1df4358b3f0046ca20c18eef1b0acf31fa7a6c650dce1b834907fb7d74c9",
+  "preservedRejectedSource": {
+    "key": "zoro_locomotion_0929",
+    "file": "public/assets/generated/source/roster-zoro-locomotion-0929.png",
+    "reason": "Three drawn swords plus three extra waist handles; not adopted."
+  },
+  "observations": [
+    "Corrected sheet visibly retains mouth-held blade and one blade in each hand, without the extra three waist grip handles.",
+    "The correction changed pose geometry, coat and blade direction beyond the requested waist areas. The whole corrected source is treated as a new candidate; no claim of a pixel-preserving local patch is made.",
+    "Nine real independent crops contain idle, four walking drawings, three attack phases and one standing hit reaction. Reverse walking reuses the same real four drawings.",
+    "Crop montage confirms full heads, hands, boots and blades without neighboring character fragments. Fine facial scar and earring details still depend on the actual render scale and should not be called comprehensively accepted.",
+    "No character registration, capability gate, old fighter data or battle core was changed."
+  ],
+  "calibration": {
+    "neutralAlpha8Bounds": [32, 21, 445, 400],
+    "neutralHeight": 379,
+    "targetWorldHeight": 94,
+    "characterScale": 0.49604221635883905,
+    "textureDensity": 2,
+    "sourceUnitScale": 1,
+    "perPoseScale": false
+  },
+  "attackGeometryForRuntimeReview": {
+    "moveId": "st_a",
+    "sourceRoot": [187, 1218],
+    "sourceGrip": [309, 958],
+    "sourceTip": [497, 936],
+    "note": "Actual blade extends beyond the original candidate attack box. Parent owns the true gameplay contact review; no damage, range or timing change was made by this asset task.",
+    "preservedTicks": [5, 3, 11]
+  },
+  "check": {
+    "command": "python scripts/build_anime_atlas.py zoro --manifest scripts/roster_zoro_manifest0929.json --check",
+    "passed": true,
+    "uniqueCrops": 9,
+    "mappedFramesWithReverseReuse": 13,
+    "wroteRuntimeAssets": false
+  },
+  "browser": {
+    "name": "Microsoft Edge",
+    "tabId": "843471440",
+    "sessionUrl": "https://chatgpt.com/c/6abbe218-2044-83e8-b500-931a2779e800",
+    "currentUi": "Corrected generated image 3 viewer; close viewer to continue."
+  },
+  "next": "Build a private basic-pose sample and review normal-speed walk, sword contact and facing. The second reaction sheet, remaining moves, skills and sounds are still absent."
+}

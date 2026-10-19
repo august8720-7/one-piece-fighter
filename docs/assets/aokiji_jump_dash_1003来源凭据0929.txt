@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_jump_dash_1003",
+  "file": "public/assets/generated/source/roster-aokiji-jump-dash-1003.png",
+  "sha256": "bc0bb4330b08cb57a4a83504aa0f7c7221866817d59403a063eb6ff9e554aed6",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方网页未公开具体图像型号，分别记录文字最新及极高，不推断2.5。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6abbd1ab-c850-83ee-be64-98d5e18d691c",
+  "observedCompletedAt": "2026-10-03T15:44:24+08:00",
+  "uiObservation": "本轮独立青雉会话核对最新选中及极高第4项，完整fill九格跳跃冲刺提示后单次发送，原会话实际成图；主代理实际看查看器九格/图5，下载未落盘；香克斯子任务另开同一已保存会话查看器图4单次下载取得原件，原画内容已双方看图核对。15:44:24为主代理检查已下载PNG完成的观察时刻，不是服务器生成时间。前冲三姿不是持续换腿循环，暂不登记dash能力。",
+  "prompt": {
+    "file": "docs/assets/aokiji-jump-dash-prompt1003.txt",
+    "sha256": "93899864b32861b668cbcba49e70de489289a7046b67fe8d819c74e46774b6f6"
+  },
+  "referenceSources": {
+    "marine_mother_0929": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-03T07:49:38.959158+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/shanks-completion-1003-1509/aokiji-download-assist-current-viewer.jpg",
+    "sha256": "3c1077a49aad278cecc4039a23827a7a3fa81ca658a4068e2956252d48cda38a"
+  },
+  "referenceFiles": {
+    "marine_mother_0929": {
+      "file": "public/assets/generated/source/roster-marine-mother-0929.png",
+      "sha256": "648a022bec348996125515246e824037836233f922eddc3d7bcd0a62687351d8"
+    }
+  },
+  "originalPngSize": [
+    1254,
+    1254
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

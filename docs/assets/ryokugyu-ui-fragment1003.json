@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "characters": {
+    "ryokugyu": {
+      "image": "public\\assets\\characters\\ryokugyu\\anime\\ui-roster-1003.png",
+      "sha256": "07770889b1a8fc585076f3998285604ca390273a3ef8ffb0eed5f0cd6b6773cd",
+      "width": 395,
+      "height": 422,
+      "frames": {
+        "body": {
+          "x": 0,
+          "y": 0,
+          "w": 395,
+          "h": 422
+        },
+        "portrait": {
+          "x": 145,
+          "y": 0,
+          "w": 155,
+          "h": 150
+        }
+      },
+      "source": {
+        "sourceKey": "ryokugyu_locomotion_0929",
+        "file": "public/assets/generated/source/roster-ryokugyu-locomotion-0929.png",
+        "sha256": "56f0d9e30aa939d51c75276b48a1048d4105237bc02a9be562386bee9a789d12",
+        "crop": [
+          20,
+          0,
+          395,
+          422
+        ]
+      },
+      "reviewStatus": "static-candidate-for-roster-preview-not-gameplay-acceptance",
+      "processing": {
+        "scale": 1,
+        "method": "explicit idle crop; original RGBA preserved",
+        "pixelsEqual": true
+      }
+    }
+  }
+}

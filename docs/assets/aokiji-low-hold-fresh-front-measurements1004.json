@@ -1,0 +1,115 @@
+{
+  "sourceKey": "aokiji_low_hold_front_fresh_1004",
+  "sourceHash": "6518a82260d7054597cf57b23c19b1fad8a9fd290323fa9d8643fda87472aa05",
+  "reviewDir": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/fresh-front-review1004",
+  "holdOffset": 30,
+  "scaleReference": {
+    "crop": [
+      0,
+      0,
+      887,
+      887
+    ],
+    "excludeRects": [],
+    "expectedHeight64": 790,
+    "referenceOnly": true,
+    "headAndBothSolesComplete": true
+  },
+  "holding": {
+    "throw_fwd": {
+      "crop": [
+        887,
+        0,
+        887,
+        887
+      ],
+      "excludeRects": [],
+      "root": [
+        470,
+        822
+      ],
+      "sockets": {
+        "grip": [
+          672,
+          731
+        ],
+        "near_grip": [
+          672,
+          731
+        ],
+        "far_grip": [
+          731,
+          714
+        ],
+        "near_palm": [
+          636,
+          731
+        ],
+        "far_palm": [
+          721,
+          686
+        ],
+        "sole_back": [
+          411,
+          817
+        ],
+        "sole_front": [
+          530,
+          812
+        ],
+        "knee_near": [
+          362,
+          599
+        ],
+        "knee_far": [
+          695,
+          601
+        ]
+      },
+      "rootBasis": "Actual rear shoe support centre411/front530, rounded midpoint470; floor822 from actual rear-shoe alpha16 boundary, not lower cape boundary823. Both shoes whole. Original887px cell hand opening landmarks approximate+/-3px; no root pulled to target. grip is only the nearer C-space, not a manufactured shared grip; far C-space is separately recorded."
+    }
+  },
+  "manualLandmarkTolerancePx": 3,
+  "targetWorldR": [
+    16.0327868852459,
+    -13.180327868852459
+  ],
+  "targetOriginalCellPx": [
+    596.6590163934426,
+    717.8754098360656
+  ],
+  "nearOpeningWorldR": [
+    25.569620253164558,
+    -11.518987341772153
+  ],
+  "farOpeningWorldR": [
+    33.037974683544306,
+    -13.670886075949369
+  ],
+  "openingCentreMidpointPx": [
+    701.5,
+    722.5
+  ],
+  "midpointIsActualSharedGrip": false,
+  "openingSeparationWorld": 7.772193130637343,
+  "nearOpeningDeltaWorld": [
+    9.536833367918657,
+    1.6613405270803057
+  ],
+  "nearOpeningTargetDistanceWorld": 9.680456757527828,
+  "shoeSupportCentreDistanceWorld": 15.063291139240507,
+  "staticDecision": "not-adopted-rightward-reach-and-no-clear-shared-grip",
+  "improvements": [
+    "actual-deep-squat",
+    "shoes-collected-under-body",
+    "hands-separated-from-own-front-shin",
+    "complete-main-alpha16-figure"
+  ],
+  "issues": [
+    "forearms-still-diagonal-right",
+    "near-C-space-and-far-C-space-differ",
+    "near-C-space-blue-sleeve-not-clear-transparent-ankle-hole",
+    "hands-still-right-of-canonical-ankle"
+  ],
+  "runtimeOrAuthoringOrRootChanged": false
+}

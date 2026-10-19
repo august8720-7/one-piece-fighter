@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "aokiji_low_hold_front_fresh_1004",
+  "file": "public/assets/generated/source/roster-aokiji-low-hold-front-fresh-1004.png",
+  "sha256": "6518a82260d7054597cf57b23c19b1fad8a9fd290323fa9d8643fda87472aa05",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "root在新独立青雉官方会话实际核验最新与极高；model/draft/completed截图已保存，具体图像后台型号未公开，不记2.5。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ac1c91d-9a4c-83ee-90f8-5e05fd1c1774",
+  "observedCompletedAt": "2026-10-04T11:37:42.680726+08:00",
+  "uiObservation": "root使用新的独立官方会话，仅附完整已采用青雉站姿与正确compact30关节指南，按本助手已准备的两格短提示发送，未附低握失败图。现场最新/极高证据和完整draft/完成查看器截图在acceptance/aokiji-low-hold1004。原图完成后通过同一官方Space文件https://chatgpt.com/space/file/libfile_65c5006d75e88191bcbe134e078e6cd1，使用支持的pageAssets导出已显示PNG；原manifest只有1项image/png、failures为空，不重发不换站，空间侧栏型号不作生成依据。本助手实际看原PNG，两格完整青雉，第二格深蹲和手腿分离确有改善；PNG签名/IEND/Pillowverify/全RGBAdecode/1774x887真实alpha0..255/重复稳定原字节均通过，先清单复制原件、manifest和旧来源表再SHA一致。完成时间取本次完成复核截图，不是服务器首次生成。来源保全不代表握位/美术或实机验收通过，尚未改runtime或作者映射。",
+  "prompt": {
+    "file": "docs/assets/aokiji-low-hold-fresh-front-prompt1004.txt",
+    "sha256": "8436f954d08db8298b84686ec76e5428b79b8a8d9ba4eeb648f51110304337fc"
+  },
+  "referenceSources": {
+    "aokiji_blow_throws_1003": "a3ebd0fbd0f7ca0541dd92932a899c13d39cfbb508fcc31f4a866edaf7f5fca3"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-04T03:49:06.464834+00:00",
+  "screenshot": {
+    "file": "D:/one-piece-fighter-crossover-0922/roster-0929/acceptance/aokiji-low-hold1004/aokiji-fresh-front-completed1004.jpg",
+    "sha256": "864e406c09777b9b599ee18a5100b30e1d2c12d815e0c8b13aaf39979c4778e5"
+  },
+  "referenceFiles": {
+    "aokiji_blow_throws_1003": {
+      "file": "public/assets/generated/source/roster-aokiji-blow-throws-1003.png",
+      "sha256": "a3ebd0fbd0f7ca0541dd92932a899c13d39cfbb508fcc31f4a866edaf7f5fca3"
+    }
+  },
+  "originalPngSize": [
+    1774,
+    887
+  ],
+  "timeMeaning": "actual observed completed result; not server/first generation time; a completion recheck is identified in uiObservation",
+  "acceptanceMeaning": "source observation receipt only; not image-model identification or visual acceptance"
+}

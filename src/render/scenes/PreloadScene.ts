@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { characters } from '@characters/index';
-import { loadAnimeCharacters, loadAnimeInterfaces, loadCharacterAtlases, loadPresentationAssets, releaseUnusedFightAssets, type AnimeLoadResult } from '../assets';
+import { loadAnimeCharacters, loadAnimeCharacterForms, loadAnimeInterfaces, loadCharacterAtlases, loadPresentationAssets, releaseUnusedFightAssets, type AnimeLoadResult } from '../assets';
 import { sfx } from '../../audio/Sfx';
 import { SCREEN_H, SCREEN_W, font, ui } from '../screen';
 import { UI } from '../ui/MenuList';
@@ -58,8 +58,18 @@ export class PreloadScene extends Phaser.Scene {
       : data.destination ? Object.keys(characters) : [data.p1, data.p2];
     if (!menu) releaseUnusedFightAssets(this, ids);
     const loadAudio = () => menu ? audio.preloadMenu() : audio.preload(ids);
+    const loadCharacters = async () => {
+      if (menu) return loadAnimeInterfaces(this, ids, downloads);
+      if (profile.art !== 'anime') return loadCharacterAtlases(this, ids);
+      const base = await loadAnimeCharacters(this, ids, downloads, profile.scope === 'full');
+      // A scene that was replaced while base art was loading must not start a new form request.
+      if (!active() || !base.ok || profile.scope !== 'full' || !ids.includes('luffy')) return base;
+      const form = await loadAnimeCharacterForms(this, ids, downloads);
+      return { ...base, ok: base.ok && form.ok, assets: { ...base.assets, ...form.assets },
+        errors: { ...base.errors, ...form.errors }, failures: [...base.failures, ...form.failures] };
+    };
     void Promise.all([
-      menu ? loadAnimeInterfaces(this, ids, downloads) : profile.art === 'anime' ? loadAnimeCharacters(this, ids, downloads) : loadCharacterAtlases(this, ids),
+      loadCharacters(),
       loadPresentationAssets(this, downloads, menu ? 'menu' : 'fight', menu ? [] : ids),
       data.retryAudio ? audio.retryFailed().then(loadAudio) : loadAudio(),
     ]).then(([characterResult, presentationAssets, audioResult]) => {
@@ -114,12 +124,18 @@ export class PreloadScene extends Phaser.Scene {
       const text = this.add.text(ui(x), ui(350), label, { fontFamily: UI.font, fontSize: font(18), color: UI.title, backgroundColor: '#20314d', padding: { x: ui(16), y: ui(12) } }).setOrigin(0.5).setInteractive({ useHandCursor: true });
       text.once('pointerdown', action);
     };
-    button(320, '重新载入', () => {
+    button(220, '重新载入', () => {
       const retry = { ...this.data_ };
       delete retry.failure;
       this.scene.restart({ ...retry, retryAudio: true });
     });
-    button(625, '主动进入旧版', () => {
+    button(480, '返回选人', () => {
+      const selection = { ...this.data_, ...profile, destination: 'CharacterSelect' as const };
+      delete selection.failure; delete selection.retryAudio; delete selection.rolePractice;
+      // Load only menu dependencies: never retry the failed fight/form implicitly.
+      this.scene.restart(selection);
+    });
+    button(740, '主动进入旧版', () => {
       const data = { ...this.data_ };
       delete data.failure;
       const legacy = adoptPresentation(this.registry, legacyPresentation(profile));

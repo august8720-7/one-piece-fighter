@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "sourceKey": "shanks_normal_airheavy_1003",
+  "sourceSha256": "e8626138ae37a44806af972802aa1ed16ebe945fc615d9fbe7f935a13c00e41a",
+  "status": "air-heavy-bodies-before-real-root-contact-review",
+  "neutralVisibleAlpha8Bounds": [56, 5, 415, 400],
+  "neutralVisibleHeight": 395,
+  "referenceNeutralHeight": 380,
+  "unitScale": 0.9620253164556962,
+  "scaleBasis": "Page neutral visible alpha>=8 height395px; all six air-heavy poses share380/395 versus original380px. Airborne roots use the neutral virtual fully extended foot baseline, not per-pose size fitting.",
+  "frames": {
+    "j_c_start_1003": {"source": "shanks_normal_airheavy_1003", "crop": [550, 59, 352, 305], "root": [249, 341], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "j_c_active_1003": {"source": "shanks_normal_airheavy_1003", "crop": [47, 428, 568, 303], "root": [262, 334], "sockets": {"weapon_grip": [390, 114], "weapon_tip": [560, 164]}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[492, 181, 76, 122], [551, 96, 17, 47]]},
+    "j_c_recover_1003": {"source": "shanks_normal_airheavy_1003", "crop": [539, 449, 382, 277], "root": [242, 313], "sockets": {}, "transparency": {"mode": "source-alpha"}, "excludeRects": [[0, 121, 73, 28]]},
+    "j_d_start_1003": {"source": "shanks_normal_airheavy_1003", "crop": [46, 732, 357, 338], "root": [236, 392], "sockets": {}, "transparency": {"mode": "source-alpha"}},
+    "j_d_active_1003": {"source": "shanks_normal_airheavy_1003", "crop": [519, 768, 541, 301], "root": [290, 356], "sockets": {"striking_foot": [523, 108]}, "transparency": {"mode": "source-alpha"}},
+    "j_d_recover_1003": {"source": "shanks_normal_airheavy_1003", "crop": [41, 1082, 403, 352], "root": [235, 404], "sockets": {}, "transparency": {"mode": "source-alpha"}}
+  },
+  "anims": {
+    "j_c": {"frames": ["j_c_start_1003", "j_c_active_1003", "j_c_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 9}, {"frame": 1, "ticks": 5}, {"frame": 2, "ticks": 12}]},
+    "j_d": {"frames": ["j_d_start_1003", "j_d_active_1003", "j_d_recover_1003"], "loop": false, "exposures": [{"frame": 0, "ticks": 10}, {"frame": 1, "ticks": 6}, {"frame": 2, "ticks": 13}]}
+  },
+  "parentContactReview": {
+    "j_c": {"approxWorldGrip": [30.46, -52.35], "approxWorldTip": [70.92, -40.46], "currentHitbox": [9, -65, 65, 46], "note": "Actual saber falls inside the current box. Real airborne roots and both-facing contact still require review."},
+    "j_d": {"approxWorldStrikingFoot": [55.45, -59.02], "currentHitbox": [9, -38, 56, 33], "suggestedMeasuredHitbox": [34, -64, 26, 25], "preserve": "73 damage and10/6/13"},
+    "note": "Static endpoint proposals only; no core/def edit by the art producer."
+  },
+  "observations": ["Six actual air poses preserve one right arm with a full saber and complete shoes; no second hilt/arm as in the rejected j_a page.", "Paper box mismatch for j_d is marked separately from source/atlas checks, not reported as a verified hit."]
+}

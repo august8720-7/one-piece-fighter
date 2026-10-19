@@ -1,0 +1,56 @@
+{
+  "file": "public/assets/generated/source/roster-shanks-fresh-front-green-repair-1004.png",
+  "sha256": "5736bf68bc96ed65519e3f871d143e82982b4ae551a2b34c77eed10fb8df3272",
+  "provider": "chatgpt-web",
+  "model": "unverified",
+  "workflowDecision": "pc-roster-0929",
+  "observedImageModel": null,
+  "imageModelDisclosure": "exact-model-unavailable",
+  "modelUnavailableStatement": "官方页面未公开具体图像型号，记unverified。",
+  "observedTextModelLabel": "最新",
+  "observedReasoningEffort": "极高",
+  "entryUrl": "https://chatgpt.com/images/",
+  "entryTitle": "ChatGPT",
+  "browserLabel": "Codex内置浏览器",
+  "sessionUrl": "https://chatgpt.com/c/6ac1cc86-9358-83ee-8a0c-ecf6a8e5e050",
+  "observedCompletedAt": "2026-10-04T12:47:10.946788+08:00",
+  "uiObservation": "root单次提交green局部提示，档位和完整draft证据由root保存。本素材执行者接手后IAB实见第2图及图片预览标题，菜单在空间中打开；pageAssets只导实际原图file libfile_33554d1a9d508191813827923c27eb4b。PNG签名/IEND/尺寸/全解码/alpha/复制SHA核对。来源时刻为真实原图context截图mtime，不称服务器生成时间。空间侧栏默认中未使用，不把它作为生成档位。掌指C中披风通过已有原像素前景分层处理；source/prepared回合RGBA相等。held_leg_flip六静态配对通过，generic诊断另列失败；未提前登记运行/selector。",
+  "prompt": {
+    "file": "docs/assets/shanks-fresh-front-green-contact-repair-prompt1004.txt",
+    "sha256": "c80bc69b28518350c9a0403f9063fd14d8541b592c7ea88db630ddaec493b20b"
+  },
+  "referenceSources": {
+    "fresh_front_hold_1004": "1458dfaacce84b6d2f88904984fa5090cb0ada786528477ae03fc641e31c0d59",
+    "green_full_guide1004": "509dc3e243cb2fd76928fa871dcc77afa0312953b340ac16ed7fec1d4b3cd8a0"
+  },
+  "unitScale": 1,
+  "recordedAt": "2026-10-04T13:16:43.739481+08:00",
+  "staticForegroundEvidence": {
+    "file": "docs/assets/shanks-green-foreground-static1004.json",
+    "sha256": "a8c56a6464444855a15db3d5b6ce7003be86ce2b2bf579735a0a0510a64e634a"
+  },
+  "reviewStatus": "foreground-static-held-contract-reviewed-not-runtime-adopted",
+  "runtimeAdopted": false,
+  "screenshot": {
+    "file": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\first-pair-independent-shanks-1004-081851\\shanks-green-repair-space-context1004.jpg",
+    "sha256": "ba654d2aec0fbfdb9ae8966af651dead3f3be95df7ca36c4baec118d6dba8896"
+  },
+  "schemaVersion": 1,
+  "sourceKey": "shanks_fresh_front_green_repair_1004",
+  "referenceFiles": {
+    "fresh_front_hold_1004": {
+      "file": "public/assets/generated/source/roster-shanks-fresh-front-hold-1004.png",
+      "kind": "actual-generated-source",
+      "sha256": "1458dfaacce84b6d2f88904984fa5090cb0ada786528477ae03fc641e31c0d59"
+    },
+    "green_full_guide1004": {
+      "file": "D:/one-piece-fighter-crossover-0922/roster-0929/reference/shanks-low-hold-1003/shanks-fresh-front-green-ankle-full-guide1004.png",
+      "kind": "reference-guide-not-runtime",
+      "sha256": "509dc3e243cb2fd76928fa871dcc77afa0312953b340ac16ed7fec1d4b3cd8a0"
+    }
+  },
+  "timeMeaning": "actual observed completed result as already recorded; not server generation time",
+  "acceptanceMeaning": "source observation receipt; no image-model identification or complete-role acceptance",
+  "canonicalizedAt": "2026-10-04T13:49:25.693549+08:00",
+  "priorProsePreservedIn": "D:\\one-piece-fighter-crossover-0922\\roster-0929\\acceptance\\first-pair-independent-shanks-1004-081851\\source-receipts-canonical1004-134925"
+}
