@@ -1,0 +1,117 @@
+{
+  "frames": {
+    "ice_lance": {
+      "frame": {
+        "x": 2,
+        "y": 735,
+        "w": 490,
+        "h": 184
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 490,
+        "h": 184
+      },
+      "sourceSize": {
+        "w": 490,
+        "h": 184
+      }
+    },
+    "ice_impact": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 344,
+        "h": 364
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 344,
+        "h": 364
+      },
+      "sourceSize": {
+        "w": 344,
+        "h": 364
+      }
+    },
+    "spike_start": {
+      "frame": {
+        "x": 368,
+        "y": 370,
+        "w": 362,
+        "h": 361
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 362,
+        "h": 361
+      },
+      "sourceSize": {
+        "w": 362,
+        "h": 361
+      }
+    },
+    "spike_live": {
+      "frame": {
+        "x": 2,
+        "y": 370,
+        "w": 362,
+        "h": 361
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 362,
+        "h": 361
+      },
+      "sourceSize": {
+        "w": 362,
+        "h": 361
+      }
+    },
+    "spike_break": {
+      "frame": {
+        "x": 350,
+        "y": 2,
+        "w": 362,
+        "h": 361
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 362,
+        "h": 361
+      },
+      "sourceSize": {
+        "w": 362,
+        "h": 361
+      }
+    }
+  },
+  "meta": {
+    "image": "atlas.png",
+    "size": {
+      "w": 1024,
+      "h": 1024
+    },
+    "scale": "1",
+    "manifestSha256": "ff6f773d6f98dd55ae03ac2775d53beed81fb72ea0b0da342d23d3125e742575",
+    "sourceHashes": {
+      "aokiji_fx_projectiles_1003": "44258570edac6d9efc33674b9162b5371738e6a85cb1dd77053ec438db40677d",
+      "aokiji_qe_1003": "179770da1175ba66bfeab89c885dea82f1d1865d06db8fa7293f595cf2294973"
+    }
+  }
+}

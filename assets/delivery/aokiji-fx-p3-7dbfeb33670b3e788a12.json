@@ -1,0 +1,56 @@
+{
+  "frames": {
+    "bird_up": {
+      "frame": {
+        "x": 893,
+        "y": 2,
+        "w": 887,
+        "h": 887
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 887,
+        "h": 887
+      },
+      "sourceSize": {
+        "w": 887,
+        "h": 887
+      }
+    },
+    "bird_down": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 887,
+        "h": 887
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 887,
+        "h": 887
+      },
+      "sourceSize": {
+        "w": 887,
+        "h": 887
+      }
+    }
+  },
+  "meta": {
+    "image": "atlas-p3.png",
+    "size": {
+      "w": 2048,
+      "h": 1024
+    },
+    "scale": "1",
+    "manifestSha256": "ff6f773d6f98dd55ae03ac2775d53beed81fb72ea0b0da342d23d3125e742575",
+    "sourceHashes": {
+      "aokiji_fx_bird_spacing_1003": "23609680b477f7f4e53ce7fa5fdbf9f0f584fffcae726c68e20821f548f5a1d6"
+    }
+  }
+}

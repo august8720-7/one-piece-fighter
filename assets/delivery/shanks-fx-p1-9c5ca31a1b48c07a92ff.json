@@ -1,0 +1,136 @@
+{
+  "frames": {
+    "r_start": {
+      "frame": {
+        "x": 368,
+        "y": 734,
+        "w": 345,
+        "h": 360
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 345,
+        "h": 360
+      },
+      "sourceSize": {
+        "w": 345,
+        "h": 360
+      }
+    },
+    "r_live": {
+      "frame": {
+        "x": 346,
+        "y": 368,
+        "w": 379,
+        "h": 360
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 379,
+        "h": 360
+      },
+      "sourceSize": {
+        "w": 379,
+        "h": 360
+      }
+    },
+    "r_end": {
+      "frame": {
+        "x": 2,
+        "y": 734,
+        "w": 362,
+        "h": 360
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 362,
+        "h": 360
+      },
+      "sourceSize": {
+        "w": 362,
+        "h": 360
+      }
+    },
+    "f_start": {
+      "frame": {
+        "x": 2,
+        "y": 368,
+        "w": 340,
+        "h": 362
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 340,
+        "h": 362
+      },
+      "sourceSize": {
+        "w": 340,
+        "h": 362
+      }
+    },
+    "f_live": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 396,
+        "h": 362
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 396,
+        "h": 362
+      },
+      "sourceSize": {
+        "w": 396,
+        "h": 362
+      }
+    },
+    "f_end": {
+      "frame": {
+        "x": 402,
+        "y": 2,
+        "w": 350,
+        "h": 362
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 350,
+        "h": 362
+      },
+      "sourceSize": {
+        "w": 350,
+        "h": 362
+      }
+    }
+  },
+  "meta": {
+    "image": "atlas-p1.png",
+    "size": {
+      "w": 1024,
+      "h": 2048
+    },
+    "scale": "1",
+    "manifestSha256": "9c32b84dd84680b683d356cf7acf68005a29dba660e1509da89bbc4dc0d82ec1",
+    "sourceHashes": {
+      "shanks_fx_rfgz_1003": "842f2f3fbfdc0d9020a4a2856c70a564dabd4b40e3a8ccef664b5f4f47bd26d6"
+    }
+  }
+}

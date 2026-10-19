@@ -1,0 +1,156 @@
+{
+  "frames": {
+    "mirror_start": {
+      "frame": {
+        "x": 723,
+        "y": 382,
+        "w": 244,
+        "h": 349
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 244,
+        "h": 349
+      },
+      "sourceSize": {
+        "w": 244,
+        "h": 349
+      }
+    },
+    "mirror_live": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 245,
+        "h": 376
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 245,
+        "h": 376
+      },
+      "sourceSize": {
+        "w": 245,
+        "h": 376
+      }
+    },
+    "mirror_break": {
+      "frame": {
+        "x": 251,
+        "y": 2,
+        "w": 320,
+        "h": 369
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 369
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 369
+      }
+    },
+    "bird_break": {
+      "frame": {
+        "x": 2,
+        "y": 740,
+        "w": 360,
+        "h": 348
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 348
+      },
+      "sourceSize": {
+        "w": 360,
+        "h": 348
+      }
+    },
+    "vapor_start": {
+      "frame": {
+        "x": 2,
+        "y": 382,
+        "w": 362,
+        "h": 354
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 362,
+        "h": 354
+      },
+      "sourceSize": {
+        "w": 362,
+        "h": 354
+      }
+    },
+    "vapor_live": {
+      "frame": {
+        "x": 575,
+        "y": 2,
+        "w": 372,
+        "h": 354
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 372,
+        "h": 354
+      },
+      "sourceSize": {
+        "w": 372,
+        "h": 354
+      }
+    },
+    "vapor_end": {
+      "frame": {
+        "x": 368,
+        "y": 382,
+        "w": 351,
+        "h": 354
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 351,
+        "h": 354
+      },
+      "sourceSize": {
+        "w": 351,
+        "h": 354
+      }
+    }
+  },
+  "meta": {
+    "image": "atlas-p1.png",
+    "size": {
+      "w": 1024,
+      "h": 2048
+    },
+    "scale": "1",
+    "manifestSha256": "ff6f773d6f98dd55ae03ac2775d53beed81fb72ea0b0da342d23d3125e742575",
+    "sourceHashes": {
+      "aokiji_fx_projectiles_1003": "44258570edac6d9efc33674b9162b5371738e6a85cb1dd77053ec438db40677d"
+    }
+  }
+}

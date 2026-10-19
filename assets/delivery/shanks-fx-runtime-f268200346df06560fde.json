@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "characterId": "shanks",
+  "pages": [
+    {
+      "id": "p0",
+      "image": "atlas.png",
+      "data": "atlas.json",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "p1",
+      "image": "atlas-p1.png",
+      "data": "atlas-p1.json",
+      "width": 1024,
+      "height": 2048
+    },
+    {
+      "id": "p2",
+      "image": "atlas-p2.png",
+      "data": "atlas-p2.json",
+      "width": 1024,
+      "height": 2048
+    },
+    {
+      "id": "p3",
+      "image": "atlas-p3.png",
+      "data": "atlas-p3.json",
+      "width": 2048,
+      "height": 2048
+    }
+  ],
+  "framePages": {
+    "haki_wave": "p0",
+    "haki_impact": "p0",
+    "r_start": "p1",
+    "r_live": "p1",
+    "r_end": "p1",
+    "f_start": "p1",
+    "f_live": "p1",
+    "f_end": "p1",
+    "g_start": "p2",
+    "g_live": "p2",
+    "g_end": "p2",
+    "z_start": "p2",
+    "z_live": "p2",
+    "z_end": "p2",
+    "x_start": "p3",
+    "x_live": "p3",
+    "x_end": "p3",
+    "v_start": "p3",
+    "v_live": "p3",
+    "v_end": "p3",
+    "c_horizontal": "p3",
+    "c_down": "p3",
+    "c_final": "p3"
+  },
+  "anims": {
+    "shanks_rise": {
+      "frames": [
+        "r_live",
+        "r_end"
+      ],
+      "ticks": [
+        4,
+        2
+      ],
+      "loop": false
+    },
+    "shanks_thrust": {
+      "frames": [
+        "f_live",
+        "f_end"
+      ],
+      "ticks": [
+        3,
+        1
+      ],
+      "loop": false
+    },
+    "shanks_low": {
+      "frames": [
+        "g_live",
+        "g_end"
+      ],
+      "ticks": [
+        3,
+        2
+      ],
+      "loop": false
+    },
+    "shanks_dodge": {
+      "frames": [
+        "z_start",
+        "z_live",
+        "z_end"
+      ],
+      "ticks": [
+        5,
+        9,
+        15
+      ],
+      "loop": false
+    },
+    "shanks_divine": {
+      "frames": [
+        "x_live",
+        "x_end"
+      ],
+      "ticks": [
+        3,
+        2
+      ],
+      "loop": false
+    },
+    "shanks_finale": {
+      "frames": [
+        "v_live",
+        "v_end"
+      ],
+      "ticks": [
+        5,
+        2
+      ],
+      "loop": false
+    },
+    "shanks_emperor_first": {
+      "frames": [
+        "c_horizontal"
+      ],
+      "ticks": [
+        3
+      ],
+      "loop": false
+    },
+    "shanks_emperor_second": {
+      "frames": [
+        "c_down"
+      ],
+      "ticks": [
+        3
+      ],
+      "loop": false
+    },
+    "shanks_emperor_third": {
+      "frames": [
+        "c_final"
+      ],
+      "ticks": [
+        5
+      ],
+      "loop": false
+    }
+  },
+  "manifestSha256": "9c32b84dd84680b683d356cf7acf68005a29dba660e1509da89bbc4dc0d82ec1"
+}

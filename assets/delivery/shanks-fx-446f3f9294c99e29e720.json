@@ -1,0 +1,56 @@
+{
+  "frames": {
+    "haki_wave": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 390,
+        "h": 729
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 390,
+        "h": 729
+      },
+      "sourceSize": {
+        "w": 390,
+        "h": 729
+      }
+    },
+    "haki_impact": {
+      "frame": {
+        "x": 396,
+        "y": 2,
+        "w": 528,
+        "h": 500
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 528,
+        "h": 500
+      },
+      "sourceSize": {
+        "w": 528,
+        "h": 500
+      }
+    }
+  },
+  "meta": {
+    "image": "atlas.png",
+    "size": {
+      "w": 1024,
+      "h": 1024
+    },
+    "scale": "1",
+    "manifestSha256": "9c32b84dd84680b683d356cf7acf68005a29dba660e1509da89bbc4dc0d82ec1",
+    "sourceHashes": {
+      "shanks_fx_1003": "ff13c2c7ddd7cd75fda81454357bbf233479a8e9d0332f03dd6022c6a9768dc1"
+    }
+  }
+}

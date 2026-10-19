@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "characterId": "aokiji",
+  "pages": [
+    {
+      "id": "p0",
+      "image": "atlas.png",
+      "data": "atlas.json",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "p1",
+      "image": "atlas-p1.png",
+      "data": "atlas-p1.json",
+      "width": 1024,
+      "height": 2048
+    },
+    {
+      "id": "p2",
+      "image": "atlas-p2.png",
+      "data": "atlas-p2.json",
+      "width": 2048,
+      "height": 2048
+    },
+    {
+      "id": "p3",
+      "image": "atlas-p3.png",
+      "data": "atlas-p3.json",
+      "width": 2048,
+      "height": 1024
+    }
+  ],
+  "framePages": {
+    "ice_lance": "p0",
+    "ice_impact": "p0",
+    "spike_start": "p0",
+    "spike_live": "p0",
+    "spike_break": "p0",
+    "mirror_start": "p1",
+    "mirror_live": "p1",
+    "mirror_break": "p1",
+    "bird_break": "p1",
+    "vapor_start": "p1",
+    "vapor_live": "p1",
+    "vapor_end": "p1",
+    "uplift_start": "p2",
+    "uplift_live": "p2",
+    "uplift_break": "p2",
+    "blade_start": "p2",
+    "blade_live": "p2",
+    "blade_break": "p2",
+    "field_start": "p2",
+    "field_live": "p2",
+    "field_break": "p2",
+    "bird_up": "p3",
+    "bird_down": "p3"
+  },
+  "anims": {
+    "ice_spike": {
+      "frames": [
+        "spike_live",
+        "spike_break"
+      ],
+      "ticks": [
+        7,
+        2
+      ],
+      "loop": false
+    },
+    "ice_spike_fade": {
+      "frames": [
+        "spike_break"
+      ],
+      "ticks": [
+        12
+      ],
+      "loop": false
+    },
+    "ice_mirror": {
+      "frames": [
+        "mirror_live"
+      ],
+      "ticks": [
+        14
+      ],
+      "loop": false
+    },
+    "ice_vapor": {
+      "frames": [
+        "vapor_start",
+        "vapor_live",
+        "vapor_end"
+      ],
+      "ticks": [
+        5,
+        9,
+        18
+      ],
+      "loop": false
+    },
+    "ice_bird_fade": {
+      "frames": [
+        "bird_break"
+      ],
+      "ticks": [
+        12
+      ],
+      "loop": false
+    },
+    "ice_uplift": {
+      "frames": [
+        "uplift_live",
+        "uplift_break"
+      ],
+      "ticks": [
+        4,
+        2
+      ],
+      "loop": false
+    },
+    "ice_blade_cut": {
+      "frames": [
+        "blade_live",
+        "blade_break"
+      ],
+      "ticks": [
+        3,
+        2
+      ],
+      "loop": false
+    },
+    "ice_field_first": {
+      "frames": [
+        "field_live",
+        "field_break"
+      ],
+      "ticks": [
+        4,
+        2
+      ],
+      "loop": false
+    },
+    "ice_field_second": {
+      "frames": [
+        "field_live",
+        "field_break"
+      ],
+      "ticks": [
+        5,
+        2
+      ],
+      "loop": false
+    },
+    "ice_pheasant": {
+      "frames": [
+        "bird_up",
+        "bird_down"
+      ],
+      "ticks": [
+        5,
+        5
+      ],
+      "loop": true
+    }
+  },
+  "manifestSha256": "ff6f773d6f98dd55ae03ac2775d53beed81fb72ea0b0da342d23d3125e742575"
+}

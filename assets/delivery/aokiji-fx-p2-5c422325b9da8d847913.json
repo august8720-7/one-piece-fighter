@@ -1,0 +1,196 @@
+{
+  "frames": {
+    "uplift_start": {
+      "frame": {
+        "x": 846,
+        "y": 2,
+        "w": 418,
+        "h": 506
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 418,
+        "h": 506
+      },
+      "sourceSize": {
+        "w": 418,
+        "h": 506
+      }
+    },
+    "uplift_live": {
+      "frame": {
+        "x": 424,
+        "y": 2,
+        "w": 418,
+        "h": 506
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 418,
+        "h": 506
+      },
+      "sourceSize": {
+        "w": 418,
+        "h": 506
+      }
+    },
+    "uplift_break": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 418,
+        "h": 506
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 418,
+        "h": 506
+      },
+      "sourceSize": {
+        "w": 418,
+        "h": 506
+      }
+    },
+    "blade_start": {
+      "frame": {
+        "x": 886,
+        "y": 512,
+        "w": 418,
+        "h": 328
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 418,
+        "h": 328
+      },
+      "sourceSize": {
+        "w": 418,
+        "h": 328
+      }
+    },
+    "blade_live": {
+      "frame": {
+        "x": 424,
+        "y": 512,
+        "w": 458,
+        "h": 328
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 458,
+        "h": 328
+      },
+      "sourceSize": {
+        "w": 458,
+        "h": 328
+      }
+    },
+    "blade_break": {
+      "frame": {
+        "x": 1308,
+        "y": 512,
+        "w": 378,
+        "h": 328
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 378,
+        "h": 328
+      },
+      "sourceSize": {
+        "w": 378,
+        "h": 328
+      }
+    },
+    "field_start": {
+      "frame": {
+        "x": 2,
+        "y": 512,
+        "w": 418,
+        "h": 404
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 418,
+        "h": 404
+      },
+      "sourceSize": {
+        "w": 418,
+        "h": 404
+      }
+    },
+    "field_live": {
+      "frame": {
+        "x": 2,
+        "y": 920,
+        "w": 418,
+        "h": 277
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 418,
+        "h": 277
+      },
+      "sourceSize": {
+        "w": 418,
+        "h": 277
+      }
+    },
+    "field_break": {
+      "frame": {
+        "x": 1268,
+        "y": 2,
+        "w": 418,
+        "h": 404
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 418,
+        "h": 404
+      },
+      "sourceSize": {
+        "w": 418,
+        "h": 404
+      }
+    }
+  },
+  "meta": {
+    "image": "atlas-p2.png",
+    "size": {
+      "w": 2048,
+      "h": 2048
+    },
+    "scale": "1",
+    "manifestSha256": "ff6f773d6f98dd55ae03ac2775d53beed81fb72ea0b0da342d23d3125e742575",
+    "sourceHashes": {
+      "aokiji_fx_blade_field_1003": "aa3282cb39b82e03032ff83cb83383ac6f3622e08f9f6c234d71d8fc0bde2992"
+    }
+  }
+}
