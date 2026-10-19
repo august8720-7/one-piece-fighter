@@ -1,6 +1,6 @@
 # One Piece Fighter
 
-网页版海贼王 1v1 格斗游戏（玩法参考拳皇）。已交付的桌面四角色版包含路飞、赤犬、LABUBU、星星人，支持人机、本地双人和训练。当前正在把这四位与青雉、香克斯做成六人完成版，并为路飞加入限时五档；六人DEV预览与正式成品分开记录。
+网页版海贼王1v1格斗游戏（玩法参考拳皇）。1019公开六人阶段版包含路飞、赤犬、LABUBU、星星人、青雉、香克斯及真正可操控的路飞限时五档，支持人机、本地双人和训练。六人制作流程已闭环；其余17位正在接续，23人PC完整目标尚未完成。
 
 - 功能清单、行为规格与重建缺口：[项目功能手册](docs/项目功能手册.md)
 - 当前规划：[六人完成版全局规划1014](docs/六人完成版全局规划1014.md)；断点：[六人完成版执行进度1014](docs/六人完成版执行进度1014.md)
@@ -10,15 +10,21 @@
 
 双击 [开始六人验证版1017.cmd](开始六人验证版1017.cmd)，再在Codex内置浏览器打开 [六人本地包](http://127.0.0.1:4360/?art=anime&scope=full&quality=high)。入口不会打开Edge或默认浏览器，不改旧“开始游戏”及1.0/2.0启动器，也不构建或公开发布。
 
-固定运行包：`D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/candidate/six-delivery1017-20261017T085518801664Z/package/2026-10-17T09-05-09-094Z/site/`。本地完整动漫版包含六人和路飞五档，包级实际选人/加载/觉醒关键路径已通过；之前源码DEV完整比赛/结算/重赛证据复用。用户短mix反馈仍待答，不称全部听感或23人完成，现有公网未更新。
+固定运行包：`D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/candidate/six-delivery1017-20261017T085518801664Z/package/2026-10-17T09-05-09-094Z/site/`。本地完整动漫版包含六人和路飞五档，包级实际选人/加载/觉醒关键路径已通过；之前源码DEV完整比赛/结算/重赛证据复用。用户对精确短混音回复“能听清，没有明显问题”，只覆盖该片段；1019公网已更新为相同六人白名单。公网六角选人、路飞vs香克斯训练加载与实际五档连打最小路径通过；完整比赛/结算/重赛仍复用本地已验，不称公网整场、全部听感或23人完成。
 
 重复启动只复用4360上指向此**同一目录**、相同版本的Python服务；其它占用会报PID并停止，不杀进程。无服务时由 [固定包启动脚本](scripts/startSixValidation1017.ps1)在后台隐藏启动，只监听127.0.0.1，日志保存到本候选根的`launcher-logs/`，可控缓存经`run-d1013.ps1`落D盘。原运行包或Python不存在时明确报错，不自动安装或替换。
 
-唯一可写工作区为`D:/Projects/one-piece-fighter`，所有产物、缓存、下载与临时文件均写D盘；C盘独立副本只作历史保留。执行优先GPT-6.1 Sol，Astra仅协助明确的具体难点。四档和其余17人的重制作不在本轮完成条件内。
+唯一可写工作区为`D:/Projects/one-piece-fighter`，所有产物、缓存、下载与临时文件均写D盘；C盘独立副本只作历史保留。执行优先GPT-6.1 Sol，Astra仅协助明确的具体难点。四档仍后补；其余17位继续同一授权任务，数据存在不等于正式可玩。
+
+## 1019 公开验收与边界
+
+源码main为`3d81341`阶段提交，运行gh-pages为`b3eb867`；Pages已built。根代理在公网实见6角、路飞vs香克斯训练、真实T五档及D+Q连打；无公网整场/重赛或性能新测。山治霸王色只有[局部候选实现](docs/design/山治霸王色追加1019.md)，原画/人声与实机未齐，不在当前六人公开包内。原冻结1.0/2.0和本地四角启动器均保留。
+
+README当前公开说明已更新，因此原门禁证书的旧README SHA只代表原时点；原证书原字节保留。当前后继门禁凭据为`D:/one-piece-fighter-crossover-0922/roster-0929/six-game1014/handoff/six-closeout-certificate-publication1019.json`，重新绑定当前README及未变的运行证据；后续声音导出显式传该后继路径，queue/plan不因文档更新改动。
 
 ## 在线游玩与源码
 
-**[直接玩四角色版](https://august8720-7.github.io/one-piece-fighter/)** · **[冻结2.0](https://august8720-7.github.io/one-piece-fighter/v2/)** · **[冻结1.0完整动漫版](https://august8720-7.github.io/one-piece-fighter/v1/)**。使用桌面浏览器和键盘，首次加载需要下载人物素材；点击“开启声音”，按 Enter 开始，J 确认、K 返回。表现卡顿时可用[同画风性能档](https://august8720-7.github.io/one-piece-fighter/?art=anime&scope=full&quality=performance)。
+**[直接玩六人阶段版](https://august8720-7.github.io/one-piece-fighter/)** · **[冻结2.0](https://august8720-7.github.io/one-piece-fighter/v2/)** · **[冻结1.0完整动漫版](https://august8720-7.github.io/one-piece-fighter/v1/)**。使用桌面浏览器和键盘，首次加载需要下载人物素材；点击“开启声音”，按 Enter 开始，J 确认、K 返回。表现卡顿时可用[同画风性能档](https://august8720-7.github.io/one-piece-fighter/?art=anime&scope=full&quality=performance)。
 
 2.0默认一键技能，P1使用Q/E/R/F/G/Z/X/C/V，技能栏显示招名、耗气和不可用原因；选人时按重拳U可切回经典搓招。本地双人分别选择模式，全部技能可改键。详见[2.0键位与回退说明](docs/2.0键位与回退说明0922.md)。
 

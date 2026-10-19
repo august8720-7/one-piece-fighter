@@ -5,6 +5,7 @@ import { MOVE_PRESENTATIONS, PROJECTILE_PRESENTATIONS, moveBodyVisual, projectil
 import { hasPresentationRuntime, presentationAnimationDuration, resolvePresentationFrame } from './fxRuntime';
 import type { AttachmentPoint } from '../animations';
 import { drawGear5Material, gear5MaterialFor } from './gear5MaterialFx1017';
+import { drawSanjiHakiImpact, drawSanjiHakiWave, sanjiHakiContact, sanjiHakiPhase, SANJI_HAKI_PRESENTATION } from './sanjiHakiFx1019';
 
 interface Burst { character: string; frame: string; x: number; y: number; width: number; height: number; life: number; total: number; facing: number; ground: boolean; fixedScale?: boolean; reflected?: boolean; opacity?: number }
 
@@ -15,6 +16,8 @@ export class SkillEffects {
   private cursor = 0;
   private readonly recovered = new Map<PlayerIndex, string>();
   private materialGraphics: Phaser.GameObjects.Graphics | null = null;
+  private hakiGraphics: Phaser.GameObjects.Graphics | null = null;
+  private readonly hakiContacts: { x: number; y: number; life: number; facing: number }[] = [];
   constructor(private readonly scene: Phaser.Scene, private readonly worldLayer?: Phaser.GameObjects.Container) {}
 
   private image(character: string, reference: string, x: number, y: number, width: number, height: number, facing = 1, alpha = 1, originY = 0.5, depth = 35, age: number | null = 0): boolean {
@@ -35,6 +38,7 @@ export class SkillEffects {
 
   tick(): void {
     for (let i = this.bursts.length - 1; i >= 0; i--) if (--this.bursts[i]!.life <= 0) this.bursts.splice(i, 1);
+    for (let i = this.hakiContacts.length - 1; i >= 0; i--) if (--this.hakiContacts[i]!.life <= 0) this.hakiContacts.splice(i, 1);
   }
 
   clear(): void {
@@ -42,6 +46,8 @@ export class SkillEffects {
     this.recovered.clear();
     for (const image of this.sprites) image.setVisible(false);
     this.materialGraphics?.clear().setVisible(false);
+    this.hakiContacts.length = 0;
+    this.hakiGraphics?.clear().setVisible(false);
   }
 
   private burst(character: string, frame: string, x: number, y: number, width: number, height: number, life: number, facing = 1, ground = false, visual?: Pick<Burst, 'fixedScale' | 'reflected' | 'opacity'>): void {
@@ -69,6 +75,10 @@ export class SkillEffects {
 
   contact(hit: HitEvent, world: WorldState): void {
     const attacker = world.fighters[hit.attacker]!;
+    if (sanjiHakiContact(hit, attacker)) {
+      if (this.hakiContacts.length >= SANJI_HAKI_PRESENTATION.maximumContacts) this.hakiContacts.shift();
+      this.hakiContacts.push({ x: hit.x, y: hit.y, life: SANJI_HAKI_PRESENTATION.contactTicks, facing: attacker.facing });
+    }
     if (hit.kind === 'block' || hit.kind === 'reflect' || hit.kind === 'tech') {
       this.burst('common', 'rebound', hit.x, hit.y, 34, 56, 9, attacker.facing);
       return;
@@ -104,7 +114,15 @@ export class SkillEffects {
     // hit/block/clash have their own contact event; resets are silent cleanups.
   }
 
-  begin(): void { this.cursor = 0; this.materialGraphics?.clear().setVisible(false); }
+  begin(): void { this.cursor = 0; this.materialGraphics?.clear().setVisible(false); this.hakiGraphics?.clear().setVisible(false); }
+
+  private hakiMaterial(): Phaser.GameObjects.Graphics {
+    if (!this.hakiGraphics) {
+      this.hakiGraphics = this.scene.add.graphics().setDepth(36);
+      this.worldLayer?.add(this.hakiGraphics);
+    }
+    return this.hakiGraphics.setVisible(true);
+  }
 
   projectile(p: ProjectileState, sim: FightSim, sx: (x: number) => number, sy: (y: number) => number): boolean {
     const style = PROJECTILE_PRESENTATIONS[p.kind];
@@ -130,6 +148,14 @@ export class SkillEffects {
       const visual = move && art ? moveBodyVisual(f, move, art) : null;
       const embeddedBody = !!bodyInCharacterArt?.(f.player);
       const x = sx(f.x), y = sy(f.y);
+      const haki = sanjiHakiPhase(id, f.state, f.stateFrame, move);
+      if (haki) {
+        const eye = screenSocket?.(f.player, 'eye');
+        const localEye = eye && this.worldLayer
+          ? { x: (eye.x - this.worldLayer.x) / this.worldLayer.scaleX,
+            y: (eye.y - this.worldLayer.y) / this.worldLayer.scaleY } : eye;
+        drawSanjiHakiWave(this.hakiMaterial(), { x, y }, haki, f.facing, RENDER_SCALE, localEye);
+      }
       if (f.install && (id === 'luffy' || id === 'labubu')) {
         for (let i = 0; i < 2; i++) {
           const t = (world.frame + i * 25) % 50;
@@ -214,6 +240,9 @@ export class SkillEffects {
   }
 
   finish(sx: (x: number) => number, sy: (y: number) => number): void {
+    for (const contact of this.hakiContacts) {
+      drawSanjiHakiImpact(this.hakiMaterial(), { x: sx(contact.x), y: sy(contact.y) }, contact.life, RENDER_SCALE, contact.facing);
+    }
     for (const b of this.bursts) {
       const age = b.total - b.life;
       const scale = b.fixedScale ? 1 : 0.75 + Math.min(1, age / 5) * 0.25;
